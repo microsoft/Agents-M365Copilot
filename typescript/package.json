@@ -1,0 +1,16 @@
+{
+    "name": "root",
+    "private": true,
+    "workspaces": [
+      "packages/*"
+    ],
+    "scripts": {
+      "build": "npm run build --workspaces",
+      "clean": "npm run clean --workspaces",
+      "test": "echo TODO: create tests to run"
+    },
+    "devDependencies": {
+      "rimraf": "^6.0.1"
+    },
+    "version": "1.0.0-preview.1"
+  }
