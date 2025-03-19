@@ -21,7 +21,7 @@ jobs:
     if: ${{ github.event_name == 'push' || github.event_name == 'pull_request' && github.event.pull_request.changed_files != '' }}
     runs-on: ubuntu-latest
     env:
-      solutionName: Microsoft.Copilot.ControlSystems.Beta.sln
+      solutionName: Microsoft.Agents.M365Copilot.sln
     steps:
       - uses: actions/checkout@v4.2.2
       - name: Setup .NET
@@ -98,6 +98,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
+        working-directory: typescript 
       - run: npm run build
         working-directory: typescript
       - name: Check for Secret availability
