@@ -13,7 +13,6 @@
     <PackageReference Include="Microsoft.Kiota.Bundle" Version="1.17.1" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
     <None Include="..\..\README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 </Project>
