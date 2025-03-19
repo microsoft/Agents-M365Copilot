@@ -44,89 +44,89 @@ jobs:
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
 
-build-and-test-python:
-  if: contains(github.event.head_commit.message, "python/")
-  runs-on: ubuntu-latest
-  strategy:
-    max-parallel: 5
-    matrix:
-      python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
-  steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v5
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements-dev.txt
-      working-directory: python
-    - name: Lint with Pylint
-      run: pylint copilot_control_systems --disable=W --rcfile=.pylintrc
-      working-directory: python
+  build-and-test-python:
+    if: contains(github.event.head_commit.message, "python/")
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 5
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+        working-directory: python
+      - name: Lint with Pylint
+        run: pylint copilot_control_systems --disable=W --rcfile=.pylintrc
+        working-directory: python
 
-    # CodeQL
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v3
-      with:
-        languages: python
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v3
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v3
-      with:
-        category: "/language:python"
+      # CodeQL
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: python
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:python"
 
-build-and-test-typescript:
-  if: contains(github.event.head_commit.message, "typescript/")
-  runs-on: ubuntu-latest
-  env:
-    NODE_OPTIONS: "--max_old_space_size=9182"
-  environment:
-    name: build_test
+  build-and-test-typescript:
+    if: contains(github.event.head_commit.message, "typescript/")
+    runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: "--max_old_space_size=9182"
+    environment:
+      name: build_test
 
-  strategy:
-    matrix:
-      node-version: [18.x, 20.x, 22.x]
-      # Single version should work for compilation testing
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+        # Single version should work for compilation testing
 
-  steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run build
-      working-directory: typescript
-    - name: Check for Secret availability
-      id: my-key-check
-      # perform secret check & put boolean result as an output
-      shell: bash
-      run: |
-        if [ "${{ secrets.client_secret }}" != '' ]; then
-          echo "defined=true" >> $GITHUB_OUTPUT;
-        else
-          echo "defined=false" >> $GITHUB_OUTPUT;
-        fi
-    - run: npm run test
-      if: steps.my-key-check.outputs.defined == 'true'
-      env:
-        TENANT_ID: ${{secrets.tenant_id}}
-        CLIENT_ID: ${{secrets.client_id}}
-        CLIENT_SECRET: ${{secrets.client_secret}}
-        USER_ID: ${{secrets.user_id}}
-      working-directory: typescript
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run build
+        working-directory: typescript
+      - name: Check for Secret availability
+        id: my-key-check
+        # perform secret check & put boolean result as an output
+        shell: bash
+        run: |
+          if [ "${{ secrets.client_secret }}" != '' ]; then
+            echo "defined=true" >> $GITHUB_OUTPUT;
+          else
+            echo "defined=false" >> $GITHUB_OUTPUT;
+          fi
+      - run: npm run test
+        if: steps.my-key-check.outputs.defined == 'true'
+        env:
+          TENANT_ID: ${{secrets.tenant_id}}
+          CLIENT_ID: ${{secrets.client_id}}
+          CLIENT_SECRET: ${{secrets.client_secret}}
+          USER_ID: ${{secrets.user_id}}
+        working-directory: typescript
 
-check-build-matrix:
-  runs-on: ubuntu-latest
-  needs: build
-  if: always()
-  steps:
-    - name: All build matrix options are successful
-      if: ${{ !(contains(needs.*.result, 'failure')) }}
-      run: exit 0
-    - name: One or more build matrix options failed
-      if: ${{ contains(needs.*.result, 'failure') }}
-      run: exit 1
+  check-build-matrix:
+    runs-on: ubuntu-latest
+    needs: build
+    if: always()
+    steps:
+      - name: All build matrix options are successful
+        if: ${{ !(contains(needs.*.result, 'failure')) }}
+        run: exit 0
+      - name: One or more build matrix options failed
+        if: ${{ contains(needs.*.result, 'failure') }}
+        run: exit 1
