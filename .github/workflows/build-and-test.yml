@@ -63,7 +63,7 @@ jobs:
           pip install -r requirements-dev.txt
         working-directory: python
       - name: Lint with Pylint
-        run: pylint copilot_control_systems --disable=W --rcfile=.pylintrc
+        run: pylint microsoft_agents_m365copilot_beta --disable=W --rcfile=.pylintrc
         working-directory: python
 
       # CodeQL
