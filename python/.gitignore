@@ -402,4 +402,5 @@ FodyWeavers.xsd
 # Others
 **/dist/*
 **/.venv/*
-**.env
+.env
+main.py
