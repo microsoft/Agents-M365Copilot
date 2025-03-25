@@ -26,9 +26,9 @@ from kiota_abstractions.request_adapter import RequestAdapter
 from kiota_abstractions.request_information import RequestInformation
 from kiota_abstractions.serialization import Parsable, ParsableFactory
 
-from requests.exceptions import InvalidURL
-
 from ..models.page_result import PageResult  # pylint: disable=no-name-in-module, import-error
+
+# from requests.exceptions import ValueError
 
 T = TypeVar('T', bound=Parsable)
 
@@ -193,14 +193,14 @@ Methods:
             dict: The response from the server.
         Raises:
             ValueError: If the current page does not contain a next link.
-            InvalidURL: If the next link URL could not be parsed.
+            ValueError: If the next link URL could not be parsed.
         """
 
         next_link = self.current_page.odata_next_link
         if not next_link:
             raise ValueError('The response does not contain a nextLink.')
         if not next_link.startswith('http'):
-            raise InvalidURL('Could not parse nextLink URL.')
+            raise ValueError('Could not parse nextLink URL.')
         request_info = RequestInformation()
         request_info.http_method = Method.GET
         request_info.url = next_link

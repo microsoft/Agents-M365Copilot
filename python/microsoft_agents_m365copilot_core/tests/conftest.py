@@ -2,7 +2,7 @@ import httpx
 import pytest
 from kiota_abstractions.authentication import AnonymousAuthenticationProvider
 
-from microsoft_agents_m365copilot_core import (
+from microsoft_agents_m365copilot_core.src import (
     APIVersion,
     MicrosoftAgentsM365CopilotClientFactory,
     MicrosoftAgentsM365CopilotRequestContext,

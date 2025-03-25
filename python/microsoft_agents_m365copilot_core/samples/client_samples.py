@@ -84,7 +84,9 @@ def client_with_custom_middleware():
         MyCustomMiddleware(),
     ]
 
-    my_client = MicrosoftAgentsM365CopilotClient(credential=browser_credential, middleware=middleware)
+    my_client = MicrosoftAgentsM365CopilotClient(
+        credential=browser_credential, middleware=middleware
+    )
     result = my_client.get(
         'https://graph.microsoft.com/v1.0/users',
         params={

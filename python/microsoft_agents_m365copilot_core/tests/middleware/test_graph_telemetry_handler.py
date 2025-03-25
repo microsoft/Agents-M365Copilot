@@ -8,7 +8,7 @@ import uuid
 
 import httpx
 import pytest
-from microsoft_agents_m365copilot_beta import (
+from microsoft_agents_m365copilot_core import (
     SDK_VERSION,
     APIVersion,
     MicrosoftAgentsM365CopilotRequestContext,
@@ -73,7 +73,7 @@ def test_append_sdk_version_header(mock_graph_request):
 
     assert 'sdkVersion' in mock_graph_request.headers
     assert mock_graph_request.headers.get('sdkVersion'
-                                          ).startswith('graph-python-core/' + SDK_VERSION)
+                                          ).startswith('microsoft-agents-m365copilot-core/' + SDK_VERSION)
 
 
 def test_append_sdk_version_header_beta(mock_graph_request):
@@ -87,7 +87,7 @@ def test_append_sdk_version_header_beta(mock_graph_request):
     telemetry_handler._append_sdk_version_header(mock_graph_request, telemetry_options)
 
     assert 'sdkVersion' in mock_graph_request.headers
-    assert mock_graph_request.headers.get('sdkVersion').startswith('graph-python-beta/' + '1.0.0')
+    assert mock_graph_request.headers.get('sdkVersion').startswith('microsoft-agents-m365copilot-beta/' + '1.0.0')
 
 
 def test_add_host_os_header(mock_graph_request):

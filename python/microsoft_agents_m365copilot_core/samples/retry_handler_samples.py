@@ -34,7 +34,9 @@ def sample_copilot_client_with_custom_retry_defaults():
     handler. These defaults will be used for every subsequent request using the client unless
     per request options are passed"""
 
-    client = MicrosoftAgentsM365CopilotClient(credential=browser_credential, max_retries=2, retry_backoff_factor=0.5)
+    client = MicrosoftAgentsM365CopilotClient(
+        credential=browser_credential, max_retries=2, retry_backoff_factor=0.5
+    )
     result = client.get('/me/messages', scopes=['mail.read'])
     pprint(result.json())
 

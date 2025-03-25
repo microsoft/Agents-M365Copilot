@@ -14,7 +14,7 @@ from kiota_abstractions.headers_collection import HeadersCollection as RequestHe
 from microsoft_agents_m365copilot_core import BatchRequestContent, BatchRequestItem, MicrosoftAgentsM365CopilotClient
 
 # import User model to serialize to
-from  microsoft_agents_m365copilot_beta.generated.models.ai_user import User
+from microsoft_agents_m365copilot_beta.generated.models.ai_user import User
 # Create a client
 # code to create copilot client
 copilot_client = MicrosoftAgentsM365CopilotClient(credentials=token, scopes=copilot_scopes)
