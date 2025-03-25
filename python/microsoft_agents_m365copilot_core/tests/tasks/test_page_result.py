@@ -1,4 +1,6 @@
-from microsoft_agents_m365copilot_core import PageResult  # pylint: disable=no-name-in-module, import-error
+from microsoft_agents_m365copilot_core import (
+    PageResult,  # pylint: disable=no-name-in-module, import-error
+)
 
 
 def test_initialization():

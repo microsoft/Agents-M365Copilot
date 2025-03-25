@@ -9,12 +9,20 @@
 Core components of the Microsoft Microsoft Agents M365 Copilot Python SDK consisting of HTTP Client and a configurable middleware pipeline (Preview).
 """
 from ._constants import SDK_VERSION
-from ._enums import APIVersion, NationalClouds, FeatureUsageFlag
-from .requests import BatchRequestBuilder, BatchRequestContentCollection, BatchRequestContent, BatchRequestItem, BatchResponseContentCollection, BatchResponseContent, BatchResponseItem
+from ._enums import APIVersion, FeatureUsageFlag, NationalClouds
 from .authentication import AzureIdentityAuthenticationProvider
 from .base_request_adapter import BaseMicrosoftAgentsM365CopilotRequestAdapter
 from .client_factory import MicrosoftAgentsM365CopilotClientFactory
 from .models import PageResult
+from .requests import (
+    BatchRequestBuilder,
+    BatchRequestContent,
+    BatchRequestContentCollection,
+    BatchRequestItem,
+    BatchResponseContent,
+    BatchResponseContentCollection,
+    BatchResponseItem,
+)
 from .tasks import PageIterator
 
 __all__ = [

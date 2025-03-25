@@ -1,9 +1,11 @@
-import pytest
 from io import BytesIO
 from urllib.request import Request
-from kiota_abstractions.request_information import RequestInformation
-from kiota_abstractions.method import Method
+
+import pytest
 from kiota_abstractions.headers_collection import HeadersCollection as RequestHeaders
+from kiota_abstractions.method import Method
+from kiota_abstractions.request_information import RequestInformation
+
 from microsoft_agents_m365copilot_core import BatchRequestItem
 
 base_url = "https://graph.microsoft.com/v1.0/me"

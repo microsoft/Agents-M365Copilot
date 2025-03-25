@@ -1,14 +1,18 @@
 import os
-from unittest.mock import AsyncMock, patch, Mock
+from unittest.mock import AsyncMock, Mock, patch
 
 import pytest
 from azure.identity import ClientSecretCredential
-from kiota_authentication_azure.azure_identity_authentication_provider\
-     import AzureIdentityAuthenticationProvider
-from kiota_http.httpx_request_adapter import HttpxRequestAdapter
 from dotenv import load_dotenv
+from kiota_authentication_azure.azure_identity_authentication_provider import (
+    AzureIdentityAuthenticationProvider,
+)
+from kiota_http.httpx_request_adapter import HttpxRequestAdapter
 
-from microsoft_agents_m365copilot_core import PageIterator, PageResult  # pylint: disable=no-name-in-module, import-error
+from microsoft_agents_m365copilot_core import (  # pylint: disable=no-name-in-module, import-error
+    PageIterator,
+    PageResult,
+)
 
 
 @pytest.fixture

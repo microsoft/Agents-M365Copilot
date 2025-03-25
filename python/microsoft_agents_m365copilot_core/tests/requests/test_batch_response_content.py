@@ -1,8 +1,15 @@
-import pytest
-from unittest.mock import Mock
 from io import BytesIO
-from kiota_abstractions.serialization import ParseNode, SerializationWriter, Parsable, ParseNodeFactoryRegistry
-from microsoft_agents_m365copilot_core import BatchResponseItem, BatchResponseContent
+from unittest.mock import Mock
+
+import pytest
+from kiota_abstractions.serialization import (
+    Parsable,
+    ParseNode,
+    ParseNodeFactoryRegistry,
+    SerializationWriter,
+)
+
+from microsoft_agents_m365copilot_core import BatchResponseContent, BatchResponseItem
 
 
 @pytest.fixture

@@ -1,11 +1,13 @@
-import pytest
 from io import BytesIO
 from unittest.mock import Mock
 from urllib.request import Request
+
+import pytest
+from kiota_abstractions.headers_collection import HeadersCollection as RequestHeaders
 from kiota_abstractions.request_information import RequestInformation
 from kiota_abstractions.serialization import SerializationWriter
-from microsoft_agents_m365copilot_core import BatchRequestItem, BatchRequestContent
-from kiota_abstractions.headers_collection import HeadersCollection as RequestHeaders
+
+from microsoft_agents_m365copilot_core import BatchRequestContent, BatchRequestItem
 
 
 @pytest.fixture

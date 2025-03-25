@@ -7,7 +7,13 @@ import pytest
 from kiota_http.middleware import MiddlewarePipeline, RedirectHandler, RetryHandler
 from kiota_http.middleware.options import RedirectHandlerOption, RetryHandlerOption
 
-from microsoft_agents_m365copilot_core import APIVersion, MicrosoftAgentsM365CopilotClientFactory, NationalClouds, AsyncMicrosoftAgentsM365CopilotTransport, MicrosoftAgentsM365CopilotTelemetryHandler
+from microsoft_agents_m365copilot_core import (
+    APIVersion,
+    AsyncMicrosoftAgentsM365CopilotTransport,
+    MicrosoftAgentsM365CopilotClientFactory,
+    MicrosoftAgentsM365CopilotTelemetryHandler,
+    NationalClouds,
+)
 
 
 def test_create_with_default_middleware():

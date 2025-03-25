@@ -12,7 +12,11 @@ from kiota_http.kiota_client_factory import KiotaClientFactory
 from kiota_http.middleware.middleware import BaseMiddleware
 
 from ._enums import APIVersion, NationalClouds
-from .middleware import AsyncMicrosoftAgentsM365CopilotTransport, MicrosoftAgentsM365CopilotTelemetryHandlerOption, MicrosoftAgentsM365CopilotTelemetryHandler
+from .middleware import (
+    AsyncMicrosoftAgentsM365CopilotTransport,
+    MicrosoftAgentsM365CopilotTelemetryHandler,
+    MicrosoftAgentsM365CopilotTelemetryHandlerOption,
+)
 
 
 class MicrosoftAgentsM365CopilotClientFactory(KiotaClientFactory):

@@ -1,8 +1,10 @@
-import pytest
 from io import BytesIO
-from kiota_abstractions.request_information import RequestInformation
-from microsoft_agents_m365copilot_core import BatchRequestItem, BatchRequestContentCollection
+
+import pytest
 from kiota_abstractions.headers_collection import HeadersCollection as RequestHeaders
+from kiota_abstractions.request_information import RequestInformation
+
+from microsoft_agents_m365copilot_core import BatchRequestContentCollection, BatchRequestItem
 
 
 @pytest.fixture

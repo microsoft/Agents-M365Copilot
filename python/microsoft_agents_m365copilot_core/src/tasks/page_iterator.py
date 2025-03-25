@@ -25,11 +25,10 @@ from kiota_abstractions.method import Method
 from kiota_abstractions.request_adapter import RequestAdapter
 from kiota_abstractions.request_information import RequestInformation
 from kiota_abstractions.serialization import Parsable, ParsableFactory
+
 from requests.exceptions import InvalidURL
 
-from ..models.page_result import (
-    PageResult,  # pylint: disable=no-name-in-module, import-error
-)
+from ..models.page_result import PageResult  # pylint: disable=no-name-in-module, import-error
 
 T = TypeVar('T', bound=Parsable)
 

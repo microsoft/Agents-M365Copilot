@@ -3,12 +3,12 @@ import enum
 import json
 import re
 import urllib.request
-from deprecated import deprecated
 from io import BytesIO
 from typing import Any, Optional, Union
 from urllib.parse import urlparse
 from uuid import uuid4
 
+from deprecated import deprecated
 from kiota_abstractions.headers_collection import HeadersCollection as RequestHeaders
 from kiota_abstractions.method import Method
 from kiota_abstractions.request_information import RequestInformation

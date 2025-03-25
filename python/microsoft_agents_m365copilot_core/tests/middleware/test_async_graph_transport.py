@@ -1,7 +1,10 @@
 import pytest
 from kiota_http.kiota_client_factory import KiotaClientFactory
-
-from microsoft_agents_m365copilot_beta import AsyncMicrosoftAgentsM365CopilotTransport, MicrosoftAgentsM365CopilotRequestContext, FeatureUsageFlag
+from microsoft_agents_m365copilot_beta import (
+    AsyncMicrosoftAgentsM365CopilotTransport,
+    FeatureUsageFlag,
+    MicrosoftAgentsM365CopilotRequestContext,
+)
 
 
 def test_set_request_context_and_feature_usage(mock_request, mock_transport):

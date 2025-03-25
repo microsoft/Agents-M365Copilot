@@ -8,8 +8,14 @@ import uuid
 
 import httpx
 import pytest
-
-from microsoft_agents_m365copilot_beta import SDK_VERSION, APIVersion, NationalClouds, MicrosoftAgentsM365CopilotRequestContext, MicrosoftAgentsM365CopilotTelemetryHandler, MicrosoftAgentsM365CopilotTelemetryHandlerOption
+from microsoft_agents_m365copilot_beta import (
+    SDK_VERSION,
+    APIVersion,
+    MicrosoftAgentsM365CopilotRequestContext,
+    MicrosoftAgentsM365CopilotTelemetryHandler,
+    MicrosoftAgentsM365CopilotTelemetryHandlerOption,
+    NationalClouds,
+)
 
 BASE_URL = NationalClouds.Global + '/' + APIVersion.v1
 

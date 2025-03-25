@@ -2,7 +2,12 @@ import httpx
 import pytest
 from kiota_abstractions.authentication import AnonymousAuthenticationProvider
 
-from microsoft_agents_m365copilot_core import APIVersion, NationalClouds, MicrosoftAgentsM365CopilotClientFactory,  MicrosoftAgentsM365CopilotRequestContext
+from microsoft_agents_m365copilot_core import (
+    APIVersion,
+    MicrosoftAgentsM365CopilotClientFactory,
+    MicrosoftAgentsM365CopilotRequestContext,
+    NationalClouds,
+)
 
 BASE_URL = NationalClouds.Global + '/' + APIVersion.v1
 

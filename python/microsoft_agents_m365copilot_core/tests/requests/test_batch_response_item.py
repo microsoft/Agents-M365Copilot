@@ -1,8 +1,8 @@
-import pytest
 from io import BytesIO
-
-from kiota_abstractions.serialization import ParseNode, SerializationWriter
 from unittest.mock import Mock
+
+import pytest
+from kiota_abstractions.serialization import ParseNode, SerializationWriter
 
 from microsoft_agents_m365copilot_core import BatchResponseItem
 

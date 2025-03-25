@@ -1,6 +1,10 @@
 import pytest
+from microsoft_agents_m365copilot_beta import (
+    SDK_VERSION,
+    APIVersion,
+    MicrosoftAgentsM365CopilotTelemetryHandlerOption,
+)
 
-from microsoft_agents_m365copilot_beta import SDK_VERSION, APIVersion, MicrosoftAgentsM365CopilotTelemetryHandlerOption
 
 def test_telemetry_handler_options_default():
     telemetry_options = MicrosoftAgentsM365CopilotTelemetryHandlerOption()
