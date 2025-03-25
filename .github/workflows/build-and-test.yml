@@ -4,6 +4,10 @@ on:
   workflow_dispatch:
   push:
     branches: ["main"]
+    paths:
+      - "dotnet/**"
+      - "python/**"
+      - "typescript/**"
   pull_request:
     branches: ["main"]
     paths:
@@ -98,7 +102,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-        working-directory: typescript 
+        working-directory: typescript
       - run: npm run build
         working-directory: typescript
       - name: Check for Secret availability
