@@ -8,24 +8,16 @@ import asyncio
 
 from urllib.request import Request
 from kiota_abstractions.request_information import RequestInformation
-
-from msgraph import GraphServiceClient
-
 from kiota_abstractions.headers_collection import HeadersCollection as RequestHeaders
-from microsoft_agents_m365copilot_core.requests.batch_request_item import BatchRequestItem
+from microsoft_agents_m365copilot_core import MicrosoftAgentsM365CopilotClient, BatchRequestItem, BatchRequestContentCollection
 
-from microsoft_agents_m365copilot_core.requests.batch_request_content import BatchRequestContent
-from microsoft_agents_m365copilot_core.requests.batch_request_content_collection import BatchRequestContentCollection
 # Create a client
-# code to create graph client
-
-graph_client = GraphServiceClient(credentials=token, scopes=graph_scopes)
+copilot_client = MicrosoftAgentsM365CopilotClient(credentials=token, scopes=copilot_scopes)
 
 # Create a request adapter from the client
-request_adapter = graph_client.request_adapter
+request_adapter = copilot_client.request_adapter
 
 # Create some BatchRequestItems
-
 request_info1 = RequestInformation()
 request_info1.http_method = "GET"
 request_info1.url = "/me"
@@ -82,7 +74,7 @@ print(f"Items left in the batch after removal: {len(collection.current_batch.req
 # post a collection
 async def main():
 
-    batch_response_content = await graph_client.batch.post(batch_request_content=collection)
+    batch_response_content = await copilot_client.batch.post(batch_request_content=collection)
     responses = batch_response_content.get_responses()
     for item in responses:
         for item_body in item.responses:

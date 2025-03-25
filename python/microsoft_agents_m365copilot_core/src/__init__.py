@@ -10,10 +10,18 @@ Core component of the Microsoft Graph Python SDK consisting of HTTP/Graph Client
 """
 from ._constants import SDK_VERSION
 from ._enums import APIVersion, NationalClouds
+from .requests import BatchRequestBuilder, BatchRequestContentCollection, BatchRequestContent, BatchRequestItem, BatchResponseContentCollection, BatchResponseContent, BatchResponseItem
 from .authentication import AzureIdentityAuthenticationProvider
-from .base_graph_request_adapter import BaseGraphRequestAdapter
-from .graph_client_factory import GraphClientFactory
+from .base_request_adapter import BaseMicrosoftAgentsM365CopilotRequestAdapter
+from .client_factory import MicrosoftAgentsM365CopilotClient
 from .models import PageResult
 from .tasks import PageIterator
+
+__all__ = [
+    "BatchRequestBuilder", "BatchRequestContentCollection", "BatchRequestContent", "BatchRequestItem",
+    "BatchResponseContentCollection", "BatchResponseContent", "BatchResponseItem", "MicrosoftAgentsM365CopilotClient",
+    "BaseMicrosoftAgentsM365CopilotRequestAdapter",
+]
+
 
 __version__ = SDK_VERSION

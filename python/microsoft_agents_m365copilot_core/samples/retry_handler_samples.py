@@ -3,12 +3,12 @@
 # Licensed under the MIT License.
 # ------------------------------------
 #pylint: disable=undefined-variable
-"""Demonstrates using the GraphClient to make HTTP Requests to Microsoft Graph"""
+"""Demonstrates using the MicrosoftAgentsM365CopilotClient to make HTTP Requests to Microsoft M365 Copilot."""
 import json
 from pprint import pprint
 
 from azure.identity import InteractiveBrowserCredential
-from msgraph.core import GraphClient, HTTPClientFactory
+from microsoft_agents_m365copilot_core import MicrosoftAgentsM365CopilotClient, HTTPClientFactory
 
 scopes = ['user.read']
 # This sample uses InteractiveBrowserCredential only for demonstration.
@@ -29,21 +29,21 @@ def sample_http_client_with_custom_retry_defaults():
     pprint(result.json())
 
 
-def sample_graph_client_with_custom_retry_defaults():
-    """Initializing a sample graph client and passing default configs to the default retry
+def sample_copilot_client_with_custom_retry_defaults():
+    """Initializing a sample copilot client and passing default configs to the default retry
     handler. These defaults will be used for every subsequent request using the client unless
     per request options are passed"""
 
-    client = GraphClient(credential=browser_credential, max_retries=2, retry_backoff_factor=0.5)
+    client = MicrosoftAgentsM365CopilotClient(credential=browser_credential, max_retries=2, retry_backoff_factor=0.5)
     result = client.get('/me/messages', scopes=['mail.read'])
     pprint(result.json())
 
 
-def sample_graph_client_with_per_request_retry_options():
-    """Sending a request using the graph client with retry options for that specific request.
+def sample_copilot_client_with_per_request_retry_options():
+    """Sending a request using the copilot client with retry options for that specific request.
     This will override the default config for the retry handler"""
 
-    client = GraphClient(credential=browser_credential)
+    client = MicrosoftAgentsM365CopilotClient(credential=browser_credential)
     result = client.get(
         '/me/messages', scopes=['mail.read'], retry_on_status_codes=[429, 502, 503, 504]
     )

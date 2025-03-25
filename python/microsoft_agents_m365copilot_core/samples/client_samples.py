@@ -3,29 +3,29 @@
 # Licensed under the MIT License.
 # ------------------------------------
 #pylint: disable=undefined-variable
-"""Demonstrates using the GraphClient to make HTTP Requests to Microsoft Graph"""
+"""Demonstrates using the MicrosoftAgentsM365CopilotClient to make HTTP Requests to Microsoft M365 Copilot endpoints."""
 import json
 from pprint import pprint
 
 # This sample uses InteractiveBrowserCredential only for demonstration.
 # Any azure-identity TokenCredential class will work the same.
 from azure.identity import InteractiveBrowserCredential
-from msgraph.core import APIVersion, GraphClient, NationalClouds
+from microsoft_agents_m365copilot_core import APIVersion, MicrosoftAgentsM365CopilotClient, NationalClouds
 from requests import Session
 
 scopes = ['user.read']
 browser_credential = InteractiveBrowserCredential(client_id='YOUR_CLIENT_ID')
-client = GraphClient(credential=browser_credential)
+client = MicrosoftAgentsM365CopilotClient(credential=browser_credential)
 
 
 def get_sample():
-    """Sample HTTP GET request using the GraphClient"""
+    """Sample HTTP GET request using the MicrosoftAgentsM365CopilotClient"""
     result = client.get('/me/messages', scopes=['mail.read'])
     pprint(result.json())
 
 
 def post_sample():
-    """Sample HTTP POST request using the GraphClient"""
+    """Sample HTTP POST request using the MicrosoftAgentsM365CopilotClient"""
     body = {
         'message': {
             'subject': 'Python SDK Meet for lunch?',
@@ -53,7 +53,7 @@ def post_sample():
 def client_with_custom_session_sample():
     """Sample client with a custom Session object"""
     session = Session()
-    my_client = GraphClient(credential=browser_credential, session=session)
+    my_client = MicrosoftAgentsM365CopilotClient(credential=browser_credential, session=session)
     result = my_client.get('/me')
     pprint(result.json())
 
@@ -62,7 +62,7 @@ def client_with_custom_settings_sample():
     """
     Sample client that makes requests against the beta api on a specified cloud endpoint
     """
-    my_client = GraphClient(
+    my_client = MicrosoftAgentsM365CopilotClient(
         credential=browser_credential,
         api_version=APIVersion.beta,
         cloud=NationalClouds.Germany,
@@ -84,7 +84,7 @@ def client_with_custom_middleware():
         MyCustomMiddleware(),
     ]
 
-    my_client = GraphClient(credential=browser_credential, middleware=middleware)
+    my_client = MicrosoftAgentsM365CopilotClient(credential=browser_credential, middleware=middleware)
     result = my_client.get(
         'https://graph.microsoft.com/v1.0/users',
         params={

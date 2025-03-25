@@ -10,19 +10,14 @@ from kiota_abstractions.request_information import RequestInformation
 from kiota_abstractions.method import Method
 from kiota_abstractions.headers_collection import HeadersCollection as RequestHeaders
 
-from microsoft_agents_m365copilot_core.requests.batch_request_item import BatchRequestItem
-from microsoft_agents_m365copilot_core.requests.batch_request_content import BatchRequestContent
-from microsoft_agents_m365copilot_core.requests.batch_request_content_collection import BatchRequestContentCollection
-
-from microsoft_agents_m365copilot_core.requests.batch_response_content import BatchResponseContent
-from microsoft_agents_m365copilot_core.requests.batch_response_content_collection import BatchResponseContentCollection
+from microsoft_agents_m365copilot_core import BatchRequestContent, BatchRequestItem, MicrosoftAgentsM365CopilotClient
 
 # Create a client
-# code to create a graph client
-graph_client = GraphServiceClient(credentials=token, scopes=graph_scopes)
+# code to create a copilot client
+copilot_client = MicrosoftAgentsM365CopilotClient(credentials=token, scopes=copilot_scopes)
 
 # Create a  request adapter from the clinet
-request_adapter = graph_client.request_adapter
+request_adapter = copilot_client.request_adapter
 
 # Create batch Items
 request_info1 = RequestInformation()
@@ -51,7 +46,7 @@ batch_content = BatchRequestContent(batch_request_content)
 
 
 async def main():
-    batch_response_content = await graph_client.batch.post(batch_request_content=batch_content)
+    batch_response_content = await copilot_client.batch.post(batch_request_content=batch_content)
 
     # Print the batch response content
     print(f"Batch Response Content: {batch_response_content.responses}")

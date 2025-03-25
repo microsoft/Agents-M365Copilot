@@ -4,8 +4,8 @@
 # ------------------------------------
 #pylint: disable=undefined-variable
 """
-Demonstrates using the HTTPClientFactory to create a client and make HTTP requests
-to Microsoft Graph
+Demonstrates using the HTTPClientFactory to create a client and make HTTP requests 
+to Microsoft M365 Copilot.
 """
 import json
 from pprint import pprint
@@ -13,7 +13,7 @@ from pprint import pprint
 # This sample uses InteractiveBrowserCredential only for demonstration.
 # Any azure-identity TokenCredential class will work the same.
 from azure.identity import InteractiveBrowserCredential
-from msgraph.core import APIVersion, HTTPClientFactory, NationalClouds
+from microsoft_agents_m365copilot_core import APIVersion, HTTPClientFactory, NationalClouds
 from requests import Session
 
 scopes = ['user.read']
