@@ -50,7 +50,8 @@ class MicrosoftAgentsM365CopilotClientFactory(KiotaClientFactory):
         """
         if client is None:
             client = KiotaClientFactory.get_default_client()
-        client.base_url = MicrosoftAgentsM365CopilotClientFactory._get_base_url(host, api_version)  # type: ignore
+        base_url = MicrosoftAgentsM365CopilotClientFactory._get_base_url(host, api_version)
+        client.base_url = base_url
         middleware = KiotaClientFactory.get_default_middleware(options)
         telemetry_handler = MicrosoftAgentsM365CopilotClientFactory._get_telemetry_handler(options)
         middleware.append(telemetry_handler)
@@ -79,7 +80,8 @@ class MicrosoftAgentsM365CopilotClientFactory(KiotaClientFactory):
         """
         if client is None:
             client = KiotaClientFactory.get_default_client()
-        client.base_url = MicrosoftAgentsM365CopilotClientFactory._get_base_url(host, api_version)  # type: ignore
+        base_url = MicrosoftAgentsM365CopilotClientFactory._get_base_url(host, api_version)
+        client.base_url = base_url
         return MicrosoftAgentsM365CopilotClientFactory._load_middleware_to_client(client, middleware)
 
     @staticmethod
@@ -116,10 +118,10 @@ class MicrosoftAgentsM365CopilotClientFactory(KiotaClientFactory):
                 if transport is None:
                     mounts[pattern] = None
                 else:
-                    mounts[pattern
-                           ] = MicrosoftAgentsM365CopilotClientFactory._replace_transport_with_custom_transport(
-                               transport, middleware
-                           )
+                    ps = MicrosoftAgentsM365CopilotClientFactory._replace_transport_with_custom_transport(
+                        transport, middleware
+                    )
+                    mounts[pattern] = ps
             client._mounts = dict(sorted(mounts.items()))
         return client
 
