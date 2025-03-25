@@ -4,7 +4,6 @@ from kiota_authentication_azure.azure_identity_authentication_provider import (
     AzureIdentityAuthenticationProvider as KiotaAzureIdentityAuthenticationProvider,
 )
 
-from .._constants import MS_DEFAULT_SCOPE
 from .._enums import NationalClouds
 
 if TYPE_CHECKING:

@@ -4,7 +4,7 @@
 # ------------------------------------
 """
 Application constants. All defaults can be changed when initializing a client
-via the GraphClient or HttpClientFactory
+via the MicrosoftAgentsM365CopilotClient or HttpClientFactory
 """
 DEFAULT_REQUEST_TIMEOUT = 100
 DEFAULT_CONNECTION_TIMEOUT = 30

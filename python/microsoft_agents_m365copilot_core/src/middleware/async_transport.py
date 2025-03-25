@@ -4,12 +4,11 @@ import httpx
 from kiota_http.middleware import MiddlewarePipeline, RedirectHandler, RetryHandler
 
 from .._enums import FeatureUsageFlag
-from .request_context import GraphRequestContext
+from .request_context import MicrosoftAgentsM365CopilotRequestContext
 
 
-class AsyncGraphTransport(httpx.AsyncBaseTransport):
-    """A custom transport for requests to the Microsoft Graph API
-    """
+class AsyncMicrosoftAgentsM365CopilotTransport(httpx.AsyncBaseTransport):
+    """A custom transport for requests to the Microsoft Agents M365 Copilot API"""
 
     def __init__(self, transport: httpx.AsyncBaseTransport, pipeline: MiddlewarePipeline) -> None:
         self.transport = transport
@@ -28,7 +27,7 @@ class AsyncGraphTransport(httpx.AsyncBaseTransport):
 
         request_options = request.options  # type:ignore
 
-        context = GraphRequestContext(request_options, request.headers)
+        context = MicrosoftAgentsM365CopilotRequestContext(request_options, request.headers)
         middleware = self.pipeline._first_middleware
         while middleware:
             if isinstance(middleware, RedirectHandler):

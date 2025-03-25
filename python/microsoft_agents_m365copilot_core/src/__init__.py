@@ -6,7 +6,7 @@
 # pylint: disable=line-too-long
 # This is to allow complete package description on PyPI
 """
-Core component of the Microsoft Graph Python SDK consisting of HTTP/Graph Client and a configurable middleware pipeline (Preview).
+Core components of the Microsoft Microsoft Agents M365 Copilot Python SDK consisting of HTTP Client and a configurable middleware pipeline (Preview).
 """
 from ._constants import SDK_VERSION
 from ._enums import APIVersion, NationalClouds
@@ -20,7 +20,7 @@ from .tasks import PageIterator
 __all__ = [
     "BatchRequestBuilder", "BatchRequestContentCollection", "BatchRequestContent", "BatchRequestItem",
     "BatchResponseContentCollection", "BatchResponseContent", "BatchResponseItem", "MicrosoftAgentsM365CopilotClient",
-    "BaseMicrosoftAgentsM365CopilotRequestAdapter",
+    "BaseMicrosoftAgentsM365CopilotRequestAdapter", "PageResult", "PageIterator", "AzureIdentityAuthenticationProvider"
 ]
 
 

@@ -6,29 +6,28 @@ from ..._constants import SDK_VERSION
 from ..._enums import APIVersion
 
 
-class GraphTelemetryHandlerOption(RequestOption):
-    """Config options for the GraphTelemetryHandler
-    """
+class MicrosoftAgentsM365CopilotTelemetryHandlerOption(RequestOption):
+    """Config options for the MicrosoftAgentsM365CopilotTelemetryHandlerOption"""
 
-    GRAPH_TELEMETRY_HANDLER_OPTION_KEY = "GraphTelemetryHandlerOption"
+    AGENTS_COPILOT_TELEMETRY_HANDLER_OPTION_KEY = "MicrosoftAgentsM365CopilotTelemetryHandlerOption"
 
     def __init__(
         self, api_version: Optional[APIVersion] = None, sdk_version: str = SDK_VERSION
     ) -> None:
-        """To create an instance of GraphTelemetryHandlerOption
+        """To create an instance of MicrosoftAgentsM365CopilotTelemetryHandlerOption
 
         Args:
-            api_version (Optional[APIVersion], optional): The Graph API version in use.
+            api_version (Optional[APIVersion], optional): The M365 copilot API version in use.
             Defaults to None.
             sdk_version (str): The sdk version in use.
-            Defaults to SDK_VERSION of grap core.
+            Defaults to SDK_VERSION of microsoft_agents_m365copilot_core.
         """
         self._api_version = api_version
         self._sdk_version = sdk_version
 
     @property
     def api_version(self):
-        """The Graph API version in use"""
+        """The M365 copilot API version in use"""
         return self._api_version
 
     @api_version.setter
@@ -46,4 +45,4 @@ class GraphTelemetryHandlerOption(RequestOption):
 
     @staticmethod
     def get_key() -> str:
-        return GraphTelemetryHandlerOption.GRAPH_TELEMETRY_HANDLER_OPTION_KEY
+        return MicrosoftAgentsM365CopilotTelemetryHandlerOption.AGENTS_COPILOT_TELEMETRY_HANDLER_OPTION_KEY

@@ -8,33 +8,33 @@ from urllib3.util import parse_url
 
 from .._constants import SDK_VERSION
 from .._enums import APIVersion, NationalClouds
-from .async_graph_transport import AsyncGraphTransport
-from .options import GraphTelemetryHandlerOption
-from .request_context import GraphRequestContext
+from .async_transport import AsyncMicrosoftAgentsM365CopilotTransport
+from .options import MicrosoftAgentsM365CopilotTelemetryHandlerOption
+from .request_context import MicrosoftAgentsM365CopilotRequestContext
 
 
-class GraphRequest(httpx.Request):
-    context: GraphRequestContext
+class MicrosoftAgentsM365CopilotRequest(httpx.Request):
+    context: MicrosoftAgentsM365CopilotRequestContext
 
 
-class GraphTelemetryHandler(BaseMiddleware):
-    """Middleware component that attaches metadata to a Graph request in order to help
+class MicrosoftAgentsM365CopilotTelemetryHandler(BaseMiddleware):
+    """Middleware component that attaches metadata to a MicrosoftAgentsM365CopilotRequest request in order to help
     the SDK team improve the developer experience.
     """
 
     def __init__(
-        self, options: GraphTelemetryHandlerOption = GraphTelemetryHandlerOption(), **kwargs
+        self, options: MicrosoftAgentsM365CopilotTelemetryHandlerOption = MicrosoftAgentsM365CopilotTelemetryHandlerOption(), **kwargs
     ):
-        """Create an instance of GraphTelemetryHandler
+        """Create an instance of MicrosoftAgentsM365CopilotTelemetryHandler
 
         Args:
-            options (GraphTelemetryHandlerOption, optional): The graph telemetry handler
-            options value. Defaults to GraphTelemetryHandlerOption
+            options (MicrosoftAgentsM365CopilotTelemetryHandlerOption, optional): The telemetry handler
+            options value. Defaults to MicrosoftAgentsM365CopilotTelemetryHandlerOption
         """
         super().__init__()
         self.options = options
 
-    async def send(self, request: GraphRequest, transport: AsyncGraphTransport):
+    async def send(self, request: MicrosoftAgentsM365CopilotRequest, transport: AsyncMicrosoftAgentsM365CopilotTransport):
         """Adds telemetry headers and sends the http request.
         """
         current_options = self._get_current_options(request)
@@ -48,19 +48,19 @@ class GraphTelemetryHandler(BaseMiddleware):
         response = await super().send(request, transport)
         return response
 
-    def _get_current_options(self, request: httpx.Request) -> GraphTelemetryHandlerOption:
-        """Returns the options to use for the request.Overries default options if
+    def _get_current_options(self, request: httpx.Request) -> MicrosoftAgentsM365CopilotTelemetryHandlerOption:
+        """Returns the options to use for the request.Overrides default options if
         request options are passed.
 
         Args:
             request (httpx.Request): The prepared request object
 
         Returns:
-            GraphTelemetryHandlerOption: The options to used.
+            MicrosoftAgentsM365CopilotTelemetryHandlerOption: The options to used.
         """
         current_options = self.options
         request_options = request.context.middleware_control.get(              # type:ignore
-            GraphTelemetryHandlerOption.get_key()
+            MicrosoftAgentsM365CopilotTelemetryHandlerOption.get_key()
         )
         # Override default options with request options
         if request_options:
@@ -86,13 +86,13 @@ class GraphTelemetryHandler(BaseMiddleware):
         version of the client SDK library(s).
         Also adds the featureUsage value.
         """
-        core_library_name = f'graph-python-core/{SDK_VERSION}'
+        core_library_name = f'microsoft-agents-m365copilot-core/{SDK_VERSION}'
         service_lib_name = ''
 
         if options.api_version == APIVersion.v1:
-            service_lib_name = f'graph-python/{options.sdk_version}'
+            service_lib_name = f'microsoft-agents-m365copilot/{options.sdk_version}'
         if options.api_version == APIVersion.beta:
-            service_lib_name = f'graph-python-beta/{options.sdk_version}'
+            service_lib_name = f'microsoft-agents-m365copilot-beta/{options.sdk_version}'
 
         if service_lib_name:
             telemetry_header_string = f'{service_lib_name}, '\

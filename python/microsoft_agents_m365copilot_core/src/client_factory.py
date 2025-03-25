@@ -12,8 +12,7 @@ from kiota_http.kiota_client_factory import KiotaClientFactory
 from kiota_http.middleware.middleware import BaseMiddleware
 
 from ._enums import APIVersion, NationalClouds
-from .middleware import AsyncGraphTransport, GraphTelemetryHandler
-from .middleware.options import GraphTelemetryHandlerOption
+from .middleware import AsyncMicrosoftAgentsM365CopilotTransport, MicrosoftAgentsM365CopilotTelemetryHandlerOption, MicrosoftAgentsM365CopilotTelemetryHandler
 
 
 class MicrosoftAgentsM365CopilotClientFactory(KiotaClientFactory):
@@ -88,24 +87,23 @@ class MicrosoftAgentsM365CopilotClientFactory(KiotaClientFactory):
     @staticmethod
     def _get_telemetry_handler(
         options: Optional[dict[str, RequestOption]]
-    ) -> GraphTelemetryHandler:
-        """Helper method to get the graph telemetry handler instantiated with appropriate
-        options"""
+    ) -> MicrosoftAgentsM365CopilotTelemetryHandler:
+        """Helper method to get the telemetry handler instantiated with appropriate options"""
 
         if options:
-            graph_telemetry_options: GraphTelemetryHandlerOption = options.get(
-                GraphTelemetryHandlerOption().get_key()
+            telemetry_options: MicrosoftAgentsM365CopilotTelemetryHandlerOption = options.get(
+                MicrosoftAgentsM365CopilotTelemetryHandlerOption().get_key()
             )  # type: ignore # Unable to down cast type
-            if graph_telemetry_options:
-                return GraphTelemetryHandler(options=graph_telemetry_options)
-        return GraphTelemetryHandler()
+            if telemetry_options:
+                return MicrosoftAgentsM365CopilotTelemetryHandler(options=telemetry_options)
+        return MicrosoftAgentsM365CopilotTelemetryHandler()
 
     @staticmethod
     def _load_middleware_to_client(
         client: httpx.AsyncClient, middleware: Optional[list[BaseMiddleware]]
     ) -> httpx.AsyncClient:
         current_transport = client._transport
-        client._transport = MicrosoftAgentsM365CopilotClientFactory._replace_transport_with_custom_graph_transport(
+        client._transport = MicrosoftAgentsM365CopilotClientFactory._replace_transport_with_custom_transport(
             current_transport, middleware
         )
         if client._mounts:
@@ -115,20 +113,20 @@ class MicrosoftAgentsM365CopilotClientFactory(KiotaClientFactory):
                     mounts[pattern] = None
                 else:
                     mounts[pattern
-                           ] = MicrosoftAgentsM365CopilotClientFactory._replace_transport_with_custom_graph_transport(
+                           ] = MicrosoftAgentsM365CopilotClientFactory._replace_transport_with_custom_transport(
                                transport, middleware
                            )
             client._mounts = dict(sorted(mounts.items()))
         return client
 
     @staticmethod
-    def _replace_transport_with_custom_graph_transport(
+    def _replace_transport_with_custom_transport(
         current_transport: httpx.AsyncBaseTransport, middleware: Optional[list[BaseMiddleware]]
-    ) -> AsyncGraphTransport:
+    ) -> AsyncMicrosoftAgentsM365CopilotTransport:
         middleware_pipeline = KiotaClientFactory.create_middleware_pipeline(
             middleware, current_transport
         )
-        new_transport = AsyncGraphTransport(
+        new_transport = AsyncMicrosoftAgentsM365CopilotTransport(
             transport=current_transport, pipeline=middleware_pipeline
         )
         return new_transport
