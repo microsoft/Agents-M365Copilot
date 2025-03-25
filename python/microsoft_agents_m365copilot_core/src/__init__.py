@@ -13,7 +13,13 @@ from ._enums import APIVersion, FeatureUsageFlag, NationalClouds
 from .authentication import AzureIdentityAuthenticationProvider
 from .base_request_adapter import BaseMicrosoftAgentsM365CopilotRequestAdapter
 from .client_factory import MicrosoftAgentsM365CopilotClientFactory
-from .models import PageResult, LargeFileUploadSession, UploadResult, UploadSessionDataHolder
+from .middleware import (
+    AsyncMicrosoftAgentsM365CopilotTransport,
+    MicrosoftAgentsM365CopilotRequestContext,
+    MicrosoftAgentsM365CopilotTelemetryHandler,
+    MicrosoftAgentsM365CopilotTelemetryHandlerOption,
+)
+from .models import LargeFileUploadSession, PageResult, UploadResult, UploadSessionDataHolder
 from .requests import (
     BatchRequestBuilder,
     BatchRequestContent,
@@ -23,9 +29,7 @@ from .requests import (
     BatchResponseContentCollection,
     BatchResponseItem,
 )
-
-from .middleware import MicrosoftAgentsM365CopilotTelemetryHandlerOption, MicrosoftAgentsM365CopilotRequestContext, AsyncMicrosoftAgentsM365CopilotTransport, MicrosoftAgentsM365CopilotTelemetryHandler
-from .tasks import PageIterator, LargeFileUploadTask
+from .tasks import LargeFileUploadTask, PageIterator
 
 __all__ = [
     "BatchRequestBuilder", "BatchRequestContentCollection", "BatchRequestContent",
