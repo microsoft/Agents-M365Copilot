@@ -16,12 +16,12 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'msgraph-sdk-python'
-copyright = '2020, Microsoft'
+project = 'microsoft_agents_m365copilot_core'
+copyright = '2025, Microsoft'
 author = 'Microsoft'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '1.0.0'
 
 # -- General configuration ---------------------------------------------------
 

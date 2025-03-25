@@ -20,7 +20,7 @@ class HttpClientFactory {
 
 class Session {}
 
-class GraphClient {
+class MicrosoftAgentsM365CopilotClient {
   -session: Session
 
   +__init__(session: Session, credential: TokenCredential,
@@ -40,7 +40,7 @@ HttpClientFactory --> NationalClouds
 HttpClientFactory -right-> middleware
 HttpClientFactory --> Session
 
-GraphClient -right-> HttpClientFactory
+MicrosoftAgentsM365CopilotClient -right-> HttpClientFactory
 
 note right of Session: HTTPClient imported from requests
 @enduml
