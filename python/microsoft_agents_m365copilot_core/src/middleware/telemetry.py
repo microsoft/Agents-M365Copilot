@@ -22,11 +22,7 @@ class MicrosoftAgentsM365CopilotTelemetryHandler(BaseMiddleware):
     order to help the SDK team improve the developer experience.
     """
 
-    def __init__(
-        self,
-        options = MicrosoftAgentsM365CopilotTelemetryHandlerOption(),
-        **kwargs
-    ):
+    def __init__(self, options=MicrosoftAgentsM365CopilotTelemetryHandlerOption(), **kwargs):
         """Create an instance of MicrosoftAgentsM365CopilotTelemetryHandler
 
         Args:
@@ -37,9 +33,9 @@ class MicrosoftAgentsM365CopilotTelemetryHandler(BaseMiddleware):
         self.options = options
 
     async def send(
-            self,
-            request: MicrosoftAgentsM365CopilotRequest,
-            transport: AsyncMicrosoftAgentsM365CopilotTransport):
+        self, request: MicrosoftAgentsM365CopilotRequest,
+        transport: AsyncMicrosoftAgentsM365CopilotTransport
+    ):
         """Adds telemetry headers and sends the http request.
         """
         current_options = self._get_current_options(request)
@@ -54,7 +50,8 @@ class MicrosoftAgentsM365CopilotTelemetryHandler(BaseMiddleware):
         return response
 
     def _get_current_options(
-        self, request: httpx.Request) -> MicrosoftAgentsM365CopilotTelemetryHandlerOption:
+        self, request: httpx.Request
+    ) -> MicrosoftAgentsM365CopilotTelemetryHandlerOption:
         """Returns the options to use for the request.Overrides default options if
         request options are passed.
 

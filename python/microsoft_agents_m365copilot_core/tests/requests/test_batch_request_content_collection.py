@@ -38,7 +38,9 @@ def test_init_batches(batch_request_content_collection):
     assert batch_request_content_collection.current_batch is not None
 
 
-def test_add_batch_request_item(batch_request_content_collection, batch_request_item1, batch_request_item2):
+def test_add_batch_request_item(
+    batch_request_content_collection, batch_request_item1, batch_request_item2
+):
     batch_request_content_collection.add_batch_request_item(batch_request_item1)
     batch_request_content_collection.add_batch_request_item(batch_request_item2)
     assert len(batch_request_content_collection.batches) == 1

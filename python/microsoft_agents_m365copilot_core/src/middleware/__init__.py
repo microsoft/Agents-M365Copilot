@@ -9,5 +9,5 @@ from .telemetry import MicrosoftAgentsM365CopilotTelemetryHandler
 
 __all__ = [
     "MicrosoftAgentsM365CopilotTelemetryHandlerOption", "MicrosoftAgentsM365CopilotRequestContext",
-    "AsyncMicrosoftAgentsM365CopilotTransport",  "MicrosoftAgentsM365CopilotTelemetryHandler"
+    "AsyncMicrosoftAgentsM365CopilotTransport", "MicrosoftAgentsM365CopilotTelemetryHandler"
 ]

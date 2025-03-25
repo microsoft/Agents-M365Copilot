@@ -1,4 +1,4 @@
-from .src import (SDK_VERSION, BatchRequestBuilder, BatchRequestContentCollection,
+from microsoft_agents_m365copilot_core.src import (__version__, BatchRequestBuilder, BatchRequestContentCollection,
                   BatchRequestContent, BatchRequestItem, BatchResponseContentCollection,
                   BatchResponseContent, BatchResponseItem, MicrosoftAgentsM365CopilotClientFactory,
                   BaseMicrosoftAgentsM365CopilotRequestAdapter, PageResult, PageIterator,
@@ -10,5 +10,3 @@ __all__ = [
     "BaseMicrosoftAgentsM365CopilotRequestAdapter", "PageResult", "PageIterator", "AzureIdentityAuthenticationProvider",
     "FeatureUsageFlag", "NationalClouds", "APIVersion"
 ]
-
-__version__ = SDK_VERSION

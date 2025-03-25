@@ -55,7 +55,9 @@ class MicrosoftAgentsM365CopilotClientFactory(KiotaClientFactory):
         middleware = KiotaClientFactory.get_default_middleware(options)
         telemetry_handler = MicrosoftAgentsM365CopilotClientFactory._get_telemetry_handler(options)
         middleware.append(telemetry_handler)
-        return MicrosoftAgentsM365CopilotClientFactory._load_middleware_to_client(client, middleware)
+        return MicrosoftAgentsM365CopilotClientFactory._load_middleware_to_client(
+            client, middleware
+        )
 
     @staticmethod
     def create_with_custom_middleware( # type: ignore
@@ -82,7 +84,9 @@ class MicrosoftAgentsM365CopilotClientFactory(KiotaClientFactory):
             client = KiotaClientFactory.get_default_client()
         base_url = MicrosoftAgentsM365CopilotClientFactory._get_base_url(host, api_version)
         client.base_url = base_url
-        return MicrosoftAgentsM365CopilotClientFactory._load_middleware_to_client(client, middleware)
+        return MicrosoftAgentsM365CopilotClientFactory._load_middleware_to_client(
+            client, middleware
+        )
 
     @staticmethod
     def _get_base_url(host: str, api_version: APIVersion) -> str:

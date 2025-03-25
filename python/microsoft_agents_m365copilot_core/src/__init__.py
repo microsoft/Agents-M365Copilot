@@ -13,7 +13,7 @@ from ._enums import APIVersion, FeatureUsageFlag, NationalClouds
 from .authentication import AzureIdentityAuthenticationProvider
 from .base_request_adapter import BaseMicrosoftAgentsM365CopilotRequestAdapter
 from .client_factory import MicrosoftAgentsM365CopilotClientFactory
-from .models import PageResult
+from .models import PageResult, LargeFileUploadSession, UploadResult, UploadSessionDataHolder
 from .requests import (
     BatchRequestBuilder,
     BatchRequestContent,
@@ -23,14 +23,19 @@ from .requests import (
     BatchResponseContentCollection,
     BatchResponseItem,
 )
-from .tasks import PageIterator
+
+from .middleware import MicrosoftAgentsM365CopilotTelemetryHandlerOption, MicrosoftAgentsM365CopilotRequestContext, AsyncMicrosoftAgentsM365CopilotTransport, MicrosoftAgentsM365CopilotTelemetryHandler
+from .tasks import PageIterator, LargeFileUploadTask
 
 __all__ = [
-    "BatchRequestBuilder", "BatchRequestContentCollection", "BatchRequestContent", "BatchRequestItem",
-    "BatchResponseContentCollection", "BatchResponseContent", "BatchResponseItem", "MicrosoftAgentsM365CopilotClientFactory",
-    "BaseMicrosoftAgentsM365CopilotRequestAdapter", "PageResult", "PageIterator", "AzureIdentityAuthenticationProvider",
-    "FeatureUsageFlag", "NationalClouds", "APIVersion"
+    "BatchRequestBuilder", "BatchRequestContentCollection", "BatchRequestContent",
+    "BatchRequestItem", "BatchResponseContentCollection", "BatchResponseContent",
+    "BatchResponseItem", "MicrosoftAgentsM365CopilotClientFactory",
+    "BaseMicrosoftAgentsM365CopilotRequestAdapter", "PageResult", "PageIterator",
+    "AzureIdentityAuthenticationProvider", "FeatureUsageFlag", "NationalClouds", "APIVersion",
+    "LargeFileUploadTask", "LargeFileUploadSession", "UploadResult", "UploadSessionDataHolder",
+    "MicrosoftAgentsM365CopilotTelemetryHandlerOption", "MicrosoftAgentsM365CopilotRequestContext",
+    "AsyncMicrosoftAgentsM365CopilotTransport", "MicrosoftAgentsM365CopilotTelemetryHandler"
 ]
-
 
 __version__ = SDK_VERSION

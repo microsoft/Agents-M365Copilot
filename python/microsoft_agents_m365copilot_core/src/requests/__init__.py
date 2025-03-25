@@ -7,6 +7,7 @@ from .batch_response_content_collection import BatchResponseContentCollection
 from .batch_response_item import BatchResponseItem
 
 __all__ = [
-    "BatchRequestBuilder", "BatchRequestContentCollection", "BatchRequestContent", "BatchRequestItem",
-    "BatchResponseContentCollection", "BatchResponseContent", "BatchResponseItem"
+    "BatchRequestBuilder", "BatchRequestContentCollection", "BatchRequestContent",
+    "BatchRequestItem", "BatchResponseContentCollection", "BatchResponseContent",
+    "BatchResponseItem"
 ]

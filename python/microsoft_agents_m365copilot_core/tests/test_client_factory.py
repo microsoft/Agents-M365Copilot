@@ -32,7 +32,9 @@ def test_create_with_default_middleware_custom_client():
     """Test creation of GraphClient using default middleware"""
     timeout = httpx.Timeout(20, connect=10)
     custom_client = httpx.AsyncClient(timeout=timeout, http2=True)
-    client = MicrosoftAgentsM365CopilotClientFactory.create_with_default_middleware(client=custom_client)
+    client = MicrosoftAgentsM365CopilotClientFactory.create_with_default_middleware(
+        client=custom_client
+    )
 
     assert isinstance(client, httpx.AsyncClient)
     assert client.timeout == httpx.Timeout(connect=10, read=20, write=20, pool=20)
@@ -51,7 +53,9 @@ def test_create_with_default_middleware_custom_client_with_proxy():
     }
     timeout = httpx.Timeout(20, connect=10)
     custom_client = httpx.AsyncClient(timeout=timeout, http2=True, mounts=proxies)
-    client = MicrosoftAgentsM365CopilotClientFactory.create_with_default_middleware(client=custom_client)
+    client = MicrosoftAgentsM365CopilotClientFactory.create_with_default_middleware(
+        client=custom_client
+    )
 
     assert isinstance(client, httpx.AsyncClient)
     assert client.timeout == httpx.Timeout(connect=10, read=20, write=20, pool=20)
