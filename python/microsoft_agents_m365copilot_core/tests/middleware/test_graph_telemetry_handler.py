@@ -9,9 +9,7 @@ import uuid
 import httpx
 import pytest
 
-from msgraph_core import SDK_VERSION, APIVersion, NationalClouds
-from microsoft_agents_m365copilot_core.middleware import GraphRequestContext, GraphTelemetryHandler
-from microsoft_agents_m365copilot_core.middleware.options import GraphTelemetryHandlerOption
+from microsoft_agents_m365copilot_beta import SDK_VERSION, APIVersion, NationalClouds, MicrosoftAgentsM365CopilotRequestContext, MicrosoftAgentsM365CopilotTelemetryHandler, MicrosoftAgentsM365CopilotTelemetryHandlerOption
 
 BASE_URL = NationalClouds.Global + '/' + APIVersion.v1
 
@@ -20,7 +18,7 @@ def test_is_graph_url(mock_graph_request):
     """
     Test method that checks whether a request url is a graph endpoint
     """
-    telemetry_handler = GraphTelemetryHandler()
+    telemetry_handler = MicrosoftAgentsM365CopilotTelemetryHandler()
     assert telemetry_handler.is_graph_url(mock_graph_request.url)
 
 
@@ -29,7 +27,7 @@ def test_is_not_graph_url(mock_request):
     Test method that checks whether a request url is a graph endpoint with a
     non-graph url.
     """
-    telemetry_handler = GraphTelemetryHandler()
+    telemetry_handler = MicrosoftAgentsM365CopilotTelemetryHandler()
     assert not telemetry_handler.is_graph_url(mock_request.url)
 
 
@@ -37,7 +35,7 @@ def test_add_client_request_id_header(mock_graph_request):
     """
     Test that client_request_id is added to the request headers
     """
-    telemetry_handler = GraphTelemetryHandler()
+    telemetry_handler = MicrosoftAgentsM365CopilotTelemetryHandler()
     telemetry_handler._add_client_request_id_header(mock_graph_request)
 
     assert 'client-request-id' in mock_graph_request.headers
@@ -50,9 +48,9 @@ def test_custom_client_request_id_header():
     """
     custom_id = str(uuid.uuid4())
     request = httpx.Request('GET', BASE_URL)
-    request.context = GraphRequestContext({}, {'client-request-id': custom_id})
+    request.context = MicrosoftAgentsM365CopilotRequestContext({}, {'client-request-id': custom_id})
 
-    telemetry_handler = GraphTelemetryHandler()
+    telemetry_handler = MicrosoftAgentsM365CopilotTelemetryHandler()
     telemetry_handler._add_client_request_id_header(request)
 
     assert 'client-request-id' in request.headers
@@ -64,7 +62,7 @@ def test_append_sdk_version_header(mock_graph_request):
     """
     Test that sdkVersion is added to the request headers
     """
-    telemetry_handler = GraphTelemetryHandler()
+    telemetry_handler = MicrosoftAgentsM365CopilotTelemetryHandler()
     telemetry_handler._append_sdk_version_header(mock_graph_request, telemetry_handler.options)
 
     assert 'sdkVersion' in mock_graph_request.headers
@@ -76,10 +74,10 @@ def test_append_sdk_version_header_beta(mock_graph_request):
     """
     Test that sdkVersion is added to the request headers
     """
-    telemetry_options = GraphTelemetryHandlerOption(
+    telemetry_options = MicrosoftAgentsM365CopilotTelemetryHandlerOption(
         api_version=APIVersion.beta, sdk_version='1.0.0'
     )
-    telemetry_handler = GraphTelemetryHandler(options=telemetry_options)
+    telemetry_handler = MicrosoftAgentsM365CopilotTelemetryHandler(options=telemetry_options)
     telemetry_handler._append_sdk_version_header(mock_graph_request, telemetry_options)
 
     assert 'sdkVersion' in mock_graph_request.headers
@@ -94,7 +92,7 @@ def test_add_host_os_header(mock_graph_request):
     version = platform.version()
     host_os = f'{system} {version}'
 
-    telemetry_handler = GraphTelemetryHandler()
+    telemetry_handler = MicrosoftAgentsM365CopilotTelemetryHandler()
     telemetry_handler._add_host_os_header(mock_graph_request)
 
     assert 'HostOs' in mock_graph_request.headers
@@ -108,7 +106,7 @@ def test_add_runtime_environment_header(mock_graph_request):
     python_version = platform.python_version()
     runtime_environment = f'Python/{python_version}'
 
-    telemetry_handler = GraphTelemetryHandler()
+    telemetry_handler = MicrosoftAgentsM365CopilotTelemetryHandler()
     telemetry_handler._add_runtime_environment_header(mock_graph_request)
 
     assert 'RuntimeEnvironment' in mock_graph_request.headers

@@ -5,11 +5,11 @@ from kiota_abstractions.serialization import (
     SerializationWriterFactoryRegistry,
 )
 
-from microsoft_agents_m365copilot_core.base_graph_request_adapter import BaseGraphRequestAdapter
+from microsoft_agents_m365copilot_core import BaseMicrosoftAgentsM365CopilotRequestAdapter
 
 
 def test_create_graph_request_adapter(mock_auth_provider):
-    request_adapter = BaseGraphRequestAdapter(mock_auth_provider)
+    request_adapter = BaseMicrosoftAgentsM365CopilotRequestAdapter(mock_auth_provider)
     assert request_adapter._authentication_provider is mock_auth_provider
     assert isinstance(request_adapter._parse_node_factory, ParseNodeFactoryRegistry)
     assert isinstance(
@@ -21,4 +21,4 @@ def test_create_graph_request_adapter(mock_auth_provider):
 
 def test_create_request_adapter_no_auth_provider():
     with pytest.raises(TypeError):
-        BaseGraphRequestAdapter(None)
+        BaseMicrosoftAgentsM365CopilotRequestAdapter(None)

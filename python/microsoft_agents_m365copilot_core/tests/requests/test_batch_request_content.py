@@ -4,10 +4,8 @@ from unittest.mock import Mock
 from urllib.request import Request
 from kiota_abstractions.request_information import RequestInformation
 from kiota_abstractions.serialization import SerializationWriter
-from microsoft_agents_m365copilot_core.requests.batch_request_item import BatchRequestItem
-from microsoft_agents_m365copilot_core.requests.batch_request_content import BatchRequestContent
+from microsoft_agents_m365copilot_core import BatchRequestItem, BatchRequestContent
 from kiota_abstractions.headers_collection import HeadersCollection as RequestHeaders
-from microsoft_agents_m365copilot_core.requests.batch_request_item import BatchRequestItem
 
 
 @pytest.fixture

@@ -8,8 +8,7 @@ from kiota_authentication_azure.azure_identity_authentication_provider\
 from kiota_http.httpx_request_adapter import HttpxRequestAdapter
 from dotenv import load_dotenv
 
-from microsoft_agents_m365copilot_core.tasks.page_iterator import PageIterator  # pylint: disable=import-error, no-name-in-module
-from microsoft_agents_m365copilot_core.models.page_result import PageResult  # pylint: disable=no-name-in-module, import-error
+from microsoft_agents_m365copilot_core import PageIterator, PageResult  # pylint: disable=no-name-in-module, import-error
 
 
 @pytest.fixture

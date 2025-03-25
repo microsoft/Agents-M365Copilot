@@ -10,7 +10,7 @@ from kiota_abstractions.serialization import (
 )
 from kiota_http.httpx_request_adapter import HttpxRequestAdapter
 
-from .client_factory import MicrosoftAgentsM365CopilotClient
+from .client_factory import MicrosoftAgentsM365CopilotClientFactory
 
 
 class BaseMicrosoftAgentsM365CopilotRequestAdapter(HttpxRequestAdapter):
@@ -27,7 +27,7 @@ class BaseMicrosoftAgentsM365CopilotRequestAdapter(HttpxRequestAdapter):
         if serialization_writer_factory is None:
             serialization_writer_factory = SerializationWriterFactoryRegistry()
         if http_client is None:
-            http_client = MicrosoftAgentsM365CopilotClient.create_with_default_middleware()
+            http_client = MicrosoftAgentsM365CopilotClientFactory.create_with_default_middleware()
         super().__init__(
             authentication_provider=authentication_provider,
             parse_node_factory=parse_node_factory,

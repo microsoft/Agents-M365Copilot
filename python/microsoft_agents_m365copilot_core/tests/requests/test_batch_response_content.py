@@ -2,8 +2,7 @@ import pytest
 from unittest.mock import Mock
 from io import BytesIO
 from kiota_abstractions.serialization import ParseNode, SerializationWriter, Parsable, ParseNodeFactoryRegistry
-from microsoft_agents_m365copilot_core.requests.batch_response_item import BatchResponseItem
-from microsoft_agents_m365copilot_core.requests.batch_response_content import BatchResponseContent
+from microsoft_agents_m365copilot_core import BatchResponseItem, BatchResponseContent
 
 
 @pytest.fixture

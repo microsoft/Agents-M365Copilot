@@ -4,7 +4,7 @@ from urllib.request import Request
 from kiota_abstractions.request_information import RequestInformation
 from kiota_abstractions.method import Method
 from kiota_abstractions.headers_collection import HeadersCollection as RequestHeaders
-from microsoft_agents_m365copilot_core.requests.batch_request_item import BatchRequestItem
+from microsoft_agents_m365copilot_core import BatchRequestItem
 
 base_url = "https://graph.microsoft.com/v1.0/me"
 

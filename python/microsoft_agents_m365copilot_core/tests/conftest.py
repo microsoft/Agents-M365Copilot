@@ -3,8 +3,7 @@ import pytest
 from kiota_abstractions.authentication import AnonymousAuthenticationProvider
 
 from msgraph_core import APIVersion, NationalClouds
-from microsoft_agents_m365copilot_core.graph_client_factory import GraphClientFactory
-from microsoft_agents_m365copilot_core.middleware import GraphRequestContext
+from microsoft_agents_m365copilot_core import MicrosoftAgentsM365CopilotClientFactory,  MicrosoftAgentsM365CopilotRequestContext
 
 BASE_URL = NationalClouds.Global + '/' + APIVersion.v1
 
@@ -27,7 +26,7 @@ def mock_auth_provider():
 
 @pytest.fixture
 def mock_transport():
-    client = GraphClientFactory.create_with_default_middleware()
+    client = MicrosoftAgentsM365CopilotClientFactory.create_with_default_middleware()
     return client._transport
 
 
@@ -41,7 +40,7 @@ def mock_request():
 @pytest.fixture
 def mock_graph_request():
     req = httpx.Request('GET', BASE_URL)
-    req.context = GraphRequestContext({}, req.headers)
+    req.context = MicrosoftAgentsM365CopilotRequestContext({}, req.headers)
     return req
 
 
