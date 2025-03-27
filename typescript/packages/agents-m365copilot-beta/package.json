@@ -26,8 +26,8 @@
     "url": "https://github.com/microsoft/Agents-M365Copilot/issues"
   },
   "dependencies": {
-    "@microsoft/kiota-authentication-azure": "^1.0.0-preview.82",
-    "@microsoft/kiota-bundle": "^1.0.0-preview.82",
+    "@microsoft/kiota-authentication-azure": "^1.0.0-preview.92",
+    "@microsoft/kiota-bundle": "^1.0.0-preview.92",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
