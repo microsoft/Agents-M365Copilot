@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetAllEnterpriseInteractionsGetResponse}
+ * @returns {GetAllEnterpriseInteractionsgetResponse}
  */
 // @ts-ignore
-export function createGetAllEnterpriseInteractionsGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetAllEnterpriseInteractionsGetResponse;
+export function createGetAllEnterpriseInteractionsgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetAllEnterpriseInteractionsgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetAllEnterpriseInteractionsGetResponse(getAllEnterpriseInteractionsGetResponse: Partial<GetAllEnterpriseInteractionsGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetAllEnterpriseInteractionsgetResponse(getAllEnterpriseInteractionsgetResponse: Partial<GetAllEnterpriseInteractionsgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getAllEnterpriseInteractionsGetResponse),
-        "value": n => { getAllEnterpriseInteractionsGetResponse.value = n.getCollectionOfObjectValues<AiInteraction>(createAiInteractionFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getAllEnterpriseInteractionsgetResponse),
+        "value": n => { getAllEnterpriseInteractionsgetResponse.value = n.getCollectionOfObjectValues<AiInteraction>(createAiInteractionFromDiscriminatorValue); },
     }
 }
-export interface GetAllEnterpriseInteractionsGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetAllEnterpriseInteractionsgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,10 +41,10 @@ export interface GetAllEnterpriseInteractionsRequestBuilder extends BaseRequestB
     /**
      * Invoke function getAllEnterpriseInteractions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetAllEnterpriseInteractionsGetResponse>}
+     * @returns {Promise<GetAllEnterpriseInteractionsgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     get(requestConfiguration?: RequestConfiguration<GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters> | undefined) : Promise<GetAllEnterpriseInteractionsGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters> | undefined) : Promise<GetAllEnterpriseInteractionsgetResponse | undefined>;
     /**
      * Invoke function getAllEnterpriseInteractions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -94,10 +94,10 @@ export interface GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters {
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetAllEnterpriseInteractionsGetResponse(writer: SerializationWriter, getAllEnterpriseInteractionsGetResponse: Partial<GetAllEnterpriseInteractionsGetResponse> | undefined | null = {}) : void {
-    if (getAllEnterpriseInteractionsGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getAllEnterpriseInteractionsGetResponse)
-        writer.writeCollectionOfObjectValues<AiInteraction>("value", getAllEnterpriseInteractionsGetResponse.value, serializeAiInteraction);
+export function serializeGetAllEnterpriseInteractionsgetResponse(writer: SerializationWriter, getAllEnterpriseInteractionsgetResponse: Partial<GetAllEnterpriseInteractionsgetResponse> | undefined | null = {}) : void {
+    if (getAllEnterpriseInteractionsgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getAllEnterpriseInteractionsgetResponse)
+        writer.writeCollectionOfObjectValues<AiInteraction>("value", getAllEnterpriseInteractionsgetResponse.value, serializeAiInteraction);
     }
 }
 /**
@@ -128,7 +128,7 @@ export const GetAllEnterpriseInteractionsRequestBuilderRequestsMetadata: Request
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetAllEnterpriseInteractionsGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetAllEnterpriseInteractionsgetResponseFromDiscriminatorValue,
         queryParametersMapper: GetAllEnterpriseInteractionsRequestBuilderGetQueryParametersMapper,
     },
 };
