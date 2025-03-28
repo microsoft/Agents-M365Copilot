@@ -8,8 +8,8 @@ name = "microsoft-agents-m365copilot-core"
 # x-release-please-start-version
 version = "1.0.0"
 # x-release-please-end
-authors = [{name = "Microsoft", email = "graphtooling+python@microsoft.com"}]
-description = "Core component of the Microsoft Graph Python SDK"
+authors = [{name = "Microsoft", email = "graphtooling+ccspython@microsoft.com"}]
+description = "Core component of the Microsoft Agents M365 Copilot Core Python SDK"
 dependencies = [
     "microsoft-kiota-abstractions >=1.8.0,<2.0.0",
     "microsoft-kiota-authentication-azure >=1.8.0,<2.0.0",
@@ -19,7 +19,7 @@ dependencies = [
 requires-python = ">=3.9"
 license = {file = "LICENSE"}
 readme = "README.md"
-keywords = ["msgraph", "openAPI", "Microsoft", "Graph"]
+keywords = ["Copilot", "Microsoft", "OpenAPI"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Programming Language :: Python :: 3.9",
@@ -34,9 +34,9 @@ classifiers = [
 dev = ["yapf", "bumpver", "isort", "pylint", "pytest", "mypy"]
 
 [project.urls]
-homepage = "https://github.com/microsoftgraph/msgraph-sdk-python-core#readme"
-repository = "https://github.com/microsoftgraph/msgraph-sdk-python-core"
-documentation = "https://github.com/microsoftgraph/msgraph-sdk-python-core/docs"
+homepage = "https://github.com/microsof/agents-m365copilot/python#readme"
+repository = "https://github.com/microsof/agents-m365copilot/python"
+documentation = "https://github.com/microsof/agents-m365copilot/python/docs"
 
 [tool.mypy]
 warn_unused_configs = true

@@ -1,6 +1,6 @@
 # Microsoft Agents M365 Copilot Core Python Client Library
 
-The Microsoft Agents M365 Copilot Core Python Client Library contains core classes used by [Microsoft Agents M365 Copilot Python Client Library](https://github.com/microsof/agents-m365copilot/python) to send native HTTP requests to [Microsoft Graph API](https://graph.microsoft.com).
+The Microsoft Agents M365 Copilot Core Python Client Library contains core classes used by [Microsoft Agents M365 Copilot Python Client Library](https://github.com/microsof/agents-m365copilot/python) to send native HTTP requests to [Microsoft Copilot API](https://graph.microsoft.com).
 
 ## Prerequisites
 
@@ -12,9 +12,9 @@ This library doesn't support [older](https://devguide.python.org/versions/) vers
 
 ### 1. Register your application
 
-To call the Copilot endpoints, your app must acquire an access token from the Microsoft identity platform. Learn more about this -
+To call the Copilot endpoints, your app must acquire an access token from the Microsoft identity platform. Learn more about this:
 
-- [Authentication and authorization basics for Microsoft Graph](https://docs.microsoft.com/en-us/graph/auth/auth-concepts)
+- [Authentication and authorization basics for Microsoft](https://docs.microsoft.com/en-us/graph/auth/auth-concepts)
 - [Register your app with the Microsoft identity platform](https://docs.microsoft.com/en-us/graph/auth-register-app-v2)
 
 ### 2. Install the required packages
@@ -41,7 +41,6 @@ pip install -e .
 ```
 
 This will install the core library and it's dependencies to the environment.
-
 
 ### 3. Call the client
 
