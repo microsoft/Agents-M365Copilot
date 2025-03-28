@@ -71,7 +71,7 @@ jobs:
         working-directory: python
 
       - name: Lint Core Library with Pylint
-        run: pylint microsoft_agents_m365copilot_core --disable=W --rcfile=microsoft_agents_m365copilot_core\.pylintrc
+        run: pylint microsoft_agents_m365copilot_core --disable=W --rcfile=microsoft_agents_m365copilot_core\\.pylintrc
         working-directory: python
 
       - name: Test Core Library
