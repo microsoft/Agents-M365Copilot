@@ -65,6 +65,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements-dev.txt
+          pip install -r microsoft_agents_m365copilot_core/requirements-dev.txt
         working-directory: python
       - name: Lint SDK with Pylint
         run: pylint microsoft_agents_m365copilot_beta --disable=W --rcfile=.pylintrc
