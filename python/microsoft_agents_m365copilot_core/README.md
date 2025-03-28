@@ -1,18 +1,10 @@
-[![PyPI version](https://badge.fury.io/py/msgraph-core.svg)](https://badge.fury.io/py/msgraph-core)
-[![CI Actions Status](https://github.com/microsoftgraph/msgraph-sdk-python-core/actions/workflows/build.yml/badge.svg)](https://github.com/microsoftgraph/msgraph-sdk-python-core/actions/workflows/build.yml)
-[![Downloads](https://pepy.tech/badge/msgraph-core)](https://pepy.tech/project/msgraph-core)
+# Microsoft Agents M365 Copilot Core Python Client Library
 
-## Microsoft Graph Core Python Client Library
-
-The Microsoft Graph Core Python Client Library contains core classes used by [Microsoft Graph Python Client Library](https://github.com/microsoftgraph/msgraph-sdk-python) to send native HTTP requests to [Microsoft Graph API](https://graph.microsoft.com).
-
-> NOTE:
-> This is a new major version of the Python Core library for Microsoft Graph based on the [Kiota](https://microsoft.github.io/kiota/) project. We recommend to use this library with the [full Python SDK](https://github.com/microsoftgraph/msgraph-sdk-python).
-> Upgrading to this version from the [previous version of the Python Core library](https://pypi.org/project/msgraph-core/0.2.2/) will introduce breaking changes into your application.
+The Microsoft Agents M365 Copilot Core Python Client Library contains core classes used by [Microsoft Agents M365 Copilot Python Client Library](https://github.com/microsof/agents-m365copilot/python) to send native HTTP requests to [Microsoft Graph API](https://graph.microsoft.com).
 
 ## Prerequisites
 
-    Python 3.9+
+1. Python 3.9+
 
 This library doesn't support [older](https://devguide.python.org/versions/) versions of Python.
 
@@ -20,61 +12,81 @@ This library doesn't support [older](https://devguide.python.org/versions/) vers
 
 ### 1. Register your application
 
-To call Microsoft Graph, your app must acquire an access token from the Microsoft identity platform. Learn more about this -
+To call the Copilot endpoints, your app must acquire an access token from the Microsoft identity platform. Learn more about this -
 
 - [Authentication and authorization basics for Microsoft Graph](https://docs.microsoft.com/en-us/graph/auth/auth-concepts)
 - [Register your app with the Microsoft identity platform](https://docs.microsoft.com/en-us/graph/auth-register-app-v2)
 
 ### 2. Install the required packages
 
-msgraph-core is available on PyPI.
+```cmd
+pip install azure-identity
+pip install python-dotenv
+```
+
+The `python-dotenv` is a utility library to load environment variables. Ensure you **DO NOT** commit the file holding your secrets.
+
+You have to build `microsoft-agents-m365copilot-core` locally. To build it, run the following command from the root of the `python` folder:
 
 ```cmd
-pip3 install msgraph-core
-pip3 install azure-identity
+pip install -r requirements-dev.txt
 ```
 
-### 3. Configure an Authentication Provider Object
+This will install the core library with the latest version attached to it in the environment.
 
-An instance of the `BaseGraphRequestAdapter` class handles building client. To create a new instance of this class, you need to provide an instance of `AuthenticationProvider`, which can authenticate requests to Microsoft Graph.
+Alternatively, you can switch to the root of the core library and run:
 
-> **Note**: This client library offers an asynchronous API by default. Async is a concurrency model that is far more efficient than multi-threading, and can provide significant performance benefits and enable the use of long-lived network connections such as WebSockets. We support popular python async environments such as `asyncio`, `anyio` or `trio`. For authentication you need to use one of the async credential classes from `azure.identity`.
-
-```py
-# Using EnvironmentCredential for demonstration purposes.
-# There are many other options for getting an access token. See the following for more information.
-# https://pypi.org/project/azure-identity/#async-credentials
-from azure.identity.aio import EnvironmentCredential
-from microsoft_agents_m365copilot_core.authentication import AzureIdentityAuthenticationProvider
-
-credential=EnvironmentCredential()
-auth_provider = AzureIdentityAuthenticationProvider(credential)
+```cmd
+pip install -e .
 ```
 
-> **Note**: `AzureIdentityAuthenticationProvider` sets the default scopes and allowed hosts.
+This will install the core library and it's dependencies to the environment.
 
-### 5. Pass the authentication provider object to the BaseGraphRequestAdapter constructor
 
-```python
-from msgraph_core import BaseGraphRequestAdapter
-adapter = BaseGraphRequestAdapter(auth_provider)
-```
-
-### 6. Make a requests to the graph
-
-After you have a `BaseGraphRequestAdapter` that is authenticated, you can begin making calls against the service.
+### 3. Call the client
 
 ```python
 import asyncio
-from kiota_abstractions.request_information import RequestInformation
+import os
 
-request_info = RequestInformation()
-request_info.url = 'https://graph.microsoft.com/v1.0/me'
+from azure.identity.aio import ClientSecretCredential
+from dotenv import load_dotenv
+from kiota_abstractions.api_error import APIError
 
-# User is your own type that implements Parsable or comes from the service library
-user = asyncio.run(adapter.send_async(request_info, User, {}))
-print(user.display_name)
+from microsoft_agents_m365copilot_beta import MicrosoftAgentsM365CopilotServiceClient
+from microsoft_agents_m365copilot_beta.generated.copilot.retrieval.retrieval_post_request_body import (
+    RetrievalPostRequestBody,
+)
+
+load_dotenv()
+
+TENANT_ID = os.getenv("TENANT_ID")
+CLIENT_ID = os.getenv("CLIENT_ID")
+CLIENT_SECRET_ID = os.getenv("CLIENT_SECRET_ID")
+
+credentials = ClientSecretCredential(TENANT_ID, CLIENT_ID, CLIENT_SECRET_ID)
+scopes = ['https://graph.microsoft.com/.default']
+client = MicrosoftAgentsM365CopilotServiceClient(credentials=credentials, scopes=scopes)
+
+
+async def retrieve():
+    try:
+        retrieval_body = RetrievalPostRequestBody()
+        retrieval_body.query_string = "What is the latest in my organization"
+        retrieval = await client.copilot.retrieval.post(retrieval_body)
+        if retrieval:
+            for r in retrieval["retrievalHits"]:
+                print(r)
+    except APIError as e:
+        print(f"Error: {e.error.code}: {e.error.message}")
+        raise e
+
+
+asyncio.run(retrieve())
 ```
+
+> **Note**:
+> This client library offers an asynchronous API by default. Async is a concurrency model that is far more efficient than multi-threading, and can provide significant performance benefits and enable the use of long-lived network connections such as WebSockets. We support popular python async environments such as `asyncio`, `anyio` or `trio`. For authentication you need to use one of the async credential classes from `azure.identity`.
 
 ## Telemetry Metadata
 
@@ -82,7 +94,7 @@ This library captures metadata by default that provides insights into its usage 
 
 ## Issues
 
-View or log issues on the [Issues](https://github.com/microsoftgraph/msgraph-sdk-python-core/issues) tab in the repo.
+View or log issues on the [Issues](https://github.com/microsof/agents-m365copilot/issues) tab in the repo and tag them as `python` or `python-core`.
 
 ## Contributing
 
