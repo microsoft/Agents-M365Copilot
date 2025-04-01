@@ -1,10 +1,10 @@
-# Microsoft Graph Core SDK for Typescript
+# Microsoft Agents M365 Copilot Core SDK for Typescript
 
-Get started with the Microsoft Graph SDK for Typescript by integrating the [Microsoft Graph API](https://docs.microsoft.com/graph/overview) into your Typescript application!
+Get started with the Microsoft Agents M365 Copilot SDK for Typescript by integrating the [Microsoft Agents M365 Copilot API](https://docs.microsoft.com/graph/overview) into your Typescript application!
 
 > **Note:** this package contains the core feature of the TypeScript SDK. To get the full experience checkout [the v1 SDK](https://github.com/microsoftgraph/msgraph-sdk-typescript) and [the beta SDK](https://github.com/microsoftgraph/msgraph-beta-sdk-typescript).
 >
-> **Note:** the Microsoft Graph Typescript SDK is currently in Pre-Release.
+> **Note:** the Microsoft Agents M365 Copilot Typescript SDK is currently in Pre-Release.
 
 ## 1. Installation
 
@@ -23,10 +23,10 @@ Register your application by following the steps at [Register your app with the 
 
 ### 2.2 Create an AuthenticationProvider object
 
-An instance of the **FetchClient** class handles making requests to the service. To create a new instance of this class, you need to provide an instance of **AuthenticationProvider**, which can authenticate requests to Microsoft Graph.
+An instance of the **FetchClient** class handles making requests to the service. To create a new instance of this class, you need to provide an instance of **AuthenticationProvider**, which can authenticate requests to Microsoft Agents M365 Copilot.
 
 <!-- TODO restore that and remove the snippets below once the SDK hits GA and the public documentation has been updated -->
-<!-- For an example of how to get an authentication provider, see [choose a Microsoft Graph authentication provider](https://docs.microsoft.com/graph/sdks/choose-authentication-providers?tabs=typescript). -->
+<!-- For an example of how to get an authentication provider, see [choose a Microsoft Agents M365 Copilot authentication provider](https://docs.microsoft.com/graph/sdks/choose-authentication-providers?tabs=typescript). -->
 
 #### 2.2.1 Authorization Code Provider
 
@@ -142,19 +142,16 @@ TODO: document how the fetch client augmented with middleware handlers can be us
 
 For more detailed documentation, see:
 
-* [Overview](https://docs.microsoft.com/graph/overview)
-* [Collections](https://docs.microsoft.com/graph/sdks/paging)
-* [Making requests](https://docs.microsoft.com/graph/sdks/create-requests)
-* [Known issues](https://github.com/MicrosoftGraph/msgraph-sdk-typescript/issues)
-* [Contributions](https://github.com/microsoftgraph/msgraph-sdk-typescript/blob/main/CONTRIBUTING.md)
+* [Known issues](https://github.com/microsoft/Agents-M365Copilot/issues)
+* [Contributions](https://github.com/microsoft/Agents-M365Copilot?tab=readme-ov-file#contributing)
 
 ## 5. Issues
 
-For known issues, see [issues](https://github.com/MicrosoftGraph/msgraph-sdk-typescript/issues).
+For known issues, see [issues](https://github.com/microsoft/Agents-M365Copilot/issues).
 
 ## 6. Contributions
 
-The Microsoft Graph SDK is open for contribution. To contribute to this project, see [Contributing](https://github.com/microsoftgraph/msgraph-sdk-typescript/blob/main/CONTRIBUTING.md).
+The Microsoft Agents M365 Copilot SDK is open for contribution. To contribute to this project, see [Contributing](https://github.com/microsoft/Agents-M365Copilot?tab=readme-ov-file#contributing).
 
 ## 7. License
 

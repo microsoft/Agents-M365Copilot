@@ -42,7 +42,7 @@ export type PageIteratorCallback<T> = (data: T) => boolean;
 
 /**
  * Signature to define the request options to be sent during request.
- * The values of the GraphRequestOptions properties are passed to the Graph Request object.
+ * The values of the RequestOption properties are passed to the Request object.
  * @property {Headers} headers - the header options for the request
  * @property {RequestOption[]} options - The middleware options for the request
  */
@@ -74,7 +74,7 @@ export type PagingState = "NotStarted" | "Paused" | "IntrapageIteration" | "Inte
 export class PageIterator<T extends Parsable> {
   /**
    * @private
-   * Member holding the GraphClient instance
+   * Member holding the RequestAdapter instance
    */
   private readonly requestAdapter: RequestAdapter;
 

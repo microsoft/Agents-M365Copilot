@@ -1,16 +1,16 @@
 import { FetchRequestInit, TelemetryHandler, appendRequestHeader } from "@microsoft/kiota-http-fetchlibrary";
-import { GraphTelemetryOption } from "./GraphTelemetryOption.js";
+import { AgentsM365CopilotTelemetryOption } from "./AgentsM365CopilotTelemetryOption";
 import { type RequestOption } from "@microsoft/kiota-abstractions";
 import { coreVersion } from "../utils/Version.js";
 
 /**
- * Adds telemetry headers to requests made to the Graph API
+ * Adds telemetry headers to requests made to the Agents M365 Copilot API
  */
-export class GraphTelemetryHandler extends TelemetryHandler {
+export class AgentsM365CopilotTelemetryHandler extends TelemetryHandler {
   /**
    * Creates a new instance of the GraphTelemetryHandler class
    */
-  public constructor(graphTelemetryOption: GraphTelemetryOption) {
+  public constructor(graphTelemetryOption: AgentsM365CopilotTelemetryOption) {
     const productPrefix = graphTelemetryOption.graphProductPrefix ?? "graph-typescript";
     const coreProduct = `${productPrefix}-core/${coreVersion}`;
     let product = "";

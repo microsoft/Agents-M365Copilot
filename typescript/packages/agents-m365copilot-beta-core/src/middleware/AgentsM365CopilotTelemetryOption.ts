@@ -1,4 +1,4 @@
-export interface GraphTelemetryOption {
+export interface AgentsM365CopilotTelemetryOption {
   /**
    * The target version of the api endpoint we are targeting (v1 or beta)
    */

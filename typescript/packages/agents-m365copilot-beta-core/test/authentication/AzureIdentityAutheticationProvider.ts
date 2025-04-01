@@ -1,10 +1,10 @@
 import { assert, describe, it } from "vitest";
 import { GraphAzureIdentityAuthenticationProvider } from "../../src/authentication/AzureIdentityAuthenticationProvider";
-import { GraphTelemetryOption } from "../../src/middleware/GraphTelemetryOption";
+import { AgentsM365CopilotTelemetryOption } from "../../src/middleware/AgentsM365CopilotTelemetryOption";
 import { AzureIdentityAuthenticationProvider } from "@microsoft/kiota-authentication-azure";
 import { TokenCredential } from "@azure/core-auth";
 
-const options: GraphTelemetryOption = {
+const options: AgentsM365CopilotTelemetryOption = {
   graphServiceTargetVersion: "v1",
   graphProductPrefix: "graph-typescript-test",
   graphServiceLibraryClientVersion: "0.0.0",

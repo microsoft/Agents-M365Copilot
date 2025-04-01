@@ -5,8 +5,8 @@ import {
   UrlReplaceHandlerOptions,
   AuthorizationHandler,
 } from "@microsoft/kiota-http-fetchlibrary";
-import { GraphTelemetryOption } from "./GraphTelemetryOption.js";
-import { GraphTelemetryHandler } from "./GraphTelemetryHandler.js";
+import { AgentsM365CopilotTelemetryOption } from "./AgentsM365CopilotTelemetryOption";
+import { AgentsM365CopilotTelemetryHandler } from "./AgentsM365CopilotTelemetryHandler";
 import { defaultUrlReplacementPairs } from "../utils/Constants.js";
 import { BaseBearerTokenAuthenticationProvider } from "@microsoft/kiota-abstractions";
 
@@ -27,7 +27,7 @@ export const getDefaultMiddlewares = (
     ),
   ];
   if (options.graphTelemetryOption) {
-    additionalMiddleware.push(new GraphTelemetryHandler(options.graphTelemetryOption));
+    additionalMiddleware.push(new AgentsM365CopilotTelemetryHandler(options.graphTelemetryOption));
   }
   const fetchMiddleware = kiotaChain.slice(-1);
   const otherMiddlewares = kiotaChain.slice(0, kiotaChain.length - 1);
@@ -36,5 +36,5 @@ export const getDefaultMiddlewares = (
 };
 interface MiddlewareFactoryOptions {
   customFetch?: (request: string, init: RequestInit) => Promise<Response>;
-  graphTelemetryOption?: GraphTelemetryOption;
+  graphTelemetryOption?: AgentsM365CopilotTelemetryOption;
 }
