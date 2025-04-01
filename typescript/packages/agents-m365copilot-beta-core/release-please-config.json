@@ -1,0 +1,22 @@
+{
+    "bootstrap-sha": "5ec5c3163f499caef4cfe2a62cdedb27ef3ce170",
+    "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+    "pull-request-header": ":rocket: A new MSGraph Core TypeScript SDK release is coming up!",
+    "include-component-in-tag": false,
+    "versioning": "prerelease",
+    "packages": {
+        ".": {
+            "changelog-path": "CHANGELOG.md",
+            "release-type": "node",
+            "bump-minor-pre-major": false,
+            "bump-patch-for-minor-pre-major": false,
+            "include-v-in-tag": true,
+            "draft": false,
+            "prerelease": true
+        }
+    },
+    "extra-files": [
+        "package.json",
+        "src/utils/Version.ts"
+    ]
+}

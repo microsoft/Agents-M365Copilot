@@ -1,0 +1,78 @@
+{
+  "publishConfig": {
+    "access": "public"
+  },
+  "name": "@microsoft/msgraph-sdk-core",
+  "version": "1.0.0-preview.16",
+  "description": "Core functionalities for the Microsoft Graph JavaScript SDK",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.js",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "build": "npm run prettier:check && npm run clean && npm run build:compile",
+    "build:compile": "npm run compile",
+    "build:watch": "npm run compile:watch",
+    "clean": "shx rm -rf ./dist && shx rm -rf ./tsconfig.tsbuildinfo",
+    "compile": "tsc -b",
+    "compile:watch": "tsc -w",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:benchmark": "vitest bench",
+    "test:coverage": "npm run test -- --coverage",
+    "test:ui": "vitest --ui",
+    "lint": "eslint --quiet \"src/**/*.ts\"",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier:base": "prettier --parser typescript",
+    "prettier:check": "npm run prettier:base -- --check \"src/**/*.{ts,tsx}\"",
+    "prettier:fix": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microsoftgraph/msgraph-sdk-typescript-core.git"
+  },
+  "keywords": [
+    "Microsoft",
+    "Graph",
+    "msgraph",
+    "SDK",
+    "client",
+    "API",
+    "core"
+  ],
+  "author": "Microsoft <graphsdkpub+javascript@microsoft.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/microsoftgraph/msgraph-sdk-typescript-core/issues"
+  },
+  "homepage": "https://github.com/microsoftgraph/msgraph-sdk-typescript-core#readme",
+  "devDependencies": {
+    "@microsoft/eslint-config-msgraph": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0-alpha.54",
+    "@typescript-eslint/parser": "^8.0.0-alpha.54",
+    "@vitest/coverage-v8": "^3.0.1",
+    "@vitest/ui": "^3.0.1",
+    "eslint": "^9.7.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-jsdoc": "^50.0.0",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-simple-import-sort": "^12.0.0",
+    "fs-extra": "^11.2.0",
+    "husky": "^9.0.11",
+    "shx": "^0.4.0",
+    "typescript": "^5.3.3",
+    "vitest": "^3.0.1"
+  },
+  "dependencies": {
+    "@azure/core-auth": "^1.9.0",
+    "@microsoft/kiota-authentication-azure": "^1.0.0-preview.82",
+    "@microsoft/kiota-bundle": "^1.0.0-preview.82",
+    "tslib": "^2.6.2"
+  }
+}
