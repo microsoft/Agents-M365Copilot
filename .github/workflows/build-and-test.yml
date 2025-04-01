@@ -142,10 +142,15 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       [build-and-test-dotnet, build-and-test-python, build-and-test-typescript]
-    if: ${{ env.DOTNET_TRIGGERED || env.PYTHON_TRIGGERED || env.TYPESCRIPT_TRIGGERED }}
+    if: always()
     steps:
+      - name: No builds triggered - passing check
+        if: ${{ !env.DOTNET_TRIGGERED && !env.PYTHON_TRIGGERED && !env.TYPESCRIPT_TRIGGERED }}
+        run: exit 0
+
       - name: All triggered builds are successful
         if: |
+          (env.DOTNET_TRIGGERED || env.PYTHON_TRIGGERED || env.TYPESCRIPT_TRIGGERED) &&
           (!env.DOTNET_TRIGGERED || needs.build-and-test-dotnet.result == 'success') &&
           (!env.PYTHON_TRIGGERED || needs.build-and-test-python.result == 'success') &&
           (!env.TYPESCRIPT_TRIGGERED || needs.build-and-test-typescript.result == 'success')
@@ -153,7 +158,8 @@ jobs:
 
       - name: One or more triggered builds failed
         if: |
-          (env.DOTNET_TRIGGERED && needs.build-and-test-dotnet.result == 'failure') ||
+          (env.DOTNET_TRIGGERED || env.PYTHON_TRIGGERED || env.TYPESCRIPT_TRIGGERED) &&
+          ((env.DOTNET_TRIGGERED && needs.build-and-test-dotnet.result == 'failure') ||
           (env.PYTHON_TRIGGERED && needs.build-and-test-python.result == 'failure') ||
-          (env.TYPESCRIPT_TRIGGERED && needs.build-and-test-typescript.result == 'failure')
+          (env.TYPESCRIPT_TRIGGERED && needs.build-and-test-typescript.result == 'failure'))
         run: exit 1
