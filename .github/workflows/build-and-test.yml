@@ -21,11 +21,24 @@ permissions:
   security-events: write
 
 env:
-  DOTNET_TRIGGERED: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.changed_files, 'dotnet/') || github.event_name == 'push' && contains(github.event.head_commit.modified, 'dotnet/') || contains(github.event.head_commit.added, 'dotnet/') || github.event_name == 'workflow_dispatch' }}
-  PYTHON_TRIGGERED: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.changed_files, 'python/') || github.event_name == 'push' && contains(github.event.head_commit.modified, 'python/') || contains(github.event.head_commit.added, 'python/') || github.event_name == 'workflow_dispatch' }}
-  TYPESCRIPT_TRIGGERED: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.changed_files, 'typescript/') || github.event_name == 'push' && contains(github.event.head_commit.modified, 'typescript/') || contains(github.event.head_commit.added, 'typescript/') || github.event_name == 'workflow_dispatch' }}
+  DOTNET_TRIGGERED: ${{ contains(github.event.pull_request.changed_files, 'dotnet/') || github.event_name == 'workflow_dispatch' }}
+  PYTHON_TRIGGERED: ${{ contains(github.event.pull_request.changed_files, 'python/') || github.event_name == 'workflow_dispatch' }}
+  TYPESCRIPT_TRIGGERED: ${{ contains(github.event.pull_request.changed_files, 'typescript/') || github.event_name == 'workflow_dispatch' }}
 
 jobs:
+  debug-changes:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Debug Changed Files
+        run: |
+          echo "Event Name: ${{ github.event_name }}"
+          echo "Changed Files:"
+          echo "${{ toJson(github.event.pull_request.changed_files) }}"
+          echo "DOTNET_TRIGGERED: ${{ env.DOTNET_TRIGGERED }}"
+          echo "PYTHON_TRIGGERED: ${{ env.PYTHON_TRIGGERED }}"
+          echo "TYPESCRIPT_TRIGGERED: ${{ env.TYPESCRIPT_TRIGGERED }}"
+
   build-and-test-dotnet:
     if: ${{ env.DOTNET_TRIGGERED }}
     runs-on: ubuntu-latest
