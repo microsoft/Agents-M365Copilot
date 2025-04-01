@@ -21,188 +21,177 @@ permissions:
   security-events: write
 
 jobs:
-  debug-changes:
+  check-changes:
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
+    outputs:
+      dotnet: ${{ steps.check.outputs.dotnet }}
+      python: ${{ steps.check.outputs.python }}
+      typescript: ${{ steps.check.outputs.typescript }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Check Changed Files
+      - name: Check changed files
+        id: check
         run: |
           CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
           echo "Changed Files:"
           echo "$CHANGED_FILES"
           
-          # Set all environment variables in a single step
-          {
-            if echo "$CHANGED_FILES" | grep -q "^dotnet/"; then
-              echo "DOTNET_TRIGGERED=true"
-            else
-              echo "DOTNET_TRIGGERED=false"
-            fi
-            if echo "$CHANGED_FILES" | grep -q "^python/"; then
-              echo "PYTHON_TRIGGERED=true"
-            else
-              echo "PYTHON_TRIGGERED=false"
-            fi
-            if echo "$CHANGED_FILES" | grep -q "^typescript/"; then
-              echo "TYPESCRIPT_TRIGGERED=true"
-            else
-              echo "TYPESCRIPT_TRIGGERED=false"
-            fi
-          } >> $GITHUB_ENV
+          if echo "$CHANGED_FILES" | grep -q "^dotnet/"; then
+            echo "dotnet=true" >> $GITHUB_OUTPUT
+          else
+            echo "dotnet=false" >> $GITHUB_OUTPUT
+          fi
           
-          # Source the environment file to make variables available in current shell
-          set -a
-          source $GITHUB_ENV
-          set +a
+          if echo "$CHANGED_FILES" | grep -q "^python/"; then
+            echo "python=true" >> $GITHUB_OUTPUT
+          else
+            echo "python=false" >> $GITHUB_OUTPUT
+          fi
           
-          echo "DOTNET_TRIGGERED: $DOTNET_TRIGGERED"
-          echo "PYTHON_TRIGGERED: $PYTHON_TRIGGERED"
-          echo "TYPESCRIPT_TRIGGERED: $TYPESCRIPT_TRIGGERED"
+          if echo "$CHANGED_FILES" | grep -q "^typescript/"; then
+            echo "typescript=true" >> $GITHUB_OUTPUT
+          else
+            echo "typescript=false" >> $GITHUB_OUTPUT
+          fi
+
+  build-and-test-dotnet:
+    needs: check-changes
+    if: ${{ needs.check-changes.outputs.dotnet == 'true' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    env:
+      solutionName: Microsoft.Agents.M365Copilot.sln
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4.3.1
+        with:
+          dotnet-version: 8.x
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: csharp
+      - name: Restore dependencies
+        run: dotnet restore ${{ env.solutionName }}
+        working-directory: dotnet
+      - name: Build
+        run: dotnet build ${{ env.solutionName }} --no-restore -c Release /p:UseSharedCompilation=false
+        working-directory: dotnet
+      - name: Test
+        run: dotnet test ${{ env.solutionName }} --no-build --verbosity normal -c Release /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=opencover
+        working-directory: dotnet
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+
+  build-and-test-python:
+    needs: check-changes
+    if: ${{ needs.check-changes.outputs.python == 'true' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 5
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+          pip install -r microsoft_agents_m365copilot_core/requirements-dev.txt
+        working-directory: python
+      - name: Lint SDK with Pylint
+        run: pylint microsoft_agents_m365copilot_beta --disable=W --rcfile=.pylintrc
+        working-directory: python
+
+      - name: Lint Core Library with Pylint
+        run: pylint microsoft_agents_m365copilot_core --disable=W --rcfile=microsoft_agents_m365copilot_core/.pylintrc
+        working-directory: python
+
+      - name: Test Core Library
+        run: pytest microsoft_agents_m365copilot_core
+        working-directory: python
+
+      # CodeQL
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: python
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:python"
+
+  build-and-test-typescript:
+    needs: check-changes
+    if: ${{ needs.check-changes.outputs.typescript == 'true' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: "--max_old_space_size=9182"
+    environment:
+      name: build_test
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+        # Single version should work for compilation testing
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+        working-directory: typescript
+      - run: npm run build
+        working-directory: typescript
+      - name: Check for Secret availability
+        id: my-key-check
+        # perform secret check & put boolean result as an output
+        shell: bash
+        run: |
+          if [ "${{ secrets.client_secret }}" != '' ]; then
+            echo "defined=true" >> $GITHUB_OUTPUT;
+          else
+            echo "defined=false" >> $GITHUB_OUTPUT;
+          fi
+      - run: npm run test
+        if: steps.my-key-check.outputs.defined == 'true'
+        env:
+          TENANT_ID: ${{secrets.tenant_id}}
+          CLIENT_ID: ${{secrets.client_id}}
+          CLIENT_SECRET: ${{secrets.client_secret}}
+          USER_ID: ${{secrets.user_id}}
+        working-directory: typescript
 
   check-build-matrix:
-    needs: [debug-changes]
+    needs: [check-changes, build-and-test-dotnet, build-and-test-python, build-and-test-typescript]
+    if: always()
     runs-on: ubuntu-latest
     steps:
-      - name: Check Build Matrix
+      - name: No builds triggered - passing check
+        if: ${{ !needs.check-changes.outputs.dotnet && !needs.check-changes.outputs.python && !needs.check-changes.outputs.typescript }}
         run: exit 0
 
-  # build-and-test-dotnet:
-  #   if: ${{ env.DOTNET_TRIGGERED == 'true' || github.event_name == 'workflow_dispatch' }}
-  #   runs-on: ubuntu-latest
-  #   env:
-  #     solutionName: Microsoft.Agents.M365Copilot.sln
-  #   steps:
-  #     - uses: actions/checkout@v4.2.2
-  #     - name: Setup .NET
-  #       uses: actions/setup-dotnet@v4.3.1
-  #       with:
-  #         dotnet-version: 8.x
-  #     - name: Initialize CodeQL
-  #       uses: github/codeql-action/init@v3
-  #       with:
-  #         languages: csharp
-  #     - name: Restore dependencies
-  #       run: dotnet restore ${{ env.solutionName }}
-  #       working-directory: dotnet
-  #     - name: Build
-  #       run: dotnet build ${{ env.solutionName }} --no-restore -c Release /p:UseSharedCompilation=false
-  #       working-directory: dotnet
-  #     - name: Test
-  #       run: dotnet test ${{ env.solutionName }} --no-build --verbosity normal -c Release /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=opencover
-  #       working-directory: dotnet
-  #     - name: Perform CodeQL Analysis
-  #       uses: github/codeql-action/analyze@v3
+      - name: All triggered builds are successful
+        if: |
+          (needs.check-changes.outputs.dotnet || needs.check-changes.outputs.python || needs.check-changes.outputs.typescript) &&
+          (!needs.check-changes.outputs.dotnet || needs.build-and-test-dotnet.result == 'success') &&
+          (!needs.check-changes.outputs.python || needs.build-and-test-python.result == 'success') &&
+          (!needs.check-changes.outputs.typescript || needs.build-and-test-typescript.result == 'success')
+        run: exit 0
 
-  # build-and-test-python:
-  #   if: ${{ env.PYTHON_TRIGGERED }}
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     max-parallel: 5
-  #     matrix:
-  #       python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - name: Set up Python ${{ matrix.python-version }}
-  #       uses: actions/setup-python@v5
-  #       with:
-  #         python-version: ${{ matrix.python-version }}
-  #     - name: Install dependencies
-  #       run: |
-  #         python -m pip install --upgrade pip
-  #         pip install -r requirements-dev.txt
-  #         pip install -r microsoft_agents_m365copilot_core/requirements-dev.txt
-  #       working-directory: python
-  #     - name: Lint SDK with Pylint
-  #       run: pylint microsoft_agents_m365copilot_beta --disable=W --rcfile=.pylintrc
-  #       working-directory: python
-
-  #     - name: Lint Core Library with Pylint
-  #       run: pylint microsoft_agents_m365copilot_core --disable=W --rcfile=microsoft_agents_m365copilot_core/.pylintrc
-  #       working-directory: python
-
-  #     - name: Test Core Library
-  #       run: pytest microsoft_agents_m365copilot_core
-  #       working-directory: python
-
-  #     # CodeQL
-  #     - name: Initialize CodeQL
-  #       uses: github/codeql-action/init@v3
-  #       with:
-  #         languages: python
-  #     - name: Autobuild
-  #       uses: github/codeql-action/autobuild@v3
-  #     - name: Perform CodeQL Analysis
-  #       uses: github/codeql-action/analyze@v3
-  #       with:
-  #         category: "/language:python"
-
-  # build-and-test-typescript:
-  #   if: ${{ env.TYPESCRIPT_TRIGGERED }}
-  #   runs-on: ubuntu-latest
-  #   env:
-  #     NODE_OPTIONS: "--max_old_space_size=9182"
-  #   environment:
-  #     name: build_test
-
-  #   strategy:
-  #     matrix:
-  #       node-version: [18.x, 20.x, 22.x]
-  #       # Single version should work for compilation testing
-
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - name: Use Node.js ${{ matrix.node-version }}
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: ${{ matrix.node-version }}
-  #     - run: npm ci
-  #       working-directory: typescript
-  #     - run: npm run build
-  #       working-directory: typescript
-  #     - name: Check for Secret availability
-  #       id: my-key-check
-  #       # perform secret check & put boolean result as an output
-  #       shell: bash
-  #       run: |
-  #         if [ "${{ secrets.client_secret }}" != '' ]; then
-  #           echo "defined=true" >> $GITHUB_OUTPUT;
-  #         else
-  #           echo "defined=false" >> $GITHUB_OUTPUT;
-  #         fi
-  #     - run: npm run test
-  #       if: steps.my-key-check.outputs.defined == 'true'
-  #       env:
-  #         TENANT_ID: ${{secrets.tenant_id}}
-  #         CLIENT_ID: ${{secrets.client_id}}
-  #         CLIENT_SECRET: ${{secrets.client_secret}}
-  #         USER_ID: ${{secrets.user_id}}
-  #       working-directory: typescript
-
-  # check-build-matrix:
-  #   runs-on: ubuntu-latest
-  #   needs:
-  #     [debug-changes, build-and-test-dotnet, build-and-test-python, build-and-test-typescript]
-  #   if: always()
-  #   steps:
-  #     - name: No builds triggered - passing check
-  #       if: ${{ !env.DOTNET_TRIGGERED && !env.PYTHON_TRIGGERED && !env.TYPESCRIPT_TRIGGERED }}
-  #       run: exit 0
-
-  #     - name: All triggered builds are successful
-  #       if: |
-  #         (env.DOTNET_TRIGGERED || env.PYTHON_TRIGGERED || env.TYPESCRIPT_TRIGGERED) &&
-  #         (!env.DOTNET_TRIGGERED || needs.build-and-test-dotnet.result == 'success') &&
-  #         (!env.PYTHON_TRIGGERED || needs.build-and-test-python.result == 'success') &&
-  #         (!env.TYPESCRIPT_TRIGGERED || needs.build-and-test-typescript.result == 'success')
-  #       run: exit 0
-
-  #     - name: One or more triggered builds failed
-  #       if: |
-  #         (env.DOTNET_TRIGGERED || env.PYTHON_TRIGGERED || env.TYPESCRIPT_TRIGGERED) &&
-  #         ((env.DOTNET_TRIGGERED && needs.build-and-test-dotnet.result == 'failure') ||
-  #         (env.PYTHON_TRIGGERED && needs.build-and-test-python.result == 'failure') ||
-  #         (env.TYPESCRIPT_TRIGGERED && needs.build-and-test-typescript.result == 'failure'))
-  #       run: exit 1
+      - name: One or more triggered builds failed
+        if: |
+          (needs.check-changes.outputs.dotnet || needs.check-changes.outputs.python || needs.check-changes.outputs.typescript) &&
+          ((needs.check-changes.outputs.dotnet && needs.build-and-test-dotnet.result == 'failure') ||
+          (needs.check-changes.outputs.python && needs.build-and-test-python.result == 'failure') ||
+          (needs.check-changes.outputs.typescript && needs.build-and-test-typescript.result == 'failure'))
+        run: exit 1
