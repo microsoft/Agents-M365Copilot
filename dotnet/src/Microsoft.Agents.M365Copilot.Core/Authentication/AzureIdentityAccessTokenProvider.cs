@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Authentication;
 /// <summary>
 /// An overload of the Access Token Provider that has the defaults for Microsoft Graph.
 /// </summary>
-public class AzureIdentityAccessTokenProvider : Microsoft.Kiota.Authentication.Azure.AzureIdentityAccessTokenProvider
+public class AzureIdentityAccessTokenProvider : Kiota.Authentication.Azure.AzureIdentityAccessTokenProvider
 {
     /// <inheritdoc/>
     public AzureIdentityAccessTokenProvider(TokenCredential credential, string[] allowedHosts = null, Microsoft.Kiota.Authentication.Azure.ObservabilityOptions observabilityOptions = null, bool isCaeEnabled = true, params string[] scopes)

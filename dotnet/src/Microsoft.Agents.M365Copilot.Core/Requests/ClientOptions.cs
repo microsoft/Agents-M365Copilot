@@ -1,18 +1,18 @@
-﻿// ------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 //  Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 // ------------------------------------------------------------------------------
 
 namespace Microsoft.Agents.M365Copilot.Core.Requests
 {
     /// <summary>
-    /// The options for setting up a given graph client
+    /// The options for setting up a given  client
     /// </summary>
-    public class GraphClientOptions
+    public class ClientOptions
     {
         /// <summary>
         /// The target version of the api endpoint we are targeting (v1 or beta)
         /// </summary>
-        public string GraphServiceTargetVersion
+        public string ServiceTargetVersion
         {
             get; set;
         }
@@ -20,7 +20,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
         /// <summary>
         /// The version of the service library in use. Should be in the format `x.x.x` (Semantic version)
         /// </summary>
-        public string GraphServiceLibraryClientVersion
+        public string ServiceLibraryClientVersion
         {
             get; set;
         }
@@ -28,16 +28,16 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
         /// <summary>
         /// The version of the core library in use. Should be in the format `x.x.x` (Semantic version).
         /// </summary>
-        public string GraphCoreClientVersion
+        public string CoreClientVersion
         {
             get; set;
         }
 
         /// <summary>
         /// The product prefix to use in setting the telemetry headers.
-        /// Will default to `graph-dotnet` if not set.
+        /// Will default to `-dotnet` if not set.
         /// </summary>
-        public string GraphProductPrefix
+        public string ProductPrefix
         {
             get; set;
         }

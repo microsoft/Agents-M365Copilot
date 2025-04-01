@@ -16,17 +16,17 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
     using Microsoft.Kiota.Serialization.Json;
     using Xunit;
 
-    public class GraphResponseTests : RequestTestBase
+    public class CopilotResponseTests : RequestTestBase
     {
         [Fact]
-        public void GraphResponse_Initialize()
+        public void CopilotResponse_Initialize()
         {
             // Arrange
             HttpResponseMessage responseMessage = new HttpResponseMessage(HttpStatusCode.OK);
             RequestInformation requestInformation = new RequestInformation() { UrlTemplate = "http://localhost" };
 
             // Act
-            GraphResponse response = new GraphResponse(requestInformation, responseMessage);
+            CopilotResponse response = new CopilotResponse(requestInformation, responseMessage);
 
             // Assert
             Assert.Equal(responseMessage, response.ToHttpResponseMessage());
@@ -36,7 +36,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
         }
 
         [Fact]
-        public void GraphResponse_ValidateHeaders()
+        public void CopilotResponse_ValidateHeaders()
         {
             // Arrange
             HttpResponseMessage responseMessage = new HttpResponseMessage(HttpStatusCode.OK);
@@ -44,7 +44,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
             RequestInformation requestInformation = new RequestInformation() { UrlTemplate = "http://localhost" };
 
             // Act
-            GraphResponse response = new GraphResponse(requestInformation, responseMessage);
+            CopilotResponse response = new CopilotResponse(requestInformation, responseMessage);
 
             // Assert
             Assert.Equal(responseMessage, response.ToHttpResponseMessage());
@@ -74,7 +74,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
 
 
             // Act
-            GraphResponse<TestUser> response = new GraphResponse<TestUser>(requestInformation, responseMessage);
+            CopilotResponse<TestUser> response = new CopilotResponse<TestUser>(requestInformation, responseMessage);
             TestUser user = await response.GetResponseObjectAsync(responseHandler);
 
             // Assert

@@ -1,4 +1,4 @@
-﻿// ------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 //  Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 // ------------------------------------------------------------------------------
 
@@ -15,27 +15,27 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests.Middleware
     /// <summary>
     /// A <see cref="DelegatingHandler"/> implementation that telemetry for graph.
     /// </summary>
-    public class GraphTelemetryHandler : DelegatingHandler
+    public class TelemetryHandler : DelegatingHandler
     {
         /// The version for current assembly.
-        private static Version assemblyVersion = typeof(GraphTelemetryHandler).GetTypeInfo().Assembly.GetName().Version;
+        private static Version assemblyVersion = typeof(TelemetryHandler).GetTypeInfo().Assembly.GetName().Version;
 
         /// The value for the SDK version header.
-        private static string SdkVersionHeaderValue = string.Format(
+        private static readonly string SdkVersionHeaderValue = string.Format(
                     CoreConstants.Headers.SdkVersionHeaderValueFormatString,
                     assemblyVersion.Major,
                     assemblyVersion.Minor,
                     assemblyVersion.Build);
 
-        private readonly GraphClientOptions graphClientOptions;
+        private readonly ClientOptions clientOptions;
 
         /// <summary>
-        /// The <see cref="GraphClientOptions"/> constructor.
+        /// The <see cref="ClientOptions"/> constructor.
         /// </summary>
-        /// <param name="graphClientOptions"></param>
-        public GraphTelemetryHandler(GraphClientOptions graphClientOptions = null)
+        /// <param name="clientOptions"></param>
+        public TelemetryHandler(ClientOptions clientOptions = null)
         {
-            this.graphClientOptions = graphClientOptions ?? new GraphClientOptions();
+            this.clientOptions = clientOptions ?? new ClientOptions();
         }
 
         /// <summary>
@@ -51,19 +51,19 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests.Middleware
 
             // Build the service library string from the options
             var serviceLibraryString = string.Empty;
-            if (!string.IsNullOrEmpty(graphClientOptions?.GraphServiceLibraryClientVersion))
+            if (!string.IsNullOrEmpty(clientOptions?.ServiceLibraryClientVersion))
             {
-                serviceLibraryString = graphClientOptions?.GraphProductPrefix ?? "graph-dotnet";
-                if (!string.IsNullOrEmpty(graphClientOptions?.GraphServiceTargetVersion))
-                    serviceLibraryString += $"-{graphClientOptions?.GraphServiceTargetVersion}";
-                serviceLibraryString += $"/{graphClientOptions?.GraphServiceLibraryClientVersion},";
+                serviceLibraryString = clientOptions?.ProductPrefix ?? "microsoft-agents-m365copilot-dotnet";
+                if (!string.IsNullOrEmpty(clientOptions?.ServiceTargetVersion))
+                    serviceLibraryString += $"-{clientOptions?.ServiceTargetVersion}";
+                serviceLibraryString += $"/{clientOptions?.ServiceLibraryClientVersion},";
             }
 
             // Default to the version string we have, otherwise use the ope provided
             var coreLibraryString = SdkVersionHeaderValue;
-            if (!string.IsNullOrEmpty(graphClientOptions?.GraphCoreClientVersion) && !string.IsNullOrEmpty(graphClientOptions?.GraphProductPrefix))
+            if (!string.IsNullOrEmpty(clientOptions?.CoreClientVersion) && !string.IsNullOrEmpty(clientOptions?.ProductPrefix))
             {
-                coreLibraryString = $"{graphClientOptions?.GraphProductPrefix}-core/{graphClientOptions?.GraphCoreClientVersion}";
+                coreLibraryString = $"{clientOptions?.ProductPrefix}-core/{clientOptions?.CoreClientVersion}";
             }
 
             // Get the features section of the telemetry header

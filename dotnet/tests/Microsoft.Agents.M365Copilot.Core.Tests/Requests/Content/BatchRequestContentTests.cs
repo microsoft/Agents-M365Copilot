@@ -333,7 +333,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests.Content
             string expectedContent = "{\"requests\":[{\"id\":\"2\",\"url\":\"/me\",\"method\":\"GET\"}]}"; //Auth Header Absent.
 
             Assert.NotNull(requestContent);
-            Assert.IsType<BaseGraphRequestAdapter>(batchRequestContent.RequestAdapter);
+            Assert.IsType<BaseRequestAdaptor>(batchRequestContent.RequestAdapter);
             Assert.True(batchRequestContent.BatchRequestSteps.Count.Equals(1));
             Assert.Equal(expectedContent, requestContent);
         }

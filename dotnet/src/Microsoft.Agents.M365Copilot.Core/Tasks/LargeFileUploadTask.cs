@@ -114,11 +114,11 @@ namespace Microsoft.Agents.M365Copilot.Core.Tasks
         /// </summary>
         /// <param name="uploadUrl">Url to perform the upload to from the session</param>
         /// <returns></returns>
-        private static BaseGraphRequestAdapter InitializeAdapter(string uploadUrl)
+        private static BaseRequestAdaptor InitializeAdapter(string uploadUrl)
         {
-            HttpClient httpClient = GraphClientFactory.Create(); //no auth
+            HttpClient httpClient = ClientFactory.Create(); //no auth
             httpClient.SetFeatureFlag(FeatureFlag.FileUploadTask);
-            return new BaseGraphRequestAdapter(new AnonymousAuthenticationProvider(), httpClient: httpClient) { BaseUrl = uploadUrl };
+            return new BaseRequestAdaptor(new AnonymousAuthenticationProvider(), httpClient: httpClient) { BaseUrl = uploadUrl };
         }
 
         /// <summary>

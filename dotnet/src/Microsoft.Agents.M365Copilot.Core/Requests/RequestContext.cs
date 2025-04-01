@@ -9,7 +9,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
     /// <summary>
     /// The graph request context class
     /// </summary>
-    public class GraphRequestContext
+    public class RequestContext
     {
         /// <summary>
         /// A ClientRequestId property

@@ -11,16 +11,16 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
     using Microsoft.Agents.M365Copilot.Core.Exceptions;
     using Microsoft.Kiota.Abstractions;
     /// <summary>
-    /// The GraphResponse Object
+    /// The CopilotResponse Object
     /// </summary>
-    public class GraphResponse : IDisposable
+    public class CopilotResponse : IDisposable
     {
         /// <summary>
-        /// The GraphResponse Constructor
+        /// The CopilotResponse Constructor
         /// </summary>
         /// <param name="requestInformation">The Request made for the response</param>
         /// <param name="httpResponseMessage">The response</param>
-        public GraphResponse(RequestInformation requestInformation, HttpResponseMessage httpResponseMessage)
+        public CopilotResponse(RequestInformation requestInformation, HttpResponseMessage httpResponseMessage)
         {
             this.httpResponseMessage = httpResponseMessage ??
                                throw new ArgumentException(string.Format(ErrorConstants.Messages.NullParameter, nameof(httpResponseMessage)));

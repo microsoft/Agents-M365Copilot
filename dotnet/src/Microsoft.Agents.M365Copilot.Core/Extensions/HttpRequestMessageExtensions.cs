@@ -33,18 +33,18 @@ namespace Microsoft.Agents.M365Copilot.Core.Extensions
         }
 
         /// <summary>
-        /// Gets a <see cref="GraphRequestContext"/> from <see cref="HttpRequestMessage"/>
+        /// Gets a <see cref="RequestContext"/> from <see cref="HttpRequestMessage"/>
         /// </summary>
         /// <param name="httpRequestMessage">The <see cref="HttpRequestMessage"/> representation of the request.</param>
         /// <returns></returns>
-        public static GraphRequestContext GetRequestContext(this HttpRequestMessage httpRequestMessage)
+        public static RequestContext GetRequestContext(this HttpRequestMessage httpRequestMessage)
         {
-            GraphRequestContext requestContext = new GraphRequestContext();
+            RequestContext requestContext = new RequestContext();
 #pragma warning disable CS0618
-            if (httpRequestMessage.Properties.TryGetValue(nameof(GraphRequestContext), out var requestContextObject))
+            if (httpRequestMessage.Properties.TryGetValue(nameof(RequestContext), out var requestContextObject))
 #pragma warning restore CS0618
             {
-                requestContext = (GraphRequestContext)requestContextObject;
+                requestContext = (RequestContext)requestContextObject;
             }
             return requestContext;
         }

@@ -31,7 +31,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Mocks
         internal BaseClient(
             string baseUrl,
             IAuthenticationProvider authenticationProvider
-            ) : this(new BaseGraphRequestAdapter(authenticationProvider) { BaseUrl = baseUrl })
+            ) : this(new BaseRequestAdaptor(authenticationProvider) { BaseUrl = baseUrl })
         {
         }
 

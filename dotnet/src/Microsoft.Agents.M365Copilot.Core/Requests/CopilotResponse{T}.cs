@@ -11,16 +11,16 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
     using Microsoft.Kiota.Abstractions.Serialization;
 
     /// <summary>
-    /// The GraphResponse Object
+    /// The CopilotResponse Object
     /// </summary>
-    public class GraphResponse<T> : GraphResponse
+    public class CopilotResponse<T> : CopilotResponse
     {
         /// <summary>
-        /// The GraphResponse Constructor
+        /// The CopilotResponse Constructor
         /// </summary>
         /// <param name="requestInformation">The Request made for the response</param>
         /// <param name="httpResponseMessage">The response</param>
-        public GraphResponse(RequestInformation requestInformation, HttpResponseMessage httpResponseMessage)
+        public CopilotResponse(RequestInformation requestInformation, HttpResponseMessage httpResponseMessage)
             : base(requestInformation, httpResponseMessage)
         {
         }

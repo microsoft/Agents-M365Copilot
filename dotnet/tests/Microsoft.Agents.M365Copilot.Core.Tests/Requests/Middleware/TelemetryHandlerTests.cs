@@ -28,8 +28,10 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests.Middleware
         [Fact]
         public async Task TelemetryHandlerShouldSetTelemetryHeaderWithDefaultsAsync()
         {
-            var configuredTelemetryHandler = new GraphTelemetryHandler();
-            configuredTelemetryHandler.InnerHandler = new FakeSuccessHandler();
+            var configuredTelemetryHandler = new TelemetryHandler
+            {
+                InnerHandler = new FakeSuccessHandler()
+            };
             var testInvoker = new HttpMessageInvoker(configuredTelemetryHandler);
 
             // Arrange
@@ -60,16 +62,18 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests.Middleware
         [Fact]
         public async Task TelemetryHandlerShouldSetTelemetryHeaderWithCustomConfigurationAsync()
         {
-            var clientOptions = new GraphClientOptions
+            var clientOptions = new ClientOptions
             {
-                GraphCoreClientVersion = "2.0.0",
-                GraphServiceLibraryClientVersion = "3.0.0",
-                GraphServiceTargetVersion = "beta",
-                GraphProductPrefix = "graph-cli"
+                CoreClientVersion = "2.0.0",
+                ServiceLibraryClientVersion = "3.0.0",
+                ServiceTargetVersion = "beta",
+                ProductPrefix = "graph-cli"
             };
 
-            var configuredTelemetryHandler = new GraphTelemetryHandler(clientOptions);
-            configuredTelemetryHandler.InnerHandler = new FakeSuccessHandler();
+            var configuredTelemetryHandler = new TelemetryHandler(clientOptions)
+            {
+                InnerHandler = new FakeSuccessHandler()
+            };
             var testInvoker = new HttpMessageInvoker(configuredTelemetryHandler);
 
             // Arrange

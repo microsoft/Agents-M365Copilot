@@ -256,7 +256,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Tasks
             await cancellationTokenSource.CancelAsync();
 
             // Create task
-            IBaseClient baseClient = new BaseClient(new BaseGraphRequestAdapter(new AnonymousAuthenticationProvider(), httpClient: GraphClientFactory.Create(finalHandler: testHttpMessageHandler)));
+            IBaseClient baseClient = new BaseClient(new BaseRequestAdaptor(new AnonymousAuthenticationProvider(), httpClient: ClientFactory.Create(finalHandler: testHttpMessageHandler)));
             var fileUploadTask = new LargeFileUploadTask<TestDriveItem>(uploadSession, stream, maxSliceSize, baseClient.RequestAdapter);
 
             // Assert that the task is cancellable

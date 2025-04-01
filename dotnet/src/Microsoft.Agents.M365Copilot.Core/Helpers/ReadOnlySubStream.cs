@@ -14,26 +14,15 @@ namespace Microsoft.Agents.M365Copilot.Core.Helpers
     /// This class is inspired from System.IO.Compression in dot net core. Reference implementation can be found here
     /// https://github.com/dotnet/corefx/blob/d59f6e5a1bdabdd05317fd727efb59345e328b80/src/System.IO.Compression/src/System/IO/Compression/ZipCustomStreams.cs#L147
     /// </summary>
-    internal class ReadOnlySubStream : Stream
+    internal class ReadOnlySubStream(Stream superStream, long startPosition, long maxLength) : Stream
     {
-        private readonly long _startInSuperStream;
-        private long _positionInSuperStream;
-        private readonly long _endInSuperStream;
-        private readonly Stream _superStream;
-        private bool _canRead;
-        private bool _canSeek;
-        private bool _isDisposed;
-
-        public ReadOnlySubStream(Stream superStream, long startPosition, long maxLength)
-        {
-            this._startInSuperStream = startPosition;
-            this._positionInSuperStream = startPosition;
-            this._endInSuperStream = startPosition + maxLength;
-            this._superStream = superStream;
-            this._canRead = true;
-            this._canSeek = true;
-            this._isDisposed = false;
-        }
+        private readonly long _startInSuperStream = startPosition;
+        private long _positionInSuperStream = startPosition;
+        private readonly long _endInSuperStream = startPosition + maxLength;
+        private readonly Stream _superStream = superStream;
+        private bool _canRead = true;
+        private bool _canSeek = true;
+        private bool _isDisposed = false;
 
         public override long Length
         {

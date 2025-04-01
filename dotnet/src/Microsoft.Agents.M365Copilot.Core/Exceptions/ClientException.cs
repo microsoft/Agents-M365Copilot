@@ -10,15 +10,12 @@ namespace Microsoft.Agents.M365Copilot.Core.Exceptions
     /// <summary>
     /// Graph client exception.
     /// </summary>
-    public class ClientException : ApiException
+    /// <remarks>
+    /// Creates a new client exception.
+    /// </remarks>
+    /// <param name="message">The exception message.</param>
+    /// <param name="innerException">The possible innerException.</param>
+    public class ClientException(string message, Exception innerException = null) : ApiException(message, innerException)
     {
-        /// <summary>
-        /// Creates a new client exception.
-        /// </summary>
-        /// <param name="message">The exception message.</param>
-        /// <param name="innerException">The possible innerException.</param>
-        public ClientException(string message, Exception innerException = null) : base(message, innerException)
-        {
-        }
     }
 }

@@ -33,7 +33,7 @@ For an example of authenticating a UWP app using the V2 Authentication Endpoint,
 
 ### 3. Create a HttpClient object with an authentication provider
 
-You can create an instance of **HttpClient** that is pre-configured for making requests to Microsoft Graph APIs using `GraphClientFactory`.
+You can create an instance of **HttpClient** that is pre-configured for making requests to Microsoft Graph APIs using `ClientFactory`.
 
 ```cs
 // The client credentials flow requires that you request the
@@ -57,7 +57,7 @@ var options = new ClientSecretCredentialOptions
 var clientSecretCredential = new ClientSecretCredential(
     tenantId, clientId, clientSecret, options);
 
-HttpClient httpClient = GraphClientFactory.create(tokenCredential: clientSecretCredential, version: "beta");
+HttpClient httpClient = ClientFactory.create(tokenCredential: clientSecretCredential, version: "beta");
 
 ```
 

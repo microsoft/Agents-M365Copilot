@@ -13,18 +13,18 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
     /// <summary>
     /// The <see cref="IRequestAdapter"/> instance for use with microsoft graph
     /// </summary>
-    public class BaseGraphRequestAdapter : HttpClientRequestAdapter
+    public class BaseRequestAdaptor : HttpClientRequestAdapter
     {
         /// <summary>
-        /// The public constructor for <see cref="BaseGraphRequestAdapter"/>
+        /// The public constructor for <see cref="BaseRequestAdaptor"/>
         /// </summary>
         /// <param name="authenticationProvider">The authentication provider.</param>
-        /// <param name="graphClientOptions">The options for the graph client</param>
+        /// <param name="clientOptions">The options for the graph client</param>
         /// <param name="parseNodeFactory">The parse node factory.</param>
         /// <param name="serializationWriterFactory">The serialization writer factory.</param>
         /// <param name="httpClient">The native HTTP client.</param>
-        public BaseGraphRequestAdapter(IAuthenticationProvider authenticationProvider, GraphClientOptions graphClientOptions = null, IParseNodeFactory parseNodeFactory = null, ISerializationWriterFactory serializationWriterFactory = null, HttpClient httpClient = null)
-            : base(authenticationProvider, parseNodeFactory ?? ParseNodeFactoryRegistry.DefaultInstance, serializationWriterFactory ?? SerializationWriterFactoryRegistry.DefaultInstance, httpClient ?? GraphClientFactory.Create(graphClientOptions))
+        public BaseRequestAdaptor(IAuthenticationProvider authenticationProvider, ClientOptions clientOptions = null, IParseNodeFactory parseNodeFactory = null, ISerializationWriterFactory serializationWriterFactory = null, HttpClient httpClient = null)
+            : base(authenticationProvider, parseNodeFactory ?? ParseNodeFactoryRegistry.DefaultInstance, serializationWriterFactory ?? SerializationWriterFactoryRegistry.DefaultInstance, httpClient ?? ClientFactory.Create(clientOptions))
         {
         }
     }

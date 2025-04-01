@@ -42,7 +42,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Extensions
 
         /// <summary>
         /// Validates the signature and decrypted content attached with the notification.
-        /// https://docs.microsoft.com/en-us/graph/webhooks-with-resource-data#decrypting-resource-data-from-change-notifications
+        /// https://learn.microsoft.com/en-us/graph/webhooks-with-resource-data#decrypting-resource-data-from-change-notifications
         /// </summary>
         /// <param name="encryptedContent">The encrypted content of type <see cref="IDecryptableContent"/></param>
         /// <param name="certificateProvider">Certificate provider to decrypt the content.

@@ -92,7 +92,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests.Content
 
             // as we only use the adapter to serialize request using the `ConvertToNativeRequestAsync` interface,
             // we don't want to make extra request to the authentication provider as the request does not need the authentication header.
-            this.RequestAdapter = new BaseGraphRequestAdapter(new AnonymousAuthenticationProvider())
+            this.RequestAdapter = new BaseRequestAdaptor(new AnonymousAuthenticationProvider())
             {
                 BaseUrl = requestAdapter.BaseUrl
             };
