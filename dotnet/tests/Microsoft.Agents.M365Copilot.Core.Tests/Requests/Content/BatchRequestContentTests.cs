@@ -16,8 +16,12 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests.Content
     using System.Text.Json;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
-    using Microsoft.Graph.DotnetCore.Core.Test.Mocks;
-    using Microsoft.Graph.DotnetCore.Core.Test.TestModels.ServiceModels;
+    using Microsoft.Agents.M365Copilot.Core.Exceptions;
+    using Microsoft.Agents.M365Copilot.Core.Models;
+    using Microsoft.Agents.M365Copilot.Core.Requests;
+    using Microsoft.Agents.M365Copilot.Core.Requests.Content;
+    using Microsoft.Agents.M365Copilot.Core.Tests.Mocks;
+    using Microsoft.Agents.M365Copilot.Core.Tests.TestModels.ServiceModels;
     using Microsoft.Kiota.Abstractions;
     using Microsoft.Kiota.Serialization.Json;
     using Microsoft.Kiota.Serialization.Text;
@@ -29,7 +33,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests.Content
         private const string REQUEST_URL = "https://graph.microsoft.com/v1.0/me";
         private readonly IBaseClient client = new BaseClient(REQUEST_URL, new MockAuthenticationProvider().Object);
 
-        private readonly Regex whitespacePattern = new Regex("\\s");
+        private readonly Regex whitespacePattern = new("\\s");
 
         public BatchRequestContentTests()
         {

@@ -6,7 +6,8 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
 {
     using System;
     using System.Net.Http;
-    using Microsoft.Graph.DotnetCore.Core.Test.Mocks;
+    using Microsoft.Agents.M365Copilot.Core.Requests;
+    using Microsoft.Agents.M365Copilot.Core.Tests.Mocks;
     public class RequestTestBase : IDisposable
     {
         protected string baseUrl = "https://localhost/v1.0";

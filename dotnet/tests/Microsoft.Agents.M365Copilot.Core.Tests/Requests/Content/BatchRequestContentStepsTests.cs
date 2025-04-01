@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using Microsoft.Agents.M365Copilot.Core.Models;
+using Microsoft.Agents.M365Copilot.Core.Requests.Content;
 using Xunit;
 
 namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests.Content;

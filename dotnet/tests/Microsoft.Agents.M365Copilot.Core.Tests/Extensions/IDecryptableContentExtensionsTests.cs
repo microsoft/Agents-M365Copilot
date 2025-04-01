@@ -2,13 +2,15 @@
 //  Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 // ------------------------------------------------------------------------------
 
-namespace Microsoft.Agents.M365Copilot.Core.Tests.Extensions
+namespace Microsoft.Graph.DotnetCore.Core.Test.Extensions
 {
     using System;
     using System.Security;
     using System.Security.Cryptography.X509Certificates;
     using System.Threading.Tasks;
-    using Microsoft.Graph.DotnetCore.Core.Test.TestModels.ServiceModels;
+    using Microsoft.Agents.M365Copilot.Core;
+    using Microsoft.Agents.M365Copilot.Core.Extensions;
+    using Microsoft.Agents.M365Copilot.Core.Tests.TestModels.ServiceModels;
     using Microsoft.Kiota.Abstractions.Serialization;
     using Microsoft.Kiota.Serialization.Json;
     using Xunit;

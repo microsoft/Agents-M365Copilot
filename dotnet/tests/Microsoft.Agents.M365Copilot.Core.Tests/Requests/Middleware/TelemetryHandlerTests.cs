@@ -10,6 +10,8 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests.Middleware
     using System.Runtime.InteropServices;
     using System.Threading;
     using System.Threading.Tasks;
+    using Microsoft.Agents.M365Copilot.Core.Requests;
+    using Microsoft.Agents.M365Copilot.Core.Requests.Middleware;
     using Microsoft.Kiota.Abstractions;
     using Microsoft.Kiota.Abstractions.Authentication;
     using Microsoft.Kiota.Http.HttpClientLibrary;

@@ -12,10 +12,13 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Tasks
     using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
+    using Microsoft.Agents.M365Copilot.Core;
     using Microsoft.Agents.M365Copilot.Core.Models;
-    using Microsoft.Graph.DotnetCore.Core.Test.Mocks;
-    using Microsoft.Graph.DotnetCore.Core.Test.Requests;
-    using Microsoft.Graph.DotnetCore.Core.Test.TestModels.ServiceModels;
+    using Microsoft.Agents.M365Copilot.Core.Requests;
+    using Microsoft.Agents.M365Copilot.Core.Tasks;
+    using Microsoft.Agents.M365Copilot.Core.Tests.Mocks;
+    using Microsoft.Agents.M365Copilot.Core.Tests.Requests;
+    using Microsoft.Agents.M365Copilot.Core.Tests.TestModels.ServiceModels;
     using Microsoft.Kiota.Abstractions.Authentication;
     using Microsoft.Kiota.Abstractions.Serialization;
     using Microsoft.Kiota.Serialization.Json;
@@ -250,7 +253,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Tasks
             // Create cancelled token
             var cancellationTokenSource = new CancellationTokenSource();
             CancellationToken cancellationToken = cancellationTokenSource.Token;
-            cancellationTokenSource.Cancel();
+            await cancellationTokenSource.CancelAsync();
 
             // Create task
             IBaseClient baseClient = new BaseClient(new BaseGraphRequestAdapter(new AnonymousAuthenticationProvider(), httpClient: GraphClientFactory.Create(finalHandler: testHttpMessageHandler)));

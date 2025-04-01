@@ -4,6 +4,7 @@
 
 namespace Microsoft.Agents.M365Copilot.Core.Tests.Mocks
 {
+    using Microsoft.Agents.M365Copilot.Core.Core.Requests.Requests;
     using Microsoft.Agents.M365Copilot.Core.Requests;
     using Microsoft.Kiota.Abstractions;
     using Microsoft.Kiota.Abstractions.Authentication;

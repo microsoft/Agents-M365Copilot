@@ -7,6 +7,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Helpers
     using System;
     using System.Linq.Expressions;
     using System.Text.Json.Serialization;
+    using Microsoft.Agents.M365Copilot.Core.Helpers;
     using Xunit;
     public class ExtractSelectHelperTest
     {

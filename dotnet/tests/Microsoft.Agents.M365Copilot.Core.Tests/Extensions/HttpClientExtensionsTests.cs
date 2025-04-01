@@ -7,6 +7,8 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Extensions
     using System;
     using System.Linq;
     using System.Net.Http;
+    using Microsoft.Agents.M365Copilot.Core.Extensions;
+    using Microsoft.Agents.M365Copilot.Core.Requests;
     using Xunit;
     public class HttpClientExtensionsTests
     {

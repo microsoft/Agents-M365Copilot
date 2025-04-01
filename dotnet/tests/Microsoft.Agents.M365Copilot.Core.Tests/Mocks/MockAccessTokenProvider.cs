@@ -22,7 +22,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Mocks
             )).Returns(Task.FromResult(accessToken));
 
             this.Setup(x => x.AllowedHostsValidator).Returns(
-                new AllowedHostsValidator(new List<string> { "graph.microsoft.com" })
+                new AllowedHostsValidator(["graph.microsoft.com"])
             );
         }
     }

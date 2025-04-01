@@ -13,6 +13,8 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
     using System.Threading;
     using System.Threading.Tasks;
     using Azure.Core;
+    using Microsoft.Agents.M365Copilot.Core.Requests;
+    using Microsoft.Agents.M365Copilot.Core.Requests.Middleware;
     using Microsoft.Kiota.Abstractions.Authentication;
     using Microsoft.Kiota.Http.HttpClientLibrary.Middleware;
     using Microsoft.Kiota.Http.HttpClientLibrary.Middleware.Options;

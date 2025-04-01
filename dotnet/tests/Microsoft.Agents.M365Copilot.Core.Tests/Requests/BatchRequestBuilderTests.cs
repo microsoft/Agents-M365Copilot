@@ -9,8 +9,12 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
     using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
+    using Microsoft.Agents.M365Copilot.Core.Core.Requests.Requests;
+    using Microsoft.Agents.M365Copilot.Core.Exceptions;
+    using Microsoft.Agents.M365Copilot.Core.Models;
     using Microsoft.Agents.M365Copilot.Core.Requests;
-    using Microsoft.Graph.DotnetCore.Core.Test.Mocks;
+    using Microsoft.Agents.M365Copilot.Core.Requests.Content;
+    using Microsoft.Agents.M365Copilot.Core.Tests.Mocks;
     using Microsoft.Kiota.Abstractions;
     using Microsoft.Kiota.Abstractions.Authentication;
     using Microsoft.Kiota.Abstractions.Serialization;

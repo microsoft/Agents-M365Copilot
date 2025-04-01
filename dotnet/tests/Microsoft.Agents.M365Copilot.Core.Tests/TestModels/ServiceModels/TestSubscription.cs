@@ -6,6 +6,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.TestModels.ServiceModels
 {
     using System;
     using System.Collections.Generic;
+    using Microsoft.Agents.M365Copilot.Core.Models;
     using Microsoft.Kiota.Abstractions.Serialization;
 
     public class TestSubscription : IEncryptableSubscription, IParsable, IAdditionalDataHolder

@@ -6,6 +6,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Exceptions
 {
     using System;
     using System.Text.Json;
+    using Microsoft.Agents.M365Copilot.Core.Exceptions;
     using Xunit;
     public class ServiceExceptionTests
     {

@@ -5,6 +5,7 @@
 namespace Microsoft.Agents.M365Copilot.Core.Tests.Helpers
 {
     using System;
+    using Microsoft.Agents.M365Copilot.Core.Helpers;
     using Xunit;
     public class UrlHelperTests
     {

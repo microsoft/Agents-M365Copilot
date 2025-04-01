@@ -11,9 +11,11 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
     using System.Text.Json;
     using System.Threading;
     using System.Threading.Tasks;
-    using Microsoft.Graph;
-    using Microsoft.Graph.DotnetCore.Core.Test.Mocks;
-    using Microsoft.Graph.DotnetCore.Core.Test.TestModels;
+    using Microsoft.Agents.M365Copilot.Core.Exceptions;
+    using Microsoft.Agents.M365Copilot.Core.Models;
+    using Microsoft.Agents.M365Copilot.Core.Requests;
+    using Microsoft.Agents.M365Copilot.Core.Tests.Mocks;
+    using Microsoft.Agents.M365Copilot.Core.Tests.TestModels;
     using Microsoft.Kiota.Abstractions;
     using Microsoft.Kiota.Abstractions.Serialization;
     using Microsoft.Kiota.Serialization.Json;

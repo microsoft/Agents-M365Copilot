@@ -4,7 +4,7 @@
 
 namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
 {
-    using Microsoft.Graph.DotnetCore.Core.Test.Mocks;
+    using Microsoft.Agents.M365Copilot.Core.Tests.Mocks;
     using Xunit;
     public class BaseClientTests
     {

@@ -4,6 +4,7 @@
 
 using System.Collections.Generic;
 using System.IO;
+using Microsoft.Agents.M365Copilot.Core.Helpers;
 using Xunit;
 
 namespace Microsoft.Agents.M365Copilot.Core.Tests.Helpers
@@ -11,10 +12,10 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Helpers
     public class ReadOnlySubStreamTests
     {
         private readonly Stream _baseStream;
-        private readonly List<string> _segments = new List<string>()
-        {
+        private readonly List<string> _segments =
+        [
             "1234567890","0987654321","1357924680","2468013579"
-        };
+        ];
 
         public ReadOnlySubStreamTests()
         {

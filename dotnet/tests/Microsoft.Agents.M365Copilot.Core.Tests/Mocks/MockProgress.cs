@@ -5,6 +5,7 @@
 namespace Microsoft.Agents.M365Copilot.Core.Tests.Mocks
 {
     using System;
+    using Microsoft.Agents.M365Copilot.Core.Models;
     using Moq;
     public class MockProgress : Mock<IProgress<AsyncOperationStatus>>
     {

@@ -12,9 +12,10 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Serialization
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using Microsoft.Agents.M365Copilot.Core.Exceptions;
     using Microsoft.Agents.M365Copilot.Core.Models;
-    using Microsoft.Graph.DotnetCore.Core.Test.TestModels;
-    using Microsoft.Graph.DotnetCore.Core.Test.TestModels.ServiceModels;
+    using Microsoft.Agents.M365Copilot.Core.Tests.TestModels;
+    using Microsoft.Agents.M365Copilot.Core.Tests.TestModels.ServiceModels;
     using Microsoft.Kiota.Abstractions;
     using Microsoft.Kiota.Abstractions.Serialization;
     using Microsoft.Kiota.Serialization.Json;
