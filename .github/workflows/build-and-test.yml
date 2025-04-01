@@ -56,7 +56,8 @@ jobs:
             echo "typescript=false" >> $GITHUB_OUTPUT
           fi
 
-  build-and-test-dotnet:
+  dotnet:
+    name: Build and test .NET Beta and core code
     needs: check-changes
     if: ${{ needs.check-changes.outputs.dotnet == 'true' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
@@ -84,7 +85,8 @@ jobs:
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
 
-  build-and-test-python:
+  python:
+    name: Build and test Python Beta and core code
     needs: check-changes
     if: ${{ needs.check-changes.outputs.python == 'true' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
@@ -128,7 +130,8 @@ jobs:
         with:
           category: "/language:python"
 
-  build-and-test-typescript:
+  typescript:
+    name: Build and test TypeScript Beta and core code
     needs: check-changes
     if: ${{ needs.check-changes.outputs.typescript == 'true' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
@@ -172,7 +175,8 @@ jobs:
         working-directory: typescript
 
   check-build-matrix:
-    needs: [check-changes, build-and-test-dotnet, build-and-test-python, build-and-test-typescript]
+    name: Checks and validates the build matrix
+    needs: [check-changes, dotnet, python, typescript]
     if: always()
     runs-on: ubuntu-latest
     steps:
@@ -183,15 +187,15 @@ jobs:
       - name: All triggered builds are successful
         if: |
           (needs.check-changes.outputs.dotnet || needs.check-changes.outputs.python || needs.check-changes.outputs.typescript) &&
-          (!needs.check-changes.outputs.dotnet || needs.build-and-test-dotnet.result == 'success') &&
-          (!needs.check-changes.outputs.python || needs.build-and-test-python.result == 'success') &&
-          (!needs.check-changes.outputs.typescript || needs.build-and-test-typescript.result == 'success')
+          (!needs.check-changes.outputs.dotnet || needs.dotnet.result == 'success') &&
+          (!needs.check-changes.outputs.python || needs.python.result == 'success') &&
+          (!needs.check-changes.outputs.typescript || needs.typescript.result == 'success')
         run: exit 0
 
       - name: One or more triggered builds failed
         if: |
           (needs.check-changes.outputs.dotnet || needs.check-changes.outputs.python || needs.check-changes.outputs.typescript) &&
-          ((needs.check-changes.outputs.dotnet && needs.build-and-test-dotnet.result == 'failure') ||
-          (needs.check-changes.outputs.python && needs.build-and-test-python.result == 'failure') ||
-          (needs.check-changes.outputs.typescript && needs.build-and-test-typescript.result == 'failure'))
+          ((needs.check-changes.outputs.dotnet && needs.dotnet.result == 'failure') ||
+          (needs.check-changes.outputs.python && needs.python.result == 'failure') ||
+          (needs.check-changes.outputs.typescript && needs.typescript.result == 'failure'))
         run: exit 1
