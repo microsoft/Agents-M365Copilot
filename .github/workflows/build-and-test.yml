@@ -21,9 +21,9 @@ permissions:
   security-events: write
 
 env:
-  DOTNET_TRIGGERED: ${{ contains(github.event.pull_request.changed_files, 'dotnet/') || contains(github.event.head_commit.modified, 'dotnet/') || contains(github.event.head_commit.added, 'dotnet/') || github.event_name == 'workflow_dispatch' }}
-  PYTHON_TRIGGERED: ${{ contains(github.event.pull_request.changed_files, 'python/') || contains(github.event.head_commit.modified, 'python/') || contains(github.event.head_commit.added, 'python/') || github.event_name == 'workflow_dispatch' }}
-  TYPESCRIPT_TRIGGERED: ${{ contains(github.event.pull_request.changed_files, 'typescript/') || contains(github.event.head_commit.modified, 'typescript/') || contains(github.event.head_commit.added, 'typescript/') || github.event_name == 'workflow_dispatch' }}
+  DOTNET_TRIGGERED: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.changed_files, 'dotnet/') || github.event_name == 'push' && contains(github.event.head_commit.modified, 'dotnet/') || contains(github.event.head_commit.added, 'dotnet/') || github.event_name == 'workflow_dispatch' }}
+  PYTHON_TRIGGERED: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.changed_files, 'python/') || github.event_name == 'push' && contains(github.event.head_commit.modified, 'python/') || contains(github.event.head_commit.added, 'python/') || github.event_name == 'workflow_dispatch' }}
+  TYPESCRIPT_TRIGGERED: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.changed_files, 'typescript/') || github.event_name == 'push' && contains(github.event.head_commit.modified, 'typescript/') || contains(github.event.head_commit.added, 'typescript/') || github.event_name == 'workflow_dispatch' }}
 
 jobs:
   build-and-test-dotnet:
