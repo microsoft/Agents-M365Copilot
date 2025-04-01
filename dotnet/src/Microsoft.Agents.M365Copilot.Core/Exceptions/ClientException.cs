@@ -8,7 +8,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Exceptions
     using Microsoft.Kiota.Abstractions;
 
     /// <summary>
-    /// Graph client exception.
+    /// Microsoft Copilot client exception.
     /// </summary>
     /// <remarks>
     /// Creates a new client exception.
