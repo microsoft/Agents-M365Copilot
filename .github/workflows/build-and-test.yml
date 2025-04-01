@@ -33,16 +33,35 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Debug Changed Files
+      - name: Check Changed Files
         run: |
-          echo "Event Name: ${{ github.event_name }}"
-          echo "Base SHA: ${{ github.event.pull_request.base.sha }}"
-          echo "Head SHA: ${{ github.event.pull_request.head.sha }}"
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
           echo "Changed Files:"
-          git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }}
-          echo "DOTNET_TRIGGERED: ${{ env.DOTNET_TRIGGERED }}"
-          echo "PYTHON_TRIGGERED: ${{ env.PYTHON_TRIGGERED }}"
-          echo "TYPESCRIPT_TRIGGERED: ${{ env.TYPESCRIPT_TRIGGERED }}"
+          echo "$CHANGED_FILES"
+          
+          # Set all environment variables in a single step
+          {
+            if echo "$CHANGED_FILES" | grep -q "^dotnet/"; then
+              echo "DOTNET_TRIGGERED=true"
+            else
+              echo "DOTNET_TRIGGERED=false"
+            fi
+            if echo "$CHANGED_FILES" | grep -q "^python/"; then
+              echo "PYTHON_TRIGGERED=true"
+            else
+              echo "PYTHON_TRIGGERED=false"
+            fi
+            if echo "$CHANGED_FILES" | grep -q "^typescript/"; then
+              echo "TYPESCRIPT_TRIGGERED=true"
+            else
+              echo "TYPESCRIPT_TRIGGERED=false"
+            fi
+          } >> $GITHUB_ENV
+          
+          echo "DOTNET_TRIGGERED: $DOTNET_TRIGGERED"
+          echo "PYTHON_TRIGGERED: $PYTHON_TRIGGERED"
+          echo "TYPESCRIPT_TRIGGERED: $TYPESCRIPT_TRIGGERED"
+
   check-build-matrix:
     needs: [debug-changes]
     runs-on: ubuntu-latest
@@ -50,32 +69,32 @@ jobs:
       - name: Check Build Matrix
         run: exit 0
 
-  # build-and-test-dotnet:
-  #   if: ${{ env.DOTNET_TRIGGERED }}
-  #   runs-on: ubuntu-latest
-  #   env:
-  #     solutionName: Microsoft.Agents.M365Copilot.sln
-  #   steps:
-  #     - uses: actions/checkout@v4.2.2
-  #     - name: Setup .NET
-  #       uses: actions/setup-dotnet@v4.3.1
-  #       with:
-  #         dotnet-version: 8.x
-  #     - name: Initialize CodeQL
-  #       uses: github/codeql-action/init@v3
-  #       with:
-  #         languages: csharp
-  #     - name: Restore dependencies
-  #       run: dotnet restore ${{ env.solutionName }}
-  #       working-directory: dotnet
-  #     - name: Build
-  #       run: dotnet build ${{ env.solutionName }} --no-restore -c Release /p:UseSharedCompilation=false
-  #       working-directory: dotnet
-  #     - name: Test
-  #       run: dotnet test ${{ env.solutionName }} --no-build --verbosity normal -c Release /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=opencover
-  #       working-directory: dotnet
-  #     - name: Perform CodeQL Analysis
-  #       uses: github/codeql-action/analyze@v3
+  build-and-test-dotnet:
+    if: ${{ env.DOTNET_TRIGGERED == 'true' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    env:
+      solutionName: Microsoft.Agents.M365Copilot.sln
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4.3.1
+        with:
+          dotnet-version: 8.x
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: csharp
+      - name: Restore dependencies
+        run: dotnet restore ${{ env.solutionName }}
+        working-directory: dotnet
+      - name: Build
+        run: dotnet build ${{ env.solutionName }} --no-restore -c Release /p:UseSharedCompilation=false
+        working-directory: dotnet
+      - name: Test
+        run: dotnet test ${{ env.solutionName }} --no-build --verbosity normal -c Release /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=opencover
+        working-directory: dotnet
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
 
   # build-and-test-python:
   #   if: ${{ env.PYTHON_TRIGGERED }}
