@@ -28,7 +28,6 @@ env:
 jobs:
   debug-changes:
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
     steps:
       - name: Debug Changed Files
         run: |
