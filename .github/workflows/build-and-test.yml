@@ -142,7 +142,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       [build-and-test-dotnet, build-and-test-python, build-and-test-typescript]
-    if: always()
+    if: ${{ env.DOTNET_TRIGGERED || env.PYTHON_TRIGGERED || env.TYPESCRIPT_TRIGGERED }}
     steps:
       - name: All triggered builds are successful
         if: |
