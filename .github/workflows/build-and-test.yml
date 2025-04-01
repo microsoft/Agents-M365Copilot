@@ -37,6 +37,12 @@ jobs:
           echo "DOTNET_TRIGGERED: ${{ env.DOTNET_TRIGGERED }}"
           echo "PYTHON_TRIGGERED: ${{ env.PYTHON_TRIGGERED }}"
           echo "TYPESCRIPT_TRIGGERED: ${{ env.TYPESCRIPT_TRIGGERED }}"
+  check-build-matrix:
+    needs: [debug-changes]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Build Matrix
+        run: exit 0
 
   # build-and-test-dotnet:
   #   if: ${{ env.DOTNET_TRIGGERED }}
