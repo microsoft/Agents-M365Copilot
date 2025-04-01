@@ -53,6 +53,11 @@ jobs:
             fi
           } >> $GITHUB_ENV
           
+          # Source the environment file to make variables available in current shell
+          set -a
+          source $GITHUB_ENV
+          set +a
+          
           echo "DOTNET_TRIGGERED: $DOTNET_TRIGGERED"
           echo "PYTHON_TRIGGERED: $PYTHON_TRIGGERED"
           echo "TYPESCRIPT_TRIGGERED: $TYPESCRIPT_TRIGGERED"
