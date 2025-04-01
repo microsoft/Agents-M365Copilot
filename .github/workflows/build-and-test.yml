@@ -35,6 +35,8 @@ jobs:
           echo "Event Name: ${{ github.event_name }}"
           echo "Changed Files:"
           echo "${{ toJson(github.event.pull_request.changed_files) }}"
+          echo "Changed Updated Files:"
+          echo "${{ toJson(github.event.pull_request.changed_files.*) }}"
           echo "DOTNET_TRIGGERED: ${{ env.DOTNET_TRIGGERED }}"
           echo "PYTHON_TRIGGERED: ${{ env.PYTHON_TRIGGERED }}"
           echo "TYPESCRIPT_TRIGGERED: ${{ env.TYPESCRIPT_TRIGGERED }}"
