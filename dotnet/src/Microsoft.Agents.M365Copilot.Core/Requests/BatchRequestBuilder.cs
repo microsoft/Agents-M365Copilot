@@ -11,6 +11,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Core.Requests.Requests
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Agents.M365Copilot.Core.Exceptions;
+    using Microsoft.Agents.M365Copilot.Core.Extensions;
     using Microsoft.Agents.M365Copilot.Core.Requests.Content;
     using Microsoft.Kiota.Abstractions;
     using Microsoft.Kiota.Abstractions.Serialization;
