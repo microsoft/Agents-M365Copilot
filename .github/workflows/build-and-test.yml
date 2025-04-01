@@ -137,10 +137,21 @@ jobs:
     needs:
       [build-and-test-dotnet, build-and-test-python, build-and-test-typescript]
     if: always()
+    env:
+      DOTNET_TRIGGERED: ${{ contains(github.event.pull_request.changed_files, 'dotnet/') || contains(github.event.head_commit.modified, 'dotnet/') || contains(github.event.head_commit.added, 'dotnet/') || github.event_name == 'workflow_dispatch' }}
+      PYTHON_TRIGGERED: ${{ contains(github.event.pull_request.changed_files, 'python/') || contains(github.event.head_commit.modified, 'python/') || contains(github.event.head_commit.added, 'python/') || github.event_name == 'workflow_dispatch' }}
+      TYPESCRIPT_TRIGGERED: ${{ contains(github.event.pull_request.changed_files, 'typescript/') || contains(github.event.head_commit.modified, 'typescript/') || contains(github.event.head_commit.added, 'typescript/') || github.event_name == 'workflow_dispatch' }}
     steps:
-      - name: All build matrix options are successful
-        if: ${{ !(contains(needs.*.result, 'failure')) }}
+      - name: All triggered builds are successful
+        if: |
+          (!env.DOTNET_TRIGGERED || needs.build-and-test-dotnet.result == 'success') &&
+          (!env.PYTHON_TRIGGERED || needs.build-and-test-python.result == 'success') &&
+          (!env.TYPESCRIPT_TRIGGERED || needs.build-and-test-typescript.result == 'success')
         run: exit 0
-      - name: One or more build matrix options failed
-        if: ${{ contains(needs.*.result, 'failure') }}
+
+      - name: One or more triggered builds failed
+        if: |
+          (env.DOTNET_TRIGGERED && needs.build-and-test-dotnet.result == 'failure') ||
+          (env.PYTHON_TRIGGERED && needs.build-and-test-python.result == 'failure') ||
+          (env.TYPESCRIPT_TRIGGERED && needs.build-and-test-typescript.result == 'failure')
         run: exit 1
