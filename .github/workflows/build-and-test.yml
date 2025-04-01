@@ -21,13 +21,14 @@ permissions:
   security-events: write
 
 env:
-  DOTNET_TRIGGERED: ${{ contains(github.event.pull_request.changed_files, 'dotnet/') || github.event_name == 'workflow_dispatch' }}
-  PYTHON_TRIGGERED: ${{ contains(github.event.pull_request.changed_files, 'python/') || github.event_name == 'workflow_dispatch' }}
-  TYPESCRIPT_TRIGGERED: ${{ contains(github.event.pull_request.changed_files, 'typescript/') || github.event_name == 'workflow_dispatch' }}
+  DOTNET_TRIGGERED: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.changed_files.*, 'dotnet/') || github.event_name == 'workflow_dispatch' }}
+  PYTHON_TRIGGERED: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.changed_files.*, 'python/') || github.event_name == 'workflow_dispatch' }}
+  TYPESCRIPT_TRIGGERED: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.changed_files.*, 'typescript/') || github.event_name == 'workflow_dispatch' }}
 
 jobs:
   debug-changes:
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
     steps:
       - name: Debug Changed Files
         run: |
@@ -44,32 +45,32 @@ jobs:
       - name: Check Build Matrix
         run: exit 0
 
-  # build-and-test-dotnet:
-  #   if: ${{ env.DOTNET_TRIGGERED }}
-  #   runs-on: ubuntu-latest
-  #   env:
-  #     solutionName: Microsoft.Agents.M365Copilot.sln
-  #   steps:
-  #     - uses: actions/checkout@v4.2.2
-  #     - name: Setup .NET
-  #       uses: actions/setup-dotnet@v4.3.1
-  #       with:
-  #         dotnet-version: 8.x
-  #     - name: Initialize CodeQL
-  #       uses: github/codeql-action/init@v3
-  #       with:
-  #         languages: csharp
-  #     - name: Restore dependencies
-  #       run: dotnet restore ${{ env.solutionName }}
-  #       working-directory: dotnet
-  #     - name: Build
-  #       run: dotnet build ${{ env.solutionName }} --no-restore -c Release /p:UseSharedCompilation=false
-  #       working-directory: dotnet
-  #     - name: Test
-  #       run: dotnet test ${{ env.solutionName }} --no-build --verbosity normal -c Release /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=opencover
-  #       working-directory: dotnet
-  #     - name: Perform CodeQL Analysis
-  #       uses: github/codeql-action/analyze@v3
+  build-and-test-dotnet:
+    if: ${{ env.DOTNET_TRIGGERED }}
+    runs-on: ubuntu-latest
+    env:
+      solutionName: Microsoft.Agents.M365Copilot.sln
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4.3.1
+        with:
+          dotnet-version: 8.x
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: csharp
+      - name: Restore dependencies
+        run: dotnet restore ${{ env.solutionName }}
+        working-directory: dotnet
+      - name: Build
+        run: dotnet build ${{ env.solutionName }} --no-restore -c Release /p:UseSharedCompilation=false
+        working-directory: dotnet
+      - name: Test
+        run: dotnet test ${{ env.solutionName }} --no-build --verbosity normal -c Release /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=opencover
+        working-directory: dotnet
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
 
   # build-and-test-python:
   #   if: ${{ env.PYTHON_TRIGGERED }}
