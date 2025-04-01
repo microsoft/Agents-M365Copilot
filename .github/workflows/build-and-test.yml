@@ -21,22 +21,25 @@ permissions:
   security-events: write
 
 env:
-  DOTNET_TRIGGERED: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.changed_files.*, 'dotnet/') || github.event_name == 'workflow_dispatch' }}
-  PYTHON_TRIGGERED: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.changed_files.*, 'python/') || github.event_name == 'workflow_dispatch' }}
-  TYPESCRIPT_TRIGGERED: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.changed_files.*, 'typescript/') || github.event_name == 'workflow_dispatch' }}
+  DOTNET_TRIGGERED: ${{ github.event_name == 'pull_request' && (contains(github.event.pull_request.base.sha, '') || github.event_name == 'workflow_dispatch') }}
+  PYTHON_TRIGGERED: ${{ github.event_name == 'pull_request' && (contains(github.event.pull_request.base.sha, '') || github.event_name == 'workflow_dispatch') }}
+  TYPESCRIPT_TRIGGERED: ${{ github.event_name == 'pull_request' && (contains(github.event.pull_request.base.sha, '') || github.event_name == 'workflow_dispatch') }}
 
 jobs:
   debug-changes:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Debug Changed Files
         run: |
           echo "Event Name: ${{ github.event_name }}"
+          echo "Base SHA: ${{ github.event.pull_request.base.sha }}"
+          echo "Head SHA: ${{ github.event.pull_request.head.sha }}"
           echo "Changed Files:"
-          echo "${{ toJson(github.event.pull_request.changed_files) }}"
-          echo "Changed Updated Files:"
-          echo "${{ toJson(github.event.pull_request.changed_files.*) }}"
+          git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }}
           echo "DOTNET_TRIGGERED: ${{ env.DOTNET_TRIGGERED }}"
           echo "PYTHON_TRIGGERED: ${{ env.PYTHON_TRIGGERED }}"
           echo "TYPESCRIPT_TRIGGERED: ${{ env.TYPESCRIPT_TRIGGERED }}"
