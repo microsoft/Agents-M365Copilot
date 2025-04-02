@@ -11,52 +11,48 @@ import { FlatCompat } from "@eslint/eslintrc";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all
+  baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended,
+  allConfig: js.configs.all,
 });
 
-export default [{
-    ignores: [
-        "**/.eslintrc.js",
-        "**/*.js",
-        "**/*.cjs",
-        "**/*.js.map",
-        "**/*.d.ts",
-        "**/node_modules",
-        "**/dist",
-    ],
+export default [
+  {
+    ignores: ["**/.eslintrc.js", "**/*.js", "**/*.cjs", "**/*.js.map", "**/*.d.ts", "**/node_modules", "**/dist"],
     files: ["**/*.ts"],
-}, ...compat.extends(
+  },
+  ...compat.extends(
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended-type-checked",
     "plugin:@typescript-eslint/stylistic-type-checked",
     "prettier",
     "@microsoft/eslint-config-msgraph/core",
-), {
+  ),
+  {
     plugins: {
-        jsdoc,
-        "prefer-arrow": preferArrow,
-        "@typescript-eslint": typescriptEslint,
+      jsdoc,
+      "prefer-arrow": preferArrow,
+      "@typescript-eslint": typescriptEslint,
     },
 
     languageOptions: {
-        globals: {
-            ...globals.browser,
-            ...globals.node,
-        },
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
 
-        parser: tsParser,
-        ecmaVersion: 6,
-        sourceType: "module",
+      parser: tsParser,
+      ecmaVersion: 6,
+      sourceType: "module",
 
-        parserOptions: {
-            project: ["tsconfig.json"],
-        },
+      parserOptions: {
+        project: ["tsconfig.json"],
+      },
     },
 
     rules: {
-        "@typescript-eslint/no-explicit-any": "warn",
-        "@typescript-eslint/prefer-nullish-coalescing": "off",
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/prefer-nullish-coalescing": "off",
     },
-}];
+  },
+];

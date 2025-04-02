@@ -22,10 +22,14 @@ describe("GraphTelemetryHandler tests", () => {
     handler.next = fetchHandler;
     const requestUrl = "https://graph.microsoft.com/v1.0/me";
     const fetchRequestInit = {
-				method: "GET",
+      method: "GET",
     };
     handler.execute(requestUrl, fetchRequestInit);
     const headerValue = (fetchRequestInit as any).headers["SdkVersion"];
-    assert.equal(headerValue, `graph-typescript-test-v1/0.0.0, graph-typescript-test-core/${coreVersion}`, "SdkVersion header value is incorrect");
-  })
+    assert.equal(
+      headerValue,
+      `graph-typescript-test-v1/0.0.0, graph-typescript-test-core/${coreVersion}`,
+      "SdkVersion header value is incorrect",
+    );
+  });
 });

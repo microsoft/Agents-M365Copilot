@@ -43,7 +43,7 @@ export const createAgentsM365CopilotClientFactory = (
     getDefaultMiddlewares(
       {
         customFetch,
-          telemetryOption,
+        telemetryOption,
       },
       authenticationProvider,
     );

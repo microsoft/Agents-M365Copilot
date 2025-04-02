@@ -142,8 +142,8 @@ TODO: document how the fetch client augmented with middleware handlers can be us
 
 For more detailed documentation, see:
 
-* [Known issues](https://github.com/microsoft/Agents-M365Copilot/issues)
-* [Contributions](https://github.com/microsoft/Agents-M365Copilot?tab=readme-ov-file#contributing)
+- [Known issues](https://github.com/microsoft/Agents-M365Copilot/issues)
+- [Contributions](https://github.com/microsoft/Agents-M365Copilot?tab=readme-ov-file#contributing)
 
 ## 5. Issues
 

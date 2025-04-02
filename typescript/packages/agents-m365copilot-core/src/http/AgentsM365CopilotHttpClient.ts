@@ -22,7 +22,7 @@ export class AgentsM365CopilotHttpClient extends HttpClient {
         ? middlewares
         : getDefaultMiddlewares({
             customFetch,
-              telemetryOption,
+            telemetryOption,
           })),
     );
   }

@@ -40,7 +40,11 @@ describe("GraphHttpClient tests", () => {
       assert.equal(8, count);
 
       const authenticationProvider = new BaseBearerTokenAuthenticationProvider({} as any);
-      const clientWithProvider = createAgentsM365CopilotClientFactory(graphTelemetryOption, undefined, authenticationProvider);
+      const clientWithProvider = createAgentsM365CopilotClientFactory(
+        graphTelemetryOption,
+        undefined,
+        authenticationProvider,
+      );
       const count2 = countMiddlewares((clientWithProvider as any)["middleware"] as Middleware);
       assert.equal(9, count2);
     });
