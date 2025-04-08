@@ -17,18 +17,18 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests.Middleware
     using Microsoft.Kiota.Http.HttpClientLibrary;
     using Xunit;
 
-    public class TelemetryHandlerTests
+    public class CopilotAgentsTelemetryHandlerTests
     {
         private readonly HttpClientRequestAdapter requestAdapter;
-        public TelemetryHandlerTests()
+        public CopilotAgentsTelemetryHandlerTests()
         {
             requestAdapter = new HttpClientRequestAdapter(new AnonymousAuthenticationProvider());
         }
 
         [Fact]
-        public async Task TelemetryHandlerShouldSetTelemetryHeaderWithDefaultsAsync()
+        public async Task CopilotAgentsTelemetryHandlerShouldSetTelemetryHeaderWithDefaultsAsync()
         {
-            var configuredTelemetryHandler = new TelemetryHandler
+            var configuredTelemetryHandler = new CopilotAgentsTelemetryHandler
             {
                 InnerHandler = new FakeSuccessHandler()
             };
@@ -60,7 +60,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests.Middleware
         }
 
         [Fact]
-        public async Task TelemetryHandlerShouldSetTelemetryHeaderWithCustomConfigurationAsync()
+        public async Task CopilotAgentsTelemetryHandlerShouldSetTelemetryHeaderWithCustomConfigurationAsync()
         {
             var clientOptions = new ClientOptions
             {
@@ -70,7 +70,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests.Middleware
                 ProductPrefix = "graph-cli"
             };
 
-            var configuredTelemetryHandler = new TelemetryHandler(clientOptions)
+            var configuredTelemetryHandler = new CopilotAgentsTelemetryHandler(clientOptions)
             {
                 InnerHandler = new FakeSuccessHandler()
             };

@@ -2,31 +2,31 @@
 //  Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 // ------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading;
-using System.Threading.Tasks;
-using Azure.Core;
-using Microsoft.Agents.M365Copilot.Core.Requests;
-using Microsoft.Agents.M365Copilot.Core.Tests.Mocks;
-using Microsoft.Kiota.Abstractions.Authentication;
-using Microsoft.Kiota.Http.HttpClientLibrary.Middleware;
-using Microsoft.Kiota.Http.HttpClientLibrary.Middleware.Options;
-using Moq;
-using Xunit;
-using CoreMiddleware = Microsoft.Agents.M365Copilot.Core.Requests.Middleware;
-
 namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Azure.Core;
+    using Microsoft.Agents.M365Copilot.Core.Requests;
+    using Microsoft.Agents.M365Copilot.Core.Requests.Middleware;
+    using Microsoft.Agents.M365Copilot.Core.Tests.Mocks;
+    using Microsoft.Kiota.Abstractions.Authentication;
+    using Microsoft.Kiota.Http.HttpClientLibrary.Middleware;
+    using Microsoft.Kiota.Http.HttpClientLibrary.Middleware.Options;
+    using Moq;
+    using Xunit;
+
     public class ClientFactoryTests : IDisposable
     {
         private MockRedirectHandler testHttpMessageHandler;
         private DelegatingHandler[] handlers;
-        private const string expectedAccessToken = "graph-client-factory-infused-token";
+        private const string expectedAccessToken = "copilot-agent-client-factory-infused-token";
 
         public ClientFactoryTests()
         {
@@ -80,7 +80,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
             using UserAgentHandler userAgentHandler = (UserAgentHandler)odataQueryHandler.InnerHandler;
             using HeadersInspectionHandler headersInspectionHandler = (HeadersInspectionHandler)userAgentHandler.InnerHandler;
             using BodyInspectionHandler bodyInspectionHandler = (BodyInspectionHandler)headersInspectionHandler.InnerHandler;
-            using TelemetryHandler telemetryHandler = (TelemetryHandler)bodyInspectionHandler.InnerHandler;
+            using CopilotAgentsTelemetryHandler telemetryHandler = (CopilotAgentsTelemetryHandler)bodyInspectionHandler.InnerHandler;
             using MockRedirectHandler innerMost = (MockRedirectHandler)telemetryHandler.InnerHandler;
 
             Assert.NotNull(telemetryHandler);
@@ -90,7 +90,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
             Assert.NotNull(retryHandler);
             Assert.NotNull(redirectHandler);
             Assert.NotNull(innerMost);
-            Assert.IsType<TelemetryHandler>(telemetryHandler);
+            Assert.IsType<CopilotAgentsTelemetryHandler>(telemetryHandler);
             Assert.IsType<ParametersNameDecodingHandler>(odataQueryHandler);
             Assert.IsType<HeadersInspectionHandler>(headersInspectionHandler);
             Assert.IsType<UserAgentHandler>(userAgentHandler);
@@ -110,7 +110,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
             using UserAgentHandler userAgentHandler = (UserAgentHandler)odataQueryHandler.InnerHandler;
             using HeadersInspectionHandler headersInspectionHandler = (HeadersInspectionHandler)userAgentHandler.InnerHandler;
             using BodyInspectionHandler bodyInspectionHandler = (BodyInspectionHandler)headersInspectionHandler.InnerHandler;
-            using TelemetryHandler telemetryHandler = (TelemetryHandler)bodyInspectionHandler.InnerHandler;
+            using CopilotAgentsTelemetryHandler telemetryHandler = (CopilotAgentsTelemetryHandler)bodyInspectionHandler.InnerHandler;
             using MockRedirectHandler innerMost = (MockRedirectHandler)telemetryHandler.InnerHandler;
 
             Assert.NotNull(telemetryHandler);
@@ -120,7 +120,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
             Assert.NotNull(retryHandler);
             Assert.NotNull(redirectHandler);
             Assert.NotNull(innerMost);
-            Assert.IsType<TelemetryHandler>(telemetryHandler);
+            Assert.IsType<CopilotAgentsTelemetryHandler>(telemetryHandler);
             Assert.IsType<ParametersNameDecodingHandler>(odataQueryHandler);
             Assert.IsType<HeadersInspectionHandler>(headersInspectionHandler);
             Assert.IsType<RetryHandler>(retryHandler);
@@ -143,11 +143,11 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
         public void CreatePipeline_Should_Throw_Exception_With_Duplicate_Handlers()
         {
             var handlers = ClientFactory.CreateDefaultHandlers();
-            handlers.Add(new TelemetryHandler());
+            handlers.Add(new CopilotAgentsTelemetryHandler());
 
             ArgumentException exception = Assert.Throws<ArgumentException>(() => ClientFactory.CreatePipeline(handlers));
 
-            Assert.Contains($"{typeof(TelemetryHandler)} has a duplicate handler.", exception.Message);
+            Assert.Contains($"{typeof(CopilotAgentsTelemetryHandler)} has a duplicate handler.", exception.Message);
         }
 
         [Fact]

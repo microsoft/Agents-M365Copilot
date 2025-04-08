@@ -4,6 +4,8 @@
         "deltalink",
         "kiota",
         "Nextlink",
-        "statuscodes"
+        "statuscodes",
+        "USGOV",
+        "xunit"
     ]
 }

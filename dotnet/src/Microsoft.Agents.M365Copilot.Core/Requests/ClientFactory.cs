@@ -1,24 +1,25 @@
 ﻿// ------------------------------------------------------------------------------
 //  Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 // ------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Runtime.InteropServices;
+using System.Threading;
+using Azure.Core;
+using Microsoft.Agents.M365Copilot.Core.Exceptions;
+using Microsoft.Agents.M365Copilot.Core.Extensions;
+using Microsoft.Agents.M365Copilot.Core.Requests.Middleware;
+using Microsoft.Kiota.Abstractions.Authentication;
+using Microsoft.Kiota.Http.HttpClientLibrary;
+using Microsoft.Kiota.Http.HttpClientLibrary.Middleware;
+using AzureIdentityAuthenticationProvider = Microsoft.Agents.M365Copilot.Core.Authentication.AzureIdentityAuthenticationProvider;
+
 namespace Microsoft.Agents.M365Copilot.Core.Requests
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Net;
-    using System.Net.Http;
-    using System.Net.Http.Headers;
-    using System.Runtime.InteropServices;
-    using System.Threading;
-    using Azure.Core;
-    using Microsoft.Agents.M365Copilot.Core.Authentication;
-    using Microsoft.Agents.M365Copilot.Core.Exceptions;
-    using Microsoft.Agents.M365Copilot.Core.Extensions;
-    using Microsoft.Kiota.Abstractions.Authentication;
-    using Microsoft.Kiota.Http.HttpClientLibrary;
-    using Microsoft.Kiota.Http.HttpClientLibrary.Middleware;
-
     /// <summary>
     /// ClientFactory class to create the HTTP client
     /// </summary>
@@ -27,9 +28,9 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
         /// The default value for the overall request timeout.
         private static readonly TimeSpan defaultTimeout = TimeSpan.FromSeconds(100);
 
-        /// Microsoft service national cloud endpoints
-        private static readonly Dictionary<string, string> cloudList = new()
-        {
+        /// Microsoft Graph service national cloud endpoints
+        private static readonly Dictionary<string, string> cloudList = new Dictionary<string, string>
+            {
                 { Global_Cloud, "https://graph.microsoft.com" },
                 { USGOV_Cloud, "https://graph.microsoft.us" },
                 { China_Cloud, "https://microsoftgraph.chinacloudapi.cn" },
@@ -51,7 +52,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
         /// <summary>
         /// Creates a new <see cref="HttpClient"/> instance configured with the handlers provided.
         /// </summary>
-        /// <param name="version">The agents copilot version to use.</param>
+        /// <param name="version">The graph version to use.</param>
         /// <param name="nationalCloud">The national cloud endpoint to use.</param>
         /// <param name="clientOptions">The <see cref="ClientOptions"/> to use with the client</param>
         /// <param name="proxy">The proxy to be used with created client.</param>
@@ -72,7 +73,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
         /// <summary>
         /// Creates a new <see cref="HttpClient"/> instance configured with the handlers provided.
         /// </summary>
-        /// <param name="version">The agents copilot version to use.</param>
+        /// <param name="version">The graph version to use.</param>
         /// <param name="nationalCloud">The national cloud endpoint to use.</param>
         /// <param name="handlers">An ordered list of <see cref="DelegatingHandler"/> instances to be invoked as an
         /// <see cref="HttpRequestMessage"/> travels from the <see cref="HttpClient"/> to the network and an
@@ -118,7 +119,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
         /// </summary>
         /// <param name="authenticationProvider">The authentication provider to initialize the Authorization handler</param>
         /// <param name="handlers">Custom middleware pipeline to which the Authorization handler is appended. If null, default handlers are initialized</param>
-        /// <param name="version">The agents copilot version to use in the base URL</param>
+        /// <param name="version">The Graph version to use in the base URL</param>
         /// <param name="nationalCloud">The national cloud endpoint to use</param>
         /// <param name="proxy">The proxy to be used with the created client</param>
         /// <param name="finalHandler">The last HttpMessageHandler to HTTP calls.</param>
@@ -133,10 +134,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
             HttpMessageHandler finalHandler = null,
             bool disposeHandler = true)
         {
-            if (handlers == null)
-            {
-                handlers = CreateDefaultHandlers();
-            }
+            handlers ??= CreateDefaultHandlers();
             var handlerList = handlers.ToList();
             handlerList.Add(new AuthorizationHandler(authenticationProvider));
             return Create(handlerList, version, nationalCloud, proxy, finalHandler, disposeHandler);
@@ -147,7 +145,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
         /// </summary>
         /// <param name="tokenCredential">Token credential object use to initialize an <see cref="AzureIdentityAuthenticationProvider"/></param>
         /// <param name="handlers">Custom middleware pipeline to which the Authorization handler is appended. If null, default handlers are initialized</param>
-        /// <param name="version">The agents copilot version to use in the base URL</param>
+        /// <param name="version">The Graph version to use in the base URL</param>
         /// <param name="nationalCloud">The national cloud endpoint to use</param>
         /// <param name="proxy">The proxy to be used with the created client</param>
         /// <param name="finalHandler">The last HttpMessageHandler to HTTP calls</param>
@@ -166,14 +164,14 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
         }
 
         /// <summary>
-        /// Create a default set of middleware for calling Microsoft agents copilot
+        /// Create a default set of middleware for calling Microsoft Graph
         /// </summary>
         /// <param name="clientOptions">The <see cref="ClientOptions"/> to use with the client</param>
         /// <returns></returns>
         public static IList<DelegatingHandler> CreateDefaultHandlers(ClientOptions clientOptions = null)
         {
             var handlers = KiotaClientFactory.CreateDefaultHandlers();
-            handlers.Add(new Middleware.TelemetryHandler(clientOptions));// add the telemetry handler last.
+            handlers.Add(new CopilotAgentsTelemetryHandler(clientOptions));// add the telemetry handler last.
 
             return handlers;
         }
