@@ -7,7 +7,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
     /// <summary>
     /// The options for setting up a given  client
     /// </summary>
-    public class ClientOptions
+    public class CopilotClientOptions
     {
         /// <summary>
         /// The target version of the api endpoint we are targeting (v1 or beta)

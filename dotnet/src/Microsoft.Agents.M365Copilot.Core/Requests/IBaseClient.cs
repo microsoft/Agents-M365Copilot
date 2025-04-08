@@ -4,7 +4,6 @@
 
 namespace Microsoft.Agents.M365Copilot.Core.Requests
 {
-    using Microsoft.Agents.M365Copilot.Core.Core.Requests.Requests;
     using Microsoft.Kiota.Abstractions;
 
     /// <summary>

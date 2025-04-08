@@ -23,8 +23,8 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
         /// <param name="parseNodeFactory">The parse node factory.</param>
         /// <param name="serializationWriterFactory">The serialization writer factory.</param>
         /// <param name="httpClient">The native HTTP client.</param>
-        public BaseRequestAdaptor(IAuthenticationProvider authenticationProvider, ClientOptions clientOptions = null, IParseNodeFactory parseNodeFactory = null, ISerializationWriterFactory serializationWriterFactory = null, HttpClient httpClient = null)
-            : base(authenticationProvider, parseNodeFactory ?? ParseNodeFactoryRegistry.DefaultInstance, serializationWriterFactory ?? SerializationWriterFactoryRegistry.DefaultInstance, httpClient ?? ClientFactory.Create(clientOptions))
+        public BaseRequestAdaptor(IAuthenticationProvider authenticationProvider, CopilotClientOptions clientOptions = null, IParseNodeFactory parseNodeFactory = null, ISerializationWriterFactory serializationWriterFactory = null, HttpClient httpClient = null)
+            : base(authenticationProvider, parseNodeFactory ?? ParseNodeFactoryRegistry.DefaultInstance, serializationWriterFactory ?? SerializationWriterFactoryRegistry.DefaultInstance, httpClient ?? CopilotClientFactory.Create(clientOptions))
         {
         }
     }

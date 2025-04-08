@@ -443,7 +443,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Tasks
 
             using var testHttpMessageHandler = new TestHttpMessageHandler();
             testHttpMessageHandler.AddResponseMapping("http://localhost/events?$skip=11", errorResponseMessage);
-            var customBaseClient = new BaseClient(new BaseRequestAdaptor(new AnonymousAuthenticationProvider(), httpClient: ClientFactory.Create(finalHandler: testHttpMessageHandler)));
+            var customBaseClient = new BaseClient(new BaseRequestAdaptor(new AnonymousAuthenticationProvider(), httpClient: CopilotClientFactory.Create(finalHandler: testHttpMessageHandler)));
             ApiClientBuilder.RegisterDefaultDeserializer<JsonParseNodeFactory>();
 
             // Act by calling the iterator

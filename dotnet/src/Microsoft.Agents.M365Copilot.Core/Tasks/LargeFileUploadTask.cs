@@ -116,7 +116,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tasks
         /// <returns></returns>
         private static BaseRequestAdaptor InitializeAdapter(string uploadUrl)
         {
-            HttpClient httpClient = ClientFactory.Create(); //no auth
+            HttpClient httpClient = CopilotClientFactory.Create(); //no auth
             httpClient.SetFeatureFlag(FeatureFlag.FileUploadTask);
             return new BaseRequestAdaptor(new AnonymousAuthenticationProvider(), httpClient: httpClient) { BaseUrl = uploadUrl };
         }

@@ -21,9 +21,9 @@ using AzureIdentityAuthenticationProvider = Microsoft.Agents.M365Copilot.Core.Au
 namespace Microsoft.Agents.M365Copilot.Core.Requests
 {
     /// <summary>
-    /// ClientFactory class to create the HTTP client
+    /// CopilotClientFactory class to create the HTTP client
     /// </summary>
-    public static class ClientFactory
+    public static class CopilotClientFactory
     {
         /// The default value for the overall request timeout.
         private static readonly TimeSpan defaultTimeout = TimeSpan.FromSeconds(100);
@@ -54,13 +54,13 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
         /// </summary>
         /// <param name="version">The graph version to use.</param>
         /// <param name="nationalCloud">The national cloud endpoint to use.</param>
-        /// <param name="clientOptions">The <see cref="ClientOptions"/> to use with the client</param>
+        /// <param name="clientOptions">The <see cref="CopilotClientOptions"/> to use with the client</param>
         /// <param name="proxy">The proxy to be used with created client.</param>
         /// <param name="finalHandler">The last HttpMessageHandler to HTTP calls.
         /// The default implementation creates a new instance of <see cref="HttpClientHandler"/> for each HttpClient.</param>
         /// <returns></returns>
         public static HttpClient Create(
-            ClientOptions clientOptions = null,
+            CopilotClientOptions clientOptions = null,
             string version = "v1.0",
             string nationalCloud = Global_Cloud,
             IWebProxy proxy = null,
@@ -166,9 +166,9 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
         /// <summary>
         /// Create a default set of middleware for calling Microsoft Graph
         /// </summary>
-        /// <param name="clientOptions">The <see cref="ClientOptions"/> to use with the client</param>
+        /// <param name="clientOptions">The <see cref="CopilotClientOptions"/> to use with the client</param>
         /// <returns></returns>
-        public static IList<DelegatingHandler> CreateDefaultHandlers(ClientOptions clientOptions = null)
+        public static IList<DelegatingHandler> CreateDefaultHandlers(CopilotClientOptions clientOptions = null)
         {
             var handlers = KiotaClientFactory.CreateDefaultHandlers();
             handlers.Add(new CopilotAgentsTelemetryHandler(clientOptions));// add the telemetry handler last.
@@ -272,7 +272,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
             return new WinHttpHandler { Proxy = proxy, AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate, WindowsProxyUsePolicy = proxyPolicy, SendTimeout = Timeout.InfiniteTimeSpan, ReceiveDataTimeout = Timeout.InfiniteTimeSpan, ReceiveHeadersTimeout = Timeout.InfiniteTimeSpan };
 #elif NET6_0_OR_GREATER
             //use resilient configs when we can https://learn.microsoft.com/en-us/aspnet/core/fundamentals/http-requests?view=aspnetcore-5.0#alternatives-to-ihttpclientfactory-1
-            return new SocketsHttpHandler { Proxy = proxy, AllowAutoRedirect = false, AutomaticDecompression = DecompressionMethods.All, PooledConnectionLifetime = TimeSpan.FromMinutes(1)};
+            return new SocketsHttpHandler { Proxy = proxy, AllowAutoRedirect = false, AutomaticDecompression = DecompressionMethods.All, PooledConnectionLifetime = TimeSpan.FromMinutes(1) };
 #else
             return new HttpClientHandler { Proxy = proxy, AllowAutoRedirect = false, AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate };
 #endif
@@ -281,7 +281,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
         /// <summary>
         /// Gets feature flag for the specified handler.
         /// </summary>
-        /// <param name="delegatingHandler">The <see cref="DelegatingHandler"/> to get its feaure flag.</param>
+        /// <param name="delegatingHandler">The <see cref="DelegatingHandler"/> to get its feature flag.</param>
         /// <returns>Delegating handler feature flag.</returns>
         private static FeatureFlag GetHandlerFeatureFlag(DelegatingHandler delegatingHandler)
         {

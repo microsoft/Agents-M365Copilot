@@ -16,13 +16,13 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests.Middleware
     /// A <see cref="DelegatingHandler"/> implementation that telemetry for copilot.
     /// </summary>
     /// <remarks>
-    /// The <see cref="ClientOptions"/> constructor.
+    /// The <see cref="CopilotClientOptions"/> constructor.
     /// </remarks>
     /// <param name="clientOptions"></param>
-    public class CopilotAgentsTelemetryHandler(ClientOptions clientOptions = null) : DelegatingHandler
+    public class CopilotAgentsTelemetryHandler(CopilotClientOptions clientOptions = null) : DelegatingHandler
     {
         /// The version for current assembly.
-        private static Version assemblyVersion = typeof(CopilotAgentsTelemetryHandler).GetTypeInfo().Assembly.GetName().Version;
+        private static readonly Version assemblyVersion = typeof(CopilotAgentsTelemetryHandler).GetTypeInfo().Assembly.GetName().Version;
 
         /// The value for the SDK version header.
         private static readonly string SdkVersionHeaderValue = string.Format(
@@ -31,7 +31,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests.Middleware
                     assemblyVersion.Minor,
                     assemblyVersion.Build);
 
-        private readonly ClientOptions clientOptions = clientOptions ?? new ClientOptions();
+        private readonly CopilotClientOptions clientOptions = clientOptions ?? new CopilotClientOptions();
 
         /// <summary>
         /// Sends a HTTP request.

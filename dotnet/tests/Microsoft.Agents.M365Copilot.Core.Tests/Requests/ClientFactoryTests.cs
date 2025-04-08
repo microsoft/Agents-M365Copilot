@@ -31,7 +31,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
         public ClientFactoryTests()
         {
             this.testHttpMessageHandler = new MockRedirectHandler();
-            handlers = ClientFactory.CreateDefaultHandlers().ToArray();
+            handlers = CopilotClientFactory.CreateDefaultHandlers().ToArray();
         }
 
         public void Dispose()
@@ -49,7 +49,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
         [Fact]
         public void Should_CreatePipeline_Without_CompressionHandler()
         {
-            using (RetryHandler retryHandler = (RetryHandler)ClientFactory.CreatePipeline(handlers))
+            using (RetryHandler retryHandler = (RetryHandler)CopilotClientFactory.CreatePipeline(handlers))
             using (RedirectHandler redirectHandler = (RedirectHandler)retryHandler.InnerHandler)
 #if IOS
             using (NSUrlSessionHandler innerMost = (NSUrlSessionHandler)redirectHandler.InnerHandler)
@@ -73,7 +73,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
         [Fact]
         public void Should_CreatePipeline_Without_HttpMessageHandlerInput()
         {
-            using UriReplacementHandler<UriReplacementHandlerOption> uriReplacementHandler = (UriReplacementHandler<UriReplacementHandlerOption>)ClientFactory.CreatePipeline(handlers, new MockRedirectHandler());
+            using UriReplacementHandler<UriReplacementHandlerOption> uriReplacementHandler = (UriReplacementHandler<UriReplacementHandlerOption>)CopilotClientFactory.CreatePipeline(handlers, new MockRedirectHandler());
             using RetryHandler retryHandler = (RetryHandler)uriReplacementHandler.InnerHandler;
             using RedirectHandler redirectHandler = (RedirectHandler)retryHandler.InnerHandler;
             using ParametersNameDecodingHandler odataQueryHandler = (ParametersNameDecodingHandler)redirectHandler.InnerHandler;
@@ -103,7 +103,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
         [Fact]
         public void CreatePipelineWithHttpMessageHandlerInput()
         {
-            using UriReplacementHandler<UriReplacementHandlerOption> uriReplacementHandler = (UriReplacementHandler<UriReplacementHandlerOption>)ClientFactory.CreatePipeline(handlers, new MockRedirectHandler());
+            using UriReplacementHandler<UriReplacementHandlerOption> uriReplacementHandler = (UriReplacementHandler<UriReplacementHandlerOption>)CopilotClientFactory.CreatePipeline(handlers, new MockRedirectHandler());
             using RetryHandler retryHandler = (RetryHandler)uriReplacementHandler.InnerHandler;
             using RedirectHandler redirectHandler = (RedirectHandler)retryHandler.InnerHandler;
             using ParametersNameDecodingHandler odataQueryHandler = (ParametersNameDecodingHandler)redirectHandler.InnerHandler;
@@ -132,7 +132,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
         [Fact]
         public void CreatePipelineWithoutPipeline()
         {
-            using (MockRedirectHandler handler = (MockRedirectHandler)ClientFactory.CreatePipeline(null, this.testHttpMessageHandler))
+            using (MockRedirectHandler handler = (MockRedirectHandler)CopilotClientFactory.CreatePipeline(null, this.testHttpMessageHandler))
             {
                 Assert.NotNull(handler);
                 Assert.IsType<MockRedirectHandler>(handler);
@@ -142,10 +142,10 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
         [Fact]
         public void CreatePipeline_Should_Throw_Exception_With_Duplicate_Handlers()
         {
-            var handlers = ClientFactory.CreateDefaultHandlers();
+            var handlers = CopilotClientFactory.CreateDefaultHandlers();
             handlers.Add(new CopilotAgentsTelemetryHandler());
 
-            ArgumentException exception = Assert.Throws<ArgumentException>(() => ClientFactory.CreatePipeline(handlers));
+            ArgumentException exception = Assert.Throws<ArgumentException>(() => CopilotClientFactory.CreatePipeline(handlers));
 
             Assert.Contains($"{typeof(CopilotAgentsTelemetryHandler)} has a duplicate handler.", exception.Message);
         }
@@ -157,7 +157,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
             var baseAddress = new Uri("https://localhost");
             var cacheHeader = new CacheControlHeaderValue();
 
-            using (HttpClient client = ClientFactory.Create())
+            using (HttpClient client = CopilotClientFactory.Create())
             {
                 client.Timeout = timeout;
                 client.BaseAddress = baseAddress;
@@ -170,7 +170,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
         [Fact]
         public void CreateClient_SelectedCloud()
         {
-            using (HttpClient httpClient = ClientFactory.Create(version: "beta", nationalCloud: ClientFactory.Germany_Cloud))
+            using (HttpClient httpClient = CopilotClientFactory.Create(version: "beta", nationalCloud: CopilotClientFactory.Germany_Cloud))
             {
                 Assert.NotNull(httpClient);
                 Uri clouldEndpoint = new Uri("https://graph.microsoft.de/beta/");
@@ -185,7 +185,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
             string nation = "Canada";
             try
             {
-                HttpClient httpClient = ClientFactory.Create(nationalCloud: nation);
+                HttpClient httpClient = CopilotClientFactory.Create(nationalCloud: nation);
             }
             catch (ArgumentException exception)
             {
@@ -197,7 +197,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
         [Fact]
         public void CreateClient_WithHandlers()
         {
-            using (HttpClient client = ClientFactory.Create(handlers: ClientFactory.CreateDefaultHandlers()))
+            using (HttpClient client = CopilotClientFactory.Create(handlers: CopilotClientFactory.CreateDefaultHandlers()))
             {
                 Assert.NotNull(client);
             }
@@ -213,7 +213,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
             var oKResponse = new HttpResponseMessage(HttpStatusCode.OK);
             this.testHttpMessageHandler.SetHttpResponse(redirectResponse, oKResponse);
 
-            using (HttpClient client = ClientFactory.Create(finalHandler: this.testHttpMessageHandler))
+            using (HttpClient client = CopilotClientFactory.Create(finalHandler: this.testHttpMessageHandler))
             {
                 var response = await client.SendAsync(httpRequestMessage, new CancellationToken());
                 Assert.Equal(response, oKResponse);
@@ -235,7 +235,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
 
             this.testHttpMessageHandler.SetHttpResponse(retryResponse, response_2);
 
-            using (HttpClient client = ClientFactory.Create(finalHandler: this.testHttpMessageHandler))
+            using (HttpClient client = CopilotClientFactory.Create(finalHandler: this.testHttpMessageHandler))
             {
                 var response = await client.SendAsync(httpRequestMessage, new CancellationToken());
                 Assert.Same(response, response_2);
@@ -251,11 +251,11 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
         [Fact]
         public void CreateClient_WithHandlersHasExceptions()
         {
-            var pipelineHandlers = ClientFactory.CreateDefaultHandlers().ToArray();
+            var pipelineHandlers = CopilotClientFactory.CreateDefaultHandlers().ToArray();
             pipelineHandlers[pipelineHandlers.Length - 1] = null;
             try
             {
-                HttpClient client = ClientFactory.Create(handlers: pipelineHandlers);
+                HttpClient client = CopilotClientFactory.Create(handlers: pipelineHandlers);
             }
             catch (ArgumentNullException exception)
             {
@@ -273,7 +273,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
                 InnerHandler = this.testHttpMessageHandler
             };
             // Creation should ignore the InnerHandler on RetryHandler
-            HttpClient client = ClientFactory.Create(handlers: handlers);
+            HttpClient client = CopilotClientFactory.Create(handlers: handlers);
             Assert.NotNull(client);
             Assert.IsType<SocketsHttpHandler>(handlers[0].InnerHandler);
         }
@@ -283,8 +283,8 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
         {
             FeatureFlag expectedFlag = FeatureFlag.RetryHandler | FeatureFlag.RedirectHandler;
             string expectedFlagHeaderValue = Enum.Format(typeof(FeatureFlag), expectedFlag, "x");
-            var handlers = ClientFactory.CreateDefaultHandlers();
-            var pipelineWithHandlers = ClientFactory.CreatePipelineWithFeatureFlags(handlers);
+            var handlers = CopilotClientFactory.CreateDefaultHandlers();
+            var pipelineWithHandlers = CopilotClientFactory.CreatePipelineWithFeatureFlags(handlers);
 
             Assert.NotNull(pipelineWithHandlers.Pipeline);
             Assert.True(pipelineWithHandlers.FeatureFlags.HasFlag(expectedFlag));
@@ -294,10 +294,10 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
         public void CreatePipelineWithFeatureFlags_Should_Set_FeatureFlag_For_Speficied_Handlers()
         {
             FeatureFlag expectedFlag = FeatureFlag.RetryHandler;
-            var handlers = ClientFactory.CreateDefaultHandlers();
+            var handlers = CopilotClientFactory.CreateDefaultHandlers();
             //Exclude the redirect handler for this test
             handlers = handlers.Where(handler => !handler.GetType().Equals(typeof(RedirectHandler))).ToList();
-            var pipelineWithHandlers = ClientFactory.CreatePipelineWithFeatureFlags(handlers);
+            var pipelineWithHandlers = CopilotClientFactory.CreatePipelineWithFeatureFlags(handlers);
 
             Assert.NotNull(pipelineWithHandlers.Pipeline);
             Assert.True(pipelineWithHandlers.FeatureFlags.HasFlag(expectedFlag));
@@ -312,7 +312,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
             var finalHandler = new MockHttpHandler();
 
             // Act
-            using (var client = ClientFactory.Create(handlers: ClientFactory.CreateDefaultHandlers(), finalHandler: finalHandler, disposeHandler: shouldDisposeHandler))
+            using (var client = CopilotClientFactory.Create(handlers: CopilotClientFactory.CreateDefaultHandlers(), finalHandler: finalHandler, disposeHandler: shouldDisposeHandler))
             {
                 Assert.NotNull(client);
             }
@@ -330,7 +330,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
 
             var authProvider = new Mock<BaseBearerTokenAuthenticationProvider>(new MockAccessTokenProvider("token").Object);
 
-            using (HttpClient client = ClientFactory.Create(authenticationProvider: authProvider.Object, finalHandler: this.testHttpMessageHandler))
+            using (HttpClient client = CopilotClientFactory.Create(authenticationProvider: authProvider.Object, finalHandler: this.testHttpMessageHandler))
             {
                 var response = await client.SendAsync(httpRequestMessage, new CancellationToken());
                 Assert.Equal("Bearer token", response.RequestMessage.Headers.Authorization.ToString());
@@ -348,7 +348,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
             tokenCredential.Setup(x => x.GetTokenAsync(It.IsAny<TokenRequestContext>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(new AccessToken("mockToken", DateTimeOffset.UtcNow.AddMinutes(10)));
 
-            using (HttpClient client = ClientFactory.Create(tokenCredential: tokenCredential.Object, finalHandler: this.testHttpMessageHandler))
+            using (HttpClient client = CopilotClientFactory.Create(tokenCredential: tokenCredential.Object, finalHandler: this.testHttpMessageHandler))
             {
                 var response = await client.SendAsync(httpRequestMessage, new CancellationToken());
                 Assert.Equal("Bearer mockToken", response.RequestMessage.Headers.Authorization.ToString());

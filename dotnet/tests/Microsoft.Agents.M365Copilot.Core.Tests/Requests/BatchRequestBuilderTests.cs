@@ -9,7 +9,6 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
     using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
-    using Microsoft.Agents.M365Copilot.Core.Core.Requests.Requests;
     using Microsoft.Agents.M365Copilot.Core.Exceptions;
     using Microsoft.Agents.M365Copilot.Core.Models;
     using Microsoft.Agents.M365Copilot.Core.Requests;

@@ -62,7 +62,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests.Middleware
         [Fact]
         public async Task CopilotAgentsTelemetryHandlerShouldSetTelemetryHeaderWithCustomConfigurationAsync()
         {
-            var clientOptions = new ClientOptions
+            var clientOptions = new CopilotClientOptions
             {
                 CoreClientVersion = "2.0.0",
                 ServiceLibraryClientVersion = "3.0.0",
