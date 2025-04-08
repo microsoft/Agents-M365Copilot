@@ -10,7 +10,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests.Content;
 
 public class BatchRequestContentStepsTests
 {
-    private readonly BatchRequestContentSteps _steps;
+    internal readonly BatchRequestContentSteps _steps;
 
     public BatchRequestContentStepsTests()
     {
