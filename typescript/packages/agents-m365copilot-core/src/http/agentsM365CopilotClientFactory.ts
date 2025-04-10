@@ -32,7 +32,7 @@ import { getDefaultMiddlewares, AgentsM365CopilotTelemetryOption } from "../midd
  * createGraphClientFactory(graphTelemetryOption);
  * ```
  */
-export const createAgentsM365CopilotClientFactory = (
+export const createAgentsM365CopilotClient = (
   agentsM365CopilotTelemetryOption: AgentsM365CopilotTelemetryOption,
   customFetch?: (request: string, init: RequestInit) => Promise<Response>,
   authenticationProvider?: BaseBearerTokenAuthenticationProvider,
