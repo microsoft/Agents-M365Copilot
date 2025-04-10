@@ -2,7 +2,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "name": "@microsoft/msgraph-sdk-core",
+  "name": "@microsoft/agents-m365copilot-core",
   "version": "1.0.0-preview.16",
   "description": "Core functionalities for the Microsoft Agents M365 Copilot JavaScript SDK",
   "main": "./dist/index.js",

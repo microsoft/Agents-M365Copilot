@@ -2,7 +2,7 @@ import { assert, describe, it } from "vitest";
 import { AgentsM365CopilotHttpClient, AgentsM365CopilotTelemetryOption } from "../../src";
 import { BaseBearerTokenAuthenticationProvider } from "@microsoft/kiota-abstractions";
 import type { Middleware } from "@microsoft/kiota-http-fetchlibrary";
-import { createAgentsM365CopilotClientFactory } from "../../src/http/GraphClientFactory";
+import { createAgentsM365CopilotClientFactory } from "../../src/http/AgentsM365CopilotClientFactory";
 
 const graphTelemetryOption: AgentsM365CopilotTelemetryOption = {};
 
@@ -21,7 +21,7 @@ const countMiddlewares = (middleware: Middleware): number => {
   return count;
 };
 
-describe("GraphHttpClient tests", () => {
+describe("AgentsM365CopilotHttpClient tests", () => {
   describe("Constructor", () => {
     it("Should create instance of graph http client", () => {
       const client = new AgentsM365CopilotHttpClient(graphTelemetryOption);

@@ -7,7 +7,7 @@ import {
 } from "@microsoft/kiota-abstractions";
 import { HttpClient, type ObservabilityOptions, ObservabilityOptionsImpl } from "@microsoft/kiota-http-fetchlibrary";
 import { DefaultRequestAdapter } from "@microsoft/kiota-bundle";
-import { createAgentsM365CopilotClientFactory } from "../http/GraphClientFactory.js";
+import { createAgentsM365CopilotClientFactory } from "../http/AgentsM365CopilotClientFactory.js";
 
 /**
  * Base request adapter for graph clients. Bootstraps telemetry and other aspects.

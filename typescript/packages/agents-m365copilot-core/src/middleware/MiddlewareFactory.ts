@@ -26,8 +26,8 @@ export const getDefaultMiddlewares = (
       }),
     ),
   ];
-  if (options.graphTelemetryOption) {
-    additionalMiddleware.push(new AgentsM365CopilotTelemetryHandler(options.graphTelemetryOption));
+  if (options.agentsM365CopilotTelemetryOption) {
+    additionalMiddleware.push(new AgentsM365CopilotTelemetryHandler(options.agentsM365CopilotTelemetryOption));
   }
   const fetchMiddleware = kiotaChain.slice(-1);
   const otherMiddlewares = kiotaChain.slice(0, kiotaChain.length - 1);
@@ -36,5 +36,5 @@ export const getDefaultMiddlewares = (
 };
 interface MiddlewareFactoryOptions {
   customFetch?: (request: string, init: RequestInit) => Promise<Response>;
-  graphTelemetryOption?: AgentsM365CopilotTelemetryOption;
+  agentsM365CopilotTelemetryOption?: AgentsM365CopilotTelemetryOption;
 }

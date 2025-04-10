@@ -33,7 +33,7 @@ import { getDefaultMiddlewares, AgentsM365CopilotTelemetryOption } from "../midd
  * ```
  */
 export const createAgentsM365CopilotClientFactory = (
-  telemetryOption: AgentsM365CopilotTelemetryOption,
+  agentsM365CopilotTelemetryOption: AgentsM365CopilotTelemetryOption,
   customFetch?: (request: string, init: RequestInit) => Promise<Response>,
   authenticationProvider?: BaseBearerTokenAuthenticationProvider,
   middlewares?: Middleware[],
@@ -43,9 +43,9 @@ export const createAgentsM365CopilotClientFactory = (
     getDefaultMiddlewares(
       {
         customFetch,
-        telemetryOption,
+        agentsM365CopilotTelemetryOption,
       },
       authenticationProvider,
     );
-  return new AgentsM365CopilotHttpClient(telemetryOption, customFetch, ...middleware);
+  return new AgentsM365CopilotHttpClient(agentsM365CopilotTelemetryOption, customFetch, ...middleware);
 };

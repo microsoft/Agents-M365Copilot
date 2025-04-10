@@ -7,12 +7,12 @@ import { AgentsM365CopilotTelemetryOption, getDefaultMiddlewares } from "../midd
 export class AgentsM365CopilotHttpClient extends HttpClient {
   /**
    * Creates a new instance of the GraphHttpClient class
-   * @param telemetryOption The options for telemetry
+   * @param agentsM365CopilotTelemetryOption The options for telemetry
    * @param customFetch The custom fetch implementation to use
    * @param middlewares The middlewares to use
    */
   public constructor(
-    telemetryOption: AgentsM365CopilotTelemetryOption,
+    agentsM365CopilotTelemetryOption: AgentsM365CopilotTelemetryOption,
     customFetch?: (request: string, init: RequestInit) => Promise<Response>,
     ...middlewares: Middleware[]
   ) {
@@ -22,7 +22,7 @@ export class AgentsM365CopilotHttpClient extends HttpClient {
         ? middlewares
         : getDefaultMiddlewares({
             customFetch,
-            telemetryOption,
+            agentsM365CopilotTelemetryOption,
           })),
     );
   }

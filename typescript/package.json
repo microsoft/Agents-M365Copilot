@@ -46,8 +46,7 @@
 		"lint:eslint": "eslint --quiet \"packages/*/src/**/*.ts\"",
 		"lint:eslint:fix": "npm run lint:eslint -- --fix",
 		"lint:eslint:loud": "eslint \"packages/*/src/**/*.ts\" \"packages/*/*/src/**/*.ts\"",
-		"prepare": "husky",
-		"format": "prettier --write ."
+		"prepare": "husky"
 	},
 	"version": "1.0.0-preview.1"
 }

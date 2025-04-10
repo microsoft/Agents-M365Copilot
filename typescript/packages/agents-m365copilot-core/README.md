@@ -10,7 +10,7 @@ Get started with the Microsoft Agents M365 Copilot SDK for Typescript by integra
 
 ```shell
 # this will install the core package
-npm install @microsoft/msgraph-sdk-core
+npm install @microsoft/agents-m365copilot-core
 ```
 
 ## 2. Getting started
