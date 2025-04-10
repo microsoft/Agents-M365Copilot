@@ -2,7 +2,7 @@ import { assert, describe, it } from "vitest";
 import { AgentsM365CopilotHttpClient, AgentsM365CopilotTelemetryOption } from "../../src";
 import { BaseBearerTokenAuthenticationProvider } from "@microsoft/kiota-abstractions";
 import type { Middleware } from "@microsoft/kiota-http-fetchlibrary";
-import { createAgentsM365CopilotClientFactory } from "../../src/http/agentsM365CopilotClientFactory";
+import { createAgentsM365CopilotClient } from "../../src/http/agentsM365CopilotClientFactory";
 
 const graphTelemetryOption: AgentsM365CopilotTelemetryOption = {};
 
@@ -40,11 +40,7 @@ describe("AgentsM365CopilotHttpClient tests", () => {
       assert.equal(8, count);
 
       const authenticationProvider = new BaseBearerTokenAuthenticationProvider({} as any);
-      const clientWithProvider = createAgentsM365CopilotClientFactory(
-        graphTelemetryOption,
-        undefined,
-        authenticationProvider,
-      );
+      const clientWithProvider = createAgentsM365CopilotClient(graphTelemetryOption, undefined, authenticationProvider);
       const count2 = countMiddlewares((clientWithProvider as any)["middleware"] as Middleware);
       assert.equal(9, count2);
     });

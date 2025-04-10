@@ -6,7 +6,7 @@ import { coreVersion } from "../../src/utils/Version";
 
 const options: AgentsM365CopilotTelemetryOption = {
   graphServiceTargetVersion: "v1",
-  graphProductPrefix: "graph-typescript-test",
+  graphProductPrefix: "agents-M365-copilot-typescript-test",
   graphServiceLibraryClientVersion: "0.0.0",
 };
 
@@ -28,7 +28,7 @@ describe("GraphTelemetryHandler tests", () => {
     const headerValue = (fetchRequestInit as any).headers["SdkVersion"];
     assert.equal(
       headerValue,
-      `graph-typescript-test-v1/0.0.0, graph-typescript-test-core/${coreVersion}`,
+      `agents-M365-copilot-typescript-test-v1/0.0.0, agents-M365-copilot-typescript-test-core/${coreVersion}`,
       "SdkVersion header value is incorrect",
     );
   });

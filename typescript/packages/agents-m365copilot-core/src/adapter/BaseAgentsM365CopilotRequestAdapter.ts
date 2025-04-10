@@ -7,7 +7,7 @@ import {
 } from "@microsoft/kiota-abstractions";
 import { HttpClient, type ObservabilityOptions, ObservabilityOptionsImpl } from "@microsoft/kiota-http-fetchlibrary";
 import { DefaultRequestAdapter } from "@microsoft/kiota-bundle";
-import { createAgentsM365CopilotClientFactory } from "../http/agentsM365CopilotClientFactory.js";
+import { createAgentsM365CopilotClient } from "../http/agentsM365CopilotClientFactory.js";
 
 /**
  * Base request adapter for graph clients. Bootstraps telemetry and other aspects.
@@ -29,7 +29,7 @@ export class BaseAgentsM365CopilotRequestAdapter extends DefaultRequestAdapter {
     authenticationProvider: AuthenticationProvider,
     parseNodeFactory: ParseNodeFactory = new ParseNodeFactoryRegistry(),
     serializationWriterFactory: SerializationWriterFactory = new SerializationWriterFactoryRegistry(),
-    httpClient: HttpClient = createAgentsM365CopilotClientFactory({
+    httpClient: HttpClient = createAgentsM365CopilotClient({
       graphServiceTargetVersion,
       graphServiceLibraryClientVersion,
     }),
