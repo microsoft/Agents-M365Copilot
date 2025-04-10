@@ -110,9 +110,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci
-        working-directory: typescript
-      - run: npm run build
+      - run: |
+          npm ci
+          npm run build
+          npm run test
         working-directory: typescript
       - name: Check for Secret availability
         id: my-key-check
