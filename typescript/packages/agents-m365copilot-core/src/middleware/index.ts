@@ -1,3 +1,3 @@
-export * from "./AgentsM365CopilotTelemetryOption";
-export * from "./AgentsM365CopilotTelemetryHandler";
+export * from "./agentsM365CopilotTelemetryOption";
+export * from "./agentsM365CopilotTelemetryHandler";
 export * from "./MiddlewareFactory.js";

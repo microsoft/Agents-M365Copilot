@@ -2,7 +2,7 @@ import { assert, describe, it } from "vitest";
 import { AgentsM365CopilotHttpClient, AgentsM365CopilotTelemetryOption } from "../../src";
 import { BaseBearerTokenAuthenticationProvider } from "@microsoft/kiota-abstractions";
 import type { Middleware } from "@microsoft/kiota-http-fetchlibrary";
-import { createAgentsM365CopilotClientFactory } from "../../src/http/AgentsM365CopilotClientFactory";
+import { createAgentsM365CopilotClientFactory } from "../../src/http/agentsM365CopilotClientFactory";
 
 const graphTelemetryOption: AgentsM365CopilotTelemetryOption = {};
 

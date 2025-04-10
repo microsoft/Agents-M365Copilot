@@ -1,6 +1,6 @@
 import { assert, describe, it } from "vitest";
 import { GraphAzureIdentityAccessTokenProvider } from "../../src/authentication/AzureIdentityAccessTokenProvider";
-import { AgentsM365CopilotTelemetryOption } from "../../src/middleware/AgentsM365CopilotTelemetryOption";
+import { AgentsM365CopilotTelemetryOption } from "../../src/middleware/agentsM365CopilotTelemetryOption";
 import { AzureIdentityAccessTokenProvider } from "@microsoft/kiota-authentication-azure";
 import { TokenCredential } from "@azure/core-auth";
 

@@ -5,8 +5,8 @@ import {
   UrlReplaceHandlerOptions,
   AuthorizationHandler,
 } from "@microsoft/kiota-http-fetchlibrary";
-import { AgentsM365CopilotTelemetryOption } from "./AgentsM365CopilotTelemetryOption";
-import { AgentsM365CopilotTelemetryHandler } from "./AgentsM365CopilotTelemetryHandler";
+import { AgentsM365CopilotTelemetryOption } from "./agentsM365CopilotTelemetryOption";
+import { AgentsM365CopilotTelemetryHandler } from "./agentsM365CopilotTelemetryHandler";
 import { defaultUrlReplacementPairs } from "../utils/Constants.js";
 import { BaseBearerTokenAuthenticationProvider } from "@microsoft/kiota-abstractions";
 

@@ -1,6 +1,6 @@
 import { assert, describe, it } from "vitest";
-import { AgentsM365CopilotTelemetryHandler } from "../../src/middleware/AgentsM365CopilotTelemetryHandler";
-import { AgentsM365CopilotTelemetryOption } from "../../src/middleware/AgentsM365CopilotTelemetryOption";
+import { AgentsM365CopilotTelemetryHandler } from "../../src/middleware/agentsM365CopilotTelemetryHandler";
+import { AgentsM365CopilotTelemetryOption } from "../../src/middleware/agentsM365CopilotTelemetryOption";
 import { DummyFetchHandler } from "./DummyFetchHandler";
 import { coreVersion } from "../../src/utils/Version";
 

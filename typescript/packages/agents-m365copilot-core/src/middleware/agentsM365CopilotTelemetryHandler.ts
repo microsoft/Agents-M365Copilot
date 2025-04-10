@@ -1,5 +1,5 @@
 import { FetchRequestInit, TelemetryHandler, appendRequestHeader } from "@microsoft/kiota-http-fetchlibrary";
-import { AgentsM365CopilotTelemetryOption } from "./AgentsM365CopilotTelemetryOption";
+import { AgentsM365CopilotTelemetryOption } from "./agentsM365CopilotTelemetryOption";
 import { type RequestOption } from "@microsoft/kiota-abstractions";
 import { coreVersion } from "../utils/Version.js";
 

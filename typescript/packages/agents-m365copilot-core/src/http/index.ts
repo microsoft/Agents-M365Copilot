@@ -1,2 +1,2 @@
-export * from "./AgentsM365CopilotClientFactory.js";
-export * from "./AgentsM365CopilotHttpClient";
+export * from "./agentsM365CopilotClientFactory.js";
+export * from "./agentsM365CopilotHttpClient.js";

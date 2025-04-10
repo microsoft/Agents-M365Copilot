@@ -1,1 +1,1 @@
-export * from "./BaseGraphRequestAdapter.js";
+export * from "./BaseAgentsM365CopilotRequestAdapter.js";

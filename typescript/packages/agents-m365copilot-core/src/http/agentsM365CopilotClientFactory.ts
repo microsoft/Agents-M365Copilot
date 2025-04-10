@@ -1,6 +1,6 @@
 import { BaseBearerTokenAuthenticationProvider } from "@microsoft/kiota-abstractions";
 import { Middleware } from "@microsoft/kiota-http-fetchlibrary";
-import { AgentsM365CopilotHttpClient } from "./AgentsM365CopilotHttpClient";
+import { AgentsM365CopilotHttpClient } from "./agentsM365CopilotHttpClient";
 import { getDefaultMiddlewares, AgentsM365CopilotTelemetryOption } from "../middleware/index.js";
 
 /**
