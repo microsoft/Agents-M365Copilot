@@ -1,7 +1,7 @@
 import { GetTokenOptions, TokenCredential } from "@azure/core-auth";
 import { AzureIdentityAuthenticationProvider, type ObservabilityOptions } from "@microsoft/kiota-authentication-azure";
 
-export class GraphAzureIdentityAuthenticationProvider extends AzureIdentityAuthenticationProvider {
+export class AgentsM365CopilotAzureIdentityAuthenticationProvider extends AzureIdentityAuthenticationProvider {
   // create a constructor with TokenCredential
   public constructor(
     credentials: TokenCredential,

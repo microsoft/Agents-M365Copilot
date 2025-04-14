@@ -2,7 +2,7 @@
 
 Get started with the Microsoft Agents M365 Copilot SDK for Typescript by integrating the [Microsoft Agents M365 Copilot API](https://docs.microsoft.com/graph/overview) into your Typescript application!
 
-> **Note:** this package contains the core feature of the TypeScript SDK. To get the full experience checkout [the v1 SDK](https://github.com/microsoftgraph/msgraph-sdk-typescript) and [the beta SDK](https://github.com/microsoftgraph/msgraph-beta-sdk-typescript).
+> **Note:** this package contains the core feature of the TypeScript SDK. To get the full experience checkout [the v1 SDK](https://github.com/microsoft/Agents-M365Copilot).
 >
 > **Note:** the Microsoft Agents M365 Copilot Typescript SDK is currently in Pre-Release.
 

@@ -10,7 +10,7 @@ import { DefaultRequestAdapter } from "@microsoft/kiota-bundle";
 import { createAgentsM365CopilotClient } from "../http/agentsM365CopilotClientFactory.js";
 
 /**
- * Base request adapter for graph clients. Bootstraps telemetry and other aspects.
+ * Base request adapter for AgentsM365Copilot clients. Bootstraps telemetry and other aspects.
  */
 export class BaseAgentsM365CopilotRequestAdapter extends DefaultRequestAdapter {
   /**
@@ -24,14 +24,14 @@ export class BaseAgentsM365CopilotRequestAdapter extends DefaultRequestAdapter {
    * @param observabilityOptions the observability options to use.
    */
   public constructor(
-    graphServiceTargetVersion: string,
-    graphServiceLibraryClientVersion: string,
+    agentsM365CopilotServiceTargetVersion: string,
+    agentsM365CopilotServiceLibraryClientVersion: string,
     authenticationProvider: AuthenticationProvider,
     parseNodeFactory: ParseNodeFactory = new ParseNodeFactoryRegistry(),
     serializationWriterFactory: SerializationWriterFactory = new SerializationWriterFactoryRegistry(),
     httpClient: HttpClient = createAgentsM365CopilotClient({
-      graphServiceTargetVersion,
-      graphServiceLibraryClientVersion,
+      agentsM365CopilotServiceTargetVersion,
+      agentsM365CopilotServiceLibraryClientVersion,
     }),
     observabilityOptions: ObservabilityOptions = new ObservabilityOptionsImpl(),
   ) {

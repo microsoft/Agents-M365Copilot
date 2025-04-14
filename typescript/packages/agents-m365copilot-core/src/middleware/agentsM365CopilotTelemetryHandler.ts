@@ -8,17 +8,18 @@ import { coreVersion } from "../utils/Version.js";
  */
 export class AgentsM365CopilotTelemetryHandler extends TelemetryHandler {
   /**
-   * Creates a new instance of the GraphTelemetryHandler class
+   * Creates a new instance of the AgentsM365CopilotTelemetryHandler class
    */
-  public constructor(graphTelemetryOption: AgentsM365CopilotTelemetryOption) {
-    const productPrefix = graphTelemetryOption.graphProductPrefix ?? "graph-typescript";
+  public constructor(agentsM365CopilotTelemetryOption: AgentsM365CopilotTelemetryOption) {
+    const productPrefix =
+      agentsM365CopilotTelemetryOption.agentsM365CopilotProductPrefix ?? "agents-M365-copilot-typescript";
     const coreProduct = `${productPrefix}-core/${coreVersion}`;
     let product = "";
-    if (graphTelemetryOption.graphServiceLibraryClientVersion) {
-      const serviceLibVersion = graphTelemetryOption.graphServiceTargetVersion
-        ? `-${graphTelemetryOption.graphServiceTargetVersion}`
+    if (agentsM365CopilotTelemetryOption.agentsM365CopilotServiceLibraryClientVersion) {
+      const serviceLibVersion = agentsM365CopilotTelemetryOption.agentsM365CopilotServiceTargetVersion
+        ? `-${agentsM365CopilotTelemetryOption.agentsM365CopilotServiceTargetVersion}`
         : "";
-      product = `${productPrefix}${serviceLibVersion}/${graphTelemetryOption.graphServiceLibraryClientVersion}`;
+      product = `${productPrefix}${serviceLibVersion}/${agentsM365CopilotTelemetryOption.agentsM365CopilotServiceLibraryClientVersion}`;
     }
     const versionHeaderValue = product ? `${product}, ${coreProduct}` : coreProduct;
     super({
@@ -30,7 +31,7 @@ export class AgentsM365CopilotTelemetryHandler extends TelemetryHandler {
       ) => {
         appendRequestHeader(requestInit as FetchRequestInit, "SdkVersion", versionHeaderValue);
       },
-      getKey: () => "graphTelemetryOption",
+      getKey: () => "agentsM365CopilotTelemetryOption",
     });
   }
 }

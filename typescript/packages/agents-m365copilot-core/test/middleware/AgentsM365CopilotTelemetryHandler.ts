@@ -5,15 +5,15 @@ import { DummyFetchHandler } from "./DummyFetchHandler";
 import { coreVersion } from "../../src/utils/Version";
 
 const options: AgentsM365CopilotTelemetryOption = {
-  graphServiceTargetVersion: "v1",
-  graphProductPrefix: "agents-M365-copilot-typescript-test",
-  graphServiceLibraryClientVersion: "0.0.0",
+  agentsM365CopilotServiceTargetVersion: "v1",
+  agentsM365CopilotProductPrefix: "agents-M365-copilot-typescript-test",
+  agentsM365CopilotServiceLibraryClientVersion: "0.0.0",
 };
 
-describe("GraphTelemetryHandler tests", () => {
+describe("AgentsM365CopilotTelemetryHandler tests", () => {
   it("should initialize", () => {
     const handler = new AgentsM365CopilotTelemetryHandler(options);
-    assert(handler, "GraphTelemetryHandler failed to initialize");
+    assert(handler, "AgentsM365CopilotTelemetryHandler failed to initialize");
   });
   it("should add the header", () => {
     const handler = new AgentsM365CopilotTelemetryHandler(options);

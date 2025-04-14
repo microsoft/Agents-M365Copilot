@@ -6,7 +6,7 @@ import { AgentsM365CopilotTelemetryOption, getDefaultMiddlewares } from "../midd
  */
 export class AgentsM365CopilotHttpClient extends HttpClient {
   /**
-   * Creates a new instance of the GraphHttpClient class
+   * Creates a new instance of the AgentsM365CopilotHttpClient class
    * @param agentsM365CopilotTelemetryOption The options for telemetry
    * @param customFetch The custom fetch implementation to use
    * @param middlewares The middlewares to use
