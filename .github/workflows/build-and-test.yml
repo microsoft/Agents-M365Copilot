@@ -59,11 +59,13 @@ jobs:
   dotnet:
     name: Build and test .NET Beta and core code
     needs: check-changes
-    if: ${{ needs.check-changes.outputs.dotnet == 'true' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     env:
       solutionName: Microsoft.Agents.M365Copilot.sln
     steps:
+      - name: Early exit if not needed
+        if: ${{ needs.check-changes.outputs.dotnet != 'true' && github.event_name != 'workflow_dispatch' }}
+        run: echo "No .NET changes detected, skipping." && exit 0
       - uses: actions/checkout@v4.2.2
       - name: Setup .NET
         uses: actions/setup-dotnet@v4.3.1
@@ -88,13 +90,15 @@ jobs:
   python:
     name: Build and test Python Beta and core code
     needs: check-changes
-    if: ${{ needs.check-changes.outputs.python == 'true' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 5
       matrix:
         python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
     steps:
+      - name: Early exit if not needed
+        if: ${{ needs.check-changes.outputs.python != 'true' && github.event_name != 'workflow_dispatch' }}
+        run: echo "No Python changes detected, skipping." && exit 0
       - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
@@ -109,16 +113,12 @@ jobs:
       - name: Lint SDK with Pylint
         run: pylint microsoft_agents_m365copilot_beta --disable=W --rcfile=.pylintrc
         working-directory: python
-
       - name: Lint Core Library with Pylint
         run: pylint microsoft_agents_m365copilot_core --disable=W --rcfile=microsoft_agents_m365copilot_core/.pylintrc
         working-directory: python
-
       - name: Test Core Library
         run: pytest microsoft_agents_m365copilot_core
         working-directory: python
-
-      # CodeQL
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
@@ -133,19 +133,18 @@ jobs:
   typescript:
     name: Build and test TypeScript Beta and core code
     needs: check-changes
-    if: ${{ needs.check-changes.outputs.typescript == 'true' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     env:
       NODE_OPTIONS: "--max_old_space_size=9182"
     environment:
       name: build_test
-
     strategy:
       matrix:
         node-version: [18.x, 20.x, 22.x]
-        # Single version should work for compilation testing
-
     steps:
+      - name: Early exit if not needed
+        if: ${{ needs.check-changes.outputs.typescript != 'true' && github.event_name != 'workflow_dispatch' }}
+        run: echo "No TypeScript changes detected, skipping." && exit 0
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
@@ -157,7 +156,6 @@ jobs:
         working-directory: typescript
       - name: Check for Secret availability
         id: my-key-check
-        # perform secret check & put boolean result as an output
         shell: bash
         run: |
           if [ "${{ secrets.client_secret }}" != '' ]; then
