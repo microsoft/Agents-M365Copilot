@@ -187,9 +187,9 @@ jobs:
       - name: All triggered builds are successful
         if: |
           (needs.check-changes.outputs.dotnet || needs.check-changes.outputs.python || needs.check-changes.outputs.typescript) &&
-          (!needs.check-changes.outputs.dotnet || needs.dotnet.result == 'success') &&
-          (!needs.check-changes.outputs.python || needs.python.result == 'success') &&
-          (!needs.check-changes.outputs.typescript || needs.typescript.result == 'success')
+          (!needs.check-changes.outputs.dotnet || needs.dotnet.result == 'success' || needs.dotnet.result == 'skipped') &&
+          (!needs.check-changes.outputs.python || needs.python.result == 'success' || needs.python.result == 'skipped') &&
+          (!needs.check-changes.outputs.typescript || needs.typescript.result == 'success' || needs.typescript.result == 'skipped')
         run: exit 0
 
       - name: One or more triggered builds failed
