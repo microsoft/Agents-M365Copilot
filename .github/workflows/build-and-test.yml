@@ -178,21 +178,26 @@ jobs:
     if: always()
     runs-on: ubuntu-latest
     steps:
-      - name: No builds triggered - passing check
-        if: ${{ !needs.check-changes.outputs.dotnet && !needs.check-changes.outputs.python && !needs.check-changes.outputs.typescript }}
-        run: exit 0
+      - name: Check build status
+        run: |
+          # Check if any builds were triggered
+          DOTNET_TRIGGERED=${{ needs.check-changes.outputs.dotnet == 'true' }}
+          PYTHON_TRIGGERED=${{ needs.check-changes.outputs.python == 'true' }}
+          TYPESCRIPT_TRIGGERED=${{ needs.check-changes.outputs.typescript == 'true' }}
 
-      - name: All triggered builds are successful
-        if: |
-          (needs.check-changes.outputs.dotnet || needs.check-changes.outputs.python || needs.check-changes.outputs.typescript) &&
-          (!needs.check-changes.outputs.dotnet || needs.dotnet.result == 'success' || needs.dotnet.result == 'skipped') &&
-          (!needs.check-changes.outputs.python || needs.python.result == 'success' || needs.python.result == 'skipped') &&
-          (!needs.check-changes.outputs.typescript || needs.typescript.result == 'success' || needs.typescript.result == 'skipped')
-        run: exit 0
+          # If no builds were triggered, exit successfully
+          if [[ "$DOTNET_TRIGGERED" == "false" && "$PYTHON_TRIGGERED" == "false" && "$TYPESCRIPT_TRIGGERED" == "false" ]]; then
+            echo "No builds were triggered - passing check"
+            exit 0
+          fi
 
-      - name: One or more triggered builds failed
-        if: |
-          (needs.check-changes.outputs.dotnet && needs.dotnet.result == 'failure') ||
-          (needs.check-changes.outputs.python && needs.python.result == 'failure') ||
-          (needs.check-changes.outputs.typescript && needs.typescript.result == 'failure')
-        run: exit 1
+          # Check results of triggered builds
+          if [[ "$DOTNET_TRIGGERED" == "true" && "${{ needs.dotnet.result }}" == "failure" ]] || \
+             [[ "$PYTHON_TRIGGERED" == "true" && "${{ needs.python.result }}" == "failure" ]] || \
+             [[ "$TYPESCRIPT_TRIGGERED" == "true" && "${{ needs.typescript.result }}" == "failure" ]]; then
+            echo "One or more triggered builds failed"
+            exit 1
+          fi
+
+          echo "All triggered builds completed successfully"
+          exit 0
