@@ -26,7 +26,7 @@ namespace Microsoft.Agents.M365Copilot.Core
             public const string SdkVersionHeaderName = "SdkVersion";
 
             /// SDK Version header
-            public const string SdkVersionHeaderValueFormatString = "graph-dotnet-core/{0}.{1}.{2}";
+            public const string SdkVersionHeaderValueFormatString = "microsoft-agents-m365copilot-core/{0}.{1}.{2}";
 
             /// Content-Type header
             public const string FormUrlEncodedContentType = "application/x-www-form-urlencoded";

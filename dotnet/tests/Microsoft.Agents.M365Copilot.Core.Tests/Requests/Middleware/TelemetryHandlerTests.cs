@@ -52,7 +52,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests.Middleware
             Assert.True(response.RequestMessage.Headers.Contains(CoreConstants.Headers.SdkVersionHeaderName));
             Assert.True(response.RequestMessage.Headers.Contains(CoreConstants.Headers.ClientRequestId));
             var telemetryHeaderString = response.RequestMessage.Headers.GetValues(CoreConstants.Headers.SdkVersionHeaderName).First();
-            Assert.Contains("graph-dotnet-core/", telemetryHeaderString);
+            Assert.Contains("microsoft-agents-m365copilot-core/", telemetryHeaderString);
             Assert.Contains("(featureUsage=", telemetryHeaderString);
             Assert.Contains($" hostOS={Environment.OSVersion};", telemetryHeaderString);
             Assert.Contains($" hostArch={RuntimeInformation.OSArchitecture};", telemetryHeaderString);
