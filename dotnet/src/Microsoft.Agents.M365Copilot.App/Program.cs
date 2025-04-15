@@ -1,19 +1,25 @@
 ﻿using Azure.Identity;
+using Microsoft.Agents.M365Copilot.App;
 using Microsoft.Agents.M365Copilot.Beta;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval;
+using Microsoft.Extensions.Configuration;
+
+var configuration = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.development.json", optional: false)
+    .Build();
+
+var authConfig = configuration.GetSection("Authentication").Get<AuthConfig>() ?? throw new InvalidOperationException("Authentication configuration is missing or invalid.");
 
 string[] scopes = [
     "Files.Read.All",
     "Sites.Read.All"
 ];
 
-var clientId = "YOUR_CLIENT_ID";
-var tenantId = "YOUR_TENANT_ID";
-
 var deviceCodeCredentialOptions = new DeviceCodeCredentialOptions
 {
-    ClientId = clientId,
-    TenantId = tenantId,
+    ClientId = authConfig.ClientId,
+    TenantId = authConfig.TenantId,
     DeviceCodeCallback = (deviceCodeInfo, cancellationToken) =>
     {
         Console.WriteLine(deviceCodeInfo.Message);

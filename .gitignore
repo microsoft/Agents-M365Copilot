@@ -1,3 +1,4 @@
 .env
 .venv
 appsettings.development.json
+**/appsettings.development.json
