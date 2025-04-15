@@ -20,21 +20,11 @@ from .middleware import (
     MicrosoftAgentsM365CopilotTelemetryHandlerOption,
 )
 from .models import LargeFileUploadSession, PageResult, UploadResult, UploadSessionDataHolder
-from .requests import (
-    BatchRequestBuilder,
-    BatchRequestContent,
-    BatchRequestContentCollection,
-    BatchRequestItem,
-    BatchResponseContent,
-    BatchResponseContentCollection,
-    BatchResponseItem,
-)
+
 from .tasks import LargeFileUploadTask, PageIterator
 
 __all__ = [
-    "BatchRequestBuilder", "BatchRequestContentCollection", "BatchRequestContent",
-    "BatchRequestItem", "BatchResponseContentCollection", "BatchResponseContent",
-    "BatchResponseItem", "MicrosoftAgentsM365CopilotClientFactory",
+    "MicrosoftAgentsM365CopilotClientFactory",
     "BaseMicrosoftAgentsM365CopilotRequestAdapter", "PageResult", "PageIterator",
     "AzureIdentityAuthenticationProvider", "FeatureUsageFlag", "NationalClouds", "APIVersion",
     "LargeFileUploadTask", "LargeFileUploadSession", "UploadResult", "UploadSessionDataHolder",
