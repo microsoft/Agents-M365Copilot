@@ -1,16 +1,54 @@
 {
-    "name": "root",
-    "private": true,
-    "workspaces": [
-      "packages/*"
-    ],
-    "scripts": {
-      "build": "npm run build --workspaces",
-      "clean": "npm run clean --workspaces",
-      "test": "echo TODO: create tests to run"
-    },
-    "devDependencies": {
-      "rimraf": "^6.0.1"
-    },
-    "version": "1.0.0-preview.1"
-  }
+	"name": "root",
+	"private": true,
+	"devDependencies": {
+		"@microsoft/eslint-config-msgraph": "^5.0.0",
+		"@tony.ganchev/eslint-plugin-header": "^3.1.2",
+		"@types/node": "^22.0.0",
+		"@types/sinon": "^17.0.3",
+		"@typescript-eslint/eslint-plugin": "^8.1.0",
+		"@typescript-eslint/parser": "^8.1.0",
+		"@vitest/browser": "^3.0.0",
+		"@vitest/coverage-istanbul": "^3.0.0",
+		"@vitest/coverage-v8": "^3.0.0",
+		"@vitest/ui": "^3.0.0",
+		"eslint": "^9.7.0",
+		"eslint-config-prettier": "^10.0.0",
+		"eslint-plugin-jsdoc": "^50.1.0",
+		"eslint-plugin-prefer-arrow": "^1.2.3",
+		"eslint-plugin-prettier": "^5.1.3",
+		"eslint-plugin-simple-import-sort": "^12.0.0",
+		"husky": "^9.0.11",
+		"lerna": "^8.0.2",
+		"prettier": "^3.2.4",
+		"rimraf": "^6.0.0",
+		"sinon": "^20.0.0",
+		"tsc-alias": "^1.8.10",
+		"typescript": "^5.3.3",
+		"vitest": "^3.0.0",
+		"webdriverio": "^9.0.1"
+	},
+	"workspaces": [
+		"packages/*"
+	],
+	"scripts": {
+		"build": "npm run prettier:check && npm run clean && npm run build:@microsoft/*",
+		"build:lerna": "lerna run build --scope \"@microsoft/*\"",
+		"build:beta": "npm run build --prefix packages/agents-m365copilot-core && npm run build --prefix packages/agents-m365copilot-beta",
+		"build:@microsoft/*": "lerna run build --scope \"@microsoft/*\"",
+		"clean": "lerna run --parallel --stream --scope \"@microsoft/*\" clean",
+		"test": "lerna run --scope \"@microsoft/*\" test",
+		"test:coverage": "lerna run test:coverage",
+		"test:integrated": "lerna run test:integrated",
+		"tsc:version": "tsc --version",
+		"prettier:base": "prettier --parser typescript",
+		"prettier:check": "npm run prettier:base -- --check \"packages/**/*.{ts,tsx}\"",
+		"prettier:write": "npm run prettier:base -- --write \"packages/**/*.{ts,tsx}\"",
+		"lint": "npm run lint:eslint",
+		"lint:eslint": "eslint --quiet \"packages/*/src/**/*.ts\"",
+		"lint:eslint:fix": "npm run lint:eslint -- --fix",
+		"lint:eslint:loud": "eslint \"packages/*/src/**/*.ts\" \"packages/*/*/src/**/*.ts\"",
+		"prepare": "husky"
+	},
+	"version": "1.0.0-preview.1"
+}

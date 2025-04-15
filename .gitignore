@@ -2,3 +2,4 @@
 .venv
 appsettings.development.json
 **/appsettings.development.json
+.idea/

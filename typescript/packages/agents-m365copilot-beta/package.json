@@ -1,38 +1,37 @@
 {
-  "name": "@microsoft/agents-m365copilot-beta",
-  "version": "1.0.0-preview.1",
-  "description": "Microsoft Copilot client library",
-  "keywords": [
-    "microsoft",
-    "copilot"
-  ],
-  "author": "Microsoft <graphsdkpub+ccsbetajavascript@microsoft.com>",
-  "homepage": "https://github.com/microsoft/Agents-M365Copilot/blob/main/typescript/README.md",
-  "license": "MIT",
-  "main": "index.js",
-  "types": "index.d.ts",
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/microsoft/Agents-M365Copilot.git"
-  },
-  "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "clean": "rimraf -g **/*.d.ts && rimraf -g **/*.d.ts.map && rimraf -g **/*.js.map && rimraf -g **/*.js && rimraf tsconfig.tsbuildinfo"
-  },
-  "bugs": {
-    "url": "https://github.com/microsoft/Agents-M365Copilot/issues"
-  },
-  "dependencies": {
-    "@microsoft/kiota-authentication-azure": "^1.0.0-preview.92",
-    "@microsoft/kiota-bundle": "^1.0.0-preview.92",
-    "tslib": "^2.6.2"
-  },
-  "devDependencies": {
-    "@types/node": "^22.0.0",
-    "typescript": "^5.3.3"
-  },
-  "type": "module"
+	"name": "@microsoft/agents-m365copilot-beta",
+	"version": "1.0.0-preview.1",
+	"description": "Microsoft Copilot client library",
+	"keywords": [
+		"microsoft",
+		"copilot"
+	],
+	"author": "Microsoft <graphsdkpub+ccsbetajavascript@microsoft.com>",
+	"homepage": "https://github.com/microsoft/Agents-M365Copilot/blob/main/typescript/README.md",
+	"license": "MIT",
+	"main": "index.js",
+	"types": "index.d.ts",
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/microsoft/Agents-M365Copilot.git"
+	},
+	"scripts": {
+		"build": "node build.js",
+		"clean": "rimraf dist && rimraf tsconfig.tsbuildinfo"
+	},
+	"bugs": {
+		"url": "https://github.com/microsoft/Agents-M365Copilot/issues"
+	},
+	"dependencies": {
+		"@microsoft/agents-m365copilot-core": "file:../agents-m365copilot-core"
+	},
+	"devDependencies": {
+		"@types/node": "^22.0.0",
+		"esbuild": "^0.25.2",
+		"typescript": "^5.3.3"
+	},
+	"type": "module"
 }
