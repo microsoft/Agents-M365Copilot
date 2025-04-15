@@ -41,16 +41,5 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Mocks
         {
             get; set;
         }
-
-        /// <summary>
-        /// Gets the <see cref="BatchRequestBuilder"/> for building batch Requests
-        /// </summary>
-        public BatchRequestBuilder Batch
-        {
-            get
-            {
-                return new BatchRequestBuilder(this.RequestAdapter);
-            }
-        }
     }
 }

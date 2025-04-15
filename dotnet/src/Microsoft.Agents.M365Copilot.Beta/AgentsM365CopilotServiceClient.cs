@@ -11,7 +11,6 @@ namespace Microsoft.Agents.M365Copilot.Beta
     using System.Reflection;
     using Azure.Core;
     using Microsoft.Agents.M365Copilot.Beta;
-    using Microsoft.Agents.M365Copilot.Beta.Extensions;
     using Microsoft.Agents.M365Copilot.Core.Requests;
     using Microsoft.Kiota.Abstractions;
     using Microsoft.Kiota.Abstractions.Authentication;
@@ -100,17 +99,6 @@ namespace Microsoft.Agents.M365Copilot.Beta
         public new IRequestAdapter RequestAdapter
         {
             get; set;
-        }
-
-        /// <summary>
-        /// Gets the <see cref="BatchRequestBuilder"/> for building batch Requests
-        /// </summary>
-        public BatchRequestBuilder Batch
-        {
-            get
-            {
-                return new CustomBatchRequestBuilder(this.RequestAdapter);
-            }
         }
 
         /// <summary>
