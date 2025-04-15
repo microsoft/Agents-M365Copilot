@@ -114,6 +114,8 @@ jobs:
         working-directory: typescript
       - run: npm run build
         working-directory: typescript
+      - run: npm run test
+        working-directory: typescript
       - name: Check for Secret availability
         id: my-key-check
         # perform secret check & put boolean result as an output
