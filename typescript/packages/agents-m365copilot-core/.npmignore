@@ -1,0 +1,16 @@
+.eslint*
+.github/
+.husky
+.vscode/
+*.tgz
+CODE_OF_CONDUCT.md
+coverage/
+prettier.config.cjs
+scripts/
+SECURITY.md
+src/
+SUPPORT.md
+test/
+tests/
+tsconfig.json
+vite.config.ts
