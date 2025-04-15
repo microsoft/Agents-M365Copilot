@@ -1,4 +1,4 @@
-name: Build and validate generated code
+name: Build and validate Copilot sdk code
 
 on:
   workflow_dispatch:
@@ -37,19 +37,19 @@ jobs:
           CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }})
           echo "Changed Files:"
           echo "$CHANGED_FILES"
-          
+
           if echo "$CHANGED_FILES" | grep -q "^dotnet/"; then
             echo "dotnet=true" >> $GITHUB_OUTPUT
           else
             echo "dotnet=false" >> $GITHUB_OUTPUT
           fi
-          
+
           if echo "$CHANGED_FILES" | grep -q "^python/"; then
             echo "python=true" >> $GITHUB_OUTPUT
           else
             echo "python=false" >> $GITHUB_OUTPUT
           fi
-          
+
           if echo "$CHANGED_FILES" | grep -q "^typescript/"; then
             echo "typescript=true" >> $GITHUB_OUTPUT
           else
@@ -194,8 +194,7 @@ jobs:
 
       - name: One or more triggered builds failed
         if: |
-          (needs.check-changes.outputs.dotnet || needs.check-changes.outputs.python || needs.check-changes.outputs.typescript) &&
-          ((needs.check-changes.outputs.dotnet && needs.dotnet.result == 'failure') ||
+          (needs.check-changes.outputs.dotnet && needs.dotnet.result == 'failure') ||
           (needs.check-changes.outputs.python && needs.python.result == 'failure') ||
-          (needs.check-changes.outputs.typescript && needs.typescript.result == 'failure'))
+          (needs.check-changes.outputs.typescript && needs.typescript.result == 'failure')
         run: exit 1
