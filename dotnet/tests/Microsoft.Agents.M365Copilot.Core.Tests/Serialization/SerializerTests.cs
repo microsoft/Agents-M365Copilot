@@ -463,44 +463,6 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Serialization
         }
 
         [Fact]
-        public async Task SerializeUploadSessionValuesAsync()
-        {
-            // Arrange
-            var uploadSession = new UploadSession()
-            {
-                ExpirationDateTime = DateTimeOffset.Parse("2016-11-20T18:23:45.9356913+00:00"),
-                UploadUrl = "http://localhost",
-                NextExpectedRanges = new List<string> { "0 - 1000" }
-            };
-            var expectedString = @"{""expirationDateTime"":""2016-11-20T18:23:45.9356913+00:00"",""nextExpectedRanges"":[""0 - 1000""],""uploadUrl"":""http://localhost""}";
-            // Act
-            // Assert
-            var serializedJsonString = await KiotaJsonSerializer.SerializeAsStringAsync(uploadSession);
-            // Expect the string to be ISO 8601-1:2019 format
-            Assert.Equal(expectedString, serializedJsonString);
-        }
-
-        [Fact]
-        public async Task DeserializeUploadSessionValuesAsync()
-        {
-            // Act 1
-            const string camelCasedPayload = @"{""expirationDateTime"":""2016-11-20T18:23:45.9356913+00:00"",""nextExpectedRanges"":[""0 - 1000""],""uploadUrl"":""http://localhost""}";
-            var uploadSession = await KiotaJsonSerializer.DeserializeAsync<UploadSession>(camelCasedPayload);
-            Assert.NotNull(uploadSession);
-            Assert.NotNull(uploadSession.ExpirationDateTime);
-            Assert.NotNull(uploadSession.NextExpectedRanges);
-            Assert.Single(uploadSession.NextExpectedRanges);
-
-            // Act 1
-            const string pascalCasedPayload = @"{""ExpirationDateTime"":""2016-11-20T18:23:45.9356913+00:00"",""NextExpectedRanges"":[""0 - 1000""],""uploadUrl"":""http://localhost""}";
-            var uploadSession2 = await KiotaJsonSerializer.DeserializeAsync<UploadSession>(pascalCasedPayload);
-            Assert.NotNull(uploadSession2);
-            Assert.NotNull(uploadSession2.ExpirationDateTime);
-            Assert.NotNull(uploadSession2.NextExpectedRanges);
-            Assert.Single(uploadSession2.NextExpectedRanges);
-        }
-
-        [Fact]
         public void SerializeServiceExceptionValues()
         {
             // Arrange
