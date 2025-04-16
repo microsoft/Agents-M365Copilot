@@ -1,20 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Sdk Name="Microsoft.DotNet.PackageValidation" Version="1.0.0-preview.7.21379.12" />
   <PropertyGroup>
-    <Description>Microsoft Graph Core Client Library implements core functionality used by Microsoft Graph client libraries.</Description>
+    <Description>Microsoft Agents M365 Copilot Client Library implements core functionality used by Microsoft Copilot client libraries.</Description>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
-    <AssemblyTitle>Microsoft Graph Core Client Library</AssemblyTitle>
+    <AssemblyTitle>Microsoft Agents M365 Copilot Client Library</AssemblyTitle>
     <Authors>Microsoft</Authors>
     <LangVersion>latest</LangVersion>
     <PreserveCompilationContext>false</PreserveCompilationContext>
     <AssemblyName>Microsoft.Agents.M365Copilot.Core</AssemblyName>
     <PackageId>Microsoft.Agents.M365Copilot.Core</PackageId>
-    <PackageTags>Microsoft Office365;Graph;GraphServiceClient;Outlook;OneDrive;AzureAD;GraphAPI;Productivity;SharePoint;Intune;SDK</PackageTags>
-    <PackageProjectUrl>https://developer.microsoft.com/graph</PackageProjectUrl>
+    <PackageTags>Copilot;Agents;Declarative Agents;Microsoft Office365;Outlook;OneDrive;AzureAD;Productivity;SDK</PackageTags>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageIconUrl>http://go.microsoft.com/fwlink/?LinkID=288890</PackageIconUrl>
-    <RepositoryUrl>https://github.com/microsoftgraph/msgraph-sdk-dotnet-core</RepositoryUrl>
+    <RepositoryUrl>https://github.com/microsoft/Agents-M365Copilot/dotnet</RepositoryUrl>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <SignAssembly>false</SignAssembly>
     <DelaySign>false</DelaySign>
@@ -27,9 +26,6 @@
     <!-- VersionPrefix minor version must be manually set when making manual changes to code. -->
     <!-- VersionPrefix major and patch versions must be manually set. -->
     <VersionSuffix></VersionSuffix>
-    <PackageReleaseNotes>
-- https://github.com/microsoftgraph/msgraph-sdk-dotnet-core/blob/main/CHANGELOG.md
-    </PackageReleaseNotes>
     <!-- By default let the Maui targets be excluded to make contribution for external parties easier and dependabot updates. They can be enabled by adding `-p:IncludeMauiTargets=true` to the target build/restore command which is done in the CI.-->
     <TargetFrameworks>netstandard2.0;net462;$(MauiTargets)</TargetFrameworks>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
