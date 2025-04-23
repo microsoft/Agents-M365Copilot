@@ -29,7 +29,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Helpers
             }
 
             // Search s => s.Foo
-            var memberExpression = expression.Body as MemberExpression;
+            var memberExpression = expression.Body is MemberExpression me ? me : null;
             if (memberExpression != null)
             {
                 return ProcessSimpleMemberExpression<T>(memberExpression, ref error);

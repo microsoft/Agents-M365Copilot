@@ -75,7 +75,7 @@ namespace Microsoft.Agents.M365Copilot.Beta
         public AgentsCopilotServiceClient(
             IAuthenticationProvider authenticationProvider,
             string baseUrl = null
-            ) : this(new BaseRequestAdaptor(authenticationProvider, copilotClientOptions), baseUrl)
+            ) : this(new BaseRequestAdapter(authenticationProvider, copilotClientOptions), baseUrl)
         {
         }
 
@@ -89,7 +89,7 @@ namespace Microsoft.Agents.M365Copilot.Beta
         public AgentsCopilotServiceClient(
             HttpClient httpClient,
             IAuthenticationProvider authenticationProvider = null,
-            string baseUrl = null) : this(new BaseRequestAdaptor(authenticationProvider ?? new AnonymousAuthenticationProvider(), copilotClientOptions, httpClient: httpClient), baseUrl)
+            string baseUrl = null) : this(new BaseRequestAdapter(authenticationProvider ?? new AnonymousAuthenticationProvider(), copilotClientOptions, httpClient: httpClient), baseUrl)
         {
         }
 
