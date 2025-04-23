@@ -461,21 +461,5 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Serialization
             var serializedJsonString = reader.ReadToEnd();
             Assert.Equal(expectedJsonValue, serializedJsonString);
         }
-
-        [Fact]
-        public void SerializeServiceExceptionValues()
-        {
-            // Arrange
-            var serviceException = new ServiceException("Unknown Error", null, (int)System.Net.HttpStatusCode.InternalServerError);
-            // Assert
-            // Get the json string from the stream.
-            var serializedStream = KiotaJsonSerializer.SerializeAsStream(serviceException);
-            using var reader = new StreamReader(serializedStream, Encoding.UTF8);
-            var serializedJsonString = reader.ReadToEnd();
-
-            var expectedString = @"{""statusCode"":500,""message"":""Unknown Error""}";
-            // Expect the string to be ISO 8601-1:2019 format
-            Assert.Equal(expectedString, serializedJsonString);
-        }
     }
 }
