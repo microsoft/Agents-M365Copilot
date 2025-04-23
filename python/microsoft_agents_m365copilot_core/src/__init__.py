@@ -19,13 +19,11 @@ from .middleware import (
     MicrosoftAgentsM365CopilotTelemetryHandler,
     MicrosoftAgentsM365CopilotTelemetryHandlerOption,
 )
-from .models import PageResult, UploadResult, UploadSessionDataHolder
 
 __all__ = [
     "MicrosoftAgentsM365CopilotClientFactory",
-    "BaseMicrosoftAgentsM365CopilotRequestAdapter", "PageResult",
+    "BaseMicrosoftAgentsM365CopilotRequestAdapter",
     "AzureIdentityAuthenticationProvider", "FeatureUsageFlag", "NationalClouds", "APIVersion",
-    "UploadResult", "UploadSessionDataHolder",
     "MicrosoftAgentsM365CopilotTelemetryHandlerOption", "MicrosoftAgentsM365CopilotRequestContext",
     "AsyncMicrosoftAgentsM365CopilotTransport", "MicrosoftAgentsM365CopilotTelemetryHandler"
 ]
