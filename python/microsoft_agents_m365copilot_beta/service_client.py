@@ -48,11 +48,3 @@ class MicrosoftAgentsM365CopilotServiceClient(BaseCopilotControlSystemsClient):
             request_adapter = MicrosoftAgentsM365CopilotRequestAdapter(auth_provider)
 
         super().__init__(request_adapter)
-
-    @property
-    def batch(self) -> BatchRequestBuilder:
-        """
-        Returns a BatchRequestBuilder to enable batch requests.
-        """
-        from microsoft_agents_m365copilot_core import BatchRequestBuilder
-        return BatchRequestBuilder(self.request_adapter)

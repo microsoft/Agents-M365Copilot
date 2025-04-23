@@ -404,3 +404,6 @@ FodyWeavers.xsd
 **/.venv/*
 .env
 main.py
+
+#Exclude virtual environment folder for Python projects
+env/
