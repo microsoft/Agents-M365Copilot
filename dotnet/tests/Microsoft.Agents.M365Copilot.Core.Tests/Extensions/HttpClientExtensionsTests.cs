@@ -16,9 +16,9 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Extensions
         public void SetFeatureFlag_should_add_new_flag_to_featureflag_header()
         {
             HttpClient client = new HttpClient();
-            client.SetFeatureFlag(FeatureFlag.LongRunningOperationHandler);
+            client.SetFeatureFlag(FeatureFlag.CompressionHandler);
 
-            string expectedHeaderValue = Enum.Format(typeof(FeatureFlag), FeatureFlag.LongRunningOperationHandler, "x");
+            string expectedHeaderValue = Enum.Format(typeof(FeatureFlag), FeatureFlag.CompressionHandler, "x");
 
             Assert.True(client.DefaultRequestHeaders.Contains(CoreConstants.Headers.FeatureFlag));
             Assert.True(client.DefaultRequestHeaders.GetValues(CoreConstants.Headers.FeatureFlag).Count().Equals(1));

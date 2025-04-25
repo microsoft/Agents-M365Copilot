@@ -28,15 +28,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests
         /// Compression Handler
         CompressionHandler = 0x00000040,
         /// Connection Pool Manager
-        ConnectionPoolManager = 0x00000080,
-        /// Long Running Operation Handler 
-        LongRunningOperationHandler = 0x00000100,
-        /// Batch Request Content Used
-        BatchRequestContext = 0x00000200,
-        /// Page Iterator task Used
-        PageIteratorTask = 0x00000400,
-        /// File Upload task Used
-        FileUploadTask = 0x00000800
+        ConnectionPoolManager = 0x00000080
 
     }
 }
