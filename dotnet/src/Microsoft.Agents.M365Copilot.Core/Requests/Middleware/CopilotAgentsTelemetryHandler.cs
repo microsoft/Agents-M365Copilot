@@ -64,7 +64,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Requests.Middleware
             // Get the features section of the telemetry header
             var features = string.Empty;
             if (Environment.OSVersion != null)
-                features += " hostOS=" + Environment.OSVersion + ";" + " hostArch=" + RuntimeInformation.OSArchitecture + ";"; ;
+                features += " hostOS=" + Environment.OSVersion + "; hostArch=" + RuntimeInformation.OSArchitecture + ";";
             features += " runtimeEnvironment=" + RuntimeInformation.FrameworkDescription + ";";
 
             var telemetryString = $"{serviceLibraryString} {coreLibraryString} (featureUsage={Enum.Format(typeof(FeatureFlag), httpRequest.GetFeatureFlags(), "x")};{features})";

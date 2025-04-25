@@ -4,9 +4,10 @@ using Microsoft.Agents.M365Copilot.Beta;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval;
 using Microsoft.Extensions.Configuration;
 
+var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "development";
 var configuration = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("appsettings.development.json", optional: false)
+    .AddJsonFile($"appsettings.{environment}.json", optional: false)
     .Build();
 
 var authConfig = configuration.GetSection("Authentication").Get<AuthConfig>() ?? throw new InvalidOperationException("Authentication configuration is missing or invalid.");

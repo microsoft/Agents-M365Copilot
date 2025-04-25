@@ -11,6 +11,16 @@ public static class ParseNodeExtensions
     {
         var errorParseNode = responseParseNode.GetChildNode("error");
         // concatenate the error code and message
-        return $"{errorParseNode?.GetChildNode("code")?.GetStringValue()} : {errorParseNode?.GetChildNode("message")?.GetStringValue()}";
+        var errorCode = errorParseNode?.GetChildNode("code")?.GetStringValue();
+        var errorMessage = errorParseNode?.GetChildNode("message")?.GetStringValue();
+        if (string.IsNullOrEmpty(errorCode) && string.IsNullOrEmpty(errorMessage))
+            return null;
+        if (string.IsNullOrEmpty(errorCode) && !string.IsNullOrEmpty(errorMessage))
+            return errorMessage;
+        if (!string.IsNullOrEmpty(errorCode) && string.IsNullOrEmpty(errorMessage))
+            return errorCode;
+        // both error code and message are not null or empty
+        // return the error code and message concatenated with a colon
+        return $"{errorCode} : {errorMessage}";
     }
 }
