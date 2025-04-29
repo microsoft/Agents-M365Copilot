@@ -17,6 +17,16 @@ string[] scopes = [
     "Sites.Read.All"
 ];
 
+if (authConfig == null)
+{
+    throw new InvalidOperationException("Authentication configuration is null.");
+}
+
+if (string.IsNullOrEmpty(authConfig.ClientId) || string.IsNullOrEmpty(authConfig.TenantId))
+{
+    throw new InvalidOperationException("ClientId or TenantId is not set in the configuration.");
+}
+
 var deviceCodeCredentialOptions = new DeviceCodeCredentialOptions
 {
     ClientId = authConfig.ClientId,
