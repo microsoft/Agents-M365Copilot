@@ -6,6 +6,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Helpers
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Net;
 
     /// <summary>
@@ -20,31 +21,24 @@ namespace Microsoft.Agents.M365Copilot.Core.Helpers
         /// <returns></returns>
         public static IDictionary<string, string> GetQueryOptions(Uri resultUri)
         {
-            string[] queryParams = null;
+            IEnumerable<string> queryParams = Enumerable.Empty<string>();
             var queryValues = new Dictionary<string, string>();
 
-            int fragmentIndex = resultUri.AbsoluteUri.IndexOf("#", StringComparison.Ordinal);
-            if (fragmentIndex > 0 && fragmentIndex < resultUri.AbsoluteUri.Length + 1)
+            if (!string.IsNullOrEmpty(resultUri.Fragment) && resultUri.Fragment.Length > 1)
             {
-                queryParams = resultUri.AbsoluteUri.Substring(fragmentIndex + 1).Split('&');
+                queryParams = resultUri.Fragment.TrimStart('#').Split('&');
             }
-            else if (fragmentIndex < 0)
+            else if (!string.IsNullOrEmpty(resultUri.Query) && resultUri.Query.Length > 1)
             {
-                if (!string.IsNullOrEmpty(resultUri.Query))
-                {
-                    queryParams = resultUri.Query.TrimStart('?').Split('&');
-                }
+                queryParams = resultUri.Query.TrimStart('?').Split('&');
             }
 
-            if (queryParams != null)
+            foreach (var param in queryParams)
             {
-                foreach (var param in queryParams)
+                if (!string.IsNullOrEmpty(param))
                 {
-                    if (!string.IsNullOrEmpty(param))
-                    {
-                        string[] kvp = param.Split('=');
-                        queryValues.Add(kvp[0], WebUtility.UrlDecode(kvp[1]));
-                    }
+                    string[] kvp = param.Split('=');
+                    queryValues.Add(kvp[0], WebUtility.UrlDecode(kvp[1]));
                 }
             }
 
