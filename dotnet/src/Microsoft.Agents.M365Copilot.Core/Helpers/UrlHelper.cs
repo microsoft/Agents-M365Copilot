@@ -28,7 +28,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Helpers
             {
                 queryParams = resultUri.Fragment.TrimStart('#').Split('&');
             }
-            else if (!string.IsNullOrEmpty(resultUri.Query) && resultUri.Query.Length > 1)
+            else if (resultUri.Query is  { Length: > 1 })
             {
                 queryParams = resultUri.Query.TrimStart('?').Split('&');
             }
