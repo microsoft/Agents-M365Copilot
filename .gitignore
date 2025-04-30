@@ -1,5 +1,5 @@
 .env
 .venv
-appsettings.development.json
-
+appsettings.*.json
+**/appsettings.*.json
 .idea/

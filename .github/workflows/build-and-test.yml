@@ -21,8 +21,52 @@ permissions:
   security-events: write
 
 jobs:
+  check-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      dotnet: ${{ steps.check.outputs.dotnet }}
+      python: ${{ steps.check.outputs.python }}
+      typescript: ${{ steps.check.outputs.typescript }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check changed files
+        id: check
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "dotnet=true" >> $GITHUB_OUTPUT
+            echo "python=true" >> $GITHUB_OUTPUT
+            echo "typescript=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          git fetch origin ${{ github.base_ref }}
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}..HEAD)
+          echo "Changed Files:"
+          echo "$CHANGED_FILES"
+
+          if echo "$CHANGED_FILES" | grep -q "^dotnet/"; then
+            echo "dotnet=true" >> $GITHUB_OUTPUT
+          else
+            echo "dotnet=false" >> $GITHUB_OUTPUT
+          fi
+
+          if echo "$CHANGED_FILES" | grep -q "^python/"; then
+            echo "python=true" >> $GITHUB_OUTPUT
+          else
+            echo "python=false" >> $GITHUB_OUTPUT
+          fi
+
+          if echo "$CHANGED_FILES" | grep -q "^typescript/"; then
+            echo "typescript=true" >> $GITHUB_OUTPUT
+          else
+            echo "typescript=false" >> $GITHUB_OUTPUT
+          fi
+
   build-and-test-dotnet:
-    if: ${{ github.event_name == 'push' || github.event_name == 'pull_request' && github.event.pull_request.changed_files != '' }}
+    needs: check-changes
+    if: needs.check-changes.outputs.dotnet == 'true'
     runs-on: ubuntu-latest
     env:
       solutionName: Microsoft.Agents.M365Copilot.sln
@@ -49,7 +93,8 @@ jobs:
         uses: github/codeql-action/analyze@v3
 
   build-and-test-python:
-    if: ${{ github.event_name == 'push' || github.event_name == 'pull_request' && github.event.pull_request.changed_files != '' }}
+    needs: check-changes
+    if: needs.check-changes.outputs.python == 'true'
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 5
@@ -92,7 +137,8 @@ jobs:
           category: "/language:python"
 
   build-and-test-typescript:
-    if: ${{ github.event_name == 'push' || github.event_name == 'pull_request' && github.event.pull_request.changed_files != '' }}
+    needs: check-changes
+    if: needs.check-changes.outputs.typescript == 'true'
     runs-on: ubuntu-latest
     env:
       NODE_OPTIONS: "--max_old_space_size=9182"
@@ -134,15 +180,47 @@ jobs:
           CLIENT_SECRET: ${{secrets.client_secret}}
           USER_ID: ${{secrets.user_id}}
         working-directory: typescript
+
   check-build-matrix:
     runs-on: ubuntu-latest
     needs:
-      [build-and-test-dotnet, build-and-test-python, build-and-test-typescript]
+      [
+        check-changes,
+        build-and-test-dotnet,
+        build-and-test-python,
+        build-and-test-typescript,
+      ]
     if: always()
     steps:
-      - name: All build matrix options are successful
-        if: ${{ !(contains(needs.*.result, 'failure')) }}
-        run: exit 0
-      - name: One or more build matrix options failed
-        if: ${{ contains(needs.*.result, 'failure') }}
-        run: exit 1
+      - name: Check build status
+        run: |
+          # Check if any builds were triggered
+          DOTNET_TRIGGERED=${{ needs.check-changes.outputs.dotnet == 'true' }}
+          PYTHON_TRIGGERED=${{ needs.check-changes.outputs.python == 'true' }}
+          TYPESCRIPT_TRIGGERED=${{ needs.check-changes.outputs.typescript == 'true' }}
+
+          # Log job results for debugging
+          echo "Dotnet triggered: $DOTNET_TRIGGERED, result: ${{ needs.build-and-test-dotnet.result }}"
+          echo "Python triggered: $PYTHON_TRIGGERED, result: ${{ needs.build-and-test-python.result }}"
+          echo "TypeScript triggered: $TYPESCRIPT_TRIGGERED, result: ${{ needs.build-and-test-typescript.result }}"
+
+          # If no builds were triggered, exit successfully
+          if [[ "$DOTNET_TRIGGERED" == "false" && "$PYTHON_TRIGGERED" == "false" && "$TYPESCRIPT_TRIGGERED" == "false" ]]; then
+            echo "No builds were triggered - passing check"
+            exit 0
+          fi
+
+          # Check results of triggered builds
+          # Consider a job successful if:
+          # - It wasn't triggered (TRIGGERED == "false") OR
+          # - It was triggered and succeeded (result == "success") OR
+          # - It was triggered but skipped (result == "skipped")
+          if [[ "$DOTNET_TRIGGERED" == "true" && "${{ needs.build-and-test-dotnet.result }}" != "success" && "${{ needs.build-and-test-dotnet.result }}" != "skipped" ]] || \
+             [[ "$PYTHON_TRIGGERED" == "true" && "${{ needs.build-and-test-python.result }}" != "success" && "${{ needs.build-and-test-python.result }}" != "skipped" ]] || \
+             [[ "$TYPESCRIPT_TRIGGERED" == "true" && "${{ needs.build-and-test-typescript.result }}" != "success" && "${{ needs.build-and-test-typescript.result }}" != "skipped" ]]; then
+            echo "One or more triggered builds failed"
+            exit 1
+          fi
+
+          echo "All triggered builds completed successfully or were properly skipped"
+          exit 0
