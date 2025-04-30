@@ -24,7 +24,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Helpers
             IEnumerable<string> queryParams = Enumerable.Empty<string>();
             var queryValues = new Dictionary<string, string>();
 
-            if (!string.IsNullOrEmpty(resultUri.Fragment) && resultUri.Fragment.Length > 1)
+            if (resultUri.Fragment is { Length: > 1 })
             {
                 queryParams = resultUri.Fragment.TrimStart('#').Split('&');
             }
