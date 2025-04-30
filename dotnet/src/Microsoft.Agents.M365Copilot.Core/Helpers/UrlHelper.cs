@@ -35,11 +35,11 @@ namespace Microsoft.Agents.M365Copilot.Core.Helpers
 
             foreach (var param in queryParams)
             {
-                if (!string.IsNullOrEmpty(param))
-                {
-                    string[] kvp = param.Split('=');
-                    queryValues.Add(kvp[0], WebUtility.UrlDecode(kvp[1]));
-                }
+                if (string.IsNullOrEmpty(param)) continue;
+
+                string[] kvp = param.Split('=');
+                queryValues.Add(kvp[0], WebUtility.UrlDecode(kvp[1]));
+
             }
 
             return queryValues;
