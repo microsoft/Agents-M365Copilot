@@ -14,34 +14,32 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 from warnings import warn
 
 if TYPE_CHECKING:
-    from ....models.ai_user import AiUser
-    from ....models.o_data_errors.o_data_error import ODataError
-    from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
-    from .online_meetings.online_meetings_request_builder import OnlineMeetingsRequestBuilder
+    from .....models.enhanced_personalization_setting import EnhancedPersonalizationSetting
+    from .....models.o_data_errors.o_data_error import ODataError
 
-class AiUserItemRequestBuilder(BaseRequestBuilder):
+class EnhancedPersonalizationRequestBuilder(BaseRequestBuilder):
     """
-    Provides operations to manage the users property of the microsoft.graph.copilotRoot entity.
+    Provides operations to manage the enhancedPersonalization property of the microsoft.graph.copilotPeopleAdminSetting entity.
     """
     def __init__(self,request_adapter: RequestAdapter, path_parameters: Union[str, dict[str, Any]]) -> None:
         """
-        Instantiates a new AiUserItemRequestBuilder and sets the default values.
+        Instantiates a new EnhancedPersonalizationRequestBuilder and sets the default values.
         param path_parameters: The raw url or the url-template parameters for the request.
         param request_adapter: The request adapter to use to execute the requests.
         Returns: None
         """
-        super().__init__(request_adapter, "{+baseurl}/copilot/users/{aiUser%2Did}{?%24expand,%24select}", path_parameters)
+        super().__init__(request_adapter, "{+baseurl}/copilot/settings/people/enhancedPersonalization{?%24expand,%24select}", path_parameters)
     
     async def delete(self,request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> None:
         """
-        Delete navigation property users for copilot
+        Delete navigation property enhancedPersonalization for copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: None
         """
         request_info = self.to_delete_request_information(
             request_configuration
         )
-        from ....models.o_data_errors.o_data_error import ODataError
+        from .....models.o_data_errors.o_data_error import ODataError
 
         error_mapping: dict[str, type[ParsableFactory]] = {
             "XXX": ODataError,
@@ -50,52 +48,52 @@ class AiUserItemRequestBuilder(BaseRequestBuilder):
             raise Exception("Http core is null") 
         return await self.request_adapter.send_no_response_content_async(request_info, error_mapping)
     
-    async def get(self,request_configuration: Optional[RequestConfiguration[AiUserItemRequestBuilderGetQueryParameters]] = None) -> Optional[AiUser]:
+    async def get(self,request_configuration: Optional[RequestConfiguration[EnhancedPersonalizationRequestBuilderGetQueryParameters]] = None) -> Optional[EnhancedPersonalizationSetting]:
         """
-        Get users from copilot
+        Get enhancedPersonalization from copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
-        Returns: Optional[AiUser]
+        Returns: Optional[EnhancedPersonalizationSetting]
         """
         request_info = self.to_get_request_information(
             request_configuration
         )
-        from ....models.o_data_errors.o_data_error import ODataError
+        from .....models.o_data_errors.o_data_error import ODataError
 
         error_mapping: dict[str, type[ParsableFactory]] = {
             "XXX": ODataError,
         }
         if not self.request_adapter:
             raise Exception("Http core is null") 
-        from ....models.ai_user import AiUser
+        from .....models.enhanced_personalization_setting import EnhancedPersonalizationSetting
 
-        return await self.request_adapter.send_async(request_info, AiUser, error_mapping)
+        return await self.request_adapter.send_async(request_info, EnhancedPersonalizationSetting, error_mapping)
     
-    async def patch(self,body: AiUser, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> Optional[AiUser]:
+    async def patch(self,body: EnhancedPersonalizationSetting, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> Optional[EnhancedPersonalizationSetting]:
         """
-        Update the navigation property users in copilot
+        Update the navigation property enhancedPersonalization in copilot
         param body: The request body
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
-        Returns: Optional[AiUser]
+        Returns: Optional[EnhancedPersonalizationSetting]
         """
         if body is None:
             raise TypeError("body cannot be null.")
         request_info = self.to_patch_request_information(
             body, request_configuration
         )
-        from ....models.o_data_errors.o_data_error import ODataError
+        from .....models.o_data_errors.o_data_error import ODataError
 
         error_mapping: dict[str, type[ParsableFactory]] = {
             "XXX": ODataError,
         }
         if not self.request_adapter:
             raise Exception("Http core is null") 
-        from ....models.ai_user import AiUser
+        from .....models.enhanced_personalization_setting import EnhancedPersonalizationSetting
 
-        return await self.request_adapter.send_async(request_info, AiUser, error_mapping)
+        return await self.request_adapter.send_async(request_info, EnhancedPersonalizationSetting, error_mapping)
     
     def to_delete_request_information(self,request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> RequestInformation:
         """
-        Delete navigation property users for copilot
+        Delete navigation property enhancedPersonalization for copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -103,9 +101,9 @@ class AiUserItemRequestBuilder(BaseRequestBuilder):
         request_info.configure(request_configuration)
         return request_info
     
-    def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[AiUserItemRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
+    def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[EnhancedPersonalizationRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
         """
-        Get users from copilot
+        Get enhancedPersonalization from copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -114,9 +112,9 @@ class AiUserItemRequestBuilder(BaseRequestBuilder):
         request_info.headers.try_add("Accept", "application/json")
         return request_info
     
-    def to_patch_request_information(self,body: AiUser, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> RequestInformation:
+    def to_patch_request_information(self,body: EnhancedPersonalizationSetting, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> RequestInformation:
         """
-        Update the navigation property users in copilot
+        Update the navigation property enhancedPersonalization in copilot
         param body: The request body
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
@@ -129,45 +127,27 @@ class AiUserItemRequestBuilder(BaseRequestBuilder):
         request_info.set_content_from_parsable(self.request_adapter, "application/json", body)
         return request_info
     
-    def with_url(self,raw_url: str) -> AiUserItemRequestBuilder:
+    def with_url(self,raw_url: str) -> EnhancedPersonalizationRequestBuilder:
         """
         Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         param raw_url: The raw URL to use for the request builder.
-        Returns: AiUserItemRequestBuilder
+        Returns: EnhancedPersonalizationRequestBuilder
         """
         if raw_url is None:
             raise TypeError("raw_url cannot be null.")
-        return AiUserItemRequestBuilder(self.request_adapter, raw_url)
-    
-    @property
-    def interaction_history(self) -> InteractionHistoryRequestBuilder:
-        """
-        Provides operations to manage the interactionHistory property of the microsoft.graph.aiUser entity.
-        """
-        from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
-
-        return InteractionHistoryRequestBuilder(self.request_adapter, self.path_parameters)
-    
-    @property
-    def online_meetings(self) -> OnlineMeetingsRequestBuilder:
-        """
-        Provides operations to manage the onlineMeetings property of the microsoft.graph.aiUser entity.
-        """
-        from .online_meetings.online_meetings_request_builder import OnlineMeetingsRequestBuilder
-
-        return OnlineMeetingsRequestBuilder(self.request_adapter, self.path_parameters)
+        return EnhancedPersonalizationRequestBuilder(self.request_adapter, raw_url)
     
     @dataclass
-    class AiUserItemRequestBuilderDeleteRequestConfiguration(RequestConfiguration[QueryParameters]):
+    class EnhancedPersonalizationRequestBuilderDeleteRequestConfiguration(RequestConfiguration[QueryParameters]):
         """
         Configuration for the request such as headers, query parameters, and middleware options.
         """
         warn("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.", DeprecationWarning)
     
     @dataclass
-    class AiUserItemRequestBuilderGetQueryParameters():
+    class EnhancedPersonalizationRequestBuilderGetQueryParameters():
         """
-        Get users from copilot
+        Get enhancedPersonalization from copilot
         """
         def get_query_parameter(self,original_name: str) -> str:
             """
@@ -191,14 +171,14 @@ class AiUserItemRequestBuilder(BaseRequestBuilder):
 
     
     @dataclass
-    class AiUserItemRequestBuilderGetRequestConfiguration(RequestConfiguration[AiUserItemRequestBuilderGetQueryParameters]):
+    class EnhancedPersonalizationRequestBuilderGetRequestConfiguration(RequestConfiguration[EnhancedPersonalizationRequestBuilderGetQueryParameters]):
         """
         Configuration for the request such as headers, query parameters, and middleware options.
         """
         warn("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.", DeprecationWarning)
     
     @dataclass
-    class AiUserItemRequestBuilderPatchRequestConfiguration(RequestConfiguration[QueryParameters]):
+    class EnhancedPersonalizationRequestBuilderPatchRequestConfiguration(RequestConfiguration[QueryParameters]):
         """
         Configuration for the request such as headers, query parameters, and middleware options.
         """

@@ -14,30 +14,32 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 from warnings import warn
 
 if TYPE_CHECKING:
-    from ....models.ai_user import AiUser
+    from ....models.copilot_conversation import CopilotConversation
     from ....models.o_data_errors.o_data_error import ODataError
-    from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
-    from .online_meetings.online_meetings_request_builder import OnlineMeetingsRequestBuilder
+    from .messages.messages_request_builder import MessagesRequestBuilder
+    from .microsoft_graph_copilot_chat.microsoft_graph_copilot_chat_request_builder import MicrosoftGraphCopilotChatRequestBuilder
+    from .microsoft_graph_copilot_chat_over_stream.microsoft_graph_copilot_chat_over_stream_request_builder import MicrosoftGraphCopilotChatOverStreamRequestBuilder
 
-class AiUserItemRequestBuilder(BaseRequestBuilder):
+class CopilotConversationItemRequestBuilder(BaseRequestBuilder):
     """
-    Provides operations to manage the users property of the microsoft.graph.copilotRoot entity.
+    Provides operations to manage the conversations property of the microsoft.graph.copilotRoot entity.
     """
     def __init__(self,request_adapter: RequestAdapter, path_parameters: Union[str, dict[str, Any]]) -> None:
         """
-        Instantiates a new AiUserItemRequestBuilder and sets the default values.
+        Instantiates a new CopilotConversationItemRequestBuilder and sets the default values.
         param path_parameters: The raw url or the url-template parameters for the request.
         param request_adapter: The request adapter to use to execute the requests.
         Returns: None
         """
-        super().__init__(request_adapter, "{+baseurl}/copilot/users/{aiUser%2Did}{?%24expand,%24select}", path_parameters)
+        super().__init__(request_adapter, "{+baseurl}/copilot/conversations/{copilotConversation%2Did}{?%24expand,%24select}", path_parameters)
     
     async def delete(self,request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> None:
         """
-        Delete navigation property users for copilot
+        Delete navigation property conversations for copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: None
         """
+        warn(" as of 2025-03/PrivatePreview:copilotChatPrivatePreview1 on 2025-03-27 and will be removed 2025-08-28", DeprecationWarning)
         request_info = self.to_delete_request_information(
             request_configuration
         )
@@ -50,12 +52,13 @@ class AiUserItemRequestBuilder(BaseRequestBuilder):
             raise Exception("Http core is null") 
         return await self.request_adapter.send_no_response_content_async(request_info, error_mapping)
     
-    async def get(self,request_configuration: Optional[RequestConfiguration[AiUserItemRequestBuilderGetQueryParameters]] = None) -> Optional[AiUser]:
+    async def get(self,request_configuration: Optional[RequestConfiguration[CopilotConversationItemRequestBuilderGetQueryParameters]] = None) -> Optional[CopilotConversation]:
         """
-        Get users from copilot
+        The users conversations with Copilot Chat.
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
-        Returns: Optional[AiUser]
+        Returns: Optional[CopilotConversation]
         """
+        warn(" as of 2025-03/PrivatePreview:copilotChatPrivatePreview1 on 2025-03-27 and will be removed 2025-08-28", DeprecationWarning)
         request_info = self.to_get_request_information(
             request_configuration
         )
@@ -66,17 +69,18 @@ class AiUserItemRequestBuilder(BaseRequestBuilder):
         }
         if not self.request_adapter:
             raise Exception("Http core is null") 
-        from ....models.ai_user import AiUser
+        from ....models.copilot_conversation import CopilotConversation
 
-        return await self.request_adapter.send_async(request_info, AiUser, error_mapping)
+        return await self.request_adapter.send_async(request_info, CopilotConversation, error_mapping)
     
-    async def patch(self,body: AiUser, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> Optional[AiUser]:
+    async def patch(self,body: CopilotConversation, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> Optional[CopilotConversation]:
         """
-        Update the navigation property users in copilot
+        Update the navigation property conversations in copilot
         param body: The request body
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
-        Returns: Optional[AiUser]
+        Returns: Optional[CopilotConversation]
         """
+        warn(" as of 2025-03/PrivatePreview:copilotChatPrivatePreview1 on 2025-03-27 and will be removed 2025-08-28", DeprecationWarning)
         if body is None:
             raise TypeError("body cannot be null.")
         request_info = self.to_patch_request_information(
@@ -89,38 +93,41 @@ class AiUserItemRequestBuilder(BaseRequestBuilder):
         }
         if not self.request_adapter:
             raise Exception("Http core is null") 
-        from ....models.ai_user import AiUser
+        from ....models.copilot_conversation import CopilotConversation
 
-        return await self.request_adapter.send_async(request_info, AiUser, error_mapping)
+        return await self.request_adapter.send_async(request_info, CopilotConversation, error_mapping)
     
     def to_delete_request_information(self,request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> RequestInformation:
         """
-        Delete navigation property users for copilot
+        Delete navigation property conversations for copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
+        warn(" as of 2025-03/PrivatePreview:copilotChatPrivatePreview1 on 2025-03-27 and will be removed 2025-08-28", DeprecationWarning)
         request_info = RequestInformation(Method.DELETE, self.url_template, self.path_parameters)
         request_info.configure(request_configuration)
         return request_info
     
-    def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[AiUserItemRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
+    def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[CopilotConversationItemRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
         """
-        Get users from copilot
+        The users conversations with Copilot Chat.
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
+        warn(" as of 2025-03/PrivatePreview:copilotChatPrivatePreview1 on 2025-03-27 and will be removed 2025-08-28", DeprecationWarning)
         request_info = RequestInformation(Method.GET, self.url_template, self.path_parameters)
         request_info.configure(request_configuration)
         request_info.headers.try_add("Accept", "application/json")
         return request_info
     
-    def to_patch_request_information(self,body: AiUser, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> RequestInformation:
+    def to_patch_request_information(self,body: CopilotConversation, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> RequestInformation:
         """
-        Update the navigation property users in copilot
+        Update the navigation property conversations in copilot
         param body: The request body
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
+        warn(" as of 2025-03/PrivatePreview:copilotChatPrivatePreview1 on 2025-03-27 and will be removed 2025-08-28", DeprecationWarning)
         if body is None:
             raise TypeError("body cannot be null.")
         request_info = RequestInformation(Method.PATCH, self.url_template, self.path_parameters)
@@ -129,45 +136,55 @@ class AiUserItemRequestBuilder(BaseRequestBuilder):
         request_info.set_content_from_parsable(self.request_adapter, "application/json", body)
         return request_info
     
-    def with_url(self,raw_url: str) -> AiUserItemRequestBuilder:
+    def with_url(self,raw_url: str) -> CopilotConversationItemRequestBuilder:
         """
         Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         param raw_url: The raw URL to use for the request builder.
-        Returns: AiUserItemRequestBuilder
+        Returns: CopilotConversationItemRequestBuilder
         """
+        warn(" as of 2025-03/PrivatePreview:copilotChatPrivatePreview1 on 2025-03-27 and will be removed 2025-08-28", DeprecationWarning)
         if raw_url is None:
             raise TypeError("raw_url cannot be null.")
-        return AiUserItemRequestBuilder(self.request_adapter, raw_url)
+        return CopilotConversationItemRequestBuilder(self.request_adapter, raw_url)
     
     @property
-    def interaction_history(self) -> InteractionHistoryRequestBuilder:
+    def messages(self) -> MessagesRequestBuilder:
         """
-        Provides operations to manage the interactionHistory property of the microsoft.graph.aiUser entity.
+        Provides operations to manage the messages property of the microsoft.graph.copilotConversation entity.
         """
-        from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
+        from .messages.messages_request_builder import MessagesRequestBuilder
 
-        return InteractionHistoryRequestBuilder(self.request_adapter, self.path_parameters)
+        return MessagesRequestBuilder(self.request_adapter, self.path_parameters)
     
     @property
-    def online_meetings(self) -> OnlineMeetingsRequestBuilder:
+    def microsoft_graph_copilot_chat(self) -> MicrosoftGraphCopilotChatRequestBuilder:
         """
-        Provides operations to manage the onlineMeetings property of the microsoft.graph.aiUser entity.
+        Provides operations to call the chat method.
         """
-        from .online_meetings.online_meetings_request_builder import OnlineMeetingsRequestBuilder
+        from .microsoft_graph_copilot_chat.microsoft_graph_copilot_chat_request_builder import MicrosoftGraphCopilotChatRequestBuilder
 
-        return OnlineMeetingsRequestBuilder(self.request_adapter, self.path_parameters)
+        return MicrosoftGraphCopilotChatRequestBuilder(self.request_adapter, self.path_parameters)
+    
+    @property
+    def microsoft_graph_copilot_chat_over_stream(self) -> MicrosoftGraphCopilotChatOverStreamRequestBuilder:
+        """
+        Provides operations to call the chatOverStream method.
+        """
+        from .microsoft_graph_copilot_chat_over_stream.microsoft_graph_copilot_chat_over_stream_request_builder import MicrosoftGraphCopilotChatOverStreamRequestBuilder
+
+        return MicrosoftGraphCopilotChatOverStreamRequestBuilder(self.request_adapter, self.path_parameters)
     
     @dataclass
-    class AiUserItemRequestBuilderDeleteRequestConfiguration(RequestConfiguration[QueryParameters]):
+    class CopilotConversationItemRequestBuilderDeleteRequestConfiguration(RequestConfiguration[QueryParameters]):
         """
         Configuration for the request such as headers, query parameters, and middleware options.
         """
         warn("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.", DeprecationWarning)
     
     @dataclass
-    class AiUserItemRequestBuilderGetQueryParameters():
+    class CopilotConversationItemRequestBuilderGetQueryParameters():
         """
-        Get users from copilot
+        The users conversations with Copilot Chat.
         """
         def get_query_parameter(self,original_name: str) -> str:
             """
@@ -191,14 +208,14 @@ class AiUserItemRequestBuilder(BaseRequestBuilder):
 
     
     @dataclass
-    class AiUserItemRequestBuilderGetRequestConfiguration(RequestConfiguration[AiUserItemRequestBuilderGetQueryParameters]):
+    class CopilotConversationItemRequestBuilderGetRequestConfiguration(RequestConfiguration[CopilotConversationItemRequestBuilderGetQueryParameters]):
         """
         Configuration for the request such as headers, query parameters, and middleware options.
         """
         warn("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.", DeprecationWarning)
     
     @dataclass
-    class AiUserItemRequestBuilderPatchRequestConfiguration(RequestConfiguration[QueryParameters]):
+    class CopilotConversationItemRequestBuilderPatchRequestConfiguration(RequestConfiguration[QueryParameters]):
         """
         Configuration for the request such as headers, query parameters, and middleware options.
         """
