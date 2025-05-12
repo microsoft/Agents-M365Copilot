@@ -42,16 +42,129 @@ github.com/microsoft/ccs-beta-sdk-typescript/.copilot.admin.settings.settingsReq
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.admin.settings.settingsRequestBuilderRequestsMetadata
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.admin.settings.settingsRequestBuilderUriTemplate
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.admin.settings.settingsRequestBuilder~~>BaseRequestBuilder<SettingsRequestBuilder>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.conversationsRequestBuilder::|public|byCopilotConversationId(copilotConversationId:string):CopilotConversationItemRequestBuilder
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.conversationsRequestBuilder::|public|Count:CountRequestBuilder
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.conversationsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<ConversationsRequestBuilderGetQueryParameters>):CopilotConversationCollectionResponse
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.conversationsRequestBuilder::|public|post(body:CopilotConversation; requestConfiguration?:RequestConfiguration<object>):CopilotConversation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.conversationsRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<ConversationsRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.conversationsRequestBuilder::|public|toPostRequestInformation(body:CopilotConversation; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.conversationsRequestBuilderGetQueryParameters::|public|count:boolean
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.conversationsRequestBuilderGetQueryParameters::|public|expand:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.conversationsRequestBuilderGetQueryParameters::|public|filter:string
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.conversationsRequestBuilderGetQueryParameters::|public|orderby:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.conversationsRequestBuilderGetQueryParameters::|public|search:string
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.conversationsRequestBuilderGetQueryParameters::|public|select:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.conversationsRequestBuilderGetQueryParameters::|public|skip:number
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.conversationsRequestBuilderGetQueryParameters::|public|top:number
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.conversationsRequestBuilderGetQueryParametersMapper
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.conversationsRequestBuilderNavigationMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.conversationsRequestBuilderRequestsMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.conversationsRequestBuilderUriTemplate
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.conversationsRequestBuilder~~>BaseRequestBuilder<ConversationsRequestBuilder>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.count.CountRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<CountRequestBuilderGetQueryParameters>):number
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.count.CountRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<CountRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.count.CountRequestBuilderGetQueryParameters::|public|filter:string
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.count.CountRequestBuilderGetQueryParameters::|public|search:string
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.count.countRequestBuilderGetQueryParametersMapper
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.count.countRequestBuilderRequestsMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.count.countRequestBuilderUriTemplate
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.count.CountRequestBuilder~~>BaseRequestBuilder<CountRequestBuilder>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.CopilotConversationItemRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.CopilotConversationItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<CopilotConversationItemRequestBuilderGetQueryParameters>):CopilotConversation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.CopilotConversationItemRequestBuilder::|public|messages:MessagesRequestBuilder
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.CopilotConversationItemRequestBuilder::|public|microsoftGraphCopilotChat:MicrosoftGraphCopilotChatRequestBuilder
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.CopilotConversationItemRequestBuilder::|public|microsoftGraphCopilotChatOverStream:MicrosoftGraphCopilotChatOverStreamRequestBuilder
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.CopilotConversationItemRequestBuilder::|public|patch(body:CopilotConversation; requestConfiguration?:RequestConfiguration<object>):CopilotConversation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.CopilotConversationItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.CopilotConversationItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<CopilotConversationItemRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.CopilotConversationItemRequestBuilder::|public|toPatchRequestInformation(body:CopilotConversation; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.CopilotConversationItemRequestBuilderGetQueryParameters::|public|expand:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.CopilotConversationItemRequestBuilderGetQueryParameters::|public|select:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.copilotConversationItemRequestBuilderGetQueryParametersMapper
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.copilotConversationItemRequestBuilderNavigationMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.copilotConversationItemRequestBuilderRequestsMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.copilotConversationItemRequestBuilderUriTemplate
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.CopilotConversationItemRequestBuilder~~>BaseRequestBuilder<CopilotConversationItemRequestBuilder>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.count.CountRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<CountRequestBuilderGetQueryParameters>):number
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.count.CountRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<CountRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.count.CountRequestBuilderGetQueryParameters::|public|filter:string
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.count.CountRequestBuilderGetQueryParameters::|public|search:string
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.count.countRequestBuilderGetQueryParametersMapper
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.count.countRequestBuilderRequestsMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.count.countRequestBuilderUriTemplate
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.count.CountRequestBuilder~~>BaseRequestBuilder<CountRequestBuilder>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.item.CopilotConversationMessageItemRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.item.CopilotConversationMessageItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<CopilotConversationMessageItemRequestBuilderGetQueryParameters>):CopilotConversationMessage
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.item.CopilotConversationMessageItemRequestBuilder::|public|patch(body:CopilotConversationMessage; requestConfiguration?:RequestConfiguration<object>):CopilotConversationMessage
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.item.CopilotConversationMessageItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.item.CopilotConversationMessageItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<CopilotConversationMessageItemRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.item.CopilotConversationMessageItemRequestBuilder::|public|toPatchRequestInformation(body:CopilotConversationMessage; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.item.CopilotConversationMessageItemRequestBuilderGetQueryParameters::|public|expand:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.item.CopilotConversationMessageItemRequestBuilderGetQueryParameters::|public|select:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.item.copilotConversationMessageItemRequestBuilderGetQueryParametersMapper
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.item.copilotConversationMessageItemRequestBuilderRequestsMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.item.copilotConversationMessageItemRequestBuilderUriTemplate
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.item.CopilotConversationMessageItemRequestBuilder~~>BaseRequestBuilder<CopilotConversationMessageItemRequestBuilder>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.messagesRequestBuilder::|public|byCopilotConversationMessageId(copilotConversationMessageId:string):CopilotConversationMessageItemRequestBuilder
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.messagesRequestBuilder::|public|Count:CountRequestBuilder
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.messagesRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<MessagesRequestBuilderGetQueryParameters>):CopilotConversationMessageCollectionResponse
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.messagesRequestBuilder::|public|post(body:CopilotConversationMessage; requestConfiguration?:RequestConfiguration<object>):CopilotConversationMessage
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.messagesRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<MessagesRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.messagesRequestBuilder::|public|toPostRequestInformation(body:CopilotConversationMessage; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.messagesRequestBuilderGetQueryParameters::|public|count:boolean
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.messagesRequestBuilderGetQueryParameters::|public|expand:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.messagesRequestBuilderGetQueryParameters::|public|filter:string
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.messagesRequestBuilderGetQueryParameters::|public|orderby:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.messagesRequestBuilderGetQueryParameters::|public|search:string
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.messagesRequestBuilderGetQueryParameters::|public|select:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.messagesRequestBuilderGetQueryParameters::|public|skip:number
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.messagesRequestBuilderGetQueryParameters::|public|top:number
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.messagesRequestBuilderGetQueryParametersMapper
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.messagesRequestBuilderNavigationMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.messagesRequestBuilderRequestsMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.messagesRequestBuilderUriTemplate
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.messages.messagesRequestBuilder~~>BaseRequestBuilder<MessagesRequestBuilder>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChat.ChatPostRequestBody::|public|additionalContext:CopilotContextMessage[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChat.ChatPostRequestBody::|public|AdditionalData:Record<string, unknown>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChat.ChatPostRequestBody::|public|backingStoreEnabled:boolean
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChat.ChatPostRequestBody::|public|locationHint:CopilotConversationLocation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChat.ChatPostRequestBody::|public|message:CopilotConversationRequestMessageParameter
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChat.ChatPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChat.microsoftGraphCopilotChatRequestBuilder::|public|post(body:ChatPostRequestBody; requestConfiguration?:RequestConfiguration<object>):CopilotConversation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChat.microsoftGraphCopilotChatRequestBuilder::|public|toPostRequestInformation(body:ChatPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChat.microsoftGraphCopilotChatRequestBuilderRequestsMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChat.microsoftGraphCopilotChatRequestBuilderUriTemplate
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChat.microsoftGraphCopilotChatRequestBuilder~~>BaseRequestBuilder<MicrosoftGraphCopilotChatRequestBuilder>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChat::createChatPostRequestBodyFromDiscriminatorValue(parseNode:ParseNode):ChatPostRequestBody
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChat::deserializeIntoChatPostRequestBody(ChatPostRequestBody:ChatPostRequestBody={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChat::serializeChatPostRequestBody(writer:SerializationWriter; ChatPostRequestBody:ChatPostRequestBody={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChatOverStream.ChatOverStreamPostRequestBody::|public|additionalContext:CopilotContextMessage[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChatOverStream.ChatOverStreamPostRequestBody::|public|AdditionalData:Record<string, unknown>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChatOverStream.ChatOverStreamPostRequestBody::|public|backingStoreEnabled:boolean
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChatOverStream.ChatOverStreamPostRequestBody::|public|locationHint:CopilotConversationLocation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChatOverStream.ChatOverStreamPostRequestBody::|public|message:CopilotConversationRequestMessageParameter
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChatOverStream.ChatOverStreamPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChatOverStream.microsoftGraphCopilotChatOverStreamRequestBuilder::|public|post(body:ChatOverStreamPostRequestBody; requestConfiguration?:RequestConfiguration<object>):ArrayBuffer
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChatOverStream.microsoftGraphCopilotChatOverStreamRequestBuilder::|public|toPostRequestInformation(body:ChatOverStreamPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChatOverStream.microsoftGraphCopilotChatOverStreamRequestBuilderRequestsMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChatOverStream.microsoftGraphCopilotChatOverStreamRequestBuilderUriTemplate
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChatOverStream.microsoftGraphCopilotChatOverStreamRequestBuilder~~>BaseRequestBuilder<MicrosoftGraphCopilotChatOverStreamRequestBuilder>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChatOverStream::createChatOverStreamPostRequestBodyFromDiscriminatorValue(parseNode:ParseNode):ChatOverStreamPostRequestBody
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChatOverStream::deserializeIntoChatOverStreamPostRequestBody(ChatOverStreamPostRequestBody:ChatOverStreamPostRequestBody={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.conversations.item.microsoftGraphCopilotChatOverStream::serializeChatOverStreamPostRequestBody(writer:SerializationWriter; ChatOverStreamPostRequestBody:ChatOverStreamPostRequestBody={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.copilotRequestBuilder::|public|admin:AdminRequestBuilder
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.copilotRequestBuilder::|public|conversations:ConversationsRequestBuilder
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.copilotRequestBuilder::|public|interactionHistory:InteractionHistoryRequestBuilder
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.copilotRequestBuilder::|public|retrieval:RetrievalRequestBuilder
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.copilotRequestBuilder::|public|settings:SettingsRequestBuilder
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.copilotRequestBuilder::|public|sharePoint:SharePointRequestBuilder
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.copilotRequestBuilder::|public|users:UsersRequestBuilder
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.copilotRequestBuilderNavigationMetadata
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.copilotRequestBuilderUriTemplate
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.copilotRequestBuilder~~>BaseRequestBuilder<CopilotRequestBuilder>
-github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.getAllEnterpriseInteractions.GetAllEnterpriseInteractionsgetResponse::|public|value:AiInteraction[]
-github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.getAllEnterpriseInteractions.GetAllEnterpriseInteractionsgetResponse~~>BaseCollectionPaginationCountResponse; Parsable
-github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.getAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters>):GetAllEnterpriseInteractionsgetResponse
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.getAllEnterpriseInteractions.GetAllEnterpriseInteractionsGetResponse::|public|value:AiInteraction[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.getAllEnterpriseInteractions.GetAllEnterpriseInteractionsGetResponse~~>BaseCollectionPaginationCountResponse; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.getAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters>):GetAllEnterpriseInteractionsGetResponse
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.getAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.getAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilderGetQueryParameters::|public|count:boolean
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.getAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilderGetQueryParameters::|public|expand:string[]
@@ -65,9 +178,9 @@ github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.getAllE
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.getAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilderRequestsMetadata
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.getAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilderUriTemplate
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.getAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder~~>BaseRequestBuilder<GetAllEnterpriseInteractionsRequestBuilder>
-github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.getAllEnterpriseInteractions::createGetAllEnterpriseInteractionsgetResponseFromDiscriminatorValue(parseNode:ParseNode):GetAllEnterpriseInteractionsgetResponse
-github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.getAllEnterpriseInteractions::deserializeIntoGetAllEnterpriseInteractionsgetResponse(GetAllEnterpriseInteractionsgetResponse:GetAllEnterpriseInteractionsgetResponse={}):Record<string, (node: ParseNode) => void>
-github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.getAllEnterpriseInteractions::serializeGetAllEnterpriseInteractionsgetResponse(writer:SerializationWriter; GetAllEnterpriseInteractionsgetResponse:GetAllEnterpriseInteractionsgetResponse={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.getAllEnterpriseInteractions::createGetAllEnterpriseInteractionsGetResponseFromDiscriminatorValue(parseNode:ParseNode):GetAllEnterpriseInteractionsGetResponse
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.getAllEnterpriseInteractions::deserializeIntoGetAllEnterpriseInteractionsGetResponse(GetAllEnterpriseInteractionsGetResponse:GetAllEnterpriseInteractionsGetResponse={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.getAllEnterpriseInteractions::serializeGetAllEnterpriseInteractionsGetResponse(writer:SerializationWriter; GetAllEnterpriseInteractionsGetResponse:GetAllEnterpriseInteractionsGetResponse={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.interactionHistoryRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.interactionHistoryRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<InteractionHistoryRequestBuilderGetQueryParameters>):AiInteractionHistory
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.interactionHistory.interactionHistoryRequestBuilder::|public|getAllEnterpriseInteractions:GetAllEnterpriseInteractionsRequestBuilder
@@ -137,6 +250,54 @@ github.com/microsoft/ccs-beta-sdk-typescript/.copilot.retrieval.retrievalRequest
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.retrieval::createRetrievalPostRequestBodyFromDiscriminatorValue(parseNode:ParseNode):RetrievalPostRequestBody
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.retrieval::deserializeIntoRetrievalPostRequestBody(RetrievalPostRequestBody:RetrievalPostRequestBody={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.retrieval::serializeRetrievalPostRequestBody(writer:SerializationWriter; RetrievalPostRequestBody:RetrievalPostRequestBody={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.enhancedPersonalization.enhancedPersonalizationRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.enhancedPersonalization.enhancedPersonalizationRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<EnhancedPersonalizationRequestBuilderGetQueryParameters>):EnhancedPersonalizationSetting
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.enhancedPersonalization.enhancedPersonalizationRequestBuilder::|public|patch(body:EnhancedPersonalizationSetting; requestConfiguration?:RequestConfiguration<object>):EnhancedPersonalizationSetting
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.enhancedPersonalization.enhancedPersonalizationRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.enhancedPersonalization.enhancedPersonalizationRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<EnhancedPersonalizationRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.enhancedPersonalization.enhancedPersonalizationRequestBuilder::|public|toPatchRequestInformation(body:EnhancedPersonalizationSetting; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.enhancedPersonalization.enhancedPersonalizationRequestBuilderGetQueryParameters::|public|expand:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.enhancedPersonalization.enhancedPersonalizationRequestBuilderGetQueryParameters::|public|select:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.enhancedPersonalization.enhancedPersonalizationRequestBuilderGetQueryParametersMapper
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.enhancedPersonalization.enhancedPersonalizationRequestBuilderRequestsMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.enhancedPersonalization.enhancedPersonalizationRequestBuilderUriTemplate
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.enhancedPersonalization.enhancedPersonalizationRequestBuilder~~>BaseRequestBuilder<EnhancedPersonalizationRequestBuilder>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.peopleRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.peopleRequestBuilder::|public|enhancedPersonalization:EnhancedPersonalizationRequestBuilder
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.peopleRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PeopleRequestBuilderGetQueryParameters>):CopilotPeopleAdminSetting
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.peopleRequestBuilder::|public|patch(body:CopilotPeopleAdminSetting; requestConfiguration?:RequestConfiguration<object>):CopilotPeopleAdminSetting
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.peopleRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.peopleRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<PeopleRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.peopleRequestBuilder::|public|toPatchRequestInformation(body:CopilotPeopleAdminSetting; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.peopleRequestBuilderGetQueryParameters::|public|expand:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.peopleRequestBuilderGetQueryParameters::|public|select:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.peopleRequestBuilderGetQueryParametersMapper
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.peopleRequestBuilderNavigationMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.peopleRequestBuilderRequestsMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.peopleRequestBuilderUriTemplate
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.people.peopleRequestBuilder~~>BaseRequestBuilder<PeopleRequestBuilder>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.settingsRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.settingsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<SettingsRequestBuilderGetQueryParameters>):CopilotSetting
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.settingsRequestBuilder::|public|patch(body:CopilotSetting; requestConfiguration?:RequestConfiguration<object>):CopilotSetting
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.settingsRequestBuilder::|public|people:PeopleRequestBuilder
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.settingsRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.settingsRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<SettingsRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.settingsRequestBuilder::|public|toPatchRequestInformation(body:CopilotSetting; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.settingsRequestBuilderGetQueryParameters::|public|expand:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.settingsRequestBuilderGetQueryParameters::|public|select:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.settingsRequestBuilderGetQueryParametersMapper
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.settingsRequestBuilderNavigationMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.settingsRequestBuilderRequestsMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.settingsRequestBuilderUriTemplate
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.settings.settingsRequestBuilder~~>BaseRequestBuilder<SettingsRequestBuilder>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.sharePoint.sharePointRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<SharePointRequestBuilderGetQueryParameters>):CopilotSharePointRoot
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.sharePoint.sharePointRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<SharePointRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.sharePoint.sharePointRequestBuilderGetQueryParameters::|public|expand:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.sharePoint.sharePointRequestBuilderGetQueryParameters::|public|select:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.sharePoint.sharePointRequestBuilderGetQueryParametersMapper
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.sharePoint.sharePointRequestBuilderRequestsMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.sharePoint.sharePointRequestBuilderUriTemplate
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.sharePoint.sharePointRequestBuilder~~>BaseRequestBuilder<SharePointRequestBuilder>
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.count.CountRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<CountRequestBuilderGetQueryParameters>):number
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.count.CountRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<CountRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.count.CountRequestBuilderGetQueryParameters::|public|filter:string
@@ -148,6 +309,7 @@ github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.count.CountRequestBu
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.AiUserItemRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.AiUserItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<AiUserItemRequestBuilderGetQueryParameters>):AiUser
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.AiUserItemRequestBuilder::|public|interactionHistory:InteractionHistoryRequestBuilder
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.AiUserItemRequestBuilder::|public|onlineMeetings:OnlineMeetingsRequestBuilder
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.AiUserItemRequestBuilder::|public|patch(body:AiUser; requestConfiguration?:RequestConfiguration<object>):AiUser
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.AiUserItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.AiUserItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<AiUserItemRequestBuilderGetQueryParameters>):RequestInformation
@@ -159,9 +321,9 @@ github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.aiUserItemReque
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.aiUserItemRequestBuilderRequestsMetadata
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.aiUserItemRequestBuilderUriTemplate
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.AiUserItemRequestBuilder~~>BaseRequestBuilder<AiUserItemRequestBuilder>
-github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions.GetAllEnterpriseInteractionsgetResponse::|public|value:AiInteraction[]
-github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions.GetAllEnterpriseInteractionsgetResponse~~>BaseCollectionPaginationCountResponse; Parsable
-github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters>):GetAllEnterpriseInteractionsgetResponse
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions.GetAllEnterpriseInteractionsGetResponse::|public|value:AiInteraction[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions.GetAllEnterpriseInteractionsGetResponse~~>BaseCollectionPaginationCountResponse; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters>):GetAllEnterpriseInteractionsGetResponse
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilderGetQueryParameters::|public|count:boolean
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilderGetQueryParameters::|public|expand:string[]
@@ -175,9 +337,9 @@ github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHist
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilderRequestsMetadata
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilderUriTemplate
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder~~>BaseRequestBuilder<GetAllEnterpriseInteractionsRequestBuilder>
-github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions::createGetAllEnterpriseInteractionsgetResponseFromDiscriminatorValue(parseNode:ParseNode):GetAllEnterpriseInteractionsgetResponse
-github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions::deserializeIntoGetAllEnterpriseInteractionsgetResponse(GetAllEnterpriseInteractionsgetResponse:GetAllEnterpriseInteractionsgetResponse={}):Record<string, (node: ParseNode) => void>
-github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions::serializeGetAllEnterpriseInteractionsgetResponse(writer:SerializationWriter; GetAllEnterpriseInteractionsgetResponse:GetAllEnterpriseInteractionsgetResponse={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions::createGetAllEnterpriseInteractionsGetResponseFromDiscriminatorValue(parseNode:ParseNode):GetAllEnterpriseInteractionsGetResponse
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions::deserializeIntoGetAllEnterpriseInteractionsGetResponse(GetAllEnterpriseInteractionsGetResponse:GetAllEnterpriseInteractionsGetResponse={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions::serializeGetAllEnterpriseInteractionsGetResponse(writer:SerializationWriter; GetAllEnterpriseInteractionsGetResponse:GetAllEnterpriseInteractionsGetResponse={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.interactionHistoryRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.interactionHistoryRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<InteractionHistoryRequestBuilderGetQueryParameters>):AiInteractionHistory
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.interactionHistoryRequestBuilder::|public|getAllEnterpriseInteractions:GetAllEnterpriseInteractionsRequestBuilder
@@ -232,6 +394,86 @@ github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHist
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.interactions.item.aiInteractionItemRequestBuilderRequestsMetadata
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.interactions.item.aiInteractionItemRequestBuilderUriTemplate
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.interactionHistory.interactions.item.AiInteractionItemRequestBuilder~~>BaseRequestBuilder<AiInteractionItemRequestBuilder>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.count.CountRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<CountRequestBuilderGetQueryParameters>):number
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.count.CountRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<CountRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.count.CountRequestBuilderGetQueryParameters::|public|filter:string
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.count.CountRequestBuilderGetQueryParameters::|public|search:string
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.count.countRequestBuilderGetQueryParametersMapper
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.count.countRequestBuilderRequestsMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.count.countRequestBuilderUriTemplate
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.count.CountRequestBuilder~~>BaseRequestBuilder<CountRequestBuilder>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.aiInsightsRequestBuilder::|public|byCallAiInsightId(callAiInsightId:string):CallAiInsightItemRequestBuilder
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.aiInsightsRequestBuilder::|public|Count:CountRequestBuilder
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.aiInsightsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<AiInsightsRequestBuilderGetQueryParameters>):CallAiInsightCollectionResponse
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.aiInsightsRequestBuilder::|public|post(body:CallAiInsight; requestConfiguration?:RequestConfiguration<object>):CallAiInsight
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.aiInsightsRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<AiInsightsRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.aiInsightsRequestBuilder::|public|toPostRequestInformation(body:CallAiInsight; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.aiInsightsRequestBuilderGetQueryParameters::|public|count:boolean
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.aiInsightsRequestBuilderGetQueryParameters::|public|expand:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.aiInsightsRequestBuilderGetQueryParameters::|public|filter:string
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.aiInsightsRequestBuilderGetQueryParameters::|public|orderby:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.aiInsightsRequestBuilderGetQueryParameters::|public|search:string
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.aiInsightsRequestBuilderGetQueryParameters::|public|select:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.aiInsightsRequestBuilderGetQueryParameters::|public|skip:number
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.aiInsightsRequestBuilderGetQueryParameters::|public|top:number
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.aiInsightsRequestBuilderGetQueryParametersMapper
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.aiInsightsRequestBuilderNavigationMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.aiInsightsRequestBuilderRequestsMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.aiInsightsRequestBuilderUriTemplate
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.aiInsightsRequestBuilder~~>BaseRequestBuilder<AiInsightsRequestBuilder>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.count.CountRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<CountRequestBuilderGetQueryParameters>):number
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.count.CountRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<CountRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.count.CountRequestBuilderGetQueryParameters::|public|filter:string
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.count.CountRequestBuilderGetQueryParameters::|public|search:string
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.count.countRequestBuilderGetQueryParametersMapper
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.count.countRequestBuilderRequestsMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.count.countRequestBuilderUriTemplate
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.count.CountRequestBuilder~~>BaseRequestBuilder<CountRequestBuilder>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.item.CallAiInsightItemRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.item.CallAiInsightItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<CallAiInsightItemRequestBuilderGetQueryParameters>):CallAiInsight
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.item.CallAiInsightItemRequestBuilder::|public|patch(body:CallAiInsight; requestConfiguration?:RequestConfiguration<object>):CallAiInsight
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.item.CallAiInsightItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.item.CallAiInsightItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<CallAiInsightItemRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.item.CallAiInsightItemRequestBuilder::|public|toPatchRequestInformation(body:CallAiInsight; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.item.CallAiInsightItemRequestBuilderGetQueryParameters::|public|expand:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.item.CallAiInsightItemRequestBuilderGetQueryParameters::|public|select:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.item.callAiInsightItemRequestBuilderGetQueryParametersMapper
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.item.callAiInsightItemRequestBuilderRequestsMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.item.callAiInsightItemRequestBuilderUriTemplate
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiInsights.item.CallAiInsightItemRequestBuilder~~>BaseRequestBuilder<CallAiInsightItemRequestBuilder>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.AiOnlineMeetingItemRequestBuilder::|public|aiInsights:AiInsightsRequestBuilder
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.AiOnlineMeetingItemRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.AiOnlineMeetingItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<AiOnlineMeetingItemRequestBuilderGetQueryParameters>):AiOnlineMeeting
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.AiOnlineMeetingItemRequestBuilder::|public|patch(body:AiOnlineMeeting; requestConfiguration?:RequestConfiguration<object>):AiOnlineMeeting
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.AiOnlineMeetingItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.AiOnlineMeetingItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<AiOnlineMeetingItemRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.AiOnlineMeetingItemRequestBuilder::|public|toPatchRequestInformation(body:AiOnlineMeeting; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.AiOnlineMeetingItemRequestBuilderGetQueryParameters::|public|expand:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.AiOnlineMeetingItemRequestBuilderGetQueryParameters::|public|select:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiOnlineMeetingItemRequestBuilderGetQueryParametersMapper
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiOnlineMeetingItemRequestBuilderNavigationMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiOnlineMeetingItemRequestBuilderRequestsMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.aiOnlineMeetingItemRequestBuilderUriTemplate
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.item.AiOnlineMeetingItemRequestBuilder~~>BaseRequestBuilder<AiOnlineMeetingItemRequestBuilder>
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.onlineMeetingsRequestBuilder::|public|byAiOnlineMeetingId(aiOnlineMeetingId:string):AiOnlineMeetingItemRequestBuilder
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.onlineMeetingsRequestBuilder::|public|Count:CountRequestBuilder
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.onlineMeetingsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<OnlineMeetingsRequestBuilderGetQueryParameters>):AiOnlineMeetingCollectionResponse
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.onlineMeetingsRequestBuilder::|public|post(body:AiOnlineMeeting; requestConfiguration?:RequestConfiguration<object>):AiOnlineMeeting
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.onlineMeetingsRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<OnlineMeetingsRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.onlineMeetingsRequestBuilder::|public|toPostRequestInformation(body:AiOnlineMeeting; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.onlineMeetingsRequestBuilderGetQueryParameters::|public|count:boolean
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.onlineMeetingsRequestBuilderGetQueryParameters::|public|expand:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.onlineMeetingsRequestBuilderGetQueryParameters::|public|filter:string
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.onlineMeetingsRequestBuilderGetQueryParameters::|public|orderby:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.onlineMeetingsRequestBuilderGetQueryParameters::|public|search:string
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.onlineMeetingsRequestBuilderGetQueryParameters::|public|select:string[]
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.onlineMeetingsRequestBuilderGetQueryParameters::|public|skip:number
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.onlineMeetingsRequestBuilderGetQueryParameters::|public|top:number
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.onlineMeetingsRequestBuilderGetQueryParametersMapper
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.onlineMeetingsRequestBuilderNavigationMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.onlineMeetingsRequestBuilderRequestsMetadata
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.onlineMeetingsRequestBuilderUriTemplate
+github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.item.onlineMeetings.onlineMeetingsRequestBuilder~~>BaseRequestBuilder<OnlineMeetingsRequestBuilder>
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.usersRequestBuilder::|public|byAiUserId(aiUserId:string):AiUserItemRequestBuilder
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.usersRequestBuilder::|public|Count:CountRequestBuilder
 github.com/microsoft/ccs-beta-sdk-typescript/.copilot.users.usersRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<UsersRequestBuilderGetQueryParameters>):AiUserCollectionResponse
@@ -256,6 +498,13 @@ github.com/microsoft/ccs-beta-sdk-typescript/.models.accessScope::0001-notInOrga
 github.com/microsoft/ccs-beta-sdk-typescript/.models.accessScope::0002-none
 github.com/microsoft/ccs-beta-sdk-typescript/.models.accessScope::0003-unknownFutureValue
 github.com/microsoft/ccs-beta-sdk-typescript/.models.accessScopeObject
+github.com/microsoft/ccs-beta-sdk-typescript/.models.ActionItem::|public|AdditionalData:Record<string, unknown>
+github.com/microsoft/ccs-beta-sdk-typescript/.models.ActionItem::|public|backingStoreEnabled:boolean
+github.com/microsoft/ccs-beta-sdk-typescript/.models.ActionItem::|public|odataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.ActionItem::|public|ownerDisplayName:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.ActionItem::|public|text:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.ActionItem::|public|title:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.ActionItem~~>AdditionalDataHolder; BackedModel; Parsable
 github.com/microsoft/ccs-beta-sdk-typescript/.models.AiInteraction::|public|appClass:string
 github.com/microsoft/ccs-beta-sdk-typescript/.models.AiInteraction::|public|attachments:AiInteractionAttachment[]
 github.com/microsoft/ccs-beta-sdk-typescript/.models.AiInteraction::|public|body:ItemBody
@@ -317,8 +566,14 @@ github.com/microsoft/ccs-beta-sdk-typescript/.models.aiInteractionType::0001-aiR
 github.com/microsoft/ccs-beta-sdk-typescript/.models.aiInteractionType::0002-unknownFutureValue
 github.com/microsoft/ccs-beta-sdk-typescript/.models.aiInteractionTypeObject
 github.com/microsoft/ccs-beta-sdk-typescript/.models.AiInteraction~~>Entity; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.AiOnlineMeeting::|public|aiInsights:CallAiInsight[]
+github.com/microsoft/ccs-beta-sdk-typescript/.models.AiOnlineMeeting::|public|OdataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.AiOnlineMeetingCollectionResponse::|public|value:AiOnlineMeeting[]
+github.com/microsoft/ccs-beta-sdk-typescript/.models.AiOnlineMeetingCollectionResponse~~>BaseCollectionPaginationCountResponse; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.AiOnlineMeeting~~>Entity; Parsable
 github.com/microsoft/ccs-beta-sdk-typescript/.models.AiUser::|public|interactionHistory:AiInteractionHistory
 github.com/microsoft/ccs-beta-sdk-typescript/.models.AiUser::|public|OdataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.AiUser::|public|onlineMeetings:AiOnlineMeeting[]
 github.com/microsoft/ccs-beta-sdk-typescript/.models.AiUserCollectionResponse::|public|value:AiUser[]
 github.com/microsoft/ccs-beta-sdk-typescript/.models.AiUserCollectionResponse~~>BaseCollectionPaginationCountResponse; Parsable
 github.com/microsoft/ccs-beta-sdk-typescript/.models.AiUser~~>Entity; Parsable
@@ -340,6 +595,22 @@ github.com/microsoft/ccs-beta-sdk-typescript/.models.BaseCollectionPaginationCou
 github.com/microsoft/ccs-beta-sdk-typescript/.models.bodyType::0000-text
 github.com/microsoft/ccs-beta-sdk-typescript/.models.bodyType::0001-html
 github.com/microsoft/ccs-beta-sdk-typescript/.models.bodyTypeObject
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CallAiInsight::|public|actionItems:ActionItem[]
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CallAiInsight::|public|callId:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CallAiInsight::|public|contentCorrelationId:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CallAiInsight::|public|createdDateTime:Date
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CallAiInsight::|public|endDateTime:Date
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CallAiInsight::|public|meetingNotes:MeetingNote[]
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CallAiInsight::|public|OdataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CallAiInsight::|public|viewpoint:CallAiInsightViewPoint
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CallAiInsightCollectionResponse::|public|value:CallAiInsight[]
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CallAiInsightCollectionResponse~~>BaseCollectionPaginationCountResponse; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CallAiInsightViewPoint::|public|AdditionalData:Record<string, unknown>
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CallAiInsightViewPoint::|public|backingStoreEnabled:boolean
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CallAiInsightViewPoint::|public|mentionEvents:MentionEvent[]
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CallAiInsightViewPoint::|public|odataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CallAiInsightViewPoint~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CallAiInsight~~>Entity; Parsable
 github.com/microsoft/ccs-beta-sdk-typescript/.models.callRecords.UserIdentity::|public|OdataType:string
 github.com/microsoft/ccs-beta-sdk-typescript/.models.callRecords.UserIdentity::|public|userPrincipalName:string
 github.com/microsoft/ccs-beta-sdk-typescript/.models.callRecords.UserIdentity~~>Identity; Parsable
@@ -392,6 +663,84 @@ github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotAdminSetting::|publi
 github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotAdminSetting::|public|OdataType:string
 github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotAdminSetting~~>Entity; Parsable
 github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotAdmin~~>Entity; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotContextMessage::|public|AdditionalData:Record<string, unknown>
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotContextMessage::|public|backingStoreEnabled:boolean
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotContextMessage::|public|description:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotContextMessage::|public|odataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotContextMessage::|public|text:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotContextMessage~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversation::|public|createdDateTime:Date
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversation::|public|displayName:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversation::|public|messages:CopilotConversationMessage[]
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversation::|public|OdataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversation::|public|state:CopilotConversationState
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversation::|public|turnCount:number
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationAttribution::|public|AdditionalData:Record<string, unknown>
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationAttribution::|public|attributionSource:CopilotConversationAttributionSource
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationAttribution::|public|attributionType:CopilotConversationAttributionType
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationAttribution::|public|backingStoreEnabled:boolean
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationAttribution::|public|imageFavIcon:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationAttribution::|public|imageHeight:number
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationAttribution::|public|imageWebUrl:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationAttribution::|public|imageWidth:number
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationAttribution::|public|odataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationAttribution::|public|providerDisplayName:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationAttribution::|public|seeMoreWebUrl:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.copilotConversationAttributionSource::0000-grounding
+github.com/microsoft/ccs-beta-sdk-typescript/.models.copilotConversationAttributionSource::0001-model
+github.com/microsoft/ccs-beta-sdk-typescript/.models.copilotConversationAttributionSource::0002-unknownFutureValue
+github.com/microsoft/ccs-beta-sdk-typescript/.models.copilotConversationAttributionSourceObject
+github.com/microsoft/ccs-beta-sdk-typescript/.models.copilotConversationAttributionType::0000-citation
+github.com/microsoft/ccs-beta-sdk-typescript/.models.copilotConversationAttributionType::0001-annotation
+github.com/microsoft/ccs-beta-sdk-typescript/.models.copilotConversationAttributionType::0002-unknownFutureValue
+github.com/microsoft/ccs-beta-sdk-typescript/.models.copilotConversationAttributionTypeObject
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationAttribution~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationCollectionResponse::|public|value:CopilotConversation[]
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationCollectionResponse~~>BaseCollectionPaginationCountResponse; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationLocation::|public|AdditionalData:Record<string, unknown>
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationLocation::|public|backingStoreEnabled:boolean
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationLocation::|public|countryOrRegion:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationLocation::|public|countryOrRegionConfidence:number
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationLocation::|public|latitude:number
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationLocation::|public|longitude:number
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationLocation::|public|odataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationLocation::|public|timeZone:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationLocation~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationMessage::|public|OdataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationMessage::|public|text:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationMessageCollectionResponse::|public|value:CopilotConversationMessage[]
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationMessageCollectionResponse~~>BaseCollectionPaginationCountResponse; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationMessageParameter::|public|AdditionalData:Record<string, unknown>
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationMessageParameter::|public|backingStoreEnabled:boolean
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationMessageParameter::|public|odataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationMessageParameter::|public|text:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationMessageParameter~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationMessage~~>Entity; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationRequestMessage::|public|OdataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationRequestMessageParameter::|public|OdataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationRequestMessageParameter~~>CopilotConversationMessageParameter; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationRequestMessage~~>CopilotConversationMessage; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationResponseMessage::|public|adaptiveCards:Json[]
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationResponseMessage::|public|attributions:CopilotConversationAttribution[]
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationResponseMessage::|public|createdDateTime:Date
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationResponseMessage::|public|OdataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationResponseMessage::|public|sensitivityLabel:SearchSensitivityLabelInfo
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversationResponseMessage~~>CopilotConversationMessage; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.copilotConversationState::0000-active
+github.com/microsoft/ccs-beta-sdk-typescript/.models.copilotConversationState::0001-disengagedForRai
+github.com/microsoft/ccs-beta-sdk-typescript/.models.copilotConversationState::0002-unknownFutureValue
+github.com/microsoft/ccs-beta-sdk-typescript/.models.copilotConversationStateObject
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotConversation~~>Entity; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotPeopleAdminSetting::|public|enhancedPersonalization:EnhancedPersonalizationSetting
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotPeopleAdminSetting::|public|OdataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotPeopleAdminSetting~~>Entity; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotSetting::|public|OdataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotSetting::|public|people:CopilotPeopleAdminSetting
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotSetting~~>Entity; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotSharePointRoot::|public|OdataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CopilotSharePointRoot~~>Entity; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CustomEmojiFromIdentitySet::|public|OdataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.CustomEmojiFromIdentitySet~~>IdentitySet; Parsable
 github.com/microsoft/ccs-beta-sdk-typescript/.models.DetailsInfo::|public|AdditionalData:Record<string, unknown>
 github.com/microsoft/ccs-beta-sdk-typescript/.models.DetailsInfo::|public|backingStoreEnabled:boolean
 github.com/microsoft/ccs-beta-sdk-typescript/.models.DetailsInfo::|public|odataType:string
@@ -413,6 +762,10 @@ github.com/microsoft/ccs-beta-sdk-typescript/.models.EngagementIdentitySet::|pub
 github.com/microsoft/ccs-beta-sdk-typescript/.models.EngagementIdentitySet::|public|group:Identity
 github.com/microsoft/ccs-beta-sdk-typescript/.models.EngagementIdentitySet::|public|OdataType:string
 github.com/microsoft/ccs-beta-sdk-typescript/.models.EngagementIdentitySet~~>IdentitySet; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.EnhancedPersonalizationSetting::|public|disabledForGroup:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.EnhancedPersonalizationSetting::|public|isEnabledInOrganization:boolean
+github.com/microsoft/ccs-beta-sdk-typescript/.models.EnhancedPersonalizationSetting::|public|OdataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.EnhancedPersonalizationSetting~~>Entity; Parsable
 github.com/microsoft/ccs-beta-sdk-typescript/.models.Entity::|public|AdditionalData:Record<string, unknown>
 github.com/microsoft/ccs-beta-sdk-typescript/.models.Entity::|public|backingStoreEnabled:boolean
 github.com/microsoft/ccs-beta-sdk-typescript/.models.Entity::|public|id:string
@@ -452,12 +805,36 @@ github.com/microsoft/ccs-beta-sdk-typescript/.models.ItemBody::|public|content:s
 github.com/microsoft/ccs-beta-sdk-typescript/.models.ItemBody::|public|contentType:BodyType
 github.com/microsoft/ccs-beta-sdk-typescript/.models.ItemBody::|public|odataType:string
 github.com/microsoft/ccs-beta-sdk-typescript/.models.ItemBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.Json::|public|AdditionalData:Record<string, unknown>
+github.com/microsoft/ccs-beta-sdk-typescript/.models.Json::|public|backingStoreEnabled:boolean
+github.com/microsoft/ccs-beta-sdk-typescript/.models.Json::|public|odataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.Json~~>AdditionalDataHolder; BackedModel; Parsable
 github.com/microsoft/ccs-beta-sdk-typescript/.models.KeyValuePair::|public|AdditionalData:Record<string, unknown>
 github.com/microsoft/ccs-beta-sdk-typescript/.models.KeyValuePair::|public|backingStoreEnabled:boolean
 github.com/microsoft/ccs-beta-sdk-typescript/.models.KeyValuePair::|public|name:string
 github.com/microsoft/ccs-beta-sdk-typescript/.models.KeyValuePair::|public|odataType:string
 github.com/microsoft/ccs-beta-sdk-typescript/.models.KeyValuePair::|public|value:string
 github.com/microsoft/ccs-beta-sdk-typescript/.models.KeyValuePair~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MeetingNote::|public|AdditionalData:Record<string, unknown>
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MeetingNote::|public|backingStoreEnabled:boolean
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MeetingNote::|public|odataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MeetingNote::|public|subpoints:MeetingNoteSubpoint[]
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MeetingNote::|public|text:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MeetingNote::|public|title:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MeetingNoteSubpoint::|public|AdditionalData:Record<string, unknown>
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MeetingNoteSubpoint::|public|backingStoreEnabled:boolean
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MeetingNoteSubpoint::|public|odataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MeetingNoteSubpoint::|public|text:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MeetingNoteSubpoint::|public|title:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MeetingNoteSubpoint~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MeetingNote~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MentionEvent::|public|AdditionalData:Record<string, unknown>
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MentionEvent::|public|backingStoreEnabled:boolean
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MentionEvent::|public|eventDateTime:Date
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MentionEvent::|public|odataType:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MentionEvent::|public|speaker:IdentitySet
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MentionEvent::|public|transcriptUtterance:string
+github.com/microsoft/ccs-beta-sdk-typescript/.models.MentionEvent~~>AdditionalDataHolder; BackedModel; Parsable
 github.com/microsoft/ccs-beta-sdk-typescript/.models.messageUserRole::0000-envelopeFrom
 github.com/microsoft/ccs-beta-sdk-typescript/.models.messageUserRole::0001-headerFrom
 github.com/microsoft/ccs-beta-sdk-typescript/.models.messageUserRole::0002-to
@@ -608,6 +985,7 @@ github.com/microsoft/ccs-beta-sdk-typescript/.models.UserInformation::|public|cu
 github.com/microsoft/ccs-beta-sdk-typescript/.models.UserInformation::|public|OdataType:string
 github.com/microsoft/ccs-beta-sdk-typescript/.models.UserInformation::|public|role:MessageUserRole
 github.com/microsoft/ccs-beta-sdk-typescript/.models.UserInformation~~>Parsable; UserIdentity
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createActionItemFromDiscriminatorValue(parseNode:ParseNode):ActionItem
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createAiInteractionAttachmentFromDiscriminatorValue(parseNode:ParseNode):AiInteractionAttachment
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createAiInteractionCollectionResponseFromDiscriminatorValue(parseNode:ParseNode):AiInteractionCollectionResponse
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createAiInteractionContextFromDiscriminatorValue(parseNode:ParseNode):AiInteractionContext
@@ -616,12 +994,17 @@ github.com/microsoft/ccs-beta-sdk-typescript/.models::createAiInteractionHistory
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createAiInteractionLinkFromDiscriminatorValue(parseNode:ParseNode):AiInteractionLink
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createAiInteractionMentionedIdentitySetFromDiscriminatorValue(parseNode:ParseNode):AiInteractionMentionedIdentitySet
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createAiInteractionMentionFromDiscriminatorValue(parseNode:ParseNode):AiInteractionMention
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createAiOnlineMeetingCollectionResponseFromDiscriminatorValue(parseNode:ParseNode):AiOnlineMeetingCollectionResponse
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createAiOnlineMeetingFromDiscriminatorValue(parseNode:ParseNode):AiOnlineMeeting
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createAiUserCollectionResponseFromDiscriminatorValue(parseNode:ParseNode):AiUserCollectionResponse
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createAiUserFromDiscriminatorValue(parseNode:ParseNode):AiUser
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createApprovalIdentitySetFromDiscriminatorValue(parseNode:ParseNode):ApprovalIdentitySet
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createAuditUserIdentityFromDiscriminatorValue(parseNode:ParseNode):AuditUserIdentity
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createAzureCommunicationServicesUserIdentityFromDiscriminatorValue(parseNode:ParseNode):AzureCommunicationServicesUserIdentity
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createBaseCollectionPaginationCountResponseFromDiscriminatorValue(parseNode:ParseNode):BaseCollectionPaginationCountResponse
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createCallAiInsightCollectionResponseFromDiscriminatorValue(parseNode:ParseNode):CallAiInsightCollectionResponse
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createCallAiInsightFromDiscriminatorValue(parseNode:ParseNode):CallAiInsight
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createCallAiInsightViewPointFromDiscriminatorValue(parseNode:ParseNode):CallAiInsightViewPoint
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createChatMessageFromIdentitySetFromDiscriminatorValue(parseNode:ParseNode):ChatMessageFromIdentitySet
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createChatMessageMentionedIdentitySetFromDiscriminatorValue(parseNode:ParseNode):ChatMessageMentionedIdentitySet
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createChatMessageReactionIdentitySetFromDiscriminatorValue(parseNode:ParseNode):ChatMessageReactionIdentitySet
@@ -635,16 +1018,36 @@ github.com/microsoft/ccs-beta-sdk-typescript/.models::createCommunicationsUserId
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createCopilotAdminFromDiscriminatorValue(parseNode:ParseNode):CopilotAdmin
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createCopilotAdminLimitedModeFromDiscriminatorValue(parseNode:ParseNode):CopilotAdminLimitedMode
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createCopilotAdminSettingFromDiscriminatorValue(parseNode:ParseNode):CopilotAdminSetting
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createCopilotContextMessageFromDiscriminatorValue(parseNode:ParseNode):CopilotContextMessage
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createCopilotConversationAttributionFromDiscriminatorValue(parseNode:ParseNode):CopilotConversationAttribution
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createCopilotConversationCollectionResponseFromDiscriminatorValue(parseNode:ParseNode):CopilotConversationCollectionResponse
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createCopilotConversationFromDiscriminatorValue(parseNode:ParseNode):CopilotConversation
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createCopilotConversationLocationFromDiscriminatorValue(parseNode:ParseNode):CopilotConversationLocation
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createCopilotConversationMessageCollectionResponseFromDiscriminatorValue(parseNode:ParseNode):CopilotConversationMessageCollectionResponse
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createCopilotConversationMessageFromDiscriminatorValue(parseNode:ParseNode):CopilotConversationMessage
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createCopilotConversationMessageParameterFromDiscriminatorValue(parseNode:ParseNode):CopilotConversationMessageParameter
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createCopilotConversationRequestMessageFromDiscriminatorValue(parseNode:ParseNode):CopilotConversationRequestMessage
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createCopilotConversationRequestMessageParameterFromDiscriminatorValue(parseNode:ParseNode):CopilotConversationRequestMessageParameter
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createCopilotConversationResponseMessageFromDiscriminatorValue(parseNode:ParseNode):CopilotConversationResponseMessage
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createCopilotPeopleAdminSettingFromDiscriminatorValue(parseNode:ParseNode):CopilotPeopleAdminSetting
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createCopilotSettingFromDiscriminatorValue(parseNode:ParseNode):CopilotSetting
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createCopilotSharePointRootFromDiscriminatorValue(parseNode:ParseNode):CopilotSharePointRoot
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createCustomEmojiFromIdentitySetFromDiscriminatorValue(parseNode:ParseNode):CustomEmojiFromIdentitySet
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createDetailsInfoFromDiscriminatorValue(parseNode:ParseNode):DetailsInfo
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createDictionariesFromDiscriminatorValue(parseNode:ParseNode):Dictionaries
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createEmailIdentityFromDiscriminatorValue(parseNode:ParseNode):EmailIdentity
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createEngagementIdentitySetFromDiscriminatorValue(parseNode:ParseNode):EngagementIdentitySet
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createEnhancedPersonalizationSettingFromDiscriminatorValue(parseNode:ParseNode):EnhancedPersonalizationSetting
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createEntityFromDiscriminatorValue(parseNode:ParseNode):Entity
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createIdentityFromDiscriminatorValue(parseNode:ParseNode):Identity
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createIdentitySetFromDiscriminatorValue(parseNode:ParseNode):IdentitySet
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createInitiatorFromDiscriminatorValue(parseNode:ParseNode):Initiator
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createItemBodyFromDiscriminatorValue(parseNode:ParseNode):ItemBody
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createJsonFromDiscriminatorValue(parseNode:ParseNode):Json
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createKeyValuePairFromDiscriminatorValue(parseNode:ParseNode):KeyValuePair
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createMeetingNoteFromDiscriminatorValue(parseNode:ParseNode):MeetingNote
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createMeetingNoteSubpointFromDiscriminatorValue(parseNode:ParseNode):MeetingNoteSubpoint
+github.com/microsoft/ccs-beta-sdk-typescript/.models::createMentionEventFromDiscriminatorValue(parseNode:ParseNode):MentionEvent
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createProgramResourceFromDiscriminatorValue(parseNode:ParseNode):ProgramResource
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createProvisionedIdentityFromDiscriminatorValue(parseNode:ParseNode):ProvisionedIdentity
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createProvisioningServicePrincipalFromDiscriminatorValue(parseNode:ParseNode):ProvisioningServicePrincipal
@@ -665,6 +1068,7 @@ github.com/microsoft/ccs-beta-sdk-typescript/.models::createTeamworkTagIdentityF
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createTeamworkUserIdentityFromDiscriminatorValue(parseNode:ParseNode):TeamworkUserIdentity
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createUserIdentityFromDiscriminatorValue(parseNode:ParseNode):UserIdentity
 github.com/microsoft/ccs-beta-sdk-typescript/.models::createUserInformationFromDiscriminatorValue(parseNode:ParseNode):UserInformation
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoActionItem(ActionItem:ActionItem={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoAiInteraction(AiInteraction:AiInteraction={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoAiInteractionAttachment(AiInteractionAttachment:AiInteractionAttachment={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoAiInteractionCollectionResponse(AiInteractionCollectionResponse:AiInteractionCollectionResponse={}):Record<string, (node: ParseNode) => void>
@@ -673,12 +1077,17 @@ github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoAiInteracti
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoAiInteractionLink(AiInteractionLink:AiInteractionLink={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoAiInteractionMention(AiInteractionMention:AiInteractionMention={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoAiInteractionMentionedIdentitySet(AiInteractionMentionedIdentitySet:AiInteractionMentionedIdentitySet={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoAiOnlineMeeting(AiOnlineMeeting:AiOnlineMeeting={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoAiOnlineMeetingCollectionResponse(AiOnlineMeetingCollectionResponse:AiOnlineMeetingCollectionResponse={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoAiUser(AiUser:AiUser={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoAiUserCollectionResponse(AiUserCollectionResponse:AiUserCollectionResponse={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoApprovalIdentitySet(ApprovalIdentitySet:ApprovalIdentitySet={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoAuditUserIdentity(AuditUserIdentity:AuditUserIdentity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoAzureCommunicationServicesUserIdentity(AzureCommunicationServicesUserIdentity:AzureCommunicationServicesUserIdentity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoBaseCollectionPaginationCountResponse(BaseCollectionPaginationCountResponse:BaseCollectionPaginationCountResponse={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCallAiInsight(CallAiInsight:CallAiInsight={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCallAiInsightCollectionResponse(CallAiInsightCollectionResponse:CallAiInsightCollectionResponse={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCallAiInsightViewPoint(CallAiInsightViewPoint:CallAiInsightViewPoint={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoChatMessageFromIdentitySet(ChatMessageFromIdentitySet:ChatMessageFromIdentitySet={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoChatMessageMentionedIdentitySet(ChatMessageMentionedIdentitySet:ChatMessageMentionedIdentitySet={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoChatMessageReactionIdentitySet(ChatMessageReactionIdentitySet:ChatMessageReactionIdentitySet={}):Record<string, (node: ParseNode) => void>
@@ -692,16 +1101,36 @@ github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCommunicati
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCopilotAdmin(CopilotAdmin:CopilotAdmin={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCopilotAdminLimitedMode(CopilotAdminLimitedMode:CopilotAdminLimitedMode={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCopilotAdminSetting(CopilotAdminSetting:CopilotAdminSetting={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCopilotContextMessage(CopilotContextMessage:CopilotContextMessage={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCopilotConversation(CopilotConversation:CopilotConversation={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCopilotConversationAttribution(CopilotConversationAttribution:CopilotConversationAttribution={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCopilotConversationCollectionResponse(CopilotConversationCollectionResponse:CopilotConversationCollectionResponse={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCopilotConversationLocation(CopilotConversationLocation:CopilotConversationLocation={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCopilotConversationMessage(CopilotConversationMessage:CopilotConversationMessage={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCopilotConversationMessageCollectionResponse(CopilotConversationMessageCollectionResponse:CopilotConversationMessageCollectionResponse={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCopilotConversationMessageParameter(CopilotConversationMessageParameter:CopilotConversationMessageParameter={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCopilotConversationRequestMessage(CopilotConversationRequestMessage:CopilotConversationRequestMessage={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCopilotConversationRequestMessageParameter(CopilotConversationRequestMessageParameter:CopilotConversationRequestMessageParameter={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCopilotConversationResponseMessage(CopilotConversationResponseMessage:CopilotConversationResponseMessage={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCopilotPeopleAdminSetting(CopilotPeopleAdminSetting:CopilotPeopleAdminSetting={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCopilotSetting(CopilotSetting:CopilotSetting={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCopilotSharePointRoot(CopilotSharePointRoot:CopilotSharePointRoot={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoCustomEmojiFromIdentitySet(CustomEmojiFromIdentitySet:CustomEmojiFromIdentitySet={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoDetailsInfo(DetailsInfo:DetailsInfo={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoDictionaries(Dictionaries:Dictionaries={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoEmailIdentity(EmailIdentity:EmailIdentity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoEngagementIdentitySet(EngagementIdentitySet:EngagementIdentitySet={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoEnhancedPersonalizationSetting(EnhancedPersonalizationSetting:EnhancedPersonalizationSetting={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoEntity(Entity:Entity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoIdentity(Identity:Identity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoIdentitySet(IdentitySet:IdentitySet={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoInitiator(Initiator:Initiator={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoItemBody(ItemBody:ItemBody={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoJson(Json:Json={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoKeyValuePair(KeyValuePair:KeyValuePair={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoMeetingNote(MeetingNote:MeetingNote={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoMeetingNoteSubpoint(MeetingNoteSubpoint:MeetingNoteSubpoint={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoMentionEvent(MentionEvent:MentionEvent={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoProgramResource(ProgramResource:ProgramResource={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoProvisionedIdentity(ProvisionedIdentity:ProvisionedIdentity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoProvisioningServicePrincipal(ProvisioningServicePrincipal:ProvisioningServicePrincipal={}):Record<string, (node: ParseNode) => void>
@@ -722,6 +1151,7 @@ github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoTeamworkTag
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoTeamworkUserIdentity(TeamworkUserIdentity:TeamworkUserIdentity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoUserIdentity(UserIdentity:UserIdentity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/ccs-beta-sdk-typescript/.models::deserializeIntoUserInformation(UserInformation:UserInformation={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeActionItem(writer:SerializationWriter; ActionItem:ActionItem={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeAiInteraction(writer:SerializationWriter; AiInteraction:AiInteraction={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeAiInteractionAttachment(writer:SerializationWriter; AiInteractionAttachment:AiInteractionAttachment={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeAiInteractionCollectionResponse(writer:SerializationWriter; AiInteractionCollectionResponse:AiInteractionCollectionResponse={}):void
@@ -730,12 +1160,17 @@ github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeAiInteractionHist
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeAiInteractionLink(writer:SerializationWriter; AiInteractionLink:AiInteractionLink={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeAiInteractionMention(writer:SerializationWriter; AiInteractionMention:AiInteractionMention={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeAiInteractionMentionedIdentitySet(writer:SerializationWriter; AiInteractionMentionedIdentitySet:AiInteractionMentionedIdentitySet={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeAiOnlineMeeting(writer:SerializationWriter; AiOnlineMeeting:AiOnlineMeeting={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeAiOnlineMeetingCollectionResponse(writer:SerializationWriter; AiOnlineMeetingCollectionResponse:AiOnlineMeetingCollectionResponse={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeAiUser(writer:SerializationWriter; AiUser:AiUser={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeAiUserCollectionResponse(writer:SerializationWriter; AiUserCollectionResponse:AiUserCollectionResponse={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeApprovalIdentitySet(writer:SerializationWriter; ApprovalIdentitySet:ApprovalIdentitySet={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeAuditUserIdentity(writer:SerializationWriter; AuditUserIdentity:AuditUserIdentity={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeAzureCommunicationServicesUserIdentity(writer:SerializationWriter; AzureCommunicationServicesUserIdentity:AzureCommunicationServicesUserIdentity={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeBaseCollectionPaginationCountResponse(writer:SerializationWriter; BaseCollectionPaginationCountResponse:BaseCollectionPaginationCountResponse={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCallAiInsight(writer:SerializationWriter; CallAiInsight:CallAiInsight={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCallAiInsightCollectionResponse(writer:SerializationWriter; CallAiInsightCollectionResponse:CallAiInsightCollectionResponse={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCallAiInsightViewPoint(writer:SerializationWriter; CallAiInsightViewPoint:CallAiInsightViewPoint={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeChatMessageFromIdentitySet(writer:SerializationWriter; ChatMessageFromIdentitySet:ChatMessageFromIdentitySet={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeChatMessageMentionedIdentitySet(writer:SerializationWriter; ChatMessageMentionedIdentitySet:ChatMessageMentionedIdentitySet={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeChatMessageReactionIdentitySet(writer:SerializationWriter; ChatMessageReactionIdentitySet:ChatMessageReactionIdentitySet={}):void
@@ -749,16 +1184,36 @@ github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCommunicationsUse
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCopilotAdmin(writer:SerializationWriter; CopilotAdmin:CopilotAdmin={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCopilotAdminLimitedMode(writer:SerializationWriter; CopilotAdminLimitedMode:CopilotAdminLimitedMode={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCopilotAdminSetting(writer:SerializationWriter; CopilotAdminSetting:CopilotAdminSetting={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCopilotContextMessage(writer:SerializationWriter; CopilotContextMessage:CopilotContextMessage={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCopilotConversation(writer:SerializationWriter; CopilotConversation:CopilotConversation={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCopilotConversationAttribution(writer:SerializationWriter; CopilotConversationAttribution:CopilotConversationAttribution={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCopilotConversationCollectionResponse(writer:SerializationWriter; CopilotConversationCollectionResponse:CopilotConversationCollectionResponse={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCopilotConversationLocation(writer:SerializationWriter; CopilotConversationLocation:CopilotConversationLocation={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCopilotConversationMessage(writer:SerializationWriter; CopilotConversationMessage:CopilotConversationMessage={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCopilotConversationMessageCollectionResponse(writer:SerializationWriter; CopilotConversationMessageCollectionResponse:CopilotConversationMessageCollectionResponse={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCopilotConversationMessageParameter(writer:SerializationWriter; CopilotConversationMessageParameter:CopilotConversationMessageParameter={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCopilotConversationRequestMessage(writer:SerializationWriter; CopilotConversationRequestMessage:CopilotConversationRequestMessage={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCopilotConversationRequestMessageParameter(writer:SerializationWriter; CopilotConversationRequestMessageParameter:CopilotConversationRequestMessageParameter={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCopilotConversationResponseMessage(writer:SerializationWriter; CopilotConversationResponseMessage:CopilotConversationResponseMessage={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCopilotPeopleAdminSetting(writer:SerializationWriter; CopilotPeopleAdminSetting:CopilotPeopleAdminSetting={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCopilotSetting(writer:SerializationWriter; CopilotSetting:CopilotSetting={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCopilotSharePointRoot(writer:SerializationWriter; CopilotSharePointRoot:CopilotSharePointRoot={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeCustomEmojiFromIdentitySet(writer:SerializationWriter; CustomEmojiFromIdentitySet:CustomEmojiFromIdentitySet={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeDetailsInfo(writer:SerializationWriter; DetailsInfo:DetailsInfo={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeDictionaries(writer:SerializationWriter; Dictionaries:Dictionaries={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeEmailIdentity(writer:SerializationWriter; EmailIdentity:EmailIdentity={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeEngagementIdentitySet(writer:SerializationWriter; EngagementIdentitySet:EngagementIdentitySet={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeEnhancedPersonalizationSetting(writer:SerializationWriter; EnhancedPersonalizationSetting:EnhancedPersonalizationSetting={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeEntity(writer:SerializationWriter; Entity:Entity={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeIdentity(writer:SerializationWriter; Identity:Identity={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeIdentitySet(writer:SerializationWriter; IdentitySet:IdentitySet={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeInitiator(writer:SerializationWriter; Initiator:Initiator={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeItemBody(writer:SerializationWriter; ItemBody:ItemBody={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeJson(writer:SerializationWriter; Json:Json={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeKeyValuePair(writer:SerializationWriter; KeyValuePair:KeyValuePair={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeMeetingNote(writer:SerializationWriter; MeetingNote:MeetingNote={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeMeetingNoteSubpoint(writer:SerializationWriter; MeetingNoteSubpoint:MeetingNoteSubpoint={}):void
+github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeMentionEvent(writer:SerializationWriter; MentionEvent:MentionEvent={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeProgramResource(writer:SerializationWriter; ProgramResource:ProgramResource={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeProvisionedIdentity(writer:SerializationWriter; ProvisionedIdentity:ProvisionedIdentity={}):void
 github.com/microsoft/ccs-beta-sdk-typescript/.models::serializeProvisioningServicePrincipal(writer:SerializationWriter; ProvisioningServicePrincipal:ProvisioningServicePrincipal={}):void

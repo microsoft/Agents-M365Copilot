@@ -189,84 +189,59 @@ jobs:
           CLIENT_SECRET: ${{secrets.client_secret}}
           USER_ID: ${{secrets.user_id}}
         working-directory: typescript
- 
+  
   check-build-matrix:
     runs-on: ubuntu-latest
-    needs: [check-changes]
+    needs: [check-changes, build-and-test-dotnet, build-and-test-python, build-and-test-typescript]
     if: always()
     steps:
-      - uses: actions/checkout@v4
-      - name: Determine job dependencies
-        id: deps
-        run: |
-          DOTNET_TRIGGERED=${{ needs.check-changes.outputs.dotnet == 'true' }}
-          PYTHON_TRIGGERED=${{ needs.check-changes.outputs.python == 'true' }}
-          TYPESCRIPT_TRIGGERED=${{ needs.check-changes.outputs.typescript == 'true' }}
-          
-          echo "Dotnet triggered: $DOTNET_TRIGGERED"
-          echo "Python triggered: $PYTHON_TRIGGERED"
-          echo "TypeScript triggered: $TYPESCRIPT_TRIGGERED"
-          
-          if [[ "$DOTNET_TRIGGERED" == "true" ]]; then
-            echo "need_dotnet=true" >> $GITHUB_OUTPUT
-            echo "Will wait for build-and-test-dotnet job"
-          else
-            echo "need_dotnet=false" >> $GITHUB_OUTPUT
-          fi
-          
-          if [[ "$PYTHON_TRIGGERED" == "true" ]]; then
-            echo "need_python=true" >> $GITHUB_OUTPUT
-            echo "Will wait for build-and-test-python job"
-          else
-            echo "need_python=false" >> $GITHUB_OUTPUT
-          fi
-          
-          if [[ "$TYPESCRIPT_TRIGGERED" == "true" ]]; then
-            echo "need_typescript=true" >> $GITHUB_OUTPUT
-            echo "Will wait for build-and-test-typescript job"
-          else
-            echo "need_typescript=false" >> $GITHUB_OUTPUT
-          fi
-      
-      - name: Wait for Dotnet job
-        if: steps.deps.outputs.need_dotnet == 'true'
-        uses: lewagon/wait-on-check-action@v1.3.4
-        with:
-          check-name: build-and-test-dotnet
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 10
-      
-      - name: Wait for Python job
-        if: steps.deps.outputs.need_python == 'true'
-        uses: lewagon/wait-on-check-action@v1.3.4
-        with:
-          check-name: build-and-test-python
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 10
-      
-      - name: Wait for TypeScript job
-        if: steps.deps.outputs.need_typescript == 'true'
-        uses: lewagon/wait-on-check-action@v1.3.4
-        with:
-          check-name: build-and-test-typescript
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 10
-      
       - name: Check build status
         run: |
-          # Check if any builds were triggered
+          # Get the status of each job from the needs context
           DOTNET_TRIGGERED=${{ needs.check-changes.outputs.dotnet == 'true' }}
           PYTHON_TRIGGERED=${{ needs.check-changes.outputs.python == 'true' }}
           TYPESCRIPT_TRIGGERED=${{ needs.check-changes.outputs.typescript == 'true' }}
           
-          # If no builds were triggered, this means changes were in other folders
+          DOTNET_STATUS="${{ needs.build-and-test-dotnet.result }}"
+          PYTHON_STATUS="${{ needs.build-and-test-python.result }}"
+          TYPESCRIPT_STATUS="${{ needs.build-and-test-typescript.result }}"
+          
+          echo "Build Status Summary:"
+          echo "---------------------"
+          echo "Dotnet triggered: $DOTNET_TRIGGERED, Status: $DOTNET_STATUS"
+          echo "Python triggered: $PYTHON_TRIGGERED, Status: $PYTHON_STATUS"
+          echo "TypeScript triggered: $TYPESCRIPT_TRIGGERED, Status: $TYPESCRIPT_STATUS"
+          
+          # Track if we should fail
+          SHOULD_FAIL=false
+          
+          # If no builds were triggered, this is a success
           if [[ "$DOTNET_TRIGGERED" == "false" && "$PYTHON_TRIGGERED" == "false" && "$TYPESCRIPT_TRIGGERED" == "false" ]]; then
-            echo "No language builds were triggered - changes were in other folders"
+            echo "✅ No language builds were triggered - changes were in other folders"
             exit 0
           fi
           
-          echo "All triggered builds completed successfully"
-          exit 0
+          # Check each job that was triggered
+          if [[ "$DOTNET_TRIGGERED" == "true" && "$DOTNET_STATUS" != "success" && "$DOTNET_STATUS" != "skipped" ]]; then
+            echo "❌ Dotnet build failed or was cancelled"
+            SHOULD_FAIL=true
+          fi
+          
+          if [[ "$PYTHON_TRIGGERED" == "true" && "$PYTHON_STATUS" != "success" && "$PYTHON_STATUS" != "skipped" ]]; then
+            echo "❌ Python build failed or was cancelled"
+            SHOULD_FAIL=true
+          fi
+          
+          if [[ "$TYPESCRIPT_TRIGGERED" == "true" && "$TYPESCRIPT_STATUS" != "success" && "$TYPESCRIPT_STATUS" != "skipped" ]]; then
+            echo "❌ TypeScript build failed or was cancelled"
+            SHOULD_FAIL=true
+          fi
+          
+          # Final status
+          if [[ "$SHOULD_FAIL" == "true" ]]; then
+            echo "⛔ One or more triggered builds failed"
+            exit 1
+          else
+            echo "✅ All triggered builds completed successfully"
+            exit 0
+          fi
