@@ -40,7 +40,7 @@ class BaseCopilotControlSystemsClient(BaseRequestBuilder):
         register_default_deserializer(TextParseNodeFactory)
         register_default_deserializer(FormParseNodeFactory)
         if not self.request_adapter.base_url:
-            self.request_adapter.base_url = "https://graph.microsoft.com/beta"
+            self.request_adapter.base_url = "http://localhost"
         self.path_parameters["base_url"] = self.request_adapter.base_url
         self.request_adapter.enable_backing_store(backing_store)
     
