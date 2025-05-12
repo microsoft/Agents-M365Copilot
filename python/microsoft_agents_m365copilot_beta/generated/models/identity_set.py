@@ -12,6 +12,7 @@ if TYPE_CHECKING:
     from .chat_message_mentioned_identity_set import ChatMessageMentionedIdentitySet
     from .chat_message_reaction_identity_set import ChatMessageReactionIdentitySet
     from .communications_identity_set import CommunicationsIdentitySet
+    from .custom_emoji_from_identity_set import CustomEmojiFromIdentitySet
     from .engagement_identity_set import EngagementIdentitySet
     from .identity import Identity
     from .share_point_identity_set import SharePointIdentitySet
@@ -70,6 +71,10 @@ class IdentitySet(AdditionalDataHolder, BackedModel, Parsable):
             from .communications_identity_set import CommunicationsIdentitySet
 
             return CommunicationsIdentitySet()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.customEmojiFromIdentitySet".casefold():
+            from .custom_emoji_from_identity_set import CustomEmojiFromIdentitySet
+
+            return CustomEmojiFromIdentitySet()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.engagementIdentitySet".casefold():
             from .engagement_identity_set import EngagementIdentitySet
 
@@ -91,6 +96,7 @@ class IdentitySet(AdditionalDataHolder, BackedModel, Parsable):
         from .chat_message_mentioned_identity_set import ChatMessageMentionedIdentitySet
         from .chat_message_reaction_identity_set import ChatMessageReactionIdentitySet
         from .communications_identity_set import CommunicationsIdentitySet
+        from .custom_emoji_from_identity_set import CustomEmojiFromIdentitySet
         from .engagement_identity_set import EngagementIdentitySet
         from .identity import Identity
         from .share_point_identity_set import SharePointIdentitySet
@@ -101,6 +107,7 @@ class IdentitySet(AdditionalDataHolder, BackedModel, Parsable):
         from .chat_message_mentioned_identity_set import ChatMessageMentionedIdentitySet
         from .chat_message_reaction_identity_set import ChatMessageReactionIdentitySet
         from .communications_identity_set import CommunicationsIdentitySet
+        from .custom_emoji_from_identity_set import CustomEmojiFromIdentitySet
         from .engagement_identity_set import EngagementIdentitySet
         from .identity import Identity
         from .share_point_identity_set import SharePointIdentitySet
