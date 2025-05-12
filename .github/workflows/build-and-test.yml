@@ -230,7 +230,7 @@ jobs:
       
       - name: Wait for Dotnet job
         if: steps.deps.outputs.need_dotnet == 'true'
-        uses: github/wait-on-check-action@v2
+        uses: github/wait-on-check-action@v1.3.4
         with:
           check-name: build-and-test-dotnet
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
@@ -239,7 +239,7 @@ jobs:
       
       - name: Wait for Python job
         if: steps.deps.outputs.need_python == 'true'
-        uses: github/wait-on-check-action@v2
+        uses: github/wait-on-check-action@v1.3.4
         with:
           check-name: build-and-test-python
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
@@ -248,7 +248,7 @@ jobs:
       
       - name: Wait for TypeScript job
         if: steps.deps.outputs.need_typescript == 'true'
-        uses: github/wait-on-check-action@v2
+        uses: github/wait-on-check-action@v1.3.4
         with:
           check-name: build-and-test-typescript
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
