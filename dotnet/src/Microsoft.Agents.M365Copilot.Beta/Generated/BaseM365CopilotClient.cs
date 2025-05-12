@@ -41,7 +41,7 @@ namespace Microsoft.Agents.M365Copilot.Beta
             ApiClientBuilder.RegisterDefaultDeserializer<FormParseNodeFactory>();
             if (string.IsNullOrEmpty(RequestAdapter.BaseUrl))
             {
-                RequestAdapter.BaseUrl = "https://graph.microsoft.com/beta";
+                RequestAdapter.BaseUrl = "http://localhost";
             }
             PathParameters.TryAdd("baseurl", RequestAdapter.BaseUrl);
             RequestAdapter.EnableBackingStore(backingStore);
