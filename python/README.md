@@ -9,94 +9,109 @@
 
 1. Create a `.env` file with the following values:
 
-```
-TENANT_ID = "YOUR_TENANT_ID"
-CLIENT_ID = "YOUR_CLIENT_ID"
-CLIENT_SECRET_ID = "YOUR_CLIENT_SECRET_ID"
-```
+    ```
+    TENANT_ID = "YOUR_TENANT_ID"
+    CLIENT_ID = "YOUR_CLIENT_ID"
+    ```
 
-> **NOTE:**
-> Your tenant has to be able to access copilot.
+    **NOTE:**
+    
+    > Your tenant has to have a Copilot license.
 
 2. Create a `main.py` file with the following snippet:
 
-```python
-import asyncio
-import os
+    ```python
+    import asyncio
+    import os
+    from datetime import datetime
 
-from azure.identity.aio import ClientSecretCredential
-from dotenv import load_dotenv
-from kiota_abstractions.api_error import APIError
+    from azure.identity import DeviceCodeCredential
+    from dotenv import load_dotenv
+    from kiota_abstractions.api_error import APIError
 
-from microsoft_agents_m365copilot_beta import MicrosoftAgentsM365CopilotServiceClient
-from microsoft_agents_m365copilot_beta.generated.copilot.retrieval.retrieval_post_request_body import (
-    RetrievalPostRequestBody,
-)
+    from microsoft_agents_m365copilot_beta import MicrosoftAgentsM365CopilotServiceClient
+    from microsoft_agents_m365copilot_beta.generated.copilot.retrieval.retrieval_post_request_body import (
+        RetrievalPostRequestBody,
+    )
 
-load_dotenv()
+    load_dotenv()
 
-TENANT_ID = os.getenv("TENANT_ID")
-CLIENT_ID = os.getenv("CLIENT_ID")
-CLIENT_SECRET_ID = os.getenv("CLIENT_SECRET_ID")
+    TENANT_ID = os.getenv("TENANT_ID")
+    CLIENT_ID = os.getenv("CLIENT_ID")
 
-credentials = ClientSecretCredential(TENANT_ID, CLIENT_ID, CLIENT_SECRET_ID)
-scopes = ['https://graph.microsoft.com/.default']
-client = MicrosoftAgentsM365CopilotServiceClient(credentials=credentials, scopes=scopes)
+    # Define a proper callback function that accepts all three parameters
+    def auth_callback(verification_uri: str, user_code: str, expires_on: datetime):
+        print(f"\nTo sign in, use a web browser to open the page {verification_uri}")
+        print(f"Enter the code {user_code} to authenticate.")
+        print(f"The code will expire at {expires_on}")
+
+    # Create device code credential with correct callback
+    credentials = DeviceCodeCredential(
+        client_id=CLIENT_ID,
+        tenant_id=TENANT_ID,
+        prompt_callback=auth_callback
+    )
+
+    # Use the Graph API beta endpoint explicitly
+    scopes = ['https://graph.microsoft.com/.default']
+    client = MicrosoftAgentsM365CopilotServiceClient(credentials=credentials, scopes=scopes)
+
+    # Make sure the base URL is set to beta
+    client.request_adapter.base_url = "https://graph.microsoft.com/beta"
+
+    async def retrieve():
+        try:
+            # Print the URL being used
+            print(f"Using API base URL: {client.request_adapter.base_url}\n")
+            
+            # Create the retrieval request body
+            retrieval_body = RetrievalPostRequestBody()
+            retrieval_body.query_string = "What is the latest in my organization"
+            
+            # Try more parameters that might be required
+            # retrieval_body.maximum_number_of_results = 10
+            
+            # Make the API call
+            print("Making retrieval API request...")
+            retrieval = await client.copilot.retrieval.post(retrieval_body)
+            
+            # Process the results
+            if retrieval and hasattr(retrieval, "retrieval_hits"):
+                print(f"Received {len(retrieval.retrieval_hits)} hits")
+                for r in retrieval.retrieval_hits:
+                    print(f"Web URL: {r.web_url}\n")
+                    for extract in r.extracts:
+                        print(f"Text:\n{extract.text}\n")
+            else:
+                print(f"Retrieval response structure: {dir(retrieval)}")
+        except APIError as e:
+            print(f"Error: {e.error.code}: {e.error.message}")
+            if hasattr(e, 'error') and hasattr(e.error, 'inner_error'):
+                print(f"Inner error details: {e.error.inner_error}")
+            raise e
 
 
-async def retrieve():
-    try:
-        retrieval_body = RetrievalPostRequestBody()
-        retrieval_body.query_string = "What is the latest in my organization"
-        retrieval = await client.copilot.retrieval.post(retrieval_body)
-        if retrieval:
-            for r in retrieval["retrievalHits"]:
-                print(r)
-    except APIError as e:
-        print(f"Error: {e.error.code}: {e.error.message}")
-        raise e
-
-
-asyncio.run(retrieve())
-```
+    # Run the async function
+    asyncio.run(retrieve())
+    ```
 
 1. If successful, you should get a list of `retrievalHits` collection.
 
-```json
-{
-    "retrievalHits": [
-        {
-            "webUrl": "https://microsoft-my.sharepoint-df.com/personal/andia_com/Documents/Contoso marketing.pptx",
-            "extracts": [
-                {
-                    "text": "Some long extracts that can be implemented to improve future projects."
-                }
-            ],
-            "resourceType": "listItem",
-            "sensitivityLabel": {
-                "sensitivityLabelId": "9fbde396-1a24-4c79-8edf-9254a0f35055",
-                "displayName": "Confidential\\Company",
-                "tooltip": "Data is classified and protected. Recipient can unprotect content with the right justification.",
-                "priority": 5,
-                "color": "#FF8C00",
-                "isEncrypted": true
-            }
-        },
-        {
-            "webUrl": "https://microsoft.sharepoint-df.com/teams/Contoso/Engineering/Engineering System.one",
-            "extracts": [
-                {
-                    "text": "Some other long text"
-            ],
-            "resourceType": "listItem",
-            "sensitivityLabel": {
-                "sensitivityLabelId": "1a19d03a-48bc-4359-8038-5b5f6d5847c3",
-                "displayName": "Confidential\\Any User (No Protection)",
-                "tooltip": "Data is classified as Confidential but is NOT PROTECTED to allow access by approved NDA business partners If a higher level of protection is needed, please use the Sensitivity button on the tool bar to change the protection level.",
-                "priority": 4,
-                "color": "#FF8C00"
-            }
-        }
-    ]
-}
-```
+    ```text
+    Web URL: https://vladtalkstech.com/microsoft-365/managing-sharepoint-online-storage-everything-you-need-to-know-theory-demo/
+
+    Text:
+    Skip to content Home About About Vlad Pluralsight Courses Blogs & Videos All Microsoft 365 SharePoint Microsoft Teams Power Platform Power BI Power Automate Azure Microsoft Copilot Managing SharePoint Online Storage – Everything You NEED to Know | Theory + Demo Managing SharePoint Online storage is no small task! Don’t worry. I’m here to help! This is a clip from my full Configuring and Managing SharePoint Online and OneDrive for Business course available on Pluralsight that goes in-depth into managing the full SharePoint Online and OneDrive for Business services. Full Course Video Summary Here are the key points from the video: Cloud Storage Benefits: One of the main advantages of using cloud services like SharePoint and OneDrive for Business is that you don’t have to manage storage hardware, just the licensing. 
+
+    Web URL: https://vladtalkstech.com/category/microsoft-viva/
+
+    Text:
+    Skip to content Home About About Vlad Pluralsight Courses Blogs & Videos All Microsoft 365 SharePoint Microsoft Teams Power Platform Power BI Power Automate Azure Microsoft Copilot Copilot Studio Copilot for Microsoft 365 Learning News Study Guides Power Platform Certifications Microsoft 365 Certifications Security, Compliance, and Identity Certifications Azure Certifications Events and Discount Codes Newsletter Home About About Vlad Pluralsight Courses Blogs & Videos All Microsoft 365 SharePoint Microsoft Teams Power Platform Power BI Power Automate Azure Microsoft Copilot Copilot Studio Copilot for Microsoft 365 Learning News Study Guides Power Platform Certifications Microsoft 365 Certifications Security, Compliance, and Identity Certifications Azure Certifications Events and Discount Codes Newsletter Vlad Talks Microsoft Viva Get the latest news and knowledge on your favorite products and certifications. FULL Microsoft Viva Insights Overview + Guide Microsoft Viva, Viva Insights  Microsoft Viva, Viva Insights  FULL Microsoft Viva Insights Overview + Guide The wealth of knowledge gained through Viva Insights is remarkable.
+
+    Web URL: https://vladtalkstech.com/external-blogs-and-videos/espc24-reporters-vlad-catrinescu-and-frane-borozan/
+
+    Text:
+    Skip to content Home About About Vlad Pluralsight Courses Blogs & Videos All Microsoft 365 SharePoint Microsoft Teams Power Platform Power BI Power Automate Azure Microsoft Copilot Copilot Studio Copilot for Microsoft 365 Learning News Study Guides Power Platform Certifications Microsoft 365 Certifications Security, Compliance, and Identity Certifications Azure Certifications Events and Discount Codes Newsletter Home About About Vlad Pluralsight Courses Blogs & Videos All Microsoft 365 SharePoint Microsoft Teams Power Platform Power BI Power Automate Azure Microsoft Copilot Copilot Studio Copilot for Microsoft 365 Learning News Study Guides Power Platform Certifications Microsoft 365 Certifications Security, Compliance, and Identity Certifications Azure Certifications Events and Discount Codes Newsletter [ESPC24 Reporters] Vlad Catrinescu and Frane Borozan Reporter: Vlad Catrinescu Interviewee: Frane Borozan In this insightful conversation, they share their expert take on key challenges like managing stale data, increasing the adoption of sensitivity labels, and ensuring compliance with tools like Copilot. Discover practical advice for organizations looking to implement Copilot effectively, from establishing a baseline for permissions to rolling out Copilot securely and responsibly. Highlights include: Why stale data is a challenge for Copilot and how it might evolve. The untapped potential of sensitivity labels in data governance.
+
+    ...
+    ```
