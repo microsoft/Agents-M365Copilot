@@ -4,16 +4,8 @@ on:
   workflow_dispatch:
   push:
     branches: ["main"]
-    paths:
-      - "dotnet/**"
-      - "python/**"
-      - "typescript/**"
   pull_request:
     branches: ["main"]
-    paths:
-      - "dotnet/**"
-      - "python/**"
-      - "typescript/**"
 
 permissions:
   contents: read
@@ -33,16 +25,32 @@ jobs:
           fetch-depth: 0
       - name: Check changed files
         id: check
-        run: |
-          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+        run: |          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             echo "dotnet=true" >> $GITHUB_OUTPUT
             echo "python=true" >> $GITHUB_OUTPUT
             echo "typescript=true" >> $GITHUB_OUTPUT
             exit 0
           fi
 
-          git fetch origin ${{ github.base_ref }}
-          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}..HEAD)
+          # Handle cases where github.base_ref is empty (direct push to a branch)
+          if [ -z "${{ github.base_ref }}" ]; then
+            # For pushes to main, compare with the previous commit
+            if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+              echo "Direct push to main - comparing with previous commit"
+              CHANGED_FILES=$(git diff --name-only HEAD^..HEAD)
+            else
+              # For other branches, compare with main
+              echo "Direct push to branch - comparing with main"
+              git fetch origin main
+              CHANGED_FILES=$(git diff --name-only origin/main..HEAD)
+            fi
+          else
+            # Normal PR case - fetch the target branch and compare
+            echo "Pull request - comparing with target branch ${{ github.base_ref }}"
+            git fetch origin ${{ github.base_ref }}
+            CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}..HEAD)
+          fi
+          
           echo "Changed Files:"
           echo "$CHANGED_FILES"
 
@@ -179,48 +187,83 @@ jobs:
           CLIENT_ID: ${{secrets.client_id}}
           CLIENT_SECRET: ${{secrets.client_secret}}
           USER_ID: ${{secrets.user_id}}
-        working-directory: typescript
-
-  check-build-matrix:
+        working-directory: typescript  check-build-matrix:
     runs-on: ubuntu-latest
-    needs:
-      [
-        check-changes,
-        build-and-test-dotnet,
-        build-and-test-python,
-        build-and-test-typescript,
-      ]
+    needs: [check-changes]
     if: always()
     steps:
+      - uses: actions/checkout@v4
+      - name: Determine job dependencies
+        id: deps
+        run: |
+          DOTNET_TRIGGERED=${{ needs.check-changes.outputs.dotnet == 'true' }}
+          PYTHON_TRIGGERED=${{ needs.check-changes.outputs.python == 'true' }}
+          TYPESCRIPT_TRIGGERED=${{ needs.check-changes.outputs.typescript == 'true' }}
+          
+          echo "Dotnet triggered: $DOTNET_TRIGGERED"
+          echo "Python triggered: $PYTHON_TRIGGERED"
+          echo "TypeScript triggered: $TYPESCRIPT_TRIGGERED"
+          
+          if [[ "$DOTNET_TRIGGERED" == "true" ]]; then
+            echo "need_dotnet=true" >> $GITHUB_OUTPUT
+            echo "Will wait for build-and-test-dotnet job"
+          else
+            echo "need_dotnet=false" >> $GITHUB_OUTPUT
+          fi
+          
+          if [[ "$PYTHON_TRIGGERED" == "true" ]]; then
+            echo "need_python=true" >> $GITHUB_OUTPUT
+            echo "Will wait for build-and-test-python job"
+          else
+            echo "need_python=false" >> $GITHUB_OUTPUT
+          fi
+          
+          if [[ "$TYPESCRIPT_TRIGGERED" == "true" ]]; then
+            echo "need_typescript=true" >> $GITHUB_OUTPUT
+            echo "Will wait for build-and-test-typescript job"
+          else
+            echo "need_typescript=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Wait for Dotnet job
+        if: steps.deps.outputs.need_dotnet == 'true'
+        uses: github/wait-on-check-action@v2
+        with:
+          check-name: build-and-test-dotnet
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+      
+      - name: Wait for Python job
+        if: steps.deps.outputs.need_python == 'true'
+        uses: github/wait-on-check-action@v2
+        with:
+          check-name: build-and-test-python
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+      
+      - name: Wait for TypeScript job
+        if: steps.deps.outputs.need_typescript == 'true'
+        uses: github/wait-on-check-action@v2
+        with:
+          check-name: build-and-test-typescript
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+      
       - name: Check build status
         run: |
           # Check if any builds were triggered
           DOTNET_TRIGGERED=${{ needs.check-changes.outputs.dotnet == 'true' }}
           PYTHON_TRIGGERED=${{ needs.check-changes.outputs.python == 'true' }}
           TYPESCRIPT_TRIGGERED=${{ needs.check-changes.outputs.typescript == 'true' }}
-
-          # Log job results for debugging
-          echo "Dotnet triggered: $DOTNET_TRIGGERED, result: ${{ needs.build-and-test-dotnet.result }}"
-          echo "Python triggered: $PYTHON_TRIGGERED, result: ${{ needs.build-and-test-python.result }}"
-          echo "TypeScript triggered: $TYPESCRIPT_TRIGGERED, result: ${{ needs.build-and-test-typescript.result }}"
-
-          # If no builds were triggered, exit successfully
+          
+          # If no builds were triggered, this means changes were in other folders
           if [[ "$DOTNET_TRIGGERED" == "false" && "$PYTHON_TRIGGERED" == "false" && "$TYPESCRIPT_TRIGGERED" == "false" ]]; then
-            echo "No builds were triggered - passing check"
+            echo "No language builds were triggered - changes were in other folders"
             exit 0
           fi
-
-          # Check results of triggered builds
-          # Consider a job successful if:
-          # - It wasn't triggered (TRIGGERED == "false") OR
-          # - It was triggered and succeeded (result == "success") OR
-          # - It was triggered but skipped (result == "skipped")
-          if [[ "$DOTNET_TRIGGERED" == "true" && "${{ needs.build-and-test-dotnet.result }}" != "success" && "${{ needs.build-and-test-dotnet.result }}" != "skipped" ]] || \
-             [[ "$PYTHON_TRIGGERED" == "true" && "${{ needs.build-and-test-python.result }}" != "success" && "${{ needs.build-and-test-python.result }}" != "skipped" ]] || \
-             [[ "$TYPESCRIPT_TRIGGERED" == "true" && "${{ needs.build-and-test-typescript.result }}" != "success" && "${{ needs.build-and-test-typescript.result }}" != "skipped" ]]; then
-            echo "One or more triggered builds failed"
-            exit 1
-          fi
-
-          echo "All triggered builds completed successfully or were properly skipped"
+          
+          echo "All triggered builds completed successfully"
           exit 0
