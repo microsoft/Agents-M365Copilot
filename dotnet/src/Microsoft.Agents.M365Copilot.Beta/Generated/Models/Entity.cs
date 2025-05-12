@@ -74,10 +74,20 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             {
                 "#microsoft.graph.aiInteraction" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteraction(),
                 "#microsoft.graph.aiInteractionHistory" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionHistory(),
+                "#microsoft.graph.aiOnlineMeeting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AiOnlineMeeting(),
                 "#microsoft.graph.aiUser" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AiUser(),
+                "#microsoft.graph.callAiInsight" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CallAiInsight(),
                 "#microsoft.graph.copilotAdmin" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdmin(),
                 "#microsoft.graph.copilotAdminLimitedMode" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminLimitedMode(),
                 "#microsoft.graph.copilotAdminSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting(),
+                "#microsoft.graph.copilotConversation" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotConversation(),
+                "#microsoft.graph.copilotConversationMessage" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotConversationMessage(),
+                "#microsoft.graph.copilotConversationRequestMessage" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotConversationRequestMessage(),
+                "#microsoft.graph.copilotConversationResponseMessage" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotConversationResponseMessage(),
+                "#microsoft.graph.copilotPeopleAdminSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPeopleAdminSetting(),
+                "#microsoft.graph.copilotSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotSetting(),
+                "#microsoft.graph.copilotSharePointRoot" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotSharePointRoot(),
+                "#microsoft.graph.enhancedPersonalizationSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting(),
                 _ => new global::Microsoft.Agents.M365Copilot.Beta.Models.Entity(),
             };
         }
