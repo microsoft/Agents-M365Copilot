@@ -25,7 +25,8 @@ jobs:
           fetch-depth: 0
       - name: Check changed files
         id: check
-        run: |          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             echo "dotnet=true" >> $GITHUB_OUTPUT
             echo "python=true" >> $GITHUB_OUTPUT
             echo "typescript=true" >> $GITHUB_OUTPUT
