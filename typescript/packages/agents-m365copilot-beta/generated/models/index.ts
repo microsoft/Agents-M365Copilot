@@ -2455,7 +2455,7 @@ export function deserializeIntoRetrievalHit(retrievalHit: Partial<RetrievalHit> 
         "extracts": n => { retrievalHit.extracts = n.getCollectionOfObjectValues<RetrievalExtract>(createRetrievalExtractFromDiscriminatorValue); },
         "@odata.type": n => { retrievalHit.odataType = n.getStringValue(); },
         "resourceMetadata": n => { retrievalHit.resourceMetadata = n.getObjectValue<SearchResourceMetadataDictionary>(createSearchResourceMetadataDictionaryFromDiscriminatorValue); },
-        "resourceType": n => { retrievalHit.resourceType = n.getEnumValue<GroundingEntityType>(GroundingEntityTypeObject); },
+        "resourceType": n => { retrievalHit.resourceType = n.getEnumValue<RetrievalEntityType>(RetrievalEntityTypeObject); },
         "sensitivityLabel": n => { retrievalHit.sensitivityLabel = n.getObjectValue<SearchSensitivityLabelInfo>(createSearchSensitivityLabelInfoFromDiscriminatorValue); },
         "webUrl": n => { retrievalHit.webUrl = n.getStringValue(); },
     }
@@ -2701,7 +2701,6 @@ export interface Entity extends AdditionalDataHolder, BackedModel, Parsable {
      */
     odataType?: string | null;
 }
-export type GroundingEntityType = (typeof GroundingEntityTypeObject)[keyof typeof GroundingEntityTypeObject];
 export interface Identity extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -2917,6 +2916,8 @@ export interface ProvisioningSystem extends Identity, Parsable {
      */
     details?: DetailsInfo | null;
 }
+export type RetrievalDataSource = (typeof RetrievalDataSourceObject)[keyof typeof RetrievalDataSourceObject];
+export type RetrievalEntityType = (typeof RetrievalEntityTypeObject)[keyof typeof RetrievalEntityTypeObject];
 export interface RetrievalExtract extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -2959,7 +2960,7 @@ export interface RetrievalHit extends AdditionalDataHolder, BackedModel, Parsabl
     /**
      * The resourceType property
      */
-    resourceType?: GroundingEntityType | null;
+    resourceType?: RetrievalEntityType | null;
     /**
      * The sensitivityLabel property
      */
@@ -3865,7 +3866,7 @@ export function serializeRetrievalHit(writer: SerializationWriter, retrievalHit:
         writer.writeCollectionOfObjectValues<RetrievalExtract>("extracts", retrievalHit.extracts, serializeRetrievalExtract);
         writer.writeStringValue("@odata.type", retrievalHit.odataType);
         writer.writeObjectValue<SearchResourceMetadataDictionary>("resourceMetadata", retrievalHit.resourceMetadata, serializeSearchResourceMetadataDictionary);
-        writer.writeEnumValue<GroundingEntityType>("resourceType", retrievalHit.resourceType);
+        writer.writeEnumValue<RetrievalEntityType>("resourceType", retrievalHit.resourceType);
         writer.writeObjectValue<SearchSensitivityLabelInfo>("sensitivityLabel", retrievalHit.sensitivityLabel, serializeSearchSensitivityLabelInfo);
         writer.writeStringValue("webUrl", retrievalHit.webUrl);
         writer.writeAdditionalData(retrievalHit.additionalData);
@@ -4170,14 +4171,6 @@ export const EndpointTypeObject = {
     SkypeForBusinessVoipPhone: "skypeForBusinessVoipPhone",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
-export const GroundingEntityTypeObject = {
-    Site: "site",
-    List: "list",
-    ListItem: "listItem",
-    Drive: "drive",
-    DriveItem: "driveItem",
-    UnknownFutureValue: "unknownFutureValue",
-} as const;
 export const InitiatorTypeObject = {
     User: "user",
     Application: "application",
@@ -4190,6 +4183,26 @@ export const MessageUserRoleObject = {
     To: "to",
     Cc: "cc",
     Bcc: "bcc",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const RetrievalDataSourceObject = {
+    SharePoint: "sharePoint",
+    OneDriveBusiness: "oneDriveBusiness",
+    ExternalItems: "externalItems",
+    Mail: "mail",
+    Calendar: "calendar",
+    Teams: "teams",
+    People: "people",
+    SharePointEmbedded: "sharePointEmbedded",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const RetrievalEntityTypeObject = {
+    Site: "site",
+    List: "list",
+    ListItem: "listItem",
+    Drive: "drive",
+    DriveItem: "driveItem",
+    ExternalItem: "externalItem",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const TeamworkApplicationIdentityTypeObject = {
