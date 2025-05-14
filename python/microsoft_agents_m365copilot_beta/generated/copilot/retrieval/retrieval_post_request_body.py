@@ -5,6 +5,9 @@ from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, Par
 from kiota_abstractions.store import BackedModel, BackingStore, BackingStoreFactorySingleton
 from typing import Any, Optional, TYPE_CHECKING, Union
 
+if TYPE_CHECKING:
+    from ...models.retrieval_data_source import RetrievalDataSource
+
 @dataclass
 class RetrievalPostRequestBody(AdditionalDataHolder, BackedModel, Parsable):
     # Stores model information.
@@ -12,6 +15,8 @@ class RetrievalPostRequestBody(AdditionalDataHolder, BackedModel, Parsable):
 
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additional_data: dict[str, Any] = field(default_factory=dict)
+    # The dataSource property
+    data_source: Optional[RetrievalDataSource] = None
     # The filterExpression property
     filter_expression: Optional[str] = None
     # The maximumNumberOfResults property
@@ -37,7 +42,12 @@ class RetrievalPostRequestBody(AdditionalDataHolder, BackedModel, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from ...models.retrieval_data_source import RetrievalDataSource
+
+        from ...models.retrieval_data_source import RetrievalDataSource
+
         fields: dict[str, Callable[[Any], None]] = {
+            "dataSource": lambda n : setattr(self, 'data_source', n.get_enum_value(RetrievalDataSource)),
             "filterExpression": lambda n : setattr(self, 'filter_expression', n.get_str_value()),
             "maximumNumberOfResults": lambda n : setattr(self, 'maximum_number_of_results', n.get_int_value()),
             "queryString": lambda n : setattr(self, 'query_string', n.get_str_value()),
@@ -53,6 +63,7 @@ class RetrievalPostRequestBody(AdditionalDataHolder, BackedModel, Parsable):
         """
         if writer is None:
             raise TypeError("writer cannot be null.")
+        writer.write_enum_value("dataSource", self.data_source)
         writer.write_str_value("filterExpression", self.filter_expression)
         writer.write_int_value("maximumNumberOfResults", self.maximum_number_of_results)
         writer.write_str_value("queryString", self.query_string)

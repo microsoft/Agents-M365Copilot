@@ -6,7 +6,7 @@ from kiota_abstractions.store import BackedModel, BackingStore, BackingStoreFact
 from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
-    from .grounding_entity_type import GroundingEntityType
+    from .retrieval_entity_type import RetrievalEntityType
     from .retrieval_extract import RetrievalExtract
     from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
     from .search_sensitivity_label_info import SearchSensitivityLabelInfo
@@ -25,7 +25,7 @@ class RetrievalHit(AdditionalDataHolder, BackedModel, Parsable):
     # The resourceMetadata property
     resource_metadata: Optional[SearchResourceMetadataDictionary] = None
     # The resourceType property
-    resource_type: Optional[GroundingEntityType] = None
+    resource_type: Optional[RetrievalEntityType] = None
     # The sensitivityLabel property
     sensitivity_label: Optional[SearchSensitivityLabelInfo] = None
     # The webUrl property
@@ -47,12 +47,12 @@ class RetrievalHit(AdditionalDataHolder, BackedModel, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
-        from .grounding_entity_type import GroundingEntityType
+        from .retrieval_entity_type import RetrievalEntityType
         from .retrieval_extract import RetrievalExtract
         from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
         from .search_sensitivity_label_info import SearchSensitivityLabelInfo
 
-        from .grounding_entity_type import GroundingEntityType
+        from .retrieval_entity_type import RetrievalEntityType
         from .retrieval_extract import RetrievalExtract
         from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
         from .search_sensitivity_label_info import SearchSensitivityLabelInfo
@@ -61,7 +61,7 @@ class RetrievalHit(AdditionalDataHolder, BackedModel, Parsable):
             "extracts": lambda n : setattr(self, 'extracts', n.get_collection_of_object_values(RetrievalExtract)),
             "@odata.type": lambda n : setattr(self, 'odata_type', n.get_str_value()),
             "resourceMetadata": lambda n : setattr(self, 'resource_metadata', n.get_object_value(SearchResourceMetadataDictionary)),
-            "resourceType": lambda n : setattr(self, 'resource_type', n.get_enum_value(GroundingEntityType)),
+            "resourceType": lambda n : setattr(self, 'resource_type', n.get_enum_value(RetrievalEntityType)),
             "sensitivityLabel": lambda n : setattr(self, 'sensitivity_label', n.get_object_value(SearchSensitivityLabelInfo)),
             "webUrl": lambda n : setattr(self, 'web_url', n.get_str_value()),
         }

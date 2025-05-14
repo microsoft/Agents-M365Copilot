@@ -10,20 +10,20 @@ from azure.core.credentials import TokenCredential
 from azure.core.credentials_async import AsyncTokenCredential
 from kiota_authentication_azure.azure_identity_authentication_provider import AzureIdentityAuthenticationProvider
 
-from .generated.base_copilot_control_systems_client import BaseCopilotControlSystemsClient
-from .request_adapter import MicrosoftAgentsM365CopilotRequestAdapter
+from .generated.base_agents_m365_copilot_beta_systems_client import BaseAgentsM365CopilotBetaSystemsClient
+from .agents_m365_copilot_beta_request_adapter import AgentsM365CopilotBetaRequestAdapter
 
 if TYPE_CHECKING:
     from .generated.copilot.users.users_request_builder import AiUserItemRequestBuilder
     from microsoft_agents_m365copilot_core import BatchRequestBuilder
 
-class MicrosoftAgentsM365CopilotServiceClient(BaseCopilotControlSystemsClient):
+class AgentsM365CopilotBetaServiceClient(BaseAgentsM365CopilotBetaSystemsClient):
 
     def __init__(
         self,
         credentials: Optional[Union[TokenCredential, AsyncTokenCredential]] = None,
         scopes: Optional[List[str]] = None,
-        request_adapter: Optional[MicrosoftAgentsM365CopilotRequestAdapter] = None,
+        request_adapter: Optional[AgentsM365CopilotBetaRequestAdapter] = None,
     ) -> None:
         """Constructs a client instance to use for making requests.
 
@@ -32,7 +32,7 @@ class MicrosoftAgentsM365CopilotServiceClient(BaseCopilotControlSystemsClient):
             tokenCredential to use for authentication. 
             scopes (Optional[List[str]]): The scopes to use for authentication.
             Defaults to ['https://graph.microsoft.com/.default'].
-            request_adapter (Optional[MicrosoftAgentsM365CopilotRequestAdapter], optional): The request
+            request_adapter (Optional[AgentsM365CopilotBetaRequestAdapter], optional): The request
             adapter to use for requests. Defaults to None.
         """
 
@@ -45,6 +45,6 @@ class MicrosoftAgentsM365CopilotServiceClient(BaseCopilotControlSystemsClient):
             else:
                 auth_provider = AzureIdentityAuthenticationProvider(credentials)
 
-            request_adapter = MicrosoftAgentsM365CopilotRequestAdapter(auth_provider)
+            request_adapter = AgentsM365CopilotBetaRequestAdapter(auth_provider)
 
         super().__init__(request_adapter)
