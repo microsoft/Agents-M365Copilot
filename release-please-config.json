@@ -13,24 +13,17 @@
     "bump-minor-pre-major": true,
     "bump-patch-for-minor-pre-major": true,
     "versioning": "prerelease",
-    "bootstrap-sha": "11d3cc3c83d24b03e3a9cd60ab8a3236bb03727f",
+    "bootstrap-sha": "40fb5528f7f8253c24f2b17699763a17c66d1896",
     "packages": {
         "dotnet/src/Microsoft.Agents.M365Copilot.Beta": {
             "component": "",
             "release-type": "simple",
             "changelog-path": "CHANGELOG.md"
         },
-        "python/microsoft_agents_m365copilot_beta": {
-            "component": "microsoft_agents_m365copilot_beta",
-            "release-type": "simple",
-            "changelog-path": "CHANGELOG.md",
-            "extra-files": [
-                {
-                    "type": "toml",
-                    "path": "pyproject.toml",
-                    "jsonpath": "$.tool.poetry.version"
-                }
-            ]
+        "typescript/packages/agents-m365copilot-beta": {
+            "component": "@microsoft/agents-m365copilot-beta",
+            "release-type": "node",
+            "changelog-path": "CHANGELOG.md"
         }
     }
 }
