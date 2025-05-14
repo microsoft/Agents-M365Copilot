@@ -3,7 +3,7 @@ import esbuild from "esbuild";
 // Node specific bundle
 esbuild
 	.build({
-		entryPoints: ["./generated/baseAgentsM365CopilotBetaSystemsClient.ts"], // Adjust to the main entry file of the package
+		entryPoints: ["./generated/baseAgentsM365CopilotBetaServiceClient.ts"], // Adjust to the main entry file of the package
 		bundle: true,
 		outfile: "./dist/index.node.js",
 		platform: "node",
@@ -16,7 +16,7 @@ esbuild
 // Browser specific bundle
 esbuild
 	.build({
-		entryPoints: ["./generated/baseAgentsM365CopilotBetaSystemsClient.ts"], // Adjust to the main entry file of the package
+		entryPoints: ["./generated/baseAgentsM365CopilotBetaServiceClient.ts"], // Adjust to the main entry file of the package
 		bundle: true,
 		outfile: "./dist/index.browser.js",
 		platform: "browser",

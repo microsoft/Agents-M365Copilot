@@ -18,9 +18,9 @@ namespace Microsoft.Agents.M365Copilot.Beta
     /// <summary>
     /// A default client implementation.
     /// </summary>
-    public class AgentsCopilotServiceClient : BaseM365CopilotClient, IBaseClient, IDisposable
+    public class AgentsM365CopilotBetaServiceClient : BaseAgentsM365CopilotBetaServiceClient, IBaseClient, IDisposable
     {
-        private static readonly Version assemblyVersion = typeof(AgentsCopilotServiceClient).GetTypeInfo().Assembly.GetName().Version;
+        private static readonly Version assemblyVersion = typeof(AgentsM365CopilotBetaServiceClient).GetTypeInfo().Assembly.GetName().Version;
         private static readonly CopilotClientOptions copilotClientOptions = new()
         {
             ServiceLibraryClientVersion = $"{assemblyVersion.Major}.{assemblyVersion.Minor}.{assemblyVersion.Build}",
@@ -28,22 +28,22 @@ namespace Microsoft.Agents.M365Copilot.Beta
         };
 
         /// <summary>
-        /// Constructs a new <see cref="AgentsCopilotServiceClient"/>.
+        /// Constructs a new <see cref="AgentsM365CopilotBetaServiceClient"/>.
         /// </summary>
         /// <param name="requestAdapter">The custom <see cref="IRequestAdapter"/> to be used for making requests</param>
         /// <param name="baseUrl">The base service URL. For example, "https://graph.microsoft.com/v1.0"</param>
-        public AgentsCopilotServiceClient(IRequestAdapter requestAdapter, string baseUrl = null) : base(InitializeRequestAdapterWithBaseUrl(requestAdapter, baseUrl))
+        public AgentsM365CopilotBetaServiceClient(IRequestAdapter requestAdapter, string baseUrl = null) : base(InitializeRequestAdapterWithBaseUrl(requestAdapter, baseUrl))
         {
             this.RequestAdapter = requestAdapter;
         }
 
         /// <summary>
-        /// Constructs a new <see cref="AgentsCopilotServiceClient"/>.
+        /// Constructs a new <see cref="AgentsM365CopilotBetaServiceClient"/>.
         /// </summary>
         /// <param name="tokenCredential">The <see cref="TokenCredential"/> for authenticating request messages.</param>
         /// <param name="scopes">List of scopes for the authentication context.</param>
         /// <param name="baseUrl">The base service URL. For example, "https://graph.microsoft.com/v1.0"</param>
-        public AgentsCopilotServiceClient(
+        public AgentsM365CopilotBetaServiceClient(
             TokenCredential tokenCredential,
             IEnumerable<string> scopes = null,
             string baseUrl = null
@@ -52,13 +52,13 @@ namespace Microsoft.Agents.M365Copilot.Beta
         }
 
         /// <summary>
-        /// Constructs a new <see cref="AgentsCopilotServiceClient"/>.
+        /// Constructs a new <see cref="AgentsM365CopilotBetaServiceClient"/>.
         /// </summary>
         /// <param name="httpClient">The customized <see cref="HttpClient"/> to be used for making requests</param>
         /// <param name="tokenCredential">The <see cref="TokenCredential"/> for authenticating request messages.</param>
         /// <param name="scopes">List of scopes for the authentication context.</param>
         /// <param name="baseUrl">The base service URL. For example, "https://graph.microsoft.com/v1.0"</param>
-        public AgentsCopilotServiceClient(
+        public AgentsM365CopilotBetaServiceClient(
             HttpClient httpClient,
             TokenCredential tokenCredential,
             IEnumerable<string> scopes = null,
@@ -68,11 +68,11 @@ namespace Microsoft.Agents.M365Copilot.Beta
         }
 
         /// <summary>
-        /// Constructs a new <see cref="AgentsCopilotServiceClient"/>.
+        /// Constructs a new <see cref="AgentsM365CopilotBetaServiceClient"/>.
         /// </summary>
         /// <param name="authenticationProvider">The <see cref="IAuthenticationProvider"/> for authenticating request messages.</param>
         /// <param name="baseUrl">The base service URL. For example, "https://graph.microsoft.com/v1.0"</param>
-        public AgentsCopilotServiceClient(
+        public AgentsM365CopilotBetaServiceClient(
             IAuthenticationProvider authenticationProvider,
             string baseUrl = null
             ) : this(new BaseRequestAdapter(authenticationProvider, copilotClientOptions), baseUrl)
@@ -80,13 +80,13 @@ namespace Microsoft.Agents.M365Copilot.Beta
         }
 
         /// <summary>
-        /// Constructs a new <see cref="AgentsCopilotServiceClient"/>.
+        /// Constructs a new <see cref="AgentsM365CopilotBetaServiceClient"/>.
         /// </summary>
         /// <param name="httpClient">The customized <see cref="HttpClient"/> to be used for making requests</param>
         /// <param name="authenticationProvider">The <see cref="IAuthenticationProvider"/> for authenticating request messages.
         /// Defaults to <see cref="AnonymousAuthenticationProvider"/> so that authentication is handled by custom middleware in the httpClient</param>
         /// <param name="baseUrl">The base service URL. For example, "https://graph.microsoft.com/v1.0"</param>
-        public AgentsCopilotServiceClient(
+        public AgentsM365CopilotBetaServiceClient(
             HttpClient httpClient,
             IAuthenticationProvider authenticationProvider = null,
             string baseUrl = null) : this(new BaseRequestAdapter(authenticationProvider ?? new AnonymousAuthenticationProvider(), copilotClientOptions, httpClient: httpClient), baseUrl)

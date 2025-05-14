@@ -42,7 +42,7 @@ var credential = new DeviceCodeCredential(deviceCodeCredentialOptions);
 
 // Create the client with explicit base URL
 var baseUrl = "https://graph.microsoft.com/beta";
-AgentsCopilotServiceClient copilotClient = new AgentsCopilotServiceClient(credential, scopes, baseUrl);
+AgentsM365CopilotBetaServiceClient copilotClient = new AgentsM365CopilotBetaServiceClient(credential, scopes, baseUrl);
 
 try
 {

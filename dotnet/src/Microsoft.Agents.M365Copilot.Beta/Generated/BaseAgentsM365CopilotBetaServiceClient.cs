@@ -18,7 +18,7 @@ namespace Microsoft.Agents.M365Copilot.Beta
     /// The main entry point of the SDK, exposes the configuration and the fluent API.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class BaseM365CopilotClient : BaseRequestBuilder
+    public partial class BaseAgentsM365CopilotBetaServiceClient : BaseRequestBuilder
     {
         /// <summary>The copilot property</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Copilot.CopilotRequestBuilder Copilot
@@ -26,11 +26,11 @@ namespace Microsoft.Agents.M365Copilot.Beta
             get => new global::Microsoft.Agents.M365Copilot.Beta.Copilot.CopilotRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.BaseM365CopilotClient"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.BaseAgentsM365CopilotBetaServiceClient"/> and sets the default values.
         /// </summary>
         /// <param name="backingStore">The backing store to use for the models.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BaseM365CopilotClient(IRequestAdapter requestAdapter, IBackingStoreFactory backingStore = default) : base(requestAdapter, "{+baseurl}", new Dictionary<string, object>())
+        public BaseAgentsM365CopilotBetaServiceClient(IRequestAdapter requestAdapter, IBackingStoreFactory backingStore = default) : base(requestAdapter, "{+baseurl}", new Dictionary<string, object>())
         {
             ApiClientBuilder.RegisterDefaultSerializer<JsonSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultSerializer<TextSerializationWriterFactory>();
