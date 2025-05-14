@@ -10,14 +10,14 @@ from azure.core.credentials import TokenCredential
 from azure.core.credentials_async import AsyncTokenCredential
 from kiota_authentication_azure.azure_identity_authentication_provider import AzureIdentityAuthenticationProvider
 
-from .generated.base_copilot_control_systems_client import BaseCopilotControlSystemsClient
-from .request_adapter import MicrosoftAgentsM365CopilotRequestAdapter
+from .generated.base_agents_m365_copilot_beta_systems_client import BaseAgentsM365CopilotBetaSystemsClient
+from .agents_m365_copilot_beta_request_adapter import MicrosoftAgentsM365CopilotRequestAdapter
 
 if TYPE_CHECKING:
     from .generated.copilot.users.users_request_builder import AiUserItemRequestBuilder
     from microsoft_agents_m365copilot_core import BatchRequestBuilder
 
-class MicrosoftAgentsM365CopilotServiceClient(BaseCopilotControlSystemsClient):
+class MicrosoftAgentsM365CopilotServiceClient(BaseAgentsM365CopilotBetaSystemsClient):
 
     def __init__(
         self,

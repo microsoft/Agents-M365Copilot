@@ -17,7 +17,7 @@ options = {
 }
 
 
-class MicrosoftAgentsM365CopilotRequestAdapter(BaseMicrosoftAgentsM365CopilotRequestAdapter):
+class MicrosoftAgentsM365CopilotBetaRequestAdapter(BaseMicrosoftAgentsM365CopilotRequestAdapter):
     def __init__(self, auth_provider: AuthenticationProvider,
                  client: Optional[httpx.AsyncClient] = None) -> None:
         if client is None:
