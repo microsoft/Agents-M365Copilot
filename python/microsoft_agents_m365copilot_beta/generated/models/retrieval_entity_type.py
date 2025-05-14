@@ -1,10 +1,11 @@
 from enum import Enum
 
-class GroundingEntityType(str, Enum):
+class RetrievalEntityType(str, Enum):
     Site = "site",
     List_ = "list",
     ListItem = "listItem",
     Drive = "drive",
     DriveItem = "driveItem",
+    ExternalItem = "externalItem",
     UnknownFutureValue = "unknownFutureValue",
 

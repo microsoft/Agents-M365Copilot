@@ -18,13 +18,13 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 if TYPE_CHECKING:
     from .copilot.copilot_request_builder import CopilotRequestBuilder
 
-class BaseCopilotControlSystemsClient(BaseRequestBuilder):
+class BaseAgentsM365CopilotBetaSystemsClient(BaseRequestBuilder):
     """
     The main entry point of the SDK, exposes the configuration and the fluent API.
     """
     def __init__(self,request_adapter: RequestAdapter, backing_store: Optional[BackingStoreFactory] = None) -> None:
         """
-        Instantiates a new BaseCopilotControlSystemsClient and sets the default values.
+        Instantiates a new BaseAgentsM365CopilotBetaSystemsClient and sets the default values.
         param backing_store: The backing store to use for the models.
         param request_adapter: The request adapter to use to execute the requests.
         Returns: None
