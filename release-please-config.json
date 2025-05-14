@@ -1,0 +1,36 @@
+{
+    "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+    "exclude-paths": [
+        ".git",
+        ".idea",
+        ".github",
+        ".vscode",
+        "openapi"
+    ],
+    "include-component-in-tag": true,
+    "include-v-in-tag": true,
+    "separate-pull-requests": false,
+    "bump-minor-pre-major": true,
+    "bump-patch-for-minor-pre-major": true,
+    "versioning": "prerelease",
+    "bootstrap-sha": "11d3cc3c83d24b03e3a9cd60ab8a3236bb03727f",
+    "packages": {
+        "dotnet/src/Microsoft.Agents.M365Copilot.Beta": {
+            "component": "",
+            "release-type": "simple",
+            "changelog-path": "CHANGELOG.md"
+        },
+        "python/microsoft_agents_m365copilot_beta": {
+            "component": "microsoft_agents_m365copilot_beta",
+            "release-type": "simple",
+            "changelog-path": "CHANGELOG.md",
+            "extra-files": [
+                {
+                    "type": "toml",
+                    "path": "pyproject.toml",
+                    "jsonpath": "$.tool.poetry.version"
+                }
+            ]
+        }
+    }
+}

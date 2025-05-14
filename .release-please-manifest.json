@@ -1,0 +1,5 @@
+{
+    "dotnet/src/Microsoft.Agents.M365Copilot.Beta": "1.0.0-preview-1",
+    "python/microsoft_agents_m365copilot_beta": "1.0.0-preview-1",
+    "typescript/packages/agents-m365copilot-beta": "1.0.0-preview-1"
+}
