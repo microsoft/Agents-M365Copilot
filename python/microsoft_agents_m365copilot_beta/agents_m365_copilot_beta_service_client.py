@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     from .generated.copilot.users.users_request_builder import AiUserItemRequestBuilder
     from microsoft_agents_m365copilot_core import BatchRequestBuilder
 
-class MicrosoftAgentsM365CopilotServiceClient(BaseAgentsM365CopilotBetaSystemsClient):
+class AgentsM365CopilotBetaServiceClient(BaseAgentsM365CopilotBetaSystemsClient):
 
     def __init__(
         self,
