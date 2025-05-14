@@ -9,8 +9,17 @@
 	"author": "Microsoft <graphsdkpub+ccsbetajavascript@microsoft.com>",
 	"homepage": "https://github.com/microsoft/Agents-M365Copilot/blob/main/typescript/README.md",
 	"license": "MIT",
-	"main": "index.js",
-	"types": "index.d.ts",
+	"main": "dist/index.node.js",
+	"types": "dist/index.d.ts",
+	"browser": "dist/index.browser.js",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"node": "./dist/index.node.js",
+			"browser": "./dist/index.browser.js",
+			"default": "./dist/index.node.js"
+		}
+	},
 	"publishConfig": {
 		"access": "public"
 	},
@@ -19,7 +28,7 @@
 		"url": "git+https://github.com/microsoft/Agents-M365Copilot.git"
 	},
 	"scripts": {
-		"build": "node build.js",
+		"build": "npm run clean && tsc && node build.js",
 		"clean": "rimraf dist && rimraf tsconfig.tsbuildinfo"
 	},
 	"bugs": {
