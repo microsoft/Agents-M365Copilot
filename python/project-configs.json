@@ -1,0 +1,66 @@
+{
+    "projects": [
+        {
+            "name": "microsoft_agents_m365copilot_beta",
+            "packageName": "microsoft_agents_m365copilot_beta",
+            "path": "./packages/microsoft_agents_m365copilot_beta/"
+        },
+        {
+            "name": "microsoft_agents_m365copilot_core",
+            "packageName": "microsoft_agents_m365copilot_core",
+            "path": "./packages/microsoft_agents_m365copilot_core/"
+        },
+    ],
+    "commands": [
+        {
+            "name": "install-deps",
+            "description": "install dependencies",
+            "command": "poetry install"
+        },
+        {
+            "name": "format",
+            "description": "Fix code format with yapf",
+            "command": "poetry run yapf -ir {projectName}"
+        },
+        {
+            "name": "check-format",
+            "description": "Check code format with yapf",
+            "command": "poetry run yapf -dr {projectName}"
+        },
+        {
+            "name": "check-imports",
+            "description": "Check import order with isort",
+            "command": "poetry run isort {projectName}"
+        },
+        {
+            "name": "lint",
+            "description": "Check lint with pylint",
+            "command": "poetry run pylint {projectName} --disable=W --rcfile=.pylintrc"
+        },
+        {
+            "name": "check-types",
+            "description": "Check types with mypy",
+            "command": "poetry run mypy {projectName}"
+        },
+        {
+            "name": "test",
+            "description": "Check tests with pytest",
+            "command": "poetry run pytest"
+        },
+        {
+            "name": "check-all",
+            "description": "Check all with yapf, isort, pylint, mypy and pytest",
+            "command": "poetry run yapf -dr {projectName} && poetry run isort {projectName} && poetry run pylint {projectName} && poetry run mypy {projectName} && poetry run pytest {projectName}"
+        },
+        {
+            "name": "bump-minor",
+            "description": "Bump next minor version across projects",
+            "command": "poetry version minor"
+        },
+        {
+            "name": "bump-patch",
+            "description": "Bump to next patch version across projects",
+            "command": "poetry version patch"
+        }
+    ]
+}
