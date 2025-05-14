@@ -29,7 +29,7 @@
     from dotenv import load_dotenv
     from kiota_abstractions.api_error import APIError
 
-    from microsoft_agents_m365copilot_beta import MicrosoftAgentsM365CopilotServiceClient
+    from microsoft_agents_m365copilot_beta import AgentsM365CopilotBetaServiceClient
     from microsoft_agents_m365copilot_beta.generated.copilot.retrieval.retrieval_post_request_body import (
         RetrievalPostRequestBody,
     )
@@ -54,7 +54,7 @@
 
     # Use the Graph API beta endpoint explicitly
     scopes = ['https://graph.microsoft.com/.default']
-    client = MicrosoftAgentsM365CopilotServiceClient(credentials=credentials, scopes=scopes)
+    client = AgentsM365CopilotBetaServiceClient(credentials=credentials, scopes=scopes)
 
     # Make sure the base URL is set to beta
     client.request_adapter.base_url = "https://graph.microsoft.com/beta"
