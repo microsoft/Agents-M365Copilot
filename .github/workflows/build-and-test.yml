@@ -103,7 +103,7 @@ jobs:
         uses: github/codeql-action/analyze@v3
 
   build-and-test-python:
-    name: python
+    name: python-${{ matrix.packages.name }}
     needs: check-changes
     if: needs.check-changes.outputs.python == 'true'
     runs-on: ubuntu-latest
@@ -111,49 +111,57 @@ jobs:
       max-parallel: 5
       matrix:
         python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+        packages:
+          - name: "microsoft_agents_m365copilot_core"
+            path: "./packages/microsoft_agents_m365copilot_core"
+          - name: "microsoft_agents_m365copilot_beta"
+            path: "./packages/microsoft_agents_m365copilot_beta"
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade poetry
           poetry install
-        working-directory: python
+        working-directory: ${{ matrix.packages.path }}
 
-      - name: Check code format in core library
-        working-directory: "./packages/microsoft_agents_m365copilot_core"
+      # Core package specific steps
+      - name: Check code format
+        if: matrix.packages.name == 'microsoft_agents_m365copilot_core'
         run: |
           poetry run yapf -dr microsoft_agents_m365copilot_core
+        working-directory: ${{ matrix.packages.path }}
 
-      - name: Check import order in core library
-        working-directory: "./packages/microsoft_agents_m365copilot_core"
+      - name: Check import order
+        if: matrix.packages.name == 'microsoft_agents_m365copilot_core'
         run: |
           poetry run isort microsoft_agents_m365copilot_core
+        working-directory: ${{ matrix.packages.path }}
 
-      - name: Lint SDK with Pylint
-        working-directory: "./packages/microsoft_agents_m365copilot_beta"
-        run: |
-          poetry run pylint microsoft_agents_m365copilot_beta --disable=W --rcfile=.pylintrc
-
-      - name: Static type checking core library with Mypy
-        working-directory: "./packages/microsoft_agents_m365copilot_core"
+      - name: Static type checking with Mypy
+        if: matrix.packages.name == 'microsoft_agents_m365copilot_core'
         run: |
           poetry run mypy microsoft_agents_m365copilot_core
+        working-directory: ${{ matrix.packages.path }}
 
-      - name: Lint Core Library with Pylint
-        working-directory: "./packages/microsoft_agents_m365copilot_core"
-        run: |
-          poetry run pylint microsoft_agents_m365copilot_core --disable=W --rcfile=microsoft_agents_m365copilot_core/.pylintrc
-
-      - name: Test Core Library
-        working-directory: "./packages/microsoft_agents_m365copilot_core"
+      - name: Run tests
+        if: matrix.packages.name == 'microsoft_agents_m365copilot_core'
         run: |
           poetry run pytest microsoft_agents_m365copilot_core
+        working-directory: ${{ matrix.packages.path }}
 
-      # CodeQL
+      # Beta package specific steps
+      - name: Lint SDK
+        if: matrix.packages.name == 'microsoft_agents_m365copilot_beta'
+        run: |
+          poetry run pylint microsoft_agents_m365copilot_beta --disable=W --rcfile=.pylintrc
+        working-directory: ${{ matrix.packages.path }}
+
+      # Common CodeQL steps
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
