@@ -73,8 +73,9 @@ def test_append_sdk_version_header(mock_graph_request):
     telemetry_handler._append_sdk_version_header(mock_graph_request, telemetry_handler.options)
 
     assert 'sdkVersion' in mock_graph_request.headers
-    assert mock_graph_request.headers.get('sdkVersion'
-                                          ).startswith('microsoft-agents-m365copilot-core/' + SDK_VERSION)
+    assert mock_graph_request.headers.get('sdkVersion').startswith(
+        'microsoft-agents-m365copilot-core/' + SDK_VERSION
+    )
 
 
 def test_append_sdk_version_header_beta(mock_graph_request):
@@ -88,7 +89,9 @@ def test_append_sdk_version_header_beta(mock_graph_request):
     telemetry_handler._append_sdk_version_header(mock_graph_request, telemetry_options)
 
     assert 'sdkVersion' in mock_graph_request.headers
-    assert mock_graph_request.headers.get('sdkVersion').startswith('microsoft-agents-m365copilot-beta/' + '1.0.0')
+    assert mock_graph_request.headers.get('sdkVersion').startswith(
+        'microsoft-agents-m365copilot-beta/' + '1.0.0'
+    )
 
 
 def test_add_host_os_header(mock_graph_request):

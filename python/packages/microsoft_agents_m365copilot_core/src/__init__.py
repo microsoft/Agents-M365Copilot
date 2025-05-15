@@ -21,8 +21,7 @@ from .middleware import (
 )
 
 __all__ = [
-    "MicrosoftAgentsM365CopilotClientFactory",
-    "BaseMicrosoftAgentsM365CopilotRequestAdapter",
+    "MicrosoftAgentsM365CopilotClientFactory", "BaseMicrosoftAgentsM365CopilotRequestAdapter",
     "AzureIdentityAuthenticationProvider", "FeatureUsageFlag", "NationalClouds", "APIVersion",
     "MicrosoftAgentsM365CopilotTelemetryHandlerOption", "MicrosoftAgentsM365CopilotRequestContext",
     "AsyncMicrosoftAgentsM365CopilotTransport", "MicrosoftAgentsM365CopilotTelemetryHandler"
