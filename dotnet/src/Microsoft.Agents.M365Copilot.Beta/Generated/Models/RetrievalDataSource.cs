@@ -5,28 +5,40 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum GroundingEntityType
+    public enum RetrievalDataSource
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "site")]
+        [EnumMember(Value = "sharePoint")]
         #pragma warning disable CS1591
-        Site,
+        SharePoint,
         #pragma warning restore CS1591
-        [EnumMember(Value = "list")]
+        [EnumMember(Value = "oneDriveBusiness")]
         #pragma warning disable CS1591
-        List,
+        OneDriveBusiness,
         #pragma warning restore CS1591
-        [EnumMember(Value = "listItem")]
+        [EnumMember(Value = "externalItems")]
         #pragma warning disable CS1591
-        ListItem,
+        ExternalItems,
         #pragma warning restore CS1591
-        [EnumMember(Value = "drive")]
+        [EnumMember(Value = "mail")]
         #pragma warning disable CS1591
-        Drive,
+        Mail,
         #pragma warning restore CS1591
-        [EnumMember(Value = "driveItem")]
+        [EnumMember(Value = "calendar")]
         #pragma warning disable CS1591
-        DriveItem,
+        Calendar,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "teams")]
+        #pragma warning disable CS1591
+        Teams,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "people")]
+        #pragma warning disable CS1591
+        People,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "sharePointEmbedded")]
+        #pragma warning disable CS1591
+        SharePointEmbedded,
         #pragma warning restore CS1591
         [EnumMember(Value = "unknownFutureValue")]
         #pragma warning disable CS1591

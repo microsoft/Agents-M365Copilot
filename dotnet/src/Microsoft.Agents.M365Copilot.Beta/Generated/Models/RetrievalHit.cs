@@ -70,9 +70,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         }
 #endif
         /// <summary>The resourceType property</summary>
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.GroundingEntityType? ResourceType
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalEntityType? ResourceType
         {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.GroundingEntityType?>("resourceType"); }
+            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalEntityType?>("resourceType"); }
             set { BackingStore?.Set("resourceType", value); }
         }
         /// <summary>The sensitivityLabel property</summary>
@@ -136,7 +136,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "extracts", n => { Extracts = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalExtract>(global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalExtract.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "resourceMetadata", n => { ResourceMetadata = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary>(global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary.CreateFromDiscriminatorValue); } },
-                { "resourceType", n => { ResourceType = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.GroundingEntityType>(); } },
+                { "resourceType", n => { ResourceType = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalEntityType>(); } },
                 { "sensitivityLabel", n => { SensitivityLabel = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SearchSensitivityLabelInfo>(global::Microsoft.Agents.M365Copilot.Beta.Models.SearchSensitivityLabelInfo.CreateFromDiscriminatorValue); } },
                 { "webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
@@ -151,7 +151,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalExtract>("extracts", Extracts);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary>("resourceMetadata", ResourceMetadata);
-            writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.GroundingEntityType>("resourceType", ResourceType);
+            writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalEntityType>("resourceType", ResourceType);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SearchSensitivityLabelInfo>("sensitivityLabel", SensitivityLabel);
             writer.WriteStringValue("webUrl", WebUrl);
             writer.WriteAdditionalData(AdditionalData);

@@ -3,7 +3,7 @@
   "descriptionLocation": "../../msgraph-metadata/clean_beta_openapi/openapi.yaml",
   "lockFileVersion": "1.0.0",
   "kiotaVersion": "1.27.0",
-  "clientClassName": "BaseAgentsM365CopilotBetaSystemsClient",
+  "clientClassName": "BaseAgentsM365CopilotBetaServiceClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "microsoft_agents_m365copilot_beta.generated",
   "language": "Python",
