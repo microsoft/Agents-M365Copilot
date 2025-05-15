@@ -1,6 +1,6 @@
-Microsoft.Agents.M365Copilot.Beta.BaseM365CopilotClient-->BaseRequestBuilder
-Microsoft.Agents.M365Copilot.Beta.BaseM365CopilotClient::|public|constructor(requestAdapter:IRequestAdapter; backingStore?:IBackingStoreFactory):void
-Microsoft.Agents.M365Copilot.Beta.BaseM365CopilotClient::|public|copilot:global.Microsoft.Agents.M365Copilot.Beta.Copilot.CopilotRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.BaseAgentsM365CopilotBetaServiceClient-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.BaseAgentsM365CopilotBetaServiceClient::|public|constructor(requestAdapter:IRequestAdapter; backingStore?:IBackingStoreFactory):void
+Microsoft.Agents.M365Copilot.Beta.BaseAgentsM365CopilotBetaServiceClient::|public|copilot:global.Microsoft.Agents.M365Copilot.Beta.Copilot.CopilotRequestBuilder
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.adminRequestBuilder-->BaseRequestBuilder
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.adminRequestBuilder.adminRequestBuilderDeleteRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.adminRequestBuilder.adminRequestBuilderGetQueryParameters::|public|Expand:string[]
@@ -270,6 +270,7 @@ Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.Interactions.Item.A
 Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.retrievalPostRequestBody::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.retrievalPostRequestBody::|public|BackingStore:IBackingStore
 Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.retrievalPostRequestBody::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.retrievalPostRequestBody::|public|DataSource:global.Microsoft.Agents.M365Copilot.Beta.Models.RetrievalDataSource?
 Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.retrievalPostRequestBody::|public|FilterExpression:string
 Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.retrievalPostRequestBody::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.retrievalPostRequestBody::|public|MaximumNumberOfResults:int?
@@ -1027,12 +1028,6 @@ Microsoft.Agents.M365Copilot.Beta.Models.entity::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.entity::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.entity::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.entity~~>IAdditionalDataHolder; IBackedModel; IParsable
-Microsoft.Agents.M365Copilot.Beta.Models.groundingEntityType::0000-site
-Microsoft.Agents.M365Copilot.Beta.Models.groundingEntityType::0001-list
-Microsoft.Agents.M365Copilot.Beta.Models.groundingEntityType::0002-listItem
-Microsoft.Agents.M365Copilot.Beta.Models.groundingEntityType::0003-drive
-Microsoft.Agents.M365Copilot.Beta.Models.groundingEntityType::0004-driveItem
-Microsoft.Agents.M365Copilot.Beta.Models.groundingEntityType::0005-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.identity::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Beta.Models.identity::|public|BackingStore:IBackingStore
 Microsoft.Agents.M365Copilot.Beta.Models.identity::|public|constructor():void
@@ -1197,6 +1192,22 @@ Microsoft.Agents.M365Copilot.Beta.Models.provisioningSystem::|public|GetFieldDes
 Microsoft.Agents.M365Copilot.Beta.Models.provisioningSystem::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.provisioningSystem::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.provisioningSystem::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.ProvisioningSystem
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0000-sharePoint
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0001-oneDriveBusiness
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0002-externalItems
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0003-mail
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0004-calendar
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0005-teams
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0006-people
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0007-sharePointEmbedded
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0008-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalEntityType::0000-site
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalEntityType::0001-list
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalEntityType::0002-listItem
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalEntityType::0003-drive
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalEntityType::0004-driveItem
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalEntityType::0005-externalItem
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalEntityType::0006-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalExtract::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalExtract::|public|BackingStore:IBackingStore
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalExtract::|public|constructor():void
@@ -1213,7 +1224,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.retrievalHit::|public|Extracts:List<glo
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalHit::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalHit::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalHit::|public|ResourceMetadata:global.Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary
-Microsoft.Agents.M365Copilot.Beta.Models.retrievalHit::|public|ResourceType:global.Microsoft.Agents.M365Copilot.Beta.Models.GroundingEntityType?
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalHit::|public|ResourceType:global.Microsoft.Agents.M365Copilot.Beta.Models.RetrievalEntityType?
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalHit::|public|SensitivityLabel:global.Microsoft.Agents.M365Copilot.Beta.Models.SearchSensitivityLabelInfo
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalHit::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalHit::|public|WebUrl:string
