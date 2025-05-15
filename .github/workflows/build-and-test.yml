@@ -158,7 +158,7 @@ jobs:
       - name: Lint SDK
         if: matrix.packages.name == 'microsoft_agents_m365copilot_beta'
         run: |
-          poetry run pylint . --disable=W --rcfile=.pylintrc
+          poetry run pylint . --disable=W --rcfile=../../.pylintrc
         working-directory: ${{ matrix.packages.path }}
 
       # Common CodeQL steps
