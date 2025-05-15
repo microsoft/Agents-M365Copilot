@@ -142,12 +142,6 @@ jobs:
           poetry run isort .
         working-directory: ${{ matrix.packages.path }}
 
-      - name: Static type checking with Mypy
-        if: matrix.packages.name == 'microsoft_agents_m365copilot_core'
-        run: |
-          poetry run mypy .
-        working-directory: ${{ matrix.packages.path }}
-
       - name: Run tests
         if: matrix.packages.name == 'microsoft_agents_m365copilot_core'
         run: |

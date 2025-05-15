@@ -47,7 +47,6 @@ httpx = {extras = ["http2"], version = ">=0.23.0"}
 yapf = ">=0.40.2,<0.44.0"
 isort = ">=5.13.2,<7.0.0"
 pylint = "^3.2.7"
-mypy = "^1.11.2"
 pytest = "^8.3.2"
 pytest-asyncio = ">=0.24,<0.26"
 poetry-plugin-mono-repo-deps = ">=0.2.1,<0.4.0"

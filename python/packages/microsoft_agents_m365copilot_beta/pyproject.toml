@@ -50,7 +50,6 @@ microsoft-agents-m365copilot-core = {path = "../microsoft_agents_m365copilot_cor
 yapf = ">=0.40.2,<0.44.0"
 isort = ">=5.13.2,<7.0.0"
 pylint = "^3.2.7"
-mypy = "^1.11.2"
 pytest = "^8.3.2"
 pytest-asyncio = ">=0.24,<0.26"
 pytest-mock = "^3.14.0"
