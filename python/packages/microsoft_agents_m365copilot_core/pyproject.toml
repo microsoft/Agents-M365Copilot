@@ -42,6 +42,7 @@ microsoft-kiota-abstractions = ">=1.8.0,<2.0.0"
 microsoft-kiota-authentication-azure = ">=1.8.0,<2.0.0"
 microsoft-kiota-http = ">=1.8.0,<2.0.0"
 httpx = {extras = ["http2"], version = ">=0.23.0"}
+azure-identity = "^1.23.0"
 
 [tool.poetry.group.dev.dependencies]
 yapf = ">=0.40.2,<0.44.0"
