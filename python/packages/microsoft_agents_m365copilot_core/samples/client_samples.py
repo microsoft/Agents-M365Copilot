@@ -10,7 +10,12 @@ from pprint import pprint
 # This sample uses InteractiveBrowserCredential only for demonstration.
 # Any azure-identity TokenCredential class will work the same.
 from azure.identity import InteractiveBrowserCredential
-from microsoft_agents_m365copilot_core import APIVersion, MicrosoftAgentsM365CopilotClient, NationalClouds
+
+from microsoft_agents_m365copilot_core import (
+    APIVersion,
+    MicrosoftAgentsM365CopilotClient,
+    NationalClouds,
+)
 from requests import Session
 
 scopes = ['user.read']

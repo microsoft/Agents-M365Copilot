@@ -1,4 +1,5 @@
 import pytest
+
 from microsoft_agents_m365copilot_core import (
     SDK_VERSION,
     APIVersion,

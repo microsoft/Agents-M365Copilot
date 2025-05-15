@@ -13,6 +13,7 @@ from pprint import pprint
 # This sample uses InteractiveBrowserCredential only for demonstration.
 # Any azure-identity TokenCredential class will work the same.
 from azure.identity import InteractiveBrowserCredential
+
 from microsoft_agents_m365copilot_core import APIVersion, HTTPClientFactory, NationalClouds
 from requests import Session
 

@@ -6,15 +6,19 @@
 """Demonstrates using the Batch request with Parsable Resposnse Type"""
 import asyncio
 
+from kiota_abstractions.headers_collection import HeadersCollection as RequestHeaders
+from kiota_abstractions.method import Method
 from kiota_abstractions.request_adapter import RequestAdapter
 from kiota_abstractions.request_information import RequestInformation
-from kiota_abstractions.method import Method
-from kiota_abstractions.headers_collection import HeadersCollection as RequestHeaders
-
-from microsoft_agents_m365copilot_core import BatchRequestContent, BatchRequestItem, MicrosoftAgentsM365CopilotClient
-
 # import User model to serialize to
 from microsoft_agents_m365copilot_beta.generated.models.ai_user import User
+
+from microsoft_agents_m365copilot_core import (
+    BatchRequestContent,
+    BatchRequestItem,
+    MicrosoftAgentsM365CopilotClient,
+)
+
 # Create a client
 # code to create copilot client
 copilot_client = MicrosoftAgentsM365CopilotClient(credentials=token, scopes=copilot_scopes)

@@ -5,11 +5,16 @@
 #pylint: disable=undefined-variable
 """Demonstrates using the Batch request with Collection"""
 import asyncio
-
 from urllib.request import Request
-from kiota_abstractions.request_information import RequestInformation
+
 from kiota_abstractions.headers_collection import HeadersCollection as RequestHeaders
-from microsoft_agents_m365copilot_core import MicrosoftAgentsM365CopilotClient, BatchRequestItem, BatchRequestContentCollection
+from kiota_abstractions.request_information import RequestInformation
+
+from microsoft_agents_m365copilot_core import (
+    BatchRequestContentCollection,
+    BatchRequestItem,
+    MicrosoftAgentsM365CopilotClient,
+)
 
 # Create a client
 copilot_client = MicrosoftAgentsM365CopilotClient(credentials=token, scopes=copilot_scopes)

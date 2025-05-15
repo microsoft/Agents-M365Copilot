@@ -1,5 +1,6 @@
 import pytest
 from kiota_http.kiota_client_factory import KiotaClientFactory
+
 from microsoft_agents_m365copilot_core import (
     AsyncMicrosoftAgentsM365CopilotTransport,
     FeatureUsageFlag,
