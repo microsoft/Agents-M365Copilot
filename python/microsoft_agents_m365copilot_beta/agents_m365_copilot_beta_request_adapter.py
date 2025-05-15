@@ -7,12 +7,8 @@ from microsoft_agents_m365copilot_core import APIVersion, BaseMicrosoftAgentsM36
 from ._version import VERSION
 
 options = {
-    UrlReplaceHandlerOption.get_key(): UrlReplaceHandlerOption(
-        enabled = True,
-        replacement_pairs = {"/users/me-token-to-replace": "/me"}
-    ),
     MicrosoftAgentsM365CopilotTelemetryHandlerOption.get_key(): MicrosoftAgentsM365CopilotTelemetryHandlerOption(
-        api_version=APIVersion.v1,
+        api_version=APIVersion.beta,
         sdk_version=VERSION)
 }
 
