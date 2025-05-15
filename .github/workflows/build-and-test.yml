@@ -133,32 +133,32 @@ jobs:
       - name: Check code format
         if: matrix.packages.name == 'microsoft_agents_m365copilot_core'
         run: |
-          poetry run yapf -dr microsoft_agents_m365copilot_core
+          poetry run yapf -dr ${{ matrix.packages.path }}
         working-directory: ${{ matrix.packages.path }}
 
       - name: Check import order
         if: matrix.packages.name == 'microsoft_agents_m365copilot_core'
         run: |
-          poetry run isort microsoft_agents_m365copilot_core
+          poetry run isort ${{ matrix.packages.path }}
         working-directory: ${{ matrix.packages.path }}
 
       - name: Static type checking with Mypy
         if: matrix.packages.name == 'microsoft_agents_m365copilot_core'
         run: |
-          poetry run mypy microsoft_agents_m365copilot_core
+          poetry run mypy ${{ matrix.packages.path }}
         working-directory: ${{ matrix.packages.path }}
 
       - name: Run tests
         if: matrix.packages.name == 'microsoft_agents_m365copilot_core'
         run: |
-          poetry run pytest microsoft_agents_m365copilot_core
+          poetry run pytest ${{ matrix.packages.path }}
         working-directory: ${{ matrix.packages.path }}
 
       # Beta package specific steps
       - name: Lint SDK
         if: matrix.packages.name == 'microsoft_agents_m365copilot_beta'
         run: |
-          poetry run pylint microsoft_agents_m365copilot_beta --disable=W --rcfile=.pylintrc
+          poetry run pylint ${{ matrix.packages.path }} --disable=W --rcfile=.pylintrc
         working-directory: ${{ matrix.packages.path }}
 
       # Common CodeQL steps
