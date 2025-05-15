@@ -17,19 +17,19 @@ import { TextParseNodeFactory, TextSerializationWriterFactory } from '@microsoft
 /**
  * The main entry point of the SDK, exposes the configuration and the fluent API.
  */
-export interface BaseAgentsM365CopilotBetaSystemsClient extends BaseRequestBuilder<BaseAgentsM365CopilotBetaSystemsClient> {
+export interface BaseAgentsM365CopilotBetaServiceClient extends BaseRequestBuilder<BaseAgentsM365CopilotBetaServiceClient> {
     /**
      * The copilot property
      */
     get copilot(): CopilotRequestBuilder;
 }
 /**
- * Instantiates a new {@link BaseAgentsM365CopilotBetaSystemsClient} and sets the default values.
+ * Instantiates a new {@link BaseAgentsM365CopilotBetaServiceClient} and sets the default values.
  * @param backingStore The backing store to use for the models.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
 // @ts-ignore
-export function createBaseAgentsM365CopilotBetaSystemsClient(requestAdapter: RequestAdapter, backingStore?: BackingStoreFactory | undefined) {
+export function createBaseAgentsM365CopilotBetaServiceClient(requestAdapter: RequestAdapter, backingStore?: BackingStoreFactory | undefined) {
     if (requestAdapter === undefined) {
         throw new Error("requestAdapter cannot be undefined");
     }
@@ -64,16 +64,16 @@ export function createBaseAgentsM365CopilotBetaSystemsClient(requestAdapter: Req
         "baseurl": requestAdapter.baseUrl,
     };
     requestAdapter.enableBackingStore(backingStore);
-    return apiClientProxifier<BaseAgentsM365CopilotBetaSystemsClient>(requestAdapter, pathParameters, BaseAgentsM365CopilotBetaSystemsClientNavigationMetadata, undefined);
+    return apiClientProxifier<BaseAgentsM365CopilotBetaServiceClient>(requestAdapter, pathParameters, BaseAgentsM365CopilotBetaServiceClientNavigationMetadata, undefined);
 }
 /**
  * Uri template for the request builder.
  */
-export const BaseAgentsM365CopilotBetaSystemsClientUriTemplate = "{+baseurl}";
+export const BaseAgentsM365CopilotBetaServiceClientUriTemplate = "{+baseurl}";
 /**
  * Metadata for all the navigation properties in the request builder.
  */
-export const BaseAgentsM365CopilotBetaSystemsClientNavigationMetadata: Record<Exclude<keyof BaseAgentsM365CopilotBetaSystemsClient, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+export const BaseAgentsM365CopilotBetaServiceClientNavigationMetadata: Record<Exclude<keyof BaseAgentsM365CopilotBetaServiceClient, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     copilot: {
         navigationMetadata: CopilotRequestBuilderNavigationMetadata,
     },

@@ -1,7 +1,7 @@
-github.com/microsoft/Agents-M365Copilot/typescript/.BaseAgentsM365CopilotBetaSystemsClient::|public|copilot:CopilotRequestBuilder
-github.com/microsoft/Agents-M365Copilot/typescript/.baseAgentsM365CopilotBetaSystemsClientNavigationMetadata
-github.com/microsoft/Agents-M365Copilot/typescript/.baseAgentsM365CopilotBetaSystemsClientUriTemplate
-github.com/microsoft/Agents-M365Copilot/typescript/.BaseAgentsM365CopilotBetaSystemsClient~~>BaseRequestBuilder<BaseAgentsM365CopilotBetaSystemsClient>
+github.com/microsoft/Agents-M365Copilot/typescript/.BaseAgentsM365CopilotBetaServiceClient::|public|copilot:CopilotRequestBuilder
+github.com/microsoft/Agents-M365Copilot/typescript/.baseAgentsM365CopilotBetaServiceClientNavigationMetadata
+github.com/microsoft/Agents-M365Copilot/typescript/.baseAgentsM365CopilotBetaServiceClientUriTemplate
+github.com/microsoft/Agents-M365Copilot/typescript/.BaseAgentsM365CopilotBetaServiceClient~~>BaseRequestBuilder<BaseAgentsM365CopilotBetaServiceClient>
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.adminRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.adminRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<AdminRequestBuilderGetQueryParameters>):CopilotAdmin
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.adminRequestBuilder::|public|patch(body:CopilotAdmin; requestConfiguration?:RequestConfiguration<object>):CopilotAdmin
@@ -1246,4 +1246,4 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeTeamworkTag
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeTeamworkUserIdentity(writer:SerializationWriter; TeamworkUserIdentity:TeamworkUserIdentity={}):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeUserIdentity(writer:SerializationWriter; UserIdentity:UserIdentity={}):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeUserInformation(writer:SerializationWriter; UserInformation:UserInformation={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/::CreateBaseAgentsM365CopilotBetaSystemsClient(requestAdapter:RequestAdapter; backingStore?:BackingStoreFactory):void
+github.com/microsoft/Agents-M365Copilot/typescript/::CreateBaseAgentsM365CopilotBetaServiceClient(requestAdapter:RequestAdapter; backingStore?:BackingStoreFactory):void
