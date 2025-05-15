@@ -113,9 +113,9 @@ jobs:
         python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
         packages:
           - name: "microsoft_agents_m365copilot_core"
-            path: "./packages/microsoft_agents_m365copilot_core"
+            path: "python/packages/microsoft_agents_m365copilot_core"
           - name: "microsoft_agents_m365copilot_beta"
-            path: "./packages/microsoft_agents_m365copilot_beta"
+            path: "python/packages/microsoft_agents_m365copilot_beta"
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
