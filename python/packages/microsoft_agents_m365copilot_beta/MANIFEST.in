@@ -1,0 +1,25 @@
+# Include core package files
+recursive-include microsoft_agents_m365copilot_beta *.py
+recursive-include generated *.py
+recursive-include ../microsoft_agents_m365copilot_core/src/microsoft_agents_m365copilot_core *.py
+
+# Documentation
+include LICENSE
+include README.md
+include ../microsoft_agents_m365copilot_core/LICENSE
+include ../microsoft_agents_m365copilot_core/README.md
+include MANIFEST.in
+
+# Source files
+recursive-include microsoft_agents_m365copilot_beta/core *.py
+recursive-include microsoft_agents_m365copilot_beta/models *.py
+recursive-include microsoft_agents_m365copilot_beta/requests *.py
+
+# Exclude unnecessary files
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude .DS_Store
+global-exclude *.pyo
+global-exclude *.pyd
+global-exclude .git*
+global-exclude *.egg-info
