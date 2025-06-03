@@ -6,11 +6,10 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
     <LangVersion>latest</LangVersion>
+    <!-- x-release-please-start-version -->
+    <Version>1.0.0-preview.1</Version>
+    <!-- x-release-please-end -->
   </PropertyGroup>
-
-  <!-- x-release-please-start-version -->
-  <Version>1.0.0-preview.1</Version>
-  <!-- x-release-please-end -->
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Kiota.Authentication.Azure" Version="1.17.1" />
