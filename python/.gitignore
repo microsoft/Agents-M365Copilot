@@ -199,7 +199,6 @@ PublishScripts/
 # NuGet Symbol Packages
 *.snupkg
 # The packages folder can be ignored because of Package Restore
-**/[Pp]ackages/*
 # except build/, which is used as an MSBuild target.
 !**/[Pp]ackages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
@@ -407,3 +406,4 @@ main.py
 
 #Exclude virtual environment folder for Python projects
 env/
+poetry.lock

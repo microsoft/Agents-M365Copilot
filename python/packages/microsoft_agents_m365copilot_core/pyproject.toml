@@ -1,0 +1,66 @@
+[build-system]
+requires = ["poetry-core>=1.0.0", "wheel", "setuptools>=42.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "microsoft-agents-m365copilot-core"
+version = "1.0.0"
+description = "Core component of the Microsoft Agents M365 Copilot Core Python SDK"
+authors = ["Microsoft <graphtooling+ccspython@microsoft.com>"]
+maintainers = ["Microsoft <graphtooling+ccspython@microsoft.com>"]
+license = "MIT"
+readme = "README.md"
+keywords = ["Copilot", "Microsoft", "OpenAPI", "SDK", "M365"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Operating System :: OS Independent"
+]
+homepage = "https://github.com/microsoft/Agents-M365Copilot/tree/main/python"
+repository = "https://github.com/microsoft/Agents-M365Copilot"
+documentation = "https://github.com/microsoft/Agents-M365Copilot/tree/main/python/packages/microsoft_agents_m365copilot_core#readme"
+
+packages = [
+    {include = "*", from = "src"}
+]
+
+include = [
+    "LICENSE",
+    "README.md"
+]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4.0"
+microsoft-kiota-abstractions = ">=1.8.0,<2.0.0"
+microsoft-kiota-authentication-azure = ">=1.8.0,<2.0.0"
+microsoft-kiota-http = ">=1.8.0,<2.0.0"
+httpx = {extras = ["http2"], version = ">=0.23.0"}
+azure-identity = "^1.23.0"
+
+[tool.poetry.group.dev.dependencies]
+yapf = ">=0.40.2,<0.44.0"
+isort = ">=5.13.2,<7.0.0"
+pylint = "^3.2.7"
+pytest = "^8.3.2"
+pytest-asyncio = ">=0.24,<0.26"
+poetry-plugin-mono-repo-deps = ">=0.2.1,<0.4.0"
+
+[tool.mypy]
+warn_unused_configs = true
+files = "src"
+
+[tool.yapf]
+based_on_style = "pep8"
+dedent_closing_brackets = true
+each_dict_entry_on_separate_line = true
+column_limit = 100
+
+[tool.isort]
+profile = "hug"
