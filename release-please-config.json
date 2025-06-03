@@ -24,6 +24,11 @@
             "component": "@microsoft/agents-m365copilot-beta",
             "release-type": "node",
             "changelog-path": "CHANGELOG.md"
+        },
+        "python/packages/microsoft-m365copilot-beta": {
+            "component": "microsoft-agents-m365copilot-beta",
+            "release-type": "simple",
+            "changelog-path": "CHANGELOG.md"
         }
     }
 }
