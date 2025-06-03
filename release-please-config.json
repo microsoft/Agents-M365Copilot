@@ -13,7 +13,7 @@
     "bump-minor-pre-major": true,
     "bump-patch-for-minor-pre-major": true,
     "versioning": "prerelease",
-    "bootstrap-sha": "40fb5528f7f8253c24f2b17699763a17c66d1896",
+    "bootstrap-sha": "3d6c1c89b716c2aa665c2cf09fa136c38585fa77",
     "packages": {
         "dotnet/src/Microsoft.Agents.M365Copilot.Beta": {
             "component": "",
