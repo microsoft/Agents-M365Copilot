@@ -64,7 +64,7 @@ extends:
           
           # Run the Unit test
           - task: DotNetCoreCLI@2
-            displayName: 'Test M365 CoPilot Agents SDK
+            displayName: 'Test M365 CoPilot Agents SDK'
             inputs:
               command: test
               projects: '$(Build.SourcesDirectory)\dotnet\Microsoft.Agents.M365Copilot.sln'
