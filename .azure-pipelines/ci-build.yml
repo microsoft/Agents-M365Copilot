@@ -28,7 +28,7 @@ extends:
       name: Azure-Pipelines-1ESPT-ExDShared
       vmImage: windows-latest
     stages:
-    - stage: Build .NET
+    - stage: Build dotnet
       jobs:
         - job: build
           templateContext:
