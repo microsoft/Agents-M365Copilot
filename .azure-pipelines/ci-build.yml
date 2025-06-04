@@ -79,7 +79,7 @@ extends:
               AuthAKVName: 'akv-prod-eastus'
               AuthCertName: 'ReferenceLibraryPrivateCert'
               AuthSignCertName: 'ReferencePackagePublisherCertificate'
-              FolderPath: src  # This path should already omit test dlls as they exist in the `tests` folder
+              FolderPath: "$(Build.SourcesDirectory)/dotnet/src/"  # This path should already omit test dlls as they exist in the `tests` folder
               Pattern: '**\Microsoft.Agents.M365Copilot.*.dll'
               signConfigType: inlineSignParams
               UseMinimatch: true
