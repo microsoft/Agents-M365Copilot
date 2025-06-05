@@ -35,7 +35,7 @@ The client ID is the app registration ID that is generated when you [register yo
     ```
 
     **NOTE:**
-    
+    >
     > Your tenant must have a Microsoft 365 Copilot license.
 
 2. Create a `main.py` file with the following snippet:
