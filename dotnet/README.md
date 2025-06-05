@@ -2,17 +2,17 @@
 
 Integrate the Microsoft 365 Copilot APIs into your .NET project!
 
-The Microsoft 365 Copilot APIs.NET Client Library targets .NetStandard 2.0.
+The Microsoft 365 Copilot APIs. NET Client Library targets .NetStandard 2.0.
 
 > **Note:**
 >
->Because the Copilot APIs in the beta endpoint are subject to breaking changes, don't use this preview release of the client libraries in production apps.
+>Because the Microsoft 365 Copilot APIs in the beta endpoint are subject to breaking changes, don't use this preview release of the client libraries in production apps.
 
 ## Installation via NuGet
 
-The Copilot APIs are included in the following NuGet packages:
+The Microsoft 365 Copilot APIs client libraries are available in the following NuGet packages:
 
-- [Microsoft.Agents.M365Copilot.Beta](https://github.com/microsoft/Agents-M365Copilot/tree/main/dotnet/src/Microsoft.Agents.M365Copilot.Beta): Contains the models and request builders for accessing the beta endpoint. Microsoft.Agents.M365Copilot.Beta has a dependency on Microsoft.Agents.M365Copilot.Core. The same dependency structure applies to both the TypeScript and Python libraries as well.
+- [Microsoft.Agents.M365Copilot.Beta](https://github.com/microsoft/Agents-M365Copilot/tree/main/dotnet/src/Microsoft.Agents.M365Copilot.Beta): Contains the models and request builders for accessing the beta endpoint. Microsoft.Agents.M365Copilot.Beta has a dependency on Microsoft.Agents.M365Copilot.Core.
 - [Microsoft.Agents.M365Copilot.Core](https://github.com/microsoft/Agents-M365Copilot/tree/main/dotnet/src/Microsoft.Agents.M365Copilot.Core): The core library for making calls to the Copilot APIs.
 
 To install the client libraries via NuGet:
@@ -27,6 +27,10 @@ The following code example shows how to create an instance of a Microsoft 365 Co
 The example also shows how to make a call to the Microsoft 365 Copilot Retrieval API. To call this API, you first need to create a request object and then run the POST method on the request.
 
 The client ID is the app registration ID that is generated when you [register your app in the Azure portal](/graph/auth-register-app-v2).
+
+**NOTE:**
+    
+> Your tenant must have a Microsoft 365 Copilot license.
 
 ```csharp
 
