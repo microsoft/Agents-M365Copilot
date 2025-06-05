@@ -17,8 +17,8 @@ The Microsoft 365 Copilot APIs client libraries are available in the following N
 
 To install the client libraries via NuGet:
 
-* Search for `Microsoft.Agents.M365Copilot.Beta` and  `Microsoft.Agents.M365Copilot.Core` in the NuGet Library, or
-* Type `Install-Package Microsoft.Agents.M365Copilot.Beta` and `Install-Package Microsoft.Agents.M365Copilot.Core` into the Package Manager Console.
+* Search for `Microsoft.Agents.M365Copilot.Beta` in the NuGet Library, or
+* Type `Install-Package Microsoft.Agents.M365Copilot.Beta` into the Package Manager Console.
 
 ## Create a Copilot APIs client and make an API call
 
@@ -26,7 +26,7 @@ The following code example shows how to create an instance of a Microsoft 365 Co
 
 The example also shows how to make a call to the Microsoft 365 Copilot Retrieval API. To call this API, you first need to create a request object and then run the POST method on the request.
 
-The client ID is the app registration ID that is generated when you [register your app in the Azure portal](/graph/auth-register-app-v2).
+The client ID is the app registration ID that is generated when you [register your app in the Azure portal](https://learn.microsoft.com/en-us/graph/auth-register-app-v2).
 
 **NOTE:**
     
