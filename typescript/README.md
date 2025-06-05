@@ -1,22 +1,39 @@
-# Microsoft Copilot APIs TypeScript Client Library
+# Microsoft 365 Copilot APIs TypeScript Client Library
 
-Integrate the Microsoft Copilot APIs into your Python application!
+Integrate the Microsoft 365Copilot APIs into your TypeScript application!
+
+> **Note:**
+>
+>Because the Microsoft 365 Copilot APIs in the beta endpoint are subject to breaking changes, don't use this preview release of the client libraries in production apps.
 
 ## Installation
 
-The Copilot APIs TypeScript client libraries will soon be available in npm.
+The Microsoft 365 Copilot APIs client libraries will be available in the following packages in Node Package Manager (npm):
+
+- [microsoft/agents-m365copilot-beta](https://github.com/microsoft/Agents-M365Copilot/tree/main/typescript/packages/agents-m365copilot-beta): Contains the models and request builders for accessing the beta endpoint. microsoft/agents-m365copilot-beta has a dependency on microsoft/agents-m365copilot-core.
+- [microsoft/agents-m365copilot-core](https://github.com/microsoft/Agents-M365Copilot/tree/main/typescript/packages/agents-m365copilot-core): The core library for making calls to the Copilot APIs.
+
+To install the client libraries via npm.
 
 ```Shell
 npm install @microsoft/agents-m365copilot-beta –save
+
+npm install @microsoft/agents-m365copilot-core –save
 ```
 
 ## Create a Copilot APIs client and make an API call
 
-The following code example shows how to create an instance of a Microsoft 365 Copilot APIs client with an authentication provider in the supported languages. The authentication provider handles acquiring access tokens for the application. Many different authentication providers are available for each language and platform. The different authentication providers support different client scenarios. For details about which provider and options are appropriate for your scenario, see [Choose an Authentication Provider](/graph/sdks/choose-authentication-providers). 
+The following code example shows how to create an instance of a Microsoft 365 Copilot APIs client with an authentication provider in the supported languages. The authentication provider handles acquiring access tokens for the application. Many different authentication providers are available for each language and platform. The different authentication providers support different client scenarios. For details about which provider and options are appropriate for your scenario, see [Choose an Authentication Provider](https://learn.microsoft.com/graph/sdks/choose-authentication-providers). 
 
-The example also shows how to make a call to the Retrieval API. To call this API, you first need to create a request object and then run the POST method on the request.
+The example also shows how to make a call to the Microsoft 365 Copilot Retrieval API. To call this API, you first need to create a request object and then run the POST method on the request.
 
-The client ID is the app registration ID that is generated when you [register your app in the Azure portal](/graph/auth-register-app-v2).
+The client ID is the app registration ID that is generated when you [register your app in the Azure portal](https://learn.microsoft.com/en-us/graph/auth-register-app-v2).
+
+**NOTE:**
+    
+> Your tenant must have a Microsoft 365 Copilot license.
+
+```TypeScript
 
 import { createBaseAgentsM365CopilotBetaServiceClient, RetrievalDataSourceObject } from '@microsoft/agents-m365copilot-beta';
 import { DeviceCodeCredential } from '@azure/identity';
@@ -71,3 +88,31 @@ async function main() {
         throw error;
     }
 }
+
+```
+
+## Issues
+
+To view or log issues, see [issues](https://github.com/microsoft/Agents-M365Copilot/issues).
+
+## Contributing
+
+This project welcomes contributions and suggestions.  Most contributions require you to agree to a
+Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
+the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+
+When you submit a pull request, a CLA bot will automatically determine whether you need to provide
+a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
+provided by the bot. You will only need to do this once across all repos using our CLA.
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
+contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+## Trademarks
+
+This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
+trademarks or logos is subject to and must follow 
+[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
+Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
+Any use of third-party trademarks or logos are subject to those third-party's policies.
