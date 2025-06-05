@@ -11,7 +11,7 @@
     <PackageId>Microsoft.Agents.M365Copilot.Core</PackageId>
     <PackageTags>Copilot;Agents;Declarative Agents;Microsoft Office365;Outlook;OneDrive;AzureAD;Productivity;SDK</PackageTags>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageIconUrl>http://go.microsoft.com/fwlink/?LinkID=288890</PackageIconUrl>
     <RepositoryUrl>https://github.com/microsoft/Agents-M365Copilot/dotnet</RepositoryUrl>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -51,6 +51,10 @@
 
   <ItemGroup>
     <None Include=".\README.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

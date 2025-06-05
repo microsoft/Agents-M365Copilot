@@ -17,6 +17,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\README.md" Pack="true" PackagePath="" />
+    <None Include="..\..\..\LICENSE" Pack="true" PackagePath=""/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.Agents.M365Copilot.Core\Microsoft.Agents.M365Copilot.Core.csproj" />
