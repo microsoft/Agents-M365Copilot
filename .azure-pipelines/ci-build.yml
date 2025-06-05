@@ -70,40 +70,75 @@ extends:
               projects: '$(Build.SourcesDirectory)\dotnet\Microsoft.Agents.M365Copilot.sln'
               arguments: '--configuration $(BuildConfiguration) --no-build -f net8.0'
 
-          # - task: EsrpCodeSigning@5
-          #   displayName: 'ESRP DLL Strong Name'
-          #   inputs:
-          #     ConnectedServiceName: 'Federated DevX ESRP Managed Identity Connection'
-          #     AppRegistrationClientId: '65035b7f-7357-4f29-bf25-c5ee5c3949f8'
-          #     AppRegistrationTenantId: 'cdc5aeea-15c5-4db6-b079-fcadd2505dc2'
-          #     AuthAKVName: 'akv-prod-eastus'
-          #     AuthCertName: 'ReferenceLibraryPrivateCert'
-          #     AuthSignCertName: 'ReferencePackagePublisherCertificate'
-          #     FolderPath: "$(Build.SourcesDirectory)/dotnet/src/"  # This path should already omit test dlls as they exist in the `tests` folder
-          #     Pattern: '**\Microsoft.Agents.M365Copilot.*.dll'
-          #     signConfigType: inlineSignParams
-          #     UseMinimatch: true
-          #     inlineOperation: |
-          #       [
-          #           {
-          #               "keyCode": "CP-233863-SN",
-          #               "operationSetCode": "StrongNameSign",
-          #               "parameters": [],
-          #               "toolName": "sign",
-          #               "toolVersion": "1.0"
-          #           },
-          #           {
-          #               "keyCode": "CP-233863-SN",
-          #               "operationSetCode": "StrongNameVerify",
-          #               "parameters": [],
-          #               "toolName": "sign",
-          #               "toolVersion": "1.0"
-          #           }
-          #       ]
-          #     SessionTimeout: 20
-          #     MaxConcurrency: 50
-          #     MaxRetryAttempts: 5
-          #     PendingAnalysisWaitTimeoutMinutes: 5
+          - task: EsrpCodeSigning@5
+            displayName: 'ESRP DLL Strong Name For Microsoft.Agents.M365Copilot.Core DLL'
+            inputs:
+              ConnectedServiceName: 'Federated DevX ESRP Managed Identity Connection'
+              AppRegistrationClientId: '65035b7f-7357-4f29-bf25-c5ee5c3949f8'
+              AppRegistrationTenantId: 'cdc5aeea-15c5-4db6-b079-fcadd2505dc2'
+              AuthAKVName: 'akv-prod-eastus'
+              AuthCertName: 'ReferenceLibraryPrivateCert'
+              AuthSignCertName: 'ReferencePackagePublisherCertificate'
+              FolderPath: "$(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Core/bin/$(BuildConfiguration)/"  # This path should already omit test dlls as they exist in the `tests` folder
+              Pattern: 'Microsoft.Agents.M365Copilot.Core.dll'
+              signConfigType: inlineSignParams
+              UseMinimatch: true
+              inlineOperation: |
+                [
+                    {
+                        "keyCode": "CP-233863-SN",
+                        "operationSetCode": "StrongNameSign",
+                        "parameters": [],
+                        "toolName": "sign",
+                        "toolVersion": "1.0"
+                    },
+                    {
+                        "keyCode": "CP-233863-SN",
+                        "operationSetCode": "StrongNameVerify",
+                        "parameters": [],
+                        "toolName": "sign",
+                        "toolVersion": "1.0"
+                    }
+                ]
+              SessionTimeout: 20
+              MaxConcurrency: 50
+              MaxRetryAttempts: 5
+              PendingAnalysisWaitTimeoutMinutes: 5
+
+          - task: EsrpCodeSigning@5
+            displayName: 'ESRP DLL Strong Name For Microsoft.Agents.M365Copilot.Beta DLL'
+            inputs:
+              ConnectedServiceName: 'Federated DevX ESRP Managed Identity Connection'
+              AppRegistrationClientId: '65035b7f-7357-4f29-bf25-c5ee5c3949f8'
+              AppRegistrationTenantId: 'cdc5aeea-15c5-4db6-b079-fcadd2505dc2'
+              AuthAKVName: 'akv-prod-eastus'
+              AuthCertName: 'ReferenceLibraryPrivateCert'
+              AuthSignCertName: 'ReferencePackagePublisherCertificate'
+              FolderPath: "$(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Beta/bin/$(BuildConfiguration)/"  # This path should already omit test dlls as they exist in the `tests` folder
+              Pattern: 'Microsoft.Agents.M365Copilot.Beta.dll'
+              signConfigType: inlineSignParams
+              UseMinimatch: true
+              inlineOperation: |
+                [
+                    {
+                        "keyCode": "CP-233863-SN",
+                        "operationSetCode": "StrongNameSign",
+                        "parameters": [],
+                        "toolName": "sign",
+                        "toolVersion": "1.0"
+                    },
+                    {
+                        "keyCode": "CP-233863-SN",
+                        "operationSetCode": "StrongNameVerify",
+                        "parameters": [],
+                        "toolName": "sign",
+                        "toolVersion": "1.0"
+                    }
+                ]
+              SessionTimeout: 20
+              MaxConcurrency: 50
+              MaxRetryAttempts: 5
+              PendingAnalysisWaitTimeoutMinutes: 5
 
           # Sign the ESRP Code Signing for Microsoft.Agents.M365Copilot.Core DLL
           - task: EsrpCodeSigning@5
