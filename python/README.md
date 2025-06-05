@@ -8,15 +8,15 @@ Integrate the Microsoft 365 Copilot APIs into your Python application!
 
 ## Installation
 
-The Microsoft 365 Copilot APIs client libraries will be available in the following packages in the Python Package Index:
+The Microsoft 365 Copilot APIs client libraries will be available in the following packages in the Python Package Index (PyPi):
 
 - [microsoft-agents-m365copilot-beta](https://github.com/microsoft/Agents-M365Copilot/tree/main/python/packages/microsoft_agents_m365copilot_beta): Contains the models and request builders for accessing the beta endpoint. microsoft-agents-m365copilot-beta has a dependency on microsoft-agents-m365copilot-core.
 - [microsoft-agents-m365copilot-core](https://github.com/microsoft/Agents-M365Copilot/tree/main/python/packages/microsoft_agents_m365copilot_core): The core library for making calls to the Copilot APIs.
 
+To install the client libraries via PyPi:
+
 ```py
 pip install microsoft-agents-m365copilot-beta
-
-pip install microsoft-agents-m365copilot-core
 ```
 
 ## Create a Copilot APIs client and make an API call
@@ -25,7 +25,7 @@ The following code example shows how to create an instance of a Microsoft 365 Co
 
 The example also shows how to make a call to the Microsoft 365 Copilot Retrieval API. To call this API, you first need to create a request object and then run the POST method on the request.
 
-The client ID is the app registration ID that is generated when you [register your app in the Azure portal](/graph/auth-register-app-v2).
+The client ID is the app registration ID that is generated when you [register your app in the Azure portal](https://learn.microsoft.com/en-us/graph/auth-register-app-v2).
 
 1. Create a `.env` file with the following values:
 
