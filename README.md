@@ -1,14 +1,29 @@
-# Project
+# Microsoft 365 Copilot APIs Client Libraries
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+The Microsoft 365 Copilot APIs client libraries are designed to facilitate the development of high-quality, efficient, and resilient AI solutions that access the [Copilot APIs](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-apis-overview). These libraries include service and core libraries.
 
-As the maintainer of this project, please make a few updates:
+The service libraries offer models and request builders that provide a rich, typed experience for working with Microsoft 365 Copilot APIs.
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+The core libraries offer advanced features to facilitate interactions with the Copilot APIs. These features include embedded support for retry handling, secure redirects, transparent authentication, and payload compression. These capabilities help you enhance the quality of your AI solution's communications with the Copilot APIs without adding complexity. Additionally, the core libraries simplify routine tasks such as paging through collections and creating batch requests.
+
+## Supported Languages
+The Copilot APIs client libraries are currently available for the following languages:
+
+- [C#](https://github.com/microsoft/Agents-M365Copilot/tree/main/dotnet)
+- [Python](https://github.com/microsoft/Agents-M365Copilot/tree/main/python)
+- [TypeScript](https://github.com/microsoft/Agents-M365Copilot/tree/main/typescript)
+
+## Installation
+
+The Copilot API client libraries are included as a module in the Microsoft 365 Agents SDK. These libraries can be included in your projects via GitHub and popular platform package managers.
+
+- For instructions on how to install the .NET client libraries, click [here](https://github.com/microsoft/Agents-M365Copilot/edit/main/dotnet/README.md#installation-via-nuget).
+- For instructions on how to install the Python client libraries, click [here](https://github.com/microsoft/Agents-M365Copilot/edit/main/python/README.md#installation).
+- For instructions on how to install the TypeScript client libraries, click [here](https://github.com/microsoft/Agents-M365Copilot/edit/main/typescript/README.md#installation).
+
+## Issues
+
+To view or log issues, see [issues](https://github.com/microsoft/Agents-M365Copilot/issues).
 
 ## Contributing
 
