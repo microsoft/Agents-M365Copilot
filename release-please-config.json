@@ -18,17 +18,45 @@
         "dotnet/src/Microsoft.Agents.M365Copilot.Beta": {
             "component": "",
             "release-type": "simple",
-            "changelog-path": "CHANGELOG.md"
+            "changelog-path": "CHANGELOG.md",
+            "extra-files": [
+                "Microsoft.Agents.M365Copilot.Beta.csproj"
+            ]
+        },
+        "dotnet/src/Microsoft.Agents.M365Copilot.Core": {
+            "component": "",
+            "release-type": "simple",
+            "changelog-path": "CHANGELOG.md",
+            "extra-files": [
+                "Microsoft.Agents.M365Copilot.Core.csproj"
+            ]
         },
         "typescript/packages/agents-m365copilot-beta": {
             "component": "@microsoft/agents-m365copilot-beta",
             "release-type": "node",
             "changelog-path": "CHANGELOG.md"
         },
-        "python/packages/microsoft-m365copilot-beta": {
-            "component": "microsoft-agents-m365copilot-beta",
-            "release-type": "simple",
+        "typescript/packages/agents-m365copilot-core": {
+            "component": "@microsoft/agents-m365copilot-core",
+            "release-type": "node",
             "changelog-path": "CHANGELOG.md"
+        },
+        "python/packages/microsoft_agents_m365copilot_beta": {
+            "component": "microsoft_agents_m365copilot_beta",
+            "release-type": "simple",
+            "changelog-path": "CHANGELOG.md",
+            "extra-files": [
+                "pyproject.toml",
+                "src/_constants.py"
+            ]
+        },
+        "python/packages/microsoft_agents_m365copilot_core": {
+            "component": "microsoft_agents_m365copilot_core",
+            "release-type": "simple",
+            "changelog-path": "CHANGELOG.md",
+            "extra-files": [
+                "pyproject.toml"
+            ]
         }
     }
 }
