@@ -40,7 +40,7 @@ extends:
           outputs:
           - output: nuget
             displayName: Publish Nuget package
-            useDotNetTask: true
+            useDotNetTask: false
             packagesToPush: '$(Build.ArtifactStagingDirectory)/ArtifactsForRelease/*nupkg'
             packageParentPath: $(Build.ArtifactStagingDirectory)\
             nuGetFeedType: external  # Change to external for external
