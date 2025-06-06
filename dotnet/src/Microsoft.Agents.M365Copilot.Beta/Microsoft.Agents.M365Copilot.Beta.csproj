@@ -5,7 +5,14 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
+    <Authors>Microsoft</Authors>
     <LangVersion>latest</LangVersion>
+    <AssemblyName>Microsoft.Agents.M365Copilot.Beta</AssemblyName>
+    <PackageId>Microsoft.Agents.M365Copilot.Beta</PackageId>
+    <PackageIconUrl>http://go.microsoft.com/fwlink/?LinkID=288890</PackageIconUrl>
+    <RepositoryUrl>https://github.com/microsoft/Agents-M365Copilot/dotnet</RepositoryUrl>
+    <ProjectUrl>https://github.com/microsoft/agents-m365copilot</ProjectUrl>
+    <Description>Microsoft 365 Copilot Beta client library K enables you to call the Microsoft 365 Copilot APIs in your applications and custom engine agents.</Description>
     <!-- x-release-please-start-version -->
     <Version>1.0.0-preview.1</Version>
     <!-- x-release-please-end -->
