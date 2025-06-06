@@ -17,9 +17,9 @@ The Copilot APIs client libraries are currently available for the following lang
 
 The Copilot API client libraries are included as a module in the Microsoft 365 Agents SDK. These libraries can be included in your projects via GitHub and popular platform package managers.
 
-- For instructions on how to install the .NET client libraries, click [here](https://github.com/microsoft/Agents-M365Copilot/edit/main/dotnet/README.md#installation-via-nuget).
-- For instructions on how to install the Python client libraries, click [here](https://github.com/microsoft/Agents-M365Copilot/edit/main/python/README.md#installation).
-- For instructions on how to install the TypeScript client libraries, click [here](https://github.com/microsoft/Agents-M365Copilot/edit/main/typescript/README.md#installation).
+- For instructions on how to install the .NET client libraries, click [here](https://github.com/microsoft/Agents-M365Copilot/blob/main/dotnet/README.md#installation-via-nuget).
+- For instructions on how to install the Python client libraries, click [here](https://github.com/microsoft/Agents-M365Copilot/blob/main/python/README.md#installation).
+- For instructions on how to install the TypeScript client libraries, click [here](https://github.com/microsoft/Agents-M365Copilot/blob/main/typescript/README.md#installation).
 
 ## Issues
 
