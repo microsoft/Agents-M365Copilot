@@ -9,6 +9,7 @@
     <PreserveCompilationContext>false</PreserveCompilationContext>
     <AssemblyName>Microsoft.Agents.M365Copilot.Core</AssemblyName>
     <PackageId>Microsoft.Agents.M365Copilot.Core</PackageId>
+    <ProjectUrl>https://github.com/microsoft/agents-m365copilot</ProjectUrl>
     <PackageTags>Copilot;Agents;Declarative Agents;Microsoft Office365;Outlook;OneDrive;AzureAD;Productivity;SDK</PackageTags>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
