@@ -319,8 +319,8 @@ extends:
           #     Contents: 'scripts\**'
           #     TargetFolder: '$(Build.ArtifactStagingDirectory)'
  
-          - task: 1ES.PublishPipelineArtifact@1
-            displayName: 'Stage Artifacts: Nugets'
-            inputs:
-              artifactName: NuGets
-              targetPath: $(Build.ArtifactStagingDirectory)
+          # - task: 1ES.PublishPipelineArtifact@1
+          #   displayName: 'Stage Artifacts: Nugets'
+          #   inputs:
+          #     artifactName: NuGets
+          #     targetPath: $(Build.ArtifactStagingDirectory)
