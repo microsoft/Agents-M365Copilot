@@ -36,6 +36,7 @@ extends:
           - input: pipelineArtifact
             pipeline: 'Microsoft Agents M365 Copilot Build Artifacts'
             artifactName: ArtifactsForRelease
+            targetPath: $(Build.ArtifactStagingDirectory)/ArtifactsForRelease
           outputs:
           - output: nuget
             displayName: Publish Nuget package
