@@ -27,9 +27,9 @@ The example also shows how to make a call to the Microsoft 365 Copilot Retrieval
 
 The client ID is the app registration ID that is generated when you [register your app in the Azure portal](https://learn.microsoft.com/graph/auth-register-app-v2).
 
-**NOTE:**
-    
-> Your tenant must have a Microsoft 365 Copilot license.
+>**Note:**
+>    
+>Your tenant must have a Microsoft 365 Copilot license.
 
 ```TypeScript
 
