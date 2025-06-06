@@ -324,3 +324,72 @@ extends:
           #   inputs:
           #     artifactName: NuGets
           #     targetPath: $(Build.ArtifactStagingDirectory)
+    - stage: Build TypeScript
+      jobs:
+        - job: build
+          displayName: 'Build TypeScript Project'
+          pool:
+            name: Azure-Pipelines-1ESPT-ExDShared
+            image: ubuntu-latest
+            os: linux
+          steps:
+          # --- TypeScript Build, Test, and Package Steps ---
+          - task: NodeTool@0
+            displayName: 'Install Node.js'
+            inputs:
+              versionSpec: '20.x'
+          - script: npm ci
+            displayName: 'Install npm dependencies'
+            workingDirectory: '$(Build.SourcesDirectory)/typescript/'
+          - script: npm run build
+            displayName: 'Build project'
+            workingDirectory: '$(Build.SourcesDirectory)/typescript/'
+          - script: npm test
+            displayName: 'Run tests'
+            workingDirectory: '$(Build.SourcesDirectory)/typescript/' 
+          - script: npm pack --workspace
+            displayName: 'Generate npm package'
+            workingDirectory: '$(Build.SourcesDirectory)/typescript/'
+          # Optionally, publish the npm package as a pipeline artifact
+          - task: EsrpCodeSigning@5
+            displayName: 'ESRP Code Signing for Core and Beta NPM packages'
+            inputs:
+              ConnectedServiceName: 'Federated DevX ESRP Managed Identity Connection'
+              AppRegistrationClientId: '65035b7f-7357-4f29-bf25-c5ee5c3949f8'
+              AppRegistrationTenantId: 'cdc5aeea-15c5-4db6-b079-fcadd2505dc2'
+              AuthAKVName: 'akv-prod-eastus'
+              AuthCertName: 'ReferenceLibraryPrivateCert'
+              AuthSignCertName: 'ReferencePackagePublisherCertificate'
+              FolderPath: '$(Build.SourcesDirectory)/typescript/'
+              Pattern: '*.tgz'
+              signConfigType: 'inlineSignParams'
+              inlineOperation: |
+                [
+                  {
+                    "keyCode": "CP-231522",
+                    "operationSetCode": "OpcSign",
+                    "parameters": [],
+                    "toolName": "sign",
+                    "toolVersion": "1.0"
+                  },
+                  {
+                    "keyCode": "CP-401405",
+                    "operationSetCode": "SigntoolVerify",
+                    "parameters": [],
+                    "toolName": "sign",
+                    "toolVersion": "1.0"
+                  }
+                ]
+              SessionTimeout: '60'
+              MaxConcurrency: '50'
+              MaxRetryAttempts: '5'
+              PendingAnalysisWaitTimeoutMinutes: '5'
+          - task: CopyFiles@2
+            inputs:
+              sourceFolder: '$(Build.SourcesDirectory)/typescript/'
+              targetFolder: $(Build.ArtifactStagingDirectory)
+              Contents: |
+                *.tgz
+                packages/agents-m365copilot-beta/package.json
+                packages/agents-m365copilot-core/package.json
+            displayName: "Copy package.json and package gzipped tarballs"
