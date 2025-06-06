@@ -8,5 +8,6 @@
         "statuscodes",
         "USGOV",
         "xunit"
-    ]
+    ],
+    "azure-pipelines.1ESPipelineTemplatesSchemaFile": true
 }
