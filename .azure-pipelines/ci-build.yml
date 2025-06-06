@@ -324,7 +324,7 @@ extends:
           #   inputs:
           #     artifactName: NuGets
           #     targetPath: $(Build.ArtifactStagingDirectory)
-    - stage: Build TypeScript
+    - stage: Build_typeScript
       jobs:
         - job: build
           displayName: 'Build TypeScript Project'

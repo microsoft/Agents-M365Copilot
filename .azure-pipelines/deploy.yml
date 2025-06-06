@@ -46,14 +46,14 @@ extends:
             nuGetFeedType: external  # Change to external for external
             publishPackageMetadata: true
             publishFeedCredentials: 'M365 Copilot NuGet Connection'
-    - stage: Typescript release
+    - stage: typescript_release
       jobs:
-      - job: agents-m365copilot-beta release
-      displayName: Publish to npm
-      pool:
-              name: Azure-Pipelines-1ESPT-ExDShared
-              image: windows-2022
-              os: windows
+      - job: agents-m365copilot-beta_release
+        displayName: Publish to npm
+        pool:
+          name: Azure-Pipelines-1ESPT-ExDShared
+          image: windows-2022
+          os: windows
       strategy:
         runOnce:
           deploy:
@@ -71,7 +71,6 @@ extends:
                   keyvaultname: "akv-prod-eastus"
                   authcertname: "ReferenceLibraryPrivateCert"
                   signcertname: "ReferencePackagePublisherCertificate"
-                  #TODO: Set to the correct client ID for ESRP
                   clientid: "65035b7f-7357-4f29-bf25-c5ee5c3949f8"
                   intent: "PackageDistribution"
                   contenttype: "npm"
@@ -83,8 +82,8 @@ extends:
                   serviceendpointurl: "https://api.esrp.microsoft.com"
                   mainpublisher: "ESRPRELPACMAN"
                   domaintenantid: "cdc5aeea-15c5-4db6-b079-fcadd2505dc2"
-    - job: agents-m365copilot-core release
-      displayName: Publish to npm 
+    - job: agents-m365copilot-core_release
+      displayName: Publish to npm
       pool:
               name: Azure-Pipelines-1ESPT-ExDShared
               image: windows-2022
