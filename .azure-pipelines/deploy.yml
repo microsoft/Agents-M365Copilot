@@ -65,18 +65,17 @@ extends:
                 displayName: Install Node.js
               - download: current
                 artifact: build-drop
-              - task: EsrpRelease@7
+              - task: EsrpRelease@9
+                displayName: 'Publish NPM artifacts via ESRP'
                 inputs:
                   connectedservicename: "Federated DevX ESRP Managed Identity Connection"
+                  usemanagedidentity: true
                   keyvaultname: "akv-prod-eastus"
-                  authcertname: "ReferenceLibraryPrivateCert"
                   signcertname: "ReferencePackagePublisherCertificate"
                   clientid: "65035b7f-7357-4f29-bf25-c5ee5c3949f8"
                   intent: "PackageDistribution"
                   contenttype: "npm"
-                  contentsource: "Folder"
                   folderlocation: "$(Pipeline.Workspace)/build-drop/packages/agents-m365copilot-beta/"
-                  waitforreleasecompletion: true
                   owners: "mmainer@microsoft.com,christiano@microsoft.com"
                   approvers: "mmainer@microsoft.com,christiano@microsoft.com"
                   serviceendpointurl: "https://api.esrp.microsoft.com"
@@ -99,19 +98,17 @@ extends:
                 displayName: Install Node.js
               - download: current
                 artifact: build-drop
-              - task: EsrpRelease@7
+              - task: EsrpRelease@9
+                displayName: 'Publish NPM artifacts via ESRP'
                 inputs:
                   connectedservicename: "Federated DevX ESRP Managed Identity Connection"
+                  usemanagedidentity: true
                   keyvaultname: "akv-prod-eastus"
-                  authcertname: "ReferenceLibraryPrivateCert"
                   signcertname: "ReferencePackagePublisherCertificate"
-                  #TODO: Set to the correct client ID for ESRP
                   clientid: "65035b7f-7357-4f29-bf25-c5ee5c3949f8"
                   intent: "PackageDistribution"
                   contenttype: "npm"
-                  contentsource: "Folder"
                   folderlocation: "$(Pipeline.Workspace)/build-drop/packages/agents-m365copilot-core/"
-                  waitforreleasecompletion: true
                   owners: "mmainer@microsoft.com,christiano@microsoft.com"
                   approvers: "mmainer@microsoft.com,christiano@microsoft.com"
                   serviceendpointurl: "https://api.esrp.microsoft.com"
