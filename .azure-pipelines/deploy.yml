@@ -1,0 +1,48 @@
+# Source build validation scenario: official -> official
+name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+trigger: none
+
+resources:
+  repositories:
+  - repository: 1ESPipelineTemplates
+    type: git
+    name: 1ESPipelineTemplates/1ESPipelineTemplates
+    ref: refs/tags/release
+  pipelines:
+  - pipeline: 'Microsoft Agents M365 Copilot Build Artifacts'
+    source: '\Microsoft Agents M365 Copilot\Microsoft Agents M365 Copilot Build Artifacts'
+    branch: main
+
+extends:
+  template: v1/1ES.Official.PipelineTemplate.yml@1ESPipelineTemplates
+  parameters:
+    pool:
+      name: Azure-Pipelines-1ESPT-ExDShared
+      vmImage: windows-latest
+    # customBuildTags:
+    # - ${{ parameters.os }}
+    # - Cross platform
+
+    featureFlags:
+      branchValidation: enforceInReleaseJobs
+
+    stages:
+    - stage: release
+      jobs:
+      - job: release
+        templateContext:
+          type: releaseJob
+          isProduction: true
+          inputs:
+          - input: pipelineArtifact
+            pipeline: 'Microsoft Agents M365 Copilot Build Artifacts'
+            artifactName: ArtifactsForRelease
+          outputs:
+          - output: nuget
+            displayName: Publish Nuget package
+            useDotNetTask: true
+            packagesToPush: '$(Build.ArtifactStagingDirectory)/ArtifactsForRelease/*nupkg'
+            packageParentPath: $(Build.ArtifactStagingDirectory)\
+            nuGetFeedType: external  # Change to external for external
+            publishPackageMetadata: true
+            publishFeedCredentials: 'M365 Copilot NuGet Connection'
