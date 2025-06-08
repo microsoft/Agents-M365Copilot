@@ -80,7 +80,7 @@ extends:
               AuthCertName: 'ReferenceLibraryPrivateCert'
               AuthSignCertName: 'ReferencePackagePublisherCertificate'
               FolderPath: "$(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Core/bin/$(BuildConfiguration)/"  # This path should already omit test dlls as they exist in the `tests` folder
-              Pattern: 'Microsoft.Agents.M365Copilot.Core.dll'
+              Pattern: '**/Microsoft.Agents.M365Copilot.Core.dll'
               signConfigType: inlineSignParams
               UseMinimatch: true
               inlineOperation: |
@@ -115,7 +115,7 @@ extends:
               AuthCertName: 'ReferenceLibraryPrivateCert'
               AuthSignCertName: 'ReferencePackagePublisherCertificate'
               FolderPath: "$(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Beta/bin/$(BuildConfiguration)/"  # This path should already omit test dlls as they exist in the `tests` folder
-              Pattern: 'Microsoft.Agents.M365Copilot.Beta.dll'
+              Pattern: '**/Microsoft.Agents.M365Copilot.Beta.dll'
               signConfigType: inlineSignParams
               UseMinimatch: true
               inlineOperation: |
