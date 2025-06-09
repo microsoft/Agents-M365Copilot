@@ -18,14 +18,13 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <!-- x-release-please-start-version -->
-    <VersionPrefix>1.0.0-preview.1</VersionPrefix>
+    <VersionPrefix>1.0.0-preview.2</VersionPrefix>
     <!-- x-release-please-end -->
     <!-- VersionPrefix minor version should not be set when the change comes from the generator. It will be updated automatically. -->
     <!-- VersionPrefix minor version must be manually set when making manual changes to code. -->
     <!-- VersionPrefix major and patch versions must be manually set. -->
     <VersionSuffix></VersionSuffix>
-    <!-- By default let the Maui targets be excluded to make contribution for external parties easier and dependabot updates. They can be enabled by adding `-p:IncludeMauiTargets=true` to the target build/restore command which is done in the CI.-->
-    <TargetFrameworks>netstandard2.0;net462;$(MauiTargets)</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0;net6.0;net8.0;net462;net8.0-browser;</TargetFrameworks>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <Deterministic>true</Deterministic>
