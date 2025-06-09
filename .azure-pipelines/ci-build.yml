@@ -368,7 +368,7 @@ extends:
           - script: npm test
             displayName: 'Run tests'
             workingDirectory: '$(Build.SourcesDirectory)/typescript/' 
-          - script: npm pack --workspace
+          - script: npm pack --workspaces
             displayName: 'Generate npm package'
             workingDirectory: '$(Build.SourcesDirectory)/typescript/'
           # Optionally, publish the npm package as a pipeline artifact
