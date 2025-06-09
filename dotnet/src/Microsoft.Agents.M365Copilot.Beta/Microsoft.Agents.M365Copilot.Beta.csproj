@@ -14,7 +14,7 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageIconUrl>http://go.microsoft.com/fwlink/?LinkID=288890</PackageIconUrl>
-    <RepositoryUrl>https://github.com/microsoft/Agents-M365Copilot/dotnet</RepositoryUrl>
+    <RepositoryUrl>https://github.com/microsoft/Agents-M365Copilot</RepositoryUrl>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!-- Signing set to true at build in prod pipeline-->
 
