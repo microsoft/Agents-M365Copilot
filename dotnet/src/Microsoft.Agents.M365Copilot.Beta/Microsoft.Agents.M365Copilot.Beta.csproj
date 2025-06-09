@@ -17,9 +17,7 @@
     <RepositoryUrl>https://github.com/microsoft/Agents-M365Copilot/dotnet</RepositoryUrl>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!-- Signing set to true at build in prod pipeline-->
-    <SignAssembly>false</SignAssembly> 
-    <DelaySign>false</DelaySign>
-    <AssemblyOriginatorKeyFile>35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
+
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>    
     <!-- x-release-please-start-version -->
     <VersionPrefix>1.0.0-preview.1</VersionPrefix>

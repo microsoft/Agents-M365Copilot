@@ -16,10 +16,6 @@
     <PackageIconUrl>http://go.microsoft.com/fwlink/?LinkID=288890</PackageIconUrl>
     <RepositoryUrl>https://github.com/microsoft/Agents-M365Copilot/dotnet</RepositoryUrl>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <!-- Signing set to true at build in prod pipeline-->
-    <SignAssembly>false</SignAssembly>
-    <DelaySign>false</DelaySign>
-    <AssemblyOriginatorKeyFile>35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <!-- x-release-please-start-version -->
     <VersionPrefix>1.0.0-preview.1</VersionPrefix>
@@ -78,7 +74,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
-  
+
   <ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
     <PackageReference Include="System.Net.Http.WinHttpHandler" Version="[6.0,)" />
   </ItemGroup>

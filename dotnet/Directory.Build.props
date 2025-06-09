@@ -5,4 +5,12 @@
  <PropertyGroup>
    <MauiTargets Condition="'$(IncludeMauiTargets)'=='true'">$(MauiTargets);net6.0-android;net6.0-ios;net6.0-maccatalyst;net6.0-macos;net6.0-windows</MauiTargets>
  </PropertyGroup>
+   <!-- Common default project properties for ALL projects-->
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <!-- Signing set to true at build in prod pipeline-->
+    <SignAssembly>false</SignAssembly>
+    <DelaySign>false</DelaySign>
+    <AssemblyOriginatorKeyFile>35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
 </Project>
