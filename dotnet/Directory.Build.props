@@ -11,6 +11,6 @@
     <!-- Signing set to true at build in prod pipeline-->
     <SignAssembly>false</SignAssembly>
     <DelaySign>false</DelaySign>
-    <AssemblyOriginatorKeyFile>35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>.\dotnet\35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 </Project>
