@@ -74,7 +74,6 @@ extends:
                   $doc.Save($csprojPath);
               }
               Write-Host "Updated the .csproj files so that we can sign the built assemblies."
-            workingDirectory: src
             displayName: 'Set project ready to sign'
 
           # Build the Product project
