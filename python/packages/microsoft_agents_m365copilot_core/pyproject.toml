@@ -4,7 +4,9 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "microsoft-agents-m365copilot-core"
+# x-release-please-start-version
 version = "1.0.0-preview.1"
+# x-release-please-end
 description = "Core component of the Microsoft Agents M365 Copilot Core Python SDK"
 authors = ["Microsoft <graphtooling+ccspython@microsoft.com>"]
 maintainers = ["Microsoft <graphtooling+ccspython@microsoft.com>"]
