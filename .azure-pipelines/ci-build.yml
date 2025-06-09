@@ -57,11 +57,10 @@ extends:
           
           # Enable signing for the projects
           - pwsh: |
-              # This allows us to not have to checkin .csproj files with DelaySign and SignAssembly set to to true. If the flag is set,
-              # then project is not debuggable with SignAssembly set to true.
-              # Assumption: working directory is root
-              $csprojPaths = @(".\dotnet\src\Microsoft.Agents.M365Copilot.Core\Microsoft.Agents.M365Copilot.Core.csproj",
-                               ".\dotnet\src\Microsoft.Agents.M365Copilot.Beta\Microsoft.Agents.M365Copilot.Beta.csproj")
+              # This allows us to not have to checkin .csproj or Directory.Build.props files with DelaySign and 
+              # SignAssembly set to to true. If the flag is set, then project is not debuggable with SignAssembly set 
+              # to true. Assumption: working directory is root
+              $csprojPaths = @(".\dotnet\Directory.Build.props")
               foreach ($csprojPath in $csprojPaths) {
                   $doc = New-Object System.Xml.XmlDocument
                   $doc.Load($csprojPath)
