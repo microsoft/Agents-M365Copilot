@@ -55,6 +55,28 @@ extends:
               versionSpec: '>=5.2.0'
               checkLatest: true
           
+          # Enable signing for the projects
+          - pwsh: |
+              # This allows us to not have to checkin .csproj files with DelaySign and SignAssembly set to to true. If the flag is set,
+              # then project is not debuggable with SignAssembly set to true.
+              # Assumption: working directory is root
+              $csprojPaths = @(".\dotnet\src\Microsoft.Agents.M365Copilot.Core\Microsoft.Agents.M365Copilot.Core.csproj",
+                               ".\dotnet\src\Microsoft.Agents.M365Copilot.Beta\Microsoft.Agents.M365Copilot.Beta.csproj")
+              foreach ($csprojPath in $csprojPaths) {
+                  $doc = New-Object System.Xml.XmlDocument
+                  $doc.Load($csprojPath)
+                  # Set the DelaySign element to 'true' so that delay signing is set.
+                  $delaySign = $doc.SelectSingleNode("//DelaySign");
+                  $delaySign.'#text'= "true"
+                  # Set the SignAssembly element to 'true' so that we can sign the assemblies.
+                  $signAssembly = $doc.SelectSingleNode("//SignAssembly");
+                  $signAssembly.'#text'= "true"
+                  $doc.Save($csprojPath);
+              }
+              Write-Host "Updated the .csproj files so that we can sign the built assemblies."
+            workingDirectory: src
+            displayName: 'Set project ready to sign'
+
           # Build the Product project
           - task: DotNetCoreCLI@2
             displayName: 'Build M365 CoPilot Agents SDK'
