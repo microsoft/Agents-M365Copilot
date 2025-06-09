@@ -11,6 +11,7 @@
     <!-- Signing set to true at build in prod pipeline-->
     <SignAssembly>false</SignAssembly>
     <DelaySign>false</DelaySign>
-    <AssemblyOriginatorKeyFile>.\dotnet\35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
+    <!-- Make path to key file relative to csprojs in this directory -->
+    <AssemblyOriginatorKeyFile>..\..\35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 </Project>
