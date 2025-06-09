@@ -46,3 +46,71 @@ extends:
             nuGetFeedType: external  # Change to external for external
             publishPackageMetadata: true
             publishFeedCredentials: 'M365 Copilot NuGet Connection'
+    - stage: typescript_release
+      jobs:
+      - job: agents-m365copilot-beta_release
+        displayName: Publish to npm
+        pool:
+          name: Azure-Pipelines-1ESPT-ExDShared
+          image: windows-2022
+          os: windows
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+              - task: NodeTool@0
+                inputs:
+                  versionSource: spec
+                  versionSpec: 20.x
+                displayName: Install Node.js
+              - download: current
+                artifact: build-drop
+              - task: EsrpRelease@9
+                displayName: 'Publish NPM artifacts via ESRP'
+                inputs:
+                  connectedservicename: "Federated DevX ESRP Managed Identity Connection"
+                  usemanagedidentity: true
+                  keyvaultname: "akv-prod-eastus"
+                  signcertname: "ReferencePackagePublisherCertificate"
+                  clientid: "65035b7f-7357-4f29-bf25-c5ee5c3949f8"
+                  intent: "PackageDistribution"
+                  contenttype: "npm"
+                  folderlocation: "$(Pipeline.Workspace)/build-drop/packages/agents-m365copilot-beta/"
+                  owners: "mmainer@microsoft.com,christiano@microsoft.com"
+                  approvers: "mmainer@microsoft.com,christiano@microsoft.com"
+                  serviceendpointurl: "https://api.esrp.microsoft.com"
+                  mainpublisher: "ESRPRELPACMAN"
+                  domaintenantid: "cdc5aeea-15c5-4db6-b079-fcadd2505dc2"
+    - job: agents-m365copilot-core_release
+      displayName: Publish to npm
+      pool:
+              name: Azure-Pipelines-1ESPT-ExDShared
+              image: windows-2022
+              os: windows
+      strategy:
+        runOnce:       
+          deploy:
+            steps:
+              - task: NodeTool@0
+                inputs:
+                  versionSource: spec
+                  versionSpec: 20.x
+                displayName: Install Node.js
+              - download: current
+                artifact: build-drop
+              - task: EsrpRelease@9
+                displayName: 'Publish NPM artifacts via ESRP'
+                inputs:
+                  connectedservicename: "Federated DevX ESRP Managed Identity Connection"
+                  usemanagedidentity: true
+                  keyvaultname: "akv-prod-eastus"
+                  signcertname: "ReferencePackagePublisherCertificate"
+                  clientid: "65035b7f-7357-4f29-bf25-c5ee5c3949f8"
+                  intent: "PackageDistribution"
+                  contenttype: "npm"
+                  folderlocation: "$(Pipeline.Workspace)/build-drop/packages/agents-m365copilot-core/"
+                  owners: "mmainer@microsoft.com,christiano@microsoft.com"
+                  approvers: "mmainer@microsoft.com,christiano@microsoft.com"
+                  serviceendpointurl: "https://api.esrp.microsoft.com"
+                  mainpublisher: "ESRPRELPACMAN"
+                  domaintenantid: "cdc5aeea-15c5-4db6-b079-fcadd2505dc2"
