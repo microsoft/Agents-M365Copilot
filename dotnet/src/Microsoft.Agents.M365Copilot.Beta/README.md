@@ -1,22 +1,19 @@
-# Microsoft Agents M365 Copilot APIs .NET Core Client Library
+# Microsoft 365 Copilot APIs .NET Beta Client Library
 
-The Microsoft M365 Copilot APIs .NET Core Client Library contains core classes and interfaces used by the [Microsoft M365 Copilot APIs Library](https://github.com/microsoft/agents-m365copilot/dotnet) to send native HTTP requests to the [Microsoft M365 Copilot APIs](https://aka.ms/M365CopilotAPIs). The latest core client library targets .NetStandard 2.0.
+Integrate the Microsoft 365 Copilot APIs into your .NET project!
 
-## Getting started
+The Microsoft 365 Copilot APIs. NET Beta Client Library targets .NetStandard 2.0.
 
-### 1. Register your application
+> **Note:**
+>
+>Because the Microsoft 365 Copilot APIs in the beta endpoint are subject to breaking changes, don't use a preview release of the client library in production apps.
 
-Register your application to use Microsoft Agents M365 Copilot API by following the steps at [Register your application with the Microsoft identity platform](https://docs.microsoft.com/en-us/graph/auth-register-app-v2).
+## Installation via NuGet
 
-### 2. Authenticate for the Microsoft Agents M365 Copilot service
+To install the client library via NuGet:
 
-The Microsoft Agents M365 Copilot .NET Client Library supports the use of TokenCredential classes in the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) library.
-
-You can read more about available Credential classes [here](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/identity-readme#key-concepts) and examples on how to quickly setup TokenCredential instances can be found [here](https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/main/docs/tokencredentials.md).
-
-The recommended library for authenticating against Microsoft Identity (Azure AD) is [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
-
-For an example of authenticating a UWP app using the V2 Authentication Endpoint, see the [Microsoft Graph UWP Connect Library](https://github.com/OfficeDev/Microsoft-Graph-UWP-Connect-Library).
+* Search for `Microsoft.Agents.M365Copilot.Beta` in the NuGet Library, or
+* Type `Install-Package Microsoft.Agents.M365Copilot.Beta` into the Package Manager Console.
 
 ## Create a Copilot APIs client and make an API call
 
@@ -128,7 +125,7 @@ catch (Exception ex)
 ## Documentation and resources
 
 - [Microsoft 365 Copilot APIs](https://aka.ms/M365CopilotAPIs)
-
+ 
 ## Issues
 
 To view or log issues, see [issues](https://github.com/microsoft/agents-m365copilot/issues).
@@ -137,7 +134,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 
 ## Other resources
 
-- NuGet Package: [https://www.nuget.org/packages/Microsoft.Agents.M365Copilot.Core](https://www.nuget.org/packages/Microsoft.Agents.M365Copilot.Core)
+- NuGet Package: [https://www.nuget.org/packages/Microsoft.Agents.M365Copilot.Beta](https://www.nuget.org/packages/Microsoft.Agents.M365Copilot.Beta)
 
 ## Building library locally
 
