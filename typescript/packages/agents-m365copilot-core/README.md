@@ -4,19 +4,19 @@ The Microsoft 365 Copilot TypeScript Core Client Library contains core classes u
 
 > **Note:**
 >
->Because the Copilot APIs in the beta endpoint are subject to breaking changes, don't use a preview release of the client libraries in production apps.
+> Because the Copilot APIs in the beta endpoint are subject to breaking changes, don't use a preview release of the client libraries in production apps.
 
 ## Create a Copilot APIs client and make an API call
 
 The following code example shows how to create an instance of a Microsoft 365 Copilot APIs client with an authentication provider in the supported languages. The authentication provider handles acquiring access tokens for the application. Many different authentication providers are available for each language and platform. The different authentication providers support different client scenarios. For details about which provider and options are appropriate for your scenario, see [Choose an Authentication Provider](https://learn.microsoft.com/graph/sdks/choose-authentication-providers). 
 
-The example also shows how to make a call to the Microsoft 365 Copilot Retrieval API. To call this API, you first need to create a request object and then run the POST method on the request.
+The example also shows how to make a call to the Microsoft 365 Copilot Retrieval API. To call this API, you need to install the [Microsoft 365 Copilot APIs TypeScript Beta Client Library](https://github.com/microsoft/Agents-M365Copilot/tree/main/typescript/packages/agents-m365copilot-beta), create a request object and then run the POST method on the request.
 
 The client ID is the app registration ID that is generated when you [register your app in the Azure portal](https://learn.microsoft.com/graph/auth-register-app-v2).
 
->**Note:**
+> **Note:**
 >    
->Your tenant must have a Microsoft 365 Copilot license.
+> Your tenant must have a Microsoft 365 Copilot license.
 
 ```TypeScript
 import { createBaseAgentsM365CopilotBetaServiceClient, RetrievalDataSourceObject } from '@microsoft/agents-m365copilot-beta';

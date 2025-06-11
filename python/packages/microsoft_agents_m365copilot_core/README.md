@@ -4,7 +4,7 @@ The  Microsoft 365 Copilot APIs Python Core Client Library contains core classes
 
 > **Note:**
 >
->Because the Microsoft 365 Copilot APIs in the beta endpoint are subject to breaking changes, don't use a preview release of the client libraries in production apps.
+> Because the Microsoft 365 Copilot APIs in the beta endpoint are subject to breaking changes, don't use a preview release of the client libraries in production apps.
 
 ## Prerequisites
 
@@ -53,11 +53,15 @@ TENANT_ID = "YOUR_TENANT_ID"
 CLIENT_ID = "YOUR_CLIENT_ID"
 ```
 
->**Note:**
+> **Note:**
 >
 > Your tenant must have a Microsoft 365 Copilot license.
 
 ### 4. Create a `main.py` file with the following snippet:
+
+> **Note:**
+>
+> This example shows how to make a call to the Microsoft 365 Copilot Retrieval API. To call this API, you need to install the [Microsoft 365 Copilot APIs Python Beta Client Library](https://github.com/microsoft/Agents-M365Copilot/tree/main/python/packages/microsoft_agents_m365copilot_beta), create a request object and then run the POST method on the request.
 
 ```python
 import asyncio

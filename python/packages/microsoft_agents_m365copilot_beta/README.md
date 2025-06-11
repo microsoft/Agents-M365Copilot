@@ -4,13 +4,13 @@ Integrate the Microsoft 365 Copilot APIs into your Python application!
 
 > **Note:**
 >
->Because the Copilot APIs in the beta endpoint are subject to breaking changes, don't use a preview release of the client libraries in production apps.
+> Because the Copilot APIs in the beta endpoint are subject to breaking changes, don't use a preview release of the client libraries in production apps.
 
 ## Installation
 
 To install the client libraries via PyPi:
 
-```py
+```shell
 pip install microsoft-agents-m365copilot-beta
 ```
 
@@ -22,9 +22,9 @@ The example also shows how to make a call to the Microsoft 365 Copilot Retrieval
 
 The client ID is the app registration ID that is generated when you [register your app in the Azure portal](https://learn.microsoft.com/graph/auth-register-app-v2).
 
->**Note:**
+> **Note:**
 >    
->Your tenant must have a Microsoft 365 Copilot license.
+> Your tenant must have a Microsoft 365 Copilot license.
 
 ```TypeScript
 import { createBaseAgentsM365CopilotBetaServiceClient, RetrievalDataSourceObject } from '@microsoft/agents-m365copilot-beta';
