@@ -377,11 +377,9 @@ extends:
               targetFolder: $(Build.ArtifactStagingDirectory)
               Contents: |
                 *.tgz
-                packages/agents-m365copilot-beta/package.json
-                packages/agents-m365copilot-core/package.json
             displayName: "Copy package.json and package gzipped tarballs"
-      templateContext:
-        outputs:
-        - output: pipelineArtifact
-          path: '$(Build.ArtifactStagingDirectory)'
-          artifact: drop
+          templateContext:
+            outputs:
+            - output: pipelineArtifact
+              path: '$(Build.ArtifactStagingDirectory)'
+              artifact: drop
