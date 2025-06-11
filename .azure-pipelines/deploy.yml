@@ -52,7 +52,7 @@ extends:
     - stage: typescript_release
       
       jobs:
-        - deployment: agents-m365copilot-beta_release
+        - deployment: agents_m365copilot_beta_release
           environment: 'msgraph-npm-org'
           displayName: Publish beta to npm
           pool:
@@ -86,7 +86,7 @@ extends:
                       serviceendpointurl: "https://api.esrp.microsoft.com"
                       mainpublisher: "ESRPRELPACMAN"
                       domaintenantid: "cdc5aeea-15c5-4db6-b079-fcadd2505dc2"
-        - deployment: agents-m365copilot-core_release
+        - deployment: agents_m365copilot_core_release
           displayName: Publish core to npm
           environment: 'msgraph-npm-org'
           pool:
