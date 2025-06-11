@@ -1,2 +1,4 @@
 # Ignore files in generated code directories
 agents-m365copilot-beta
+packages/agents-m365copilot-core/dist
+packages/agents-m365copilot-beta/dist

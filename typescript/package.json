@@ -1,5 +1,5 @@
 {
-	"name": "root",
+	"name": "@microsoft/root",
 	"private": true,
 	"devDependencies": {
 		"@microsoft/eslint-config-msgraph": "^5.0.0",
@@ -32,14 +32,12 @@
 		"packages/*"
 	],
 	"scripts": {
-		"build": "npm run prettier:check && npm run clean && npm run build:@microsoft/*",
-		"build:lerna": "lerna run build --scope \"@microsoft/*\"",
+		"build": "npm run prettier:check && npm run clean && npm run build:all",
+		"build:all": "lerna run build --scope @microsoft/agents-m365copilot-*",
 		"build:beta": "npm run build --prefix packages/agents-m365copilot-core && npm run build --prefix packages/agents-m365copilot-beta",
-		"build:@microsoft/*": "lerna run build --scope \"@microsoft/*\"",
-		"clean": "lerna run --parallel --stream --scope \"@microsoft/*\" clean",
-		"test": "lerna run --scope \"@microsoft/*\" test",
+		"clean": "lerna run --parallel --stream --scope @microsoft/agents-m365copilot-* clean",
+		"test": "lerna run --scope @microsoft/agents-m365copilot-* test",
 		"test:coverage": "lerna run test:coverage",
-		"test:integrated": "lerna run test:integrated",
 		"tsc:version": "tsc --version",
 		"prettier:base": "prettier --parser typescript",
 		"prettier:check": "npm run prettier:base -- --check \"packages/**/*.{ts,tsx}\"",
