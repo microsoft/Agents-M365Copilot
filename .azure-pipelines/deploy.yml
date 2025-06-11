@@ -11,7 +11,7 @@ resources:
   pipelines:
   - pipeline: 'Microsoft Agents M365 Copilot Build Artifacts'
     source: '\Microsoft Agents M365 Copilot\Microsoft Agents M365 Copilot Build Artifacts'
-    branch: addbuildpipeline # TODO: Set to main, add to parameter settable at queue time in UI to do deploymnets from branch.
+    branch: main
 
 extends:
   template: v1/1ES.Official.PipelineTemplate.yml@1ESPipelineTemplates
