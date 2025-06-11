@@ -380,8 +380,8 @@ extends:
                 packages/agents-m365copilot-beta/package.json
                 packages/agents-m365copilot-core/package.json
             displayName: "Copy package.json and package gzipped tarballs"
-          - task: PublishPipelineArtifact@1
-            inputs:
-              targetPath: '$(Build.ArtifactStagingDirectory)'
-              artifactName: npmPackages
-            displayName: 'Publish npm package artifacts'
+            templateContext:
+              outputs:
+              - output: pipelineArtifact
+                path: '$(Build.ArtifactStagingDirectory)'
+                artifact: drop
