@@ -27,12 +27,9 @@ extends:
       branchValidation: enforceInReleaseJobs
 
     stages:
-    - stage: release_dotnet
-      displayName: Publish .NET artifacts
+    - stage: release
       jobs:
-      - deployment: release_dotnet
-        displayName: 'Deploy to NuGet.org'
-        environment: 'microsoftgraph-nuget-org'
+      - job: release
         templateContext:
           isProduction: true
           inputs:
@@ -51,8 +48,7 @@ extends:
             publishFeedCredentials: 'M365 Copilot NuGet Connection'
     - stage: typescript_release
       jobs:
-      - deployment: agents-m365copilot-beta_release
-        environment: 'msgraph-npm-org'
+      - job: agents-m365copilot-beta_release
         displayName: Publish to npm
         pool:
           name: Azure-Pipelines-1ESPT-ExDShared
@@ -79,7 +75,7 @@ extends:
                   clientid: "65035b7f-7357-4f29-bf25-c5ee5c3949f8"
                   intent: "PackageDistribution"
                   contenttype: "npm"
-                  folderlocation: "$(Pipeline.Workspace)/build-drop/agents-m365copilot-beta/"
+                  folderlocation: "$(Pipeline.Workspace)/build-drop/"
                   owners: "mmainer@microsoft.com,christiano@microsoft.com"
                   approvers: "mmainer@microsoft.com,christiano@microsoft.com"
                   serviceendpointurl: "https://api.esrp.microsoft.com"
@@ -112,7 +108,7 @@ extends:
                   clientid: "65035b7f-7357-4f29-bf25-c5ee5c3949f8"
                   intent: "PackageDistribution"
                   contenttype: "npm"
-                  folderlocation: "$(Pipeline.Workspace)/build-drop/agents-m365copilot-core/"
+                  folderlocation: "$(Pipeline.Workspace)/build-drop/"
                   owners: "mmainer@microsoft.com,christiano@microsoft.com"
                   approvers: "mmainer@microsoft.com,christiano@microsoft.com"
                   serviceendpointurl: "https://api.esrp.microsoft.com"
