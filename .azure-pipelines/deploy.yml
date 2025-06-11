@@ -11,7 +11,7 @@ resources:
   pipelines:
   - pipeline: 'Microsoft Agents M365 Copilot Build Artifacts'
     source: '\Microsoft Agents M365 Copilot\Microsoft Agents M365 Copilot Build Artifacts'
-    branch: main
+    branch: addBuildPipeline #TODO - change to main before merging
 
 extends:
   template: v1/1ES.Official.PipelineTemplate.yml@1ESPipelineTemplates
