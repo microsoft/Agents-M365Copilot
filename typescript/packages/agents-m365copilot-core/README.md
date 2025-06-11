@@ -1,162 +1,85 @@
-# Microsoft Agents M365 Copilot Core SDK for Typescript
+# Microsoft 365 Copilot APIs TypeScript Core Client Library
 
-Get started with the Microsoft Agents M365 Copilot SDK for Typescript by integrating the [Microsoft Agents M365 Copilot API](https://docs.microsoft.com/graph/overview) into your Typescript application!
+The Microsoft 365 Copilot TypeScript Core Client Library contains core classes used by the [Microsoft M365 Copilot APIs Library](https://github.com/microsoft/Agents-M365Copilot/tree/main/typescript) to send native HTTP requests to the [Microsoft M365 Copilot APIs](https://aka.ms/M365CopilotAPIs).
 
-> **Note:** this package contains the core feature of the TypeScript SDK. To get the full experience checkout [the v1 SDK](https://github.com/microsoft/Agents-M365Copilot).
+> **Note:**
 >
-> **Note:** the Microsoft Agents M365 Copilot Typescript SDK is currently in Pre-Release.
+>Because the Copilot APIs in the beta endpoint are subject to breaking changes, don't use a preview release of the client libraries in production apps.
 
-## 1. Installation
+## Create a Copilot APIs client and make an API call
 
-```shell
-# this will install the core package
-npm install @microsoft/agents-m365copilot-core
-```
+The following code example shows how to create an instance of a Microsoft 365 Copilot APIs client with an authentication provider in the supported languages. The authentication provider handles acquiring access tokens for the application. Many different authentication providers are available for each language and platform. The different authentication providers support different client scenarios. For details about which provider and options are appropriate for your scenario, see [Choose an Authentication Provider](https://learn.microsoft.com/graph/sdks/choose-authentication-providers). 
 
-## 2. Getting started
+The example also shows how to make a call to the Microsoft 365 Copilot Retrieval API. To call this API, you first need to create a request object and then run the POST method on the request.
 
-> Note: we are working to add the getting started information for Typescript to our public documentation, in the meantime the following sample should help you getting started.
+The client ID is the app registration ID that is generated when you [register your app in the Azure portal](https://learn.microsoft.com/graph/auth-register-app-v2).
 
-### 2.1 Register your application
-
-Register your application by following the steps at [Register your app with the Microsoft Identity Platform](https://docs.microsoft.com/graph/auth-register-app-v2).
-
-### 2.2 Create an AuthenticationProvider object
-
-An instance of the **FetchClient** class handles making requests to the service. To create a new instance of this class, you need to provide an instance of **AuthenticationProvider**, which can authenticate requests to Microsoft Agents M365 Copilot.
-
-<!-- TODO restore that and remove the snippets below once the SDK hits GA and the public documentation has been updated -->
-<!-- For an example of how to get an authentication provider, see [choose a Microsoft Agents M365 Copilot authentication provider](https://docs.microsoft.com/graph/sdks/choose-authentication-providers?tabs=typescript). -->
-
-#### 2.2.1 Authorization Code Provider
+>**Note:**
+>    
+>Your tenant must have a Microsoft 365 Copilot license.
 
 ```TypeScript
-// @azure/identity
-const credential = new AuthorizationCodeCredential(
-  'YOUR_TENANT_ID',
-  'YOUR_CLIENT_ID',
-  'YOUR_CLIENT_SECRET',
-  'AUTHORIZATION_CODE',
-  'REDIRECT_URL',
-);
+import { createBaseAgentsM365CopilotBetaServiceClient, RetrievalDataSourceObject } from '@microsoft/agents-m365copilot-beta';
+import { DeviceCodeCredential } from '@azure/identity';
+import { FetchRequestAdapter } from '@microsoft/kiota-http-fetchlibrary';
 
-// @microsoft/kiota-authentication-azure
-const authProvider = new AzureIdentityAuthenticationProvider(credential, ["User.Read"]);
+async function main() {
+    // Initialize authentication with Device Code flow
+    const credential = new DeviceCodeCredential({
+        tenantId: process.env.TENANT_ID,
+        clientId: process.env.CLIENT_ID,
+        userPromptCallback: (info) => {
+            console.log(`\nTo sign in, use a web browser to open the page ${info.verificationUri}`);
+            console.log(`Enter the code ${info.userCode} to authenticate.`);
+            console.log(`The code will expire at ${info.expiresOn}`);
+        }
+    });
+
+    // Create request adapter with auth
+    const adapter = new FetchRequestAdapter(credential, {
+        scopes: ['https://graph.microsoft.com/.default']
+    });
+    adapter.baseUrl = "https://graph.microsoft.com/beta";
+
+    // Create client instance
+    const client = createBaseAgentsM365CopilotBetaServiceClient(adapter);
+
+    try {
+        console.log(`Using API base URL: ${adapter.baseUrl}\n`);
+
+        // Create the retrieval request body
+        const retrievalBody = {
+            dataSource: RetrievalDataSourceObject.SharePoint,
+            queryString: "What is the latest in my organization"
+        };
+
+        // Make the API call
+        console.log("Making retrieval API request...");
+        const retrieval = await client.copilot.retrieval.post(retrievalBody);
+
+        // Process the results
+        if (retrieval?.retrievalHits) {
+            console.log(`\nReceived ${retrieval.retrievalHits.length} hits`);
+            for (const hit of retrieval.retrievalHits) {
+                console.log(`\nWeb URL: ${hit.webUrl}`);
+                for (const extract of hit.extracts || []) {
+                    console.log(`Text:\n${extract.text}\n`);
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        throw error;
+    }
+}
 ```
 
-#### 2.2.2 Client Credentials Provider
+## Issues
 
-##### With a certificate
+View or log issues on the [Issues](https://github.com/microsoft/Agents-M365Copilot/issues) tab in the repo and tag them as `typescript` or `typescript-core`.
 
-```TypeScript
-// @azure/identity
-const credential = new ClientCertificateCredential(
-  'YOUR_TENANT_ID',
-  'YOUR_CLIENT_ID',
-  'YOUR_CERTIFICATE_PATH',
-);
+## Copyright and license
 
-// @microsoft/kiota-authentication-azure
-const authProvider = new AzureIdentityAuthenticationProvider(credential, ["https://graph.microsoft.com/.default"]);
-```
+Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT [license](https://github.com/microsoft/Agents-M365Copilot/tree/main/typescript/LICENSE).
 
-##### With a secret
-
-```TypeScript
-// @azure/identity
-const credential = new ClientSecretCredential(
-  'YOUR_TENANT_ID',
-  'YOUR_CLIENT_ID',
-  'YOUR_CLIENT_SECRET',
-);
-
-// @microsoft/kiota-authentication-azure
-const authProvider = new AzureIdentityAuthenticationProvider(credential, ["https://graph.microsoft.com/.default"]);
-```
-
-#### 2.2.3 On-behalf-of provider
-
-```TypeScript
-// @azure/identity
-const credential = new OnBehalfOfCredential({
-  tenantId: 'YOUR_TENANT_ID',
-  clientId: 'YOUR_CLIENT_ID',
-  clientSecret: 'YOUR_CLIENT_SECRET',
-  userAssertionToken: 'JWT_TOKEN_TO_EXCHANGE',
-});
-
-// @microsoft/kiota-authentication-azure
-const authProvider = new AzureIdentityAuthenticationProvider(credential, ["https://graph.microsoft.com/.default"]);
-```
-
-#### 2.2.4 Device code provider
-
-```TypeScript
-// @azure/identity
-const credential = new DeviceCodeCredential({
-  tenantId: 'YOUR_TENANT_ID',
-  clientId: 'YOUR_CLIENT_ID',
-  userPromptCallback: (info) => {
-    console.log(info.message);
-  },
-});
-
-// @microsoft/kiota-authentication-azure
-const authProvider = new AzureIdentityAuthenticationProvider(credential, ["User.Read"]);
-```
-
-#### 2.2.5 Interactive provider
-
-```TypeScript
-// @azure/identity
-const credential = new InteractiveBrowserCredential({
-  tenantId: 'YOUR_TENANT_ID',
-  clientId: 'YOUR_CLIENT_ID',
-  redirectUri: 'http://localhost',
-});
-
-// @microsoft/kiota-authentication-azure
-const authProvider = new AzureIdentityAuthenticationProvider(credential, ["User.Read"]);
-```
-
-#### 2.2.6 Username/password provider
-
-```TypeScript
-// @azure/identity
-const credential = new UsernamePasswordCredential(
-  'YOUR_TENANT_ID',
-  'YOUR_CLIENT_ID',
-  'YOUR_USER_NAME',
-  'YOUR_PASSWORD',
-);
-
-// @microsoft/kiota-authentication-azure
-const authProvider = new AzureIdentityAuthenticationProvider(credential, ["User.Read"]);
-```
-
-## 3. Make requests against the service
-
-TODO: document how the fetch client augmented with middleware handlers can be used to make arbitrary requests.
-
-## 4. Documentation
-
-For more detailed documentation, see:
-
-- [Known issues](https://github.com/microsoft/Agents-M365Copilot/issues)
-- [Contributions](https://github.com/microsoft/Agents-M365Copilot?tab=readme-ov-file#contributing)
-
-## 5. Issues
-
-For known issues, see [issues](https://github.com/microsoft/Agents-M365Copilot/issues).
-
-## 6. Contributions
-
-The Microsoft Agents M365 Copilot SDK is open for contribution. To contribute to this project, see [Contributing](https://github.com/microsoft/Agents-M365Copilot?tab=readme-ov-file#contributing).
-
-## 7. License
-
-Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the [MIT license](LICENSE).
-
-## 8. Third-party notices
-
-[Third-party notices](THIRD%20PARTY%20NOTICES)
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
