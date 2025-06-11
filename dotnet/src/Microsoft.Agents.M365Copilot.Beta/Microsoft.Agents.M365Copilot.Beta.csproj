@@ -1,16 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Microsoft 365 Copilot Beta client library enables you to call the Microsoft 365 Copilot APIs in your applications and custom engine agents.</Description>
+    <Description>Microsoft 365 Copilot APIs Beta client library enables you to call the Microsoft 365 Copilot APIs in your applications and custom engine agents.</Description>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
-    <AssemblyTitle>Microsoft Agents M365 Copilot Beta Client Library</AssemblyTitle>
+    <AssemblyTitle>Microsoft Agents M365 Copilot APIs Beta Client Library</AssemblyTitle>
     <Authors>Microsoft</Authors>
     <LangVersion>latest</LangVersion>    
     <PreserveCompilationContext>false</PreserveCompilationContext>
     <AssemblyName>Microsoft.Agents.M365Copilot.Beta</AssemblyName>
     <PackageId>Microsoft.Agents.M365Copilot.Beta</PackageId>
     <PackageProjectUrl>https://github.com/microsoft/agents-m365copilot</PackageProjectUrl>
-    <PackageTags>Copilot;Agents;Declarative Agents;Microsoft Office365;Outlook;OneDrive;AzureAD;Productivity;SDK</PackageTags>
+    <PackageTags>Copilot;Agents;Custom Engine Agents;Microsoft 365;OneDrive;AzureAD;Productivity;SDK;SharePoint;Copilot Connectors</PackageTags>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageIconUrl>http://go.microsoft.com/fwlink/?LinkID=288890</PackageIconUrl>
