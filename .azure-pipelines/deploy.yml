@@ -27,9 +27,12 @@ extends:
       branchValidation: enforceInReleaseJobs
 
     stages:
-    - stage: release
+    - stage: release_dotnet
+      displayName: Publish .NET artifacts
       jobs:
-      - job: release
+      - deployment: release_dotnet
+        displayName: 'Deploy to NuGet.org'
+        environment: 'microsoftgraph-nuget-org'
         templateContext:
           isProduction: true
           inputs:
@@ -48,7 +51,8 @@ extends:
             publishFeedCredentials: 'M365 Copilot NuGet Connection'
     - stage: typescript_release
       jobs:
-      - job: agents-m365copilot-beta_release
+      - deployment: agents-m365copilot-beta_release
+        environment: 'msgraph-npm-org'
         displayName: Publish to npm
         pool:
           name: Azure-Pipelines-1ESPT-ExDShared
