@@ -46,11 +46,14 @@ extends:
           - output: nuget
             displayName: Publish Nuget package
             useDotNetTask: false
-            packagesToPush: '$(Build.ArtifactStagingDirectory)/ArtifactsForRelease/*nupkg'
+            packagesToPush: '$(Build.ArtifactStagingDirectory)/ArtifactsForRelease/Microsoft.Agents.M365Copilot.Core*;$(Build.ArtifactStagingDirectory)/ArtifactsForRelease/Microsoft.Agents.M365Copilot.Beta*'
             packageParentPath: $(Build.ArtifactStagingDirectory)\
             nuGetFeedType: external  # Change to external for external
             publishPackageMetadata: true
             publishFeedCredentials: 'M365 Copilot NuGet Connection'
+            verbosityPush: detailed
+            allowPackageConflicts: true
+
     - stage: typescript_release
       
       jobs:
