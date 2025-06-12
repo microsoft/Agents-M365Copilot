@@ -27,14 +27,13 @@ extends:
       branchValidation: enforceInReleaseJobs
 
     stages:
-    - stage: release
+    - stage: dotnet_release
       jobs:
-      - deployment: dotnet_release # Using this to gate a release
+      - deployment: dotnet # Using this to gate a release
         environment: 'msgraph-nuget-org'
         displayName: Publish packages to NuGet
        
       - job: release
-        dependsOn: dotnet_release
         templateContext:
           isProduction: true
           inputs:
@@ -44,9 +43,19 @@ extends:
             targetPath: $(Build.ArtifactStagingDirectory)/ArtifactsForRelease
           outputs:
           - output: nuget
-            displayName: Publish Nuget package
+            displayName: Publish Core Nuget package
             useDotNetTask: false
-            packagesToPush: '$(Build.ArtifactStagingDirectory)/ArtifactsForRelease/Microsoft.Agents.M365Copilot.Core*;$(Build.ArtifactStagingDirectory)/ArtifactsForRelease/Microsoft.Agents.M365Copilot.Beta*'
+            packagesToPush: '$(Build.ArtifactStagingDirectory)/ArtifactsForRelease/Microsoft.Agents.M365Copilot.Core*'
+            packageParentPath: $(Build.ArtifactStagingDirectory)\
+            nuGetFeedType: external  # Change to external for external
+            publishPackageMetadata: true
+            publishFeedCredentials: 'M365 Copilot NuGet Connection'
+            verbosityPush: detailed
+            allowPackageConflicts: true
+          - output: nuget
+            displayName: Publish Beta Nuget package
+            useDotNetTask: false
+            packagesToPush: '$(Build.ArtifactStagingDirectory)/ArtifactsForRelease/Microsoft.Agents.M365Copilot.Beta*'
             packageParentPath: $(Build.ArtifactStagingDirectory)\
             nuGetFeedType: external  # Change to external for external
             publishPackageMetadata: true
