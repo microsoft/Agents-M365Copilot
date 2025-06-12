@@ -383,3 +383,77 @@ extends:
             - output: pipelineArtifact
               path: '$(Build.ArtifactStagingDirectory)'    
               artifact: drop
+    - stage: Build_python
+      dependsOn: []
+      jobs:
+        - job: build
+          displayName: 'Build Python Project'
+          pool:
+            name: Azure-Pipelines-1ESPT-ExDShared
+            image: ubuntu-latest
+            os: linux 
+          strategy:
+            matrix:
+              core:
+                library:
+                  name: microsoft_agents_m365copilot_core
+                  path: packages/microsoft_agents_m365copilot_core
+              beta:
+                library:
+                  name: microsoft_agents_m365copilot_beta
+                  path: packages/microsoft_agents_m365copilot_beta
+          steps:
+            - task: UsePythonVersion@0
+              displayName: 'Use Python 3.10'
+              inputs:
+                versionSpec: '3.10'
+                addToPath: true
+
+            - script: |
+                python -m pip install --upgrade pip
+                pip install poetry
+              displayName: 'Install Poetry'
+              workingDirectory: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}'
+
+            - script: poetry install
+              displayName: 'Install dependencies'
+              workingDirectory: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}'
+
+            - script: poetry run yapf -dr ${{ matrix.library.name }}
+              displayName: 'Check code format'
+              workingDirectory: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}'
+
+            - script: poetry run isort ${{ matrix.library.name }}
+              displayName: 'Check import order'
+              workingDirectory: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}'
+
+            - script: poetry run pylint ${{ matrix.library.name }} --disable=W --rcfile=.pylintrc
+              displayName: 'Lint with Pylint'
+              workingDirectory: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}'
+
+            - script: poetry run mypy ${{ matrix.library.name }}
+              displayName: 'Static type checking with Mypy'
+              workingDirectory: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}'
+
+            - script: poetry run pytest
+              displayName: 'Run the tests'
+              workingDirectory: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}'
+
+            - script: poetry build
+              displayName: 'Build Python package'
+              workingDirectory: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}'
+
+            - task: CopyFiles@2
+              inputs:
+                sourceFolder: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}/dist/'
+                targetFolder: '$(Build.ArtifactStagingDirectory)/${{ matrix.library.name }}'
+                Contents: |
+                  *.tar.gz
+                  *.whl
+              displayName: "Copy Python package files"
+
+          templateContext:
+            outputs:
+              - output: pipelineArtifact
+                path: '$(Build.ArtifactStagingDirectory)'
+                artifact: drop
