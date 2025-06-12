@@ -419,19 +419,19 @@ extends:
               displayName: 'Install dependencies'
               workingDirectory: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}'
 
-            - script: poetry run yapf -dr ${{ matrix.library.name }}
+            - script: poetry run yapf -dr .
               displayName: 'Check code format'
               workingDirectory: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}'
 
-            - script: poetry run isort ${{ matrix.library.name }}
+            - script: poetry run isort .
               displayName: 'Check import order'
               workingDirectory: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}'
 
-            - script: poetry run pylint ${{ matrix.library.name }} --disable=W --rcfile=.pylintrc
+            - script: poetry run pylint . --disable=W --rcfile=../../.pylintrc
               displayName: 'Lint with Pylint'
               workingDirectory: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}'
 
-            - script: poetry run mypy ${{ matrix.library.name }}
+            - script: poetry run mypy .
               displayName: 'Static type checking with Mypy'
               workingDirectory: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}'
 
