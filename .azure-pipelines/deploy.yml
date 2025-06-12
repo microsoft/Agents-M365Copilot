@@ -84,7 +84,7 @@ extends:
               clientid: "65035b7f-7357-4f29-bf25-c5ee5c3949f8"
               intent: "PackageDistribution"
               contenttype: "npm"
-              folderlocation: "$(Build.ArtifactStagingDirectory)/npm/"
+              folderlocation: "$(Build.ArtifactStagingDirectory)"
               owners: "mmainer@microsoft.com,christiano@microsoft.com"
               approvers: "mmainer@microsoft.com,christiano@microsoft.com"
               serviceendpointurl: "https://api.esrp.microsoft.com"

@@ -374,12 +374,12 @@ extends:
           - task: CopyFiles@2
             inputs:
               sourceFolder: '$(Build.SourcesDirectory)/typescript/'
-              targetFolder: '$(Build.ArtifactStagingDirectory)/npm/'
+              targetFolder: '$(Build.ArtifactStagingDirectory)'
               Contents: |
                 *.tgz
             displayName: "Copy package.json and package gzipped tarballs"
           templateContext:
             outputs:
             - output: pipelineArtifact
-              path: '$(Build.ArtifactStagingDirectory)/npm/'    
+              path: '$(Build.ArtifactStagingDirectory)'    
               artifact: drop
