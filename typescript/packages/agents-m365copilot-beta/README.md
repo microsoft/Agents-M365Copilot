@@ -1,17 +1,17 @@
-# Microsoft 365 Copilot APIs Python Beta Client Library
+# Microsoft 365 Copilot APIs TypeScript Beta Client Library
 
-Integrate the Microsoft 365 Copilot APIs into your Python application!
+Integrate the Microsoft 365 Copilot APIs into your TypeScript application!
 
 > **Note:**
 >
-> Because the Copilot APIs in the beta endpoint are subject to breaking changes, don't use a preview release of the client libraries in production apps.
+> Because the Microsoft 365 Copilot APIs in the beta endpoint are subject to breaking changes, don't use this preview release of the client libraries in production apps.
 
 ## Installation
 
-To install the client libraries via PyPi:
+To install the client libraries via npm.
 
-```shell
-pip install microsoft-agents-m365copilot-beta
+```Shell
+npm install @microsoft/agents-m365copilot-beta –save
 ```
 
 ## Create a Copilot APIs client and make an API call
@@ -84,7 +84,7 @@ async function main() {
 
 ## Issues
 
-View or log issues on the [Issues](https://github.com/microsoft/Agents-M365Copilot/issues) tab in the repo and tag them as `python` or `python-core`.
+View or log issues on the [Issues](https://github.com/microsoft/Agents-M365Copilot/issues) tab in the repo and tag them as `typescript` or `typescript-core`.
 
 ## Copyright and license
 

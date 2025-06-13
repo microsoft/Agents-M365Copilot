@@ -1,16 +1,26 @@
-# Microsoft 365 Copilot APIs .NET Core Client Library
+# Microsoft 365 Copilot APIs .NET Beta Client Library
 
-The Microsoft 365 Copilot APIs .NET Core Client Library contains core classes and interfaces used by the [Microsoft 365 Copilot APIs Library](https://github.com/microsoft/agents-m365copilot/dotnet) to send native HTTP requests to the [Microsoft 365 Copilot APIs](https://aka.ms/M365CopilotAPIs). The latest core client library targets .NetStandard 2.0.
+Integrate the Microsoft 365 Copilot APIs into your .NET project!
+
+The Microsoft 365 Copilot APIs. NET Beta Client Library targets .NetStandard 2.0.
 
 > **Note:**
 >
-> Because the Microsoft 365 Copilot APIs in the beta endpoint are subject to breaking changes, don't use a preview release of the client libraries in production apps.
+> Because the Microsoft 365 Copilot APIs in the beta endpoint are subject to breaking changes, don't use a preview release of the client library in production apps.
+
+## Installation via NuGet
+
+To install the client library via NuGet:
+
+* Search for `Microsoft.Agents.M365Copilot.Beta` in the NuGet Library, or
+* Type `Install-Package Microsoft.Agents.M365Copilot.Beta` into the Package Manager Console.
+* Type `dotnet add PathToCSProj package Microsoft.Agents.M365Copilot.Beta` in any console.
 
 ## Create a Copilot APIs client and make an API call
 
 The following code example shows how to create an instance of a Microsoft 365 Copilot APIs client with an authentication provider in the supported languages. The authentication provider handles acquiring access tokens for the application. Many different authentication providers are available for each language and platform. The different authentication providers support different client scenarios. For details about which provider and options are appropriate for your scenario, see [Choose an Authentication Provider](https://learn.microsoft.com/graph/sdks/choose-authentication-providers). 
 
-The example also shows how to make a call to the Microsoft 365 Copilot Retrieval API. To call this API, you need to install the [Microsoft 365 Copilot APIs .NET Beta Client Library](https://github.com/microsoft/Agents-M365Copilot/tree/main/dotnet/src/Microsoft.Agents.M365Copilot.Beta), create a request object and then run the POST method on the request.
+The example also shows how to make a call to the Microsoft 365 Copilot Retrieval API. To call this API, you first need to create a request object and then run the POST method on the request.
 
 The client ID is the app registration ID that is generated when you [register your app in the Azure portal](https://learn.microsoft.com/graph/auth-register-app-v2).
 
@@ -113,11 +123,10 @@ catch (Exception ex)
     Console.Error.WriteLine(ex);
 }
 ```
-
 ## Documentation and resources
 
 - [Microsoft 365 Copilot APIs](https://aka.ms/M365CopilotAPIs)
-
+ 
 ## Issues
 
 To view or log issues, see [issues](https://github.com/microsoft/agents-m365copilot/issues).
@@ -126,7 +135,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 
 ## Other resources
 
-- NuGet Package: [https://www.nuget.org/packages/Microsoft.Agents.M365Copilot.Core](https://www.nuget.org/packages/Microsoft.Agents.M365Copilot.Core)
+- NuGet Package: [https://www.nuget.org/packages/Microsoft.Agents.M365Copilot.Beta](https://www.nuget.org/packages/Microsoft.Agents.M365Copilot.Beta)
 
 ## Building library locally
 
