@@ -1,4 +1,4 @@
-namespace Microsoft.Agents.M365Copilot.App;
+namespace Microsoft.Agents.M365Copilot.Sample;
 
 public class AuthConfig
 {

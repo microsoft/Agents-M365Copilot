@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0AB3BF05-4346-4AA6-1389-037BE0695223}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Agents.M365Copilot.App", "src\Microsoft.Agents.M365Copilot.App\Microsoft.Agents.M365Copilot.App.csproj", "{FAC87736-1178-45E3-8692-CEE2FE051BBC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Agents.M365Copilot.Sample", "src\Microsoft.Agents.M365Copilot.Sample\Microsoft.Agents.M365Copilot.Sample.csproj", "{FAC87736-1178-45E3-8692-CEE2FE051BBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

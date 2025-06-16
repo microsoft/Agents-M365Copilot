@@ -1,7 +1,8 @@
 ﻿using Azure.Identity;
-using Microsoft.Agents.M365Copilot.App;
+using Microsoft.Agents.M365Copilot.Sample;
 using Microsoft.Agents.M365Copilot.Beta;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval;
+using Microsoft.Agents.M365Copilot.Beta.Models;
 using Microsoft.Extensions.Configuration;
 
 var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "development";
@@ -48,7 +49,8 @@ try
 {
     var requestBody = new RetrievalPostRequestBody
     {
-        QueryString = "what is the latest in my organization"
+        QueryString = "what is the latest in my organization",
+        DataSource = RetrievalDataSource.SharePoint,
     };
 
 #pragma warning disable CS0618 // Type or member is obsolete
