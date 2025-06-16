@@ -1,9 +1,11 @@
 from __future__ import annotations
+
 import datetime
 from collections.abc import Callable
 from dataclasses import dataclass, field
+from typing import TYPE_CHECKING, Any, Optional, Union
+
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
-from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .action_item import ActionItem
@@ -12,6 +14,7 @@ if TYPE_CHECKING:
     from .meeting_note import MeetingNote
 
 from .entity import Entity
+
 
 @dataclass
 class CallAiInsight(Entity, Parsable):
@@ -48,11 +51,6 @@ class CallAiInsight(Entity, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
-        from .action_item import ActionItem
-        from .call_ai_insight_view_point import CallAiInsightViewPoint
-        from .entity import Entity
-        from .meeting_note import MeetingNote
-
         from .action_item import ActionItem
         from .call_ai_insight_view_point import CallAiInsightViewPoint
         from .entity import Entity

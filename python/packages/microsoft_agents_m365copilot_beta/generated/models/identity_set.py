@@ -1,9 +1,16 @@
 from __future__ import annotations
+
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
+from typing import TYPE_CHECKING, Any, Optional, Union
+
+from kiota_abstractions.serialization import (
+    AdditionalDataHolder,
+    Parsable,
+    ParseNode,
+    SerializationWriter,
+)
 from kiota_abstractions.store import BackedModel, BackingStore, BackingStoreFactorySingleton
-from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .ai_interaction_mentioned_identity_set import AiInteractionMentionedIdentitySet
@@ -90,17 +97,6 @@ class IdentitySet(AdditionalDataHolder, BackedModel, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
-        from .ai_interaction_mentioned_identity_set import AiInteractionMentionedIdentitySet
-        from .approval_identity_set import ApprovalIdentitySet
-        from .chat_message_from_identity_set import ChatMessageFromIdentitySet
-        from .chat_message_mentioned_identity_set import ChatMessageMentionedIdentitySet
-        from .chat_message_reaction_identity_set import ChatMessageReactionIdentitySet
-        from .communications_identity_set import CommunicationsIdentitySet
-        from .custom_emoji_from_identity_set import CustomEmojiFromIdentitySet
-        from .engagement_identity_set import EngagementIdentitySet
-        from .identity import Identity
-        from .share_point_identity_set import SharePointIdentitySet
-
         from .ai_interaction_mentioned_identity_set import AiInteractionMentionedIdentitySet
         from .approval_identity_set import ApprovalIdentitySet
         from .chat_message_from_identity_set import ChatMessageFromIdentitySet

@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class AccessScope(str, Enum):
     InOrganization = "inOrganization",
     NotInOrganization = "notInOrganization",

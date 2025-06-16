@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class MessageUserRole(str, Enum):
     EnvelopeFrom = "envelopeFrom",
     HeaderFrom = "headerFrom",

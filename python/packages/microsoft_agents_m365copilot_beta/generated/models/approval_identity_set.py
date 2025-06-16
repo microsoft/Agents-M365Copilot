@@ -1,14 +1,17 @@
 from __future__ import annotations
+
 from collections.abc import Callable
 from dataclasses import dataclass, field
+from typing import TYPE_CHECKING, Any, Optional, Union
+
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
-from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .identity import Identity
     from .identity_set import IdentitySet
 
 from .identity_set import IdentitySet
+
 
 @dataclass
 class ApprovalIdentitySet(IdentitySet, Parsable):
@@ -33,9 +36,6 @@ class ApprovalIdentitySet(IdentitySet, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
-        from .identity import Identity
-        from .identity_set import IdentitySet
-
         from .identity import Identity
         from .identity_set import IdentitySet
 

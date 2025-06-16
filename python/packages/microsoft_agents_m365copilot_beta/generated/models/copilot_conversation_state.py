@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class CopilotConversationState(str, Enum):
     # The conversation is active and can accept requests to chat.
     Active = "active",

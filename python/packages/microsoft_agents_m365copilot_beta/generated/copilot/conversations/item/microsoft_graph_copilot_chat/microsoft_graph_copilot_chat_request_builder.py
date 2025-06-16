@@ -1,6 +1,10 @@
 from __future__ import annotations
+
 from collections.abc import Callable
 from dataclasses import dataclass, field
+from typing import TYPE_CHECKING, Any, Optional, Union
+from warnings import warn
+
 from kiota_abstractions.base_request_builder import BaseRequestBuilder
 from kiota_abstractions.base_request_configuration import RequestConfiguration
 from kiota_abstractions.default_query_parameters import QueryParameters
@@ -10,8 +14,6 @@ from kiota_abstractions.request_adapter import RequestAdapter
 from kiota_abstractions.request_information import RequestInformation
 from kiota_abstractions.request_option import RequestOption
 from kiota_abstractions.serialization import Parsable, ParsableFactory
-from typing import Any, Optional, TYPE_CHECKING, Union
-from warnings import warn
 
 if TYPE_CHECKING:
     from .....models.copilot_conversation import CopilotConversation

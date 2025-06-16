@@ -1,8 +1,10 @@
 from __future__ import annotations
+
 from collections.abc import Callable
 from dataclasses import dataclass, field
+from typing import TYPE_CHECKING, Any, Optional, Union
+
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
-from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .copilot_conversation_request_message import CopilotConversationRequestMessage
@@ -10,6 +12,7 @@ if TYPE_CHECKING:
     from .entity import Entity
 
 from .entity import Entity
+
 
 @dataclass
 class CopilotConversationMessage(Entity, Parsable):
@@ -50,10 +53,6 @@ class CopilotConversationMessage(Entity, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
-        from .copilot_conversation_request_message import CopilotConversationRequestMessage
-        from .copilot_conversation_response_message import CopilotConversationResponseMessage
-        from .entity import Entity
-
         from .copilot_conversation_request_message import CopilotConversationRequestMessage
         from .copilot_conversation_response_message import CopilotConversationResponseMessage
         from .entity import Entity

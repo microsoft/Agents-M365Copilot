@@ -1,6 +1,10 @@
 from __future__ import annotations
+
 from collections.abc import Callable
 from dataclasses import dataclass, field
+from typing import TYPE_CHECKING, Any, Optional, Union
+from warnings import warn
+
 from kiota_abstractions.base_request_builder import BaseRequestBuilder
 from kiota_abstractions.base_request_configuration import RequestConfiguration
 from kiota_abstractions.default_query_parameters import QueryParameters
@@ -10,15 +14,17 @@ from kiota_abstractions.request_adapter import RequestAdapter
 from kiota_abstractions.request_information import RequestInformation
 from kiota_abstractions.request_option import RequestOption
 from kiota_abstractions.serialization import Parsable, ParsableFactory
-from typing import Any, Optional, TYPE_CHECKING, Union
-from warnings import warn
 
 if TYPE_CHECKING:
     from ....models.copilot_conversation import CopilotConversation
     from ....models.o_data_errors.o_data_error import ODataError
     from .messages.messages_request_builder import MessagesRequestBuilder
-    from .microsoft_graph_copilot_chat.microsoft_graph_copilot_chat_request_builder import MicrosoftGraphCopilotChatRequestBuilder
-    from .microsoft_graph_copilot_chat_over_stream.microsoft_graph_copilot_chat_over_stream_request_builder import MicrosoftGraphCopilotChatOverStreamRequestBuilder
+    from .microsoft_graph_copilot_chat.microsoft_graph_copilot_chat_request_builder import (
+        MicrosoftGraphCopilotChatRequestBuilder,
+    )
+    from .microsoft_graph_copilot_chat_over_stream.microsoft_graph_copilot_chat_over_stream_request_builder import (
+        MicrosoftGraphCopilotChatOverStreamRequestBuilder,
+    )
 
 class CopilotConversationItemRequestBuilder(BaseRequestBuilder):
     """
@@ -161,7 +167,9 @@ class CopilotConversationItemRequestBuilder(BaseRequestBuilder):
         """
         Provides operations to call the chat method.
         """
-        from .microsoft_graph_copilot_chat.microsoft_graph_copilot_chat_request_builder import MicrosoftGraphCopilotChatRequestBuilder
+        from .microsoft_graph_copilot_chat.microsoft_graph_copilot_chat_request_builder import (
+            MicrosoftGraphCopilotChatRequestBuilder,
+        )
 
         return MicrosoftGraphCopilotChatRequestBuilder(self.request_adapter, self.path_parameters)
     
@@ -170,7 +178,9 @@ class CopilotConversationItemRequestBuilder(BaseRequestBuilder):
         """
         Provides operations to call the chatOverStream method.
         """
-        from .microsoft_graph_copilot_chat_over_stream.microsoft_graph_copilot_chat_over_stream_request_builder import MicrosoftGraphCopilotChatOverStreamRequestBuilder
+        from .microsoft_graph_copilot_chat_over_stream.microsoft_graph_copilot_chat_over_stream_request_builder import (
+            MicrosoftGraphCopilotChatOverStreamRequestBuilder,
+        )
 
         return MicrosoftGraphCopilotChatOverStreamRequestBuilder(self.request_adapter, self.path_parameters)
     

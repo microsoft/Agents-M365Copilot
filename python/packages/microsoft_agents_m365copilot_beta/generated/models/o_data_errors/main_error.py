@@ -1,9 +1,16 @@
 from __future__ import annotations
+
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
+from typing import TYPE_CHECKING, Any, Optional, Union
+
+from kiota_abstractions.serialization import (
+    AdditionalDataHolder,
+    Parsable,
+    ParseNode,
+    SerializationWriter,
+)
 from kiota_abstractions.store import BackedModel, BackingStore, BackingStoreFactorySingleton
-from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .error_details import ErrorDetails
@@ -43,9 +50,6 @@ class MainError(AdditionalDataHolder, BackedModel, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
-        from .error_details import ErrorDetails
-        from .inner_error import InnerError
-
         from .error_details import ErrorDetails
         from .inner_error import InnerError
 

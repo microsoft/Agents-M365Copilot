@@ -1,8 +1,10 @@
 from __future__ import annotations
+
 from collections.abc import Callable
 from dataclasses import dataclass, field
+from typing import TYPE_CHECKING, Any, Optional, Union
+
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
-from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .identity import Identity
@@ -10,6 +12,7 @@ if TYPE_CHECKING:
     from .share_point_identity import SharePointIdentity
 
 from .identity_set import IdentitySet
+
 
 @dataclass
 class SharePointIdentitySet(IdentitySet, Parsable):
@@ -38,10 +41,6 @@ class SharePointIdentitySet(IdentitySet, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
-        from .identity import Identity
-        from .identity_set import IdentitySet
-        from .share_point_identity import SharePointIdentity
-
         from .identity import Identity
         from .identity_set import IdentitySet
         from .share_point_identity import SharePointIdentity

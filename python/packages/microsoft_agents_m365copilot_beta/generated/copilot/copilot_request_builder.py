@@ -1,14 +1,18 @@
 from __future__ import annotations
+
 from collections.abc import Callable
+from typing import TYPE_CHECKING, Any, Optional, Union
+
 from kiota_abstractions.base_request_builder import BaseRequestBuilder
 from kiota_abstractions.get_path_parameters import get_path_parameters
 from kiota_abstractions.request_adapter import RequestAdapter
-from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .admin.admin_request_builder import AdminRequestBuilder
     from .conversations.conversations_request_builder import ConversationsRequestBuilder
-    from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
+    from .interaction_history.interaction_history_request_builder import (
+        InteractionHistoryRequestBuilder,
+    )
     from .retrieval.retrieval_request_builder import RetrievalRequestBuilder
     from .settings.settings_request_builder import SettingsRequestBuilder
     from .share_point.share_point_request_builder import SharePointRequestBuilder
@@ -50,7 +54,9 @@ class CopilotRequestBuilder(BaseRequestBuilder):
         """
         Provides operations to manage the interactionHistory property of the microsoft.graph.copilotRoot entity.
         """
-        from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
+        from .interaction_history.interaction_history_request_builder import (
+            InteractionHistoryRequestBuilder,
+        )
 
         return InteractionHistoryRequestBuilder(self.request_adapter, self.path_parameters)
     

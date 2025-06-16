@@ -1,10 +1,17 @@
 from __future__ import annotations
+
 from collections.abc import Callable
 from dataclasses import dataclass, field
+from typing import TYPE_CHECKING, Any, Optional, Union
+
 from kiota_abstractions.api_error import APIError
-from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
+from kiota_abstractions.serialization import (
+    AdditionalDataHolder,
+    Parsable,
+    ParseNode,
+    SerializationWriter,
+)
 from kiota_abstractions.store import BackedModel, BackingStore, BackingStoreFactorySingleton
-from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .main_error import MainError
@@ -35,8 +42,6 @@ class ODataError(APIError, AdditionalDataHolder, BackedModel, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
-        from .main_error import MainError
-
         from .main_error import MainError
 
         fields: dict[str, Callable[[Any], None]] = {

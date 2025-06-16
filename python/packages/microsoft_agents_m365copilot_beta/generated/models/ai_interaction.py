@@ -1,9 +1,11 @@
 from __future__ import annotations
+
 import datetime
 from collections.abc import Callable
 from dataclasses import dataclass, field
+from typing import TYPE_CHECKING, Any, Optional, Union
+
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
-from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .ai_interaction_attachment import AiInteractionAttachment
@@ -16,6 +18,7 @@ if TYPE_CHECKING:
     from .item_body import ItemBody
 
 from .entity import Entity
+
 
 @dataclass
 class AiInteraction(Entity, Parsable):
@@ -66,15 +69,6 @@ class AiInteraction(Entity, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
-        from .ai_interaction_attachment import AiInteractionAttachment
-        from .ai_interaction_context import AiInteractionContext
-        from .ai_interaction_link import AiInteractionLink
-        from .ai_interaction_mention import AiInteractionMention
-        from .ai_interaction_type import AiInteractionType
-        from .entity import Entity
-        from .identity_set import IdentitySet
-        from .item_body import ItemBody
-
         from .ai_interaction_attachment import AiInteractionAttachment
         from .ai_interaction_context import AiInteractionContext
         from .ai_interaction_link import AiInteractionLink

@@ -1,12 +1,21 @@
 from __future__ import annotations
+
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
+from typing import TYPE_CHECKING, Any, Optional, Union
+
+from kiota_abstractions.serialization import (
+    AdditionalDataHolder,
+    Parsable,
+    ParseNode,
+    SerializationWriter,
+)
 from kiota_abstractions.store import BackedModel, BackingStore, BackingStoreFactorySingleton
-from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
-    from .copilot_conversation_request_message_parameter import CopilotConversationRequestMessageParameter
+    from .copilot_conversation_request_message_parameter import (
+        CopilotConversationRequestMessageParameter,
+    )
 
 @dataclass
 class CopilotConversationMessageParameter(AdditionalDataHolder, BackedModel, Parsable):
@@ -35,7 +44,9 @@ class CopilotConversationMessageParameter(AdditionalDataHolder, BackedModel, Par
         except AttributeError:
             mapping_value = None
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotConversationRequestMessageParameter".casefold():
-            from .copilot_conversation_request_message_parameter import CopilotConversationRequestMessageParameter
+            from .copilot_conversation_request_message_parameter import (
+                CopilotConversationRequestMessageParameter,
+            )
 
             return CopilotConversationRequestMessageParameter()
         return CopilotConversationMessageParameter()
@@ -45,9 +56,9 @@ class CopilotConversationMessageParameter(AdditionalDataHolder, BackedModel, Par
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
-        from .copilot_conversation_request_message_parameter import CopilotConversationRequestMessageParameter
-
-        from .copilot_conversation_request_message_parameter import CopilotConversationRequestMessageParameter
+        from .copilot_conversation_request_message_parameter import (
+            CopilotConversationRequestMessageParameter,
+        )
 
         fields: dict[str, Callable[[Any], None]] = {
             "@odata.type": lambda n : setattr(self, 'odata_type', n.get_str_value()),

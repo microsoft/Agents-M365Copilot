@@ -1,9 +1,11 @@
 from __future__ import annotations
+
 import datetime
 from collections.abc import Callable
 from dataclasses import dataclass, field
+from typing import TYPE_CHECKING, Any, Optional, Union
+
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
-from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .copilot_conversation_attribution import CopilotConversationAttribution
@@ -12,6 +14,7 @@ if TYPE_CHECKING:
     from .search_sensitivity_label_info import SearchSensitivityLabelInfo
 
 from .copilot_conversation_message import CopilotConversationMessage
+
 
 @dataclass
 class CopilotConversationResponseMessage(CopilotConversationMessage, Parsable):
@@ -45,11 +48,6 @@ class CopilotConversationResponseMessage(CopilotConversationMessage, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
-        from .copilot_conversation_attribution import CopilotConversationAttribution
-        from .copilot_conversation_message import CopilotConversationMessage
-        from .json import Json
-        from .search_sensitivity_label_info import SearchSensitivityLabelInfo
-
         from .copilot_conversation_attribution import CopilotConversationAttribution
         from .copilot_conversation_message import CopilotConversationMessage
         from .json import Json

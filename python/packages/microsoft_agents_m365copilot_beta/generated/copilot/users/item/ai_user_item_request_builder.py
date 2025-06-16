@@ -1,6 +1,10 @@
 from __future__ import annotations
+
 from collections.abc import Callable
 from dataclasses import dataclass, field
+from typing import TYPE_CHECKING, Any, Optional, Union
+from warnings import warn
+
 from kiota_abstractions.base_request_builder import BaseRequestBuilder
 from kiota_abstractions.base_request_configuration import RequestConfiguration
 from kiota_abstractions.default_query_parameters import QueryParameters
@@ -10,13 +14,13 @@ from kiota_abstractions.request_adapter import RequestAdapter
 from kiota_abstractions.request_information import RequestInformation
 from kiota_abstractions.request_option import RequestOption
 from kiota_abstractions.serialization import Parsable, ParsableFactory
-from typing import Any, Optional, TYPE_CHECKING, Union
-from warnings import warn
 
 if TYPE_CHECKING:
     from ....models.ai_user import AiUser
     from ....models.o_data_errors.o_data_error import ODataError
-    from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
+    from .interaction_history.interaction_history_request_builder import (
+        InteractionHistoryRequestBuilder,
+    )
     from .online_meetings.online_meetings_request_builder import OnlineMeetingsRequestBuilder
 
 class AiUserItemRequestBuilder(BaseRequestBuilder):
@@ -144,7 +148,9 @@ class AiUserItemRequestBuilder(BaseRequestBuilder):
         """
         Provides operations to manage the interactionHistory property of the microsoft.graph.aiUser entity.
         """
-        from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
+        from .interaction_history.interaction_history_request_builder import (
+            InteractionHistoryRequestBuilder,
+        )
 
         return InteractionHistoryRequestBuilder(self.request_adapter, self.path_parameters)
     

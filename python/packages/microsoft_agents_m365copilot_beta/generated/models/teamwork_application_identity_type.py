@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class TeamworkApplicationIdentityType(str, Enum):
     AadApplication = "aadApplication",
     Bot = "bot",

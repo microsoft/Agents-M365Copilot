@@ -1,9 +1,16 @@
 from __future__ import annotations
+
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
+from typing import TYPE_CHECKING, Any, Optional, Union
+
+from kiota_abstractions.serialization import (
+    AdditionalDataHolder,
+    Parsable,
+    ParseNode,
+    SerializationWriter,
+)
 from kiota_abstractions.store import BackedModel, BackingStore, BackingStoreFactorySingleton
-from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .retrieval_hit import RetrievalHit
@@ -36,8 +43,6 @@ class RetrievalResponse(AdditionalDataHolder, BackedModel, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
-        from .retrieval_hit import RetrievalHit
-
         from .retrieval_hit import RetrievalHit
 
         fields: dict[str, Callable[[Any], None]] = {

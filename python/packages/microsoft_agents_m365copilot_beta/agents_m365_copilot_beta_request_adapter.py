@@ -1,8 +1,14 @@
 from typing import Optional
+
 import httpx
 from kiota_abstractions.authentication import AuthenticationProvider
 from kiota_http.middleware.options import UrlReplaceHandlerOption
-from microsoft_agents_m365copilot_core import APIVersion, BaseMicrosoftAgentsM365CopilotRequestAdapter, MicrosoftAgentsM365CopilotClientFactory, MicrosoftAgentsM365CopilotTelemetryHandlerOption
+from microsoft_agents_m365copilot_core import (
+    APIVersion,
+    BaseMicrosoftAgentsM365CopilotRequestAdapter,
+    MicrosoftAgentsM365CopilotClientFactory,
+    MicrosoftAgentsM365CopilotTelemetryHandlerOption,
+)
 
 from ._version import VERSION
 

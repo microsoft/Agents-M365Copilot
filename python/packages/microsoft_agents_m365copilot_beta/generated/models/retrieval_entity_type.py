@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class RetrievalEntityType(str, Enum):
     Site = "site",
     List_ = "list",

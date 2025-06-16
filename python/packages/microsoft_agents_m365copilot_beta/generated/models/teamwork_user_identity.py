@@ -1,14 +1,17 @@
 from __future__ import annotations
+
 from collections.abc import Callable
 from dataclasses import dataclass, field
+from typing import TYPE_CHECKING, Any, Optional, Union
+
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
-from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .identity import Identity
     from .teamwork_user_identity_type import TeamworkUserIdentityType
 
 from .identity import Identity
+
 
 @dataclass
 class TeamworkUserIdentity(Identity, Parsable):
@@ -35,9 +38,6 @@ class TeamworkUserIdentity(Identity, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
-        from .identity import Identity
-        from .teamwork_user_identity_type import TeamworkUserIdentityType
-
         from .identity import Identity
         from .teamwork_user_identity_type import TeamworkUserIdentityType
 

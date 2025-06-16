@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class TeamworkUserIdentityType(str, Enum):
     AadUser = "aadUser",
     OnPremiseAadUser = "onPremiseAadUser",

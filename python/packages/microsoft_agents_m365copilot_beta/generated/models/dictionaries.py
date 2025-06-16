@@ -1,9 +1,16 @@
 from __future__ import annotations
+
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
+from typing import TYPE_CHECKING, Any, Optional, Union
+
+from kiota_abstractions.serialization import (
+    AdditionalDataHolder,
+    Parsable,
+    ParseNode,
+    SerializationWriter,
+)
 from kiota_abstractions.store import BackedModel, BackingStore, BackingStoreFactorySingleton
-from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
@@ -43,8 +50,6 @@ class Dictionaries(AdditionalDataHolder, BackedModel, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
-        from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
-
         from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
 
         fields: dict[str, Callable[[Any], None]] = {

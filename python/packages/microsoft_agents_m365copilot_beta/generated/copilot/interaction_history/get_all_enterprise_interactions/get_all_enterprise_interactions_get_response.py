@@ -1,14 +1,19 @@
 from __future__ import annotations
+
 from collections.abc import Callable
 from dataclasses import dataclass, field
+from typing import TYPE_CHECKING, Any, Optional, Union
+
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
-from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from ....models.ai_interaction import AiInteraction
     from ....models.base_collection_pagination_count_response import BaseCollectionPaginationCountResponse
 
-from ....models.base_collection_pagination_count_response import BaseCollectionPaginationCountResponse
+from ....models.base_collection_pagination_count_response import (
+    BaseCollectionPaginationCountResponse,
+)
+
 
 @dataclass
 class GetAllEnterpriseInteractionsGetResponse(BaseCollectionPaginationCountResponse, Parsable):
@@ -32,10 +37,9 @@ class GetAllEnterpriseInteractionsGetResponse(BaseCollectionPaginationCountRespo
         Returns: dict[str, Callable[[ParseNode], None]]
         """
         from ....models.ai_interaction import AiInteraction
-        from ....models.base_collection_pagination_count_response import BaseCollectionPaginationCountResponse
-
-        from ....models.ai_interaction import AiInteraction
-        from ....models.base_collection_pagination_count_response import BaseCollectionPaginationCountResponse
+        from ....models.base_collection_pagination_count_response import (
+            BaseCollectionPaginationCountResponse,
+        )
 
         fields: dict[str, Callable[[Any], None]] = {
             "value": lambda n : setattr(self, 'value', n.get_collection_of_object_values(AiInteraction)),

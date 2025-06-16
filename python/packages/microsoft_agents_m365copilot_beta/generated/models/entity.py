@@ -1,9 +1,16 @@
 from __future__ import annotations
+
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
+from typing import TYPE_CHECKING, Any, Optional, Union
+
+from kiota_abstractions.serialization import (
+    AdditionalDataHolder,
+    Parsable,
+    ParseNode,
+    SerializationWriter,
+)
 from kiota_abstractions.store import BackedModel, BackingStore, BackingStoreFactorySingleton
-from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .ai_interaction import AiInteraction
@@ -120,23 +127,6 @@ class Entity(AdditionalDataHolder, BackedModel, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
-        from .ai_interaction import AiInteraction
-        from .ai_interaction_history import AiInteractionHistory
-        from .ai_online_meeting import AiOnlineMeeting
-        from .ai_user import AiUser
-        from .call_ai_insight import CallAiInsight
-        from .copilot_admin import CopilotAdmin
-        from .copilot_admin_limited_mode import CopilotAdminLimitedMode
-        from .copilot_admin_setting import CopilotAdminSetting
-        from .copilot_conversation import CopilotConversation
-        from .copilot_conversation_message import CopilotConversationMessage
-        from .copilot_conversation_request_message import CopilotConversationRequestMessage
-        from .copilot_conversation_response_message import CopilotConversationResponseMessage
-        from .copilot_people_admin_setting import CopilotPeopleAdminSetting
-        from .copilot_setting import CopilotSetting
-        from .copilot_share_point_root import CopilotSharePointRoot
-        from .enhanced_personalization_setting import EnhancedPersonalizationSetting
-
         from .ai_interaction import AiInteraction
         from .ai_interaction_history import AiInteractionHistory
         from .ai_online_meeting import AiOnlineMeeting
