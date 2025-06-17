@@ -399,25 +399,16 @@ extends:
                 - input: pipelineArtifact
                   artifactName: Nugets
                   targetPath: $(Build.ArtifactStagingDirectory)/Nugets
-              outputs:        
-              - output: nuget
-                displayName: Publish Core Nuget package
-                useDotNetTask: false
-                packagesToPush: '$(Build.ArtifactStagingDirectory)/Nugets/Microsoft.Agents.M365Copilot.Core*'
-                packageParentPath: $(Build.ArtifactStagingDirectory)/Nugets
-                nuGetFeedType: external  # Change to external for external
-                publishPackageMetadata: true
-                publishFeedCredentials: 'M365 Copilot NuGet Connection'
-                verbosityPush: detailed
-              - output: nuget
-                displayName: Publish Beta Nuget package
-                useDotNetTask: false
-                packagesToPush: '$(Build.ArtifactStagingDirectory)/Nugets/Microsoft.Agents.M365Copilot.Beta*'
-                packageParentPath: $(Build.ArtifactStagingDirectory)/Nugets
-                nuGetFeedType: external  # Change to external for external
-                publishPackageMetadata: true
-                publishFeedCredentials: 'M365 Copilot NuGet Connection'
-                verbosityPush: detailed
+          steps:
+          - task: 1ES.PublishNuget@1
+            displayName: 'Publish NuGet packages'
+            inputs:
+              useDotNetTask: false
+              packageParentPath: $(Build.ArtifactStagingDirectory)/Nugets
+              packagesToPush: '!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg;$(Build.ArtifactStagingDirectory)/Nugets/*.nupkg'
+              nuGetFeedType: external  # Change to external for external
+              publishPackageMetadata: true
+              publishFeedCredentials: 'M365 Copilot NuGet Connection'
         - job: publish_npm_packages
           displayName: 'Publish npm Packages'
           pool:
