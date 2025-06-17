@@ -54,8 +54,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Kiota.Authentication.Azure" Version="1.17.1" />
-    <PackageReference Include="Microsoft.Kiota.Bundle" Version="1.17.1" />
+    <PackageReference Include="Microsoft.Kiota.Authentication.Azure" Version="1.17.4" />
+    <PackageReference Include="Microsoft.Kiota.Bundle" Version="1.17.4" />
   </ItemGroup>
 
   <ItemGroup>
