@@ -1,10 +1,13 @@
+# We will keep the versions for .NET, TypeScript, and Python in sync. 
+
 name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
- 
+
+
 trigger:
   tags:
     include:
     - 'v*'
- 
+
 pr: none
  
 variables:
@@ -24,16 +27,16 @@ extends:
     pool:
       name: Azure-Pipelines-1ESPT-ExDShared
       vmImage: windows-latest
-    stages:
-    - stage: Build_dotnet
+    stages: 
+    - stage: build
       jobs:
-        - job: build
+        - job: build_dotnet
           templateContext:
             outputs:
               - output: pipelineArtifact
-                displayName: 'Build the Microsoft.Agents.M365Copilot* package artifacts'
-                artifactName: ArtifactsForRelease
-                targetPath: $(Build.ArtifactStagingDirectory)
+                displayName: 'Move Microsoft.Agents.M365Copilot* package artifacts'
+                artifactName: Nugets
+                targetPath: $(Build.ArtifactStagingDirectory)/Nugets
           steps:
           - task: UseDotNet@2
             displayName: 'Use .NET 8'
@@ -52,7 +55,7 @@ extends:
               versionSpec: '>=5.2.0'
               checkLatest: true
           
-          # Enable signing for the projects
+          # Enable signing for the .NET projects
           - pwsh: |
               # This allows us to not have to checkin .csproj or Directory.Build.props files with DelaySign and 
               # SignAssembly set to to true. If the flag is set, then project is not debuggable with SignAssembly set 
@@ -274,12 +277,12 @@ extends:
 
 
           # arguments are not parsed in DotNetCoreCLI@2 task for `pack` command, that's why we have a custom pack command here
-          - pwsh: dotnet pack $env:BUILD_SOURCESDIRECTORY/dotnet/src/Microsoft.Agents.M365Copilot.Core/Microsoft.Agents.M365Copilot.Core.csproj /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg --no-build --output $env:BUILD_ARTIFACTSTAGINGDIRECTORY --configuration $env:BUILD_CONFIGURATION
+          - pwsh: dotnet pack $env:BUILD_SOURCESDIRECTORY/dotnet/src/Microsoft.Agents.M365Copilot.Core/Microsoft.Agents.M365Copilot.Core.csproj /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg --no-build --output $env:BUILD_ARTIFACTSTAGINGDIRECTORY/Nugets --configuration $env:BUILD_CONFIGURATION
             env:
               BUILD_CONFIGURATION: $(BuildConfiguration)
             displayName: Dotnet pack
 
-          - pwsh: dotnet pack $env:BUILD_SOURCESDIRECTORY/dotnet/src/Microsoft.Agents.M365Copilot.Beta/Microsoft.Agents.M365Copilot.Beta.csproj /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg --no-build --output $env:BUILD_ARTIFACTSTAGINGDIRECTORY --configuration $env:BUILD_CONFIGURATION
+          - pwsh: dotnet pack $env:BUILD_SOURCESDIRECTORY/dotnet/src/Microsoft.Agents.M365Copilot.Beta/Microsoft.Agents.M365Copilot.Beta.csproj /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg --no-build --output $env:BUILD_ARTIFACTSTAGINGDIRECTORY/Nugets --configuration $env:BUILD_CONFIGURATION
             env:
               BUILD_CONFIGURATION: $(BuildConfiguration)
             displayName: Dotnet pack
@@ -303,7 +306,7 @@ extends:
               AuthAKVName: 'akv-prod-eastus'
               AuthCertName: 'ReferenceLibraryPrivateCert'
               AuthSignCertName: 'ReferencePackagePublisherCertificate'
-              FolderPath: '$(Build.ArtifactStagingDirectory)'
+              FolderPath: '$(Build.ArtifactStagingDirectory)/Nugets'
               Pattern: '*.nupkg'
               signConfigType: 'inlineSignParams'
               inlineOperation: |
@@ -341,10 +344,7 @@ extends:
           #   inputs:
           #     artifactName: NuGets
           #     targetPath: $(Build.ArtifactStagingDirectory)
-    - stage: Build_typeScript
-      dependsOn: []
-      jobs:
-        - job: build
+        - job: build_typescript
           displayName: 'Build TypeScript Project'
           pool:
             name: Azure-Pipelines-1ESPT-ExDShared
@@ -371,12 +371,80 @@ extends:
           - task: CopyFiles@2
             inputs:
               sourceFolder: '$(Build.SourcesDirectory)/typescript/'
-              targetFolder: '$(Build.ArtifactStagingDirectory)'
+              targetFolder: '$(Build.ArtifactStagingDirectory)/npm'
               Contents: |
                 *.tgz
             displayName: "Copy package.json and package gzipped tarballs"
           templateContext:
             outputs:
             - output: pipelineArtifact
-              path: '$(Build.ArtifactStagingDirectory)'    
-              artifact: drop
+              displayName: 'Move TypeScript package artifacts'
+              artifactName: npm
+              targetPath: $(Build.ArtifactStagingDirectory)/npm
+    - stage: deploy
+      condition: and(contains(variables['build.sourceBranch'], 'refs/tags/v'), succeeded())
+      dependsOn: [build] # We should only deploy from tagged builds.
+
+      jobs:
+        - job: publish_nuget_packages
+          displayName: 'Publish NuGet Packages'
+          pool:
+            name: Azure-Pipelines-1ESPT-ExDShared
+            image: windows-latest
+            os: windows
+          templateContext:
+              type: releaseJob
+              isProduction: true
+              inputs:
+                - input: pipelineArtifact
+                  artifactName: Nugets
+                  targetPath: $(Build.ArtifactStagingDirectory)/Nugets
+              outputs:        
+              - output: nuget
+                displayName: Publish Core Nuget package
+                useDotNetTask: false
+                packagesToPush: '$(Build.ArtifactStagingDirectory)/Nugets/Microsoft.Agents.M365Copilot.Core*'
+                packageParentPath: $(Build.ArtifactStagingDirectory)/Nugets
+                nuGetFeedType: external  # Change to external for external
+                publishPackageMetadata: true
+                publishFeedCredentials: 'M365 Copilot NuGet Connection'
+                verbosityPush: detailed
+              - output: nuget
+                displayName: Publish Beta Nuget package
+                useDotNetTask: false
+                packagesToPush: '$(Build.ArtifactStagingDirectory)/Nugets/Microsoft.Agents.M365Copilot.Beta*'
+                packageParentPath: $(Build.ArtifactStagingDirectory)/Nugets
+                nuGetFeedType: external  # Change to external for external
+                publishPackageMetadata: true
+                publishFeedCredentials: 'M365 Copilot NuGet Connection'
+                verbosityPush: detailed
+        - job: publish_npm_packages
+          displayName: 'Publish npm Packages'
+          pool:
+            name: Azure-Pipelines-1ESPT-ExDShared
+            image: ubuntu-latest
+            os: linux
+          templateContext:
+              type: releaseJob
+              isProduction: true
+              inputs:
+                - input: pipelineArtifact
+                  artifactName: npm
+                  targetPath: $(Build.ArtifactStagingDirectory)/npm
+          steps:    
+          - task: EsrpRelease@9
+            displayName: 'Publish packages NPM artifacts via ESRP Release'
+            inputs:
+              connectedservicename: "Federated DevX ESRP Managed Identity Connection"
+              usemanagedidentity: true
+              keyvaultname: "akv-prod-eastus"
+              signcertname: "ReferencePackagePublisherCertificate"
+              clientid: "65035b7f-7357-4f29-bf25-c5ee5c3949f8"
+              intent: "PackageDistribution"
+              contenttype: "npm"
+              folderlocation: "$(Build.ArtifactStagingDirectory)/npm"
+              owners: "mmainer@microsoft.com,karthikra@microsoft.com"
+              approvers: "mmainer@microsoft.com,christiano@microsoft.com,karthikra@microsoft.com,lramosvea@microsoft.com"
+              serviceendpointurl: "https://api.esrp.microsoft.com"
+              mainpublisher: "ESRPRELPACMAN"
+              domaintenantid: "cdc5aeea-15c5-4db6-b079-fcadd2505dc2"    
