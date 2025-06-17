@@ -1,23 +1,14 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-
-from kiota_abstractions.serialization import (
-    AdditionalDataHolder,
-    Parsable,
-    ParseNode,
-    SerializationWriter,
-)
+from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
 from kiota_abstractions.store import BackedModel, BackingStore, BackingStoreFactorySingleton
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .....models.copilot_context_message import CopilotContextMessage
     from .....models.copilot_conversation_location import CopilotConversationLocation
-    from .....models.copilot_conversation_request_message_parameter import (
-        CopilotConversationRequestMessageParameter,
-    )
+    from .....models.copilot_conversation_request_message_parameter import CopilotConversationRequestMessageParameter
 
 @dataclass
 class ChatPostRequestBody(AdditionalDataHolder, BackedModel, Parsable):
@@ -51,9 +42,11 @@ class ChatPostRequestBody(AdditionalDataHolder, BackedModel, Parsable):
         """
         from .....models.copilot_context_message import CopilotContextMessage
         from .....models.copilot_conversation_location import CopilotConversationLocation
-        from .....models.copilot_conversation_request_message_parameter import (
-            CopilotConversationRequestMessageParameter,
-        )
+        from .....models.copilot_conversation_request_message_parameter import CopilotConversationRequestMessageParameter
+
+        from .....models.copilot_context_message import CopilotContextMessage
+        from .....models.copilot_conversation_location import CopilotConversationLocation
+        from .....models.copilot_conversation_request_message_parameter import CopilotConversationRequestMessageParameter
 
         fields: dict[str, Callable[[Any], None]] = {
             "additionalContext": lambda n : setattr(self, 'additional_context', n.get_collection_of_object_values(CopilotContextMessage)),

@@ -1,16 +1,9 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-
-from kiota_abstractions.serialization import (
-    AdditionalDataHolder,
-    Parsable,
-    ParseNode,
-    SerializationWriter,
-)
+from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
 from kiota_abstractions.store import BackedModel, BackingStore, BackingStoreFactorySingleton
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .copilot_conversation_attribution_source import CopilotConversationAttributionSource
@@ -58,6 +51,9 @@ class CopilotConversationAttribution(AdditionalDataHolder, BackedModel, Parsable
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from .copilot_conversation_attribution_source import CopilotConversationAttributionSource
+        from .copilot_conversation_attribution_type import CopilotConversationAttributionType
+
         from .copilot_conversation_attribution_source import CopilotConversationAttributionSource
         from .copilot_conversation_attribution_type import CopilotConversationAttributionType
 

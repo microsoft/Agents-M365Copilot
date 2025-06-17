@@ -1,10 +1,8 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .identity_set import IdentitySet
@@ -12,7 +10,6 @@ if TYPE_CHECKING:
     from .teamwork_tag_identity import TeamworkTagIdentity
 
 from .identity_set import IdentitySet
-
 
 @dataclass
 class AiInteractionMentionedIdentitySet(IdentitySet, Parsable):
@@ -39,6 +36,10 @@ class AiInteractionMentionedIdentitySet(IdentitySet, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from .identity_set import IdentitySet
+        from .teamwork_conversation_identity import TeamworkConversationIdentity
+        from .teamwork_tag_identity import TeamworkTagIdentity
+
         from .identity_set import IdentitySet
         from .teamwork_conversation_identity import TeamworkConversationIdentity
         from .teamwork_tag_identity import TeamworkTagIdentity

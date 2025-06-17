@@ -1,16 +1,13 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .copilot_conversation_message import CopilotConversationMessage
 
 from .copilot_conversation_message import CopilotConversationMessage
-
 
 @dataclass
 class CopilotConversationRequestMessage(CopilotConversationMessage, Parsable):
@@ -36,6 +33,8 @@ class CopilotConversationRequestMessage(CopilotConversationMessage, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from .copilot_conversation_message import CopilotConversationMessage
+
         from .copilot_conversation_message import CopilotConversationMessage
 
         fields: dict[str, Callable[[Any], None]] = {

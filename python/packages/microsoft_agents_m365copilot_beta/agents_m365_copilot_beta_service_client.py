@@ -5,24 +5,17 @@
 # -----------------------------------
 
 from __future__ import annotations
-
-from typing import TYPE_CHECKING, List, Optional, Union
-
+from typing import List, Optional, TYPE_CHECKING, Union
 from azure.core.credentials import TokenCredential
 from azure.core.credentials_async import AsyncTokenCredential
-from kiota_authentication_azure.azure_identity_authentication_provider import (
-    AzureIdentityAuthenticationProvider,
-)
+from kiota_authentication_azure.azure_identity_authentication_provider import AzureIdentityAuthenticationProvider
 
+from .generated.base_agents_m365_copilot_beta_service_client import BaseAgentsM365CopilotBetaServiceClient
 from .agents_m365_copilot_beta_request_adapter import AgentsM365CopilotBetaRequestAdapter
-from .generated.base_agents_m365_copilot_beta_service_client import (
-    BaseAgentsM365CopilotBetaServiceClient,
-)
 
 if TYPE_CHECKING:
-    from microsoft_agents_m365copilot_core import BatchRequestBuilder
-
     from .generated.copilot.users.users_request_builder import AiUserItemRequestBuilder
+    from microsoft_agents_m365copilot_core import BatchRequestBuilder
 
 class AgentsM365CopilotBetaServiceClient(BaseAgentsM365CopilotBetaServiceClient):
 

@@ -1,6 +1,5 @@
 from enum import Enum
 
-
 class CopilotConversationAttributionType(str, Enum):
     Citation = "citation",
     Annotation = "annotation",

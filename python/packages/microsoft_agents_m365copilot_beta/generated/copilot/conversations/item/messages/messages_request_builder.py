@@ -1,10 +1,6 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-from warnings import warn
-
 from kiota_abstractions.base_request_builder import BaseRequestBuilder
 from kiota_abstractions.base_request_configuration import RequestConfiguration
 from kiota_abstractions.default_query_parameters import QueryParameters
@@ -14,17 +10,15 @@ from kiota_abstractions.request_adapter import RequestAdapter
 from kiota_abstractions.request_information import RequestInformation
 from kiota_abstractions.request_option import RequestOption
 from kiota_abstractions.serialization import Parsable, ParsableFactory
+from typing import Any, Optional, TYPE_CHECKING, Union
+from warnings import warn
 
 if TYPE_CHECKING:
     from .....models.copilot_conversation_message import CopilotConversationMessage
-    from .....models.copilot_conversation_message_collection_response import (
-        CopilotConversationMessageCollectionResponse,
-    )
+    from .....models.copilot_conversation_message_collection_response import CopilotConversationMessageCollectionResponse
     from .....models.o_data_errors.o_data_error import ODataError
     from .count.count_request_builder import CountRequestBuilder
-    from .item.copilot_conversation_message_item_request_builder import (
-        CopilotConversationMessageItemRequestBuilder,
-    )
+    from .item.copilot_conversation_message_item_request_builder import CopilotConversationMessageItemRequestBuilder
 
 class MessagesRequestBuilder(BaseRequestBuilder):
     """
@@ -48,9 +42,7 @@ class MessagesRequestBuilder(BaseRequestBuilder):
         warn(" as of 2025-03/PrivatePreview:copilotChatPrivatePreview1 on 2025-03-27 and will be removed 2025-08-28", DeprecationWarning)
         if copilot_conversation_message_id is None:
             raise TypeError("copilot_conversation_message_id cannot be null.")
-        from .item.copilot_conversation_message_item_request_builder import (
-            CopilotConversationMessageItemRequestBuilder,
-        )
+        from .item.copilot_conversation_message_item_request_builder import CopilotConversationMessageItemRequestBuilder
 
         url_tpl_params = get_path_parameters(self.path_parameters)
         url_tpl_params["copilotConversationMessage%2Did"] = copilot_conversation_message_id
@@ -73,9 +65,7 @@ class MessagesRequestBuilder(BaseRequestBuilder):
         }
         if not self.request_adapter:
             raise Exception("Http core is null") 
-        from .....models.copilot_conversation_message_collection_response import (
-            CopilotConversationMessageCollectionResponse,
-        )
+        from .....models.copilot_conversation_message_collection_response import CopilotConversationMessageCollectionResponse
 
         return await self.request_adapter.send_async(request_info, CopilotConversationMessageCollectionResponse, error_mapping)
     
