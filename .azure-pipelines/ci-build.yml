@@ -436,7 +436,7 @@ extends:
             - task: CopyFiles@2
               inputs:
                 sourceFolder: '$(Build.SourcesDirectory)/python/$(library_path)/dist/'
-                targetFolder: '$(Build.ArtifactStagingDirectory)/$(library_name)/python'
+                targetFolder: '$(Build.ArtifactStagingDirectory)/python/$(library_name)'
                 Contents: |
                   *.tar.gz
                   *.whl
@@ -446,7 +446,7 @@ extends:
               - output: pipelineArtifact
                 displayName: 'Move Python package artifacts'
                 artifactName: pypi
-                targetPath: '$(Build.ArtifactStagingDirectory)/python'
+                targetPath: '$(Build.ArtifactStagingDirectory)/python/$(library_name)'
 
     - stage: deploy
       condition: and(contains(variables['build.sourceBranch'], 'refs/tags/v'), succeeded())
