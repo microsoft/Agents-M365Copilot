@@ -402,9 +402,9 @@ extends:
                   path: packages/microsoft_agents_m365copilot_beta
           steps:
             - task: UsePythonVersion@0
-              displayName: 'Use Python 3.10'
+              displayName: 'Use Python 3.13'
               inputs:
-                versionSpec: '3.10'
+                versionSpec: '3.13'
                 addToPath: true
 
             - script: |
@@ -428,11 +428,6 @@ extends:
             - script: poetry run pylint . --disable=W --rcfile=../../.pylintrc
               displayName: 'Lint with Pylint'
               workingDirectory: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}'
-          #Will uncomment this once we resolve mypy issues
-            # - script: poetry run mypy .
-            #   displayName: 'Static type checking with Mypy'
-            #   workingDirectory: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}'
-
             - script: poetry run pytest
               displayName: 'Run the tests'
               workingDirectory: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}'
