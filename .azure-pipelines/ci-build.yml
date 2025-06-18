@@ -407,36 +407,36 @@ extends:
                 python -m pip install --upgrade pip
                 pip install poetry
               displayName: 'Install Poetry'
-              workingDirectory: '$(Build.SourcesDirectory)/python/${{ library_path }}'
+              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_path)'
 
             - script: poetry install
               displayName: 'Install dependencies'
-              workingDirectory: '$(Build.SourcesDirectory)/python/${{ library_path }}'
+              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_path)'
 
             - script: poetry run yapf -dr .
               displayName: 'Check code format'
-              workingDirectory: '$(Build.SourcesDirectory)/python/${{ library_path }}'
+              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_path)'
 
             - script: poetry run isort .
               displayName: 'Check import order'
-              workingDirectory: '$(Build.SourcesDirectory)/python/${{ library_path }}'
+              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_path)'
 
             - script: poetry run pylint . --disable=W --rcfile=../../.pylintrc
               displayName: 'Lint with Pylint'
-              workingDirectory: '$(Build.SourcesDirectory)/python/${{ library_path }}'
+              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_path)'
 
             - script: poetry run pytest
               displayName: 'Run the tests'
-              workingDirectory: '$(Build.SourcesDirectory)/python/${{ library_path }}'
+              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_path)'
 
             - script: poetry build
               displayName: 'Build Python package'
-              workingDirectory: '$(Build.SourcesDirectory)/python/${{ library_path }}'
+              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_path)'
 
             - task: CopyFiles@2
               inputs:
-                sourceFolder: '$(Build.SourcesDirectory)/python/${{ library_path }}/dist/'
-                targetFolder: '$(Build.ArtifactStagingDirectory)/${{ library_name }}/python'
+                sourceFolder: '$(Build.SourcesDirectory)/python/$(library_path)/dist/'
+                targetFolder: '$(Build.ArtifactStagingDirectory)/$(library_name)/python'
                 Contents: |
                   *.tar.gz
                   *.whl
