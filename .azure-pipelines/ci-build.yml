@@ -380,8 +380,8 @@ extends:
             - output: pipelineArtifact
               displayName: 'Move TypeScript package artifacts'
               artifactName: npm
-              targetPath: '$(Build.ArtifactStagingDirectory)/npm'    
-              artifact: drop
+              targetPath: $(Build.ArtifactStagingDirectory)/npm
+              
         - job: build_python
           displayName: 'Build Python Project'
           pool:
@@ -450,7 +450,6 @@ extends:
                 displayName: 'Move Python package artifacts'
                 artifactName: pypi
                 targetPath: '$(Build.ArtifactStagingDirectory)/python'
-                artifact: drop
 
     - stage: deploy
       condition: and(contains(variables['build.sourceBranch'], 'refs/tags/v'), succeeded())
