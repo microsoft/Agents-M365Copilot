@@ -414,7 +414,8 @@ extends:
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_path)'
 
             - script: poetry run yapf -dr .
-              displayName: 'Check code format'
+              displayName: 'Check code format for core'
+              condition: eq(variables['library_name'], 'microsoft_agents_m365copilot_core')
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_path)'
 
             - script: poetry run isort .
