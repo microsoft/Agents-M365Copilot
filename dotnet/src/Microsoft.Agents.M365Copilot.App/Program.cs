@@ -61,9 +61,9 @@ try
     {
         Console.WriteLine("Retrieval response received successfully");
         Console.WriteLine("\nResults:");
-        Console.WriteLine(result.RetrievalHits.Count.ToString());
+        Console.WriteLine(result?.RetrievalHits?.Count.ToString() ?? "0");
 
-        if (result.RetrievalHits != null)
+        if (result?.RetrievalHits != null)
         {
             foreach (var hit in result.RetrievalHits)
             {

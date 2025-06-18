@@ -47,9 +47,6 @@
     <DocumentationFile>bin\Debug\netstandard2.0\Microsoft.Agents.M365Copilot.Beta.xml</DocumentationFile>
     <NoWarn>1701;1702;1705;1591</NoWarn>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard2.0\Microsoft.Agents.M365Copilot.Beta.xml</DocumentationFile>
-  </PropertyGroup>
 
   <ItemGroup>
     <None Include=".\README.md" Pack="true" PackagePath="" />
@@ -57,8 +54,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Kiota.Authentication.Azure" Version="1.17.1" />
-    <PackageReference Include="Microsoft.Kiota.Bundle" Version="1.17.1" />
+    <PackageReference Include="Microsoft.Kiota.Authentication.Azure" Version="1.17.4" />
+    <PackageReference Include="Microsoft.Kiota.Bundle" Version="1.17.4" />
   </ItemGroup>
 
   <ItemGroup>
