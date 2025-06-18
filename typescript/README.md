@@ -1,6 +1,6 @@
 # Microsoft 365 Copilot APIs TypeScript Client Library
 
-Integrate the Microsoft 365Copilot APIs into your TypeScript application!
+Integrate the Microsoft 365 Copilot APIs into your TypeScript application!
 
 > **Note:**
 >

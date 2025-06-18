@@ -1,33 +1,21 @@
-# Microsoft Agents M365 Copilot APIs .NET Core Client Library
+# Microsoft 365 Copilot APIs .NET Core Client Library
 
-The Microsoft M365 Copilot APIs .NET Core Client Library contains core classes and interfaces used by the [Microsoft M365 Copilot APIs Library](https://github.com/microsoft/agents-m365copilot/dotnet) to send native HTTP requests to the [Microsoft M365 Copilot APIs](https://aka.ms/M365CopilotAPIs). The latest core client library targets .NetStandard 2.0.
+The Microsoft 365 Copilot APIs .NET Core Client Library contains core classes and interfaces used by the [Microsoft 365 Copilot APIs Library](https://github.com/microsoft/agents-m365copilot/dotnet) to send native HTTP requests to the [Microsoft 365 Copilot APIs](https://aka.ms/M365CopilotAPIs). The latest core client library targets .NetStandard 2.0.
 
-## Getting started
-
-### 1. Register your application
-
-Register your application to use Microsoft Agents M365 Copilot API by following the steps at [Register your application with the Microsoft identity platform](https://docs.microsoft.com/en-us/graph/auth-register-app-v2).
-
-### 2. Authenticate for the Microsoft Agents M365 Copilot service
-
-The Microsoft Agents M365 Copilot .NET Client Library supports the use of TokenCredential classes in the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) library.
-
-You can read more about available Credential classes [here](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/identity-readme#key-concepts) and examples on how to quickly setup TokenCredential instances can be found [here](https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/main/docs/tokencredentials.md).
-
-The recommended library for authenticating against Microsoft Identity (Azure AD) is [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
-
-For an example of authenticating a UWP app using the V2 Authentication Endpoint, see the [Microsoft Graph UWP Connect Library](https://github.com/OfficeDev/Microsoft-Graph-UWP-Connect-Library).
+> **Note:**
+>
+> Because the Microsoft 365 Copilot APIs in the beta endpoint are subject to breaking changes, don't use a preview release of the client libraries in production apps.
 
 ## Create a Copilot APIs client and make an API call
 
 The following code example shows how to create an instance of a Microsoft 365 Copilot APIs client with an authentication provider in the supported languages. The authentication provider handles acquiring access tokens for the application. Many different authentication providers are available for each language and platform. The different authentication providers support different client scenarios. For details about which provider and options are appropriate for your scenario, see [Choose an Authentication Provider](https://learn.microsoft.com/graph/sdks/choose-authentication-providers). 
 
-The example also shows how to make a call to the Microsoft 365 Copilot Retrieval API. To call this API, you first need to create a request object and then run the POST method on the request.
+The example also shows how to make a call to the Microsoft 365 Copilot Retrieval API. To call this API, you need to install the [Microsoft 365 Copilot APIs .NET Beta Client Library](https://github.com/microsoft/Agents-M365Copilot/tree/main/dotnet/src/Microsoft.Agents.M365Copilot.Beta), create a request object and then run the POST method on the request.
 
 The client ID is the app registration ID that is generated when you [register your app in the Azure portal](https://learn.microsoft.com/graph/auth-register-app-v2).
 
-**NOTE:**
-    
+> **Note:**
+>    
 > Your tenant must have a Microsoft 365 Copilot license.
 
 ```csharp
@@ -151,4 +139,4 @@ If you are looking to build the library locally for the purposes of contributing
 
 ## License
 
-Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT [license](https://github.com/microsoft/Agents-M365Copilot/blob/main/LICENSE).
+Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT [license](https://github.com/microsoft/Agents-M365Copilot/tree/main/dotnet/LICENSE).

@@ -6,7 +6,7 @@ The Microsoft 365 Copilot APIs. NET Beta Client Library targets .NetStandard 2.0
 
 > **Note:**
 >
->Because the Microsoft 365 Copilot APIs in the beta endpoint are subject to breaking changes, don't use a preview release of the client library in production apps.
+> Because the Microsoft 365 Copilot APIs in the beta endpoint are subject to breaking changes, don't use a preview release of the client library in production apps.
 
 ## Installation via NuGet
 
@@ -14,6 +14,7 @@ To install the client library via NuGet:
 
 * Search for `Microsoft.Agents.M365Copilot.Beta` in the NuGet Library, or
 * Type `Install-Package Microsoft.Agents.M365Copilot.Beta` into the Package Manager Console.
+* Type `dotnet add PathToCSProj package Microsoft.Agents.M365Copilot.Beta` in any console.
 
 ## Create a Copilot APIs client and make an API call
 
@@ -23,8 +24,8 @@ The example also shows how to make a call to the Microsoft 365 Copilot Retrieval
 
 The client ID is the app registration ID that is generated when you [register your app in the Azure portal](https://learn.microsoft.com/graph/auth-register-app-v2).
 
-**NOTE:**
-    
+> **Note:**
+>    
 > Your tenant must have a Microsoft 365 Copilot license.
 
 ```csharp
@@ -148,4 +149,4 @@ If you are looking to build the library locally for the purposes of contributing
 
 ## License
 
-Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT [license](https://github.com/microsoft/Agents-M365Copilot/blob/main/LICENSE).
+Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT [license](https://github.com/microsoft/Agents-M365Copilot/tree/main/dotnet/LICENSE).

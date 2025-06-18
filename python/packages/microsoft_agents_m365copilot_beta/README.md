@@ -1,106 +1,93 @@
-# Microsoft Agents M365 Copilot Core Python Client Library
+# Microsoft 365 Copilot APIs Python Beta Client Library
 
-The Microsoft Agents M365 Copilot Core Python Client Library contains core classes used by [Microsoft Agents M365 Copilot Python Client Library](https://github.com/microsof/agents-m365copilot/python) to send native HTTP requests to [Microsoft Copilot API](https://graph.microsoft.com).
+Integrate the Microsoft 365 Copilot APIs into your Python application!
 
-## Prerequisites
+> **Note:**
+>
+> Because the Copilot APIs in the beta endpoint are subject to breaking changes, don't use a preview release of the client libraries in production apps.
 
-1. Python 3.9+
+## Installation
 
-This library doesn't support [older](https://devguide.python.org/versions/) versions of Python.
+To install the client libraries via PyPi:
 
-## Getting started
-
-### 1. Register your application
-
-To call the Copilot endpoints, your app must acquire an access token from the Microsoft identity platform. Learn more about this:
-
-- [Authentication and authorization basics for Microsoft](https://docs.microsoft.com/en-us/graph/auth/auth-concepts)
-- [Register your app with the Microsoft identity platform](https://docs.microsoft.com/en-us/graph/auth-register-app-v2)
-
-### 2. Install the required packages
-
-```cmd
-pip install azure-identity
-pip install python-dotenv
+```shell
+pip install microsoft-agents-m365copilot-beta
 ```
 
-The `python-dotenv` is a utility library to load environment variables. Ensure you **DO NOT** commit the file holding your secrets.
+## Create a Copilot APIs client and make an API call
 
-You have to build `microsoft-agents-m365copilot-core` locally. To build it, run the following command from the root of the `python` folder:
+The following code example shows how to create an instance of a Microsoft 365 Copilot APIs client with an authentication provider in the supported languages. The authentication provider handles acquiring access tokens for the application. Many different authentication providers are available for each language and platform. The different authentication providers support different client scenarios. For details about which provider and options are appropriate for your scenario, see [Choose an Authentication Provider](https://learn.microsoft.com/graph/sdks/choose-authentication-providers). 
 
-```cmd
-pip install -r requirements-dev.txt
+The example also shows how to make a call to the Microsoft 365 Copilot Retrieval API. To call this API, you first need to create a request object and then run the POST method on the request.
+
+The client ID is the app registration ID that is generated when you [register your app in the Azure portal](https://learn.microsoft.com/graph/auth-register-app-v2).
+
+> **Note:**
+>    
+> Your tenant must have a Microsoft 365 Copilot license.
+
+```TypeScript
+import { createBaseAgentsM365CopilotBetaServiceClient, RetrievalDataSourceObject } from '@microsoft/agents-m365copilot-beta';
+import { DeviceCodeCredential } from '@azure/identity';
+import { FetchRequestAdapter } from '@microsoft/kiota-http-fetchlibrary';
+
+async function main() {
+    // Initialize authentication with Device Code flow
+    const credential = new DeviceCodeCredential({
+        tenantId: process.env.TENANT_ID,
+        clientId: process.env.CLIENT_ID,
+        userPromptCallback: (info) => {
+            console.log(`\nTo sign in, use a web browser to open the page ${info.verificationUri}`);
+            console.log(`Enter the code ${info.userCode} to authenticate.`);
+            console.log(`The code will expire at ${info.expiresOn}`);
+        }
+    });
+
+    // Create request adapter with auth
+    const adapter = new FetchRequestAdapter(credential, {
+        scopes: ['https://graph.microsoft.com/.default']
+    });
+    adapter.baseUrl = "https://graph.microsoft.com/beta";
+
+    // Create client instance
+    const client = createBaseAgentsM365CopilotBetaServiceClient(adapter);
+
+    try {
+        console.log(`Using API base URL: ${adapter.baseUrl}\n`);
+
+        // Create the retrieval request body
+        const retrievalBody = {
+            dataSource: RetrievalDataSourceObject.SharePoint,
+            queryString: "What is the latest in my organization"
+        };
+
+        // Make the API call
+        console.log("Making retrieval API request...");
+        const retrieval = await client.copilot.retrieval.post(retrievalBody);
+
+        // Process the results
+        if (retrieval?.retrievalHits) {
+            console.log(`\nReceived ${retrieval.retrievalHits.length} hits`);
+            for (const hit of retrieval.retrievalHits) {
+                console.log(`\nWeb URL: ${hit.webUrl}`);
+                for (const extract of hit.extracts || []) {
+                    console.log(`Text:\n${extract.text}\n`);
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        throw error;
+    }
+}
 ```
-
-This will install the core library with the latest version attached to it in the environment.
-
-Alternatively, you can switch to the root of the core library and run:
-
-```cmd
-pip install -e .
-```
-
-This will install the core library and it's dependencies to the environment.
-
-### 3. Call the client
-
-```python
-import asyncio
-import os
-
-from azure.identity.aio import ClientSecretCredential
-from dotenv import load_dotenv
-from kiota_abstractions.api_error import APIError
-
-from microsoft_agents_m365copilot_beta import MicrosoftAgentsM365CopilotServiceClient
-from microsoft_agents_m365copilot_beta.generated.copilot.retrieval.retrieval_post_request_body import (
-    RetrievalPostRequestBody,
-)
-
-load_dotenv()
-
-TENANT_ID = os.getenv("TENANT_ID")
-CLIENT_ID = os.getenv("CLIENT_ID")
-CLIENT_SECRET_ID = os.getenv("CLIENT_SECRET_ID")
-
-credentials = ClientSecretCredential(TENANT_ID, CLIENT_ID, CLIENT_SECRET_ID)
-scopes = ['https://graph.microsoft.com/.default']
-client = MicrosoftAgentsM365CopilotServiceClient(credentials=credentials, scopes=scopes)
-
-
-async def retrieve():
-    try:
-        retrieval_body = RetrievalPostRequestBody()
-        retrieval_body.query_string = "What is the latest in my organization"
-        retrieval = await client.copilot.retrieval.post(retrieval_body)
-        if retrieval:
-            for r in retrieval["retrievalHits"]:
-                print(r)
-    except APIError as e:
-        print(f"Error: {e.error.code}: {e.error.message}")
-        raise e
-
-
-asyncio.run(retrieve())
-```
-
-> **Note**:
-> This client library offers an asynchronous API by default. Async is a concurrency model that is far more efficient than multi-threading, and can provide significant performance benefits and enable the use of long-lived network connections such as WebSockets. We support popular python async environments such as `asyncio`, `anyio` or `trio`. For authentication you need to use one of the async credential classes from `azure.identity`.
-
-## Telemetry Metadata
-
-This library captures metadata by default that provides insights into its usage and helps to improve the developer experience. This metadata includes the `SdkVersion`, `RuntimeEnvironment` and `HostOs` on which the client is running.
 
 ## Issues
 
-View or log issues on the [Issues](https://github.com/microsof/agents-m365copilot/issues) tab in the repo and tag them as `python` or `python-core`.
-
-## Contributing
-
-Please see the [contributing guidelines](CONTRIBUTING.md).
+View or log issues on the [Issues](https://github.com/microsoft/Agents-M365Copilot/issues) tab in the repo and tag them as `python` or `python-core`.
 
 ## Copyright and license
 
-Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT [license](LICENSE).
+Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT [license](https://github.com/microsoft/Agents-M365Copilot/tree/main/typescript/LICENSE).
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
