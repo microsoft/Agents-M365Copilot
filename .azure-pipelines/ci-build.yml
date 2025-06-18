@@ -371,20 +371,18 @@ extends:
           - task: CopyFiles@2
             inputs:
               sourceFolder: '$(Build.SourcesDirectory)/typescript/'
-              targetFolder: '$(Build.ArtifactStagingDirectory)'
+              targetFolder: '$(Build.ArtifactStagingDirectory)/npm'
               Contents: |
                 *.tgz
             displayName: "Copy package.json and package gzipped tarballs"
           templateContext:
             outputs:
             - output: pipelineArtifact
-              path: '$(Build.ArtifactStagingDirectory)'    
+              displayName: 'Move TypeScript package artifacts'
+              artifactName: npm
+              targetPath: '$(Build.ArtifactStagingDirectory)/npm'    
               artifact: drop
-
-    - stage: Build_python
-      dependsOn: []
-      jobs:
-        - job: build
+        - job: build_python
           displayName: 'Build Python Project'
           pool:
             name: Azure-Pipelines-1ESPT-ExDShared
@@ -428,6 +426,7 @@ extends:
             - script: poetry run pylint . --disable=W --rcfile=../../.pylintrc
               displayName: 'Lint with Pylint'
               workingDirectory: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}'
+
             - script: poetry run pytest
               displayName: 'Run the tests'
               workingDirectory: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}'
@@ -439,7 +438,7 @@ extends:
             - task: CopyFiles@2
               inputs:
                 sourceFolder: '$(Build.SourcesDirectory)/python/${{ matrix.library.path }}/dist/'
-                targetFolder: '$(Build.ArtifactStagingDirectory)/${{ matrix.library.name }}'
+                targetFolder: '$(Build.ArtifactStagingDirectory)/${{ matrix.library.name }}/python'
                 Contents: |
                   *.tar.gz
                   *.whl
@@ -448,7 +447,9 @@ extends:
           templateContext:
             outputs:
               - output: pipelineArtifact
-                path: '$(Build.ArtifactStagingDirectory)'
+                displayName: 'Move Python package artifacts'
+                artifactName: pypi
+                targetPath: '$(Build.ArtifactStagingDirectory)/python'
                 artifact: drop
 
     - stage: deploy
