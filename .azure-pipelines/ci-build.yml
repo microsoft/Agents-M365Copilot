@@ -447,7 +447,7 @@ extends:
             outputs:
               - output: pipelineArtifact
                 displayName: 'Move Python package artifacts'
-                artifactName: pypi
+                artifactName: pypi_$(library_name)
                 targetPath: '$(Build.ArtifactStagingDirectory)/python/$(library_name)'
 
     - stage: deploy
