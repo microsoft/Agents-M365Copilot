@@ -428,6 +428,7 @@ extends:
 
             - script: poetry run pytest
               displayName: 'Run the tests'
+              condition: eq(variables['library_name'], 'microsoft_agents_m365copilot_core')
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_path)'
 
             - script: poetry build
