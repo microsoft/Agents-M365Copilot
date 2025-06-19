@@ -40,10 +40,12 @@ extends:
               core:
                 project_name: Microsoft.Agents.M365Copilot.Core
                 project_path: dotnet/src/Microsoft.Agents.M365Copilot.Core/Microsoft.Agents.M365Copilot.Core.csproj
+                project_test: dotnet/src/Microsoft.Agents.M365Copilot.Core.Tests/Microsoft.Agents.M365Copilot.Core.Tests.csproj
                 solution_path: dotnet/Microsoft.Agents.M365Copilot.sln
               beta:
                 project_name: Microsoft.Agents.M365Copilot.Beta
                 project_path: dotnet/src/Microsoft.Agents.M365Copilot.Beta/Microsoft.Agents.M365Copilot.Beta.csproj
+                project_test: dotnet/src/Microsoft.Agents.M365Copilot.Beta.Tests/Microsoft.Agents.M365Copilot.Beta.Tests.csproj
                 solution_path: dotnet/Microsoft.Agents.M365Copilot.sln
           steps:
             - task: UseDotNet@2
@@ -88,7 +90,7 @@ extends:
               displayName: 'Test $(project_name)'
               inputs:
                 command: test
-                projects: '$(Build.SourcesDirectory)/$(solution_path)'
+                projects: '$(Build.SourcesDirectory)/$(project_test)'
                 arguments: '--configuration $(BuildConfiguration) --no-build -f net8.0'
             - pwsh: |
                 dotnet pack $(Build.SourcesDirectory)/$(project_path) /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg --no-build --output $(Build.ArtifactStagingDirectory)/Nugets --configuration $(BuildConfiguration)
