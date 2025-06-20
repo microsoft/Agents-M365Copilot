@@ -10,11 +10,11 @@
 	"homepage": "https://github.com/microsoft/Agents-M365Copilot/blob/main/typescript/README.md",
 	"license": "MIT",
 	"main": "dist/index.node.js",
-	"types": "dist/index.d.ts",
+	"types": "dist/generated/index.d.ts",
 	"browser": "dist/index.browser.js",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
+			"types": "./dist/generated/index.d.ts",
 			"node": "./dist/index.node.js",
 			"browser": "./dist/index.browser.js",
 			"default": "./dist/index.node.js"
