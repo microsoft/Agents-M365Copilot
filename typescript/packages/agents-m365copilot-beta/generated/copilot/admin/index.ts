@@ -25,7 +25,7 @@ export interface AdminRequestBuilder extends BaseRequestBuilder<AdminRequestBuil
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get admin from copilot
+     * The Microsoft 365 Copilot admin who can add or modify Copilot settings. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CopilotAdmin>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -46,7 +46,7 @@ export interface AdminRequestBuilder extends BaseRequestBuilder<AdminRequestBuil
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get admin from copilot
+     * The Microsoft 365 Copilot admin who can add or modify Copilot settings. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +60,7 @@ export interface AdminRequestBuilder extends BaseRequestBuilder<AdminRequestBuil
      toPatchRequestInformation(body: CopilotAdmin, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get admin from copilot
+ * The Microsoft 365 Copilot admin who can add or modify Copilot settings. Read-only. Nullable.
  */
 export interface AdminRequestBuilderGetQueryParameters {
     /**
@@ -98,6 +98,7 @@ export const AdminRequestBuilderNavigationMetadata: Record<Exclude<keyof AdminRe
 export const AdminRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AdminRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

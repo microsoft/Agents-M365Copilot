@@ -27,7 +27,7 @@ export interface OnlineMeetingsRequestBuilder extends BaseRequestBuilder<OnlineM
      */
      byAiOnlineMeetingId(aiOnlineMeetingId: string) : AiOnlineMeetingItemRequestBuilder;
     /**
-     * Get onlineMeetings from copilot
+     * Information about an online meeting, including AI insights.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AiOnlineMeetingCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface OnlineMeetingsRequestBuilder extends BaseRequestBuilder<OnlineM
      */
      post(body: AiOnlineMeeting, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AiOnlineMeeting | undefined>;
     /**
-     * Get onlineMeetings from copilot
+     * Information about an online meeting, including AI insights.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface OnlineMeetingsRequestBuilder extends BaseRequestBuilder<OnlineM
      toPostRequestInformation(body: AiOnlineMeeting, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get onlineMeetings from copilot
+ * Information about an online meeting, including AI insights.
  */
 export interface OnlineMeetingsRequestBuilderGetQueryParameters {
     /**
