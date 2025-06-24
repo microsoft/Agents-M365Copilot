@@ -28,7 +28,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             set { BackingStore?.Set("conversation", value); }
         }
 #endif
-        /// <summary>The tag property</summary>
+        /// <summary>The tag details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkTagIdentity? Tag
