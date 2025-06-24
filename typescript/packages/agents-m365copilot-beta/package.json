@@ -1,10 +1,12 @@
 {
 	"name": "@microsoft/agents-m365copilot-beta",
-	"version": "1.0.0-preview.1",
-	"description": "Microsoft Copilot client library",
+	"version": "1.0.0-preview.2",
+	"description": "Microsoft 365 Copilot APIs Beta client library enables you to call the Microsoft 365 Copilot APIs in your applications and custom engine agents.",
 	"keywords": [
-		"microsoft",
-		"copilot"
+		"Microsoft",
+		"copilot",
+		"agents",
+		"Microsoft 365"
 	],
 	"author": "Microsoft <graphsdkpub+ccsbetajavascript@microsoft.com>",
 	"homepage": "https://github.com/microsoft/Agents-M365Copilot/blob/main/typescript/README.md",

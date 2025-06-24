@@ -5,14 +5,14 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry]
 name = "microsoft-agents-m365copilot-beta"
 # x-release-please-start-version
-version = "1.0.0-preview.1"
+version = "1.0.0-preview.2"
 # x-release-please-end
-description = "Microsoft Agents M365 Copilot Python SDK (Beta)"
-authors = ["Microsoft <graphtooling+ccspython@microsoft.com>"]
-maintainers = ["Microsoft <graphtooling+ccspython@microsoft.com>"]
+description = "Microsoft 365 Copilot APIs Beta client library enables you to call the Microsoft 365 Copilot APIs in your applications and custom engine agents."
+authors = [{name = "Microsoft", email = "graphsdkpub+ccspython@microsoft.com"}]
+maintainers = [{name = "Microsoft", email = "graphsdkpub+ccspython@microsoft.com"}]
 license = "MIT"
 readme = "README.md"
-keywords = ["copilot", "openAPI", "Microsoft", "M365", "Beta"]
+keywords = ["copilot", "openAPI", "Microsoft", "M365", "Beta", "agents"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Programming Language :: Python :: 3.9",
