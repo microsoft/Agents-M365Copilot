@@ -14,7 +14,7 @@ from .identity import Identity
 class ProvisioningSystem(Identity, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.provisioningSystem"
-    # The details property
+    # Details of the system.
     details: Optional[DetailsInfo] = None
     
     @staticmethod

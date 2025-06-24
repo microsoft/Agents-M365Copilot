@@ -51,7 +51,7 @@ class SettingsRequestBuilder(BaseRequestBuilder):
     
     async def get(self,request_configuration: Optional[RequestConfiguration[SettingsRequestBuilderGetQueryParameters]] = None) -> Optional[CopilotAdminSetting]:
         """
-        Get settings from copilot
+        Set of Microsoft 365 Copilot settings that can be added or modified. Read-only. Nullable.
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: Optional[CopilotAdminSetting]
         """
@@ -100,11 +100,12 @@ class SettingsRequestBuilder(BaseRequestBuilder):
         """
         request_info = RequestInformation(Method.DELETE, self.url_template, self.path_parameters)
         request_info.configure(request_configuration)
+        request_info.headers.try_add("Accept", "application/json")
         return request_info
     
     def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[SettingsRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
         """
-        Get settings from copilot
+        Set of Microsoft 365 Copilot settings that can be added or modified. Read-only. Nullable.
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -157,7 +158,7 @@ class SettingsRequestBuilder(BaseRequestBuilder):
     @dataclass
     class SettingsRequestBuilderGetQueryParameters():
         """
-        Get settings from copilot
+        Set of Microsoft 365 Copilot settings that can be added or modified. Read-only. Nullable.
         """
         def get_query_parameter(self,original_name: str) -> str:
             """

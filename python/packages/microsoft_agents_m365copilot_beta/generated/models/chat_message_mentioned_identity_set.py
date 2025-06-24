@@ -15,9 +15,9 @@ from .identity_set import IdentitySet
 class ChatMessageMentionedIdentitySet(IdentitySet, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.chatMessageMentionedIdentitySet"
-    # The conversation property
+    # If present, represents a conversation (for example, team, channel, or chat) @mentioned in a message.
     conversation: Optional[TeamworkConversationIdentity] = None
-    # The tag property
+    # If present, represents a tag @mentioned in a team message.
     tag: Optional[TeamworkTagIdentity] = None
     
     @staticmethod

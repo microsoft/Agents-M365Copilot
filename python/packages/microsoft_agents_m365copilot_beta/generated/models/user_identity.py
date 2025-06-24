@@ -7,7 +7,6 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 if TYPE_CHECKING:
     from .audit_user_identity import AuditUserIdentity
     from .identity import Identity
-    from .user_information import UserInformation
 
 from .identity import Identity
 
@@ -15,9 +14,9 @@ from .identity import Identity
 class UserIdentity(Identity, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.userIdentity"
-    # The ipAddress property
+    # Indicates the client IP address associated with the user performing the activity (audit log only).
     ip_address: Optional[str] = None
-    # The userPrincipalName property
+    # The userPrincipalName attribute of the user.
     user_principal_name: Optional[str] = None
     
     @staticmethod
@@ -38,10 +37,6 @@ class UserIdentity(Identity, Parsable):
             from .audit_user_identity import AuditUserIdentity
 
             return AuditUserIdentity()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.userInformation".casefold():
-            from .user_information import UserInformation
-
-            return UserInformation()
         return UserIdentity()
     
     def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
@@ -51,11 +46,9 @@ class UserIdentity(Identity, Parsable):
         """
         from .audit_user_identity import AuditUserIdentity
         from .identity import Identity
-        from .user_information import UserInformation
 
         from .audit_user_identity import AuditUserIdentity
         from .identity import Identity
-        from .user_information import UserInformation
 
         fields: dict[str, Callable[[Any], None]] = {
             "ipAddress": lambda n : setattr(self, 'ip_address', n.get_str_value()),

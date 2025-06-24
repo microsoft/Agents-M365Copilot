@@ -20,7 +20,7 @@ class MainError(AdditionalDataHolder, BackedModel, Parsable):
     code: Optional[str] = None
     # The details property
     details: Optional[list[ErrorDetails]] = None
-    # The structure of this object is service-specific
+    # The innerError property
     inner_error: Optional[InnerError] = None
     # The message property
     message: Optional[str] = None

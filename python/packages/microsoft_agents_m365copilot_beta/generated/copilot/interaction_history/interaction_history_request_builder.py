@@ -17,7 +17,6 @@ if TYPE_CHECKING:
     from ...models.ai_interaction_history import AiInteractionHistory
     from ...models.o_data_errors.o_data_error import ODataError
     from .get_all_enterprise_interactions.get_all_enterprise_interactions_request_builder import GetAllEnterpriseInteractionsRequestBuilder
-    from .interactions.interactions_request_builder import InteractionsRequestBuilder
 
 class InteractionHistoryRequestBuilder(BaseRequestBuilder):
     """
@@ -52,7 +51,7 @@ class InteractionHistoryRequestBuilder(BaseRequestBuilder):
     
     async def get(self,request_configuration: Optional[RequestConfiguration[InteractionHistoryRequestBuilderGetQueryParameters]] = None) -> Optional[AiInteractionHistory]:
         """
-        Get interactionHistory from copilot
+        The history of interactions between AI agents and users.
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: Optional[AiInteractionHistory]
         """
@@ -101,11 +100,12 @@ class InteractionHistoryRequestBuilder(BaseRequestBuilder):
         """
         request_info = RequestInformation(Method.DELETE, self.url_template, self.path_parameters)
         request_info.configure(request_configuration)
+        request_info.headers.try_add("Accept", "application/json")
         return request_info
     
     def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[InteractionHistoryRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
         """
-        Get interactionHistory from copilot
+        The history of interactions between AI agents and users.
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -148,15 +148,6 @@ class InteractionHistoryRequestBuilder(BaseRequestBuilder):
 
         return GetAllEnterpriseInteractionsRequestBuilder(self.request_adapter, self.path_parameters)
     
-    @property
-    def interactions(self) -> InteractionsRequestBuilder:
-        """
-        Provides operations to manage the interactions property of the microsoft.graph.aiInteractionHistory entity.
-        """
-        from .interactions.interactions_request_builder import InteractionsRequestBuilder
-
-        return InteractionsRequestBuilder(self.request_adapter, self.path_parameters)
-    
     @dataclass
     class InteractionHistoryRequestBuilderDeleteRequestConfiguration(RequestConfiguration[QueryParameters]):
         """
@@ -167,7 +158,7 @@ class InteractionHistoryRequestBuilder(BaseRequestBuilder):
     @dataclass
     class InteractionHistoryRequestBuilderGetQueryParameters():
         """
-        Get interactionHistory from copilot
+        The history of interactions between AI agents and users.
         """
         def get_query_parameter(self,original_name: str) -> str:
             """

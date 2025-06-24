@@ -13,7 +13,7 @@ from .identity import Identity
 class ServicePrincipalIdentity(Identity, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.servicePrincipalIdentity"
-    # The appId property
+    # The application identifier of the service principal.
     app_id: Optional[str] = None
     
     @staticmethod
