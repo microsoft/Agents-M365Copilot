@@ -14,9 +14,9 @@ from .identity import Identity
 class TeamworkUserIdentity(Identity, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.teamworkUserIdentity"
-    # The userIdentityType property
+    # Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, emailUser and azureCommunicationServicesUser.
     user_identity_type: Optional[TeamworkUserIdentityType] = None
-    # The userPrincipalName property
+    # User principal name (UPN) of the user.
     user_principal_name: Optional[str] = None
     
     @staticmethod

@@ -13,7 +13,7 @@ from ..identity import Identity
 class SubmissionUserIdentity(Identity, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.security.submissionUserIdentity"
-    # The email property
+    # The email of user who is making the submission when logged in (delegated token case).
     email: Optional[str] = None
     
     @staticmethod

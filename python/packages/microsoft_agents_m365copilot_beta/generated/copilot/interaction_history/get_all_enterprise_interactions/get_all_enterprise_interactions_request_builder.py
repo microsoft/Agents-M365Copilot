@@ -32,9 +32,10 @@ class GetAllEnterpriseInteractionsRequestBuilder(BaseRequestBuilder):
     
     async def get(self,request_configuration: Optional[RequestConfiguration[GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters]] = None) -> Optional[GetAllEnterpriseInteractionsGetResponse]:
         """
-        Invoke function getAllEnterpriseInteractions
+        Get all Microsoft 365 Copilot interaction data, including user prompts to Copilot and Copilot responses. This API captures the user intent, the resources accessed by Copilot, and the response to the user for Microsoft 365 apps such as Teams, Word, and Outlook. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: Optional[GetAllEnterpriseInteractionsGetResponse]
+        Find more info here: https://learn.microsoft.com/graph/api/aiinteractionhistory-getallenterpriseinteractions?view=graph-rest-beta
         """
         request_info = self.to_get_request_information(
             request_configuration
@@ -52,7 +53,7 @@ class GetAllEnterpriseInteractionsRequestBuilder(BaseRequestBuilder):
     
     def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
         """
-        Invoke function getAllEnterpriseInteractions
+        Get all Microsoft 365 Copilot interaction data, including user prompts to Copilot and Copilot responses. This API captures the user intent, the resources accessed by Copilot, and the response to the user for Microsoft 365 apps such as Teams, Word, and Outlook. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -74,7 +75,7 @@ class GetAllEnterpriseInteractionsRequestBuilder(BaseRequestBuilder):
     @dataclass
     class GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters():
         """
-        Invoke function getAllEnterpriseInteractions
+        Get all Microsoft 365 Copilot interaction data, including user prompts to Copilot and Copilot responses. This API captures the user intent, the resources accessed by Copilot, and the response to the user for Microsoft 365 apps such as Teams, Word, and Outlook. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
         """
         def get_query_parameter(self,original_name: str) -> str:
             """

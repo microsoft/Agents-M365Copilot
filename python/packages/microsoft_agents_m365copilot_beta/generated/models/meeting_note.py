@@ -17,11 +17,11 @@ class MeetingNote(AdditionalDataHolder, BackedModel, Parsable):
     additional_data: dict[str, Any] = field(default_factory=dict)
     # The OdataType property
     odata_type: Optional[str] = None
-    # The subpoints property
+    # A collection of subpoints of the meeting note.
     subpoints: Optional[list[MeetingNoteSubpoint]] = None
-    # The text property
+    # The text of the meeting note.
     text: Optional[str] = None
-    # The title property
+    # The title of the meeting note.
     title: Optional[str] = None
     
     @staticmethod
