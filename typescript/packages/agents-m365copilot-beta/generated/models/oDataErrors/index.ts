@@ -61,6 +61,10 @@ export function deserializeIntoErrorDetails(errorDetails: Partial<ErrorDetails> 
 export function deserializeIntoInnerError(innerError: Partial<InnerError> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { innerError.backingStoreEnabled = true; },
+        "client-request-id": n => { innerError.clientRequestId = n.getStringValue(); },
+        "date": n => { innerError.date = n.getDateValue(); },
+        "@odata.type": n => { innerError.odataType = n.getStringValue(); },
+        "request-id": n => { innerError.requestId = n.getStringValue(); },
     }
 }
 /**
@@ -111,9 +115,6 @@ export interface ErrorDetails extends AdditionalDataHolder, BackedModel, Parsabl
      */
     target?: string | null;
 }
-/**
- * The structure of this object is service-specific
- */
 export interface InnerError extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -123,6 +124,22 @@ export interface InnerError extends AdditionalDataHolder, BackedModel, Parsable 
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
+    /**
+     * Client request Id as sent by the client application.
+     */
+    clientRequestId?: string | null;
+    /**
+     * Date when the error occured.
+     */
+    date?: Date | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * Request Id as tracked internally by the service
+     */
+    requestId?: string | null;
 }
 export interface MainError extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -142,7 +159,7 @@ export interface MainError extends AdditionalDataHolder, BackedModel, Parsable {
      */
     details?: ErrorDetails[] | null;
     /**
-     * The structure of this object is service-specific
+     * The innerError property
      */
     innerError?: InnerError | null;
     /**
@@ -188,6 +205,10 @@ export function serializeErrorDetails(writer: SerializationWriter, errorDetails:
 // @ts-ignore
 export function serializeInnerError(writer: SerializationWriter, innerError: Partial<InnerError> | undefined | null = {}) : void {
     if (innerError) {
+        writer.writeStringValue("client-request-id", innerError.clientRequestId);
+        writer.writeDateValue("date", innerError.date);
+        writer.writeStringValue("@odata.type", innerError.odataType);
+        writer.writeStringValue("request-id", innerError.requestId);
         writer.writeAdditionalData(innerError.additionalData);
     }
 }
