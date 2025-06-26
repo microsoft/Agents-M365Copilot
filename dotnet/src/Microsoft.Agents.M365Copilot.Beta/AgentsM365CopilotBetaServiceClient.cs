@@ -75,7 +75,7 @@ namespace Microsoft.Agents.M365Copilot.Beta
         public AgentsM365CopilotBetaServiceClient(
             IAuthenticationProvider authenticationProvider,
             string baseUrl = null
-            ) : this(new BaseRequestAdapter(authenticationProvider, copilotClientOptions), baseUrl)
+            ) : this(CopilotClientFactory.Create(copilotClientOptions, version: "beta"), authenticationProvider, baseUrl)
         {
         }
 
