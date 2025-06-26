@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class AiOnlineMeeting : global::Microsoft.Agents.M365Copilot.Beta.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The aiInsights property</summary>
+        /// <summary>A set of AI insights associated with an AI online meeting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.CallAiInsight>? AiInsights

@@ -21,7 +21,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The content property</summary>
+        /// <summary>The content of the item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Content
@@ -37,7 +37,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             set { BackingStore?.Set("content", value); }
         }
 #endif
-        /// <summary>The contentType property</summary>
+        /// <summary>The type of the content. Possible values are text and html.</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.BodyType? ContentType
         {
             get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.BodyType?>("contentType"); }

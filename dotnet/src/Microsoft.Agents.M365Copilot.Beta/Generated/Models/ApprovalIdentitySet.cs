@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class ApprovalIdentitySet : global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The group property</summary>
+        /// <summary>The Microsoft Entra group associated with the approval item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity? Group

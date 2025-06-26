@@ -53,7 +53,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors
             set { BackingStore?.Set("details", value); }
         }
 #endif
-        /// <summary>The structure of this object is service-specific</summary>
+        /// <summary>The innerError property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors.InnerError? InnerError

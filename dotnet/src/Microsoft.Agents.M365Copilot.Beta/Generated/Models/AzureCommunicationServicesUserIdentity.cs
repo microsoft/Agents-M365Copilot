@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class AzureCommunicationServicesUserIdentity : global::Microsoft.Agents.M365Copilot.Beta.Models.Identity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The azureCommunicationServicesResourceId property</summary>
+        /// <summary>The Azure Communication Services resource ID associated with the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AzureCommunicationServicesResourceId

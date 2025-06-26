@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class TeamworkConversationIdentity : global::Microsoft.Agents.M365Copilot.Beta.Models.Identity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The conversationIdentityType property</summary>
+        /// <summary>Type of conversation. Possible values are: team, channel, and chat.</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkConversationIdentityType? ConversationIdentityType
         {
             get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkConversationIdentityType?>("conversationIdentityType"); }

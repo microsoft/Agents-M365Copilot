@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class CopilotAdmin : global::Microsoft.Agents.M365Copilot.Beta.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The settings property</summary>
+        /// <summary>Set of Microsoft 365 Copilot settings that can be added or modified. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting? Settings

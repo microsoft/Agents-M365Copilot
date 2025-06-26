@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class Initiator : global::Microsoft.Agents.M365Copilot.Beta.Models.Identity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The initiatorType property</summary>
+        /// <summary>The type of the initiator. Possible values are: user, application, system, unknownFutureValue.</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.InitiatorType? InitiatorType
         {
             get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.InitiatorType?>("initiatorType"); }

@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class EnhancedPersonalizationSetting : global::Microsoft.Agents.M365Copilot.Beta.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The disabledForGroup property</summary>
+        /// <summary>The ID of a Microsoft Entra group to which the value is used to disable the control for populated users. The default value is null. This parameter is optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisabledForGroup
@@ -28,7 +28,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             set { BackingStore?.Set("disabledForGroup", value); }
         }
 #endif
-        /// <summary>The isEnabledInOrganization property</summary>
+        /// <summary>If true, enables the enhanced personalization control and therefore related features as defined in control enhanced personalization privacy</summary>
         public bool? IsEnabledInOrganization
         {
             get { return BackingStore?.Get<bool?>("isEnabledInOrganization"); }

@@ -12,22 +12,6 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class SourceProvisionedIdentity : global::Microsoft.Agents.M365Copilot.Beta.Models.Identity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The identityType property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? IdentityType
-        {
-            get { return BackingStore?.Get<string?>("identityType"); }
-            set { BackingStore?.Set("identityType", value); }
-        }
-#nullable restore
-#else
-        public string IdentityType
-        {
-            get { return BackingStore?.Get<string>("identityType"); }
-            set { BackingStore?.Set("identityType", value); }
-        }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.SourceProvisionedIdentity"/> and sets the default values.
         /// </summary>
@@ -53,7 +37,6 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "identityType", n => { IdentityType = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -64,7 +47,6 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteStringValue("identityType", IdentityType);
         }
     }
 }

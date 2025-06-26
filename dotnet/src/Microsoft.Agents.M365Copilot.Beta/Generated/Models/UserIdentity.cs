@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class UserIdentity : global::Microsoft.Agents.M365Copilot.Beta.Models.Identity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The ipAddress property</summary>
+        /// <summary>Indicates the client IP address associated with the user performing the activity (audit log only).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? IpAddress
@@ -28,7 +28,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             set { BackingStore?.Set("ipAddress", value); }
         }
 #endif
-        /// <summary>The userPrincipalName property</summary>
+        /// <summary>The userPrincipalName attribute of the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserPrincipalName
@@ -63,7 +63,6 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             return mappingValue switch
             {
                 "#microsoft.graph.auditUserIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AuditUserIdentity(),
-                "#microsoft.graph.userInformation" => new global::Microsoft.Agents.M365Copilot.Beta.Models.UserInformation(),
                 _ => new global::Microsoft.Agents.M365Copilot.Beta.Models.UserIdentity(),
             };
         }

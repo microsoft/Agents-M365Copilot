@@ -57,7 +57,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Settings.LimitedMode
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get limitedMode from copilot
+        /// Read the properties and relationships of a copilotAdminLimitedMode object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/copilotadminlimitedmode-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminLimitedMode"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +81,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Settings.LimitedMode
             return await RequestAdapter.SendAsync<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminLimitedMode>(requestInfo, global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminLimitedMode.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update the navigation property limitedMode in copilot
+        /// Update the properties of a copilotAdminLimitedMode object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/copilotadminlimitedmode-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminLimitedMode"/></returns>
         /// <param name="body">The request body</param>
@@ -120,10 +122,11 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Settings.LimitedMode
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get limitedMode from copilot
+        /// Read the properties and relationships of a copilotAdminLimitedMode object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -142,7 +145,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Settings.LimitedMode
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property limitedMode in copilot
+        /// Update the properties of a copilotAdminLimitedMode object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -181,7 +184,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Settings.LimitedMode
         {
         }
         /// <summary>
-        /// Get limitedMode from copilot
+        /// Read the properties and relationships of a copilotAdminLimitedMode object.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class LimitedModeRequestBuilderGetQueryParameters 

@@ -57,7 +57,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.It
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get aiInsights from copilot
+        /// Get a callAiInsight object associated with an onlineMeeting. This API returns the metadata and content of the single set of AI insights associated with the online meeting.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/callaiinsight-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.CallAiInsight"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -120,10 +121,11 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.It
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Get aiInsights from copilot
+        /// Get a callAiInsight object associated with an onlineMeeting. This API returns the metadata and content of the single set of AI insights associated with the online meeting.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -181,7 +183,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.It
         {
         }
         /// <summary>
-        /// Get aiInsights from copilot
+        /// Get a callAiInsight object associated with an onlineMeeting. This API returns the metadata and content of the single set of AI insights associated with the online meeting.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CallAiInsightItemRequestBuilderGetQueryParameters 

@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class ChatMessageMentionedIdentitySet : global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The conversation property</summary>
+        /// <summary>If present, represents a conversation (for example, team, channel, or chat) @mentioned in a message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkConversationIdentity? Conversation
@@ -28,7 +28,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             set { BackingStore?.Set("conversation", value); }
         }
 #endif
-        /// <summary>The tag property</summary>
+        /// <summary>If present, represents a tag @mentioned in a team message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkTagIdentity? Tag
