@@ -113,7 +113,6 @@ catch (Exception ex)
     Console.Error.WriteLine(ex);
 }
 ```
-
 ## Documentation and resources
 
 - [Microsoft 365 Copilot APIs](https://aka.ms/M365CopilotAPIs)
