@@ -14,7 +14,7 @@ from .identity import Identity
 class TeamworkApplicationIdentity(Identity, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.teamworkApplicationIdentity"
-    # The applicationIdentityType property
+    # Type of application that is referenced. Possible values are: aadApplication, bot, tenantBot, office365Connector, and outgoingWebhook.
     application_identity_type: Optional[TeamworkApplicationIdentityType] = None
     
     @staticmethod

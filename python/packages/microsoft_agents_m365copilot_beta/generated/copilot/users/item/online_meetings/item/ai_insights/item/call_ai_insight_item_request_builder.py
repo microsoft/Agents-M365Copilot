@@ -50,9 +50,10 @@ class CallAiInsightItemRequestBuilder(BaseRequestBuilder):
     
     async def get(self,request_configuration: Optional[RequestConfiguration[CallAiInsightItemRequestBuilderGetQueryParameters]] = None) -> Optional[CallAiInsight]:
         """
-        Get aiInsights from copilot
+        Get a callAiInsight object associated with an onlineMeeting. This API returns the metadata and content of the single set of AI insights associated with the online meeting.
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: Optional[CallAiInsight]
+        Find more info here: https://learn.microsoft.com/graph/api/callaiinsight-get?view=graph-rest-beta
         """
         request_info = self.to_get_request_information(
             request_configuration
@@ -99,11 +100,12 @@ class CallAiInsightItemRequestBuilder(BaseRequestBuilder):
         """
         request_info = RequestInformation(Method.DELETE, self.url_template, self.path_parameters)
         request_info.configure(request_configuration)
+        request_info.headers.try_add("Accept", "application/json")
         return request_info
     
     def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[CallAiInsightItemRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
         """
-        Get aiInsights from copilot
+        Get a callAiInsight object associated with an onlineMeeting. This API returns the metadata and content of the single set of AI insights associated with the online meeting.
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -147,7 +149,7 @@ class CallAiInsightItemRequestBuilder(BaseRequestBuilder):
     @dataclass
     class CallAiInsightItemRequestBuilderGetQueryParameters():
         """
-        Get aiInsights from copilot
+        Get a callAiInsight object associated with an onlineMeeting. This API returns the metadata and content of the single set of AI insights associated with the online meeting.
         """
         def get_query_parameter(self,original_name: str) -> str:
             """

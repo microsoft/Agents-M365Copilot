@@ -13,8 +13,6 @@ from .identity import Identity
 class SourceProvisionedIdentity(Identity, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.sourceProvisionedIdentity"
-    # The identityType property
-    identity_type: Optional[str] = None
     
     @staticmethod
     def create_from_discriminator_value(parse_node: ParseNode) -> SourceProvisionedIdentity:
@@ -37,7 +35,6 @@ class SourceProvisionedIdentity(Identity, Parsable):
         from .identity import Identity
 
         fields: dict[str, Callable[[Any], None]] = {
-            "identityType": lambda n : setattr(self, 'identity_type', n.get_str_value()),
         }
         super_fields = super().get_field_deserializers()
         fields.update(super_fields)
@@ -52,6 +49,5 @@ class SourceProvisionedIdentity(Identity, Parsable):
         if writer is None:
             raise TypeError("writer cannot be null.")
         super().serialize(writer)
-        writer.write_str_value("identityType", self.identity_type)
     
 

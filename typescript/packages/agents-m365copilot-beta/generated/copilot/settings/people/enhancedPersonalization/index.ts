@@ -83,6 +83,7 @@ const EnhancedPersonalizationRequestBuilderGetQueryParametersMapper: Record<stri
 export const EnhancedPersonalizationRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: EnhancedPersonalizationRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

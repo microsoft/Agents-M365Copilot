@@ -16,13 +16,13 @@ class MentionEvent(AdditionalDataHolder, BackedModel, Parsable):
 
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additional_data: dict[str, Any] = field(default_factory=dict)
-    # The eventDateTime property
+    # The date and time of the mention event. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     event_date_time: Optional[datetime.datetime] = None
     # The OdataType property
     odata_type: Optional[str] = None
-    # The speaker property
+    # The speaker who mentioned the user.
     speaker: Optional[IdentitySet] = None
-    # The transcriptUtterance property
+    # The utterance in the online meeting transcript that contains the mention event.
     transcript_utterance: Optional[str] = None
     
     @staticmethod

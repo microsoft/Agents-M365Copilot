@@ -8,8 +8,6 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '../../.
 // @ts-ignore
 import { GetAllEnterpriseInteractionsRequestBuilderRequestsMetadata, type GetAllEnterpriseInteractionsRequestBuilder } from './getAllEnterpriseInteractions/index.js';
 // @ts-ignore
-import { InteractionsRequestBuilderNavigationMetadata, InteractionsRequestBuilderRequestsMetadata, type InteractionsRequestBuilder } from './interactions/index.js';
-// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -21,17 +19,13 @@ export interface InteractionHistoryRequestBuilder extends BaseRequestBuilder<Int
      */
     get getAllEnterpriseInteractions(): GetAllEnterpriseInteractionsRequestBuilder;
     /**
-     * Provides operations to manage the interactions property of the microsoft.graph.aiInteractionHistory entity.
-     */
-    get interactions(): InteractionsRequestBuilder;
-    /**
      * Delete navigation property interactionHistory for copilot
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get interactionHistory from copilot
+     * The history of interactions between AI agents and users.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AiInteractionHistory>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -52,7 +46,7 @@ export interface InteractionHistoryRequestBuilder extends BaseRequestBuilder<Int
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get interactionHistory from copilot
+     * The history of interactions between AI agents and users.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -66,7 +60,7 @@ export interface InteractionHistoryRequestBuilder extends BaseRequestBuilder<Int
      toPatchRequestInformation(body: AiInteractionHistory, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get interactionHistory from copilot
+ * The history of interactions between AI agents and users.
  */
 export interface InteractionHistoryRequestBuilderGetQueryParameters {
     /**
@@ -96,10 +90,6 @@ export const InteractionHistoryRequestBuilderNavigationMetadata: Record<Exclude<
     getAllEnterpriseInteractions: {
         requestsMetadata: GetAllEnterpriseInteractionsRequestBuilderRequestsMetadata,
     },
-    interactions: {
-        requestsMetadata: InteractionsRequestBuilderRequestsMetadata,
-        navigationMetadata: InteractionsRequestBuilderNavigationMetadata,
-    },
 };
 /**
  * Metadata for all the requests in the request builder.
@@ -107,6 +97,7 @@ export const InteractionHistoryRequestBuilderNavigationMetadata: Record<Exclude<
 export const InteractionHistoryRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: InteractionHistoryRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

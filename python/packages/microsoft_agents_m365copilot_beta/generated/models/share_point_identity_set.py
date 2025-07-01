@@ -15,11 +15,11 @@ from .identity_set import IdentitySet
 class SharePointIdentitySet(IdentitySet, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.sharePointIdentitySet"
-    # The group property
+    # The group associated with this action. Optional.
     group: Optional[Identity] = None
-    # The siteGroup property
+    # The SharePoint group associated with this action. Optional.
     site_group: Optional[SharePointIdentity] = None
-    # The siteUser property
+    # The SharePoint user associated with this action. Optional.
     site_user: Optional[SharePointIdentity] = None
     
     @staticmethod

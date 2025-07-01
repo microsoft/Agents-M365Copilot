@@ -31,7 +31,6 @@ if TYPE_CHECKING:
     from .teamwork_tag_identity import TeamworkTagIdentity
     from .teamwork_user_identity import TeamworkUserIdentity
     from .user_identity import UserIdentity
-    from .user_information import UserInformation
 
 @dataclass
 class Identity(AdditionalDataHolder, BackedModel, Parsable):
@@ -40,9 +39,9 @@ class Identity(AdditionalDataHolder, BackedModel, Parsable):
 
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additional_data: dict[str, Any] = field(default_factory=dict)
-    # The displayName property
+    # The display name of the identity. For drive items, the display name might not always be available or up to date. For example, if a user changes their display name the API might show the new value in a future response, but the items associated with the user don't show up as changed when using delta.
     display_name: Optional[str] = None
-    # The id property
+    # Unique identifier for the identity or actor. For example, in the access reviews decisions API, this property might record the id of the principal, that is, the group, user, or application that's subject to review.
     id: Optional[str] = None
     # The OdataType property
     odata_type: Optional[str] = None
@@ -163,10 +162,6 @@ class Identity(AdditionalDataHolder, BackedModel, Parsable):
             from .user_identity import UserIdentity
 
             return UserIdentity()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.userInformation".casefold():
-            from .user_information import UserInformation
-
-            return UserInformation()
         return Identity()
     
     def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
@@ -199,7 +194,6 @@ class Identity(AdditionalDataHolder, BackedModel, Parsable):
         from .teamwork_tag_identity import TeamworkTagIdentity
         from .teamwork_user_identity import TeamworkUserIdentity
         from .user_identity import UserIdentity
-        from .user_information import UserInformation
 
         from .audit_user_identity import AuditUserIdentity
         from .azure_communication_services_user_identity import AzureCommunicationServicesUserIdentity
@@ -226,7 +220,6 @@ class Identity(AdditionalDataHolder, BackedModel, Parsable):
         from .teamwork_tag_identity import TeamworkTagIdentity
         from .teamwork_user_identity import TeamworkUserIdentity
         from .user_identity import UserIdentity
-        from .user_information import UserInformation
 
         fields: dict[str, Callable[[Any], None]] = {
             "displayName": lambda n : setattr(self, 'display_name', n.get_str_value()),

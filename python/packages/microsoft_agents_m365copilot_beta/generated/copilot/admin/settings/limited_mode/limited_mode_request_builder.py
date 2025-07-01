@@ -50,9 +50,10 @@ class LimitedModeRequestBuilder(BaseRequestBuilder):
     
     async def get(self,request_configuration: Optional[RequestConfiguration[LimitedModeRequestBuilderGetQueryParameters]] = None) -> Optional[CopilotAdminLimitedMode]:
         """
-        Get limitedMode from copilot
+        Read the properties and relationships of a copilotAdminLimitedMode object.
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: Optional[CopilotAdminLimitedMode]
+        Find more info here: https://learn.microsoft.com/graph/api/copilotadminlimitedmode-get?view=graph-rest-beta
         """
         request_info = self.to_get_request_information(
             request_configuration
@@ -70,10 +71,11 @@ class LimitedModeRequestBuilder(BaseRequestBuilder):
     
     async def patch(self,body: CopilotAdminLimitedMode, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> Optional[CopilotAdminLimitedMode]:
         """
-        Update the navigation property limitedMode in copilot
+        Update the properties of a copilotAdminLimitedMode object.
         param body: The request body
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: Optional[CopilotAdminLimitedMode]
+        Find more info here: https://learn.microsoft.com/graph/api/copilotadminlimitedmode-update?view=graph-rest-beta
         """
         if body is None:
             raise TypeError("body cannot be null.")
@@ -99,11 +101,12 @@ class LimitedModeRequestBuilder(BaseRequestBuilder):
         """
         request_info = RequestInformation(Method.DELETE, self.url_template, self.path_parameters)
         request_info.configure(request_configuration)
+        request_info.headers.try_add("Accept", "application/json")
         return request_info
     
     def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[LimitedModeRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
         """
-        Get limitedMode from copilot
+        Read the properties and relationships of a copilotAdminLimitedMode object.
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -114,7 +117,7 @@ class LimitedModeRequestBuilder(BaseRequestBuilder):
     
     def to_patch_request_information(self,body: CopilotAdminLimitedMode, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> RequestInformation:
         """
-        Update the navigation property limitedMode in copilot
+        Update the properties of a copilotAdminLimitedMode object.
         param body: The request body
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
@@ -147,7 +150,7 @@ class LimitedModeRequestBuilder(BaseRequestBuilder):
     @dataclass
     class LimitedModeRequestBuilderGetQueryParameters():
         """
-        Get limitedMode from copilot
+        Read the properties and relationships of a copilotAdminLimitedMode object.
         """
         def get_query_parameter(self,original_name: str) -> str:
             """

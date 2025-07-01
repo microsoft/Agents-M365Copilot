@@ -13,7 +13,7 @@ from .identity import Identity
 class EmailIdentity(Identity, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.emailIdentity"
-    # The email property
+    # Email address of the user.
     email: Optional[str] = None
     
     @staticmethod

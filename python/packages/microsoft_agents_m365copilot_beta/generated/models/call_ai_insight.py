@@ -15,21 +15,21 @@ from .entity import Entity
 
 @dataclass
 class CallAiInsight(Entity, Parsable):
-    # The actionItems property
+    # The collection of AI-generated action items. Read-only.
     action_items: Optional[list[ActionItem]] = None
-    # The callId property
+    # The ID for the online meeting call for which the callAiInsight was generated. Read-only.
     call_id: Optional[str] = None
-    # The contentCorrelationId property
+    # The unique ID that correlates the transcript from which the insights were generated. Read-only.
     content_correlation_id: Optional[str] = None
-    # The createdDateTime property
+    # Date and time at which the corresponding transcript was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     created_date_time: Optional[datetime.datetime] = None
-    # The endDateTime property
+    # Date and time at which the corresponding transcription ends. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     end_date_time: Optional[datetime.datetime] = None
-    # The meetingNotes property
+    # The collection of AI-generated meeting notes. Read-only.
     meeting_notes: Optional[list[MeetingNote]] = None
     # The OdataType property
     odata_type: Optional[str] = None
-    # The viewpoint property
+    # The caller-specific properties of the callAiInsight entity. Read-only.
     viewpoint: Optional[CallAiInsightViewPoint] = None
     
     @staticmethod

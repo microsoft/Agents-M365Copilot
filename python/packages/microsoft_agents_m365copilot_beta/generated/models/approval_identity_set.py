@@ -14,7 +14,7 @@ from .identity_set import IdentitySet
 class ApprovalIdentitySet(IdentitySet, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.approvalIdentitySet"
-    # The group property
+    # The Microsoft Entra group associated with the approval item.
     group: Optional[Identity] = None
     
     @staticmethod

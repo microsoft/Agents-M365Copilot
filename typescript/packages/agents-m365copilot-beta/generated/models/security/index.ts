@@ -39,7 +39,7 @@ export function serializeSubmissionUserIdentity(writer: SerializationWriter, sub
 }
 export interface SubmissionUserIdentity extends Identity, Parsable {
     /**
-     * The email property
+     * The email of user who is making the submission when logged in (delegated token case).
      */
     email?: string | null;
 }

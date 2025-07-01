@@ -14,13 +14,8 @@ if TYPE_CHECKING:
     from .copilot_admin import CopilotAdmin
     from .copilot_admin_limited_mode import CopilotAdminLimitedMode
     from .copilot_admin_setting import CopilotAdminSetting
-    from .copilot_conversation import CopilotConversation
-    from .copilot_conversation_message import CopilotConversationMessage
-    from .copilot_conversation_request_message import CopilotConversationRequestMessage
-    from .copilot_conversation_response_message import CopilotConversationResponseMessage
     from .copilot_people_admin_setting import CopilotPeopleAdminSetting
     from .copilot_setting import CopilotSetting
-    from .copilot_share_point_root import CopilotSharePointRoot
     from .enhanced_personalization_setting import EnhancedPersonalizationSetting
 
 @dataclass
@@ -30,7 +25,7 @@ class Entity(AdditionalDataHolder, BackedModel, Parsable):
 
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additional_data: dict[str, Any] = field(default_factory=dict)
-    # The id property
+    # The unique identifier for an entity. Read-only.
     id: Optional[str] = None
     # The OdataType property
     odata_type: Optional[str] = None
@@ -81,22 +76,6 @@ class Entity(AdditionalDataHolder, BackedModel, Parsable):
             from .copilot_admin_setting import CopilotAdminSetting
 
             return CopilotAdminSetting()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotConversation".casefold():
-            from .copilot_conversation import CopilotConversation
-
-            return CopilotConversation()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotConversationMessage".casefold():
-            from .copilot_conversation_message import CopilotConversationMessage
-
-            return CopilotConversationMessage()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotConversationRequestMessage".casefold():
-            from .copilot_conversation_request_message import CopilotConversationRequestMessage
-
-            return CopilotConversationRequestMessage()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotConversationResponseMessage".casefold():
-            from .copilot_conversation_response_message import CopilotConversationResponseMessage
-
-            return CopilotConversationResponseMessage()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotPeopleAdminSetting".casefold():
             from .copilot_people_admin_setting import CopilotPeopleAdminSetting
 
@@ -105,10 +84,6 @@ class Entity(AdditionalDataHolder, BackedModel, Parsable):
             from .copilot_setting import CopilotSetting
 
             return CopilotSetting()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotSharePointRoot".casefold():
-            from .copilot_share_point_root import CopilotSharePointRoot
-
-            return CopilotSharePointRoot()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.enhancedPersonalizationSetting".casefold():
             from .enhanced_personalization_setting import EnhancedPersonalizationSetting
 
@@ -128,13 +103,8 @@ class Entity(AdditionalDataHolder, BackedModel, Parsable):
         from .copilot_admin import CopilotAdmin
         from .copilot_admin_limited_mode import CopilotAdminLimitedMode
         from .copilot_admin_setting import CopilotAdminSetting
-        from .copilot_conversation import CopilotConversation
-        from .copilot_conversation_message import CopilotConversationMessage
-        from .copilot_conversation_request_message import CopilotConversationRequestMessage
-        from .copilot_conversation_response_message import CopilotConversationResponseMessage
         from .copilot_people_admin_setting import CopilotPeopleAdminSetting
         from .copilot_setting import CopilotSetting
-        from .copilot_share_point_root import CopilotSharePointRoot
         from .enhanced_personalization_setting import EnhancedPersonalizationSetting
 
         from .ai_interaction import AiInteraction
@@ -145,13 +115,8 @@ class Entity(AdditionalDataHolder, BackedModel, Parsable):
         from .copilot_admin import CopilotAdmin
         from .copilot_admin_limited_mode import CopilotAdminLimitedMode
         from .copilot_admin_setting import CopilotAdminSetting
-        from .copilot_conversation import CopilotConversation
-        from .copilot_conversation_message import CopilotConversationMessage
-        from .copilot_conversation_request_message import CopilotConversationRequestMessage
-        from .copilot_conversation_response_message import CopilotConversationResponseMessage
         from .copilot_people_admin_setting import CopilotPeopleAdminSetting
         from .copilot_setting import CopilotSetting
-        from .copilot_share_point_root import CopilotSharePointRoot
         from .enhanced_personalization_setting import EnhancedPersonalizationSetting
 
         fields: dict[str, Callable[[Any], None]] = {
