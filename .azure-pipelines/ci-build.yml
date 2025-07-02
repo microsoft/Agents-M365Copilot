@@ -127,7 +127,7 @@ extends:
                 MaxRetryAttempts: 5
                 PendingAnalysisWaitTimeoutMinutes: 5
             - task: EsrpCodeSigning@5
-              displayName: 'ESRP Code Signing for $(project_name)'
+              displayName: 'ESRP DLL Code Signing for $(project_name)'
               inputs:
                 ConnectedServiceName: 'Federated DevX ESRP Managed Identity Connection'
                 AppRegistrationClientId: '65035b7f-7357-4f29-bf25-c5ee5c3949f8'
@@ -136,7 +136,7 @@ extends:
                 AuthCertName: 'ReferenceLibraryPrivateCert'
                 AuthSignCertName: 'ReferencePackagePublisherCertificate'
                 FolderPath: "$(Build.SourcesDirectory)/dotnet/src/$(project_name)/bin/$(BuildConfiguration)/"
-                Pattern: '**\*$(project_name).dll'
+                Pattern: '**\$(project_name).dll'
                 UseMinimatch: false
                 signConfigType: 'inlineSignParams'
                 inlineOperation: |
