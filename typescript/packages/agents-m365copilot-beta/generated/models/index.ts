@@ -158,7 +158,7 @@ export interface AiInteractionMention extends Entity, Parsable {
 }
 export interface AiInteractionMentionedIdentitySet extends IdentitySet, Parsable {
     /**
-     * The conversation property
+     * The conversation details.
      */
     conversation?: TeamworkConversationIdentity | null;
     /**
@@ -726,6 +726,26 @@ export function createDetailsInfoFromDiscriminatorValue(parseNode: ParseNode | u
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {Dictionaries}
+ */
+// @ts-ignore
+export function createDictionariesFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
+    if (mappingValueNode) {
+        const mappingValue = mappingValueNode.getStringValue();
+        if (mappingValue) {
+            switch (mappingValue) {
+                case "#microsoft.graph.searchResourceMetadataDictionary":
+                    return deserializeIntoSearchResourceMetadataDictionary;
+            }
+        }
+    }
+    return deserializeIntoDictionaries;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {EmailIdentity}
  */
 // @ts-ignore
@@ -961,6 +981,51 @@ export function createProvisioningServicePrincipalFromDiscriminatorValue(parseNo
 // @ts-ignore
 export function createProvisioningSystemFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoProvisioningSystem;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {RetrievalExtract}
+ */
+// @ts-ignore
+export function createRetrievalExtractFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRetrievalExtract;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {RetrievalHit}
+ */
+// @ts-ignore
+export function createRetrievalHitFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRetrievalHit;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {RetrievalResponse}
+ */
+// @ts-ignore
+export function createRetrievalResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRetrievalResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {SearchResourceMetadataDictionary}
+ */
+// @ts-ignore
+export function createSearchResourceMetadataDictionaryFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSearchResourceMetadataDictionary;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {SearchSensitivityLabelInfo}
+ */
+// @ts-ignore
+export function createSearchSensitivityLabelInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSearchSensitivityLabelInfo;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -1496,6 +1561,17 @@ export function deserializeIntoDetailsInfo(detailsInfo: Partial<DetailsInfo> | u
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
+export function deserializeIntoDictionaries(dictionaries: Partial<Dictionaries> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { dictionaries.backingStoreEnabled = true; },
+        "@odata.type": n => { dictionaries.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
 export function deserializeIntoEmailIdentity(emailIdentity: Partial<EmailIdentity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoIdentity(emailIdentity),
@@ -1667,6 +1743,72 @@ export function deserializeIntoProvisioningSystem(provisioningSystem: Partial<Pr
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
+export function deserializeIntoRetrievalExtract(retrievalExtract: Partial<RetrievalExtract> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { retrievalExtract.backingStoreEnabled = true; },
+        "@odata.type": n => { retrievalExtract.odataType = n.getStringValue(); },
+        "text": n => { retrievalExtract.text = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoRetrievalHit(retrievalHit: Partial<RetrievalHit> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { retrievalHit.backingStoreEnabled = true; },
+        "extracts": n => { retrievalHit.extracts = n.getCollectionOfObjectValues<RetrievalExtract>(createRetrievalExtractFromDiscriminatorValue); },
+        "@odata.type": n => { retrievalHit.odataType = n.getStringValue(); },
+        "resourceMetadata": n => { retrievalHit.resourceMetadata = n.getObjectValue<SearchResourceMetadataDictionary>(createSearchResourceMetadataDictionaryFromDiscriminatorValue); },
+        "resourceType": n => { retrievalHit.resourceType = n.getEnumValue<RetrievalEntityType>(RetrievalEntityTypeObject); },
+        "sensitivityLabel": n => { retrievalHit.sensitivityLabel = n.getObjectValue<SearchSensitivityLabelInfo>(createSearchSensitivityLabelInfoFromDiscriminatorValue); },
+        "webUrl": n => { retrievalHit.webUrl = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoRetrievalResponse(retrievalResponse: Partial<RetrievalResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { retrievalResponse.backingStoreEnabled = true; },
+        "@odata.type": n => { retrievalResponse.odataType = n.getStringValue(); },
+        "retrievalHits": n => { retrievalResponse.retrievalHits = n.getCollectionOfObjectValues<RetrievalHit>(createRetrievalHitFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoSearchResourceMetadataDictionary(searchResourceMetadataDictionary: Partial<SearchResourceMetadataDictionary> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoDictionaries(searchResourceMetadataDictionary),
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoSearchSensitivityLabelInfo(searchSensitivityLabelInfo: Partial<SearchSensitivityLabelInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { searchSensitivityLabelInfo.backingStoreEnabled = true; },
+        "color": n => { searchSensitivityLabelInfo.color = n.getStringValue(); },
+        "displayName": n => { searchSensitivityLabelInfo.displayName = n.getStringValue(); },
+        "@odata.type": n => { searchSensitivityLabelInfo.odataType = n.getStringValue(); },
+        "priority": n => { searchSensitivityLabelInfo.priority = n.getNumberValue(); },
+        "sensitivityLabelId": n => { searchSensitivityLabelInfo.sensitivityLabelId = n.getStringValue(); },
+        "tooltip": n => { searchSensitivityLabelInfo.tooltip = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
 export function deserializeIntoServicePrincipalIdentity(servicePrincipalIdentity: Partial<ServicePrincipalIdentity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoIdentity(servicePrincipalIdentity),
@@ -1787,6 +1929,20 @@ export interface DetailsInfo extends AdditionalDataHolder, BackedModel, Parsable
      */
     odataType?: string | null;
 }
+export interface Dictionaries extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
+    additionalData?: Record<string, unknown>;
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 export interface EmailIdentity extends Identity, Parsable {
     /**
      * Email address of the user.
@@ -1850,7 +2006,7 @@ export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable
      */
     additionalData?: Record<string, unknown>;
     /**
-     * Optional. The application associated with this action.
+     * The Identity of the Application. This property is read-only.
      */
     application?: Identity | null;
     /**
@@ -1858,7 +2014,7 @@ export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * Optional. The device associated with this action.
+     * The Identity of the Device. This property is read-only.
      */
     device?: Identity | null;
     /**
@@ -1866,7 +2022,7 @@ export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable
      */
     odataType?: string | null;
     /**
-     * Optional. The user associated with this action.
+     * The Identity of the User. This property is read-only.
      */
     user?: Identity | null;
 }
@@ -1996,6 +2152,117 @@ export interface ProvisioningSystem extends Identity, Parsable {
      * Details of the system.
      */
     details?: DetailsInfo | null;
+}
+export type RetrievalDataSource = (typeof RetrievalDataSourceObject)[keyof typeof RetrievalDataSourceObject];
+export type RetrievalEntityType = (typeof RetrievalEntityTypeObject)[keyof typeof RetrievalEntityTypeObject];
+export interface RetrievalExtract extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
+    additionalData?: Record<string, unknown>;
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The text property
+     */
+    text?: string | null;
+}
+export interface RetrievalHit extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
+    additionalData?: Record<string, unknown>;
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The extracts property
+     */
+    extracts?: RetrievalExtract[] | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The resourceMetadata property
+     */
+    resourceMetadata?: SearchResourceMetadataDictionary | null;
+    /**
+     * The resourceType property
+     */
+    resourceType?: RetrievalEntityType | null;
+    /**
+     * The sensitivityLabel property
+     */
+    sensitivityLabel?: SearchSensitivityLabelInfo | null;
+    /**
+     * The webUrl property
+     */
+    webUrl?: string | null;
+}
+export interface RetrievalResponse extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
+    additionalData?: Record<string, unknown>;
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The retrievalHits property
+     */
+    retrievalHits?: RetrievalHit[] | null;
+}
+export interface SearchResourceMetadataDictionary extends Dictionaries, Parsable {
+}
+/**
+ * Represents a sensitivityLabel.This model is shared with the CCS retrieval API and search where it is already unhidden.
+ */
+export interface SearchSensitivityLabelInfo extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
+    additionalData?: Record<string, unknown>;
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The color property
+     */
+    color?: string | null;
+    /**
+     * The displayName property
+     */
+    displayName?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The priority property
+     */
+    priority?: number | null;
+    /**
+     * The sensitivityLabelId property
+     */
+    sensitivityLabelId?: string | null;
+    /**
+     * The tooltip property
+     */
+    tooltip?: string | null;
 }
 /**
  * Serializes information the current object
@@ -2430,6 +2697,17 @@ export function serializeDetailsInfo(writer: SerializationWriter, detailsInfo: P
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
+export function serializeDictionaries(writer: SerializationWriter, dictionaries: Partial<Dictionaries> | undefined | null = {}) : void {
+    if (dictionaries) {
+        writer.writeStringValue("@odata.type", dictionaries.odataType);
+        writer.writeAdditionalData(dictionaries.additionalData);
+    }
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
 export function serializeEmailIdentity(writer: SerializationWriter, emailIdentity: Partial<EmailIdentity> | undefined | null = {}) : void {
     if (emailIdentity) {
         serializeIdentity(writer, emailIdentity)
@@ -2594,6 +2872,67 @@ export function serializeProvisioningSystem(writer: SerializationWriter, provisi
     if (provisioningSystem) {
         serializeIdentity(writer, provisioningSystem)
         writer.writeObjectValue<DetailsInfo>("details", provisioningSystem.details, serializeDetailsInfo);
+    }
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRetrievalExtract(writer: SerializationWriter, retrievalExtract: Partial<RetrievalExtract> | undefined | null = {}) : void {
+    if (retrievalExtract) {
+        writer.writeStringValue("@odata.type", retrievalExtract.odataType);
+        writer.writeStringValue("text", retrievalExtract.text);
+        writer.writeAdditionalData(retrievalExtract.additionalData);
+    }
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRetrievalHit(writer: SerializationWriter, retrievalHit: Partial<RetrievalHit> | undefined | null = {}) : void {
+    if (retrievalHit) {
+        writer.writeCollectionOfObjectValues<RetrievalExtract>("extracts", retrievalHit.extracts, serializeRetrievalExtract);
+        writer.writeStringValue("@odata.type", retrievalHit.odataType);
+        writer.writeObjectValue<SearchResourceMetadataDictionary>("resourceMetadata", retrievalHit.resourceMetadata, serializeSearchResourceMetadataDictionary);
+        writer.writeEnumValue<RetrievalEntityType>("resourceType", retrievalHit.resourceType);
+        writer.writeObjectValue<SearchSensitivityLabelInfo>("sensitivityLabel", retrievalHit.sensitivityLabel, serializeSearchSensitivityLabelInfo);
+        writer.writeStringValue("webUrl", retrievalHit.webUrl);
+        writer.writeAdditionalData(retrievalHit.additionalData);
+    }
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRetrievalResponse(writer: SerializationWriter, retrievalResponse: Partial<RetrievalResponse> | undefined | null = {}) : void {
+    if (retrievalResponse) {
+        writer.writeStringValue("@odata.type", retrievalResponse.odataType);
+        writer.writeCollectionOfObjectValues<RetrievalHit>("retrievalHits", retrievalResponse.retrievalHits, serializeRetrievalHit);
+        writer.writeAdditionalData(retrievalResponse.additionalData);
+    }
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeSearchResourceMetadataDictionary(writer: SerializationWriter, searchResourceMetadataDictionary: Partial<SearchResourceMetadataDictionary> | undefined | null = {}) : void {
+    if (searchResourceMetadataDictionary) {
+        serializeDictionaries(writer, searchResourceMetadataDictionary)
+    }
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeSearchSensitivityLabelInfo(writer: SerializationWriter, searchSensitivityLabelInfo: Partial<SearchSensitivityLabelInfo> | undefined | null = {}) : void {
+    if (searchSensitivityLabelInfo) {
+        writer.writeStringValue("@odata.type", searchSensitivityLabelInfo.odataType);
+        writer.writeAdditionalData(searchSensitivityLabelInfo.additionalData);
     }
 }
 /**
@@ -2794,6 +3133,26 @@ export const InitiatorTypeObject = {
     User: "user",
     Application: "application",
     System: "system",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const RetrievalDataSourceObject = {
+    SharePoint: "sharePoint",
+    OneDriveBusiness: "oneDriveBusiness",
+    ExternalItems: "externalItems",
+    Mail: "mail",
+    Calendar: "calendar",
+    Teams: "teams",
+    People: "people",
+    SharePointEmbedded: "sharePointEmbedded",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const RetrievalEntityTypeObject = {
+    Site: "site",
+    List: "list",
+    ListItem: "listItem",
+    Drive: "drive",
+    DriveItem: "driveItem",
+    ExternalItem: "externalItem",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const TeamworkApplicationIdentityTypeObject = {
