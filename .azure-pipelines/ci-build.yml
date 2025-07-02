@@ -136,7 +136,7 @@ extends:
                 AuthCertName: 'ReferenceLibraryPrivateCert'
                 AuthSignCertName: 'ReferencePackagePublisherCertificate'
                 FolderPath: "$(Build.SourcesDirectory)/dotnet/src/$(project_name)/bin/$(BuildConfiguration)/"
-                Pattern: "$(project_name).dll"
+                Pattern: '**\$(project_name).dll'
                 UseMinimatch: false
                 signConfigType: 'inlineSignParams'
                 inlineOperation: |
