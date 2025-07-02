@@ -8,6 +8,7 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 if TYPE_CHECKING:
     from .admin.admin_request_builder import AdminRequestBuilder
     from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
+    from .retrieval.retrieval_request_builder import RetrievalRequestBuilder
     from .settings.settings_request_builder import SettingsRequestBuilder
     from .users.users_request_builder import UsersRequestBuilder
 
@@ -41,6 +42,15 @@ class CopilotRequestBuilder(BaseRequestBuilder):
         from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
 
         return InteractionHistoryRequestBuilder(self.request_adapter, self.path_parameters)
+    
+    @property
+    def retrieval(self) -> RetrievalRequestBuilder:
+        """
+        Provides operations to call the retrieval method.
+        """
+        from .retrieval.retrieval_request_builder import RetrievalRequestBuilder
+
+        return RetrievalRequestBuilder(self.request_adapter, self.path_parameters)
     
     @property
     def settings(self) -> SettingsRequestBuilder:

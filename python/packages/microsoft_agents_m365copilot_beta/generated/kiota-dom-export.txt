@@ -66,6 +66,7 @@ microsoft_agents_m365copilot_beta.generated.copilot.CopilotRequestBuilder::|publ
 microsoft_agents_m365copilot_beta.generated.copilot.CopilotRequestBuilder::|public|interaction_history:InteractionHistoryRequestBuilder
 microsoft_agents_m365copilot_beta.generated.copilot.CopilotRequestBuilder::|public|path_parameters:Union[str, dict[str, Any]]
 microsoft_agents_m365copilot_beta.generated.copilot.CopilotRequestBuilder::|public|request_adapter:RequestAdapter
+microsoft_agents_m365copilot_beta.generated.copilot.CopilotRequestBuilder::|public|retrieval:RetrievalRequestBuilder
 microsoft_agents_m365copilot_beta.generated.copilot.CopilotRequestBuilder::|public|settings:SettingsRequestBuilder
 microsoft_agents_m365copilot_beta.generated.copilot.CopilotRequestBuilder::|public|url_template:str
 microsoft_agents_m365copilot_beta.generated.copilot.CopilotRequestBuilder::|public|users:UsersRequestBuilder
@@ -113,6 +114,33 @@ microsoft_agents_m365copilot_beta.generated.copilot.interactionHistory.Interacti
 microsoft_agents_m365copilot_beta.generated.copilot.interactionHistory.InteractionHistoryRequestBuilder::|public|to_patch_request_information(body:AiInteractionHistory; request_configuration?:RequestConfiguration[QueryParameters]):RequestInformation
 microsoft_agents_m365copilot_beta.generated.copilot.interactionHistory.InteractionHistoryRequestBuilder::|public|url_template:str
 microsoft_agents_m365copilot_beta.generated.copilot.interactionHistory.InteractionHistoryRequestBuilder::|public|with_url(raw_url:str):InteractionHistoryRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|backing_store:BackingStore
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|data_source():RetrievalDataSource
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|data_source(value:RetrievalDataSource):None
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|filter_expression():str
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|filter_expression(value:str):None
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|maximum_number_of_results():int
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|maximum_number_of_results(value:int):None
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|query_string():str
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|query_string(value:str):None
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|resource_metadata():list[str]
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|resource_metadata(value:list[str]):None
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|static|public|create_from_discriminator_value(parse_node:ParseNode):RetrievalPostRequestBody
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalRequestBuilder-->BaseRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalRequestBuilder.RetrievalRequestBuilderPostRequestConfiguration-->RequestConfiguration[QueryParameters]
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalRequestBuilder::|public|constructor(path_parameters:Union[str, dict[str, Any]]; request_adapter:RequestAdapter):None
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalRequestBuilder::|public|path_parameters:Union[str, dict[str, Any]]
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalRequestBuilder::|public|post(body:RetrievalPostRequestBody; request_configuration?:RequestConfiguration[QueryParameters]):RetrievalResponse
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalRequestBuilder::|public|request_adapter:RequestAdapter
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalRequestBuilder::|public|to_post_request_information(body:RetrievalPostRequestBody; request_configuration?:RequestConfiguration[QueryParameters]):RequestInformation
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalRequestBuilder::|public|url_template:str
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalRequestBuilder::|public|with_url(raw_url:str):RetrievalRequestBuilder
 microsoft_agents_m365copilot_beta.generated.copilot.settings.people.enhancedPersonalization.EnhancedPersonalizationRequestBuilder-->BaseRequestBuilder
 microsoft_agents_m365copilot_beta.generated.copilot.settings.people.enhancedPersonalization.EnhancedPersonalizationRequestBuilder.EnhancedPersonalizationRequestBuilderDeleteRequestConfiguration-->RequestConfiguration[QueryParameters]
 microsoft_agents_m365copilot_beta.generated.copilot.settings.people.enhancedPersonalization.EnhancedPersonalizationRequestBuilder.EnhancedPersonalizationRequestBuilderGetQueryParameters::|public|expand:list[str]
@@ -759,6 +787,16 @@ microsoft_agents_m365copilot_beta.generated.models.DetailsInfo::|public|odata_ty
 microsoft_agents_m365copilot_beta.generated.models.DetailsInfo::|public|serialize(writer:SerializationWriter):None
 microsoft_agents_m365copilot_beta.generated.models.DetailsInfo::|static|public|create_from_discriminator_value(parse_node:ParseNode):DetailsInfo
 microsoft_agents_m365copilot_beta.generated.models.DetailsInfo~~>AdditionalDataHolder; BackedModel; Parsable
+microsoft_agents_m365copilot_beta.generated.models.Dictionaries::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot_beta.generated.models.Dictionaries::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot_beta.generated.models.Dictionaries::|public|backing_store:BackingStore
+microsoft_agents_m365copilot_beta.generated.models.Dictionaries::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.Dictionaries::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.Dictionaries::|public|odata_type():str
+microsoft_agents_m365copilot_beta.generated.models.Dictionaries::|public|odata_type(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.Dictionaries::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.Dictionaries::|static|public|create_from_discriminator_value(parse_node:ParseNode):Dictionaries
+microsoft_agents_m365copilot_beta.generated.models.Dictionaries~~>AdditionalDataHolder; BackedModel; Parsable
 microsoft_agents_m365copilot_beta.generated.models.EmailIdentity-->Identity
 microsoft_agents_m365copilot_beta.generated.models.EmailIdentity::|public|constructor():None
 microsoft_agents_m365copilot_beta.generated.models.EmailIdentity::|public|email():str
@@ -987,6 +1025,92 @@ microsoft_agents_m365copilot_beta.generated.models.ProvisioningSystem::|public|g
 microsoft_agents_m365copilot_beta.generated.models.ProvisioningSystem::|public|odata_type:str
 microsoft_agents_m365copilot_beta.generated.models.ProvisioningSystem::|public|serialize(writer:SerializationWriter):None
 microsoft_agents_m365copilot_beta.generated.models.ProvisioningSystem::|static|public|create_from_discriminator_value(parse_node:ParseNode):ProvisioningSystem
+microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0000-SharePoint
+microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0001-OneDriveBusiness
+microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0002-ExternalItems
+microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0003-Mail
+microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0004-Calendar
+microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0005-Teams
+microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0006-People
+microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0007-SharePointEmbedded
+microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0008-UnknownFutureValue
+microsoft_agents_m365copilot_beta.generated.models.RetrievalEntityType::0000-Site
+microsoft_agents_m365copilot_beta.generated.models.RetrievalEntityType::0001-List_
+microsoft_agents_m365copilot_beta.generated.models.RetrievalEntityType::0002-ListItem
+microsoft_agents_m365copilot_beta.generated.models.RetrievalEntityType::0003-Drive
+microsoft_agents_m365copilot_beta.generated.models.RetrievalEntityType::0004-DriveItem
+microsoft_agents_m365copilot_beta.generated.models.RetrievalEntityType::0005-ExternalItem
+microsoft_agents_m365copilot_beta.generated.models.RetrievalEntityType::0006-UnknownFutureValue
+microsoft_agents_m365copilot_beta.generated.models.RetrievalExtract::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot_beta.generated.models.RetrievalExtract::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot_beta.generated.models.RetrievalExtract::|public|backing_store:BackingStore
+microsoft_agents_m365copilot_beta.generated.models.RetrievalExtract::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.RetrievalExtract::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.RetrievalExtract::|public|odata_type():str
+microsoft_agents_m365copilot_beta.generated.models.RetrievalExtract::|public|odata_type(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.RetrievalExtract::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.RetrievalExtract::|public|text():str
+microsoft_agents_m365copilot_beta.generated.models.RetrievalExtract::|public|text(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.RetrievalExtract::|static|public|create_from_discriminator_value(parse_node:ParseNode):RetrievalExtract
+microsoft_agents_m365copilot_beta.generated.models.RetrievalExtract~~>AdditionalDataHolder; BackedModel; Parsable
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit::|public|backing_store:BackingStore
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit::|public|extracts():list[RetrievalExtract]
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit::|public|extracts(value:list[RetrievalExtract]):None
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit::|public|odata_type():str
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit::|public|odata_type(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit::|public|resource_metadata():SearchResourceMetadataDictionary
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit::|public|resource_metadata(value:SearchResourceMetadataDictionary):None
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit::|public|resource_type():RetrievalEntityType
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit::|public|resource_type(value:RetrievalEntityType):None
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit::|public|sensitivity_label():SearchSensitivityLabelInfo
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit::|public|sensitivity_label(value:SearchSensitivityLabelInfo):None
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit::|public|web_url():str
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit::|public|web_url(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit::|static|public|create_from_discriminator_value(parse_node:ParseNode):RetrievalHit
+microsoft_agents_m365copilot_beta.generated.models.RetrievalHit~~>AdditionalDataHolder; BackedModel; Parsable
+microsoft_agents_m365copilot_beta.generated.models.RetrievalResponse::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot_beta.generated.models.RetrievalResponse::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot_beta.generated.models.RetrievalResponse::|public|backing_store:BackingStore
+microsoft_agents_m365copilot_beta.generated.models.RetrievalResponse::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.RetrievalResponse::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.RetrievalResponse::|public|odata_type():str
+microsoft_agents_m365copilot_beta.generated.models.RetrievalResponse::|public|odata_type(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.RetrievalResponse::|public|retrieval_hits():list[RetrievalHit]
+microsoft_agents_m365copilot_beta.generated.models.RetrievalResponse::|public|retrieval_hits(value:list[RetrievalHit]):None
+microsoft_agents_m365copilot_beta.generated.models.RetrievalResponse::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.RetrievalResponse::|static|public|create_from_discriminator_value(parse_node:ParseNode):RetrievalResponse
+microsoft_agents_m365copilot_beta.generated.models.RetrievalResponse~~>AdditionalDataHolder; BackedModel; Parsable
+microsoft_agents_m365copilot_beta.generated.models.SearchResourceMetadataDictionary-->Dictionaries
+microsoft_agents_m365copilot_beta.generated.models.SearchResourceMetadataDictionary::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.SearchResourceMetadataDictionary::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.SearchResourceMetadataDictionary::|public|odata_type:str
+microsoft_agents_m365copilot_beta.generated.models.SearchResourceMetadataDictionary::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.SearchResourceMetadataDictionary::|static|public|create_from_discriminator_value(parse_node:ParseNode):SearchResourceMetadataDictionary
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo::|public|backing_store:BackingStore
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo::|public|color():str
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo::|public|color(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo::|public|display_name():str
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo::|public|display_name(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo::|public|odata_type():str
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo::|public|odata_type(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo::|public|priority():int
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo::|public|priority(value:int):None
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo::|public|sensitivity_label_id():str
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo::|public|sensitivity_label_id(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo::|public|tooltip():str
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo::|public|tooltip(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo::|static|public|create_from_discriminator_value(parse_node:ParseNode):SearchSensitivityLabelInfo
+microsoft_agents_m365copilot_beta.generated.models.SearchSensitivityLabelInfo~~>AdditionalDataHolder; BackedModel; Parsable
 microsoft_agents_m365copilot_beta.generated.models.security.SubmissionUserIdentity-->Identity
 microsoft_agents_m365copilot_beta.generated.models.security.SubmissionUserIdentity::|public|constructor():None
 microsoft_agents_m365copilot_beta.generated.models.security.SubmissionUserIdentity::|public|email():str
