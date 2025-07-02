@@ -26,7 +26,7 @@
     <!-- VersionPrefix minor version must be manually set when making manual changes to code. -->
     <!-- VersionPrefix major and patch versions must be manually set. -->
     <VersionSuffix></VersionSuffix>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net8.0;net462;net8.0-browser;</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net8.0;net462;</TargetFrameworks>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <Deterministic>true</Deterministic>
