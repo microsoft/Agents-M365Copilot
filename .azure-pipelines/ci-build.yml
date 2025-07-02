@@ -362,7 +362,7 @@ extends:
                   targetPath: $(Build.ArtifactStagingDirectory)/Nugets
           steps:
           - task: 1ES.PublishNuget@1
-            displayName: 'Publish NuGet packages'
+            displayName: 'Publish NuGet packages via NuGet API Key'
             inputs:
               useDotNetTask: false
               packageParentPath: $(Build.ArtifactStagingDirectory)/Nugets
@@ -385,7 +385,7 @@ extends:
                   targetPath: $(Build.ArtifactStagingDirectory)/npm
           steps:    
           - task: EsrpRelease@9
-            displayName: 'Publish packages NPM artifacts via ESRP Release'
+            displayName: 'Publish NPM packages via ESRP Release'
             inputs:
               connectedservicename: "Federated DevX ESRP Managed Identity Connection"
               usemanagedidentity: true
@@ -395,6 +395,36 @@ extends:
               intent: "PackageDistribution"
               contenttype: "npm"
               folderlocation: "$(Build.ArtifactStagingDirectory)/npm"
+              owners: "mmainer@microsoft.com,karthikra@microsoft.com"
+              approvers: "mmainer@microsoft.com,christiano@microsoft.com,karthikra@microsoft.com,lramosvea@microsoft.com"
+              serviceendpointurl: "https://api.esrp.microsoft.com"
+              mainpublisher: "ESRPRELPACMAN"
+              domaintenantid: "cdc5aeea-15c5-4db6-b079-fcadd2505dc2"
+        - job: publish_python_packages
+          displayName: 'Publish Python Packages'
+          pool:
+            name: Azure-Pipelines-1ESPT-ExDShared
+            image: ubuntu-latest
+            os: linux
+          templateContext:
+              type: releaseJob
+              isProduction: true
+              inputs:
+                - input: pipelineArtifact
+                  artifactName: python
+                  targetPath: $(Build.ArtifactStagingDirectory)/python
+          steps:    
+          - task: EsrpRelease@9
+            displayName: 'Publish Python packages via ESRP Release'
+            inputs:
+              connectedservicename: "Federated DevX ESRP Managed Identity Connection"
+              usemanagedidentity: true
+              keyvaultname: "akv-prod-eastus"
+              signcertname: "ReferencePackagePublisherCertificate"
+              clientid: "65035b7f-7357-4f29-bf25-c5ee5c3949f8"
+              intent: "PackageDistribution"
+              contenttype: "PYPI"
+              folderlocation: "$(Build.ArtifactStagingDirectory)/python"
               owners: "mmainer@microsoft.com,karthikra@microsoft.com"
               approvers: "mmainer@microsoft.com,christiano@microsoft.com,karthikra@microsoft.com,lramosvea@microsoft.com"
               serviceendpointurl: "https://api.esrp.microsoft.com"
