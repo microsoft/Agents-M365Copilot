@@ -21,7 +21,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The id property</summary>
+        /// <summary>The unique identifier for an entity. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Id
@@ -80,13 +80,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 "#microsoft.graph.copilotAdmin" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdmin(),
                 "#microsoft.graph.copilotAdminLimitedMode" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminLimitedMode(),
                 "#microsoft.graph.copilotAdminSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting(),
-                "#microsoft.graph.copilotConversation" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotConversation(),
-                "#microsoft.graph.copilotConversationMessage" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotConversationMessage(),
-                "#microsoft.graph.copilotConversationRequestMessage" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotConversationRequestMessage(),
-                "#microsoft.graph.copilotConversationResponseMessage" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotConversationResponseMessage(),
                 "#microsoft.graph.copilotPeopleAdminSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPeopleAdminSetting(),
                 "#microsoft.graph.copilotSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotSetting(),
-                "#microsoft.graph.copilotSharePointRoot" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotSharePointRoot(),
                 "#microsoft.graph.enhancedPersonalizationSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting(),
                 _ => new global::Microsoft.Agents.M365Copilot.Beta.Models.Entity(),
             };

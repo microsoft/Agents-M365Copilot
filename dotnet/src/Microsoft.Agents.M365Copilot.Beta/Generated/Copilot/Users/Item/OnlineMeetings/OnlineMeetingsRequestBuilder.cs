@@ -54,7 +54,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings
         {
         }
         /// <summary>
-        /// Get onlineMeetings from copilot
+        /// Information about an online meeting, including AI insights.
         /// </summary>
         /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.AiOnlineMeetingCollectionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -102,7 +102,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings
             return await RequestAdapter.SendAsync<global::Microsoft.Agents.M365Copilot.Beta.Models.AiOnlineMeeting>(requestInfo, global::Microsoft.Agents.M365Copilot.Beta.Models.AiOnlineMeeting.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get onlineMeetings from copilot
+        /// Information about an online meeting, including AI insights.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -152,7 +152,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings
             return new global::Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.OnlineMeetingsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get onlineMeetings from copilot
+        /// Information about an online meeting, including AI insights.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class OnlineMeetingsRequestBuilderGetQueryParameters 
