@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class CommunicationsApplicationIdentity : global::Microsoft.Agents.M365Copilot.Beta.Models.Identity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The applicationType property</summary>
+        /// <summary>First-party Microsoft application that presents this identity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ApplicationType
@@ -28,7 +28,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             set { BackingStore?.Set("applicationType", value); }
         }
 #endif
-        /// <summary>The hidden property</summary>
+        /// <summary>True if the participant shouldn&apos;t be shown in other participants&apos; rosters.</summary>
         public bool? Hidden
         {
             get { return BackingStore?.Get<bool?>("hidden"); }
