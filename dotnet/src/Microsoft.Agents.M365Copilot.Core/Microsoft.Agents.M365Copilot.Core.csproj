@@ -1,29 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Sdk Name="Microsoft.DotNet.PackageValidation" Version="1.0.0-preview.7.21379.12" />
   <PropertyGroup>
-    <Description>Microsoft Agents M365 Copilot Client Library implements core functionality used by Microsoft Copilot client libraries.</Description>
+    <Description>Microsoft Agents M365 Copilot APIs Core client library implements core functionality used by Microsoft Copilot client libraries.</Description>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
-    <AssemblyTitle>Microsoft Agents M365 Copilot Client Library</AssemblyTitle>
+    <AssemblyTitle>Microsoft Agents M365 Copilot APIs Core Client Library</AssemblyTitle>
     <Authors>Microsoft</Authors>
     <LangVersion>latest</LangVersion>
     <PreserveCompilationContext>false</PreserveCompilationContext>
     <AssemblyName>Microsoft.Agents.M365Copilot.Core</AssemblyName>
     <PackageId>Microsoft.Agents.M365Copilot.Core</PackageId>
-    <PackageTags>Copilot;Agents;Declarative Agents;Microsoft Office365;Outlook;OneDrive;AzureAD;Productivity;SDK</PackageTags>
+    <PackageProjectUrl>https://github.com/microsoft/agents-m365copilot</PackageProjectUrl>
+    <PackageTags>Copilot;Agents;Custom Engine Agents;Microsoft 365;OneDrive;AzureAD;Productivity;SDK;SharePoint;Copilot Connectors</PackageTags>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageIconUrl>http://go.microsoft.com/fwlink/?LinkID=288890</PackageIconUrl>
-    <RepositoryUrl>https://github.com/microsoft/Agents-M365Copilot/dotnet</RepositoryUrl>
+    <RepositoryUrl>https://github.com/microsoft/Agents-M365Copilot</RepositoryUrl>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <SignAssembly>false</SignAssembly>
-    <DelaySign>false</DelaySign>
-    <AssemblyOriginatorKeyFile>35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <!-- x-release-please-start-version -->
-    <Version>1.0.0-preview.1</Version>
+    <Version>1.0.0-preview.2</Version>
     <!-- x-release-please-end -->
-    <!-- By default let the Maui targets be excluded to make contribution for external parties easier and dependabot updates. They can be enabled by adding `-p:IncludeMauiTargets=true` to the target build/restore command which is done in the CI.-->
-    <TargetFrameworks>netstandard2.0;net462;$(MauiTargets)</TargetFrameworks>
+    <!-- VersionPrefix minor version should not be set when the change comes from the generator. It will be updated automatically. -->
+    <!-- VersionPrefix minor version must be manually set when making manual changes to code. -->
+    <!-- VersionPrefix major and patch versions must be manually set. -->
+    <VersionSuffix></VersionSuffix>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net8.0;net462;</TargetFrameworks>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <Deterministic>true</Deterministic>
@@ -31,6 +32,8 @@
     <EnableNETAnalyzers>True</EnableNETAnalyzers>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <NoWarn>NU5048;NETSDK1202</NoWarn>
+    <IncludeSource>true</IncludeSource>
+    <IncludeSymbols>true</IncludeSymbols>    
     <IsTrimmable Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)','net5.0'))">true</IsTrimmable>
   </PropertyGroup>
   <!-- https://github.com/clairernovotny/DeterministicBuilds#deterministic-builds -->
@@ -46,7 +49,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\README.md">
+    <None Include=".\README.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
@@ -55,19 +62,14 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.6.1" />
     <PackageReference Include="Microsoft.IdentityModel.Validators" Version="8.6.1" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.Kiota.Abstractions" Version="1.17.1" />
-    <PackageReference Include="Microsoft.Kiota.Authentication.Azure" Version="1.17.1" />
-    <PackageReference Include="Microsoft.Kiota.Serialization.Json" Version="1.17.1" />
-    <PackageReference Include="Microsoft.Kiota.Serialization.Text" Version="1.17.1" />
-    <PackageReference Include="Microsoft.Kiota.Serialization.Form" Version="1.17.1" />
-    <PackageReference Include="Microsoft.Kiota.Http.HttpClientLibrary" Version="1.17.1" />
-    <PackageReference Include="Microsoft.Kiota.Serialization.Multipart" Version="1.17.1" />
+    <PackageReference Include="Microsoft.Kiota.Bundle" Version="1.17.4" />
+    <PackageReference Include="Microsoft.Kiota.Authentication.Azure" Version="1.17.4" />
     <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.13.2">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
+
   <ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
     <PackageReference Include="System.Net.Http.WinHttpHandler" Version="[6.0,)" />
   </ItemGroup>

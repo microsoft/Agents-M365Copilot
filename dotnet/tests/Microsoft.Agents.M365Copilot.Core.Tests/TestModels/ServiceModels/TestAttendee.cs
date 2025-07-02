@@ -30,7 +30,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.TestModels.ServiceModels
         }
 
         /// <summary>
-        /// Serialize the <see cref="TestChangeNotificationEncryptedContent"/> instance
+        /// 
         /// </summary>
         /// <param name="writer">The <see cref="ISerializationWriter"/> to serialize the instance</param>
         /// <exception cref="ArgumentNullException">Thrown when the writer is null</exception>
