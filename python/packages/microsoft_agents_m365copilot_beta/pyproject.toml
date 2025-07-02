@@ -8,8 +8,8 @@ name = "microsoft-agents-m365copilot-beta"
 version = "1.0.0-preview.2"
 # x-release-please-end
 description = "Microsoft 365 Copilot APIs Beta client library enables you to call the Microsoft 365 Copilot APIs in your applications and custom engine agents."
-authors = [{"Microsoft <graphsdkpub+ccspython@microsoft.com>"}]
-maintainers = [{"Microsoft <graphsdkpub+ccspython@microsoft.com>"}]
+authors = ["Microsoft <graphsdkpub+ccspython@microsoft.com>"]
+maintainers = ["Microsoft <graphsdkpub+ccspython@microsoft.com>"]
 license = "MIT"
 readme = "README.md"
 keywords = ["copilot", "openAPI", "Microsoft", "M365", "Beta", "agents"]
