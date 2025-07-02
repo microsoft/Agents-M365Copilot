@@ -8,8 +8,8 @@ name = "microsoft-agents-m365copilot-core"
 version = "1.0.0-preview.2"
 # x-release-please-end
 description = "Microsoft Agents M365 Copilot APIs Core client library implements core functionality used by Microsoft Copilot client libraries."
-authors = [{name = "Microsoft", email = "graphsdkpub+ccspython@microsoft.com"}]
-maintainers = [{name = "Microsoft", email = "graphsdkpub+ccspython@microsoft.com"}]
+authors = [{"Microsoft <graphsdkpub+ccspython@microsoft.com>"}]
+maintainers = [{"Microsoft <graphsdkpub+ccspython@microsoft.com>"}]
 license = "MIT"
 readme = "README.md"
 keywords = ["Copilot", "Microsoft", "OpenAPI", "SDK", "M365", "agents"]
