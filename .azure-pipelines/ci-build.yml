@@ -137,7 +137,7 @@ extends:
                 AuthSignCertName: 'ReferencePackagePublisherCertificate'
                 FolderPath: "$(Build.SourcesDirectory)/dotnet/src/$(project_name)/bin/$(BuildConfiguration)/"
                 Pattern: '**\$(project_name).dll'
-                UseMinimatch: false
+                UseMinimatch: true
                 signConfigType: 'inlineSignParams'
                 inlineOperation: |
                   [
