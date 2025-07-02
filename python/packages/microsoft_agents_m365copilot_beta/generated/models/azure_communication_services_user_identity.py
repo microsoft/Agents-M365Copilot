@@ -13,7 +13,7 @@ from .identity import Identity
 class AzureCommunicationServicesUserIdentity(Identity, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.azureCommunicationServicesUserIdentity"
-    # The azureCommunicationServicesResourceId property
+    # The Azure Communication Services resource ID associated with the user.
     azure_communication_services_resource_id: Optional[str] = None
     
     @staticmethod

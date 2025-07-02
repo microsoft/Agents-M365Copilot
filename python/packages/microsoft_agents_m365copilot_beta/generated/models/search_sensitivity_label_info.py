@@ -19,8 +19,6 @@ class SearchSensitivityLabelInfo(AdditionalDataHolder, BackedModel, Parsable):
     color: Optional[str] = None
     # The displayName property
     display_name: Optional[str] = None
-    # The isEncrypted property
-    is_encrypted: Optional[bool] = None
     # The OdataType property
     odata_type: Optional[str] = None
     # The priority property
@@ -49,7 +47,6 @@ class SearchSensitivityLabelInfo(AdditionalDataHolder, BackedModel, Parsable):
         fields: dict[str, Callable[[Any], None]] = {
             "color": lambda n : setattr(self, 'color', n.get_str_value()),
             "displayName": lambda n : setattr(self, 'display_name', n.get_str_value()),
-            "isEncrypted": lambda n : setattr(self, 'is_encrypted', n.get_bool_value()),
             "@odata.type": lambda n : setattr(self, 'odata_type', n.get_str_value()),
             "priority": lambda n : setattr(self, 'priority', n.get_int_value()),
             "sensitivityLabelId": lambda n : setattr(self, 'sensitivity_label_id', n.get_str_value()),

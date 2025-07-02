@@ -89,10 +89,7 @@ try
                     Console.WriteLine($"  Tooltip: {hit.SensitivityLabel.Tooltip}");
                     Console.WriteLine($"  Priority: {hit.SensitivityLabel.Priority}");
                     Console.WriteLine($"  Color: {hit.SensitivityLabel.Color}");
-                    if (hit.SensitivityLabel.IsEncrypted.HasValue)
-                    {
-                        Console.WriteLine($"  Is Encrypted: {hit.SensitivityLabel.IsEncrypted.Value}");
-                    }
+                    Console.WriteLine($"  SensitivityLabelId: {hit.SensitivityLabel.SensitivityLabelId}");
                 }
             }
         }

@@ -13,11 +13,11 @@ from .entity import Entity
 
 @dataclass
 class AiUser(Entity, Parsable):
-    # The interactionHistory property
+    # The history of interactions between AI agents and users.
     interaction_history: Optional[AiInteractionHistory] = None
     # The OdataType property
     odata_type: Optional[str] = None
-    # The onlineMeetings property
+    # Information about an online meeting, including AI insights.
     online_meetings: Optional[list[AiOnlineMeeting]] = None
     
     @staticmethod

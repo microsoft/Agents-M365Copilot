@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class ProvisionedIdentity : global::Microsoft.Agents.M365Copilot.Beta.Models.Identity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The details property</summary>
+        /// <summary>Details of the identity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.DetailsInfo? Details
@@ -28,7 +28,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             set { BackingStore?.Set("details", value); }
         }
 #endif
-        /// <summary>The identityType property</summary>
+        /// <summary>Type of identity that has been provisioned, such as &apos;user&apos; or &apos;group.&apos; Supports $filter (eq, contains).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? IdentityType

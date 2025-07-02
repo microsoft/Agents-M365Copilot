@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.Security
     public partial class SubmissionUserIdentity : global::Microsoft.Agents.M365Copilot.Beta.Models.Identity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The email property</summary>
+        /// <summary>The email of user who is making the submission when logged in (delegated token case).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Email

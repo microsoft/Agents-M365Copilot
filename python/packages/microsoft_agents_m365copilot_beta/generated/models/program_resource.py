@@ -13,7 +13,7 @@ from .identity import Identity
 class ProgramResource(Identity, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.programResource"
-    # The type property
+    # Type of the resource, indicating whether it is a group or an app.
     type: Optional[str] = None
     
     @staticmethod

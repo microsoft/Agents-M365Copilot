@@ -13,7 +13,7 @@ from .identity import Identity
 class SharePointIdentity(Identity, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.sharePointIdentity"
-    # The loginName property
+    # The sign in name of the SharePoint identity.
     login_name: Optional[str] = None
     
     @staticmethod

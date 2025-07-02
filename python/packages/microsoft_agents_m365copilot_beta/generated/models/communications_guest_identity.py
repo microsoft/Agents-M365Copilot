@@ -13,7 +13,7 @@ from .identity import Identity
 class CommunicationsGuestIdentity(Identity, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.communicationsGuestIdentity"
-    # The email property
+    # The email of the guest user.
     email: Optional[str] = None
     
     @staticmethod

@@ -12,8 +12,6 @@ if TYPE_CHECKING:
     from .chat_message_mentioned_identity_set import ChatMessageMentionedIdentitySet
     from .chat_message_reaction_identity_set import ChatMessageReactionIdentitySet
     from .communications_identity_set import CommunicationsIdentitySet
-    from .custom_emoji_from_identity_set import CustomEmojiFromIdentitySet
-    from .engagement_identity_set import EngagementIdentitySet
     from .identity import Identity
     from .share_point_identity_set import SharePointIdentitySet
 
@@ -24,13 +22,13 @@ class IdentitySet(AdditionalDataHolder, BackedModel, Parsable):
 
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additional_data: dict[str, Any] = field(default_factory=dict)
-    # The application property
+    # The Identity of the Application. This property is read-only.
     application: Optional[Identity] = None
-    # The device property
+    # The Identity of the Device. This property is read-only.
     device: Optional[Identity] = None
     # The OdataType property
     odata_type: Optional[str] = None
-    # The user property
+    # The Identity of the User. This property is read-only.
     user: Optional[Identity] = None
     
     @staticmethod
@@ -71,14 +69,6 @@ class IdentitySet(AdditionalDataHolder, BackedModel, Parsable):
             from .communications_identity_set import CommunicationsIdentitySet
 
             return CommunicationsIdentitySet()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.customEmojiFromIdentitySet".casefold():
-            from .custom_emoji_from_identity_set import CustomEmojiFromIdentitySet
-
-            return CustomEmojiFromIdentitySet()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.engagementIdentitySet".casefold():
-            from .engagement_identity_set import EngagementIdentitySet
-
-            return EngagementIdentitySet()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.sharePointIdentitySet".casefold():
             from .share_point_identity_set import SharePointIdentitySet
 
@@ -96,8 +86,6 @@ class IdentitySet(AdditionalDataHolder, BackedModel, Parsable):
         from .chat_message_mentioned_identity_set import ChatMessageMentionedIdentitySet
         from .chat_message_reaction_identity_set import ChatMessageReactionIdentitySet
         from .communications_identity_set import CommunicationsIdentitySet
-        from .custom_emoji_from_identity_set import CustomEmojiFromIdentitySet
-        from .engagement_identity_set import EngagementIdentitySet
         from .identity import Identity
         from .share_point_identity_set import SharePointIdentitySet
 
@@ -107,8 +95,6 @@ class IdentitySet(AdditionalDataHolder, BackedModel, Parsable):
         from .chat_message_mentioned_identity_set import ChatMessageMentionedIdentitySet
         from .chat_message_reaction_identity_set import ChatMessageReactionIdentitySet
         from .communications_identity_set import CommunicationsIdentitySet
-        from .custom_emoji_from_identity_set import CustomEmojiFromIdentitySet
-        from .engagement_identity_set import EngagementIdentitySet
         from .identity import Identity
         from .share_point_identity_set import SharePointIdentitySet
 

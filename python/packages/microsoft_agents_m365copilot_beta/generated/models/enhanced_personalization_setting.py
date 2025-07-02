@@ -11,9 +11,9 @@ from .entity import Entity
 
 @dataclass
 class EnhancedPersonalizationSetting(Entity, Parsable):
-    # The disabledForGroup property
+    # The ID of a Microsoft Entra group to which the value is used to disable the control for populated users. The default value is null. This parameter is optional.
     disabled_for_group: Optional[str] = None
-    # The isEnabledInOrganization property
+    # If true, enables the enhanced personalization control and therefore related features as defined in control enhanced personalization privacy
     is_enabled_in_organization: Optional[bool] = None
     # The OdataType property
     odata_type: Optional[str] = None

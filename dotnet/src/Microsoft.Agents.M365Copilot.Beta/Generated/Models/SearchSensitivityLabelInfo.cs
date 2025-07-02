@@ -54,12 +54,6 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             set { BackingStore?.Set("displayName", value); }
         }
 #endif
-        /// <summary>The isEncrypted property</summary>
-        public bool? IsEncrypted
-        {
-            get { return BackingStore?.Get<bool?>("isEncrypted"); }
-            set { BackingStore?.Set("isEncrypted", value); }
-        }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -142,7 +136,6 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             {
                 { "color", n => { Color = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "isEncrypted", n => { IsEncrypted = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
                 { "sensitivityLabelId", n => { SensitivityLabelId = n.GetStringValue(); } },

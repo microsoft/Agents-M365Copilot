@@ -19,10 +19,11 @@ export interface CallAiInsightItemRequestBuilder extends BaseRequestBuilder<Call
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get aiInsights from copilot
+     * Get a callAiInsight object associated with an onlineMeeting. This API returns the metadata and content of the single set of AI insights associated with the online meeting.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CallAiInsight>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/callaiinsight-get?view=graph-rest-beta|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CallAiInsightItemRequestBuilderGetQueryParameters> | undefined) : Promise<CallAiInsight | undefined>;
     /**
@@ -40,7 +41,7 @@ export interface CallAiInsightItemRequestBuilder extends BaseRequestBuilder<Call
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get aiInsights from copilot
+     * Get a callAiInsight object associated with an onlineMeeting. This API returns the metadata and content of the single set of AI insights associated with the online meeting.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +55,7 @@ export interface CallAiInsightItemRequestBuilder extends BaseRequestBuilder<Call
      toPatchRequestInformation(body: CallAiInsight, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get aiInsights from copilot
+ * Get a callAiInsight object associated with an onlineMeeting. This API returns the metadata and content of the single set of AI insights associated with the online meeting.
  */
 export interface CallAiInsightItemRequestBuilderGetQueryParameters {
     /**
@@ -83,6 +84,7 @@ const CallAiInsightItemRequestBuilderGetQueryParametersMapper: Record<string, st
 export const CallAiInsightItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CallAiInsightItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

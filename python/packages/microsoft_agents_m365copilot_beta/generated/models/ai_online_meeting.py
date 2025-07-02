@@ -12,7 +12,7 @@ from .entity import Entity
 
 @dataclass
 class AiOnlineMeeting(Entity, Parsable):
-    # The aiInsights property
+    # A set of AI insights associated with an AI online meeting.
     ai_insights: Optional[list[CallAiInsight]] = None
     # The OdataType property
     odata_type: Optional[str] = None

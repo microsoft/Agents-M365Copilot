@@ -14,9 +14,9 @@ from .identity import Identity
 class ProvisionedIdentity(Identity, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.provisionedIdentity"
-    # The details property
+    # Details of the identity.
     details: Optional[DetailsInfo] = None
-    # The identityType property
+    # Type of identity that has been provisioned, such as 'user' or 'group.' Supports $filter (eq, contains).
     identity_type: Optional[str] = None
     
     @staticmethod

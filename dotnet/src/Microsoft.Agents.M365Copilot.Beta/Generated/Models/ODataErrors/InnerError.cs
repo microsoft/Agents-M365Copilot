@@ -8,11 +8,10 @@ using System.IO;
 using System;
 namespace Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors
 {
-    /// <summary>
-    /// The structure of this object is service-specific
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public partial class InnerError : IAdditionalDataHolder, IBackedModel, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData
@@ -22,6 +21,60 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
+        /// <summary>Client request Id as sent by the client application.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClientRequestId
+        {
+            get { return BackingStore?.Get<string?>("client-request-id"); }
+            set { BackingStore?.Set("client-request-id", value); }
+        }
+#nullable restore
+#else
+        public string ClientRequestId
+        {
+            get { return BackingStore?.Get<string>("client-request-id"); }
+            set { BackingStore?.Set("client-request-id", value); }
+        }
+#endif
+        /// <summary>Date when the error occured.</summary>
+        public DateTimeOffset? Date
+        {
+            get { return BackingStore?.Get<DateTimeOffset?>("date"); }
+            set { BackingStore?.Set("date", value); }
+        }
+        /// <summary>The OdataType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OdataType
+        {
+            get { return BackingStore?.Get<string?>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#nullable restore
+#else
+        public string OdataType
+        {
+            get { return BackingStore?.Get<string>("@odata.type"); }
+            set { BackingStore?.Set("@odata.type", value); }
+        }
+#endif
+        /// <summary>Request Id as tracked internally by the service</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RequestId
+        {
+            get { return BackingStore?.Get<string?>("request-id"); }
+            set { BackingStore?.Set("request-id", value); }
+        }
+#nullable restore
+#else
+        public string RequestId
+        {
+            get { return BackingStore?.Get<string>("request-id"); }
+            set { BackingStore?.Set("request-id", value); }
+        }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors.InnerError"/> and sets the default values.
         /// </summary>
@@ -48,6 +101,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "client-request-id", n => { ClientRequestId = n.GetStringValue(); } },
+                { "date", n => { Date = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "request-id", n => { RequestId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -57,6 +114,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("client-request-id", ClientRequestId);
+            writer.WriteDateTimeOffsetValue("date", Date);
+            writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteStringValue("request-id", RequestId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

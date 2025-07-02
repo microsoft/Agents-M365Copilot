@@ -7,11 +7,9 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .admin.admin_request_builder import AdminRequestBuilder
-    from .conversations.conversations_request_builder import ConversationsRequestBuilder
     from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
     from .retrieval.retrieval_request_builder import RetrievalRequestBuilder
     from .settings.settings_request_builder import SettingsRequestBuilder
-    from .share_point.share_point_request_builder import SharePointRequestBuilder
     from .users.users_request_builder import UsersRequestBuilder
 
 class CopilotRequestBuilder(BaseRequestBuilder):
@@ -35,15 +33,6 @@ class CopilotRequestBuilder(BaseRequestBuilder):
         from .admin.admin_request_builder import AdminRequestBuilder
 
         return AdminRequestBuilder(self.request_adapter, self.path_parameters)
-    
-    @property
-    def conversations(self) -> ConversationsRequestBuilder:
-        """
-        Provides operations to manage the conversations property of the microsoft.graph.copilotRoot entity.
-        """
-        from .conversations.conversations_request_builder import ConversationsRequestBuilder
-
-        return ConversationsRequestBuilder(self.request_adapter, self.path_parameters)
     
     @property
     def interaction_history(self) -> InteractionHistoryRequestBuilder:
@@ -71,15 +60,6 @@ class CopilotRequestBuilder(BaseRequestBuilder):
         from .settings.settings_request_builder import SettingsRequestBuilder
 
         return SettingsRequestBuilder(self.request_adapter, self.path_parameters)
-    
-    @property
-    def share_point(self) -> SharePointRequestBuilder:
-        """
-        Provides operations to manage the sharePoint property of the microsoft.graph.copilotRoot entity.
-        """
-        from .share_point.share_point_request_builder import SharePointRequestBuilder
-
-        return SharePointRequestBuilder(self.request_adapter, self.path_parameters)
     
     @property
     def users(self) -> UsersRequestBuilder:
