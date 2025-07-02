@@ -173,7 +173,7 @@ extends:
                           "keyCode": "CP-230012",
                           "operationSetCode": "SigntoolVerify",
                           "parameters": [ ],
-                          "toolName": "sign",Add commentMore actions
+                          "toolName": "sign",
                           "toolVersion": "1.0"
                       }
                   ]
