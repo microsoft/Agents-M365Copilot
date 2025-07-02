@@ -3,7 +3,7 @@
     "access": "public"
   },
   "name": "@microsoft/agents-m365copilot-core",
-  "version": "1.0.0-preview.1",
+  "version": "1.0.0-preview.2",
   "description": "Microsoft Agents M365 Copilot APIs Core client library implements core functionality used by Microsoft Copilot client libraries.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
