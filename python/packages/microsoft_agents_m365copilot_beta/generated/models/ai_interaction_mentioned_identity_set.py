@@ -15,7 +15,7 @@ from .identity_set import IdentitySet
 class AiInteractionMentionedIdentitySet(IdentitySet, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.aiInteractionMentionedIdentitySet"
-    # The conversation property
+    # The conversation details.
     conversation: Optional[TeamworkConversationIdentity] = None
     # The tag details.
     tag: Optional[TeamworkTagIdentity] = None
