@@ -60,7 +60,7 @@ extends:
             - task: NuGetToolInstaller@1
               displayName: 'Install Nuget dependency manager'
               inputs:
-                versionSpec: '>=5.2.0'
+                versionSpec: '>=6.13.0'
                 checkLatest: true
             # Enable signing for the .NET projects
             - pwsh: |
