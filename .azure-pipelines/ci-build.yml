@@ -91,7 +91,7 @@ extends:
               inputs:
                 command: test
                 projects: '$(Build.SourcesDirectory)/$(project_test)'
-                arguments: '--configuration $(BuildConfiguration) --no-build -f net8.0'
+                arguments: '--configuration $(BuildConfiguration) -f net8.0'
             - task: EsrpCodeSigning@5
               displayName: 'ESRP DLL Strong Name For $(project_name)'
               inputs:
