@@ -19,6 +19,7 @@ export function createGetAllEnterpriseInteractionsGetResponseFromDiscriminatorVa
 }
 /**
  * The deserialization information for the current model
+ * @param GetAllEnterpriseInteractionsGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -92,14 +93,15 @@ export interface GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters {
 }
 /**
  * Serializes information the current object
+ * @param GetAllEnterpriseInteractionsGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetAllEnterpriseInteractionsGetResponse(writer: SerializationWriter, getAllEnterpriseInteractionsGetResponse: Partial<GetAllEnterpriseInteractionsGetResponse> | undefined | null = {}) : void {
-    if (getAllEnterpriseInteractionsGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getAllEnterpriseInteractionsGetResponse)
-        writer.writeCollectionOfObjectValues<AiInteraction>("value", getAllEnterpriseInteractionsGetResponse.value, serializeAiInteraction);
-    }
+export function serializeGetAllEnterpriseInteractionsGetResponse(writer: SerializationWriter, getAllEnterpriseInteractionsGetResponse: Partial<GetAllEnterpriseInteractionsGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getAllEnterpriseInteractionsGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getAllEnterpriseInteractionsGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<AiInteraction>("value", getAllEnterpriseInteractionsGetResponse.value, serializeAiInteraction);
 }
 /**
  * Uri template for the request builder.
