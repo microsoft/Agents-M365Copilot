@@ -20,7 +20,7 @@
     <AssemblyOriginatorKeyFile>35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <!-- x-release-please-start-version -->
-    <Version>1.0.0-preview.1</Version>
+    <Version>1.0.0-preview.2</Version>
     <!-- x-release-please-end -->
     <!-- By default let the Maui targets be excluded to make contribution for external parties easier and dependabot updates. They can be enabled by adding `-p:IncludeMauiTargets=true` to the target build/restore command which is done in the CI.-->
     <TargetFrameworks>netstandard2.0;net462;$(MauiTargets)</TargetFrameworks>
