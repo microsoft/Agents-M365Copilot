@@ -1,0 +1,182 @@
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+
+# Build, sign, package and deploy .NET packages for Microsoft.Agents.M365Copilot.Core and Microsoft.Agents.M365Copilot.Beta
+
+name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - 'dotnet/src/Microsoft.Agents.M365Copilot.Core/**'
+      - 'dotnet/src/Microsoft.Agents.M365Copilot.Beta/Generated/**'
+      - 'dotnet/src/Microsoft.Agents.M365Copilot.Beta/AgentsM365CopilotBetaServiceClient.cs'
+  tags:
+    include:
+      - 'Microsoft.Agents.M365Copilot.Beta*'
+      - 'Microsoft.Agents.M365Copilot.Core*'
+
+pr: none
+
+variables:
+  buildConfiguration: 'Release'
+  buildPlatform: 'Any CPU'
+
+stages:
+- stage: build
+  displayName: 'Build and Sign .NET Packages'
+  jobs:
+    - job: build_and_sign
+      displayName: 'Build, Test, and Sign Core and Beta'
+      pool:
+        name: Azure-Pipelines-1ESPT-ExDShared
+        vmImage: windows-latest
+      steps:
+        - task: UseDotNet@2
+          displayName: 'Use .NET 8'
+          inputs:
+            version: 8.x
+        - task: UseDotNet@2
+          displayName: 'Use .NET 6 (for code signing tasks)'
+          inputs:
+            packageType: sdk
+            version: 6.x
+        - task: NuGetToolInstaller@1
+          displayName: 'Install Nuget dependency manager'
+          inputs:
+            versionSpec: '>=6.0.0'
+            checkLatest: true
+        
+        # Enable signing for the .NET projects
+        - pwsh: |
+            # This allows us to not have to checkin .csproj or Directory.Build.props files with DelaySign and 
+            # SignAssembly set to to true. If the flag is set, then project is not debuggable with SignAssembly set 
+            # to true. 
+            $buildPropsPath = "$(Build.SourcesDirectory)/dotnet/Directory.Build.props" 
+            if (Test-Path $buildPropsPath) {
+                $doc = New-Object System.Xml.XmlDocument
+                $doc.Load($buildPropsPath)
+                # Set the DelaySign element to 'true' so that delay signing is set.
+                $delaySign = $doc.SelectSingleNode("//DelaySign");
+                $delaySign.'#text'= "true"
+                # Set the SignAssembly element to 'true' so that we can sign the assemblies.
+                $signAssembly = $doc.SelectSingleNode("//SignAssembly");
+                $signAssembly.'#text'= "true"
+                $doc.Save($buildPropsPath);
+                Write-Host "Updated the Directory.Build.props file so that we can sign the built assemblies."
+            } else {
+                Write-Host ""##vso[task.complete result=Failed;]Directory.Build.props file not found."
+            }
+
+          displayName: 'Set project build properties ready to sign'
+
+
+        # Build and test Core
+        - task: DotNetCoreCLI@2
+          displayName: 'Build Microsoft.Agents.M365Copilot.Core'
+          condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Core')
+          inputs:
+            projects: '$(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Core/Microsoft.Agents.M365Copilot.Core.csproj'
+            arguments: '--configuration $(buildConfiguration) --no-incremental'
+        - task: DotNetCoreCLI@2
+          displayName: 'Test Microsoft.Agents.M365Copilot.Core'
+          condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Core')
+          inputs:
+            command: test
+            projects: '$(Build.SourcesDirectory)/dotnet/tests/Microsoft.Agents.M365Copilot.Core.Tests/Microsoft.Agents.M365Copilot.Core.Tests.csproj'
+            arguments: '--configuration $(buildConfiguration) --no-build -f net8.0'
+
+        # Build and test Beta
+        - task: DotNetCoreCLI@2
+          displayName: 'Build Microsoft.Agents.M365Copilot.Beta'
+          condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Beta')
+          inputs:
+            projects: '$(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Beta/Microsoft.Agents.M365Copilot.Beta.csproj'
+            arguments: '--configuration $(buildConfiguration) --no-incremental'
+        - task: DotNetCoreCLI@2
+          displayName: 'Test Microsoft.Agents.M365Copilot.Beta'
+          condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Beta')
+          inputs:
+            command: test
+            projects: '$(Build.SourcesDirectory)/dotnet/tests/Microsoft.Agents.M365Copilot.Beta.Tests/Microsoft.Agents.M365Copilot.Beta.Tests.csproj'
+            arguments: '--configuration $(buildConfiguration) --no-build -f net8.0'
+
+        # Strong name for Core using ESRP
+        - template: templates/esrp-strongname.yml
+          parameters:
+            projectName: Microsoft.Agents.M365Copilot.Core
+            buildConfiguration: $(buildConfiguration)
+
+        # Strong name for Beta using ESRP
+        - template: templates/esrp-strongname.yml
+          parameters:
+            projectName: Microsoft.Agents.M365Copilot.Beta
+            buildConfiguration: $(buildConfiguration)
+
+        # Code signing for Core using ESRP
+        - template: templates/esrp-codesign-dll.yml
+          parameters:
+            projectName: Microsoft.Agents.M365Copilot.Core
+            buildConfiguration: $(buildConfiguration)
+
+        # Code signing for Beta using ESRP
+        - template: templates/esrp-codesign-dll.yml
+          parameters:
+            projectName: Microsoft.Agents.M365Copilot.Beta
+            buildConfiguration: $(buildConfiguration)
+
+        # Pack Core and Beta
+        - pwsh: dotnet pack $(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Core/Microsoft.Agents.M365Copilot.Core.csproj /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg --no-build --output $(Build.ArtifactStagingDirectory) --configuration $(buildConfiguration)
+          condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Core')
+          displayName: 'Dotnet pack Core'
+
+        - pwsh: dotnet pack $(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Beta/Microsoft.Agents.M365Copilot.Beta.csproj /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg --no-build --output $(Build.ArtifactStagingDirectory) --configuration $(buildConfiguration)
+          condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Beta')
+          displayName: 'Dotnet pack Beta'
+
+        # Sign Core and Beta NuGet packages using ESRP
+        - template: templates/esrp-codesign-nuget.yml
+          parameters:
+            projectName: Microsoft.Agents.M365Copilot.Core
+            artifactStagingDirectory: $(Build.ArtifactStagingDirectory)
+        - template: templates/esrp-codesign-nuget.yml
+          parameters:
+            projectName: Microsoft.Agents.M365Copilot.Beta
+            artifactStagingDirectory: $(Build.ArtifactStagingDirectory) 
+
+      templateContext:
+        outputs:
+          - output: pipelineArtifact
+            displayName: 'Stage Microsoft.Agents.M365Copilot* package artifacts'
+            artifactName: Nugets
+            targetPath: $(Build.ArtifactStagingDirectory)/Nugets            
+
+
+- stage: deploy
+  displayName: 'Deploy NuGet Packages'
+  dependsOn: build
+  condition: and(startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot'), succeeded())
+  jobs:
+    - job: publish_nuget_packages
+      displayName: 'Publish NuGet Packages'
+      pool:
+        name: Azure-Pipelines-1ESPT-ExDShared
+        vmImage: windows-latest
+      steps:
+        - task: DownloadPipelineArtifact@2
+          displayName: 'Download NuGets Artifact'
+          inputs:
+            artifact: NuGets
+            path: $(Build.ArtifactStagingDirectory)
+        - task: 1ES.PublishNuget@1
+          displayName: 'Publish NuGet packages via NuGet API Key'
+          inputs:
+            useDotNetTask: false
+            packageParentPath: $(Build.ArtifactStagingDirectory)
+            packagesToPush: '!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg;$(Build.ArtifactStagingDirectory)/*.nupkg'
+            nuGetFeedType: external
+            publishPackageMetadata: true
+            publishFeedCredentials: 'M365 Copilot NuGet Connection'

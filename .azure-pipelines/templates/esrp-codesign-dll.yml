@@ -1,0 +1,69 @@
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+
+# Codesigning for .NET DLLs using ESRP
+
+parameters:
+  - name: projectName
+    type: string
+  - name: buildConfiguration
+    type: string
+    default: 'Release'
+
+steps:
+
+  - task: EsrpCodeSigning@5
+    displayName: 'ESRP Code Signing for ${{ parameters.projectName }} DLL'
+    inputs:
+      ConnectedServiceName: 'Federated DevX ESRP Managed Identity Connection'
+      AppRegistrationClientId: '65035b7f-7357-4f29-bf25-c5ee5c3949f8'
+      AppRegistrationTenantId: 'cdc5aeea-15c5-4db6-b079-fcadd2505dc2'
+      AuthAKVName: 'akv-prod-eastus'
+      AuthCertName: 'ReferenceLibraryPrivateCert'
+      AuthSignCertName: 'ReferencePackagePublisherCertificate'
+      FolderPath: "$(Build.SourcesDirectory)/dotnet/src/${{ parameters.projectName }}/bin/${{ parameters.buildConfiguration }}/"
+      Pattern: "**\\${{ parameters.projectName }}.dll"
+      UseMinimatch: false
+      signConfigType: 'inlineSignParams'
+      inlineOperation: |
+        [
+            {
+                "keyCode": "CP-230012",
+                "operationSetCode": "SigntoolSign",
+                "parameters": [
+                {
+                    "parameterName": "OpusName",
+                    "parameterValue": "Microsoft"
+                },
+                {
+                    "parameterName": "OpusInfo",
+                    "parameterValue": "http://www.microsoft.com"
+                },
+                {
+                    "parameterName": "FileDigest",
+                    "parameterValue": "/fd \"SHA256\""
+                },
+                {
+                    "parameterName": "PageHash",
+                    "parameterValue": "/NPH"
+                },
+                {
+                    "parameterName": "TimeStamp",
+                    "parameterValue": "/tr \"http://rfc3161.gtm.corp.microsoft.com/TSS/HttpTspServer\" /td sha256"
+                }
+                ],
+                "toolName": "sign",
+                "toolVersion": "1.0"
+            },
+            {
+                "keyCode": "CP-230012",
+                "operationSetCode": "SigntoolVerify",
+                "parameters": [ ],
+                "toolName": "sign",
+                "toolVersion": "1.0"
+            }
+        ]
+      SessionTimeout: '20'
+      MaxConcurrency: '50'
+      MaxRetryAttempts: '5'
+      PendingAnalysisWaitTimeoutMinutes: '5'
