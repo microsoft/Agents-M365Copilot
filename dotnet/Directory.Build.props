@@ -1,10 +1,4 @@
 <Project>
- <PropertyGroup>
-   <MauiTargets>net6.0</MauiTargets>
- </PropertyGroup>
- <PropertyGroup>
-   <MauiTargets Condition="'$(IncludeMauiTargets)'=='true'">$(MauiTargets);net6.0-android;net6.0-ios;net6.0-maccatalyst;net6.0-macos;net6.0-windows</MauiTargets>
- </PropertyGroup>
    <!-- Common default project properties for ALL projects-->
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
@@ -15,7 +9,6 @@
     <AssemblyOriginatorKeyFile>..\..\35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net8.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
