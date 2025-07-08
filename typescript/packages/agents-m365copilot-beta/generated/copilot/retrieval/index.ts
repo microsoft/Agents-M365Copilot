@@ -19,6 +19,7 @@ export function createRetrievalPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param RetrievalPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -33,10 +34,6 @@ export function deserializeIntoRetrievalPostRequestBody(retrievalPostRequestBody
     }
 }
 export interface RetrievalPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -86,18 +83,19 @@ export interface RetrievalRequestBuilder extends BaseRequestBuilder<RetrievalReq
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RetrievalPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRetrievalPostRequestBody(writer: SerializationWriter, retrievalPostRequestBody: Partial<RetrievalPostRequestBody> | undefined | null = {}) : void {
-    if (retrievalPostRequestBody) {
-        writer.writeEnumValue<RetrievalDataSource>("dataSource", retrievalPostRequestBody.dataSource);
-        writer.writeStringValue("filterExpression", retrievalPostRequestBody.filterExpression);
-        writer.writeNumberValue("maximumNumberOfResults", retrievalPostRequestBody.maximumNumberOfResults);
-        writer.writeStringValue("queryString", retrievalPostRequestBody.queryString);
-        writer.writeCollectionOfPrimitiveValues<string>("resourceMetadata", retrievalPostRequestBody.resourceMetadata);
-        writer.writeAdditionalData(retrievalPostRequestBody.additionalData);
-    }
+export function serializeRetrievalPostRequestBody(writer: SerializationWriter, retrievalPostRequestBody: Partial<RetrievalPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!retrievalPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeEnumValue<RetrievalDataSource>("dataSource", retrievalPostRequestBody.dataSource);
+    writer.writeStringValue("filterExpression", retrievalPostRequestBody.filterExpression);
+    writer.writeNumberValue("maximumNumberOfResults", retrievalPostRequestBody.maximumNumberOfResults);
+    writer.writeStringValue("queryString", retrievalPostRequestBody.queryString);
+    writer.writeCollectionOfPrimitiveValues<string>("resourceMetadata", retrievalPostRequestBody.resourceMetadata);
+    writer.writeAdditionalData(retrievalPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.
