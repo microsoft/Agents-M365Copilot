@@ -639,6 +639,14 @@ Microsoft.Agents.M365Copilot.Beta.Models.endpointType::0001-voicemail
 Microsoft.Agents.M365Copilot.Beta.Models.endpointType::0002-skypeForBusiness
 Microsoft.Agents.M365Copilot.Beta.Models.endpointType::0003-skypeForBusinessVoipPhone
 Microsoft.Agents.M365Copilot.Beta.Models.endpointType::0004-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.engagementIdentitySet-->global.Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet
+Microsoft.Agents.M365Copilot.Beta.Models.engagementIdentitySet::|public|Audience:global.Microsoft.Agents.M365Copilot.Beta.Models.Identity
+Microsoft.Agents.M365Copilot.Beta.Models.engagementIdentitySet::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.engagementIdentitySet::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.engagementIdentitySet::|public|Group:global.Microsoft.Agents.M365Copilot.Beta.Models.Identity
+Microsoft.Agents.M365Copilot.Beta.Models.engagementIdentitySet::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.engagementIdentitySet::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.engagementIdentitySet::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.EngagementIdentitySet
 Microsoft.Agents.M365Copilot.Beta.Models.enhancedPersonalizationSetting-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.enhancedPersonalizationSetting::|public|DisabledForGroup:string
 Microsoft.Agents.M365Copilot.Beta.Models.enhancedPersonalizationSetting::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
