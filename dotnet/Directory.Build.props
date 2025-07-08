@@ -5,4 +5,26 @@
  <PropertyGroup>
    <MauiTargets Condition="'$(IncludeMauiTargets)'=='true'">$(MauiTargets);net6.0-android;net6.0-ios;net6.0-maccatalyst;net6.0-macos;net6.0-windows</MauiTargets>
  </PropertyGroup>
+   <!-- Common default project properties for ALL projects-->
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <!-- Signing set to true at build in prod pipeline-->
+    <SignAssembly>false</SignAssembly>
+    <DelaySign>false</DelaySign>
+    <!-- Make path to key file relative to csprojs in this directory -->
+    <AssemblyOriginatorKeyFile>..\..\35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net8.0;net462</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <Deterministic>true</Deterministic>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <IsTestProject>false</IsTestProject>
+  </PropertyGroup>
+  
+  <ItemGroup Condition="('$(IsTestProject)' != 'true') and ('$(IsAnalyzerProject)' != 'true')">
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+  </ItemGroup>
 </Project>
