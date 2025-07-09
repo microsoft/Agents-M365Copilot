@@ -173,12 +173,12 @@ stages:
             artifactName: Nugets
             targetPath: $(Build.ArtifactStagingDirectory)/Nugets
       steps:
-        - task: 1ES.PublishNuget@1
-          displayName: 'Publish NuGet packages via NuGet API Key'
-          inputs:
-            useDotNetTask: false
-            packageParentPath: $(Build.ArtifactStagingDirectory)/Nugets
-            packagesToPush: '!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg;$(Build.ArtifactStagingDirectory)/Nugets/*.nupkg'
-            nuGetFeedType: external
-            publishPackageMetadata: true
-            publishFeedCredentials: 'M365 Copilot NuGet Connection'
+      - task: 1ES.PublishNuget@1
+        displayName: 'Publish NuGet packages via NuGet API Key'
+        inputs:
+          useDotNetTask: false
+          packageParentPath: $(Build.ArtifactStagingDirectory)/Nugets
+          packagesToPush: '!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg;$(Build.ArtifactStagingDirectory)/Nugets/*.nupkg'
+          nuGetFeedType: external  # Change to external for external
+          publishPackageMetadata: true
+          publishFeedCredentials: 'M365 Copilot NuGet Connection'
