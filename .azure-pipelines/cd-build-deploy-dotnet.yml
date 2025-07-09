@@ -38,7 +38,6 @@ extends:
     pool:
       name: Azure-Pipelines-1ESPT-ExDShared
       vmImage: windows-latest
-
     stages:
     - stage: build
       displayName: 'Build and Sign .NET Packages'
@@ -119,25 +118,25 @@ extends:
                 arguments: '--configuration $(buildConfiguration) --no-build -f net8.0'
 
             # Strong name for Core using ESRP
-            - template: templates/esrp-strongname.yml
+            - template: .azure-pipelines/templates/esrp-strongname.yml@self
               parameters:
                 projectName: Microsoft.Agents.M365Copilot.Core
                 buildConfiguration: $(buildConfiguration)
 
             # Strong name for Beta using ESRP
-            - template: templates/esrp-strongname.yml
+            - template: .azure-pipelines/templates/esrp-strongname.yml@self
               parameters:
                 projectName: Microsoft.Agents.M365Copilot.Beta
                 buildConfiguration: $(buildConfiguration)
 
             # Code signing for Core using ESRP
-            - template: templates/esrp-codesign-dll.yml
+            - template: .azure-pipelines/templates/esrp-codesign-dll.yml@self
               parameters:
                 projectName: Microsoft.Agents.M365Copilot.Core
                 buildConfiguration: $(buildConfiguration)
 
             # Code signing for Beta using ESRP
-            - template: templates/esrp-codesign-dll.yml
+            - template: .azure-pipelines/templates/esrp-codesign-dll.yml@self
               parameters:
                 projectName: Microsoft.Agents.M365Copilot.Beta
                 buildConfiguration: $(buildConfiguration)
@@ -152,11 +151,11 @@ extends:
               displayName: 'Dotnet pack Beta'
 
             # Sign Core and Beta NuGet packages using ESRP
-            - template: templates/esrp-codesign-nuget.yml
+            - template: .azure-pipelines/templates/esrp-codesign-nuget.yml@self
               parameters:
                 projectName: Microsoft.Agents.M365Copilot.Core
                 artifactStagingDirectory: $(Build.ArtifactStagingDirectory)
-            - template: templates/esrp-codesign-nuget.yml
+            - template: .azure-pipelines/templates/esrp-codesign-nuget.yml@self
               parameters:
                 projectName: Microsoft.Agents.M365Copilot.Beta
                 artifactStagingDirectory: $(Build.ArtifactStagingDirectory) 
