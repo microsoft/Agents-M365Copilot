@@ -102,7 +102,7 @@ extends:
               inputs:
                 command: test
                 projects: '$(Build.SourcesDirectory)/dotnet/tests/Microsoft.Agents.M365Copilot.Core.Tests/Microsoft.Agents.M365Copilot.Core.Tests.csproj'
-                arguments: '--configuration $(buildConfiguration) --no-build -f net8.0'
+                arguments: '--configuration $(buildConfiguration) -f net8.0'
 
             # Build and test Beta
             - task: DotNetCoreCLI@2
@@ -119,7 +119,7 @@ extends:
               inputs:
                 command: test
                 projects: '$(Build.SourcesDirectory)/dotnet/tests/Microsoft.Agents.M365Copilot.Beta.Tests/Microsoft.Agents.M365Copilot.Beta.Tests.csproj'
-                arguments: '--configuration $(buildConfiguration) --no-build -f net8.0'
+                arguments: '--configuration $(buildConfiguration) -f net8.0'
 
             # Strong name for Core using ESRP
             - template: .azure-pipelines/templates/esrp-strongname.yml@self
