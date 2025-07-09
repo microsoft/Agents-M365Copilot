@@ -90,13 +90,15 @@ extends:
             # Build and test Core
             - task: DotNetCoreCLI@2
               displayName: 'Build Microsoft.Agents.M365Copilot.Core'
-              condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Core')
+              # This condition allows the build to run for both tag builds and manual builds.
+              condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Core'), eq(variables['Build.Reason'], 'Manual'))
               inputs:
                 projects: '$(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Core/Microsoft.Agents.M365Copilot.Core.csproj'
                 arguments: '--configuration $(buildConfiguration) --no-incremental'
             - task: DotNetCoreCLI@2
               displayName: 'Test Microsoft.Agents.M365Copilot.Core'
-              condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Core')
+              # This condition allows the build to run for both tag builds and manual builds.
+              condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Core'), eq(variables['Build.Reason'], 'Manual'))
               inputs:
                 command: test
                 projects: '$(Build.SourcesDirectory)/dotnet/tests/Microsoft.Agents.M365Copilot.Core.Tests/Microsoft.Agents.M365Copilot.Core.Tests.csproj'
@@ -105,13 +107,15 @@ extends:
             # Build and test Beta
             - task: DotNetCoreCLI@2
               displayName: 'Build Microsoft.Agents.M365Copilot.Beta'
-              condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Beta')
+              # This condition allows the build to run for both tag builds and manual builds.
+              condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
               inputs:
                 projects: '$(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Beta/Microsoft.Agents.M365Copilot.Beta.csproj'
                 arguments: '--configuration $(buildConfiguration) --no-incremental'
             - task: DotNetCoreCLI@2
               displayName: 'Test Microsoft.Agents.M365Copilot.Beta'
-              condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Beta')
+              # This condition allows the build to run for both tag builds and manual builds.
+              condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
               inputs:
                 command: test
                 projects: '$(Build.SourcesDirectory)/dotnet/tests/Microsoft.Agents.M365Copilot.Beta.Tests/Microsoft.Agents.M365Copilot.Beta.Tests.csproj'
@@ -143,11 +147,13 @@ extends:
 
             # Pack Core and Beta
             - pwsh: dotnet pack $(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Core/Microsoft.Agents.M365Copilot.Core.csproj /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg --no-build --output $(Build.ArtifactStagingDirectory) --configuration $(buildConfiguration)
-              condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Core')
+              # This condition allows the pack command to run for both tag builds and manual builds.
+              condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Core'), eq(variables['Build.Reason'], 'Manual'))
               displayName: 'Dotnet pack Core'
 
             - pwsh: dotnet pack $(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Beta/Microsoft.Agents.M365Copilot.Beta.csproj /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg --no-build --output $(Build.ArtifactStagingDirectory) --configuration $(buildConfiguration)
-              condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Beta')
+              # This condition allows the pack command to run for both tag builds and manual builds.
+              condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
               displayName: 'Dotnet pack Beta'
 
             # Sign Core and Beta NuGet packages using ESRP
