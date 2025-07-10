@@ -23,7 +23,7 @@ steps:
       AuthSignCertName: 'ReferencePackagePublisherCertificate'
       FolderPath: "$(Build.SourcesDirectory)/dotnet/src/${{ parameters.projectName }}/bin/${{ parameters.buildConfiguration }}/"
       Pattern: "**\\${{ parameters.projectName }}.dll"
-      UseMinimatch: false
+      UseMinimatch: true
       signConfigType: 'inlineSignParams'
       inlineOperation: |
         [
