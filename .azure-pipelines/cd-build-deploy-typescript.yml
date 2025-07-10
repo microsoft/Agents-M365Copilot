@@ -114,7 +114,7 @@ extends:
                 targetPath: $(Build.ArtifactStagingDirectory)/npm
 
     - stage: deploy
-      displayName: 'Deploy NuGet Packages'
+      displayName: 'Deploy NPM Packages'
       dependsOn: build
       # This condition allows the build to run for only tagged builds.
       condition: and(startsWith(variables['Build.SourceBranch'], 'refs/tags/@microsoft/agents-m365copilot'), succeeded())
