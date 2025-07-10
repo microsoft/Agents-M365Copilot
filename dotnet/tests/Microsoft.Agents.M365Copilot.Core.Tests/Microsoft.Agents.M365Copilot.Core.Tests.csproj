@@ -6,6 +6,9 @@
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <LangVersion>latest</LangVersion>
+    <IsTestProject>true</IsTestProject>
+    <NoWarn>1591</NoWarn>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,11 +19,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
-
-  <PropertyGroup>
-    <NoWarn>CS1591</NoWarn> <!-- Disable warning for missing XML comments - not needed for tests -->
-  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
@@ -45,7 +43,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Kiota.Abstractions" Version="1.17.1" />
+    <PackageReference Include="Microsoft.Kiota.Abstractions" Version="1.17.4" />
     <ProjectReference Include="..\..\src\Microsoft.Agents.M365Copilot.Core\Microsoft.Agents.M365Copilot.Core.csproj" />
   </ItemGroup>
 
