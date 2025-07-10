@@ -12,7 +12,7 @@ parameters:
 
 steps:
   - task: EsrpCodeSigning@5
-    displayName: 'ESRP Package Signing for $(project_name) Nuget Package'
+    displayName: 'ESRP Package Signing for $(projectName) Nuget Package'
 
     inputs:
       ConnectedServiceName: 'Federated DevX ESRP Managed Identity Connection'
@@ -21,7 +21,7 @@ steps:
       AuthAKVName: 'akv-prod-eastus'
       AuthCertName: 'ReferenceLibraryPrivateCert'
       AuthSignCertName: 'ReferencePackagePublisherCertificate'
-      FolderPath: '$(Build.ArtifactStagingDirectory)/Nugets'
+      FolderPath: '$(artifactStagingDirectory)'
       Pattern: '*.nupkg'
       signConfigType: 'inlineSignParams'
       inlineOperation: |

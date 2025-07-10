@@ -24,6 +24,7 @@ pr: none
 variables:
   buildConfiguration: 'Release'
   buildPlatform: 'Any CPU'
+  nugetArtifacts: '$(Build.ArtifactStagingDirectory)/Nugets'
 
 resources:
   repositories:
@@ -146,12 +147,12 @@ extends:
                 buildConfiguration: $(buildConfiguration)
 
             # Pack Core and Beta
-            - pwsh: dotnet pack $(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Core/Microsoft.Agents.M365Copilot.Core.csproj /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg --no-build --output $(Build.ArtifactStagingDirectory) --configuration $(buildConfiguration)
+            - pwsh: dotnet pack $(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Core/Microsoft.Agents.M365Copilot.Core.csproj /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg --no-build --output $(nugetArtifacts) --configuration $(buildConfiguration)
               # This condition allows the pack command to run for both tag builds and manual builds.
               condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Core'), eq(variables['Build.Reason'], 'Manual'))
               displayName: 'Dotnet pack Core'
 
-            - pwsh: dotnet pack $(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Beta/Microsoft.Agents.M365Copilot.Beta.csproj /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg --no-build --output $(Build.ArtifactStagingDirectory) --configuration $(buildConfiguration)
+            - pwsh: dotnet pack $(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Beta/Microsoft.Agents.M365Copilot.Beta.csproj /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg --no-build --output $(nugetArtifacts) --configuration $(buildConfiguration)
               # This condition allows the pack command to run for both tag builds and manual builds.
               condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
               displayName: 'Dotnet pack Beta'
@@ -160,18 +161,18 @@ extends:
             - template: .azure-pipelines/templates/esrp-codesign-nuget.yml@self
               parameters:
                 projectName: Microsoft.Agents.M365Copilot.Core
-                artifactStagingDirectory: $(Build.ArtifactStagingDirectory)
+                artifactStagingDirectory: $(nugetArtifacts)
             - template: .azure-pipelines/templates/esrp-codesign-nuget.yml@self
               parameters:
                 projectName: Microsoft.Agents.M365Copilot.Beta
-                artifactStagingDirectory: $(Build.ArtifactStagingDirectory) 
+                artifactStagingDirectory: $(nugetArtifacts)
 
           templateContext:
             outputs:
               - output: pipelineArtifact
                 displayName: 'Stage Microsoft.Agents.M365Copilot* package artifacts'
                 artifactName: Nugets
-                targetPath: $(Build.ArtifactStagingDirectory)/Nugets            
+                targetPath:  $(nugetArtifacts)            
 
 
     - stage: deploy
@@ -190,14 +191,14 @@ extends:
             inputs:
               - input: pipelineArtifact
                 artifactName: Nugets
-                targetPath: $(Build.ArtifactStagingDirectory)/Nugets
+                targetPath: $(nugetArtifacts)
           steps:
           - task: 1ES.PublishNuget@1
             displayName: 'Publish NuGet packages via NuGet API Key'
             inputs:
               useDotNetTask: false
-              packageParentPath: $(Build.ArtifactStagingDirectory)/Nugets
-              packagesToPush: '!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg;$(Build.ArtifactStagingDirectory)/Nugets/*.nupkg'
+              packageParentPath: $(nugetArtifacts)
+              packagesToPush: '!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg;$(nugetArtifacts)/**/*nupkg'
               nuGetFeedType: external  # Change to external for external
               publishPackageMetadata: true
               publishFeedCredentials: 'M365 Copilot NuGet Connection'
