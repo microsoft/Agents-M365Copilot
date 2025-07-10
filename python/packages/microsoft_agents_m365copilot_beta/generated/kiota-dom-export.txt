@@ -810,6 +810,16 @@ microsoft_agents_m365copilot_beta.generated.models.EndpointType::0001-Voicemail
 microsoft_agents_m365copilot_beta.generated.models.EndpointType::0002-SkypeForBusiness
 microsoft_agents_m365copilot_beta.generated.models.EndpointType::0003-SkypeForBusinessVoipPhone
 microsoft_agents_m365copilot_beta.generated.models.EndpointType::0004-UnknownFutureValue
+microsoft_agents_m365copilot_beta.generated.models.EngagementIdentitySet-->IdentitySet
+microsoft_agents_m365copilot_beta.generated.models.EngagementIdentitySet::|public|audience():Identity
+microsoft_agents_m365copilot_beta.generated.models.EngagementIdentitySet::|public|audience(value:Identity):None
+microsoft_agents_m365copilot_beta.generated.models.EngagementIdentitySet::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.EngagementIdentitySet::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.EngagementIdentitySet::|public|group():Identity
+microsoft_agents_m365copilot_beta.generated.models.EngagementIdentitySet::|public|group(value:Identity):None
+microsoft_agents_m365copilot_beta.generated.models.EngagementIdentitySet::|public|odata_type:str
+microsoft_agents_m365copilot_beta.generated.models.EngagementIdentitySet::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.EngagementIdentitySet::|static|public|create_from_discriminator_value(parse_node:ParseNode):EngagementIdentitySet
 microsoft_agents_m365copilot_beta.generated.models.EnhancedPersonalizationSetting-->Entity
 microsoft_agents_m365copilot_beta.generated.models.EnhancedPersonalizationSetting::|public|constructor():None
 microsoft_agents_m365copilot_beta.generated.models.EnhancedPersonalizationSetting::|public|disabled_for_group():str

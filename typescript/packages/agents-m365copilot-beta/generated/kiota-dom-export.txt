@@ -68,7 +68,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.copilot.interactionHistory.g
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.interactionHistory.getAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder~~>BaseRequestBuilder<GetAllEnterpriseInteractionsRequestBuilder>
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.interactionHistory.getAllEnterpriseInteractions::createGetAllEnterpriseInteractionsGetResponseFromDiscriminatorValue(parseNode:ParseNode):GetAllEnterpriseInteractionsGetResponse
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.interactionHistory.getAllEnterpriseInteractions::deserializeIntoGetAllEnterpriseInteractionsGetResponse(GetAllEnterpriseInteractionsGetResponse:GetAllEnterpriseInteractionsGetResponse={}):Record<string, (node: ParseNode) => void>
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.interactionHistory.getAllEnterpriseInteractions::serializeGetAllEnterpriseInteractionsGetResponse(writer:SerializationWriter; GetAllEnterpriseInteractionsGetResponse:GetAllEnterpriseInteractionsGetResponse={}):void
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.interactionHistory.getAllEnterpriseInteractions::serializeGetAllEnterpriseInteractionsGetResponse(writer:SerializationWriter; GetAllEnterpriseInteractionsGetResponse:GetAllEnterpriseInteractionsGetResponse={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.interactionHistory.interactionHistoryRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.interactionHistory.interactionHistoryRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<InteractionHistoryRequestBuilderGetQueryParameters>):AiInteractionHistory
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.interactionHistory.interactionHistoryRequestBuilder::|public|getAllEnterpriseInteractions:GetAllEnterpriseInteractionsRequestBuilder
@@ -98,7 +98,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.retrievalR
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.retrievalRequestBuilder~~>BaseRequestBuilder<RetrievalRequestBuilder>
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval::createRetrievalPostRequestBodyFromDiscriminatorValue(parseNode:ParseNode):RetrievalPostRequestBody
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval::deserializeIntoRetrievalPostRequestBody(RetrievalPostRequestBody:RetrievalPostRequestBody={}):Record<string, (node: ParseNode) => void>
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval::serializeRetrievalPostRequestBody(writer:SerializationWriter; RetrievalPostRequestBody:RetrievalPostRequestBody={}):void
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval::serializeRetrievalPostRequestBody(writer:SerializationWriter; RetrievalPostRequestBody:RetrievalPostRequestBody={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.settings.people.enhancedPersonalization.enhancedPersonalizationRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.settings.people.enhancedPersonalization.enhancedPersonalizationRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<EnhancedPersonalizationRequestBuilderGetQueryParameters>):EnhancedPersonalizationSetting
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.settings.people.enhancedPersonalization.enhancedPersonalizationRequestBuilder::|public|patch(body:EnhancedPersonalizationSetting; requestConfiguration?:RequestConfiguration<object>):EnhancedPersonalizationSetting
@@ -180,7 +180,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.copilot.users.item.interacti
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder~~>BaseRequestBuilder<GetAllEnterpriseInteractionsRequestBuilder>
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions::createGetAllEnterpriseInteractionsGetResponseFromDiscriminatorValue(parseNode:ParseNode):GetAllEnterpriseInteractionsGetResponse
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions::deserializeIntoGetAllEnterpriseInteractionsGetResponse(GetAllEnterpriseInteractionsGetResponse:GetAllEnterpriseInteractionsGetResponse={}):Record<string, (node: ParseNode) => void>
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions::serializeGetAllEnterpriseInteractionsGetResponse(writer:SerializationWriter; GetAllEnterpriseInteractionsGetResponse:GetAllEnterpriseInteractionsGetResponse={}):void
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.users.item.interactionHistory.getAllEnterpriseInteractions::serializeGetAllEnterpriseInteractionsGetResponse(writer:SerializationWriter; GetAllEnterpriseInteractionsGetResponse:GetAllEnterpriseInteractionsGetResponse={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.users.item.interactionHistory.interactionHistoryRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.users.item.interactionHistory.interactionHistoryRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<InteractionHistoryRequestBuilderGetQueryParameters>):AiInteractionHistory
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.users.item.interactionHistory.interactionHistoryRequestBuilder::|public|getAllEnterpriseInteractions:GetAllEnterpriseInteractionsRequestBuilder
@@ -399,7 +399,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.callRecords.UserIdent
 github.com/microsoft/Agents-M365Copilot/typescript/.models.callRecords.UserIdentity~~>Identity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.callRecords::createUserIdentityFromDiscriminatorValue(parseNode:ParseNode):UserIdentity
 github.com/microsoft/Agents-M365Copilot/typescript/.models.callRecords::deserializeIntoUserIdentity(UserIdentity:UserIdentity={}):Record<string, (node: ParseNode) => void>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.callRecords::serializeUserIdentity(writer:SerializationWriter; UserIdentity:UserIdentity={}):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models.callRecords::serializeUserIdentity(writer:SerializationWriter; UserIdentity:UserIdentity={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatMessageFromIdentitySet::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatMessageFromIdentitySet~~>IdentitySet; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatMessageMentionedIdentitySet::|public|conversation:TeamworkConversationIdentity
@@ -469,6 +469,10 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.endpointType::0002-sk
 github.com/microsoft/Agents-M365Copilot/typescript/.models.endpointType::0003-skypeForBusinessVoipPhone
 github.com/microsoft/Agents-M365Copilot/typescript/.models.endpointType::0004-unknownFutureValue
 github.com/microsoft/Agents-M365Copilot/typescript/.models.endpointTypeObject
+github.com/microsoft/Agents-M365Copilot/typescript/.models.EngagementIdentitySet::|public|audience:Identity
+github.com/microsoft/Agents-M365Copilot/typescript/.models.EngagementIdentitySet::|public|group:Identity
+github.com/microsoft/Agents-M365Copilot/typescript/.models.EngagementIdentitySet::|public|OdataType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.EngagementIdentitySet~~>IdentitySet; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.EnhancedPersonalizationSetting::|public|disabledForGroup:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.EnhancedPersonalizationSetting::|public|isEnabledInOrganization:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.EnhancedPersonalizationSetting::|public|OdataType:string
@@ -558,10 +562,10 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors::deserial
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors::deserializeIntoInnerError(InnerError:InnerError={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors::deserializeIntoMainError(MainError:MainError={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors::deserializeIntoODataError(ODataError:ODataError={}):Record<string, (node: ParseNode) => void>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors::serializeErrorDetails(writer:SerializationWriter; ErrorDetails:ErrorDetails={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors::serializeInnerError(writer:SerializationWriter; InnerError:InnerError={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors::serializeMainError(writer:SerializationWriter; MainError:MainError={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors::serializeODataError(writer:SerializationWriter; ODataError:ODataError={}):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors::serializeErrorDetails(writer:SerializationWriter; ErrorDetails:ErrorDetails={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors::serializeInnerError(writer:SerializationWriter; InnerError:InnerError={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors::serializeMainError(writer:SerializationWriter; MainError:MainError={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors::serializeODataError(writer:SerializationWriter; ODataError:ODataError={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ProgramResource::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ProgramResource::|public|type:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ProgramResource~~>Identity; Parsable
@@ -627,7 +631,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.security.SubmissionUs
 github.com/microsoft/Agents-M365Copilot/typescript/.models.security.SubmissionUserIdentity~~>Identity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.security::createSubmissionUserIdentityFromDiscriminatorValue(parseNode:ParseNode):SubmissionUserIdentity
 github.com/microsoft/Agents-M365Copilot/typescript/.models.security::deserializeIntoSubmissionUserIdentity(SubmissionUserIdentity:SubmissionUserIdentity={}):Record<string, (node: ParseNode) => void>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.security::serializeSubmissionUserIdentity(writer:SerializationWriter; SubmissionUserIdentity:SubmissionUserIdentity={}):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models.security::serializeSubmissionUserIdentity(writer:SerializationWriter; SubmissionUserIdentity:SubmissionUserIdentity={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ServicePrincipalIdentity::|public|appId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ServicePrincipalIdentity::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ServicePrincipalIdentity~~>Identity; Parsable
@@ -719,6 +723,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::createCopilotSetting
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createDetailsInfoFromDiscriminatorValue(parseNode:ParseNode):DetailsInfo
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createDictionariesFromDiscriminatorValue(parseNode:ParseNode):Dictionaries
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createEmailIdentityFromDiscriminatorValue(parseNode:ParseNode):EmailIdentity
+github.com/microsoft/Agents-M365Copilot/typescript/.models::createEngagementIdentitySetFromDiscriminatorValue(parseNode:ParseNode):EngagementIdentitySet
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createEnhancedPersonalizationSettingFromDiscriminatorValue(parseNode:ParseNode):EnhancedPersonalizationSetting
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createEntityFromDiscriminatorValue(parseNode:ParseNode):Entity
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createIdentityFromDiscriminatorValue(parseNode:ParseNode):Identity
@@ -784,6 +789,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCopil
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoDetailsInfo(DetailsInfo:DetailsInfo={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoDictionaries(Dictionaries:Dictionaries={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoEmailIdentity(EmailIdentity:EmailIdentity={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoEngagementIdentitySet(EngagementIdentitySet:EngagementIdentitySet={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoEnhancedPersonalizationSetting(EnhancedPersonalizationSetting:EnhancedPersonalizationSetting={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoEntity(Entity:Entity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoIdentity(Identity:Identity={}):Record<string, (node: ParseNode) => void>
@@ -812,69 +818,70 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoTeamw
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoTeamworkTagIdentity(TeamworkTagIdentity:TeamworkTagIdentity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoTeamworkUserIdentity(TeamworkUserIdentity:TeamworkUserIdentity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoUserIdentity(UserIdentity:UserIdentity={}):Record<string, (node: ParseNode) => void>
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeActionItem(writer:SerializationWriter; ActionItem:ActionItem={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiInteraction(writer:SerializationWriter; AiInteraction:AiInteraction={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiInteractionAttachment(writer:SerializationWriter; AiInteractionAttachment:AiInteractionAttachment={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiInteractionContext(writer:SerializationWriter; AiInteractionContext:AiInteractionContext={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiInteractionHistory(writer:SerializationWriter; AiInteractionHistory:AiInteractionHistory={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiInteractionLink(writer:SerializationWriter; AiInteractionLink:AiInteractionLink={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiInteractionMention(writer:SerializationWriter; AiInteractionMention:AiInteractionMention={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiInteractionMentionedIdentitySet(writer:SerializationWriter; AiInteractionMentionedIdentitySet:AiInteractionMentionedIdentitySet={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiOnlineMeeting(writer:SerializationWriter; AiOnlineMeeting:AiOnlineMeeting={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiOnlineMeetingCollectionResponse(writer:SerializationWriter; AiOnlineMeetingCollectionResponse:AiOnlineMeetingCollectionResponse={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiUser(writer:SerializationWriter; AiUser:AiUser={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiUserCollectionResponse(writer:SerializationWriter; AiUserCollectionResponse:AiUserCollectionResponse={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeApprovalIdentitySet(writer:SerializationWriter; ApprovalIdentitySet:ApprovalIdentitySet={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAuditUserIdentity(writer:SerializationWriter; AuditUserIdentity:AuditUserIdentity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAzureCommunicationServicesUserIdentity(writer:SerializationWriter; AzureCommunicationServicesUserIdentity:AzureCommunicationServicesUserIdentity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeBaseCollectionPaginationCountResponse(writer:SerializationWriter; BaseCollectionPaginationCountResponse:BaseCollectionPaginationCountResponse={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCallAiInsight(writer:SerializationWriter; CallAiInsight:CallAiInsight={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCallAiInsightCollectionResponse(writer:SerializationWriter; CallAiInsightCollectionResponse:CallAiInsightCollectionResponse={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCallAiInsightViewPoint(writer:SerializationWriter; CallAiInsightViewPoint:CallAiInsightViewPoint={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeChatMessageFromIdentitySet(writer:SerializationWriter; ChatMessageFromIdentitySet:ChatMessageFromIdentitySet={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeChatMessageMentionedIdentitySet(writer:SerializationWriter; ChatMessageMentionedIdentitySet:ChatMessageMentionedIdentitySet={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeChatMessageReactionIdentitySet(writer:SerializationWriter; ChatMessageReactionIdentitySet:ChatMessageReactionIdentitySet={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCommunicationsApplicationIdentity(writer:SerializationWriter; CommunicationsApplicationIdentity:CommunicationsApplicationIdentity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCommunicationsApplicationInstanceIdentity(writer:SerializationWriter; CommunicationsApplicationInstanceIdentity:CommunicationsApplicationInstanceIdentity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCommunicationsEncryptedIdentity(writer:SerializationWriter; CommunicationsEncryptedIdentity:CommunicationsEncryptedIdentity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCommunicationsGuestIdentity(writer:SerializationWriter; CommunicationsGuestIdentity:CommunicationsGuestIdentity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCommunicationsIdentitySet(writer:SerializationWriter; CommunicationsIdentitySet:CommunicationsIdentitySet={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCommunicationsPhoneIdentity(writer:SerializationWriter; CommunicationsPhoneIdentity:CommunicationsPhoneIdentity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCommunicationsUserIdentity(writer:SerializationWriter; CommunicationsUserIdentity:CommunicationsUserIdentity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotAdmin(writer:SerializationWriter; CopilotAdmin:CopilotAdmin={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotAdminLimitedMode(writer:SerializationWriter; CopilotAdminLimitedMode:CopilotAdminLimitedMode={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotAdminSetting(writer:SerializationWriter; CopilotAdminSetting:CopilotAdminSetting={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotPeopleAdminSetting(writer:SerializationWriter; CopilotPeopleAdminSetting:CopilotPeopleAdminSetting={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotSetting(writer:SerializationWriter; CopilotSetting:CopilotSetting={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeDetailsInfo(writer:SerializationWriter; DetailsInfo:DetailsInfo={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeDictionaries(writer:SerializationWriter; Dictionaries:Dictionaries={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeEmailIdentity(writer:SerializationWriter; EmailIdentity:EmailIdentity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeEnhancedPersonalizationSetting(writer:SerializationWriter; EnhancedPersonalizationSetting:EnhancedPersonalizationSetting={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeEntity(writer:SerializationWriter; Entity:Entity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeIdentity(writer:SerializationWriter; Identity:Identity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeIdentitySet(writer:SerializationWriter; IdentitySet:IdentitySet={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeInitiator(writer:SerializationWriter; Initiator:Initiator={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeItemBody(writer:SerializationWriter; ItemBody:ItemBody={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeMeetingNote(writer:SerializationWriter; MeetingNote:MeetingNote={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeMeetingNoteSubpoint(writer:SerializationWriter; MeetingNoteSubpoint:MeetingNoteSubpoint={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeMentionEvent(writer:SerializationWriter; MentionEvent:MentionEvent={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeProgramResource(writer:SerializationWriter; ProgramResource:ProgramResource={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeProvisionedIdentity(writer:SerializationWriter; ProvisionedIdentity:ProvisionedIdentity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeProvisioningServicePrincipal(writer:SerializationWriter; ProvisioningServicePrincipal:ProvisioningServicePrincipal={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeProvisioningSystem(writer:SerializationWriter; ProvisioningSystem:ProvisioningSystem={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeRetrievalExtract(writer:SerializationWriter; RetrievalExtract:RetrievalExtract={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeRetrievalHit(writer:SerializationWriter; RetrievalHit:RetrievalHit={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeRetrievalResponse(writer:SerializationWriter; RetrievalResponse:RetrievalResponse={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSearchResourceMetadataDictionary(writer:SerializationWriter; SearchResourceMetadataDictionary:SearchResourceMetadataDictionary={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSearchSensitivityLabelInfo(writer:SerializationWriter; SearchSensitivityLabelInfo:SearchSensitivityLabelInfo={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeServicePrincipalIdentity(writer:SerializationWriter; ServicePrincipalIdentity:ServicePrincipalIdentity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSharePointIdentity(writer:SerializationWriter; SharePointIdentity:SharePointIdentity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSharePointIdentitySet(writer:SerializationWriter; SharePointIdentitySet:SharePointIdentitySet={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSourceProvisionedIdentity(writer:SerializationWriter; SourceProvisionedIdentity:SourceProvisionedIdentity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeTargetProvisionedIdentity(writer:SerializationWriter; TargetProvisionedIdentity:TargetProvisionedIdentity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeTeamworkApplicationIdentity(writer:SerializationWriter; TeamworkApplicationIdentity:TeamworkApplicationIdentity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeTeamworkConversationIdentity(writer:SerializationWriter; TeamworkConversationIdentity:TeamworkConversationIdentity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeTeamworkTagIdentity(writer:SerializationWriter; TeamworkTagIdentity:TeamworkTagIdentity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeTeamworkUserIdentity(writer:SerializationWriter; TeamworkUserIdentity:TeamworkUserIdentity={}):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeUserIdentity(writer:SerializationWriter; UserIdentity:UserIdentity={}):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeActionItem(writer:SerializationWriter; ActionItem:ActionItem={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiInteraction(writer:SerializationWriter; AiInteraction:AiInteraction={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiInteractionAttachment(writer:SerializationWriter; AiInteractionAttachment:AiInteractionAttachment={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiInteractionContext(writer:SerializationWriter; AiInteractionContext:AiInteractionContext={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiInteractionHistory(writer:SerializationWriter; AiInteractionHistory:AiInteractionHistory={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiInteractionLink(writer:SerializationWriter; AiInteractionLink:AiInteractionLink={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiInteractionMention(writer:SerializationWriter; AiInteractionMention:AiInteractionMention={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiInteractionMentionedIdentitySet(writer:SerializationWriter; AiInteractionMentionedIdentitySet:AiInteractionMentionedIdentitySet={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiOnlineMeeting(writer:SerializationWriter; AiOnlineMeeting:AiOnlineMeeting={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiOnlineMeetingCollectionResponse(writer:SerializationWriter; AiOnlineMeetingCollectionResponse:AiOnlineMeetingCollectionResponse={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiUser(writer:SerializationWriter; AiUser:AiUser={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiUserCollectionResponse(writer:SerializationWriter; AiUserCollectionResponse:AiUserCollectionResponse={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeApprovalIdentitySet(writer:SerializationWriter; ApprovalIdentitySet:ApprovalIdentitySet={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAuditUserIdentity(writer:SerializationWriter; AuditUserIdentity:AuditUserIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAzureCommunicationServicesUserIdentity(writer:SerializationWriter; AzureCommunicationServicesUserIdentity:AzureCommunicationServicesUserIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeBaseCollectionPaginationCountResponse(writer:SerializationWriter; BaseCollectionPaginationCountResponse:BaseCollectionPaginationCountResponse={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCallAiInsight(writer:SerializationWriter; CallAiInsight:CallAiInsight={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCallAiInsightCollectionResponse(writer:SerializationWriter; CallAiInsightCollectionResponse:CallAiInsightCollectionResponse={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCallAiInsightViewPoint(writer:SerializationWriter; CallAiInsightViewPoint:CallAiInsightViewPoint={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeChatMessageFromIdentitySet(writer:SerializationWriter; ChatMessageFromIdentitySet:ChatMessageFromIdentitySet={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeChatMessageMentionedIdentitySet(writer:SerializationWriter; ChatMessageMentionedIdentitySet:ChatMessageMentionedIdentitySet={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeChatMessageReactionIdentitySet(writer:SerializationWriter; ChatMessageReactionIdentitySet:ChatMessageReactionIdentitySet={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCommunicationsApplicationIdentity(writer:SerializationWriter; CommunicationsApplicationIdentity:CommunicationsApplicationIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCommunicationsApplicationInstanceIdentity(writer:SerializationWriter; CommunicationsApplicationInstanceIdentity:CommunicationsApplicationInstanceIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCommunicationsEncryptedIdentity(writer:SerializationWriter; CommunicationsEncryptedIdentity:CommunicationsEncryptedIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCommunicationsGuestIdentity(writer:SerializationWriter; CommunicationsGuestIdentity:CommunicationsGuestIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCommunicationsIdentitySet(writer:SerializationWriter; CommunicationsIdentitySet:CommunicationsIdentitySet={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCommunicationsPhoneIdentity(writer:SerializationWriter; CommunicationsPhoneIdentity:CommunicationsPhoneIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCommunicationsUserIdentity(writer:SerializationWriter; CommunicationsUserIdentity:CommunicationsUserIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotAdmin(writer:SerializationWriter; CopilotAdmin:CopilotAdmin={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotAdminLimitedMode(writer:SerializationWriter; CopilotAdminLimitedMode:CopilotAdminLimitedMode={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotAdminSetting(writer:SerializationWriter; CopilotAdminSetting:CopilotAdminSetting={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotPeopleAdminSetting(writer:SerializationWriter; CopilotPeopleAdminSetting:CopilotPeopleAdminSetting={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotSetting(writer:SerializationWriter; CopilotSetting:CopilotSetting={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeDetailsInfo(writer:SerializationWriter; DetailsInfo:DetailsInfo={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeDictionaries(writer:SerializationWriter; Dictionaries:Dictionaries={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeEmailIdentity(writer:SerializationWriter; EmailIdentity:EmailIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeEngagementIdentitySet(writer:SerializationWriter; EngagementIdentitySet:EngagementIdentitySet={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeEnhancedPersonalizationSetting(writer:SerializationWriter; EnhancedPersonalizationSetting:EnhancedPersonalizationSetting={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeEntity(writer:SerializationWriter; Entity:Entity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeIdentity(writer:SerializationWriter; Identity:Identity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeIdentitySet(writer:SerializationWriter; IdentitySet:IdentitySet={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeInitiator(writer:SerializationWriter; Initiator:Initiator={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeItemBody(writer:SerializationWriter; ItemBody:ItemBody={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeMeetingNote(writer:SerializationWriter; MeetingNote:MeetingNote={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeMeetingNoteSubpoint(writer:SerializationWriter; MeetingNoteSubpoint:MeetingNoteSubpoint={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeMentionEvent(writer:SerializationWriter; MentionEvent:MentionEvent={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeProgramResource(writer:SerializationWriter; ProgramResource:ProgramResource={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeProvisionedIdentity(writer:SerializationWriter; ProvisionedIdentity:ProvisionedIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeProvisioningServicePrincipal(writer:SerializationWriter; ProvisioningServicePrincipal:ProvisioningServicePrincipal={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeProvisioningSystem(writer:SerializationWriter; ProvisioningSystem:ProvisioningSystem={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeRetrievalExtract(writer:SerializationWriter; RetrievalExtract:RetrievalExtract={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeRetrievalHit(writer:SerializationWriter; RetrievalHit:RetrievalHit={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeRetrievalResponse(writer:SerializationWriter; RetrievalResponse:RetrievalResponse={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSearchResourceMetadataDictionary(writer:SerializationWriter; SearchResourceMetadataDictionary:SearchResourceMetadataDictionary={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSearchSensitivityLabelInfo(writer:SerializationWriter; SearchSensitivityLabelInfo:SearchSensitivityLabelInfo={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeServicePrincipalIdentity(writer:SerializationWriter; ServicePrincipalIdentity:ServicePrincipalIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSharePointIdentity(writer:SerializationWriter; SharePointIdentity:SharePointIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSharePointIdentitySet(writer:SerializationWriter; SharePointIdentitySet:SharePointIdentitySet={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSourceProvisionedIdentity(writer:SerializationWriter; SourceProvisionedIdentity:SourceProvisionedIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeTargetProvisionedIdentity(writer:SerializationWriter; TargetProvisionedIdentity:TargetProvisionedIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeTeamworkApplicationIdentity(writer:SerializationWriter; TeamworkApplicationIdentity:TeamworkApplicationIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeTeamworkConversationIdentity(writer:SerializationWriter; TeamworkConversationIdentity:TeamworkConversationIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeTeamworkTagIdentity(writer:SerializationWriter; TeamworkTagIdentity:TeamworkTagIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeTeamworkUserIdentity(writer:SerializationWriter; TeamworkUserIdentity:TeamworkUserIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeUserIdentity(writer:SerializationWriter; UserIdentity:UserIdentity={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/::CreateBaseAgentsM365CopilotBetaServiceClient(requestAdapter:RequestAdapter; backingStore?:BackingStoreFactory):void
