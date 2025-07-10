@@ -18,7 +18,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <!-- x-release-please-start-version -->
-    <Version>1.0.0-preview.1</Version>
+    <Version>1.0.0-preview.2</Version>
     <!-- x-release-please-end -->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
@@ -41,7 +41,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\README.md">
+    <None Include=".\README.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
@@ -50,13 +54,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.6.1" />
     <PackageReference Include="Microsoft.IdentityModel.Validators" Version="8.6.1" />
-    <PackageReference Include="Microsoft.Kiota.Abstractions" Version="1.17.1" />
-    <PackageReference Include="Microsoft.Kiota.Authentication.Azure" Version="1.17.1" />
-    <PackageReference Include="Microsoft.Kiota.Serialization.Json" Version="1.17.1" />
-    <PackageReference Include="Microsoft.Kiota.Serialization.Text" Version="1.17.1" />
-    <PackageReference Include="Microsoft.Kiota.Serialization.Form" Version="1.17.1" />
-    <PackageReference Include="Microsoft.Kiota.Http.HttpClientLibrary" Version="1.17.1" />
-    <PackageReference Include="Microsoft.Kiota.Serialization.Multipart" Version="1.17.1" />
+    <PackageReference Include="Microsoft.Kiota.Bundle" Version="1.17.4" />
+    <PackageReference Include="Microsoft.Kiota.Authentication.Azure" Version="1.17.4" />
     <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.13.2">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
