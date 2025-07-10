@@ -42,6 +42,7 @@ export function createODataErrorFromDiscriminatorValue(parseNode: ParseNode | un
 }
 /**
  * The deserialization information for the current model
+ * @param ErrorDetails The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -55,6 +56,7 @@ export function deserializeIntoErrorDetails(errorDetails: Partial<ErrorDetails> 
 }
 /**
  * The deserialization information for the current model
+ * @param InnerError The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -69,6 +71,7 @@ export function deserializeIntoInnerError(innerError: Partial<InnerError> | unde
 }
 /**
  * The deserialization information for the current model
+ * @param MainError The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -84,6 +87,7 @@ export function deserializeIntoMainError(mainError: Partial<MainError> | undefin
 }
 /**
  * The deserialization information for the current model
+ * @param ODataError The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -94,10 +98,6 @@ export function deserializeIntoODataError(oDataError: Partial<ODataError> | unde
     }
 }
 export interface ErrorDetails extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -116,10 +116,6 @@ export interface ErrorDetails extends AdditionalDataHolder, BackedModel, Parsabl
     target?: string | null;
 }
 export interface InnerError extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -142,10 +138,6 @@ export interface InnerError extends AdditionalDataHolder, BackedModel, Parsable 
     requestId?: string | null;
 }
 export interface MainError extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -173,10 +165,6 @@ export interface MainError extends AdditionalDataHolder, BackedModel, Parsable {
 }
 export interface ODataError extends AdditionalDataHolder, ApiError, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -187,56 +175,60 @@ export interface ODataError extends AdditionalDataHolder, ApiError, BackedModel,
 }
 /**
  * Serializes information the current object
+ * @param ErrorDetails The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeErrorDetails(writer: SerializationWriter, errorDetails: Partial<ErrorDetails> | undefined | null = {}) : void {
-    if (errorDetails) {
-        writer.writeStringValue("code", errorDetails.code);
-        writer.writeStringValue("message", errorDetails.message);
-        writer.writeStringValue("target", errorDetails.target);
-        writer.writeAdditionalData(errorDetails.additionalData);
-    }
+export function serializeErrorDetails(writer: SerializationWriter, errorDetails: Partial<ErrorDetails> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!errorDetails || isSerializingDerivedType) { return; }
+    writer.writeStringValue("code", errorDetails.code);
+    writer.writeStringValue("message", errorDetails.message);
+    writer.writeStringValue("target", errorDetails.target);
+    writer.writeAdditionalData(errorDetails.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param InnerError The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeInnerError(writer: SerializationWriter, innerError: Partial<InnerError> | undefined | null = {}) : void {
-    if (innerError) {
-        writer.writeStringValue("client-request-id", innerError.clientRequestId);
-        writer.writeDateValue("date", innerError.date);
-        writer.writeStringValue("@odata.type", innerError.odataType);
-        writer.writeStringValue("request-id", innerError.requestId);
-        writer.writeAdditionalData(innerError.additionalData);
-    }
+export function serializeInnerError(writer: SerializationWriter, innerError: Partial<InnerError> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!innerError || isSerializingDerivedType) { return; }
+    writer.writeStringValue("client-request-id", innerError.clientRequestId);
+    writer.writeDateValue("date", innerError.date);
+    writer.writeStringValue("@odata.type", innerError.odataType);
+    writer.writeStringValue("request-id", innerError.requestId);
+    writer.writeAdditionalData(innerError.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MainError The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeMainError(writer: SerializationWriter, mainError: Partial<MainError> | undefined | null = {}) : void {
-    if (mainError) {
-        writer.writeStringValue("code", mainError.code);
-        writer.writeCollectionOfObjectValues<ErrorDetails>("details", mainError.details, serializeErrorDetails);
-        writer.writeObjectValue<InnerError>("innerError", mainError.innerError, serializeInnerError);
-        writer.writeStringValue("message", mainError.message);
-        writer.writeStringValue("target", mainError.target);
-        writer.writeAdditionalData(mainError.additionalData);
-    }
+export function serializeMainError(writer: SerializationWriter, mainError: Partial<MainError> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!mainError || isSerializingDerivedType) { return; }
+    writer.writeStringValue("code", mainError.code);
+    writer.writeCollectionOfObjectValues<ErrorDetails>("details", mainError.details, serializeErrorDetails);
+    writer.writeObjectValue<InnerError>("innerError", mainError.innerError, serializeInnerError);
+    writer.writeStringValue("message", mainError.message);
+    writer.writeStringValue("target", mainError.target);
+    writer.writeAdditionalData(mainError.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ODataError The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeODataError(writer: SerializationWriter, oDataError: Partial<ODataError> | undefined | null = {}) : void {
-    if (oDataError) {
-        writer.writeObjectValue<MainError>("error", oDataError.errorEscaped, serializeMainError);
-        writer.writeAdditionalData(oDataError.additionalData);
-    }
+export function serializeODataError(writer: SerializationWriter, oDataError: Partial<ODataError> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!oDataError || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<MainError>("error", oDataError.errorEscaped, serializeMainError);
+    writer.writeAdditionalData(oDataError.additionalData);
 }
 /* tslint:enable */
 /* eslint-enable */

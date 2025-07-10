@@ -17,6 +17,7 @@ export function createSubmissionUserIdentityFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param SubmissionUserIdentity The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -28,14 +29,15 @@ export function deserializeIntoSubmissionUserIdentity(submissionUserIdentity: Pa
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SubmissionUserIdentity The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSubmissionUserIdentity(writer: SerializationWriter, submissionUserIdentity: Partial<SubmissionUserIdentity> | undefined | null = {}) : void {
-    if (submissionUserIdentity) {
-        serializeIdentity(writer, submissionUserIdentity)
-        writer.writeStringValue("email", submissionUserIdentity.email);
-    }
+export function serializeSubmissionUserIdentity(writer: SerializationWriter, submissionUserIdentity: Partial<SubmissionUserIdentity> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!submissionUserIdentity || isSerializingDerivedType) { return; }
+    serializeIdentity(writer, submissionUserIdentity, isSerializingDerivedType)
+    writer.writeStringValue("email", submissionUserIdentity.email);
 }
 export interface SubmissionUserIdentity extends Identity, Parsable {
     /**
