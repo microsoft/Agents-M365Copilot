@@ -121,6 +121,7 @@ extends:
       jobs:
         - deployment: publish_npm_packages
           displayName: 'Publish npm Packages'
+          environment: agents-m365copilot-prod
           pool:
             name: Azure-Pipelines-1ESPT-ExDShared
             image: ubuntu-latest

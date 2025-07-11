@@ -156,6 +156,7 @@ extends:
 
     - stage: deploy
       displayName: 'Publish Python Packages'
+      environment: agents-m365copilot-prod
       dependsOn: build
       # This condition allows the build to run for only tagged builds.
       condition: and(startsWith(variables['Build.SourceBranch'], 'refs/tags/microsoft_agents_m365copilot'), succeeded())                

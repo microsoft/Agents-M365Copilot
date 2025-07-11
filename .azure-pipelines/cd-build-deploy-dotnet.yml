@@ -177,6 +177,7 @@ extends:
 
     - stage: deploy
       displayName: 'Deploy NuGet Packages'
+      environment: agents-m365copilot-prod
       dependsOn: build
       condition: and(startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot'), succeeded())
       jobs:
