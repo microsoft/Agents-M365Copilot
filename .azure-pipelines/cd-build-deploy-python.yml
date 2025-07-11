@@ -105,7 +105,8 @@ extends:
                 Contents: |
                   *.tar.gz
                   *.whl
-              displayName: "Copy Core Python package files"              
+              displayName: "Copy Core Python package files"   
+              condition: or(endsWith(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_core'), eq(variables['Build.Reason'], 'Manual'))
 
             # Build, test, and package Beta Python library
             - script: pip install poetry
@@ -142,6 +143,7 @@ extends:
                   *.tar.gz
                   *.whl
               displayName: "Copy Beta Python package files"
+              condition: or(endsWith(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))
 
           templateContext:
             outputs:
