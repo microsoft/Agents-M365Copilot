@@ -94,10 +94,10 @@ jobs:
         run: dotnet restore ${{ env.solutionName }}
         working-directory: dotnet
       - name: Build
-        run: dotnet build ${{ env.solutionName }} --no-restore -c Release /p:UseSharedCompilation=false
+        run: dotnet build ${{ env.solutionName }} --no-restore -c Debug /p:UseSharedCompilation=false
         working-directory: dotnet
       - name: Test
-        run: dotnet test ${{ env.solutionName }} --no-build --verbosity normal -c Release /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=opencover
+        run: dotnet test ${{ env.solutionName }} --no-build --verbosity normal -c Debug /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=opencover
         working-directory: dotnet
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3

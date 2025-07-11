@@ -48,5 +48,5 @@
 		"lint:eslint:loud": "eslint \"packages/*/src/**/*.ts\" \"packages/*/*/src/**/*.ts\"",
 		"prepare": "husky"
 	},
-	"version": "1.0.0-preview.1"
+	"version": "1.0.0-preview.0"
 }
