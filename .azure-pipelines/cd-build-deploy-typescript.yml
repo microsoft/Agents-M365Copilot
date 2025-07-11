@@ -72,9 +72,9 @@ extends:
               workingDirectory: '$(Build.SourcesDirectory)/typescript/' 
               condition: or(endsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
 
-            - script: npm pack
+            - script: npm pack --workspace=$(package_dir_core)
               displayName: 'Generate npm package $(package_name_core)'
-              workingDirectory: '$(Build.SourcesDirectory)/typescript/$(package_dir_core)'
+              workingDirectory: '$(Build.SourcesDirectory)/typescript'
               condition: or(endsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
 
             # Build Beta TypeScript package
@@ -83,9 +83,9 @@ extends:
               workingDirectory: '$(Build.SourcesDirectory)/typescript/'
               condition: or(endsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-beta'), eq(variables['Build.Reason'], 'Manual'))
 
-            - script: npm pack
+            - script: npm pack --workspace=$(package_dir_beta)
               displayName: 'Generate npm package $(package_name_beta)'
-              workingDirectory: '$(Build.SourcesDirectory)/typescript/$(package_dir_beta)'
+              workingDirectory: '$(Build.SourcesDirectory)/typescript'
               condition: or(endsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-beta'), eq(variables['Build.Reason'], 'Manual'))
 
             # Stage artifacts for Core and Beta packages
