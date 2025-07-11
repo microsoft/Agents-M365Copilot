@@ -53,7 +53,7 @@ extends:
             vmImage: ubuntu-latest
 
           steps:
-            - task: NodeTool@0
+            - task: UseNode@1
               displayName: 'Install Node.js'
               inputs:
                 versionSpec: '20.x'
