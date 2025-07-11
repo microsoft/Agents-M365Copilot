@@ -11,9 +11,11 @@ trigger:
       - main
   paths:
     include:
-      - 'dotnet/src/Microsoft.Agents.M365Copilot.Core/**'
+      - 'dotnet/src/Microsoft.Agents.M365Copilot.Core/**/*.cs'
+      - 'dotnet/src/Microsoft.Agents.M365Copilot.Core/Microsoft.Agents.M365Copilot.Core.csproj'      
       - 'dotnet/src/Microsoft.Agents.M365Copilot.Beta/Generated/**'
-      - 'dotnet/src/Microsoft.Agents.M365Copilot.Beta/AgentsM365CopilotBetaServiceClient.cs'
+      - 'dotnet/src/Microsoft.Agents.M365Copilot.Beta/**/*.cs'
+      - 'dotnet/src/Microsoft.Agents.M365Copilot.Beta/Microsoft.Agents.M365Copilot.Beta.csproj'
   tags:
     include: # v1.0.0-preview.2-Microsoft.Agents.M365Copilot.Beta 
       - '*Microsoft.Agents.M365Copilot.Beta'
