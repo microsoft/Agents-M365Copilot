@@ -180,7 +180,7 @@ extends:
       dependsOn: build
       condition: and(startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot'), succeeded())
       jobs:
-        - job: publish_nuget_packages
+        - deployment: publish_nuget_packages
           displayName: 'Publish NuGet Packages'
           pool:
             name: Azure-Pipelines-1ESPT-ExDShared
@@ -192,13 +192,16 @@ extends:
               - input: pipelineArtifact
                 artifactName: Nugets
                 targetPath: $(nugetArtifacts)
-          steps:
-          - task: 1ES.PublishNuget@1
-            displayName: 'Publish NuGet packages via NuGet API Key'
-            inputs:
-              useDotNetTask: false
-              packageParentPath: $(nugetArtifacts)
-              packagesToPush: '!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg;$(nugetArtifacts)/**/*nupkg'
-              nuGetFeedType: external  # Change to external for external
-              publishPackageMetadata: true
-              publishFeedCredentials: 'M365 Copilot NuGet Connection'
+          strategy:
+            runOnce:
+              deploy:
+                steps:
+                - task: 1ES.PublishNuget@1
+                  displayName: 'Publish NuGet packages via NuGet API Key'
+                  inputs:
+                    useDotNetTask: false
+                    packageParentPath: $(nugetArtifacts)
+                    packagesToPush: '!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg;$(nugetArtifacts)/**/*nupkg'
+                    nuGetFeedType: external  # Change to external for external
+                    publishPackageMetadata: true
+                    publishFeedCredentials: 'M365 Copilot NuGet Connection'

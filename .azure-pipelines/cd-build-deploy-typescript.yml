@@ -119,7 +119,7 @@ extends:
       # This condition allows the build to run for only tagged builds.
       condition: and(startsWith(variables['Build.SourceBranch'], 'refs/tags/@microsoft/agents-m365copilot'), succeeded())
       jobs:
-        - job: publish_npm_packages
+        - deployment: publish_npm_packages
           displayName: 'Publish npm Packages'
           pool:
             name: Azure-Pipelines-1ESPT-ExDShared
@@ -132,20 +132,23 @@ extends:
                 - input: pipelineArtifact
                   artifactName: npm
                   targetPath: $(Build.ArtifactStagingDirectory)/npm
-          steps:    
-          - task: EsrpRelease@9
-            displayName: 'Publish NPM packages via ESRP Release'
-            inputs:
-              connectedservicename: "Federated DevX ESRP Managed Identity Connection"
-              usemanagedidentity: true
-              keyvaultname: "akv-prod-eastus"
-              signcertname: "ReferencePackagePublisherCertificate"
-              clientid: "65035b7f-7357-4f29-bf25-c5ee5c3949f8"
-              intent: "PackageDistribution"
-              contenttype: "npm"
-              folderlocation: "$(Build.ArtifactStagingDirectory)/npm"
-              owners: "mmainer@microsoft.com,karthikra@microsoft.com"
-              approvers: "mmainer@microsoft.com,christiano@microsoft.com,karthikra@microsoft.com,lramosvea@microsoft.com"
-              serviceendpointurl: "https://api.esrp.microsoft.com"
-              mainpublisher: "ESRPRELPACMAN"
-              domaintenantid: "cdc5aeea-15c5-4db6-b079-fcadd2505dc2"
+          strategy:
+            runOnce:
+              deploy:
+                steps:    
+                - task: EsrpRelease@9
+                  displayName: 'Publish NPM packages via ESRP Release'
+                  inputs:
+                    connectedservicename: "Federated DevX ESRP Managed Identity Connection"
+                    usemanagedidentity: true
+                    keyvaultname: "akv-prod-eastus"
+                    signcertname: "ReferencePackagePublisherCertificate"
+                    clientid: "65035b7f-7357-4f29-bf25-c5ee5c3949f8"
+                    intent: "PackageDistribution"
+                    contenttype: "npm"
+                    folderlocation: "$(Build.ArtifactStagingDirectory)/npm"
+                    owners: "mmainer@microsoft.com,karthikra@microsoft.com"
+                    approvers: "mmainer@microsoft.com,christiano@microsoft.com,karthikra@microsoft.com,lramosvea@microsoft.com"
+                    serviceendpointurl: "https://api.esrp.microsoft.com"
+                    mainpublisher: "ESRPRELPACMAN"
+                    domaintenantid: "cdc5aeea-15c5-4db6-b079-fcadd2505dc2"
