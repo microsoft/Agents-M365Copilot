@@ -14,10 +14,6 @@
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <Deterministic>true</Deterministic>
     <EnableNETAnalyzers>True</EnableNETAnalyzers>
-    <IsTestProject>false</IsTestProject>
   </PropertyGroup>
   
-  <ItemGroup Condition="('$(IsTestProject)' != 'true') and ('$(IsAnalyzerProject)' != 'true')">
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
-  </ItemGroup>
 </Project>

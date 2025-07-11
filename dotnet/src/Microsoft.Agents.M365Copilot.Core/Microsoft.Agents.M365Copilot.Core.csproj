@@ -51,15 +51,14 @@
     </None>
   </ItemGroup>
 
+  <!-- Package References are centrally managed in Directory.Packages.props -->
   <ItemGroup>
-    <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.6.1" />
-    <PackageReference Include="Microsoft.IdentityModel.Validators" Version="8.6.1" />
-    <PackageReference Include="Microsoft.Kiota.Bundle" Version="1.17.4" />
-    <PackageReference Include="Microsoft.Kiota.Authentication.Azure" Version="1.17.4" />
-    <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.13.2">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
+    <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" />
+    <PackageReference Include="Microsoft.IdentityModel.Validators"/>
+    <PackageReference Include="Microsoft.Kiota.Bundle" />
+    <PackageReference Include="Microsoft.Kiota.Authentication.Azure" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" />
+    <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" />
   </ItemGroup>
 
 </Project>
