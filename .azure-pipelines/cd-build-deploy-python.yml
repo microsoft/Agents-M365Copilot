@@ -17,8 +17,8 @@ trigger:
       - 'python/packages/microsoft_agents_m365copilot_core/src/**'
   tags:
     include:
-      - 'microsoft_agents_m365copilot_core*'
-      - 'microsoft_agents_m365copilot_beta*'
+      - '*microsoft_agents_m365copilot_core'
+      - '*microsoft_agents_m365copilot_beta'
 
 variables:
   library_name_core: 'microsoft_agents_m365copilot_core'
@@ -44,7 +44,7 @@ extends:
     - stage: build
       displayName: 'Build and Package Python Packages'
       # This condition allows the build to run for both tagged builds and manual builds.
-      condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/microsoft_agents_m365copilot'), eq(variables['Build.Reason'], 'Manual'))
+      condition: or(contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot'), eq(variables['Build.Reason'], 'Manual'))
       jobs:
         - job: build_python
           displayName: 'Build, Test, and Package Core and Beta'
@@ -66,36 +66,36 @@ extends:
               displayName: 'Install Poetry'
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_core)'
               # This condition allows the build to run for both tagged core builds or manual builds.
-              condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/microsoft_agents_m365copilot_core'), eq(variables['Build.Reason'], 'Manual'))    
+              condition: or(endsWith(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_core'), eq(variables['Build.Reason'], 'Manual'))    
               
             - script: poetry install
               displayName: 'Install core dependencies'
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_core)'
-              condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/microsoft_agents_m365copilot_core'), eq(variables['Build.Reason'], 'Manual'))    
+              condition: or(endsWith(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_core'), eq(variables['Build.Reason'], 'Manual'))
               
             - script: poetry run yapf -dr .
               displayName: 'Check code format for core' # Core only
-              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_core)'              
-              condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/microsoft_agents_m365copilot_core'), eq(variables['Build.Reason'], 'Manual'))    
+              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_core)'
+              condition: or(endsWith(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_core'), eq(variables['Build.Reason'], 'Manual'))
 
             - script: poetry run isort .
               displayName: 'Check import order'
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_core)'
-              condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/microsoft_agents_m365copilot_core'), eq(variables['Build.Reason'], 'Manual'))    
+              condition: or(endsWith(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_core'), eq(variables['Build.Reason'], 'Manual'))    
             
             - script: poetry run pylint . --disable=W --rcfile=../../.pylintrc
               displayName: 'Lint with Pylint'
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_core)'
-              condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/microsoft_agents_m365copilot_core'), eq(variables['Build.Reason'], 'Manual'))    
+              condition: or(endsWith(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_core'), eq(variables['Build.Reason'], 'Manual'))
 
             - script: poetry run pytest
               displayName: 'Run the core tests' # Core only
-              condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/microsoft_agents_m365copilot_core'), eq(variables['Build.Reason'], 'Manual'))    
+              condition: or(endsWith(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_core'), eq(variables['Build.Reason'], 'Manual'))
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_core)'
 
             - script: poetry build
               displayName: 'Build Python package'
-              condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/microsoft_agents_m365copilot_core'), eq(variables['Build.Reason'], 'Manual'))    
+              condition: or(endsWith(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_core'), eq(variables['Build.Reason'], 'Manual'))
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_core)'     
               
             - task: CopyFiles@2
@@ -112,26 +112,26 @@ extends:
               displayName: 'Install Poetry'
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_beta)'
               # This condition allows the build to run for both tagged core builds or manual builds.
-              condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))    
-              
+              condition: or(endsWith(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))    
+
             - script: poetry install
               displayName: 'Install core dependencies'
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_beta)'
-              condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))    
+              condition: or(endsWith(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))
 
             - script: poetry run isort .
               displayName: 'Check import order'
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_beta)'
-              condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))    
+              condition: or(endsWith(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))    
 
             - script: poetry run pylint . --disable=W --rcfile=../../.pylintrc
               displayName: 'Lint with Pylint'
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_beta)'
-              condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))    
+              condition: or(endsWith(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))    
 
             - script: poetry build
               displayName: 'Build Python package'
-              condition: or(startsWith(variables['Build.SourceBranch'], 'refs/tags/microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))
+              condition: or(endsWith(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_beta)'
               
             - task: CopyFiles@2
@@ -158,7 +158,7 @@ extends:
       displayName: 'Publish Python Packages'
       dependsOn: build
       # This condition allows the build to run for only tagged builds.
-      condition: and(startsWith(variables['Build.SourceBranch'], 'refs/tags/microsoft_agents_m365copilot'), succeeded())                
+      condition: and(contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot'), succeeded())                
       jobs:
         - deployment: publish_python_packages
           displayName: 'Publish Python Packages'
