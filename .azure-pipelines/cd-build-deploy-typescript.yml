@@ -56,7 +56,7 @@ extends:
             - task: UseNode@1
               displayName: 'Install Node.js'
               inputs:
-                versionSpec: '20.x'
+                version: '22.x'
             - script: npm ci
               displayName: 'Install npm dependencies'
               workingDirectory: '$(Build.SourcesDirectory)/typescript/'
