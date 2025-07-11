@@ -177,12 +177,12 @@ extends:
 
     - stage: deploy
       displayName: 'Deploy NuGet Packages'
-      environment: agents-m365copilot-prod
       dependsOn: build
       condition: and(startsWith(variables['Build.SourceBranch'], 'refs/tags/Microsoft.Agents.M365Copilot'), succeeded())
       jobs:
         - deployment: publish_nuget_packages
           displayName: 'Publish NuGet Packages'
+          environment: agents-m365copilot-prod
           pool:
             name: Azure-Pipelines-1ESPT-ExDShared
             vmImage: windows-latest

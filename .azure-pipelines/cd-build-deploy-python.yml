@@ -156,13 +156,13 @@ extends:
 
     - stage: deploy
       displayName: 'Publish Python Packages'
-      environment: agents-m365copilot-prod
       dependsOn: build
       # This condition allows the build to run for only tagged builds.
       condition: and(startsWith(variables['Build.SourceBranch'], 'refs/tags/microsoft_agents_m365copilot'), succeeded())                
       jobs:
         - deployment: publish_python_packages
           displayName: 'Publish Python Packages'
+          environment: agents-m365copilot-prod          
           pool:
             name: Azure-Pipelines-1ESPT-ExDShared
             image: ubuntu-latest
