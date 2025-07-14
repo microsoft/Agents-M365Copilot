@@ -110,9 +110,7 @@ extends:
               displayName: "Copy npm package files for $(package_name_beta)"
               condition: or(endsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-beta'), eq(variables['Build.Reason'], 'Manual'))
               
-            - pwsh:
-              targetType: inline
-              script: |
+            - pwsh: |
                 Write-Host "Source dir contents contain:"
                 ls "$(Build.SourcesDirectory)/typescript/$(package_dir_core)"
                 ls "$(Build.SourcesDirectory)/typescript/$(package_dir_beta)"
