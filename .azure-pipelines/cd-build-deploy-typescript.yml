@@ -111,16 +111,16 @@ extends:
               condition: or(endsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-beta'), eq(variables['Build.Reason'], 'Manual'))
               
             - pwsh:
-                targetType: inline
-                script: |
-                  Write-Host "Source dir contents contain:"
-                  ls "$(Build.SourcesDirectory)/typescript/$(package_dir_core)"
-                  ls "$(Build.SourcesDirectory)/typescript/$(package_dir_beta)"
+              targetType: inline
+              script: |
+                Write-Host "Source dir contents contain:"
+                ls "$(Build.SourcesDirectory)/typescript/$(package_dir_core)"
+                ls "$(Build.SourcesDirectory)/typescript/$(package_dir_beta)"
 
-                  Write-Host "Contents of the artifact staging directories containt:"
-                  ls "$(Build.ArtifactStagingDirectory)/npm/$(package_name_beta)"
-                  ls "$(Build.ArtifactStagingDirectory)/npm/$(package_name_core)"
-                displayName: 'List contents of source and artifact staging directories'
+                Write-Host "Contents of the artifact staging directories containt:"
+                ls "$(Build.ArtifactStagingDirectory)/npm/$(package_name_beta)"
+                ls "$(Build.ArtifactStagingDirectory)/npm/$(package_name_core)"
+              displayName: 'List contents of source and artifact staging directories'
 
           templateContext:
             outputs:
