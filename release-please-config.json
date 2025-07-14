@@ -49,7 +49,8 @@
             "release-type": "simple",
             "changelog-path": "CHANGELOG.md",
             "extra-files": [
-                "pyproject.toml"
+                "pyproject.toml",
+                "_version.py"
             ]
         },
         "python/packages/microsoft_agents_m365copilot_core": {
