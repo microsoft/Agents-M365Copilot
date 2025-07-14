@@ -129,28 +129,24 @@ extends:
               parameters:
                 projectName: Microsoft.Agents.M365Copilot.Core
                 buildConfiguration: $(buildConfiguration)
-              condition: or(endsWith(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Core'), eq(variables['Build.Reason'], 'Manual'))
 
             # Strong name for Beta using ESRP
             - template: .azure-pipelines/templates/esrp-strongname.yml@self
               parameters:
                 projectName: Microsoft.Agents.M365Copilot.Beta
                 buildConfiguration: $(buildConfiguration)
-              condition: or(endsWith(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
 
             # Code signing for Core using ESRP
             - template: .azure-pipelines/templates/esrp-codesign-dll.yml@self
               parameters:
                 projectName: Microsoft.Agents.M365Copilot.Core
                 buildConfiguration: $(buildConfiguration)
-              condition: or(endsWith(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Core'), eq(variables['Build.Reason'], 'Manual'))
 
             # Code signing for Beta using ESRP
             - template: .azure-pipelines/templates/esrp-codesign-dll.yml@self
               parameters:
                 projectName: Microsoft.Agents.M365Copilot.Beta
                 buildConfiguration: $(buildConfiguration)
-              condition: or(endsWith(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
 
             # Pack Core and Beta
             - pwsh: dotnet pack $(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Core/Microsoft.Agents.M365Copilot.Core.csproj /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg --no-build --output $(nugetArtifacts) --configuration $(buildConfiguration)
@@ -168,12 +164,10 @@ extends:
               parameters:
                 projectName: Microsoft.Agents.M365Copilot.Core
                 artifactStagingDirectory: $(nugetArtifacts)
-              condition: or(endsWith(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Core'), eq(variables['Build.Reason'], 'Manual'))
             - template: .azure-pipelines/templates/esrp-codesign-nuget.yml@self
               parameters:
                 projectName: Microsoft.Agents.M365Copilot.Beta
                 artifactStagingDirectory: $(nugetArtifacts)
-              condition: or(endsWith(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
 
           templateContext:
             outputs:
