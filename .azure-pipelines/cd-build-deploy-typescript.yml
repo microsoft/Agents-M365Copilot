@@ -108,18 +108,6 @@ extends:
               displayName: "Copy npm package files for $(package_name_beta)"
               condition: or(endsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-beta'), eq(variables['Build.Reason'], 'Manual'))
               
-            - pwsh: |
-                Write-Host "Source dir contents contain:"
-                ls "$(Build.SourcesDirectory)/typescript/$(package_dir_core)"
-                ls "$(Build.SourcesDirectory)/typescript/$(package_dir_beta)"
-
-                Write-Host "Contents of the artifact staging directories contains:" -ErrorAction SilentlyContinue
-                ls "$(Build.ArtifactStagingDirectory)"
-                ls "$(Build.ArtifactStagingDirectory)/npm"
-                ls "$(Build.ArtifactStagingDirectory)/npm/$(package_name_beta)"
-                ls "$(Build.ArtifactStagingDirectory)/npm/$(package_name_core)"
-              displayName: 'List contents of source and artifact staging directories'
-
           templateContext:
             outputs:
               - output: pipelineArtifact
