@@ -72,7 +72,7 @@ extends:
               workingDirectory: '$(Build.SourcesDirectory)/typescript/' 
               condition: or(endsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
 
-            - script: npm pack --workspace=$(package_dir_core)
+            - script: npm pack --workspace=$(package_dir_core) --pack-destination=$(Build.SourcesDirectory)/typescript/$(package_dir_core)
               displayName: 'Generate npm package $(package_name_core)'
               workingDirectory: '$(Build.SourcesDirectory)/typescript'
               condition: or(endsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
@@ -83,7 +83,7 @@ extends:
               workingDirectory: '$(Build.SourcesDirectory)/typescript/'
               condition: or(endsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-beta'), eq(variables['Build.Reason'], 'Manual'))
 
-            - script: npm pack --workspace=$(package_dir_beta)
+            - script: npm pack --workspace=$(package_dir_beta) --pack-destination=$(Build.SourcesDirectory)/typescript/$(package_dir_beta)
               displayName: 'Generate npm package $(package_name_beta)'
               workingDirectory: '$(Build.SourcesDirectory)/typescript'
               condition: or(endsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-beta'), eq(variables['Build.Reason'], 'Manual'))
@@ -92,21 +92,19 @@ extends:
 
             - task: CopyFiles@2
               inputs:
-                CleanTargetFolder: true
                 sourceFolder: '$(Build.SourcesDirectory)/typescript/$(package_dir_core)'
                 targetFolder: '$(Build.ArtifactStagingDirectory)/npm/$(package_name_core)'
                 Contents: |
-                  **/*.tgz
+                  microsoft-agents-m365copilot-core*.tgz
               displayName: "Copy npm package files for $(package_name_core)"
               condition: or(endsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
               
             - task: CopyFiles@2
               inputs:
-                CleanTargetFolder: true
                 sourceFolder: '$(Build.SourcesDirectory)/typescript/$(package_dir_beta)'
                 targetFolder: '$(Build.ArtifactStagingDirectory)/npm/$(package_name_beta)'
                 Contents: |
-                  **/*.tgz
+                  microsoft-agents-m365copilot-beta*.tgz
               displayName: "Copy npm package files for $(package_name_beta)"
               condition: or(endsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-beta'), eq(variables['Build.Reason'], 'Manual'))
               
