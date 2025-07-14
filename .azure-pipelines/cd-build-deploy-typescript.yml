@@ -113,13 +113,13 @@ extends:
               - output: pipelineArtifact
                 displayName: 'Stage Core TypeScript package artifacts'
                 artifactName: npm_$(package_name_core)
-                targetPath: $(Build.ArtifactStagingDirectory)/npm
+                targetPath: '$(Build.ArtifactStagingDirectory)/npm/$(package_name_core)'
                 condition: or(endsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
 
               - output: pipelineArtifact
                 displayName: 'Stage Beta TypeScript package artifacts'
                 artifactName: npm_$(package_name_beta)
-                targetPath: $(Build.ArtifactStagingDirectory)/npm
+                targetPath: '$(Build.ArtifactStagingDirectory)/npm/$(package_name_beta)'
                 condition: or(endsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-beta'), eq(variables['Build.Reason'], 'Manual'))
 
     - stage: deploy
