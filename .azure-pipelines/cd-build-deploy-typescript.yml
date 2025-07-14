@@ -96,7 +96,7 @@ extends:
                 sourceFolder: '$(Build.SourcesDirectory)/typescript/$(package_dir_core)'
                 targetFolder: '$(Build.ArtifactStagingDirectory)/npm/$(package_name_core)'
                 Contents: |
-                  *.tgz
+                  **/*.tgz
               displayName: "Copy npm package files for $(package_name_core)"
               condition: or(endsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
               
@@ -106,7 +106,7 @@ extends:
                 sourceFolder: '$(Build.SourcesDirectory)/typescript/$(package_dir_beta)'
                 targetFolder: '$(Build.ArtifactStagingDirectory)/npm/$(package_name_beta)'
                 Contents: |
-                  *.tgz
+                  **/*.tgz
               displayName: "Copy npm package files for $(package_name_beta)"
               condition: or(endsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-beta'), eq(variables['Build.Reason'], 'Manual'))
               
@@ -115,7 +115,7 @@ extends:
                 ls "$(Build.SourcesDirectory)/typescript/$(package_dir_core)"
                 ls "$(Build.SourcesDirectory)/typescript/$(package_dir_beta)"
 
-                Write-Host "Contents of the artifact staging directories contains:"
+                Write-Host "Contents of the artifact staging directories contains:" -ErrorAction SilentlyContinue
                 ls "$(Build.ArtifactStagingDirectory)"
                 ls "$(Build.ArtifactStagingDirectory)/npm"
                 ls "$(Build.ArtifactStagingDirectory)/npm/$(package_name_beta)"
