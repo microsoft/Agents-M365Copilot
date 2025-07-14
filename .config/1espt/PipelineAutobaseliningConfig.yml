@@ -14,3 +14,16 @@ pipelines:
           lastModifiedDate: 2025-07-14
         accessibilityinsights:
           lastModifiedDate: 2025-07-14
+  637:
+    retail:
+      source:
+        credscan:
+          lastModifiedDate: 2025-07-14
+        eslint:
+          lastModifiedDate: 2025-07-14
+        psscriptanalyzer:
+          lastModifiedDate: 2025-07-14
+        armory:
+          lastModifiedDate: 2025-07-14
+        accessibilityinsights:
+          lastModifiedDate: 2025-07-14
