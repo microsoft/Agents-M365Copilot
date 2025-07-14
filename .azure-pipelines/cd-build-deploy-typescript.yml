@@ -115,7 +115,9 @@ extends:
                 ls "$(Build.SourcesDirectory)/typescript/$(package_dir_core)"
                 ls "$(Build.SourcesDirectory)/typescript/$(package_dir_beta)"
 
-                Write-Host "Contents of the artifact staging directories containt:"
+                Write-Host "Contents of the artifact staging directories contains:"
+                ls "$(Build.ArtifactStagingDirectory)"
+                ls "$(Build.ArtifactStagingDirectory)/npm"
                 ls "$(Build.ArtifactStagingDirectory)/npm/$(package_name_beta)"
                 ls "$(Build.ArtifactStagingDirectory)/npm/$(package_name_core)"
               displayName: 'List contents of source and artifact staging directories'
