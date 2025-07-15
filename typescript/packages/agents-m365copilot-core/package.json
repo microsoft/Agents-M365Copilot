@@ -3,7 +3,7 @@
     "access": "public"
   },
   "name": "@microsoft/agents-m365copilot-core",
-  "version": "1.0.0-preview.0",
+  "version": "1.0.0-preview.1",
   "description": "Core functionalities for the Microsoft Agents M365 Copilot JavaScript SDK",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
