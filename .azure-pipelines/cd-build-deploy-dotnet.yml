@@ -44,6 +44,8 @@ extends:
     stages:
     - stage: build
       displayName: 'Build and Sign .NET Packages'
+      # This condition allows the build to run for both tagged builds and manual builds.
+      condition: or(contains(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot'), eq(variables['Build.Reason'], 'Manual'))
       jobs:
         - job: build_and_sign
           displayName: 'Build, Test, and Sign Core and Beta'
