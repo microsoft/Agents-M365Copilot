@@ -14,6 +14,13 @@ pipelines:
           lastModifiedDate: 2025-07-14
         accessibilityinsights:
           lastModifiedDate: 2025-07-14
+      binary:
+        credscan:
+          lastModifiedDate: 2025-07-15
+        binskim:
+          lastModifiedDate: 2025-07-15
+        spotbugs:
+          lastModifiedDate: 2025-07-15
   637:
     retail:
       source:
