@@ -17,9 +17,9 @@ trigger:
       - 'dotnet/src/Microsoft.Agents.M365Copilot.Beta/**/*.cs'
       - 'dotnet/src/Microsoft.Agents.M365Copilot.Beta/Microsoft.Agents.M365Copilot.Beta.csproj'
   tags:
-    include: # v1.0.0-preview.2-Microsoft.Agents.M365Copilot.Beta 
-      - '*Microsoft.Agents.M365Copilot.Beta'
-      - '*Microsoft.Agents.M365Copilot.Core'
+    include: # v1.0.0-preview.2-Microsoft.Agents.M365Copilot.Beta
+      - 'Microsoft.Agents.M365Copilot.Beta*'
+      - 'Microsoft.Agents.M365Copilot.Core*'
 
 pr: none
 
