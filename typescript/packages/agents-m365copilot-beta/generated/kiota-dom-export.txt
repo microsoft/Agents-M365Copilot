@@ -442,8 +442,6 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotAdminLimitedMo
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotAdminLimitedMode::|public|isEnabledForGroup:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotAdminLimitedMode::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotAdminLimitedMode~~>Entity; Parsable
-github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotAdminSetting::|public|limitedMode:CopilotAdminLimitedMode
-github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotAdminSetting::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotAdminSetting~~>Entity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotAdmin~~>Entity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPeopleAdminSetting::|public|enhancedPersonalization:EnhancedPersonalizationSetting
@@ -473,9 +471,6 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.EngagementIdentitySet
 github.com/microsoft/Agents-M365Copilot/typescript/.models.EngagementIdentitySet::|public|group:Identity
 github.com/microsoft/Agents-M365Copilot/typescript/.models.EngagementIdentitySet::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.EngagementIdentitySet~~>IdentitySet; Parsable
-github.com/microsoft/Agents-M365Copilot/typescript/.models.EnhancedPersonalizationSetting::|public|disabledForGroup:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.EnhancedPersonalizationSetting::|public|isEnabledInOrganization:boolean
-github.com/microsoft/Agents-M365Copilot/typescript/.models.EnhancedPersonalizationSetting::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.EnhancedPersonalizationSetting~~>Entity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Entity::|public|AdditionalData:Record<string, unknown>
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Entity::|public|backingStoreEnabled:boolean

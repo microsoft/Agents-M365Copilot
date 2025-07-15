@@ -154,7 +154,7 @@ export interface AiInteractionMention extends Entity, Parsable {
 }
 export interface AiInteractionMentionedIdentitySet extends IdentitySet, Parsable {
     /**
-     * The conversation details.
+     * The conversation property
      */
     conversation?: TeamworkConversationIdentity | null;
     /**
@@ -379,10 +379,6 @@ export interface CopilotAdminLimitedMode extends Entity, Parsable {
     isEnabledForGroup?: boolean | null;
 }
 export interface CopilotAdminSetting extends Entity, Parsable {
-    /**
-     * Represents a setting that controls whether users of Microsoft 365 Copilot in Teams meetings can receive responses to sentiment-related prompts. Read-only. Nullable.
-     */
-    limitedMode?: CopilotAdminLimitedMode | null;
 }
 export interface CopilotPeopleAdminSetting extends Entity, Parsable {
     /**
@@ -1551,7 +1547,6 @@ export function deserializeIntoCopilotAdminLimitedMode(copilotAdminLimitedMode: 
 export function deserializeIntoCopilotAdminSetting(copilotAdminSetting: Partial<CopilotAdminSetting> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(copilotAdminSetting),
-        "limitedMode": n => { copilotAdminSetting.limitedMode = n.getObjectValue<CopilotAdminLimitedMode>(createCopilotAdminLimitedModeFromDiscriminatorValue); },
     }
 }
 /**
@@ -1636,8 +1631,6 @@ export function deserializeIntoEngagementIdentitySet(engagementIdentitySet: Part
 export function deserializeIntoEnhancedPersonalizationSetting(enhancedPersonalizationSetting: Partial<EnhancedPersonalizationSetting> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(enhancedPersonalizationSetting),
-        "disabledForGroup": n => { enhancedPersonalizationSetting.disabledForGroup = n.getStringValue(); },
-        "isEnabledInOrganization": n => { enhancedPersonalizationSetting.isEnabledInOrganization = n.getBooleanValue(); },
     }
 }
 /**
@@ -2033,14 +2026,6 @@ export interface EngagementIdentitySet extends IdentitySet, Parsable {
     group?: Identity | null;
 }
 export interface EnhancedPersonalizationSetting extends Entity, Parsable {
-    /**
-     * The ID of a Microsoft Entra group to which the value is used to disable the control for populated users. The default value is null. This parameter is optional.
-     */
-    disabledForGroup?: string | null;
-    /**
-     * If true, enables the enhanced personalization control and therefore related features as defined in control enhanced personalization privacy
-     */
-    isEnabledInOrganization?: boolean | null;
 }
 export interface Entity extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -2076,7 +2061,7 @@ export interface Identity extends AdditionalDataHolder, BackedModel, Parsable {
 }
 export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * The Identity of the Application. This property is read-only.
+     * Optional. The application associated with this action.
      */
     application?: Identity | null;
     /**
@@ -2084,7 +2069,7 @@ export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The Identity of the Device. This property is read-only.
+     * Optional. The device associated with this action.
      */
     device?: Identity | null;
     /**
@@ -2092,7 +2077,7 @@ export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable
      */
     odataType?: string | null;
     /**
-     * The Identity of the User. This property is read-only.
+     * Optional. The user associated with this action.
      */
     user?: Identity | null;
 }
@@ -2727,7 +2712,6 @@ export function serializeCopilotAdminLimitedMode(writer: SerializationWriter, co
 export function serializeCopilotAdminSetting(writer: SerializationWriter, copilotAdminSetting: Partial<CopilotAdminSetting> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!copilotAdminSetting || isSerializingDerivedType) { return; }
     serializeEntity(writer, copilotAdminSetting, isSerializingDerivedType)
-    writer.writeObjectValue<CopilotAdminLimitedMode>("limitedMode", copilotAdminSetting.limitedMode, serializeCopilotAdminLimitedMode);
 }
 /**
  * Serializes information the current object
@@ -2778,7 +2762,7 @@ export function serializeDictionaries(writer: SerializationWriter, dictionaries:
     writer.writeAdditionalData(dictionaries.additionalData);
     switch (dictionaries.odataType) {
         case "#microsoft.graph.searchResourceMetadataDictionary":
-            serializeSearchResourceMetadataDictionary(writer, dictionaries as SearchResourceMetadataDictionary, true);
+            serializeSearchResourceMetadataDictionary(writer, dictionaries, true);
         break;
     }
 }
@@ -2817,8 +2801,6 @@ export function serializeEngagementIdentitySet(writer: SerializationWriter, enga
 export function serializeEnhancedPersonalizationSetting(writer: SerializationWriter, enhancedPersonalizationSetting: Partial<EnhancedPersonalizationSetting> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!enhancedPersonalizationSetting || isSerializingDerivedType) { return; }
     serializeEntity(writer, enhancedPersonalizationSetting, isSerializingDerivedType)
-    writer.writeStringValue("disabledForGroup", enhancedPersonalizationSetting.disabledForGroup);
-    writer.writeBooleanValue("isEnabledInOrganization", enhancedPersonalizationSetting.isEnabledInOrganization);
 }
 /**
  * Serializes information the current object
@@ -2834,37 +2816,37 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
     writer.writeAdditionalData(entity.additionalData);
     switch (entity.odataType) {
         case "#microsoft.graph.aiInteraction":
-            serializeAiInteraction(writer, entity as AiInteraction, true);
+            serializeAiInteraction(writer, entity, true);
         break;
         case "#microsoft.graph.aiInteractionHistory":
-            serializeAiInteractionHistory(writer, entity as AiInteractionHistory, true);
+            serializeAiInteractionHistory(writer, entity, true);
         break;
         case "#microsoft.graph.aiOnlineMeeting":
-            serializeAiOnlineMeeting(writer, entity as AiOnlineMeeting, true);
+            serializeAiOnlineMeeting(writer, entity, true);
         break;
         case "#microsoft.graph.aiUser":
-            serializeAiUser(writer, entity as AiUser, true);
+            serializeAiUser(writer, entity, true);
         break;
         case "#microsoft.graph.callAiInsight":
-            serializeCallAiInsight(writer, entity as CallAiInsight, true);
+            serializeCallAiInsight(writer, entity, true);
         break;
         case "#microsoft.graph.copilotAdmin":
-            serializeCopilotAdmin(writer, entity as CopilotAdmin, true);
+            serializeCopilotAdmin(writer, entity, true);
         break;
         case "#microsoft.graph.copilotAdminLimitedMode":
-            serializeCopilotAdminLimitedMode(writer, entity as CopilotAdminLimitedMode, true);
+            serializeCopilotAdminLimitedMode(writer, entity, true);
         break;
         case "#microsoft.graph.copilotAdminSetting":
-            serializeCopilotAdminSetting(writer, entity as CopilotAdminSetting, true);
+            serializeCopilotAdminSetting(writer, entity, true);
         break;
         case "#microsoft.graph.copilotPeopleAdminSetting":
-            serializeCopilotPeopleAdminSetting(writer, entity as CopilotPeopleAdminSetting, true);
+            serializeCopilotPeopleAdminSetting(writer, entity, true);
         break;
         case "#microsoft.graph.copilotSetting":
-            serializeCopilotSetting(writer, entity as CopilotSetting, true);
+            serializeCopilotSetting(writer, entity, true);
         break;
         case "#microsoft.graph.enhancedPersonalizationSetting":
-            serializeEnhancedPersonalizationSetting(writer, entity as EnhancedPersonalizationSetting, true);
+            serializeEnhancedPersonalizationSetting(writer, entity, true);
         break;
     }
 }
@@ -2883,79 +2865,79 @@ export function serializeIdentity(writer: SerializationWriter, identity: Partial
     writer.writeAdditionalData(identity.additionalData);
     switch (identity.odataType) {
         case "#microsoft.graph.auditUserIdentity":
-            serializeAuditUserIdentity(writer, identity as AuditUserIdentity, true);
+            serializeAuditUserIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.azureCommunicationServicesUserIdentity":
-            serializeAzureCommunicationServicesUserIdentity(writer, identity as AzureCommunicationServicesUserIdentity, true);
+            serializeAzureCommunicationServicesUserIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.callRecords.userIdentity":
-            serializeUserIdentity(writer, identity as UserIdentity, true);
+            serializeUserIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.communicationsApplicationIdentity":
-            serializeCommunicationsApplicationIdentity(writer, identity as CommunicationsApplicationIdentity, true);
+            serializeCommunicationsApplicationIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.communicationsApplicationInstanceIdentity":
-            serializeCommunicationsApplicationInstanceIdentity(writer, identity as CommunicationsApplicationInstanceIdentity, true);
+            serializeCommunicationsApplicationInstanceIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.communicationsEncryptedIdentity":
-            serializeCommunicationsEncryptedIdentity(writer, identity as CommunicationsEncryptedIdentity, true);
+            serializeCommunicationsEncryptedIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.communicationsGuestIdentity":
-            serializeCommunicationsGuestIdentity(writer, identity as CommunicationsGuestIdentity, true);
+            serializeCommunicationsGuestIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.communicationsPhoneIdentity":
-            serializeCommunicationsPhoneIdentity(writer, identity as CommunicationsPhoneIdentity, true);
+            serializeCommunicationsPhoneIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.communicationsUserIdentity":
-            serializeCommunicationsUserIdentity(writer, identity as CommunicationsUserIdentity, true);
+            serializeCommunicationsUserIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.emailIdentity":
-            serializeEmailIdentity(writer, identity as EmailIdentity, true);
+            serializeEmailIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.initiator":
-            serializeInitiator(writer, identity as Initiator, true);
+            serializeInitiator(writer, identity, true);
         break;
         case "#microsoft.graph.programResource":
-            serializeProgramResource(writer, identity as ProgramResource, true);
+            serializeProgramResource(writer, identity, true);
         break;
         case "#microsoft.graph.provisionedIdentity":
-            serializeProvisionedIdentity(writer, identity as ProvisionedIdentity, true);
+            serializeProvisionedIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.provisioningServicePrincipal":
-            serializeProvisioningServicePrincipal(writer, identity as ProvisioningServicePrincipal, true);
+            serializeProvisioningServicePrincipal(writer, identity, true);
         break;
         case "#microsoft.graph.provisioningSystem":
-            serializeProvisioningSystem(writer, identity as ProvisioningSystem, true);
+            serializeProvisioningSystem(writer, identity, true);
         break;
         case "#microsoft.graph.security.submissionUserIdentity":
-            serializeSubmissionUserIdentity(writer, identity as SubmissionUserIdentity, true);
+            serializeSubmissionUserIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.servicePrincipalIdentity":
-            serializeServicePrincipalIdentity(writer, identity as ServicePrincipalIdentity, true);
+            serializeServicePrincipalIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.sharePointIdentity":
-            serializeSharePointIdentity(writer, identity as SharePointIdentity, true);
+            serializeSharePointIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.sourceProvisionedIdentity":
-            serializeSourceProvisionedIdentity(writer, identity as SourceProvisionedIdentity, true);
+            serializeSourceProvisionedIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.targetProvisionedIdentity":
-            serializeTargetProvisionedIdentity(writer, identity as TargetProvisionedIdentity, true);
+            serializeTargetProvisionedIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.teamworkApplicationIdentity":
-            serializeTeamworkApplicationIdentity(writer, identity as TeamworkApplicationIdentity, true);
+            serializeTeamworkApplicationIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.teamworkConversationIdentity":
-            serializeTeamworkConversationIdentity(writer, identity as TeamworkConversationIdentity, true);
+            serializeTeamworkConversationIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.teamworkTagIdentity":
-            serializeTeamworkTagIdentity(writer, identity as TeamworkTagIdentity, true);
+            serializeTeamworkTagIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.teamworkUserIdentity":
-            serializeTeamworkUserIdentity(writer, identity as TeamworkUserIdentity, true);
+            serializeTeamworkUserIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.userIdentity":
-            serializeUserIdentity(writer, identity as UserIdentity, true);
+            serializeUserIdentity(writer, identity, true);
         break;
     }
 }
@@ -2975,28 +2957,28 @@ export function serializeIdentitySet(writer: SerializationWriter, identitySet: P
     writer.writeAdditionalData(identitySet.additionalData);
     switch (identitySet.odataType) {
         case "#microsoft.graph.aiInteractionMentionedIdentitySet":
-            serializeAiInteractionMentionedIdentitySet(writer, identitySet as AiInteractionMentionedIdentitySet, true);
+            serializeAiInteractionMentionedIdentitySet(writer, identitySet, true);
         break;
         case "#microsoft.graph.approvalIdentitySet":
-            serializeApprovalIdentitySet(writer, identitySet as ApprovalIdentitySet, true);
+            serializeApprovalIdentitySet(writer, identitySet, true);
         break;
         case "#microsoft.graph.chatMessageFromIdentitySet":
-            serializeChatMessageFromIdentitySet(writer, identitySet as ChatMessageFromIdentitySet, true);
+            serializeChatMessageFromIdentitySet(writer, identitySet, true);
         break;
         case "#microsoft.graph.chatMessageMentionedIdentitySet":
-            serializeChatMessageMentionedIdentitySet(writer, identitySet as ChatMessageMentionedIdentitySet, true);
+            serializeChatMessageMentionedIdentitySet(writer, identitySet, true);
         break;
         case "#microsoft.graph.chatMessageReactionIdentitySet":
-            serializeChatMessageReactionIdentitySet(writer, identitySet as ChatMessageReactionIdentitySet, true);
+            serializeChatMessageReactionIdentitySet(writer, identitySet, true);
         break;
         case "#microsoft.graph.communicationsIdentitySet":
-            serializeCommunicationsIdentitySet(writer, identitySet as CommunicationsIdentitySet, true);
+            serializeCommunicationsIdentitySet(writer, identitySet, true);
         break;
         case "#microsoft.graph.engagementIdentitySet":
-            serializeEngagementIdentitySet(writer, identitySet as EngagementIdentitySet, true);
+            serializeEngagementIdentitySet(writer, identitySet, true);
         break;
         case "#microsoft.graph.sharePointIdentitySet":
-            serializeSharePointIdentitySet(writer, identitySet as SharePointIdentitySet, true);
+            serializeSharePointIdentitySet(writer, identitySet, true);
         break;
     }
 }
@@ -3306,7 +3288,7 @@ export function serializeUserIdentity(writer: SerializationWriter, userIdentity:
     writer.writeStringValue("userPrincipalName", userIdentity.userPrincipalName);
     switch (userIdentity.odataType) {
         case "#microsoft.graph.auditUserIdentity":
-            serializeAuditUserIdentity(writer, userIdentity as AuditUserIdentity, true);
+            serializeAuditUserIdentity(writer, userIdentity, true);
         break;
     }
 }
