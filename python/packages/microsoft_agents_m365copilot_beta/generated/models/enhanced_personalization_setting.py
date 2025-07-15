@@ -11,12 +11,6 @@ from .entity import Entity
 
 @dataclass
 class EnhancedPersonalizationSetting(Entity, Parsable):
-    # The ID of a Microsoft Entra group to which the value is used to disable the control for populated users. The default value is null. This parameter is optional.
-    disabled_for_group: Optional[str] = None
-    # If true, enables the enhanced personalization control and therefore related features as defined in control enhanced personalization privacy
-    is_enabled_in_organization: Optional[bool] = None
-    # The OdataType property
-    odata_type: Optional[str] = None
     
     @staticmethod
     def create_from_discriminator_value(parse_node: ParseNode) -> EnhancedPersonalizationSetting:
@@ -39,8 +33,6 @@ class EnhancedPersonalizationSetting(Entity, Parsable):
         from .entity import Entity
 
         fields: dict[str, Callable[[Any], None]] = {
-            "disabledForGroup": lambda n : setattr(self, 'disabled_for_group', n.get_str_value()),
-            "isEnabledInOrganization": lambda n : setattr(self, 'is_enabled_in_organization', n.get_bool_value()),
         }
         super_fields = super().get_field_deserializers()
         fields.update(super_fields)
@@ -55,7 +47,5 @@ class EnhancedPersonalizationSetting(Entity, Parsable):
         if writer is None:
             raise TypeError("writer cannot be null.")
         super().serialize(writer)
-        writer.write_str_value("disabledForGroup", self.disabled_for_group)
-        writer.write_bool_value("isEnabledInOrganization", self.is_enabled_in_organization)
     
 
