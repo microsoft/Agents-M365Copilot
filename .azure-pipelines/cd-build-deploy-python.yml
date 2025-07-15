@@ -181,10 +181,10 @@ extends:
               inputs:
                 - input: pipelineArtifact
                   artifactName: pypi_$(library_name_core)
-                  targetPath: '$(Build.ArtifactStagingDirectory)/python/$(library_name_core)'
+                  targetPath: '$(Build.ArtifactStagingDirectory)/python'
                 - input: pipelineArtifact
                   artifactName: pypi_$(library_name_beta)
-                  targetPath: '$(Build.ArtifactStagingDirectory)/python/$(library_name_beta)'
+                  targetPath: '$(Build.ArtifactStagingDirectory)/python'
           strategy:
             runOnce:
               deploy:
