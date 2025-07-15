@@ -154,12 +154,14 @@ extends:
                   displayName: 'Publish NPM packages via ESRP Release'
                   inputs:
                     connectedservicename: "Federated DevX ESRP Managed Identity Connection"
-                    usemanagedidentity: true
+                    usemanagedidentity: false
                     keyvaultname: 'akv-prod-eastus'
+                    authcertname: 'ReferenceLibraryPrivateCert'
                     signcertname: 'ReferencePackagePublisherCertificate'
                     clientid: '65035b7f-7357-4f29-bf25-c5ee5c3949f8'
                     intent: 'PackageDistribution'
                     contenttype: 'npm'
+                    contentsource: 'Folder'
                     folderlocation: '$(Build.ArtifactStagingDirectory)/npm'
                     owners: 'mmainer@microsoft.com,karthikra@microsoft.com'
                     approvers: 'mmainer@microsoft.com,christiano@microsoft.com,karthikra@microsoft.com,lramosvea@microsoft.com'
