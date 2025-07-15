@@ -194,14 +194,14 @@ extends:
                   inputs:
                     connectedservicename: "Federated DevX ESRP Managed Identity Connection"
                     usemanagedidentity: true
-                    keyvaultname: "akv-prod-eastus"
-                    signcertname: "ReferencePackagePublisherCertificate"
-                    clientid: "65035b7f-7357-4f29-bf25-c5ee5c3949f8"
-                    intent: "PackageDistribution"
-                    contenttype: "PYPI"
-                    folderlocation: "$(Build.ArtifactStagingDirectory)/python"
-                    owners: "mmainer@microsoft.com,karthikra@microsoft.com"
-                    approvers: "mmainer@microsoft.com,christiano@microsoft.com,karthikra@microsoft.com,lramosvea@microsoft.com"
-                    serviceendpointurl: "https://api.esrp.microsoft.com"
-                    mainpublisher: "ESRPRELPACMAN"
-                    domaintenantid: "cdc5aeea-15c5-4db6-b079-fcadd2505dc2"
+                    keyvaultname: 'akv-prod-eastus'
+                    signcertname: 'ReferencePackagePublisherCertificate'
+                    clientid: '65035b7f-7357-4f29-bf25-c5ee5c3949f8'
+                    intent: 'PackageDistribution'
+                    contenttype: 'PYPI'
+                    folderlocation: '$(Build.ArtifactStagingDirectory)/python'
+                    owners: 'mmainer@microsoft.com,karthikra@microsoft.com'
+                    approvers: 'mmainer@microsoft.com,christiano@microsoft.com,karthikra@microsoft.com,lramosvea@microsoft.com'
+                    serviceendpointurl: 'https://api.esrp.microsoft.com'
+                    mainpublisher: 'ESRPRELPACMAN'
+                    domaintenantid: 'cdc5aeea-15c5-4db6-b079-fcadd2505dc2'
