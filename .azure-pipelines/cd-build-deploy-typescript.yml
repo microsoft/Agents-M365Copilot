@@ -141,8 +141,11 @@ extends:
               isProduction: true
               inputs:
                 - input: pipelineArtifact
-                  artifactName: npm
-                  targetPath: $(Build.ArtifactStagingDirectory)/npm
+                  artifactName: npm_$(package_name_core)
+                  targetPath: '$(Build.ArtifactStagingDirectory)/npm'
+                - input: pipelineArtifact
+                  artifactName: npm_$(package_name_beta)
+                  targetPath: '$(Build.ArtifactStagingDirectory)/npm'
           strategy:
             runOnce:
               deploy:
