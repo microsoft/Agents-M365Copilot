@@ -43,7 +43,7 @@ python = ">=3.9,<4.0"
 microsoft-kiota-authentication-azure = ">=1.8.0,<2.0.0"
 microsoft-kiota-bundle = ">=1.8.0,<2.0.0"
 httpx = {extras = ["http2"], version = ">=0.23.0"}
-microsoft-agents-m365copilot-core = {path = "../microsoft_agents_m365copilot_core"}
+microsoft-agents-m365copilot-core = ">=1.0.0-preview.3"
 
 [tool.poetry.group.dev.dependencies]
 yapf = ">=0.40.2,<0.44.0"
