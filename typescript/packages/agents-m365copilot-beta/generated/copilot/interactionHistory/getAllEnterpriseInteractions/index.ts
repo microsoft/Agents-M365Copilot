@@ -44,7 +44,6 @@ export interface GetAllEnterpriseInteractionsRequestBuilder extends BaseRequestB
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetAllEnterpriseInteractionsGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/aiinteractionhistory-getallenterpriseinteractions?view=graph-rest-beta|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters> | undefined) : Promise<GetAllEnterpriseInteractionsGetResponse | undefined>;
     /**

@@ -63,7 +63,7 @@ try
     {
         Console.WriteLine("Retrieval response received successfully");
         Console.WriteLine("\nResults:");
-        Console.WriteLine(result.RetrievalHits.Count.ToString());
+        Console.WriteLine((result.RetrievalHits != null ? result.RetrievalHits.Count : 0).ToString());
 
         if (result.RetrievalHits != null)
         {

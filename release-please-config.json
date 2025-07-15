@@ -16,7 +16,7 @@
     "bootstrap-sha": "b3123fb1d60eb4516b71ecf0370d48cefb891870",
     "packages": {
         "dotnet/src/Microsoft.Agents.M365Copilot.Beta": {
-            "component": "",
+            "component": "Microsoft.Agents.M365Copilot.Beta",
             "release-type": "simple",
             "changelog-path": "CHANGELOG.md",
             "extra-files": [
@@ -24,7 +24,7 @@
             ]
         },
         "dotnet/src/Microsoft.Agents.M365Copilot.Core": {
-            "component": "",
+            "component": "Microsoft.Agents.M365Copilot.Core",
             "release-type": "simple",
             "changelog-path": "CHANGELOG.md",
             "extra-files": [
@@ -49,7 +49,8 @@
             "release-type": "simple",
             "changelog-path": "CHANGELOG.md",
             "extra-files": [
-                "pyproject.toml"
+                "pyproject.toml",
+                "_version.py"
             ]
         },
         "python/packages/microsoft_agents_m365copilot_core": {

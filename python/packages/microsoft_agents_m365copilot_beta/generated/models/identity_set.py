@@ -23,13 +23,13 @@ class IdentitySet(AdditionalDataHolder, BackedModel, Parsable):
 
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additional_data: dict[str, Any] = field(default_factory=dict)
-    # The Identity of the Application. This property is read-only.
+    # Optional. The application associated with this action.
     application: Optional[Identity] = None
-    # The Identity of the Device. This property is read-only.
+    # Optional. The device associated with this action.
     device: Optional[Identity] = None
     # The OdataType property
     odata_type: Optional[str] = None
-    # The Identity of the User. This property is read-only.
+    # Optional. The user associated with this action.
     user: Optional[Identity] = None
     
     @staticmethod
