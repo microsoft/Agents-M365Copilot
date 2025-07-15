@@ -190,6 +190,7 @@ extends:
           pool:
             name: Azure-Pipelines-1ESPT-ExDShared
             vmImage: windows-latest
+            os: windows
           templateContext:
             type: releaseJob
             isProduction: true
