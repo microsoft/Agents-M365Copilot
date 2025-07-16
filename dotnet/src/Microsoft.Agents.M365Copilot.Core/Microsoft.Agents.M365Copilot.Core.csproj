@@ -10,6 +10,7 @@
     <PreserveCompilationContext>false</PreserveCompilationContext>
     <AssemblyName>Microsoft.Agents.M365Copilot.Core</AssemblyName>
     <PackageId>Microsoft.Agents.M365Copilot.Core</PackageId>
+    <PackageProjectUrl>https://github.com/microsoft/agents-m365copilot</PackageProjectUrl>
     <PackageTags>Copilot;Agents;Declarative Agents;Microsoft Office365;Outlook;OneDrive;AzureAD;Productivity;SDK</PackageTags>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -27,6 +28,8 @@
     <EnableNETAnalyzers>True</EnableNETAnalyzers>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <NoWarn>NU5048;NETSDK1202</NoWarn>
+    <IncludeSource>true</IncludeSource>
+    <IncludeSymbols>true</IncludeSymbols>
     <IsTrimmable Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)','net5.0'))">true</IsTrimmable>
   </PropertyGroup>
   <!-- https://github.com/clairernovotny/DeterministicBuilds#deterministic-builds -->
