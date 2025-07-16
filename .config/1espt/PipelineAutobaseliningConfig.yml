@@ -93,3 +93,10 @@ pipelines:
           lastModifiedDate: 2025-07-16
         accessibilityinsights:
           lastModifiedDate: 2025-07-16
+      binary:
+        credscan:
+          lastModifiedDate: 2025-07-16
+        binskim:
+          lastModifiedDate: 2025-07-16
+        spotbugs:
+          lastModifiedDate: 2025-07-16
