@@ -5,7 +5,8 @@
         ".idea",
         ".github",
         ".vscode",
-        "openapi"
+        "openapi",
+        ".azure-pipelines"
     ],
     "include-component-in-tag": true,
     "include-v-in-tag": true,
