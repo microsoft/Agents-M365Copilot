@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0-preview.4](https://github.com/microsoft/Agents-M365Copilot/compare/Microsoft.Agents.M365Copilot.Beta-v1.0.0-preview.3...Microsoft.Agents.M365Copilot.Beta-v1.0.0-preview.4) (2025-07-16)
+
+
+### Features
+
+* **generation:** update request builders and models for dotnet beta ([#106](https://github.com/microsoft/Agents-M365Copilot/issues/106)) ([d8e5452](https://github.com/microsoft/Agents-M365Copilot/commit/d8e54529e289fdaabd338d4ad8bac6027b1a4c82))
+
 ## [1.0.0-preview.3](https://github.com/microsoft/Agents-M365Copilot/compare/Microsoft.Agents.M365Copilot.Beta-v1.0.0-preview.2...Microsoft.Agents.M365Copilot.Beta-v1.0.0-preview.3) (2025-07-15)
 
 
