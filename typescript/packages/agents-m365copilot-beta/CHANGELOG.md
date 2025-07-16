@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.0-preview.4](https://github.com/microsoft/Agents-M365Copilot/compare/@microsoft/agents-m365copilot-beta-v1.0.0-preview.3...@microsoft/agents-m365copilot-beta-v1.0.0-preview.4) (2025-07-16)
+
+### Bug Fixes
+
+* fix dependency to point at agents-m365copilot-core package instead of file reference 
+
 ## [1.0.0-preview.3](https://github.com/microsoft/Agents-M365Copilot/compare/@microsoft/agents-m365copilot-beta-v1.0.0-preview.2...@microsoft/agents-m365copilot-beta-v1.0.0-preview.3) (2025-07-15)
 
 
