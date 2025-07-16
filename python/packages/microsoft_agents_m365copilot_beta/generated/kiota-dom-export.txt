@@ -756,6 +756,9 @@ microsoft_agents_m365copilot_beta.generated.models.CopilotAdminLimitedMode::|sta
 microsoft_agents_m365copilot_beta.generated.models.CopilotAdminSetting-->Entity
 microsoft_agents_m365copilot_beta.generated.models.CopilotAdminSetting::|public|constructor():None
 microsoft_agents_m365copilot_beta.generated.models.CopilotAdminSetting::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.CopilotAdminSetting::|public|limited_mode():CopilotAdminLimitedMode
+microsoft_agents_m365copilot_beta.generated.models.CopilotAdminSetting::|public|limited_mode(value:CopilotAdminLimitedMode):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotAdminSetting::|public|odata_type:str
 microsoft_agents_m365copilot_beta.generated.models.CopilotAdminSetting::|public|serialize(writer:SerializationWriter):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotAdminSetting::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotAdminSetting
 microsoft_agents_m365copilot_beta.generated.models.CopilotPeopleAdminSetting-->Entity
@@ -819,7 +822,12 @@ microsoft_agents_m365copilot_beta.generated.models.EngagementIdentitySet::|publi
 microsoft_agents_m365copilot_beta.generated.models.EngagementIdentitySet::|static|public|create_from_discriminator_value(parse_node:ParseNode):EngagementIdentitySet
 microsoft_agents_m365copilot_beta.generated.models.EnhancedPersonalizationSetting-->Entity
 microsoft_agents_m365copilot_beta.generated.models.EnhancedPersonalizationSetting::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.EnhancedPersonalizationSetting::|public|disabled_for_group():str
+microsoft_agents_m365copilot_beta.generated.models.EnhancedPersonalizationSetting::|public|disabled_for_group(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.EnhancedPersonalizationSetting::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.EnhancedPersonalizationSetting::|public|is_enabled_in_organization():bool
+microsoft_agents_m365copilot_beta.generated.models.EnhancedPersonalizationSetting::|public|is_enabled_in_organization(value:bool):None
+microsoft_agents_m365copilot_beta.generated.models.EnhancedPersonalizationSetting::|public|odata_type:str
 microsoft_agents_m365copilot_beta.generated.models.EnhancedPersonalizationSetting::|public|serialize(writer:SerializationWriter):None
 microsoft_agents_m365copilot_beta.generated.models.EnhancedPersonalizationSetting::|static|public|create_from_discriminator_value(parse_node:ParseNode):EnhancedPersonalizationSetting
 microsoft_agents_m365copilot_beta.generated.models.Entity::|public|additional_data():dict[str, Any]
