@@ -35,7 +35,7 @@
 		"url": "https://github.com/microsoft/Agents-M365Copilot/issues"
 	},
 	"dependencies": {
-		"@microsoft/agents-m365copilot-core": "file:../agents-m365copilot-core"
+		"@microsoft/agents-m365copilot-core": "^1.0.0-preview.1"
 	},
 	"devDependencies": {
 		"@types/node": "^22.0.0",

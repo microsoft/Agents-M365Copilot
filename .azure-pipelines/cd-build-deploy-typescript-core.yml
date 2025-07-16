@@ -1,7 +1,7 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License.
 
-# Build, package, and deploy TypeScript packages for @microsoft/agents-m365copilot-core and @microsoft/agents-m365copilot-beta
+# Build, package, and deploy TypeScript package for @microsoft/agents-m365copilot-core
 
 name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
@@ -11,20 +11,16 @@ trigger:
       - main
   paths:
     include:
-      - 'typescript/packages/agents-m365copilot-beta/generated/**'
       - 'typescript/packages/agents-m365copilot-core/src/**'
   tags:
     include:
-      - 'microsoft/agents-m365copilot-beta*'
       - 'microsoft/agents-m365copilot-core*'
 
 pr: none
 
 variables:
   package_name_core: 'agents-m365copilot-core'
-  package_name_beta: 'agents-m365copilot-beta'
   package_dir_core: 'packages/agents-m365copilot-core'
-  package_dir_beta: 'packages/agents-m365copilot-beta'
 
 resources:
   repositories:
@@ -42,12 +38,12 @@ extends:
     stages:
 
     - stage: build
-      displayName: 'Build and Package TypeScript Packages'
+      displayName: 'Build and Package Core TypeScript Package'
       # This condition allows the build to run for both tagged builds and manual builds.
-      condition: or(contains(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot'), eq(variables['Build.Reason'], 'Manual'))
+      condition: or(contains(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
       jobs:
         - job: build_typescript
-          displayName: 'Build, Test, and Package Core and Beta'
+          displayName: 'Build, Test, and Package Core'
           pool:
             name: Azure-Pipelines-1ESPT-ExDShared
             vmImage: ubuntu-latest
@@ -77,18 +73,7 @@ extends:
               workingDirectory: '$(Build.SourcesDirectory)/typescript'
               condition: or(startsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
 
-            # Build Beta TypeScript package
-            - script: npm run build --workspace=$(package_dir_beta)
-              displayName: 'Build $(package_name_beta)'
-              workingDirectory: '$(Build.SourcesDirectory)/typescript/'
-              condition: or(startsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-beta'), eq(variables['Build.Reason'], 'Manual'))
-
-            - script: npm pack --workspace=$(package_dir_beta) --pack-destination=$(Build.SourcesDirectory)/typescript/$(package_dir_beta)
-              displayName: 'Generate npm package $(package_name_beta)'
-              workingDirectory: '$(Build.SourcesDirectory)/typescript'
-              condition: or(startsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-beta'), eq(variables['Build.Reason'], 'Manual'))
-
-            # Stage artifacts for Core and Beta packages
+            # Stage artifacts for Core package
 
             - task: CopyFiles@2
               inputs:
@@ -98,15 +83,6 @@ extends:
                   microsoft-agents-m365copilot-core*.tgz
               displayName: "Copy npm package files for $(package_name_core)"
               condition: or(startsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
-              
-            - task: CopyFiles@2
-              inputs:
-                sourceFolder: '$(Build.SourcesDirectory)/typescript/$(package_dir_beta)'
-                targetFolder: '$(Build.ArtifactStagingDirectory)/npm/$(package_name_beta)'
-                Contents: |
-                  microsoft-agents-m365copilot-beta*.tgz
-              displayName: "Copy npm package files for $(package_name_beta)"
-              condition: or(startsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-beta'), eq(variables['Build.Reason'], 'Manual'))
 
           templateContext:
             outputs:
@@ -116,20 +92,14 @@ extends:
                 targetPath: '$(Build.ArtifactStagingDirectory)/npm/$(package_name_core)'
                 condition: or(startsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
 
-              - output: pipelineArtifact
-                displayName: 'Stage Beta TypeScript package artifacts'
-                artifactName: npm_$(package_name_beta)
-                targetPath: '$(Build.ArtifactStagingDirectory)/npm/$(package_name_beta)'
-                condition: or(startsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-beta'), eq(variables['Build.Reason'], 'Manual'))
-
     - stage: deploy
-      displayName: 'Deploy NPM Packages'
+      displayName: 'Deploy NPM Package'
       dependsOn: build
       # This condition allows the build to run for only tagged builds. Manual runs are temp and should be removed after validation.
-      condition: or(and(contains(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot'), succeeded()), eq(variables['Build.Reason'], 'Manual'))
+      condition: or(and(contains(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), succeeded()), eq(variables['Build.Reason'], 'Manual'))
       jobs:
-        - deployment: publish_npm_packages
-          displayName: 'Publish npm Packages'
+        - deployment: publish_npm_package
+          displayName: 'Publish npm Package'
           environment: agents-m365copilot-prod
           pool:
             name: Azure-Pipelines-1ESPT-ExDShared
@@ -143,15 +113,12 @@ extends:
                 - input: pipelineArtifact
                   artifactName: npm_$(package_name_core)
                   targetPath: '$(Build.ArtifactStagingDirectory)/npm'
-                - input: pipelineArtifact
-                  artifactName: npm_$(package_name_beta)
-                  targetPath: '$(Build.ArtifactStagingDirectory)/npm'
           strategy:
             runOnce:
               deploy:
                 steps:    
                 - task: EsrpRelease@9
-                  displayName: 'Publish NPM packages via ESRP Release'
+                  displayName: 'Publish NPM Core package via ESRP Release'
                   inputs:
                     connectedservicename: "Federated DevX ESRP Managed Identity Connection"
                     usemanagedidentity: false
