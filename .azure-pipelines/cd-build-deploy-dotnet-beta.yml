@@ -1,0 +1,170 @@
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+
+# Build, sign, package and deploy .NET package for Microsoft.Agents.M365Copilot.Beta
+
+name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - 'dotnet/src/Microsoft.Agents.M365Copilot.Beta/Generated/**'
+      - 'dotnet/src/Microsoft.Agents.M365Copilot.Beta/**/*.cs'
+      - 'dotnet/src/Microsoft.Agents.M365Copilot.Beta/Microsoft.Agents.M365Copilot.Beta.csproj'
+  tags:
+    include: # ex Microsoft.Agents.M365Copilot.Beta-v1.0.0-preview.2
+      - 'Microsoft.Agents.M365Copilot.Beta*'
+
+pr: none
+
+variables:
+  buildConfiguration: 'Release'
+  buildPlatform: 'Any CPU'
+  nugetArtifacts: '$(Build.ArtifactStagingDirectory)/Nugets'
+
+resources:
+  repositories:
+  - repository: 1ESPipelineTemplates
+    type: git
+    name: 1ESPipelineTemplates/1ESPipelineTemplates
+    ref: refs/tags/release
+
+extends:
+  template: v1/1ES.Official.PipelineTemplate.yml@1ESPipelineTemplates
+  parameters:
+    pool:
+      name: Azure-Pipelines-1ESPT-ExDShared
+      vmImage: windows-latest
+    stages:
+    - stage: build
+      displayName: 'Build and Sign .NET Package'
+      # This condition allows the build to run for both tagged builds and manual builds.
+      condition: or(contains(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
+      jobs:
+        - job: build_and_sign
+          displayName: 'Build, Test, and Sign Beta'
+          pool:
+            name: Azure-Pipelines-1ESPT-ExDShared
+            vmImage: windows-latest
+          steps:
+            - task: UseDotNet@2
+              displayName: 'Use .NET 8'
+              inputs:
+                version: 8.x
+            - task: UseDotNet@2
+              displayName: 'Use .NET 6 (for code signing tasks)'
+              inputs:
+                packageType: sdk
+                version: 6.x
+            - task: NuGetToolInstaller@1
+              displayName: 'Install Nuget dependency manager'
+              inputs:
+                versionSpec: '>=6.0.0'
+                checkLatest: true
+            
+            # Enable signing for the .NET projects
+            - pwsh: |
+                # This allows us to not have to checkin .csproj or Directory.Build.props files with DelaySign and 
+                # SignAssembly set to to true. If the flag is set, then project is not debuggable with SignAssembly set 
+                # to true. 
+                $buildPropsPath = "$(Build.SourcesDirectory)/dotnet/Directory.Build.props" 
+                if (Test-Path $buildPropsPath) {
+                    $doc = New-Object System.Xml.XmlDocument
+                    $doc.Load($buildPropsPath)
+                    # Set the DelaySign element to 'true' so that delay signing is set.
+                    $delaySign = $doc.SelectSingleNode("//DelaySign");
+                    $delaySign.'#text'= "true"
+                    # Set the SignAssembly element to 'true' so that we can sign the assemblies.
+                    $signAssembly = $doc.SelectSingleNode("//SignAssembly");
+                    $signAssembly.'#text'= "true"
+                    $doc.Save($buildPropsPath);
+                    Write-Host "Updated the Directory.Build.props file so that we can sign the built assemblies."
+                } else {
+                    Write-Host ""##vso[task.complete result=Failed;]Directory.Build.props file not found."
+                }
+
+              displayName: 'Set project build properties ready to sign'
+
+            # Build and test Beta
+            - task: DotNetCoreCLI@2
+              displayName: 'Build Microsoft.Agents.M365Copilot.Beta'
+              # This condition allows the build to run for both tag builds and manual builds.
+              condition: or(startsWith(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
+              inputs:
+                projects: '$(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Beta/Microsoft.Agents.M365Copilot.Beta.csproj'
+                arguments: '--configuration $(buildConfiguration) --no-incremental'
+            - task: DotNetCoreCLI@2
+              displayName: 'Test Microsoft.Agents.M365Copilot.Beta'
+              # This condition allows the build to run for both tag builds and manual builds.
+              condition: or(startsWith(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
+              inputs:
+                command: test
+                projects: '$(Build.SourcesDirectory)/dotnet/tests/Microsoft.Agents.M365Copilot.Beta.Tests/Microsoft.Agents.M365Copilot.Beta.Tests.csproj'
+                arguments: '--configuration $(buildConfiguration) -f net8.0'
+
+            # Strong name for Beta using ESRP
+            - template: .azure-pipelines/templates/esrp-strongname.yml@self
+              parameters:
+                projectName: Microsoft.Agents.M365Copilot.Beta
+                buildConfiguration: $(buildConfiguration)
+
+            # Code signing for Beta using ESRP
+            - template: .azure-pipelines/templates/esrp-codesign-dll.yml@self
+              parameters:
+                projectName: Microsoft.Agents.M365Copilot.Beta
+                buildConfiguration: $(buildConfiguration)
+
+            # Pack Beta
+            - pwsh: dotnet pack $(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Beta/Microsoft.Agents.M365Copilot.Beta.csproj /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg --no-build --output $(nugetArtifacts) --configuration $(buildConfiguration)
+              # This condition allows the pack command to run for both tag builds and manual builds.
+              condition: or(startsWith(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
+              displayName: 'Dotnet pack Beta'
+
+            # Sign Beta NuGet package using ESRP
+            - template: .azure-pipelines/templates/esrp-codesign-nuget.yml@self
+              parameters:
+                projectName: Microsoft.Agents.M365Copilot.Beta
+                artifactStagingDirectory: $(nugetArtifacts)
+
+          templateContext:
+            outputs:
+              - output: pipelineArtifact
+                displayName: 'Stage Microsoft.Agents.M365Copilot.Beta package artifacts'
+                artifactName: Nugets
+                targetPath:  $(nugetArtifacts)            
+
+    - stage: deploy
+      displayName: 'Deploy Beta NuGet Package'
+      dependsOn: build
+      condition: or(and(contains(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Beta'), succeeded()), eq(variables['Build.Reason'], 'Manual'))
+      jobs:
+        - deployment: publish_nuget_package
+          displayName: 'Publish Beta NuGet Package'
+          environment: agents-m365copilot-prod
+          pool:
+            name: Azure-Pipelines-1ESPT-ExDShared
+            vmImage: windows-latest
+            os: windows
+          templateContext:
+            type: releaseJob
+            isProduction: true
+            inputs:
+              - input: pipelineArtifact
+                artifactName: Nugets
+                targetPath: $(nugetArtifacts)
+          strategy:
+            runOnce:
+              deploy:
+                steps:
+                - task: 1ES.PublishNuget@1
+                  displayName: 'Publish Beta NuGet package via NuGet API Key'
+                  inputs:
+                    useDotNetTask: false
+                    packageParentPath: $(nugetArtifacts)
+                    packagesToPush: '!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg;$(nugetArtifacts)/**/*nupkg'
+                    nuGetFeedType: external  # Change to external for external
+                    publishPackageMetadata: true
+                    publishFeedCredentials: 'M365 Copilot NuGet Connection'
