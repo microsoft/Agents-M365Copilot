@@ -68,8 +68,8 @@ Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnterpriseInt
 Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder.getAllEnterpriseInteractionsRequestBuilderGetQueryParameters::|public|Orderby:string[]
 Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder.getAllEnterpriseInteractionsRequestBuilderGetQueryParameters::|public|Search:string
 Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder.getAllEnterpriseInteractionsRequestBuilderGetQueryParameters::|public|Select:string[]
-Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder.getAllEnterpriseInteractionsRequestBuilderGetQueryParameters::|public|Skip:long?
-Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder.getAllEnterpriseInteractionsRequestBuilderGetQueryParameters::|public|Top:long?
+Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder.getAllEnterpriseInteractionsRequestBuilderGetQueryParameters::|public|Skip:int?
+Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder.getAllEnterpriseInteractionsRequestBuilderGetQueryParameters::|public|Top:int?
 Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder.getAllEnterpriseInteractionsRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnterpriseInteractions.GetAllEnterpriseInteractionsRequestBuilder.GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters>
 Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
 Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
@@ -167,7 +167,7 @@ Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Count.CountRequestBuilder.CountR
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Count.CountRequestBuilder.CountRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Count.CountRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Count.CountRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
-Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Count.CountRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):long?
+Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Count.CountRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):int?
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Count.CountRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Count.CountRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Count.CountRequestBuilder
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.AiUserItemRequestBuilder-->BaseRequestBuilder
@@ -199,8 +199,8 @@ Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.InteractionHistory.GetAllEn
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder.getAllEnterpriseInteractionsRequestBuilderGetQueryParameters::|public|Orderby:string[]
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder.getAllEnterpriseInteractionsRequestBuilderGetQueryParameters::|public|Search:string
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder.getAllEnterpriseInteractionsRequestBuilderGetQueryParameters::|public|Select:string[]
-Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder.getAllEnterpriseInteractionsRequestBuilderGetQueryParameters::|public|Skip:long?
-Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder.getAllEnterpriseInteractionsRequestBuilderGetQueryParameters::|public|Top:long?
+Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder.getAllEnterpriseInteractionsRequestBuilderGetQueryParameters::|public|Skip:int?
+Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder.getAllEnterpriseInteractionsRequestBuilderGetQueryParameters::|public|Top:int?
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder.getAllEnterpriseInteractionsRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.InteractionHistory.GetAllEnterpriseInteractions.GetAllEnterpriseInteractionsRequestBuilder.GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters>
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
@@ -232,7 +232,7 @@ Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Count.CountR
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder.CountRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
-Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):long?
+Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):int?
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder-->BaseRequestBuilder
@@ -242,8 +242,8 @@ Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsig
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder.aiInsightsRequestBuilderGetQueryParameters::|public|Orderby:string[]
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder.aiInsightsRequestBuilderGetQueryParameters::|public|Search:string
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder.aiInsightsRequestBuilderGetQueryParameters::|public|Select:string[]
-Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder.aiInsightsRequestBuilderGetQueryParameters::|public|Skip:long?
-Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder.aiInsightsRequestBuilderGetQueryParameters::|public|Top:long?
+Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder.aiInsightsRequestBuilderGetQueryParameters::|public|Skip:int?
+Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder.aiInsightsRequestBuilderGetQueryParameters::|public|Top:int?
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder.aiInsightsRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.AiInsightsRequestBuilder.AiInsightsRequestBuilderGetQueryParameters>
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder.aiInsightsRequestBuilderPostRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder::[CallAiInsightId:string]:global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder
@@ -261,7 +261,7 @@ Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsig
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder.CountRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
-Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):long?
+Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):int?
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder-->BaseRequestBuilder
@@ -302,8 +302,8 @@ Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.onlineMeetin
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder.onlineMeetingsRequestBuilderGetQueryParameters::|public|Orderby:string[]
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder.onlineMeetingsRequestBuilderGetQueryParameters::|public|Search:string
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder.onlineMeetingsRequestBuilderGetQueryParameters::|public|Select:string[]
-Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder.onlineMeetingsRequestBuilderGetQueryParameters::|public|Skip:long?
-Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder.onlineMeetingsRequestBuilderGetQueryParameters::|public|Top:long?
+Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder.onlineMeetingsRequestBuilderGetQueryParameters::|public|Skip:int?
+Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder.onlineMeetingsRequestBuilderGetQueryParameters::|public|Top:int?
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder.onlineMeetingsRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.OnlineMeetingsRequestBuilder.OnlineMeetingsRequestBuilderGetQueryParameters>
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder.onlineMeetingsRequestBuilderPostRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder::[AiOnlineMeetingId:string]:global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder
@@ -322,8 +322,8 @@ Microsoft.Agents.M365Copilot.Beta.Copilot.Users.usersRequestBuilder.usersRequest
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.usersRequestBuilder.usersRequestBuilderGetQueryParameters::|public|Orderby:string[]
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.usersRequestBuilder.usersRequestBuilderGetQueryParameters::|public|Search:string
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.usersRequestBuilder.usersRequestBuilderGetQueryParameters::|public|Select:string[]
-Microsoft.Agents.M365Copilot.Beta.Copilot.Users.usersRequestBuilder.usersRequestBuilderGetQueryParameters::|public|Skip:long?
-Microsoft.Agents.M365Copilot.Beta.Copilot.Users.usersRequestBuilder.usersRequestBuilderGetQueryParameters::|public|Top:long?
+Microsoft.Agents.M365Copilot.Beta.Copilot.Users.usersRequestBuilder.usersRequestBuilderGetQueryParameters::|public|Skip:int?
+Microsoft.Agents.M365Copilot.Beta.Copilot.Users.usersRequestBuilder.usersRequestBuilderGetQueryParameters::|public|Top:int?
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.usersRequestBuilder.usersRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.UsersRequestBuilder.UsersRequestBuilderGetQueryParameters>
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.usersRequestBuilder.usersRequestBuilderPostRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.usersRequestBuilder::[AiUserId:string]:global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.AiUserItemRequestBuilder
@@ -595,10 +595,14 @@ Microsoft.Agents.M365Copilot.Beta.Models.copilotAdminLimitedMode::|public|Serial
 Microsoft.Agents.M365Copilot.Beta.Models.copilotAdminLimitedMode::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminLimitedMode
 Microsoft.Agents.M365Copilot.Beta.Models.copilotAdminSetting-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.copilotAdminSetting::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotAdminSetting::|public|LimitedMode:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminLimitedMode
+Microsoft.Agents.M365Copilot.Beta.Models.copilotAdminSetting::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotAdminSetting::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.copilotAdminSetting::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPeopleAdminSetting-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPeopleAdminSetting::|public|EnhancedPersonalization:global.Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPeopleAdminSetting::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPeopleAdminSetting::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPeopleAdminSetting::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPeopleAdminSetting::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPeopleAdminSetting
 Microsoft.Agents.M365Copilot.Beta.Models.copilotSetting-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
@@ -959,6 +963,10 @@ Microsoft.Agents.M365Copilot.Beta.Models.teamworkUserIdentityType::0007-unknownF
 Microsoft.Agents.M365Copilot.Beta.Models.teamworkUserIdentityType::0008-emailUser
 Microsoft.Agents.M365Copilot.Beta.Models.teamworkUserIdentityType::0009-azureCommunicationServicesUser
 Microsoft.Agents.M365Copilot.Beta.Models.userIdentity-->global.Microsoft.Agents.M365Copilot.Beta.Models.Identity
+Microsoft.Agents.M365Copilot.Beta.Models.userIdentity::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.userIdentity::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.userIdentity::|public|IpAddress:string
+Microsoft.Agents.M365Copilot.Beta.Models.userIdentity::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.userIdentity::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.userIdentity::|public|UserPrincipalName:string
 Microsoft.Agents.M365Copilot.Beta.Models.userIdentity::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.UserIdentity

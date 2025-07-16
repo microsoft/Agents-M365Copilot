@@ -12,6 +12,22 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class CopilotPeopleAdminSetting : global::Microsoft.Agents.M365Copilot.Beta.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The enhancedPersonalization property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting? EnhancedPersonalization
+        {
+            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting?>("enhancedPersonalization"); }
+            set { BackingStore?.Set("enhancedPersonalization", value); }
+        }
+#nullable restore
+#else
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting EnhancedPersonalization
+        {
+            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting>("enhancedPersonalization"); }
+            set { BackingStore?.Set("enhancedPersonalization", value); }
+        }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -30,6 +46,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                { "enhancedPersonalization", n => { EnhancedPersonalization = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting>(global::Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -40,6 +57,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting>("enhancedPersonalization", EnhancedPersonalization);
         }
     }
 }
