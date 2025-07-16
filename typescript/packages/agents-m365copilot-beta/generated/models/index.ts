@@ -154,7 +154,7 @@ export interface AiInteractionMention extends Entity, Parsable {
 }
 export interface AiInteractionMentionedIdentitySet extends IdentitySet, Parsable {
     /**
-     * The conversation property
+     * The conversation details.
      */
     conversation?: TeamworkConversationIdentity | null;
     /**
@@ -379,6 +379,10 @@ export interface CopilotAdminLimitedMode extends Entity, Parsable {
     isEnabledForGroup?: boolean | null;
 }
 export interface CopilotAdminSetting extends Entity, Parsable {
+    /**
+     * Represents a setting that controls whether users of Microsoft 365 Copilot in Teams meetings can receive responses to sentiment-related prompts. Read-only. Nullable.
+     */
+    limitedMode?: CopilotAdminLimitedMode | null;
 }
 export interface CopilotPeopleAdminSetting extends Entity, Parsable {
     /**
@@ -1547,6 +1551,7 @@ export function deserializeIntoCopilotAdminLimitedMode(copilotAdminLimitedMode: 
 export function deserializeIntoCopilotAdminSetting(copilotAdminSetting: Partial<CopilotAdminSetting> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(copilotAdminSetting),
+        "limitedMode": n => { copilotAdminSetting.limitedMode = n.getObjectValue<CopilotAdminLimitedMode>(createCopilotAdminLimitedModeFromDiscriminatorValue); },
     }
 }
 /**
@@ -1631,6 +1636,8 @@ export function deserializeIntoEngagementIdentitySet(engagementIdentitySet: Part
 export function deserializeIntoEnhancedPersonalizationSetting(enhancedPersonalizationSetting: Partial<EnhancedPersonalizationSetting> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(enhancedPersonalizationSetting),
+        "disabledForGroup": n => { enhancedPersonalizationSetting.disabledForGroup = n.getStringValue(); },
+        "isEnabledInOrganization": n => { enhancedPersonalizationSetting.isEnabledInOrganization = n.getBooleanValue(); },
     }
 }
 /**
@@ -2026,6 +2033,14 @@ export interface EngagementIdentitySet extends IdentitySet, Parsable {
     group?: Identity | null;
 }
 export interface EnhancedPersonalizationSetting extends Entity, Parsable {
+    /**
+     * The ID of a Microsoft Entra group to which the value is used to disable the control for populated users. The default value is null. This parameter is optional.
+     */
+    disabledForGroup?: string | null;
+    /**
+     * If true, enables the enhanced personalization control and therefore related features as defined in control enhanced personalization privacy
+     */
+    isEnabledInOrganization?: boolean | null;
 }
 export interface Entity extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -2047,11 +2062,11 @@ export interface Identity extends AdditionalDataHolder, BackedModel, Parsable {
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The display name of the identity. This property is read-only.
+     * The display name of the identity. For drive items, the display name might not always be available or up to date. For example, if a user changes their display name the API might show the new value in a future response, but the items associated with the user don't show up as changed when using delta.
      */
     displayName?: string | null;
     /**
-     * The identifier of the identity. This property is read-only.
+     * Unique identifier for the identity or actor. For example, in the access reviews decisions API, this property might record the id of the principal, that is, the group, user, or application that's subject to review.
      */
     id?: string | null;
     /**
@@ -2061,7 +2076,7 @@ export interface Identity extends AdditionalDataHolder, BackedModel, Parsable {
 }
 export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Optional. The application associated with this action.
+     * The Identity of the Application. This property is read-only.
      */
     application?: Identity | null;
     /**
@@ -2069,7 +2084,7 @@ export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * Optional. The device associated with this action.
+     * The Identity of the Device. This property is read-only.
      */
     device?: Identity | null;
     /**
@@ -2077,7 +2092,7 @@ export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable
      */
     odataType?: string | null;
     /**
-     * Optional. The user associated with this action.
+     * The Identity of the User. This property is read-only.
      */
     user?: Identity | null;
 }
@@ -2712,6 +2727,7 @@ export function serializeCopilotAdminLimitedMode(writer: SerializationWriter, co
 export function serializeCopilotAdminSetting(writer: SerializationWriter, copilotAdminSetting: Partial<CopilotAdminSetting> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!copilotAdminSetting || isSerializingDerivedType) { return; }
     serializeEntity(writer, copilotAdminSetting, isSerializingDerivedType)
+    writer.writeObjectValue<CopilotAdminLimitedMode>("limitedMode", copilotAdminSetting.limitedMode, serializeCopilotAdminLimitedMode);
 }
 /**
  * Serializes information the current object
@@ -2801,6 +2817,8 @@ export function serializeEngagementIdentitySet(writer: SerializationWriter, enga
 export function serializeEnhancedPersonalizationSetting(writer: SerializationWriter, enhancedPersonalizationSetting: Partial<EnhancedPersonalizationSetting> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!enhancedPersonalizationSetting || isSerializingDerivedType) { return; }
     serializeEntity(writer, enhancedPersonalizationSetting, isSerializingDerivedType)
+    writer.writeStringValue("disabledForGroup", enhancedPersonalizationSetting.disabledForGroup);
+    writer.writeBooleanValue("isEnabledInOrganization", enhancedPersonalizationSetting.isEnabledInOrganization);
 }
 /**
  * Serializes information the current object
