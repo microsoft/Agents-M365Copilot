@@ -213,10 +213,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.OnlineMeetings.It
 #endif
             /// <summary>Skip the first n items</summary>
             [QueryParameter("%24skip")]
-            public long? Skip { get; set; }
+            public int? Skip { get; set; }
             /// <summary>Show only the first n items</summary>
             [QueryParameter("%24top")]
-            public long? Top { get; set; }
+            public int? Top { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
