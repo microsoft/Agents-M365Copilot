@@ -14,7 +14,7 @@ trigger:
       - 'typescript/packages/agents-m365copilot-core/src/**'
   tags:
     include:
-      - 'microsoft/agents-m365copilot-core*'
+      - '@microsoft/agents-m365copilot-core*'
 
 pr: none
 
