@@ -35,6 +35,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnt
         }
         /// <summary>
         /// Get all Microsoft 365 Copilot interaction data, including user prompts to Copilot and Copilot responses. This API captures the user intent, the resources accessed by Copilot, and the response to the user for Microsoft 365 apps such as Teams, Word, and Outlook. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/aiinteractionhistory-getallenterpriseinteractions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnterpriseInteractions.GetAllEnterpriseInteractionsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -58,6 +59,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnt
         }
         /// <summary>
         /// Get all Microsoft 365 Copilot interaction data, including user prompts to Copilot and Copilot responses. This API captures the user intent, the resources accessed by Copilot, and the response to the user for Microsoft 365 apps such as Teams, Word, and Outlook. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/aiinteractionhistory-getallenterpriseinteractions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnterpriseInteractions.GetAllEnterpriseInteractionsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -169,10 +171,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnt
 #endif
             /// <summary>Skip the first n items</summary>
             [QueryParameter("%24skip")]
-            public long? Skip { get; set; }
+            public int? Skip { get; set; }
             /// <summary>Show only the first n items</summary>
             [QueryParameter("%24top")]
-            public long? Top { get; set; }
+            public int? Top { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
