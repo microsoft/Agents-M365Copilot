@@ -1,8 +1,13 @@
+# Documentation
 include LICENSE
 include README.md
 include MANIFEST.in
 
+# Source files
 recursive-include src *.py *.pyi
+include __init__.py
+
+# Exclude unnecessary files
 global-exclude *.pyc
 global-exclude __pycache__
 global-exclude .DS_Store
