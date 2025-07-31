@@ -92,14 +92,14 @@ extends:
             - task: DotNetCoreCLI@2
               displayName: 'Build Microsoft.Agents.M365Copilot.Beta'
               # This condition allows the build to run for both tag builds and manual builds.
-              condition: or(startsWith(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
+              condition: or(contains(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
               inputs:
                 projects: '$(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Beta/Microsoft.Agents.M365Copilot.Beta.csproj'
                 arguments: '--configuration $(buildConfiguration) --no-incremental'
             - task: DotNetCoreCLI@2
               displayName: 'Test Microsoft.Agents.M365Copilot.Beta'
               # This condition allows the build to run for both tag builds and manual builds.
-              condition: or(startsWith(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
+              condition: or(contains(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
               inputs:
                 command: test
                 projects: '$(Build.SourcesDirectory)/dotnet/tests/Microsoft.Agents.M365Copilot.Beta.Tests/Microsoft.Agents.M365Copilot.Beta.Tests.csproj'
@@ -120,7 +120,7 @@ extends:
             # Pack Beta
             - pwsh: dotnet pack $(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Beta/Microsoft.Agents.M365Copilot.Beta.csproj /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg --no-build --output $(nugetArtifacts) --configuration $(buildConfiguration)
               # This condition allows the pack command to run for both tag builds and manual builds.
-              condition: or(startsWith(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
+              condition: or(contains(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
               displayName: 'Dotnet pack Beta'
 
             # Sign Beta NuGet package using ESRP
