@@ -14,7 +14,7 @@ trigger:
       - 'typescript/packages/agents-m365copilot-core/src/**'
   tags:
     include:
-      - 'microsoft/agents-m365copilot-core*'
+      - '@microsoft/agents-m365copilot-core*'
 
 pr: none
 
@@ -61,17 +61,17 @@ extends:
             - script: npm run build --workspace=$(package_dir_core)
               displayName: 'Build $(package_name_core)'
               workingDirectory: '$(Build.SourcesDirectory)/typescript/'
-              condition: or(startsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
+              condition: or(contains(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
 
             - script: npm test --workspace=$(package_dir_core)
               displayName: 'Run tests $(package_name_core)'
               workingDirectory: '$(Build.SourcesDirectory)/typescript/' 
-              condition: or(startsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
+              condition: or(contains(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
 
             - script: npm pack --workspace=$(package_dir_core) --pack-destination=$(Build.SourcesDirectory)/typescript/$(package_dir_core)
               displayName: 'Generate npm package $(package_name_core)'
               workingDirectory: '$(Build.SourcesDirectory)/typescript'
-              condition: or(startsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
+              condition: or(contains(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
 
             # Stage artifacts for Core package
 
@@ -82,7 +82,7 @@ extends:
                 Contents: |
                   microsoft-agents-m365copilot-core*.tgz
               displayName: "Copy npm package files for $(package_name_core)"
-              condition: or(startsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
+              condition: or(contains(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
 
           templateContext:
             outputs:
@@ -90,7 +90,7 @@ extends:
                 displayName: 'Stage Core TypeScript package artifacts'
                 artifactName: npm_$(package_name_core)
                 targetPath: '$(Build.ArtifactStagingDirectory)/npm/$(package_name_core)'
-                condition: or(startsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
+                condition: or(contains(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-core'), eq(variables['Build.Reason'], 'Manual'))
 
     - stage: deploy
       displayName: 'Deploy NPM Package'
