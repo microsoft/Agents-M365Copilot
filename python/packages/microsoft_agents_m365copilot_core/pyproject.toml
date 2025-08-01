@@ -29,14 +29,10 @@ homepage = "https://github.com/microsoft/Agents-M365Copilot/tree/main/python"
 repository = "https://github.com/microsoft/Agents-M365Copilot"
 documentation = "https://github.com/microsoft/Agents-M365Copilot/tree/main/python/packages/microsoft_agents_m365copilot_core#readme"
 
-packages = [
-    {include = "*", from = "src"}
-]
+include = ["README.md"]
 
-include = [
-    "LICENSE",
-    "README.md"
-]
+[[tool.poetry.packages]]
+include = "microsoft_agents_m365copilot_core"
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
