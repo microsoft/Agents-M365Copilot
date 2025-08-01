@@ -1,19 +1,4 @@
 # Documentation
-include README.md
 include MANIFEST.in
-
-# Source files
-recursive-include generated *.py
-include __init__.py
-include _version.py
-include agents_m365_copilot_beta_request_adapter.py
-include agents_m365_copilot_beta_service_client.py
-
-# Exclude unnecessary files
-global-exclude *.pyc
-global-exclude __pycache__
-global-exclude .DS_Store
-global-exclude *.pyo
-global-exclude *.pyd
-global-exclude .git*
-global-exclude *.egg-info
+include CHANGELOG.md
+include ../../SECURITY.md
