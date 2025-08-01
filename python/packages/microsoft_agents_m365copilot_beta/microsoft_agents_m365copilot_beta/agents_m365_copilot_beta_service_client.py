@@ -19,11 +19,6 @@ from .generated.base_agents_m365_copilot_beta_service_client import (
     BaseAgentsM365CopilotBetaServiceClient,
 )
 
-if TYPE_CHECKING:
-    from microsoft_agents_m365copilot_core import BatchRequestBuilder
-
-    from .generated.copilot.users.users_request_builder import AiUserItemRequestBuilder
-
 class AgentsM365CopilotBetaServiceClient(BaseAgentsM365CopilotBetaServiceClient):
 
     def __init__(
