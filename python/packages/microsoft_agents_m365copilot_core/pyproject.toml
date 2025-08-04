@@ -55,10 +55,15 @@ warn_unused_configs = true
 files = "src"
 
 [tool.yapf]
-based_on_style = "pep8"
+based_on_style = "pep8"                                                                            
 dedent_closing_brackets = true
 each_dict_entry_on_separate_line = true
 column_limit = 100
+
+[tool.yapfignore]
+ignore_patterns = [
+  "microsoft_agents_m365copilot_core/__init__.py"
+]
 
 [tool.isort]
 profile = "hug"
