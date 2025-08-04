@@ -1,12 +1,5 @@
-include LICENSE
-include README.md
+# Documentation
 include MANIFEST.in
-
-recursive-include src *.py *.pyi
-global-exclude *.pyc
-global-exclude __pycache__
-global-exclude .DS_Store
-global-exclude *.pyo
-global-exclude *.pyd
-global-exclude .git*
-global-exclude *.egg-info
+include CHANGELOG.md
+include ../../SECURITY.md
+include README.md
