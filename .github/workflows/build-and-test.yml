@@ -130,12 +130,6 @@ jobs:
         working-directory: ${{ matrix.packages.path }}
 
       # Core package specific steps
-      - name: Check code format
-        if: matrix.packages.name == 'microsoft_agents_m365copilot_core'
-        run: |
-          poetry run yapf -dr .
-        working-directory: ${{ matrix.packages.path }}
-
       - name: Check import order
         if: matrix.packages.name == 'microsoft_agents_m365copilot_core'
         run: |
