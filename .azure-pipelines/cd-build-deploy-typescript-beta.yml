@@ -61,13 +61,11 @@ extends:
             - script: npm run build --workspace=$(package_dir_beta)
               displayName: 'Build $(package_name_beta)'
               workingDirectory: '$(Build.SourcesDirectory)/typescript/'
-              condition: or(startsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-beta'), eq(variables['Build.Reason'], 'Manual'))
 
             - script: npm pack --workspace=$(package_dir_beta) --pack-destination=$(Build.SourcesDirectory)/typescript/$(package_dir_beta)
               displayName: 'Generate npm package $(package_name_beta)'
               workingDirectory: '$(Build.SourcesDirectory)/typescript'
-              condition: or(startsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-beta'), eq(variables['Build.Reason'], 'Manual'))
-
+              
             # Stage artifacts for Beta package
 
             - task: CopyFiles@2
@@ -77,8 +75,7 @@ extends:
                 Contents: |
                   microsoft-agents-m365copilot-beta*.tgz
               displayName: "Copy npm package files for $(package_name_beta)"
-              condition: or(startsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-beta'), eq(variables['Build.Reason'], 'Manual'))
-
+              
           templateContext:
             outputs:
               - output: pipelineArtifact
