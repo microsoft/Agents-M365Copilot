@@ -10,7 +10,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class MeetingNoteSubpoint : IAdditionalDataHolder, IBackedModel, IParsable
+    public partial class DataSourceConfiguration : IAdditionalDataHolder, IBackedModel, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -21,6 +21,22 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
+        /// <summary>The externalItem property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.ExternalItemConfiguration? ExternalItem
+        {
+            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.ExternalItemConfiguration?>("externalItem"); }
+            set { BackingStore?.Set("externalItem", value); }
+        }
+#nullable restore
+#else
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.ExternalItemConfiguration ExternalItem
+        {
+            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.ExternalItemConfiguration>("externalItem"); }
+            set { BackingStore?.Set("externalItem", value); }
+        }
+#endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,42 +53,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The text property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Text
-        {
-            get { return BackingStore?.Get<string?>("text"); }
-            set { BackingStore?.Set("text", value); }
-        }
-#nullable restore
-#else
-        public string Text
-        {
-            get { return BackingStore?.Get<string>("text"); }
-            set { BackingStore?.Set("text", value); }
-        }
-#endif
-        /// <summary>The title property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Title
-        {
-            get { return BackingStore?.Get<string?>("title"); }
-            set { BackingStore?.Set("title", value); }
-        }
-#nullable restore
-#else
-        public string Title
-        {
-            get { return BackingStore?.Get<string>("title"); }
-            set { BackingStore?.Set("title", value); }
-        }
-#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingNoteSubpoint"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.DataSourceConfiguration"/> and sets the default values.
         /// </summary>
-        public MeetingNoteSubpoint()
+        public DataSourceConfiguration()
         {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
@@ -80,12 +64,12 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingNoteSubpoint"/></returns>
+        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.DataSourceConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingNoteSubpoint CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Microsoft.Agents.M365Copilot.Beta.Models.DataSourceConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingNoteSubpoint();
+            return new global::Microsoft.Agents.M365Copilot.Beta.Models.DataSourceConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -95,9 +79,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "externalItem", n => { ExternalItem = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.ExternalItemConfiguration>(global::Microsoft.Agents.M365Copilot.Beta.Models.ExternalItemConfiguration.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "text", n => { Text = n.GetStringValue(); } },
-                { "title", n => { Title = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -107,9 +90,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.ExternalItemConfiguration>("externalItem", ExternalItem);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteStringValue("text", Text);
-            writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

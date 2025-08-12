@@ -16,29 +16,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         #pragma warning disable CS1591
         OneDriveBusiness,
         #pragma warning restore CS1591
-        [EnumMember(Value = "externalItems")]
+        [EnumMember(Value = "externalItem")]
         #pragma warning disable CS1591
-        ExternalItems,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "mail")]
-        #pragma warning disable CS1591
-        Mail,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "calendar")]
-        #pragma warning disable CS1591
-        Calendar,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "teams")]
-        #pragma warning disable CS1591
-        Teams,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "people")]
-        #pragma warning disable CS1591
-        People,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "sharePointEmbedded")]
-        #pragma warning disable CS1591
-        SharePointEmbedded,
+        ExternalItem,
         #pragma warning restore CS1591
         [EnumMember(Value = "unknownFutureValue")]
         #pragma warning disable CS1591
