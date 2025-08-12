@@ -16,45 +16,45 @@ export interface ActionItem extends AdditionalDataHolder, BackedModel, Parsable 
      */
     odataType?: string | null;
     /**
-     * The display name of the owner of the action item.
+     * The ownerDisplayName property
      */
     ownerDisplayName?: string | null;
     /**
-     * The text content of the action item.
+     * The text property
      */
     text?: string | null;
     /**
-     * The title of the action item.
+     * The title property
      */
     title?: string | null;
 }
 export interface AiInteraction extends Entity, Parsable {
     /**
-     * The data source for Copilot data. For example, IPM.SkypeTeams.Message.Copilot.Excel or IPM.SkypeTeams.Message.Copilot.Loop.
+     * The appClass property
      */
     appClass?: string | null;
     /**
-     * The collection of documents attached to the interaction, such as cards and images.
+     * The attachments property
      */
     attachments?: AiInteractionAttachment[] | null;
     /**
-     * The body of the message, including the text of the body and its body type.
+     * The body property
      */
     body?: ItemBody | null;
     /**
-     * The identifer that maps to all contexts associated with an interaction.
+     * The contexts property
      */
     contexts?: AiInteractionContext[] | null;
     /**
-     * The type of the conversation. For example, appchat or bizchat.
+     * The conversationType property
      */
     conversationType?: string | null;
     /**
-     * The time when the interaction was created.
+     * The createdDateTime property
      */
     createdDateTime?: Date | null;
     /**
-     * The timestamp of when the interaction was last modified.
+     * The etag property
      */
     etag?: string | null;
     /**
@@ -66,91 +66,123 @@ export interface AiInteraction extends Entity, Parsable {
      */
     interactionType?: AiInteractionType | null;
     /**
-     * The collection of links that appear in the interaction.
+     * The links property
      */
     links?: AiInteractionLink[] | null;
     /**
-     * The locale of the sender.
+     * The locale property
      */
     locale?: string | null;
     /**
-     * The collection of the entities that were mentioned in the interaction, including users, bots, and so on.
+     * The mentions property
      */
     mentions?: AiInteractionMention[] | null;
     /**
-     * The identifier that groups a user prompt with its Copilot response.
+     * The requestId property
      */
     requestId?: string | null;
     /**
-     * The thread ID or conversation identifier that maps to all Copilot sessions for the user.
+     * The sessionId property
      */
     sessionId?: string | null;
 }
-export interface AiInteractionAttachment extends Entity, Parsable {
+export interface AiInteractionAttachment extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * The identifier for the attachment. This identifier is only unique within the message scope.
+     * The attachmentId property
      */
     attachmentId?: string | null;
     /**
-     * The content of the attachment.
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The content property
      */
     content?: string | null;
     /**
-     * The type of the content. For example, reference, file, and image/imageType.
+     * The contentType property
      */
     contentType?: string | null;
     /**
-     * The URL of the content.
+     * The contentUrl property
      */
     contentUrl?: string | null;
     /**
-     * The name of the attachment.
+     * The name property
      */
     name?: string | null;
-}
-export interface AiInteractionContext extends Entity, Parsable {
     /**
-     * The full file URL where the interaction happened.
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
+export interface AiInteractionContext extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The contextReference property
      */
     contextReference?: string | null;
     /**
-     * The type of the file.
+     * The contextType property
      */
     contextType?: string | null;
     /**
-     * The name of the file.
+     * The displayName property
      */
     displayName?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
 }
 export interface AiInteractionHistory extends Entity, Parsable {
 }
-export interface AiInteractionLink extends Entity, Parsable {
+export interface AiInteractionLink extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * The name of the link.
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The displayName property
      */
     displayName?: string | null;
     /**
-     * Information about a link in an app chat or Business Chat (BizChat) interaction.
+     * The linkType property
      */
     linkType?: string | null;
     /**
-     * The URL of the link.
+     * The linkUrl property
      */
     linkUrl?: string | null;
-}
-export interface AiInteractionMention extends Entity, Parsable {
     /**
-     * The entity mentioned in the message.
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
+export interface AiInteractionMention extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The mentioned property
      */
     mentioned?: AiInteractionMentionedIdentitySet | null;
     /**
-     * The identifier for the mention.
+     * The mentionId property
      */
     mentionId?: number | null;
     /**
-     * The text mentioned in the message.
+     * The mentionText property
      */
     mentionText?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
 }
 export interface AiInteractionMentionedIdentitySet extends IdentitySet, Parsable {
     /**
@@ -158,14 +190,14 @@ export interface AiInteractionMentionedIdentitySet extends IdentitySet, Parsable
      */
     conversation?: TeamworkConversationIdentity | null;
     /**
-     * The tag details.
+     * The tag property
      */
     tag?: TeamworkTagIdentity | null;
 }
 export type AiInteractionType = (typeof AiInteractionTypeObject)[keyof typeof AiInteractionTypeObject];
 export interface AiOnlineMeeting extends Entity, Parsable {
     /**
-     * A set of AI insights associated with an AI online meeting.
+     * The aiInsights property
      */
     aiInsights?: CallAiInsight[] | null;
 }
@@ -177,11 +209,11 @@ export interface AiOnlineMeetingCollectionResponse extends BaseCollectionPaginat
 }
 export interface AiUser extends Entity, Parsable {
     /**
-     * The history of interactions between AI agents and users.
+     * The interactionHistory property
      */
     interactionHistory?: AiInteractionHistory | null;
     /**
-     * Information about an online meeting, including AI insights.
+     * The onlineMeetings property
      */
     onlineMeetings?: AiOnlineMeeting[] | null;
 }
@@ -230,31 +262,31 @@ export interface BaseCollectionPaginationCountResponse extends AdditionalDataHol
 export type BodyType = (typeof BodyTypeObject)[keyof typeof BodyTypeObject];
 export interface CallAiInsight extends Entity, Parsable {
     /**
-     * The collection of AI-generated action items. Read-only.
+     * The actionItems property
      */
     actionItems?: ActionItem[] | null;
     /**
-     * The ID for the online meeting call for which the callAiInsight was generated. Read-only.
+     * The callId property
      */
     callId?: string | null;
     /**
-     * The unique ID that correlates the transcript from which the insights were generated. Read-only.
+     * The contentCorrelationId property
      */
     contentCorrelationId?: string | null;
     /**
-     * Date and time at which the corresponding transcript was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * The createdDateTime property
      */
     createdDateTime?: Date | null;
     /**
-     * Date and time at which the corresponding transcription ends. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * The endDateTime property
      */
     endDateTime?: Date | null;
     /**
-     * The collection of AI-generated meeting notes. Read-only.
+     * The meetingNotes property
      */
     meetingNotes?: MeetingNote[] | null;
     /**
-     * The caller-specific properties of the callAiInsight entity. Read-only.
+     * The viewpoint property
      */
     viewpoint?: CallAiInsightViewPoint | null;
 }
@@ -270,7 +302,7 @@ export interface CallAiInsightViewPoint extends AdditionalDataHolder, BackedMode
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The collection of AI-generated mention events.
+     * The mentionEvents property
      */
     mentionEvents?: MentionEvent[] | null;
     /**
@@ -362,25 +394,39 @@ export interface CommunicationsUserIdentity extends Identity, Parsable {
      */
     tenantId?: string | null;
 }
+export interface ConnectionItem extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The connectionId property
+     */
+    connectionId?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 export interface CopilotAdmin extends Entity, Parsable {
     /**
-     * Set of Microsoft 365 Copilot settings that can be added or modified. Read-only. Nullable.
+     * The settings property
      */
     settings?: CopilotAdminSetting | null;
 }
 export interface CopilotAdminLimitedMode extends Entity, Parsable {
     /**
-     * The ID of a Microsoft Entra group, for which the value of isEnabledForGroup is applied. The default value is null. If isEnabledForGroup is set to true, the groupId value must be provided for the Copilot limited mode in Teams meetings to be enabled for the members of the group. Optional.
+     * The groupId property
      */
     groupId?: string | null;
     /**
-     * Enables the user to be in limited mode for Copilot in Teams meetings. When copilotAdminLimitedMode=true, users in this mode can ask any questions, but Copilot doesn't respond to certain questions related to inferring emotions, behavior, or judgments. When copilotAdminLimitedMode=false, it responds to all types of questions grounded to the meeting conversation. The default value is false.
+     * The isEnabledForGroup property
      */
     isEnabledForGroup?: boolean | null;
 }
 export interface CopilotAdminSetting extends Entity, Parsable {
     /**
-     * Represents a setting that controls whether users of Microsoft 365 Copilot in Teams meetings can receive responses to sentiment-related prompts. Read-only. Nullable.
+     * The limitedMode property
      */
     limitedMode?: CopilotAdminLimitedMode | null;
 }
@@ -660,6 +706,15 @@ export function createCommunicationsUserIdentityFromDiscriminatorValue(parseNode
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ConnectionItem}
+ */
+// @ts-ignore
+export function createConnectionItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoConnectionItem;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CopilotAdmin}
  */
 // @ts-ignore
@@ -701,6 +756,15 @@ export function createCopilotPeopleAdminSettingFromDiscriminatorValue(parseNode:
 // @ts-ignore
 export function createCopilotSettingFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCopilotSetting;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {DataSourceConfiguration}
+ */
+// @ts-ignore
+export function createDataSourceConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoDataSourceConfiguration;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -797,6 +861,15 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
         }
     }
     return deserializeIntoEntity;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ExternalItemConfiguration}
+ */
+// @ts-ignore
+export function createExternalItemConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoExternalItemConfiguration;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -1127,6 +1200,20 @@ export function createUserIdentityFromDiscriminatorValue(parseNode: ParseNode | 
     }
     return deserializeIntoUserIdentity;
 }
+export interface DataSourceConfiguration extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The externalItem property
+     */
+    externalItem?: ExternalItemConfiguration | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 /**
  * The deserialization information for the current model
  * @param ActionItem The instance to deserialize into.
@@ -1175,12 +1262,13 @@ export function deserializeIntoAiInteraction(aiInteraction: Partial<AiInteractio
 // @ts-ignore
 export function deserializeIntoAiInteractionAttachment(aiInteractionAttachment: Partial<AiInteractionAttachment> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoEntity(aiInteractionAttachment),
         "attachmentId": n => { aiInteractionAttachment.attachmentId = n.getStringValue(); },
+        "backingStoreEnabled": n => { aiInteractionAttachment.backingStoreEnabled = true; },
         "content": n => { aiInteractionAttachment.content = n.getStringValue(); },
         "contentType": n => { aiInteractionAttachment.contentType = n.getStringValue(); },
         "contentUrl": n => { aiInteractionAttachment.contentUrl = n.getStringValue(); },
         "name": n => { aiInteractionAttachment.name = n.getStringValue(); },
+        "@odata.type": n => { aiInteractionAttachment.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -1191,10 +1279,11 @@ export function deserializeIntoAiInteractionAttachment(aiInteractionAttachment: 
 // @ts-ignore
 export function deserializeIntoAiInteractionContext(aiInteractionContext: Partial<AiInteractionContext> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoEntity(aiInteractionContext),
+        "backingStoreEnabled": n => { aiInteractionContext.backingStoreEnabled = true; },
         "contextReference": n => { aiInteractionContext.contextReference = n.getStringValue(); },
         "contextType": n => { aiInteractionContext.contextType = n.getStringValue(); },
         "displayName": n => { aiInteractionContext.displayName = n.getStringValue(); },
+        "@odata.type": n => { aiInteractionContext.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -1216,10 +1305,11 @@ export function deserializeIntoAiInteractionHistory(aiInteractionHistory: Partia
 // @ts-ignore
 export function deserializeIntoAiInteractionLink(aiInteractionLink: Partial<AiInteractionLink> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoEntity(aiInteractionLink),
+        "backingStoreEnabled": n => { aiInteractionLink.backingStoreEnabled = true; },
         "displayName": n => { aiInteractionLink.displayName = n.getStringValue(); },
         "linkType": n => { aiInteractionLink.linkType = n.getStringValue(); },
         "linkUrl": n => { aiInteractionLink.linkUrl = n.getStringValue(); },
+        "@odata.type": n => { aiInteractionLink.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -1230,10 +1320,11 @@ export function deserializeIntoAiInteractionLink(aiInteractionLink: Partial<AiIn
 // @ts-ignore
 export function deserializeIntoAiInteractionMention(aiInteractionMention: Partial<AiInteractionMention> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoEntity(aiInteractionMention),
+        "backingStoreEnabled": n => { aiInteractionMention.backingStoreEnabled = true; },
         "mentioned": n => { aiInteractionMention.mentioned = n.getObjectValue<AiInteractionMentionedIdentitySet>(createAiInteractionMentionedIdentitySetFromDiscriminatorValue); },
         "mentionId": n => { aiInteractionMention.mentionId = n.getNumberValue(); },
         "mentionText": n => { aiInteractionMention.mentionText = n.getStringValue(); },
+        "@odata.type": n => { aiInteractionMention.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -1519,6 +1610,19 @@ export function deserializeIntoCommunicationsUserIdentity(communicationsUserIden
 }
 /**
  * The deserialization information for the current model
+ * @param ConnectionItem The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoConnectionItem(connectionItem: Partial<ConnectionItem> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { connectionItem.backingStoreEnabled = true; },
+        "connectionId": n => { connectionItem.connectionId = n.getStringValue(); },
+        "@odata.type": n => { connectionItem.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param CopilotAdmin The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -1576,6 +1680,19 @@ export function deserializeIntoCopilotSetting(copilotSetting: Partial<CopilotSet
     return {
         ...deserializeIntoEntity(copilotSetting),
         "people": n => { copilotSetting.people = n.getObjectValue<CopilotPeopleAdminSetting>(createCopilotPeopleAdminSettingFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param DataSourceConfiguration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoDataSourceConfiguration(dataSourceConfiguration: Partial<DataSourceConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { dataSourceConfiguration.backingStoreEnabled = true; },
+        "externalItem": n => { dataSourceConfiguration.externalItem = n.getObjectValue<ExternalItemConfiguration>(createExternalItemConfigurationFromDiscriminatorValue); },
+        "@odata.type": n => { dataSourceConfiguration.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -1651,6 +1768,19 @@ export function deserializeIntoEntity(entity: Partial<Entity> | undefined = {}) 
         "backingStoreEnabled": n => { entity.backingStoreEnabled = true; },
         "id": n => { entity.id = n.getStringValue(); },
         "@odata.type": n => { entity.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ExternalItemConfiguration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoExternalItemConfiguration(externalItemConfiguration: Partial<ExternalItemConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { externalItemConfiguration.backingStoreEnabled = true; },
+        "connections": n => { externalItemConfiguration.connections = n.getCollectionOfObjectValues<ConnectionItem>(createConnectionItemFromDiscriminatorValue); },
+        "@odata.type": n => { externalItemConfiguration.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -2056,17 +2186,31 @@ export interface Entity extends AdditionalDataHolder, BackedModel, Parsable {
      */
     odataType?: string | null;
 }
+export interface ExternalItemConfiguration extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The connections property
+     */
+    connections?: ConnectionItem[] | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 export interface Identity extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The display name of the identity. For drive items, the display name might not always be available or up to date. For example, if a user changes their display name the API might show the new value in a future response, but the items associated with the user don't show up as changed when using delta.
+     * The display name of the identity. This property is read-only.
      */
     displayName?: string | null;
     /**
-     * Unique identifier for the identity or actor. For example, in the access reviews decisions API, this property might record the id of the principal, that is, the group, user, or application that's subject to review.
+     * The identifier of the identity. This property is read-only.
      */
     id?: string | null;
     /**
@@ -2131,15 +2275,15 @@ export interface MeetingNote extends AdditionalDataHolder, BackedModel, Parsable
      */
     odataType?: string | null;
     /**
-     * A collection of subpoints of the meeting note.
+     * The subpoints property
      */
     subpoints?: MeetingNoteSubpoint[] | null;
     /**
-     * The text of the meeting note.
+     * The text property
      */
     text?: string | null;
     /**
-     * The title of the meeting note.
+     * The title property
      */
     title?: string | null;
 }
@@ -2153,11 +2297,11 @@ export interface MeetingNoteSubpoint extends AdditionalDataHolder, BackedModel, 
      */
     odataType?: string | null;
     /**
-     * The text of the meeting note subpoint.
+     * The text property
      */
     text?: string | null;
     /**
-     * The title of the meeting note subpoint.
+     * The title property
      */
     title?: string | null;
 }
@@ -2167,7 +2311,7 @@ export interface MentionEvent extends AdditionalDataHolder, BackedModel, Parsabl
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The date and time of the mention event. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * The eventDateTime property
      */
     eventDateTime?: Date | null;
     /**
@@ -2175,11 +2319,11 @@ export interface MentionEvent extends AdditionalDataHolder, BackedModel, Parsabl
      */
     odataType?: string | null;
     /**
-     * The speaker who mentioned the user.
+     * The speaker property
      */
     speaker?: IdentitySet | null;
     /**
-     * The utterance in the online meeting transcript that contains the mention event.
+     * The transcriptUtterance property
      */
     transcriptUtterance?: string | null;
 }
@@ -2351,12 +2495,13 @@ export function serializeAiInteraction(writer: SerializationWriter, aiInteractio
 // @ts-ignore
 export function serializeAiInteractionAttachment(writer: SerializationWriter, aiInteractionAttachment: Partial<AiInteractionAttachment> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!aiInteractionAttachment || isSerializingDerivedType) { return; }
-    serializeEntity(writer, aiInteractionAttachment, isSerializingDerivedType)
     writer.writeStringValue("attachmentId", aiInteractionAttachment.attachmentId);
     writer.writeStringValue("content", aiInteractionAttachment.content);
     writer.writeStringValue("contentType", aiInteractionAttachment.contentType);
     writer.writeStringValue("contentUrl", aiInteractionAttachment.contentUrl);
     writer.writeStringValue("name", aiInteractionAttachment.name);
+    writer.writeStringValue("@odata.type", aiInteractionAttachment.odataType);
+    writer.writeAdditionalData(aiInteractionAttachment.additionalData);
 }
 /**
  * Serializes information the current object
@@ -2367,10 +2512,11 @@ export function serializeAiInteractionAttachment(writer: SerializationWriter, ai
 // @ts-ignore
 export function serializeAiInteractionContext(writer: SerializationWriter, aiInteractionContext: Partial<AiInteractionContext> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!aiInteractionContext || isSerializingDerivedType) { return; }
-    serializeEntity(writer, aiInteractionContext, isSerializingDerivedType)
     writer.writeStringValue("contextReference", aiInteractionContext.contextReference);
     writer.writeStringValue("contextType", aiInteractionContext.contextType);
     writer.writeStringValue("displayName", aiInteractionContext.displayName);
+    writer.writeStringValue("@odata.type", aiInteractionContext.odataType);
+    writer.writeAdditionalData(aiInteractionContext.additionalData);
 }
 /**
  * Serializes information the current object
@@ -2392,10 +2538,11 @@ export function serializeAiInteractionHistory(writer: SerializationWriter, aiInt
 // @ts-ignore
 export function serializeAiInteractionLink(writer: SerializationWriter, aiInteractionLink: Partial<AiInteractionLink> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!aiInteractionLink || isSerializingDerivedType) { return; }
-    serializeEntity(writer, aiInteractionLink, isSerializingDerivedType)
     writer.writeStringValue("displayName", aiInteractionLink.displayName);
     writer.writeStringValue("linkType", aiInteractionLink.linkType);
     writer.writeStringValue("linkUrl", aiInteractionLink.linkUrl);
+    writer.writeStringValue("@odata.type", aiInteractionLink.odataType);
+    writer.writeAdditionalData(aiInteractionLink.additionalData);
 }
 /**
  * Serializes information the current object
@@ -2406,10 +2553,11 @@ export function serializeAiInteractionLink(writer: SerializationWriter, aiIntera
 // @ts-ignore
 export function serializeAiInteractionMention(writer: SerializationWriter, aiInteractionMention: Partial<AiInteractionMention> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!aiInteractionMention || isSerializingDerivedType) { return; }
-    serializeEntity(writer, aiInteractionMention, isSerializingDerivedType)
     writer.writeObjectValue<AiInteractionMentionedIdentitySet>("mentioned", aiInteractionMention.mentioned, serializeAiInteractionMentionedIdentitySet);
     writer.writeNumberValue("mentionId", aiInteractionMention.mentionId);
     writer.writeStringValue("mentionText", aiInteractionMention.mentionText);
+    writer.writeStringValue("@odata.type", aiInteractionMention.odataType);
+    writer.writeAdditionalData(aiInteractionMention.additionalData);
 }
 /**
  * Serializes information the current object
@@ -2694,6 +2842,19 @@ export function serializeCommunicationsUserIdentity(writer: SerializationWriter,
 }
 /**
  * Serializes information the current object
+ * @param ConnectionItem The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeConnectionItem(writer: SerializationWriter, connectionItem: Partial<ConnectionItem> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!connectionItem || isSerializingDerivedType) { return; }
+    writer.writeStringValue("connectionId", connectionItem.connectionId);
+    writer.writeStringValue("@odata.type", connectionItem.odataType);
+    writer.writeAdditionalData(connectionItem.additionalData);
+}
+/**
+ * Serializes information the current object
  * @param CopilotAdmin The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -2752,6 +2913,19 @@ export function serializeCopilotSetting(writer: SerializationWriter, copilotSett
     if (!copilotSetting || isSerializingDerivedType) { return; }
     serializeEntity(writer, copilotSetting, isSerializingDerivedType)
     writer.writeObjectValue<CopilotPeopleAdminSetting>("people", copilotSetting.people, serializeCopilotPeopleAdminSetting);
+}
+/**
+ * Serializes information the current object
+ * @param DataSourceConfiguration The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeDataSourceConfiguration(writer: SerializationWriter, dataSourceConfiguration: Partial<DataSourceConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!dataSourceConfiguration || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<ExternalItemConfiguration>("externalItem", dataSourceConfiguration.externalItem, serializeExternalItemConfiguration);
+    writer.writeStringValue("@odata.type", dataSourceConfiguration.odataType);
+    writer.writeAdditionalData(dataSourceConfiguration.additionalData);
 }
 /**
  * Serializes information the current object
@@ -2867,6 +3041,19 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
             serializeEnhancedPersonalizationSetting(writer, entity, true);
         break;
     }
+}
+/**
+ * Serializes information the current object
+ * @param ExternalItemConfiguration The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeExternalItemConfiguration(writer: SerializationWriter, externalItemConfiguration: Partial<ExternalItemConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!externalItemConfiguration || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<ConnectionItem>("connections", externalItemConfiguration.connections, serializeConnectionItem);
+    writer.writeStringValue("@odata.type", externalItemConfiguration.odataType);
+    writer.writeAdditionalData(externalItemConfiguration.additionalData);
 }
 /**
  * Serializes information the current object
@@ -3402,12 +3589,7 @@ export const InitiatorTypeObject = {
 export const RetrievalDataSourceObject = {
     SharePoint: "sharePoint",
     OneDriveBusiness: "oneDriveBusiness",
-    ExternalItems: "externalItems",
-    Mail: "mail",
-    Calendar: "calendar",
-    Teams: "teams",
-    People: "people",
-    SharePointEmbedded: "sharePointEmbedded",
+    ExternalItem: "externalItem",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const RetrievalEntityTypeObject = {

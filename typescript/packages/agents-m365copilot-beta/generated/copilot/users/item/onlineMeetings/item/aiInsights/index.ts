@@ -27,11 +27,10 @@ export interface AiInsightsRequestBuilder extends BaseRequestBuilder<AiInsightsR
      */
      byCallAiInsightId(callAiInsightId: string) : CallAiInsightItemRequestBuilder;
     /**
-     * Get the list of callAiInsight objects associated with an onlineMeeting.
+     * Get aiInsights from copilot
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CallAiInsightCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/onlinemeeting-list-aiinsights?view=graph-rest-beta|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AiInsightsRequestBuilderGetQueryParameters> | undefined) : Promise<CallAiInsightCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface AiInsightsRequestBuilder extends BaseRequestBuilder<AiInsightsR
      */
      post(body: CallAiInsight, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CallAiInsight | undefined>;
     /**
-     * Get the list of callAiInsight objects associated with an onlineMeeting.
+     * Get aiInsights from copilot
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface AiInsightsRequestBuilder extends BaseRequestBuilder<AiInsightsR
      toPostRequestInformation(body: CallAiInsight, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the list of callAiInsight objects associated with an onlineMeeting.
+ * Get aiInsights from copilot
  */
 export interface AiInsightsRequestBuilderGetQueryParameters {
     /**
