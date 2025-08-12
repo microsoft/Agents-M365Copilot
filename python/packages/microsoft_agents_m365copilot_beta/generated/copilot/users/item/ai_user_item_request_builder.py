@@ -52,7 +52,7 @@ class AiUserItemRequestBuilder(BaseRequestBuilder):
     
     async def get(self,request_configuration: Optional[RequestConfiguration[AiUserItemRequestBuilderGetQueryParameters]] = None) -> Optional[AiUser]:
         """
-        The list of AI users or agents. Read-only. Nullable.
+        Get users from copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: Optional[AiUser]
         """
@@ -106,7 +106,7 @@ class AiUserItemRequestBuilder(BaseRequestBuilder):
     
     def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[AiUserItemRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
         """
-        The list of AI users or agents. Read-only. Nullable.
+        Get users from copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -168,7 +168,7 @@ class AiUserItemRequestBuilder(BaseRequestBuilder):
     @dataclass
     class AiUserItemRequestBuilderGetQueryParameters():
         """
-        The list of AI users or agents. Read-only. Nullable.
+        Get users from copilot
         """
         def get_query_parameter(self,original_name: str) -> str:
             """

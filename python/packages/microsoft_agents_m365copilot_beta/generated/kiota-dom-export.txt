@@ -120,6 +120,8 @@ microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostReque
 microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|constructor():None
 microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|data_source():RetrievalDataSource
 microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|data_source(value:RetrievalDataSource):None
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|data_source_configuration():DataSourceConfiguration
+microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|data_source_configuration(value:DataSourceConfiguration):None
 microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|filter_expression():str
 microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|filter_expression(value:str):None
 microsoft_agents_m365copilot_beta.generated.copilot.retrieval.RetrievalPostRequestBody::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
@@ -453,9 +455,11 @@ microsoft_agents_m365copilot_beta.generated.models.AiInteraction::|public|serial
 microsoft_agents_m365copilot_beta.generated.models.AiInteraction::|public|session_id():str
 microsoft_agents_m365copilot_beta.generated.models.AiInteraction::|public|session_id(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.AiInteraction::|static|public|create_from_discriminator_value(parse_node:ParseNode):AiInteraction
-microsoft_agents_m365copilot_beta.generated.models.AiInteractionAttachment-->Entity
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionAttachment::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionAttachment::|public|additional_data(value:dict[str, Any]):None
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionAttachment::|public|attachment_id():str
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionAttachment::|public|attachment_id(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionAttachment::|public|backing_store:BackingStore
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionAttachment::|public|constructor():None
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionAttachment::|public|content():str
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionAttachment::|public|content(value:str):None
@@ -466,10 +470,14 @@ microsoft_agents_m365copilot_beta.generated.models.AiInteractionAttachment::|pub
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionAttachment::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionAttachment::|public|name():str
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionAttachment::|public|name(value:str):None
-microsoft_agents_m365copilot_beta.generated.models.AiInteractionAttachment::|public|odata_type:str
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionAttachment::|public|odata_type():str
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionAttachment::|public|odata_type(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionAttachment::|public|serialize(writer:SerializationWriter):None
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionAttachment::|static|public|create_from_discriminator_value(parse_node:ParseNode):AiInteractionAttachment
-microsoft_agents_m365copilot_beta.generated.models.AiInteractionContext-->Entity
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionAttachment~~>AdditionalDataHolder; BackedModel; Parsable
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionContext::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionContext::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionContext::|public|backing_store:BackingStore
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionContext::|public|constructor():None
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionContext::|public|context_reference():str
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionContext::|public|context_reference(value:str):None
@@ -478,16 +486,20 @@ microsoft_agents_m365copilot_beta.generated.models.AiInteractionContext::|public
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionContext::|public|display_name():str
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionContext::|public|display_name(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionContext::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
-microsoft_agents_m365copilot_beta.generated.models.AiInteractionContext::|public|odata_type:str
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionContext::|public|odata_type():str
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionContext::|public|odata_type(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionContext::|public|serialize(writer:SerializationWriter):None
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionContext::|static|public|create_from_discriminator_value(parse_node:ParseNode):AiInteractionContext
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionContext~~>AdditionalDataHolder; BackedModel; Parsable
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionHistory-->Entity
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionHistory::|public|constructor():None
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionHistory::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionHistory::|public|odata_type:str
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionHistory::|public|serialize(writer:SerializationWriter):None
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionHistory::|static|public|create_from_discriminator_value(parse_node:ParseNode):AiInteractionHistory
-microsoft_agents_m365copilot_beta.generated.models.AiInteractionLink-->Entity
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionLink::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionLink::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionLink::|public|backing_store:BackingStore
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionLink::|public|constructor():None
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionLink::|public|display_name():str
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionLink::|public|display_name(value:str):None
@@ -496,10 +508,14 @@ microsoft_agents_m365copilot_beta.generated.models.AiInteractionLink::|public|li
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionLink::|public|link_type(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionLink::|public|link_url():str
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionLink::|public|link_url(value:str):None
-microsoft_agents_m365copilot_beta.generated.models.AiInteractionLink::|public|odata_type:str
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionLink::|public|odata_type():str
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionLink::|public|odata_type(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionLink::|public|serialize(writer:SerializationWriter):None
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionLink::|static|public|create_from_discriminator_value(parse_node:ParseNode):AiInteractionLink
-microsoft_agents_m365copilot_beta.generated.models.AiInteractionMention-->Entity
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionLink~~>AdditionalDataHolder; BackedModel; Parsable
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionMention::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionMention::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionMention::|public|backing_store:BackingStore
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionMention::|public|constructor():None
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionMention::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionMention::|public|mentioned():AiInteractionMentionedIdentitySet
@@ -508,7 +524,8 @@ microsoft_agents_m365copilot_beta.generated.models.AiInteractionMention::|public
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionMention::|public|mention_id(value:int):None
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionMention::|public|mention_text():str
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionMention::|public|mention_text(value:str):None
-microsoft_agents_m365copilot_beta.generated.models.AiInteractionMention::|public|odata_type:str
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionMention::|public|odata_type():str
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionMention::|public|odata_type(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionMention::|public|serialize(writer:SerializationWriter):None
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionMention::|static|public|create_from_discriminator_value(parse_node:ParseNode):AiInteractionMention
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionMentionedIdentitySet-->IdentitySet
@@ -521,6 +538,7 @@ microsoft_agents_m365copilot_beta.generated.models.AiInteractionMentionedIdentit
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionMentionedIdentitySet::|public|tag():TeamworkTagIdentity
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionMentionedIdentitySet::|public|tag(value:TeamworkTagIdentity):None
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionMentionedIdentitySet::|static|public|create_from_discriminator_value(parse_node:ParseNode):AiInteractionMentionedIdentitySet
+microsoft_agents_m365copilot_beta.generated.models.AiInteractionMention~~>AdditionalDataHolder; BackedModel; Parsable
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionType::0000-UserPrompt
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionType::0001-AiResponse
 microsoft_agents_m365copilot_beta.generated.models.AiInteractionType::0002-UnknownFutureValue
@@ -735,6 +753,18 @@ microsoft_agents_m365copilot_beta.generated.models.CommunicationsUserIdentity::|
 microsoft_agents_m365copilot_beta.generated.models.CommunicationsUserIdentity::|public|tenant_id():str
 microsoft_agents_m365copilot_beta.generated.models.CommunicationsUserIdentity::|public|tenant_id(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.CommunicationsUserIdentity::|static|public|create_from_discriminator_value(parse_node:ParseNode):CommunicationsUserIdentity
+microsoft_agents_m365copilot_beta.generated.models.ConnectionItem::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot_beta.generated.models.ConnectionItem::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot_beta.generated.models.ConnectionItem::|public|backing_store:BackingStore
+microsoft_agents_m365copilot_beta.generated.models.ConnectionItem::|public|connection_id():str
+microsoft_agents_m365copilot_beta.generated.models.ConnectionItem::|public|connection_id(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.ConnectionItem::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.ConnectionItem::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.ConnectionItem::|public|odata_type():str
+microsoft_agents_m365copilot_beta.generated.models.ConnectionItem::|public|odata_type(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.ConnectionItem::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.ConnectionItem::|static|public|create_from_discriminator_value(parse_node:ParseNode):ConnectionItem
+microsoft_agents_m365copilot_beta.generated.models.ConnectionItem~~>AdditionalDataHolder; BackedModel; Parsable
 microsoft_agents_m365copilot_beta.generated.models.CopilotAdmin-->Entity
 microsoft_agents_m365copilot_beta.generated.models.CopilotAdmin::|public|constructor():None
 microsoft_agents_m365copilot_beta.generated.models.CopilotAdmin::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
@@ -777,6 +807,18 @@ microsoft_agents_m365copilot_beta.generated.models.CopilotSetting::|public|peopl
 microsoft_agents_m365copilot_beta.generated.models.CopilotSetting::|public|people(value:CopilotPeopleAdminSetting):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotSetting::|public|serialize(writer:SerializationWriter):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotSetting::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotSetting
+microsoft_agents_m365copilot_beta.generated.models.DataSourceConfiguration::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot_beta.generated.models.DataSourceConfiguration::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot_beta.generated.models.DataSourceConfiguration::|public|backing_store:BackingStore
+microsoft_agents_m365copilot_beta.generated.models.DataSourceConfiguration::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.DataSourceConfiguration::|public|external_item():ExternalItemConfiguration
+microsoft_agents_m365copilot_beta.generated.models.DataSourceConfiguration::|public|external_item(value:ExternalItemConfiguration):None
+microsoft_agents_m365copilot_beta.generated.models.DataSourceConfiguration::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.DataSourceConfiguration::|public|odata_type():str
+microsoft_agents_m365copilot_beta.generated.models.DataSourceConfiguration::|public|odata_type(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.DataSourceConfiguration::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.DataSourceConfiguration::|static|public|create_from_discriminator_value(parse_node:ParseNode):DataSourceConfiguration
+microsoft_agents_m365copilot_beta.generated.models.DataSourceConfiguration~~>AdditionalDataHolder; BackedModel; Parsable
 microsoft_agents_m365copilot_beta.generated.models.DetailsInfo::|public|additional_data():dict[str, Any]
 microsoft_agents_m365copilot_beta.generated.models.DetailsInfo::|public|additional_data(value:dict[str, Any]):None
 microsoft_agents_m365copilot_beta.generated.models.DetailsInfo::|public|backing_store:BackingStore
@@ -842,6 +884,18 @@ microsoft_agents_m365copilot_beta.generated.models.Entity::|public|odata_type(va
 microsoft_agents_m365copilot_beta.generated.models.Entity::|public|serialize(writer:SerializationWriter):None
 microsoft_agents_m365copilot_beta.generated.models.Entity::|static|public|create_from_discriminator_value(parse_node:ParseNode):Entity
 microsoft_agents_m365copilot_beta.generated.models.Entity~~>AdditionalDataHolder; BackedModel; Parsable
+microsoft_agents_m365copilot_beta.generated.models.ExternalItemConfiguration::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot_beta.generated.models.ExternalItemConfiguration::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot_beta.generated.models.ExternalItemConfiguration::|public|backing_store:BackingStore
+microsoft_agents_m365copilot_beta.generated.models.ExternalItemConfiguration::|public|connections():list[ConnectionItem]
+microsoft_agents_m365copilot_beta.generated.models.ExternalItemConfiguration::|public|connections(value:list[ConnectionItem]):None
+microsoft_agents_m365copilot_beta.generated.models.ExternalItemConfiguration::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.ExternalItemConfiguration::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.ExternalItemConfiguration::|public|odata_type():str
+microsoft_agents_m365copilot_beta.generated.models.ExternalItemConfiguration::|public|odata_type(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.ExternalItemConfiguration::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.ExternalItemConfiguration::|static|public|create_from_discriminator_value(parse_node:ParseNode):ExternalItemConfiguration
+microsoft_agents_m365copilot_beta.generated.models.ExternalItemConfiguration~~>AdditionalDataHolder; BackedModel; Parsable
 microsoft_agents_m365copilot_beta.generated.models.Identity::|public|additional_data():dict[str, Any]
 microsoft_agents_m365copilot_beta.generated.models.Identity::|public|additional_data(value:dict[str, Any]):None
 microsoft_agents_m365copilot_beta.generated.models.Identity::|public|backing_store:BackingStore
@@ -1037,13 +1091,8 @@ microsoft_agents_m365copilot_beta.generated.models.ProvisioningSystem::|public|s
 microsoft_agents_m365copilot_beta.generated.models.ProvisioningSystem::|static|public|create_from_discriminator_value(parse_node:ParseNode):ProvisioningSystem
 microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0000-SharePoint
 microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0001-OneDriveBusiness
-microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0002-ExternalItems
-microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0003-Mail
-microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0004-Calendar
-microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0005-Teams
-microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0006-People
-microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0007-SharePointEmbedded
-microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0008-UnknownFutureValue
+microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0002-ExternalItem
+microsoft_agents_m365copilot_beta.generated.models.RetrievalDataSource::0003-UnknownFutureValue
 microsoft_agents_m365copilot_beta.generated.models.RetrievalEntityType::0000-Site
 microsoft_agents_m365copilot_beta.generated.models.RetrievalEntityType::0001-List_
 microsoft_agents_m365copilot_beta.generated.models.RetrievalEntityType::0002-ListItem
