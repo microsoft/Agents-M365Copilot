@@ -31,7 +31,7 @@ export interface AiUserItemRequestBuilder extends BaseRequestBuilder<AiUserItemR
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The list of AI users or agents. Read-only. Nullable.
+     * Get users from copilot
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AiUser>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -52,7 +52,7 @@ export interface AiUserItemRequestBuilder extends BaseRequestBuilder<AiUserItemR
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The list of AI users or agents. Read-only. Nullable.
+     * Get users from copilot
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -66,7 +66,7 @@ export interface AiUserItemRequestBuilder extends BaseRequestBuilder<AiUserItemR
      toPatchRequestInformation(body: AiUser, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of AI users or agents. Read-only. Nullable.
+ * Get users from copilot
  */
 export interface AiUserItemRequestBuilderGetQueryParameters {
     /**

@@ -40,22 +40,21 @@ export interface GetAllEnterpriseInteractionsGetResponse extends BaseCollectionP
  */
 export interface GetAllEnterpriseInteractionsRequestBuilder extends BaseRequestBuilder<GetAllEnterpriseInteractionsRequestBuilder> {
     /**
-     * Get all Microsoft 365 Copilot interaction data, including user prompts to Copilot and Copilot responses. This API captures the user intent, the resources accessed by Copilot, and the response to the user for Microsoft 365 apps such as Teams, Word, and Outlook. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
+     * Invoke function getAllEnterpriseInteractions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetAllEnterpriseInteractionsGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/aiinteractionhistory-getallenterpriseinteractions?view=graph-rest-beta|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters> | undefined) : Promise<GetAllEnterpriseInteractionsGetResponse | undefined>;
     /**
-     * Get all Microsoft 365 Copilot interaction data, including user prompts to Copilot and Copilot responses. This API captures the user intent, the resources accessed by Copilot, and the response to the user for Microsoft 365 apps such as Teams, Word, and Outlook. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
+     * Invoke function getAllEnterpriseInteractions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get all Microsoft 365 Copilot interaction data, including user prompts to Copilot and Copilot responses. This API captures the user intent, the resources accessed by Copilot, and the response to the user for Microsoft 365 apps such as Teams, Word, and Outlook. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
+ * Invoke function getAllEnterpriseInteractions
  */
 export interface GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters {
     /**

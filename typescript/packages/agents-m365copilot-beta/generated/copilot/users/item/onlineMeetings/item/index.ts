@@ -25,7 +25,7 @@ export interface AiOnlineMeetingItemRequestBuilder extends BaseRequestBuilder<Ai
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Information about an online meeting, including AI insights.
+     * Get onlineMeetings from copilot
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AiOnlineMeeting>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -46,7 +46,7 @@ export interface AiOnlineMeetingItemRequestBuilder extends BaseRequestBuilder<Ai
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Information about an online meeting, including AI insights.
+     * Get onlineMeetings from copilot
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +60,7 @@ export interface AiOnlineMeetingItemRequestBuilder extends BaseRequestBuilder<Ai
      toPatchRequestInformation(body: AiOnlineMeeting, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Information about an online meeting, including AI insights.
+ * Get onlineMeetings from copilot
  */
 export interface AiOnlineMeetingItemRequestBuilderGetQueryParameters {
     /**

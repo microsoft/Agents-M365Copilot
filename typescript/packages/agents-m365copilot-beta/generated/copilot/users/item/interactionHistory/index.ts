@@ -25,7 +25,7 @@ export interface InteractionHistoryRequestBuilder extends BaseRequestBuilder<Int
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The history of interactions between AI agents and users.
+     * Get interactionHistory from copilot
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AiInteractionHistory>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -46,7 +46,7 @@ export interface InteractionHistoryRequestBuilder extends BaseRequestBuilder<Int
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The history of interactions between AI agents and users.
+     * Get interactionHistory from copilot
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +60,7 @@ export interface InteractionHistoryRequestBuilder extends BaseRequestBuilder<Int
      toPatchRequestInformation(body: AiInteractionHistory, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The history of interactions between AI agents and users.
+ * Get interactionHistory from copilot
  */
 export interface InteractionHistoryRequestBuilderGetQueryParameters {
     /**

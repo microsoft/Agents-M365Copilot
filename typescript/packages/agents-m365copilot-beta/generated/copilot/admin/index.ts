@@ -25,7 +25,7 @@ export interface AdminRequestBuilder extends BaseRequestBuilder<AdminRequestBuil
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The Microsoft 365 Copilot admin who can add or modify Copilot settings. Read-only. Nullable.
+     * Get admin from copilot
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CopilotAdmin>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -46,7 +46,7 @@ export interface AdminRequestBuilder extends BaseRequestBuilder<AdminRequestBuil
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The Microsoft 365 Copilot admin who can add or modify Copilot settings. Read-only. Nullable.
+     * Get admin from copilot
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +60,7 @@ export interface AdminRequestBuilder extends BaseRequestBuilder<AdminRequestBuil
      toPatchRequestInformation(body: CopilotAdmin, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The Microsoft 365 Copilot admin who can add or modify Copilot settings. Read-only. Nullable.
+ * Get admin from copilot
  */
 export interface AdminRequestBuilderGetQueryParameters {
     /**
