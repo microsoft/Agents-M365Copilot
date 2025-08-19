@@ -19,20 +19,18 @@ export interface LimitedModeRequestBuilder extends BaseRequestBuilder<LimitedMod
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a copilotAdminLimitedMode object.
+     * Get limitedMode from copilot
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CopilotAdminLimitedMode>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/copilotadminlimitedmode-get?view=graph-rest-beta|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LimitedModeRequestBuilderGetQueryParameters> | undefined) : Promise<CopilotAdminLimitedMode | undefined>;
     /**
-     * Update the properties of a copilotAdminLimitedMode object.
+     * Update the navigation property limitedMode in copilot
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CopilotAdminLimitedMode>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/copilotadminlimitedmode-update?view=graph-rest-beta|Find more info here}
      */
      patch(body: CopilotAdminLimitedMode, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CopilotAdminLimitedMode | undefined>;
     /**
@@ -42,13 +40,13 @@ export interface LimitedModeRequestBuilder extends BaseRequestBuilder<LimitedMod
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a copilotAdminLimitedMode object.
+     * Get limitedMode from copilot
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LimitedModeRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a copilotAdminLimitedMode object.
+     * Update the navigation property limitedMode in copilot
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +54,7 @@ export interface LimitedModeRequestBuilder extends BaseRequestBuilder<LimitedMod
      toPatchRequestInformation(body: CopilotAdminLimitedMode, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a copilotAdminLimitedMode object.
+ * Get limitedMode from copilot
  */
 export interface LimitedModeRequestBuilderGetQueryParameters {
     /**
