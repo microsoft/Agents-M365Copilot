@@ -63,7 +63,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Admin
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// The Microsoft 365 Copilot admin who can add or modify Copilot settings. Read-only. Nullable.
+        /// Get admin from copilot
         /// </summary>
         /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdmin"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -102,7 +102,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Admin
         public async Task<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdmin> PatchAsync(global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdmin body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -130,7 +130,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Admin
             return requestInfo;
         }
         /// <summary>
-        /// The Microsoft 365 Copilot admin who can add or modify Copilot settings. Read-only. Nullable.
+        /// Get admin from copilot
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -163,7 +163,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Admin
         public RequestInformation ToPatchRequestInformation(global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdmin body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
@@ -188,7 +188,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Admin
         {
         }
         /// <summary>
-        /// The Microsoft 365 Copilot admin who can add or modify Copilot settings. Read-only. Nullable.
+        /// Get admin from copilot
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AdminRequestBuilderGetQueryParameters 

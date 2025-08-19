@@ -54,7 +54,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Users
         {
         }
         /// <summary>
-        /// The list of AI users or agents. Read-only. Nullable.
+        /// Get users from copilot
         /// </summary>
         /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.AiUserCollectionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -93,7 +93,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Users
         public async Task<global::Microsoft.Agents.M365Copilot.Beta.Models.AiUser> PostAsync(global::Microsoft.Agents.M365Copilot.Beta.Models.AiUser body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -102,7 +102,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Users
             return await RequestAdapter.SendAsync<global::Microsoft.Agents.M365Copilot.Beta.Models.AiUser>(requestInfo, global::Microsoft.Agents.M365Copilot.Beta.Models.AiUser.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// The list of AI users or agents. Read-only. Nullable.
+        /// Get users from copilot
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -135,7 +135,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Users
         public RequestInformation ToPostRequestInformation(global::Microsoft.Agents.M365Copilot.Beta.Models.AiUser body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
@@ -152,7 +152,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Users
             return new global::Microsoft.Agents.M365Copilot.Beta.Copilot.Users.UsersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// The list of AI users or agents. Read-only. Nullable.
+        /// Get users from copilot
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class UsersRequestBuilderGetQueryParameters 

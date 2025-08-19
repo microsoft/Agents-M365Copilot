@@ -21,7 +21,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The collection of AI-generated mention events.</summary>
+        /// <summary>The mentionEvents property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.MentionEvent>? MentionEvents
@@ -68,7 +68,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Microsoft.Agents.M365Copilot.Beta.Models.CallAiInsightViewPoint CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Microsoft.Agents.M365Copilot.Beta.Models.CallAiInsightViewPoint();
         }
         /// <summary>
@@ -89,7 +89,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.MentionEvent>("mentionEvents", MentionEvents);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);

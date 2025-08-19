@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class CopilotAdminLimitedMode : global::Microsoft.Agents.M365Copilot.Beta.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The ID of a Microsoft Entra group, for which the value of isEnabledForGroup is applied. The default value is null. If isEnabledForGroup is set to true, the groupId value must be provided for the Copilot limited mode in Teams meetings to be enabled for the members of the group. Optional.</summary>
+        /// <summary>The groupId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? GroupId
@@ -28,7 +28,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             set { BackingStore?.Set("groupId", value); }
         }
 #endif
-        /// <summary>Enables the user to be in limited mode for Copilot in Teams meetings. When copilotAdminLimitedMode=true, users in this mode can ask any questions, but Copilot doesn&apos;t respond to certain questions related to inferring emotions, behavior, or judgments. When copilotAdminLimitedMode=false, it responds to all types of questions grounded to the meeting conversation. The default value is false.</summary>
+        /// <summary>The isEnabledForGroup property</summary>
         public bool? IsEnabledForGroup
         {
             get { return BackingStore?.Get<bool?>("isEnabledForGroup"); }
@@ -41,7 +41,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminLimitedMode CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminLimitedMode();
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public override void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("groupId", GroupId);
             writer.WriteBoolValue("isEnabledForGroup", IsEnabledForGroup);

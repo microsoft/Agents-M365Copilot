@@ -28,6 +28,22 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval
             get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalDataSource?>("dataSource"); }
             set { BackingStore?.Set("dataSource", value); }
         }
+        /// <summary>The dataSourceConfiguration property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.DataSourceConfiguration? DataSourceConfiguration
+        {
+            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.DataSourceConfiguration?>("dataSourceConfiguration"); }
+            set { BackingStore?.Set("dataSourceConfiguration", value); }
+        }
+#nullable restore
+#else
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.DataSourceConfiguration DataSourceConfiguration
+        {
+            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.DataSourceConfiguration>("dataSourceConfiguration"); }
+            set { BackingStore?.Set("dataSourceConfiguration", value); }
+        }
+#endif
         /// <summary>The filterExpression property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -97,7 +113,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.RetrievalPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.RetrievalPostRequestBody();
         }
         /// <summary>
@@ -109,6 +125,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "dataSource", n => { DataSource = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalDataSource>(); } },
+                { "dataSourceConfiguration", n => { DataSourceConfiguration = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.DataSourceConfiguration>(global::Microsoft.Agents.M365Copilot.Beta.Models.DataSourceConfiguration.CreateFromDiscriminatorValue); } },
                 { "filterExpression", n => { FilterExpression = n.GetStringValue(); } },
                 { "maximumNumberOfResults", n => { MaximumNumberOfResults = n.GetIntValue(); } },
                 { "queryString", n => { QueryString = n.GetStringValue(); } },
@@ -121,8 +138,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalDataSource>("dataSource", DataSource);
+            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.DataSourceConfiguration>("dataSourceConfiguration", DataSourceConfiguration);
             writer.WriteStringValue("filterExpression", FilterExpression);
             writer.WriteIntValue("maximumNumberOfResults", MaximumNumberOfResults);
             writer.WriteStringValue("queryString", QueryString);
