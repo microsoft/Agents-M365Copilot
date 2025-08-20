@@ -16,45 +16,64 @@ export interface ActionItem extends AdditionalDataHolder, BackedModel, Parsable 
      */
     odataType?: string | null;
     /**
-     * The display name of the owner of the action item.
+     * The ownerDisplayName property
      */
     ownerDisplayName?: string | null;
     /**
-     * The text content of the action item.
+     * The text property
      */
     text?: string | null;
     /**
-     * The title of the action item.
+     * The title property
      */
     title?: string | null;
 }
+export type ActivityStatus = (typeof ActivityStatusObject)[keyof typeof ActivityStatusObject];
+export interface ActivityTransport extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The connectionType property
+     */
+    connectionType?: ConnectionType | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The url property
+     */
+    url?: string | null;
+}
 export interface AiInteraction extends Entity, Parsable {
     /**
-     * The data source for Copilot data. For example, IPM.SkypeTeams.Message.Copilot.Excel or IPM.SkypeTeams.Message.Copilot.Loop.
+     * The appClass property
      */
     appClass?: string | null;
     /**
-     * The collection of documents attached to the interaction, such as cards and images.
+     * The attachments property
      */
     attachments?: AiInteractionAttachment[] | null;
     /**
-     * The body of the message, including the text of the body and its body type.
+     * The body property
      */
     body?: ItemBody | null;
     /**
-     * The identifer that maps to all contexts associated with an interaction.
+     * The contexts property
      */
     contexts?: AiInteractionContext[] | null;
     /**
-     * The type of the conversation. For example, appchat or bizchat.
+     * The conversationType property
      */
     conversationType?: string | null;
     /**
-     * The time when the interaction was created.
+     * The createdDateTime property
      */
     createdDateTime?: Date | null;
     /**
-     * The timestamp of when the interaction was last modified.
+     * The etag property
      */
     etag?: string | null;
     /**
@@ -66,91 +85,123 @@ export interface AiInteraction extends Entity, Parsable {
      */
     interactionType?: AiInteractionType | null;
     /**
-     * The collection of links that appear in the interaction.
+     * The links property
      */
     links?: AiInteractionLink[] | null;
     /**
-     * The locale of the sender.
+     * The locale property
      */
     locale?: string | null;
     /**
-     * The collection of the entities that were mentioned in the interaction, including users, bots, and so on.
+     * The mentions property
      */
     mentions?: AiInteractionMention[] | null;
     /**
-     * The identifier that groups a user prompt with its Copilot response.
+     * The requestId property
      */
     requestId?: string | null;
     /**
-     * The thread ID or conversation identifier that maps to all Copilot sessions for the user.
+     * The sessionId property
      */
     sessionId?: string | null;
 }
-export interface AiInteractionAttachment extends Entity, Parsable {
+export interface AiInteractionAttachment extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * The identifier for the attachment. This identifier is only unique within the message scope.
+     * The attachmentId property
      */
     attachmentId?: string | null;
     /**
-     * The content of the attachment.
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The content property
      */
     content?: string | null;
     /**
-     * The type of the content. For example, reference, file, and image/imageType.
+     * The contentType property
      */
     contentType?: string | null;
     /**
-     * The URL of the content.
+     * The contentUrl property
      */
     contentUrl?: string | null;
     /**
-     * The name of the attachment.
+     * The name property
      */
     name?: string | null;
-}
-export interface AiInteractionContext extends Entity, Parsable {
     /**
-     * The full file URL where the interaction happened.
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
+export interface AiInteractionContext extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The contextReference property
      */
     contextReference?: string | null;
     /**
-     * The type of the file.
+     * The contextType property
      */
     contextType?: string | null;
     /**
-     * The name of the file.
+     * The displayName property
      */
     displayName?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
 }
 export interface AiInteractionHistory extends Entity, Parsable {
 }
-export interface AiInteractionLink extends Entity, Parsable {
+export interface AiInteractionLink extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * The name of the link.
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The displayName property
      */
     displayName?: string | null;
     /**
-     * Information about a link in an app chat or Business Chat (BizChat) interaction.
+     * The linkType property
      */
     linkType?: string | null;
     /**
-     * The URL of the link.
+     * The linkUrl property
      */
     linkUrl?: string | null;
-}
-export interface AiInteractionMention extends Entity, Parsable {
     /**
-     * The entity mentioned in the message.
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
+export interface AiInteractionMention extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The mentioned property
      */
     mentioned?: AiInteractionMentionedIdentitySet | null;
     /**
-     * The identifier for the mention.
+     * The mentionId property
      */
     mentionId?: number | null;
     /**
-     * The text mentioned in the message.
+     * The mentionText property
      */
     mentionText?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
 }
 export interface AiInteractionMentionedIdentitySet extends IdentitySet, Parsable {
     /**
@@ -158,14 +209,14 @@ export interface AiInteractionMentionedIdentitySet extends IdentitySet, Parsable
      */
     conversation?: TeamworkConversationIdentity | null;
     /**
-     * The tag details.
+     * The tag property
      */
     tag?: TeamworkTagIdentity | null;
 }
 export type AiInteractionType = (typeof AiInteractionTypeObject)[keyof typeof AiInteractionTypeObject];
 export interface AiOnlineMeeting extends Entity, Parsable {
     /**
-     * A set of AI insights associated with an AI online meeting.
+     * The aiInsights property
      */
     aiInsights?: CallAiInsight[] | null;
 }
@@ -177,11 +228,11 @@ export interface AiOnlineMeetingCollectionResponse extends BaseCollectionPaginat
 }
 export interface AiUser extends Entity, Parsable {
     /**
-     * The history of interactions between AI agents and users.
+     * The interactionHistory property
      */
     interactionHistory?: AiInteractionHistory | null;
     /**
-     * Information about an online meeting, including AI insights.
+     * The onlineMeetings property
      */
     onlineMeetings?: AiOnlineMeeting[] | null;
 }
@@ -213,6 +264,28 @@ export interface AzureCommunicationServicesUserIdentity extends Identity, Parsab
      */
     azureCommunicationServicesResourceId?: string | null;
 }
+export interface BaseActivity extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The resultInfo property
+     */
+    resultInfo?: ResultInfo | null;
+    /**
+     * The status property
+     */
+    status?: ActivityStatus | null;
+    /**
+     * The transport property
+     */
+    transport?: ActivityTransport | null;
+}
 export interface BaseCollectionPaginationCountResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores model information.
@@ -230,31 +303,31 @@ export interface BaseCollectionPaginationCountResponse extends AdditionalDataHol
 export type BodyType = (typeof BodyTypeObject)[keyof typeof BodyTypeObject];
 export interface CallAiInsight extends Entity, Parsable {
     /**
-     * The collection of AI-generated action items. Read-only.
+     * The actionItems property
      */
     actionItems?: ActionItem[] | null;
     /**
-     * The ID for the online meeting call for which the callAiInsight was generated. Read-only.
+     * The callId property
      */
     callId?: string | null;
     /**
-     * The unique ID that correlates the transcript from which the insights were generated. Read-only.
+     * The contentCorrelationId property
      */
     contentCorrelationId?: string | null;
     /**
-     * Date and time at which the corresponding transcript was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * The createdDateTime property
      */
     createdDateTime?: Date | null;
     /**
-     * Date and time at which the corresponding transcription ends. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * The endDateTime property
      */
     endDateTime?: Date | null;
     /**
-     * The collection of AI-generated meeting notes. Read-only.
+     * The meetingNotes property
      */
     meetingNotes?: MeetingNote[] | null;
     /**
-     * The caller-specific properties of the callAiInsight entity. Read-only.
+     * The viewpoint property
      */
     viewpoint?: CallAiInsightViewPoint | null;
 }
@@ -270,13 +343,35 @@ export interface CallAiInsightViewPoint extends AdditionalDataHolder, BackedMode
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The collection of AI-generated mention events.
+     * The mentionEvents property
      */
     mentionEvents?: MentionEvent[] | null;
     /**
      * The OdataType property
      */
     odataType?: string | null;
+}
+export interface ChatInfo extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The unique identifier for a message in a Microsoft Teams channel.
+     */
+    messageId?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The ID of the reply message.
+     */
+    replyChainMessageId?: string | null;
+    /**
+     * The unique identifier for a thread in Microsoft Teams.
+     */
+    threadId?: string | null;
 }
 export interface ChatMessageFromIdentitySet extends IdentitySet, Parsable {
 }
@@ -362,27 +457,48 @@ export interface CommunicationsUserIdentity extends Identity, Parsable {
      */
     tenantId?: string | null;
 }
+export interface ConnectionItem extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The connectionId property
+     */
+    connectionId?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
+export type ConnectionType = (typeof ConnectionTypeObject)[keyof typeof ConnectionTypeObject];
 export interface CopilotAdmin extends Entity, Parsable {
     /**
-     * Set of Microsoft 365 Copilot settings that can be added or modified. Read-only. Nullable.
+     * The settings property
      */
     settings?: CopilotAdminSetting | null;
 }
 export interface CopilotAdminLimitedMode extends Entity, Parsable {
     /**
-     * The ID of a Microsoft Entra group, for which the value of isEnabledForGroup is applied. The default value is null. If isEnabledForGroup is set to true, the groupId value must be provided for the Copilot limited mode in Teams meetings to be enabled for the members of the group. Optional.
+     * The groupId property
      */
     groupId?: string | null;
     /**
-     * Enables the user to be in limited mode for Copilot in Teams meetings. When copilotAdminLimitedMode=true, users in this mode can ask any questions, but Copilot doesn't respond to certain questions related to inferring emotions, behavior, or judgments. When copilotAdminLimitedMode=false, it responds to all types of questions grounded to the meeting conversation. The default value is false.
+     * The isEnabledForGroup property
      */
     isEnabledForGroup?: boolean | null;
 }
 export interface CopilotAdminSetting extends Entity, Parsable {
     /**
-     * Represents a setting that controls whether users of Microsoft 365 Copilot in Teams meetings can receive responses to sentiment-related prompts. Read-only. Nullable.
+     * The limitedMode property
      */
     limitedMode?: CopilotAdminLimitedMode | null;
+}
+export interface CopilotCommunicationsRoot extends Entity, Parsable {
+    /**
+     * The realtimeActivityFeed property
+     */
+    realtimeActivityFeed?: RealtimeActivityFeedRoot | null;
 }
 export interface CopilotPeopleAdminSetting extends Entity, Parsable {
     /**
@@ -404,6 +520,15 @@ export interface CopilotSetting extends Entity, Parsable {
 // @ts-ignore
 export function createActionItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoActionItem;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ActivityTransport}
+ */
+// @ts-ignore
+export function createActivityTransportFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoActivityTransport;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -534,6 +659,26 @@ export function createAzureCommunicationServicesUserIdentityFromDiscriminatorVal
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {BaseActivity}
+ */
+// @ts-ignore
+export function createBaseActivityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
+    if (mappingValueNode) {
+        const mappingValue = mappingValueNode.getStringValue();
+        if (mappingValue) {
+            switch (mappingValue) {
+                case "#microsoft.graph.transcriptActivity":
+                    return deserializeIntoTranscriptActivity;
+            }
+        }
+    }
+    return deserializeIntoBaseActivity;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {BaseCollectionPaginationCountResponse}
  */
 // @ts-ignore
@@ -566,6 +711,15 @@ export function createCallAiInsightFromDiscriminatorValue(parseNode: ParseNode |
 // @ts-ignore
 export function createCallAiInsightViewPointFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCallAiInsightViewPoint;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ChatInfo}
+ */
+// @ts-ignore
+export function createChatInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoChatInfo;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -660,6 +814,15 @@ export function createCommunicationsUserIdentityFromDiscriminatorValue(parseNode
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ConnectionItem}
+ */
+// @ts-ignore
+export function createConnectionItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoConnectionItem;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CopilotAdmin}
  */
 // @ts-ignore
@@ -687,6 +850,15 @@ export function createCopilotAdminSettingFromDiscriminatorValue(parseNode: Parse
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotCommunicationsRoot}
+ */
+// @ts-ignore
+export function createCopilotCommunicationsRootFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotCommunicationsRoot;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CopilotPeopleAdminSetting}
  */
 // @ts-ignore
@@ -701,6 +873,15 @@ export function createCopilotPeopleAdminSettingFromDiscriminatorValue(parseNode:
 // @ts-ignore
 export function createCopilotSettingFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCopilotSetting;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {DataSourceConfiguration}
+ */
+// @ts-ignore
+export function createDataSourceConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoDataSourceConfiguration;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -787,16 +968,35 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoCopilotAdminLimitedMode;
                 case "#microsoft.graph.copilotAdminSetting":
                     return deserializeIntoCopilotAdminSetting;
+                case "#microsoft.graph.copilotCommunicationsRoot":
+                    return deserializeIntoCopilotCommunicationsRoot;
                 case "#microsoft.graph.copilotPeopleAdminSetting":
                     return deserializeIntoCopilotPeopleAdminSetting;
                 case "#microsoft.graph.copilotSetting":
                     return deserializeIntoCopilotSetting;
                 case "#microsoft.graph.enhancedPersonalizationSetting":
                     return deserializeIntoEnhancedPersonalizationSetting;
+                case "#microsoft.graph.multiActivitySubscription":
+                    return deserializeIntoMultiActivitySubscription;
+                case "#microsoft.graph.realtimeActivityFeedRoot":
+                    return deserializeIntoRealtimeActivityFeedRoot;
+                case "#microsoft.graph.realtimeActivityMeeting":
+                    return deserializeIntoRealtimeActivityMeeting;
+                case "#microsoft.graph.realTimeTranscript":
+                    return deserializeIntoRealTimeTranscript;
             }
         }
     }
     return deserializeIntoEntity;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ExternalItemConfiguration}
+ */
+// @ts-ignore
+export function createExternalItemConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoExternalItemConfiguration;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -921,6 +1121,39 @@ export function createItemBodyFromDiscriminatorValue(parseNode: ParseNode | unde
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {JoinMeetingIdMeetingInfo}
+ */
+// @ts-ignore
+export function createJoinMeetingIdMeetingInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoJoinMeetingIdMeetingInfo;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {MeetingInfo}
+ */
+// @ts-ignore
+export function createMeetingInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
+    if (mappingValueNode) {
+        const mappingValue = mappingValueNode.getStringValue();
+        if (mappingValue) {
+            switch (mappingValue) {
+                case "#microsoft.graph.joinMeetingIdMeetingInfo":
+                    return deserializeIntoJoinMeetingIdMeetingInfo;
+                case "#microsoft.graph.organizerMeetingInfo":
+                    return deserializeIntoOrganizerMeetingInfo;
+                case "#microsoft.graph.tokenMeetingInfo":
+                    return deserializeIntoTokenMeetingInfo;
+            }
+        }
+    }
+    return deserializeIntoMeetingInfo;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MeetingNote}
  */
 // @ts-ignore
@@ -944,6 +1177,33 @@ export function createMeetingNoteSubpointFromDiscriminatorValue(parseNode: Parse
 // @ts-ignore
 export function createMentionEventFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMentionEvent;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {MultiActivitySubscriptionCollectionResponse}
+ */
+// @ts-ignore
+export function createMultiActivitySubscriptionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoMultiActivitySubscriptionCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {MultiActivitySubscription}
+ */
+// @ts-ignore
+export function createMultiActivitySubscriptionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoMultiActivitySubscription;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {OrganizerMeetingInfo}
+ */
+// @ts-ignore
+export function createOrganizerMeetingInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoOrganizerMeetingInfo;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -980,6 +1240,60 @@ export function createProvisioningServicePrincipalFromDiscriminatorValue(parseNo
 // @ts-ignore
 export function createProvisioningSystemFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoProvisioningSystem;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {RealtimeActivityFeedRoot}
+ */
+// @ts-ignore
+export function createRealtimeActivityFeedRootFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRealtimeActivityFeedRoot;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {RealtimeActivityMeetingCollectionResponse}
+ */
+// @ts-ignore
+export function createRealtimeActivityMeetingCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRealtimeActivityMeetingCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {RealtimeActivityMeeting}
+ */
+// @ts-ignore
+export function createRealtimeActivityMeetingFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRealtimeActivityMeeting;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {RealTimeTranscriptCollectionResponse}
+ */
+// @ts-ignore
+export function createRealTimeTranscriptCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRealTimeTranscriptCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {RealTimeTranscript}
+ */
+// @ts-ignore
+export function createRealTimeTranscriptFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRealTimeTranscript;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ResultInfo}
+ */
+// @ts-ignore
+export function createResultInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoResultInfo;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -1065,6 +1379,24 @@ export function createSourceProvisionedIdentityFromDiscriminatorValue(parseNode:
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {SpeakerInfo}
+ */
+// @ts-ignore
+export function createSpeakerInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSpeakerInfo;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {SubscriptionActivities}
+ */
+// @ts-ignore
+export function createSubscriptionActivitiesFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSubscriptionActivities;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TargetProvisionedIdentity}
  */
 // @ts-ignore
@@ -1110,6 +1442,42 @@ export function createTeamworkUserIdentityFromDiscriminatorValue(parseNode: Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {TokenMeetingInfo}
+ */
+// @ts-ignore
+export function createTokenMeetingInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoTokenMeetingInfo;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {TranscriptActivity}
+ */
+// @ts-ignore
+export function createTranscriptActivityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoTranscriptActivity;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {TranscriptPayload}
+ */
+// @ts-ignore
+export function createTranscriptPayloadFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoTranscriptPayload;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {TranscriptSpeaker}
+ */
+// @ts-ignore
+export function createTranscriptSpeakerFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoTranscriptSpeaker;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UserIdentity}
  */
 // @ts-ignore
@@ -1127,6 +1495,20 @@ export function createUserIdentityFromDiscriminatorValue(parseNode: ParseNode | 
     }
     return deserializeIntoUserIdentity;
 }
+export interface DataSourceConfiguration extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The externalItem property
+     */
+    externalItem?: ExternalItemConfiguration | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 /**
  * The deserialization information for the current model
  * @param ActionItem The instance to deserialize into.
@@ -1140,6 +1522,20 @@ export function deserializeIntoActionItem(actionItem: Partial<ActionItem> | unde
         "ownerDisplayName": n => { actionItem.ownerDisplayName = n.getStringValue(); },
         "text": n => { actionItem.text = n.getStringValue(); },
         "title": n => { actionItem.title = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ActivityTransport The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoActivityTransport(activityTransport: Partial<ActivityTransport> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { activityTransport.backingStoreEnabled = true; },
+        "connectionType": n => { activityTransport.connectionType = n.getEnumValue<ConnectionType>(ConnectionTypeObject); },
+        "@odata.type": n => { activityTransport.odataType = n.getStringValue(); },
+        "url": n => { activityTransport.url = n.getStringValue(); },
     }
 }
 /**
@@ -1175,12 +1571,13 @@ export function deserializeIntoAiInteraction(aiInteraction: Partial<AiInteractio
 // @ts-ignore
 export function deserializeIntoAiInteractionAttachment(aiInteractionAttachment: Partial<AiInteractionAttachment> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoEntity(aiInteractionAttachment),
         "attachmentId": n => { aiInteractionAttachment.attachmentId = n.getStringValue(); },
+        "backingStoreEnabled": n => { aiInteractionAttachment.backingStoreEnabled = true; },
         "content": n => { aiInteractionAttachment.content = n.getStringValue(); },
         "contentType": n => { aiInteractionAttachment.contentType = n.getStringValue(); },
         "contentUrl": n => { aiInteractionAttachment.contentUrl = n.getStringValue(); },
         "name": n => { aiInteractionAttachment.name = n.getStringValue(); },
+        "@odata.type": n => { aiInteractionAttachment.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -1191,10 +1588,11 @@ export function deserializeIntoAiInteractionAttachment(aiInteractionAttachment: 
 // @ts-ignore
 export function deserializeIntoAiInteractionContext(aiInteractionContext: Partial<AiInteractionContext> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoEntity(aiInteractionContext),
+        "backingStoreEnabled": n => { aiInteractionContext.backingStoreEnabled = true; },
         "contextReference": n => { aiInteractionContext.contextReference = n.getStringValue(); },
         "contextType": n => { aiInteractionContext.contextType = n.getStringValue(); },
         "displayName": n => { aiInteractionContext.displayName = n.getStringValue(); },
+        "@odata.type": n => { aiInteractionContext.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -1216,10 +1614,11 @@ export function deserializeIntoAiInteractionHistory(aiInteractionHistory: Partia
 // @ts-ignore
 export function deserializeIntoAiInteractionLink(aiInteractionLink: Partial<AiInteractionLink> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoEntity(aiInteractionLink),
+        "backingStoreEnabled": n => { aiInteractionLink.backingStoreEnabled = true; },
         "displayName": n => { aiInteractionLink.displayName = n.getStringValue(); },
         "linkType": n => { aiInteractionLink.linkType = n.getStringValue(); },
         "linkUrl": n => { aiInteractionLink.linkUrl = n.getStringValue(); },
+        "@odata.type": n => { aiInteractionLink.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -1230,10 +1629,11 @@ export function deserializeIntoAiInteractionLink(aiInteractionLink: Partial<AiIn
 // @ts-ignore
 export function deserializeIntoAiInteractionMention(aiInteractionMention: Partial<AiInteractionMention> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoEntity(aiInteractionMention),
+        "backingStoreEnabled": n => { aiInteractionMention.backingStoreEnabled = true; },
         "mentioned": n => { aiInteractionMention.mentioned = n.getObjectValue<AiInteractionMentionedIdentitySet>(createAiInteractionMentionedIdentitySetFromDiscriminatorValue); },
         "mentionId": n => { aiInteractionMention.mentionId = n.getNumberValue(); },
         "mentionText": n => { aiInteractionMention.mentionText = n.getStringValue(); },
+        "@odata.type": n => { aiInteractionMention.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -1337,6 +1737,21 @@ export function deserializeIntoAzureCommunicationServicesUserIdentity(azureCommu
 }
 /**
  * The deserialization information for the current model
+ * @param BaseActivity The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoBaseActivity(baseActivity: Partial<BaseActivity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { baseActivity.backingStoreEnabled = true; },
+        "@odata.type": n => { baseActivity.odataType = n.getStringValue(); },
+        "resultInfo": n => { baseActivity.resultInfo = n.getObjectValue<ResultInfo>(createResultInfoFromDiscriminatorValue); },
+        "status": n => { baseActivity.status = n.getEnumValue<ActivityStatus>(ActivityStatusObject); },
+        "transport": n => { baseActivity.transport = n.getObjectValue<ActivityTransport>(createActivityTransportFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param BaseCollectionPaginationCountResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -1389,6 +1804,21 @@ export function deserializeIntoCallAiInsightViewPoint(callAiInsightViewPoint: Pa
         "backingStoreEnabled": n => { callAiInsightViewPoint.backingStoreEnabled = true; },
         "mentionEvents": n => { callAiInsightViewPoint.mentionEvents = n.getCollectionOfObjectValues<MentionEvent>(createMentionEventFromDiscriminatorValue); },
         "@odata.type": n => { callAiInsightViewPoint.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ChatInfo The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoChatInfo(chatInfo: Partial<ChatInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { chatInfo.backingStoreEnabled = true; },
+        "messageId": n => { chatInfo.messageId = n.getStringValue(); },
+        "@odata.type": n => { chatInfo.odataType = n.getStringValue(); },
+        "replyChainMessageId": n => { chatInfo.replyChainMessageId = n.getStringValue(); },
+        "threadId": n => { chatInfo.threadId = n.getStringValue(); },
     }
 }
 /**
@@ -1519,6 +1949,19 @@ export function deserializeIntoCommunicationsUserIdentity(communicationsUserIden
 }
 /**
  * The deserialization information for the current model
+ * @param ConnectionItem The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoConnectionItem(connectionItem: Partial<ConnectionItem> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { connectionItem.backingStoreEnabled = true; },
+        "connectionId": n => { connectionItem.connectionId = n.getStringValue(); },
+        "@odata.type": n => { connectionItem.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param CopilotAdmin The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -1556,6 +1999,18 @@ export function deserializeIntoCopilotAdminSetting(copilotAdminSetting: Partial<
 }
 /**
  * The deserialization information for the current model
+ * @param CopilotCommunicationsRoot The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotCommunicationsRoot(copilotCommunicationsRoot: Partial<CopilotCommunicationsRoot> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(copilotCommunicationsRoot),
+        "realtimeActivityFeed": n => { copilotCommunicationsRoot.realtimeActivityFeed = n.getObjectValue<RealtimeActivityFeedRoot>(createRealtimeActivityFeedRootFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param CopilotPeopleAdminSetting The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -1576,6 +2031,19 @@ export function deserializeIntoCopilotSetting(copilotSetting: Partial<CopilotSet
     return {
         ...deserializeIntoEntity(copilotSetting),
         "people": n => { copilotSetting.people = n.getObjectValue<CopilotPeopleAdminSetting>(createCopilotPeopleAdminSettingFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param DataSourceConfiguration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoDataSourceConfiguration(dataSourceConfiguration: Partial<DataSourceConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { dataSourceConfiguration.backingStoreEnabled = true; },
+        "externalItem": n => { dataSourceConfiguration.externalItem = n.getObjectValue<ExternalItemConfiguration>(createExternalItemConfigurationFromDiscriminatorValue); },
+        "@odata.type": n => { dataSourceConfiguration.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -1655,6 +2123,19 @@ export function deserializeIntoEntity(entity: Partial<Entity> | undefined = {}) 
 }
 /**
  * The deserialization information for the current model
+ * @param ExternalItemConfiguration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoExternalItemConfiguration(externalItemConfiguration: Partial<ExternalItemConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { externalItemConfiguration.backingStoreEnabled = true; },
+        "connections": n => { externalItemConfiguration.connections = n.getCollectionOfObjectValues<ConnectionItem>(createConnectionItemFromDiscriminatorValue); },
+        "@odata.type": n => { externalItemConfiguration.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param Identity The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -1710,6 +2191,32 @@ export function deserializeIntoItemBody(itemBody: Partial<ItemBody> | undefined 
 }
 /**
  * The deserialization information for the current model
+ * @param JoinMeetingIdMeetingInfo The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoJoinMeetingIdMeetingInfo(joinMeetingIdMeetingInfo: Partial<JoinMeetingIdMeetingInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoMeetingInfo(joinMeetingIdMeetingInfo),
+        "joinMeetingId": n => { joinMeetingIdMeetingInfo.joinMeetingId = n.getStringValue(); },
+        "passcode": n => { joinMeetingIdMeetingInfo.passcode = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param MeetingInfo The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoMeetingInfo(meetingInfo: Partial<MeetingInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "allowConversationWithoutHost": n => { meetingInfo.allowConversationWithoutHost = n.getBooleanValue(); },
+        "backingStoreEnabled": n => { meetingInfo.backingStoreEnabled = true; },
+        "@odata.type": n => { meetingInfo.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param MeetingNote The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -1750,6 +2257,46 @@ export function deserializeIntoMentionEvent(mentionEvent: Partial<MentionEvent> 
         "@odata.type": n => { mentionEvent.odataType = n.getStringValue(); },
         "speaker": n => { mentionEvent.speaker = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
         "transcriptUtterance": n => { mentionEvent.transcriptUtterance = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param MultiActivitySubscription The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoMultiActivitySubscription(multiActivitySubscription: Partial<MultiActivitySubscription> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(multiActivitySubscription),
+        "activities": n => { multiActivitySubscription.activities = n.getObjectValue<SubscriptionActivities>(createSubscriptionActivitiesFromDiscriminatorValue); },
+        "callbackUrl": n => { multiActivitySubscription.callbackUrl = n.getStringValue(); },
+        "chatInfo": n => { multiActivitySubscription.chatInfo = n.getObjectValue<ChatInfo>(createChatInfoFromDiscriminatorValue); },
+        "meetingInfo": n => { multiActivitySubscription.meetingInfo = n.getObjectValue<MeetingInfo>(createMeetingInfoFromDiscriminatorValue); },
+        "userId": n => { multiActivitySubscription.userId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param MultiActivitySubscriptionCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoMultiActivitySubscriptionCollectionResponse(multiActivitySubscriptionCollectionResponse: Partial<MultiActivitySubscriptionCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(multiActivitySubscriptionCollectionResponse),
+        "value": n => { multiActivitySubscriptionCollectionResponse.value = n.getCollectionOfObjectValues<MultiActivitySubscription>(createMultiActivitySubscriptionFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param OrganizerMeetingInfo The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoOrganizerMeetingInfo(organizerMeetingInfo: Partial<OrganizerMeetingInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoMeetingInfo(organizerMeetingInfo),
+        "organizer": n => { organizerMeetingInfo.organizer = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
     }
 }
 /**
@@ -1798,6 +2345,82 @@ export function deserializeIntoProvisioningSystem(provisioningSystem: Partial<Pr
     return {
         ...deserializeIntoIdentity(provisioningSystem),
         "details": n => { provisioningSystem.details = n.getObjectValue<DetailsInfo>(createDetailsInfoFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param RealtimeActivityFeedRoot The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoRealtimeActivityFeedRoot(realtimeActivityFeedRoot: Partial<RealtimeActivityFeedRoot> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(realtimeActivityFeedRoot),
+        "meetings": n => { realtimeActivityFeedRoot.meetings = n.getCollectionOfObjectValues<RealtimeActivityMeeting>(createRealtimeActivityMeetingFromDiscriminatorValue); },
+        "multiActivitySubscriptions": n => { realtimeActivityFeedRoot.multiActivitySubscriptions = n.getCollectionOfObjectValues<MultiActivitySubscription>(createMultiActivitySubscriptionFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param RealtimeActivityMeeting The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoRealtimeActivityMeeting(realtimeActivityMeeting: Partial<RealtimeActivityMeeting> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(realtimeActivityMeeting),
+        "transcripts": n => { realtimeActivityMeeting.transcripts = n.getCollectionOfObjectValues<RealTimeTranscript>(createRealTimeTranscriptFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param RealtimeActivityMeetingCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoRealtimeActivityMeetingCollectionResponse(realtimeActivityMeetingCollectionResponse: Partial<RealtimeActivityMeetingCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(realtimeActivityMeetingCollectionResponse),
+        "value": n => { realtimeActivityMeetingCollectionResponse.value = n.getCollectionOfObjectValues<RealtimeActivityMeeting>(createRealtimeActivityMeetingFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param RealTimeTranscript The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoRealTimeTranscript(realTimeTranscript: Partial<RealTimeTranscript> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(realTimeTranscript),
+        "payloads": n => { realTimeTranscript.payloads = n.getCollectionOfObjectValues<TranscriptPayload>(createTranscriptPayloadFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param RealTimeTranscriptCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoRealTimeTranscriptCollectionResponse(realTimeTranscriptCollectionResponse: Partial<RealTimeTranscriptCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(realTimeTranscriptCollectionResponse),
+        "value": n => { realTimeTranscriptCollectionResponse.value = n.getCollectionOfObjectValues<RealTimeTranscript>(createRealTimeTranscriptFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ResultInfo The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoResultInfo(resultInfo: Partial<ResultInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { resultInfo.backingStoreEnabled = true; },
+        "code": n => { resultInfo.code = n.getNumberValue(); },
+        "message": n => { resultInfo.message = n.getStringValue(); },
+        "@odata.type": n => { resultInfo.odataType = n.getStringValue(); },
+        "subcode": n => { resultInfo.subcode = n.getNumberValue(); },
     }
 }
 /**
@@ -1922,6 +2545,33 @@ export function deserializeIntoSourceProvisionedIdentity(sourceProvisionedIdenti
 }
 /**
  * The deserialization information for the current model
+ * @param SpeakerInfo The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoSpeakerInfo(speakerInfo: Partial<SpeakerInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { speakerInfo.backingStoreEnabled = true; },
+        "displayName": n => { speakerInfo.displayName = n.getStringValue(); },
+        "@odata.type": n => { speakerInfo.odataType = n.getStringValue(); },
+        "rawId": n => { speakerInfo.rawId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param SubscriptionActivities The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoSubscriptionActivities(subscriptionActivities: Partial<SubscriptionActivities> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { subscriptionActivities.backingStoreEnabled = true; },
+        "@odata.type": n => { subscriptionActivities.odataType = n.getStringValue(); },
+        "transcript": n => { subscriptionActivities.transcript = n.getObjectValue<TranscriptActivity>(createTranscriptActivityFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param TargetProvisionedIdentity The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -1977,6 +2627,60 @@ export function deserializeIntoTeamworkUserIdentity(teamworkUserIdentity: Partia
         ...deserializeIntoIdentity(teamworkUserIdentity),
         "userIdentityType": n => { teamworkUserIdentity.userIdentityType = n.getEnumValue<TeamworkUserIdentityType>(TeamworkUserIdentityTypeObject); },
         "userPrincipalName": n => { teamworkUserIdentity.userPrincipalName = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param TokenMeetingInfo The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoTokenMeetingInfo(tokenMeetingInfo: Partial<TokenMeetingInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoMeetingInfo(tokenMeetingInfo),
+        "token": n => { tokenMeetingInfo.token = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param TranscriptActivity The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoTranscriptActivity(transcriptActivity: Partial<TranscriptActivity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseActivity(transcriptActivity),
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param TranscriptPayload The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoTranscriptPayload(transcriptPayload: Partial<TranscriptPayload> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "audioCaptureDateTime": n => { transcriptPayload.audioCaptureDateTime = n.getDateValue(); },
+        "backingStoreEnabled": n => { transcriptPayload.backingStoreEnabled = true; },
+        "@odata.type": n => { transcriptPayload.odataType = n.getStringValue(); },
+        "sequenceId": n => { transcriptPayload.sequenceId = n.getNumberValue(); },
+        "speaker": n => { transcriptPayload.speaker = n.getObjectValue<TranscriptSpeaker>(createTranscriptSpeakerFromDiscriminatorValue); },
+        "spokenLanguage": n => { transcriptPayload.spokenLanguage = n.getStringValue(); },
+        "text": n => { transcriptPayload.text = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param TranscriptSpeaker The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoTranscriptSpeaker(transcriptSpeaker: Partial<TranscriptSpeaker> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { transcriptSpeaker.backingStoreEnabled = true; },
+        "@odata.type": n => { transcriptSpeaker.odataType = n.getStringValue(); },
+        "room": n => { transcriptSpeaker.room = n.getObjectValue<SpeakerInfo>(createSpeakerInfoFromDiscriminatorValue); },
+        "user": n => { transcriptSpeaker.user = n.getObjectValue<SpeakerInfo>(createSpeakerInfoFromDiscriminatorValue); },
     }
 }
 /**
@@ -2056,6 +2760,20 @@ export interface Entity extends AdditionalDataHolder, BackedModel, Parsable {
      */
     odataType?: string | null;
 }
+export interface ExternalItemConfiguration extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The connections property
+     */
+    connections?: ConnectionItem[] | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 export interface Identity extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores model information.
@@ -2121,6 +2839,30 @@ export interface ItemBody extends AdditionalDataHolder, BackedModel, Parsable {
      */
     odataType?: string | null;
 }
+export interface JoinMeetingIdMeetingInfo extends MeetingInfo, Parsable {
+    /**
+     * The ID used to join the meeting.
+     */
+    joinMeetingId?: string | null;
+    /**
+     * The passcode used to join the meeting. Optional.
+     */
+    passcode?: string | null;
+}
+export interface MeetingInfo extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * The allowConversationWithoutHost property
+     */
+    allowConversationWithoutHost?: boolean | null;
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 export interface MeetingNote extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores model information.
@@ -2131,15 +2873,15 @@ export interface MeetingNote extends AdditionalDataHolder, BackedModel, Parsable
      */
     odataType?: string | null;
     /**
-     * A collection of subpoints of the meeting note.
+     * The subpoints property
      */
     subpoints?: MeetingNoteSubpoint[] | null;
     /**
-     * The text of the meeting note.
+     * The text property
      */
     text?: string | null;
     /**
-     * The title of the meeting note.
+     * The title property
      */
     title?: string | null;
 }
@@ -2153,11 +2895,11 @@ export interface MeetingNoteSubpoint extends AdditionalDataHolder, BackedModel, 
      */
     odataType?: string | null;
     /**
-     * The text of the meeting note subpoint.
+     * The text property
      */
     text?: string | null;
     /**
-     * The title of the meeting note subpoint.
+     * The title property
      */
     title?: string | null;
 }
@@ -2167,7 +2909,7 @@ export interface MentionEvent extends AdditionalDataHolder, BackedModel, Parsabl
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The date and time of the mention event. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * The eventDateTime property
      */
     eventDateTime?: Date | null;
     /**
@@ -2175,13 +2917,47 @@ export interface MentionEvent extends AdditionalDataHolder, BackedModel, Parsabl
      */
     odataType?: string | null;
     /**
-     * The speaker who mentioned the user.
+     * The speaker property
      */
     speaker?: IdentitySet | null;
     /**
-     * The utterance in the online meeting transcript that contains the mention event.
+     * The transcriptUtterance property
      */
     transcriptUtterance?: string | null;
+}
+export interface MultiActivitySubscription extends Entity, Parsable {
+    /**
+     * The activities property
+     */
+    activities?: SubscriptionActivities | null;
+    /**
+     * The callbackUrl property
+     */
+    callbackUrl?: string | null;
+    /**
+     * The chatInfo property
+     */
+    chatInfo?: ChatInfo | null;
+    /**
+     * The meetingInfo property
+     */
+    meetingInfo?: MeetingInfo | null;
+    /**
+     * The userId property
+     */
+    userId?: string | null;
+}
+export interface MultiActivitySubscriptionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: MultiActivitySubscription[] | null;
+}
+export interface OrganizerMeetingInfo extends MeetingInfo, Parsable {
+    /**
+     * The organizer property
+     */
+    organizer?: IdentitySet | null;
 }
 export interface ProgramResource extends Identity, Parsable {
     /**
@@ -2206,6 +2982,62 @@ export interface ProvisioningSystem extends Identity, Parsable {
      * Details of the system.
      */
     details?: DetailsInfo | null;
+}
+export interface RealtimeActivityFeedRoot extends Entity, Parsable {
+    /**
+     * The meetings property
+     */
+    meetings?: RealtimeActivityMeeting[] | null;
+    /**
+     * The multiActivitySubscriptions property
+     */
+    multiActivitySubscriptions?: MultiActivitySubscription[] | null;
+}
+export interface RealtimeActivityMeeting extends Entity, Parsable {
+    /**
+     * The transcripts property
+     */
+    transcripts?: RealTimeTranscript[] | null;
+}
+export interface RealtimeActivityMeetingCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: RealtimeActivityMeeting[] | null;
+}
+export interface RealTimeTranscript extends Entity, Parsable {
+    /**
+     * The payloads property
+     */
+    payloads?: TranscriptPayload[] | null;
+}
+export interface RealTimeTranscriptCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: RealTimeTranscript[] | null;
+}
+export interface ResultInfo extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The result code.
+     */
+    code?: number | null;
+    /**
+     * The message.
+     */
+    message?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The result sub-code.
+     */
+    subcode?: number | null;
 }
 export type RetrievalDataSource = (typeof RetrievalDataSourceObject)[keyof typeof RetrievalDataSourceObject];
 export type RetrievalEntityType = (typeof RetrievalEntityTypeObject)[keyof typeof RetrievalEntityTypeObject];
@@ -2319,6 +3151,20 @@ export function serializeActionItem(writer: SerializationWriter, actionItem: Par
 }
 /**
  * Serializes information the current object
+ * @param ActivityTransport The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeActivityTransport(writer: SerializationWriter, activityTransport: Partial<ActivityTransport> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!activityTransport || isSerializingDerivedType) { return; }
+    writer.writeEnumValue<ConnectionType>("connectionType", activityTransport.connectionType);
+    writer.writeStringValue("@odata.type", activityTransport.odataType);
+    writer.writeStringValue("url", activityTransport.url);
+    writer.writeAdditionalData(activityTransport.additionalData);
+}
+/**
+ * Serializes information the current object
  * @param AiInteraction The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -2351,12 +3197,13 @@ export function serializeAiInteraction(writer: SerializationWriter, aiInteractio
 // @ts-ignore
 export function serializeAiInteractionAttachment(writer: SerializationWriter, aiInteractionAttachment: Partial<AiInteractionAttachment> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!aiInteractionAttachment || isSerializingDerivedType) { return; }
-    serializeEntity(writer, aiInteractionAttachment, isSerializingDerivedType)
     writer.writeStringValue("attachmentId", aiInteractionAttachment.attachmentId);
     writer.writeStringValue("content", aiInteractionAttachment.content);
     writer.writeStringValue("contentType", aiInteractionAttachment.contentType);
     writer.writeStringValue("contentUrl", aiInteractionAttachment.contentUrl);
     writer.writeStringValue("name", aiInteractionAttachment.name);
+    writer.writeStringValue("@odata.type", aiInteractionAttachment.odataType);
+    writer.writeAdditionalData(aiInteractionAttachment.additionalData);
 }
 /**
  * Serializes information the current object
@@ -2367,10 +3214,11 @@ export function serializeAiInteractionAttachment(writer: SerializationWriter, ai
 // @ts-ignore
 export function serializeAiInteractionContext(writer: SerializationWriter, aiInteractionContext: Partial<AiInteractionContext> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!aiInteractionContext || isSerializingDerivedType) { return; }
-    serializeEntity(writer, aiInteractionContext, isSerializingDerivedType)
     writer.writeStringValue("contextReference", aiInteractionContext.contextReference);
     writer.writeStringValue("contextType", aiInteractionContext.contextType);
     writer.writeStringValue("displayName", aiInteractionContext.displayName);
+    writer.writeStringValue("@odata.type", aiInteractionContext.odataType);
+    writer.writeAdditionalData(aiInteractionContext.additionalData);
 }
 /**
  * Serializes information the current object
@@ -2392,10 +3240,11 @@ export function serializeAiInteractionHistory(writer: SerializationWriter, aiInt
 // @ts-ignore
 export function serializeAiInteractionLink(writer: SerializationWriter, aiInteractionLink: Partial<AiInteractionLink> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!aiInteractionLink || isSerializingDerivedType) { return; }
-    serializeEntity(writer, aiInteractionLink, isSerializingDerivedType)
     writer.writeStringValue("displayName", aiInteractionLink.displayName);
     writer.writeStringValue("linkType", aiInteractionLink.linkType);
     writer.writeStringValue("linkUrl", aiInteractionLink.linkUrl);
+    writer.writeStringValue("@odata.type", aiInteractionLink.odataType);
+    writer.writeAdditionalData(aiInteractionLink.additionalData);
 }
 /**
  * Serializes information the current object
@@ -2406,10 +3255,11 @@ export function serializeAiInteractionLink(writer: SerializationWriter, aiIntera
 // @ts-ignore
 export function serializeAiInteractionMention(writer: SerializationWriter, aiInteractionMention: Partial<AiInteractionMention> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!aiInteractionMention || isSerializingDerivedType) { return; }
-    serializeEntity(writer, aiInteractionMention, isSerializingDerivedType)
     writer.writeObjectValue<AiInteractionMentionedIdentitySet>("mentioned", aiInteractionMention.mentioned, serializeAiInteractionMentionedIdentitySet);
     writer.writeNumberValue("mentionId", aiInteractionMention.mentionId);
     writer.writeStringValue("mentionText", aiInteractionMention.mentionText);
+    writer.writeStringValue("@odata.type", aiInteractionMention.odataType);
+    writer.writeAdditionalData(aiInteractionMention.additionalData);
 }
 /**
  * Serializes information the current object
@@ -2512,6 +3362,26 @@ export function serializeAzureCommunicationServicesUserIdentity(writer: Serializ
 }
 /**
  * Serializes information the current object
+ * @param BaseActivity The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeBaseActivity(writer: SerializationWriter, baseActivity: Partial<BaseActivity> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!baseActivity || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", baseActivity.odataType);
+    writer.writeObjectValue<ResultInfo>("resultInfo", baseActivity.resultInfo, serializeResultInfo);
+    writer.writeEnumValue<ActivityStatus>("status", baseActivity.status);
+    writer.writeObjectValue<ActivityTransport>("transport", baseActivity.transport, serializeActivityTransport);
+    writer.writeAdditionalData(baseActivity.additionalData);
+    switch (baseActivity.odataType) {
+        case "#microsoft.graph.transcriptActivity":
+            serializeTranscriptActivity(writer, baseActivity, true);
+        break;
+    }
+}
+/**
+ * Serializes information the current object
  * @param BaseCollectionPaginationCountResponse The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -2565,6 +3435,21 @@ export function serializeCallAiInsightViewPoint(writer: SerializationWriter, cal
     writer.writeCollectionOfObjectValues<MentionEvent>("mentionEvents", callAiInsightViewPoint.mentionEvents, serializeMentionEvent);
     writer.writeStringValue("@odata.type", callAiInsightViewPoint.odataType);
     writer.writeAdditionalData(callAiInsightViewPoint.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param ChatInfo The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeChatInfo(writer: SerializationWriter, chatInfo: Partial<ChatInfo> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!chatInfo || isSerializingDerivedType) { return; }
+    writer.writeStringValue("messageId", chatInfo.messageId);
+    writer.writeStringValue("@odata.type", chatInfo.odataType);
+    writer.writeStringValue("replyChainMessageId", chatInfo.replyChainMessageId);
+    writer.writeStringValue("threadId", chatInfo.threadId);
+    writer.writeAdditionalData(chatInfo.additionalData);
 }
 /**
  * Serializes information the current object
@@ -2694,6 +3579,19 @@ export function serializeCommunicationsUserIdentity(writer: SerializationWriter,
 }
 /**
  * Serializes information the current object
+ * @param ConnectionItem The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeConnectionItem(writer: SerializationWriter, connectionItem: Partial<ConnectionItem> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!connectionItem || isSerializingDerivedType) { return; }
+    writer.writeStringValue("connectionId", connectionItem.connectionId);
+    writer.writeStringValue("@odata.type", connectionItem.odataType);
+    writer.writeAdditionalData(connectionItem.additionalData);
+}
+/**
+ * Serializes information the current object
  * @param CopilotAdmin The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -2731,6 +3629,18 @@ export function serializeCopilotAdminSetting(writer: SerializationWriter, copilo
 }
 /**
  * Serializes information the current object
+ * @param CopilotCommunicationsRoot The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotCommunicationsRoot(writer: SerializationWriter, copilotCommunicationsRoot: Partial<CopilotCommunicationsRoot> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotCommunicationsRoot || isSerializingDerivedType) { return; }
+    serializeEntity(writer, copilotCommunicationsRoot, isSerializingDerivedType)
+    writer.writeObjectValue<RealtimeActivityFeedRoot>("realtimeActivityFeed", copilotCommunicationsRoot.realtimeActivityFeed, serializeRealtimeActivityFeedRoot);
+}
+/**
+ * Serializes information the current object
  * @param CopilotPeopleAdminSetting The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -2752,6 +3662,19 @@ export function serializeCopilotSetting(writer: SerializationWriter, copilotSett
     if (!copilotSetting || isSerializingDerivedType) { return; }
     serializeEntity(writer, copilotSetting, isSerializingDerivedType)
     writer.writeObjectValue<CopilotPeopleAdminSetting>("people", copilotSetting.people, serializeCopilotPeopleAdminSetting);
+}
+/**
+ * Serializes information the current object
+ * @param DataSourceConfiguration The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeDataSourceConfiguration(writer: SerializationWriter, dataSourceConfiguration: Partial<DataSourceConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!dataSourceConfiguration || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<ExternalItemConfiguration>("externalItem", dataSourceConfiguration.externalItem, serializeExternalItemConfiguration);
+    writer.writeStringValue("@odata.type", dataSourceConfiguration.odataType);
+    writer.writeAdditionalData(dataSourceConfiguration.additionalData);
 }
 /**
  * Serializes information the current object
@@ -2857,6 +3780,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.copilotAdminSetting":
             serializeCopilotAdminSetting(writer, entity, true);
         break;
+        case "#microsoft.graph.copilotCommunicationsRoot":
+            serializeCopilotCommunicationsRoot(writer, entity, true);
+        break;
         case "#microsoft.graph.copilotPeopleAdminSetting":
             serializeCopilotPeopleAdminSetting(writer, entity, true);
         break;
@@ -2866,7 +3792,32 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.enhancedPersonalizationSetting":
             serializeEnhancedPersonalizationSetting(writer, entity, true);
         break;
+        case "#microsoft.graph.multiActivitySubscription":
+            serializeMultiActivitySubscription(writer, entity, true);
+        break;
+        case "#microsoft.graph.realtimeActivityFeedRoot":
+            serializeRealtimeActivityFeedRoot(writer, entity, true);
+        break;
+        case "#microsoft.graph.realtimeActivityMeeting":
+            serializeRealtimeActivityMeeting(writer, entity, true);
+        break;
+        case "#microsoft.graph.realTimeTranscript":
+            serializeRealTimeTranscript(writer, entity, true);
+        break;
     }
+}
+/**
+ * Serializes information the current object
+ * @param ExternalItemConfiguration The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeExternalItemConfiguration(writer: SerializationWriter, externalItemConfiguration: Partial<ExternalItemConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!externalItemConfiguration || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<ConnectionItem>("connections", externalItemConfiguration.connections, serializeConnectionItem);
+    writer.writeStringValue("@odata.type", externalItemConfiguration.odataType);
+    writer.writeAdditionalData(externalItemConfiguration.additionalData);
 }
 /**
  * Serializes information the current object
@@ -3029,6 +3980,43 @@ export function serializeItemBody(writer: SerializationWriter, itemBody: Partial
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param JoinMeetingIdMeetingInfo The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeJoinMeetingIdMeetingInfo(writer: SerializationWriter, joinMeetingIdMeetingInfo: Partial<JoinMeetingIdMeetingInfo> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!joinMeetingIdMeetingInfo || isSerializingDerivedType) { return; }
+    serializeMeetingInfo(writer, joinMeetingIdMeetingInfo, isSerializingDerivedType)
+    writer.writeStringValue("joinMeetingId", joinMeetingIdMeetingInfo.joinMeetingId);
+    writer.writeStringValue("passcode", joinMeetingIdMeetingInfo.passcode);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MeetingInfo The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeMeetingInfo(writer: SerializationWriter, meetingInfo: Partial<MeetingInfo> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!meetingInfo || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("allowConversationWithoutHost", meetingInfo.allowConversationWithoutHost);
+    writer.writeStringValue("@odata.type", meetingInfo.odataType);
+    writer.writeAdditionalData(meetingInfo.additionalData);
+    switch (meetingInfo.odataType) {
+        case "#microsoft.graph.joinMeetingIdMeetingInfo":
+            serializeJoinMeetingIdMeetingInfo(writer, meetingInfo, true);
+        break;
+        case "#microsoft.graph.organizerMeetingInfo":
+            serializeOrganizerMeetingInfo(writer, meetingInfo, true);
+        break;
+        case "#microsoft.graph.tokenMeetingInfo":
+            serializeTokenMeetingInfo(writer, meetingInfo, true);
+        break;
+    }
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param MeetingNote The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -3069,6 +4057,46 @@ export function serializeMentionEvent(writer: SerializationWriter, mentionEvent:
     writer.writeObjectValue<IdentitySet>("speaker", mentionEvent.speaker, serializeIdentitySet);
     writer.writeStringValue("transcriptUtterance", mentionEvent.transcriptUtterance);
     writer.writeAdditionalData(mentionEvent.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MultiActivitySubscription The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeMultiActivitySubscription(writer: SerializationWriter, multiActivitySubscription: Partial<MultiActivitySubscription> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!multiActivitySubscription || isSerializingDerivedType) { return; }
+    serializeEntity(writer, multiActivitySubscription, isSerializingDerivedType)
+    writer.writeObjectValue<SubscriptionActivities>("activities", multiActivitySubscription.activities, serializeSubscriptionActivities);
+    writer.writeStringValue("callbackUrl", multiActivitySubscription.callbackUrl);
+    writer.writeObjectValue<ChatInfo>("chatInfo", multiActivitySubscription.chatInfo, serializeChatInfo);
+    writer.writeObjectValue<MeetingInfo>("meetingInfo", multiActivitySubscription.meetingInfo, serializeMeetingInfo);
+    writer.writeStringValue("userId", multiActivitySubscription.userId);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MultiActivitySubscriptionCollectionResponse The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeMultiActivitySubscriptionCollectionResponse(writer: SerializationWriter, multiActivitySubscriptionCollectionResponse: Partial<MultiActivitySubscriptionCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!multiActivitySubscriptionCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, multiActivitySubscriptionCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<MultiActivitySubscription>("value", multiActivitySubscriptionCollectionResponse.value, serializeMultiActivitySubscription);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param OrganizerMeetingInfo The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeOrganizerMeetingInfo(writer: SerializationWriter, organizerMeetingInfo: Partial<OrganizerMeetingInfo> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!organizerMeetingInfo || isSerializingDerivedType) { return; }
+    serializeMeetingInfo(writer, organizerMeetingInfo, isSerializingDerivedType)
+    writer.writeObjectValue<IdentitySet>("organizer", organizerMeetingInfo.organizer, serializeIdentitySet);
 }
 /**
  * Serializes information the current object
@@ -3117,6 +4145,82 @@ export function serializeProvisioningSystem(writer: SerializationWriter, provisi
     if (!provisioningSystem || isSerializingDerivedType) { return; }
     serializeIdentity(writer, provisioningSystem, isSerializingDerivedType)
     writer.writeObjectValue<DetailsInfo>("details", provisioningSystem.details, serializeDetailsInfo);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RealtimeActivityFeedRoot The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRealtimeActivityFeedRoot(writer: SerializationWriter, realtimeActivityFeedRoot: Partial<RealtimeActivityFeedRoot> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!realtimeActivityFeedRoot || isSerializingDerivedType) { return; }
+    serializeEntity(writer, realtimeActivityFeedRoot, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<RealtimeActivityMeeting>("meetings", realtimeActivityFeedRoot.meetings, serializeRealtimeActivityMeeting);
+    writer.writeCollectionOfObjectValues<MultiActivitySubscription>("multiActivitySubscriptions", realtimeActivityFeedRoot.multiActivitySubscriptions, serializeMultiActivitySubscription);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RealtimeActivityMeeting The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRealtimeActivityMeeting(writer: SerializationWriter, realtimeActivityMeeting: Partial<RealtimeActivityMeeting> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!realtimeActivityMeeting || isSerializingDerivedType) { return; }
+    serializeEntity(writer, realtimeActivityMeeting, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<RealTimeTranscript>("transcripts", realtimeActivityMeeting.transcripts, serializeRealTimeTranscript);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RealtimeActivityMeetingCollectionResponse The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRealtimeActivityMeetingCollectionResponse(writer: SerializationWriter, realtimeActivityMeetingCollectionResponse: Partial<RealtimeActivityMeetingCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!realtimeActivityMeetingCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, realtimeActivityMeetingCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<RealtimeActivityMeeting>("value", realtimeActivityMeetingCollectionResponse.value, serializeRealtimeActivityMeeting);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RealTimeTranscript The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRealTimeTranscript(writer: SerializationWriter, realTimeTranscript: Partial<RealTimeTranscript> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!realTimeTranscript || isSerializingDerivedType) { return; }
+    serializeEntity(writer, realTimeTranscript, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<TranscriptPayload>("payloads", realTimeTranscript.payloads, serializeTranscriptPayload);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RealTimeTranscriptCollectionResponse The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRealTimeTranscriptCollectionResponse(writer: SerializationWriter, realTimeTranscriptCollectionResponse: Partial<RealTimeTranscriptCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!realTimeTranscriptCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, realTimeTranscriptCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<RealTimeTranscript>("value", realTimeTranscriptCollectionResponse.value, serializeRealTimeTranscript);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ResultInfo The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeResultInfo(writer: SerializationWriter, resultInfo: Partial<ResultInfo> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!resultInfo || isSerializingDerivedType) { return; }
+    writer.writeNumberValue("code", resultInfo.code);
+    writer.writeStringValue("message", resultInfo.message);
+    writer.writeStringValue("@odata.type", resultInfo.odataType);
+    writer.writeNumberValue("subcode", resultInfo.subcode);
+    writer.writeAdditionalData(resultInfo.additionalData);
 }
 /**
  * Serializes information the current object
@@ -3236,6 +4340,33 @@ export function serializeSourceProvisionedIdentity(writer: SerializationWriter, 
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SpeakerInfo The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeSpeakerInfo(writer: SerializationWriter, speakerInfo: Partial<SpeakerInfo> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!speakerInfo || isSerializingDerivedType) { return; }
+    writer.writeStringValue("displayName", speakerInfo.displayName);
+    writer.writeStringValue("@odata.type", speakerInfo.odataType);
+    writer.writeStringValue("rawId", speakerInfo.rawId);
+    writer.writeAdditionalData(speakerInfo.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SubscriptionActivities The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeSubscriptionActivities(writer: SerializationWriter, subscriptionActivities: Partial<SubscriptionActivities> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!subscriptionActivities || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", subscriptionActivities.odataType);
+    writer.writeObjectValue<TranscriptActivity>("transcript", subscriptionActivities.transcript, serializeTranscriptActivity);
+    writer.writeAdditionalData(subscriptionActivities.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param TargetProvisionedIdentity The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -3295,6 +4426,60 @@ export function serializeTeamworkUserIdentity(writer: SerializationWriter, teamw
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TokenMeetingInfo The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTokenMeetingInfo(writer: SerializationWriter, tokenMeetingInfo: Partial<TokenMeetingInfo> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!tokenMeetingInfo || isSerializingDerivedType) { return; }
+    serializeMeetingInfo(writer, tokenMeetingInfo, isSerializingDerivedType)
+    writer.writeStringValue("token", tokenMeetingInfo.token);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TranscriptActivity The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTranscriptActivity(writer: SerializationWriter, transcriptActivity: Partial<TranscriptActivity> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!transcriptActivity || isSerializingDerivedType) { return; }
+    serializeBaseActivity(writer, transcriptActivity, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TranscriptPayload The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTranscriptPayload(writer: SerializationWriter, transcriptPayload: Partial<TranscriptPayload> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!transcriptPayload || isSerializingDerivedType) { return; }
+    writer.writeDateValue("audioCaptureDateTime", transcriptPayload.audioCaptureDateTime);
+    writer.writeStringValue("@odata.type", transcriptPayload.odataType);
+    writer.writeNumberValue("sequenceId", transcriptPayload.sequenceId);
+    writer.writeObjectValue<TranscriptSpeaker>("speaker", transcriptPayload.speaker, serializeTranscriptSpeaker);
+    writer.writeStringValue("spokenLanguage", transcriptPayload.spokenLanguage);
+    writer.writeStringValue("text", transcriptPayload.text);
+    writer.writeAdditionalData(transcriptPayload.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TranscriptSpeaker The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTranscriptSpeaker(writer: SerializationWriter, transcriptSpeaker: Partial<TranscriptSpeaker> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!transcriptSpeaker || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", transcriptSpeaker.odataType);
+    writer.writeObjectValue<SpeakerInfo>("room", transcriptSpeaker.room, serializeSpeakerInfo);
+    writer.writeObjectValue<SpeakerInfo>("user", transcriptSpeaker.user, serializeSpeakerInfo);
+    writer.writeAdditionalData(transcriptSpeaker.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param UserIdentity The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -3338,6 +4523,38 @@ export interface SharePointIdentitySet extends IdentitySet, Parsable {
 }
 export interface SourceProvisionedIdentity extends Identity, Parsable {
 }
+export interface SpeakerInfo extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The displayName property
+     */
+    displayName?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The rawId property
+     */
+    rawId?: string | null;
+}
+export interface SubscriptionActivities extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The transcript property
+     */
+    transcript?: TranscriptActivity | null;
+}
 export interface TargetProvisionedIdentity extends Identity, Parsable {
 }
 export interface TeamworkApplicationIdentity extends Identity, Parsable {
@@ -3367,6 +4584,62 @@ export interface TeamworkUserIdentity extends Identity, Parsable {
     userPrincipalName?: string | null;
 }
 export type TeamworkUserIdentityType = (typeof TeamworkUserIdentityTypeObject)[keyof typeof TeamworkUserIdentityTypeObject];
+export interface TokenMeetingInfo extends MeetingInfo, Parsable {
+    /**
+     * The token used to join the call.
+     */
+    token?: string | null;
+}
+export interface TranscriptActivity extends BaseActivity, Parsable {
+}
+export interface TranscriptPayload extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * The audioCaptureDateTime property
+     */
+    audioCaptureDateTime?: Date | null;
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The sequenceId property
+     */
+    sequenceId?: number | null;
+    /**
+     * The speaker property
+     */
+    speaker?: TranscriptSpeaker | null;
+    /**
+     * The spokenLanguage property
+     */
+    spokenLanguage?: string | null;
+    /**
+     * The text property
+     */
+    text?: string | null;
+}
+export interface TranscriptSpeaker extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The room property
+     */
+    room?: SpeakerInfo | null;
+    /**
+     * The user property
+     */
+    user?: SpeakerInfo | null;
+}
 export interface UserIdentity extends Identity, Parsable {
     /**
      * Indicates the client IP address associated with the user performing the activity (audit log only).
@@ -3377,6 +4650,12 @@ export interface UserIdentity extends Identity, Parsable {
      */
     userPrincipalName?: string | null;
 }
+export const ActivityStatusObject = {
+    NotStarted: "notStarted",
+    Running: "running",
+    Failed: "failed",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
 export const AiInteractionTypeObject = {
     UserPrompt: "userPrompt",
     AiResponse: "aiResponse",
@@ -3385,6 +4664,10 @@ export const AiInteractionTypeObject = {
 export const BodyTypeObject = {
     Text: "text",
     Html: "html",
+} as const;
+export const ConnectionTypeObject = {
+    WebSocket: "webSocket",
+    UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const EndpointTypeObject = {
     DefaultEscaped: "default",
@@ -3402,12 +4685,7 @@ export const InitiatorTypeObject = {
 export const RetrievalDataSourceObject = {
     SharePoint: "sharePoint",
     OneDriveBusiness: "oneDriveBusiness",
-    ExternalItems: "externalItems",
-    Mail: "mail",
-    Calendar: "calendar",
-    Teams: "teams",
-    People: "people",
-    SharePointEmbedded: "sharePointEmbedded",
+    ExternalItem: "externalItem",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const RetrievalEntityTypeObject = {
