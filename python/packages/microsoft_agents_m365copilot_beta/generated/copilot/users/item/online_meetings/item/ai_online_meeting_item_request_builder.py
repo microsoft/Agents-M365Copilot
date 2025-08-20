@@ -51,7 +51,7 @@ class AiOnlineMeetingItemRequestBuilder(BaseRequestBuilder):
     
     async def get(self,request_configuration: Optional[RequestConfiguration[AiOnlineMeetingItemRequestBuilderGetQueryParameters]] = None) -> Optional[AiOnlineMeeting]:
         """
-        Information about an online meeting, including AI insights.
+        Get onlineMeetings from copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: Optional[AiOnlineMeeting]
         """
@@ -105,7 +105,7 @@ class AiOnlineMeetingItemRequestBuilder(BaseRequestBuilder):
     
     def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[AiOnlineMeetingItemRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
         """
-        Information about an online meeting, including AI insights.
+        Get onlineMeetings from copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -158,7 +158,7 @@ class AiOnlineMeetingItemRequestBuilder(BaseRequestBuilder):
     @dataclass
     class AiOnlineMeetingItemRequestBuilderGetQueryParameters():
         """
-        Information about an online meeting, including AI insights.
+        Get onlineMeetings from copilot
         """
         def get_query_parameter(self,original_name: str) -> str:
             """
