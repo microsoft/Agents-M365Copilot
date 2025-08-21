@@ -99,6 +99,7 @@ Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.retrievalPostRequestBody::|p
 Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.retrievalPostRequestBody::|public|BackingStore:IBackingStore
 Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.retrievalPostRequestBody::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.retrievalPostRequestBody::|public|DataSource:global.Microsoft.Agents.M365Copilot.Beta.Models.RetrievalDataSource?
+Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.retrievalPostRequestBody::|public|DataSourceConfiguration:global.Microsoft.Agents.M365Copilot.Beta.Models.DataSourceConfiguration
 Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.retrievalPostRequestBody::|public|FilterExpression:string
 Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.retrievalPostRequestBody::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.retrievalPostRequestBody::|public|MaximumNumberOfResults:int?
@@ -365,8 +366,10 @@ Microsoft.Agents.M365Copilot.Beta.Models.aiInteraction::|public|RequestId:string
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteraction::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteraction::|public|SessionId:string
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteraction::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.AiInteraction
-Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionAttachment-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionAttachment::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionAttachment::|public|AttachmentId:string
+Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionAttachment::|public|BackingStore:IBackingStore
+Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionAttachment::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionAttachment::|public|Content:string
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionAttachment::|public|ContentType:string
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionAttachment::|public|ContentUrl:string
@@ -375,7 +378,10 @@ Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionAttachment::|public|Name:s
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionAttachment::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionAttachment::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionAttachment::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionAttachment
-Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionContext-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionAttachment~~>IAdditionalDataHolder; IBackedModel; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionContext::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionContext::|public|BackingStore:IBackingStore
+Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionContext::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionContext::|public|ContextReference:string
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionContext::|public|ContextType:string
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionContext::|public|DisplayName:string
@@ -383,12 +389,15 @@ Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionContext::|public|GetFieldD
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionContext::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionContext::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionContext::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionContext
+Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionContext~~>IAdditionalDataHolder; IBackedModel; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionHistory-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionHistory::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionHistory::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionHistory::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionHistory::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionHistory
-Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionLink-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionLink::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionLink::|public|BackingStore:IBackingStore
+Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionLink::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionLink::|public|DisplayName:string
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionLink::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionLink::|public|LinkType:string
@@ -396,7 +405,10 @@ Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionLink::|public|LinkUrl:stri
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionLink::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionLink::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionLink::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionLink
-Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionMention-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionLink~~>IAdditionalDataHolder; IBackedModel; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionMention::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionMention::|public|BackingStore:IBackingStore
+Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionMention::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionMention::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionMention::|public|Mentioned:global.Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionMentionedIdentitySet
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionMention::|public|MentionId:int?
@@ -412,6 +424,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionMentionedIdentitySet::|pub
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionMentionedIdentitySet::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionMentionedIdentitySet::|public|Tag:global.Microsoft.Agents.M365Copilot.Beta.Models.TeamworkTagIdentity
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionMentionedIdentitySet::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionMentionedIdentitySet
+Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionMention~~>IAdditionalDataHolder; IBackedModel; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionType::0000-userPrompt
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionType::0001-aiResponse
 Microsoft.Agents.M365Copilot.Beta.Models.aiInteractionType::0002-unknownFutureValue
@@ -580,6 +593,15 @@ Microsoft.Agents.M365Copilot.Beta.Models.communicationsUserIdentity::|public|Oda
 Microsoft.Agents.M365Copilot.Beta.Models.communicationsUserIdentity::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.communicationsUserIdentity::|public|TenantId:string
 Microsoft.Agents.M365Copilot.Beta.Models.communicationsUserIdentity::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CommunicationsUserIdentity
+Microsoft.Agents.M365Copilot.Beta.Models.connectionItem::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.connectionItem::|public|BackingStore:IBackingStore
+Microsoft.Agents.M365Copilot.Beta.Models.connectionItem::|public|ConnectionId:string
+Microsoft.Agents.M365Copilot.Beta.Models.connectionItem::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.connectionItem::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.connectionItem::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.connectionItem::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.connectionItem::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.ConnectionItem
+Microsoft.Agents.M365Copilot.Beta.Models.connectionItem~~>IAdditionalDataHolder; IBackedModel; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.copilotAdmin-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.copilotAdmin::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotAdmin::|public|OdataType:string
@@ -611,6 +633,15 @@ Microsoft.Agents.M365Copilot.Beta.Models.copilotSetting::|public|OdataType:strin
 Microsoft.Agents.M365Copilot.Beta.Models.copilotSetting::|public|People:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPeopleAdminSetting
 Microsoft.Agents.M365Copilot.Beta.Models.copilotSetting::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.copilotSetting::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotSetting
+Microsoft.Agents.M365Copilot.Beta.Models.dataSourceConfiguration::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.dataSourceConfiguration::|public|BackingStore:IBackingStore
+Microsoft.Agents.M365Copilot.Beta.Models.dataSourceConfiguration::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.dataSourceConfiguration::|public|ExternalItem:global.Microsoft.Agents.M365Copilot.Beta.Models.ExternalItemConfiguration
+Microsoft.Agents.M365Copilot.Beta.Models.dataSourceConfiguration::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.dataSourceConfiguration::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.dataSourceConfiguration::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.dataSourceConfiguration::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.DataSourceConfiguration
+Microsoft.Agents.M365Copilot.Beta.Models.dataSourceConfiguration~~>IAdditionalDataHolder; IBackedModel; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.detailsInfo::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Beta.Models.detailsInfo::|public|BackingStore:IBackingStore
 Microsoft.Agents.M365Copilot.Beta.Models.detailsInfo::|public|constructor():void
@@ -663,6 +694,15 @@ Microsoft.Agents.M365Copilot.Beta.Models.entity::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.entity::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.entity::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.entity~~>IAdditionalDataHolder; IBackedModel; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.externalItemConfiguration::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.externalItemConfiguration::|public|BackingStore:IBackingStore
+Microsoft.Agents.M365Copilot.Beta.Models.externalItemConfiguration::|public|Connections:List<global.Microsoft.Agents.M365Copilot.Beta.Models.ConnectionItem>
+Microsoft.Agents.M365Copilot.Beta.Models.externalItemConfiguration::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.externalItemConfiguration::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.externalItemConfiguration::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.externalItemConfiguration::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.externalItemConfiguration::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.ExternalItemConfiguration
+Microsoft.Agents.M365Copilot.Beta.Models.externalItemConfiguration~~>IAdditionalDataHolder; IBackedModel; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.identity::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Beta.Models.identity::|public|BackingStore:IBackingStore
 Microsoft.Agents.M365Copilot.Beta.Models.identity::|public|constructor():void
@@ -809,13 +849,8 @@ Microsoft.Agents.M365Copilot.Beta.Models.provisioningSystem::|public|Serialize(w
 Microsoft.Agents.M365Copilot.Beta.Models.provisioningSystem::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.ProvisioningSystem
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0000-sharePoint
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0001-oneDriveBusiness
-Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0002-externalItems
-Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0003-mail
-Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0004-calendar
-Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0005-teams
-Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0006-people
-Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0007-sharePointEmbedded
-Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0008-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0002-externalItem
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalDataSource::0003-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalEntityType::0000-site
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalEntityType::0001-list
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalEntityType::0002-listItem
