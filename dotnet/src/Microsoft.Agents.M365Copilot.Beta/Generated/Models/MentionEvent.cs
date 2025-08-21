@@ -21,7 +21,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The date and time of the mention event. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
+        /// <summary>The eventDateTime property</summary>
         public DateTimeOffset? EventDateTime
         {
             get { return BackingStore?.Get<DateTimeOffset?>("eventDateTime"); }
@@ -43,7 +43,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The speaker who mentioned the user.</summary>
+        /// <summary>The speaker property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet? Speaker
@@ -59,7 +59,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             set { BackingStore?.Set("speaker", value); }
         }
 #endif
-        /// <summary>The utterance in the online meeting transcript that contains the mention event.</summary>
+        /// <summary>The transcriptUtterance property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TranscriptUtterance
@@ -90,7 +90,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Microsoft.Agents.M365Copilot.Beta.Models.MentionEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Microsoft.Agents.M365Copilot.Beta.Models.MentionEvent();
         }
         /// <summary>
@@ -113,7 +113,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("eventDateTime", EventDateTime);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet>("speaker", Speaker);

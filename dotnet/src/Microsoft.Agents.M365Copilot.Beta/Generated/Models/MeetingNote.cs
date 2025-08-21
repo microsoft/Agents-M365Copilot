@@ -37,7 +37,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>A collection of subpoints of the meeting note.</summary>
+        /// <summary>The subpoints property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingNoteSubpoint>? Subpoints
@@ -53,7 +53,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             set { BackingStore?.Set("subpoints", value); }
         }
 #endif
-        /// <summary>The text of the meeting note.</summary>
+        /// <summary>The text property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Text
@@ -69,7 +69,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             set { BackingStore?.Set("text", value); }
         }
 #endif
-        /// <summary>The title of the meeting note.</summary>
+        /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Title
@@ -100,7 +100,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingNote CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingNote();
         }
         /// <summary>
@@ -123,7 +123,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingNoteSubpoint>("subpoints", Subpoints);
             writer.WriteStringValue("text", Text);

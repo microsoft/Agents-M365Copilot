@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class AiUser : global::Microsoft.Agents.M365Copilot.Beta.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The history of interactions between AI agents and users.</summary>
+        /// <summary>The interactionHistory property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionHistory? InteractionHistory
@@ -28,7 +28,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             set { BackingStore?.Set("interactionHistory", value); }
         }
 #endif
-        /// <summary>Information about an online meeting, including AI insights.</summary>
+        /// <summary>The onlineMeetings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiOnlineMeeting>? OnlineMeetings
@@ -51,7 +51,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new global::Microsoft.Agents.M365Copilot.Beta.Models.AiUser CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Microsoft.Agents.M365Copilot.Beta.Models.AiUser();
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public override void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionHistory>("interactionHistory", InteractionHistory);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.AiOnlineMeeting>("onlineMeetings", OnlineMeetings);
