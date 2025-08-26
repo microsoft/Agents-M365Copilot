@@ -51,7 +51,7 @@ class AdminRequestBuilder(BaseRequestBuilder):
     
     async def get(self,request_configuration: Optional[RequestConfiguration[AdminRequestBuilderGetQueryParameters]] = None) -> Optional[CopilotAdmin]:
         """
-        The Microsoft 365 Copilot admin who can add or modify Copilot settings. Read-only. Nullable.
+        Get admin from copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: Optional[CopilotAdmin]
         """
@@ -105,7 +105,7 @@ class AdminRequestBuilder(BaseRequestBuilder):
     
     def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[AdminRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
         """
-        The Microsoft 365 Copilot admin who can add or modify Copilot settings. Read-only. Nullable.
+        Get admin from copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -158,7 +158,7 @@ class AdminRequestBuilder(BaseRequestBuilder):
     @dataclass
     class AdminRequestBuilderGetQueryParameters():
         """
-        The Microsoft 365 Copilot admin who can add or modify Copilot settings. Read-only. Nullable.
+        Get admin from copilot
         """
         def get_query_parameter(self,original_name: str) -> str:
             """
