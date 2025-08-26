@@ -82,7 +82,8 @@ extends:
                 displayName: 'Stage Beta TypeScript package artifacts'
                 artifactName: npm_$(package_name_beta)
                 targetPath: '$(Build.ArtifactStagingDirectory)/npm/$(package_name_beta)'
-                condition: or(startsWith(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-beta'), eq(variables['Build.Reason'], 'Manual'))
+                condition: or(contains(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-beta'), eq(variables['Build.Reason'], 'Manual'))
+                # Build.SourceBranch expands to 'refs/tags/@microsoft/agents-m365copilot-beta-v1.0.0-preview.6'
 
     - stage: deploy
       displayName: 'Deploy Beta NPM Package'
