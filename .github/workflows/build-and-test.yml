@@ -126,6 +126,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade poetry
+          python -m pip install microsoft_agents_m365copilot_core
           poetry install
         working-directory: ${{ matrix.packages.path }}
 
