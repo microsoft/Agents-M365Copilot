@@ -130,10 +130,14 @@ jobs:
           poetry install
         working-directory: ${{ matrix.packages.path }}
 
-      - name: Install beta dependency
+      - name: Install core dependency
         if: matrix.packages.name == 'microsoft_agents_m365copilot_beta'
         run: |
-          python -m pip install microsoft_agents_m365copilot_core
+          pushd ../microsoft_agents_m365copilot_core
+          poetry build -f wheel
+          popd
+          # install wheel into the beta poetry venv used by later steps
+          poetry run pip install ../microsoft_agents_m365copilot_core/dist/*.whl
         working-directory: ${{ matrix.packages.path }}
 
       # Core package specific steps
