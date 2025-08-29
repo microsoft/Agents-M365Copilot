@@ -61,7 +61,7 @@ CLIENT_ID = "YOUR_CLIENT_ID"
 
 > **Note:**
 >
-> This example shows how to make a call to the Microsoft 365 Copilot Retrieval API. To call this API, you need to install the [Microsoft 365 Copilot APIs Python Beta Client Library](https://github.com/microsoft/Agents-M365Copilot/tree/main/python/packages/microsoft_agents_m365copilot_beta), create a request object and then run the POST method on the request.
+> This example shows how to make a call to the Microsoft 365 Copilot Retrieval API using just the core library. Alternately, you can use the [Microsoft 365 Copilot APIs Python Beta Client Library](https://github.com/microsoft/Agents-M365Copilot/tree/main/python/packages/microsoft_agents_m365copilot_beta) to create a request object and then run the POST method on the request.
 
 ```python
 import asyncio
@@ -69,14 +69,10 @@ import os
 from datetime import datetime
 
 from azure.identity import DeviceCodeCredential
-from dotenv import load_dotenv
-from kiota_abstractions.api_error import APIError
+from dotenv import load_dotenv 
 
-from microsoft_agents_m365copilot_beta import AgentsM365CopilotBetaServiceClient
-from microsoft_agents_m365copilot_beta.generated.copilot.retrieval.retrieval_post_request_body import (
-    RetrievalPostRequestBody,
-)
-from microsoft_agents_m365copilot_beta.generated.models.retrieval_data_source import RetrievalDataSource
+from microsoft_agents_m365copilot_core.src._enums import APIVersion
+from microsoft_agents_m365copilot_core.src.client_factory import  MicrosoftAgentsM365CopilotClientFactory
 
 load_dotenv()
 
@@ -96,44 +92,39 @@ credentials = DeviceCodeCredential(
     prompt_callback=auth_callback
 )
 
-# Use the Graph API beta endpoint explicitly
-scopes = ['https://graph.microsoft.com/.default']
-client = AgentsM365CopilotBetaServiceClient(credentials=credentials, scopes=scopes)
+client = MicrosoftAgentsM365CopilotClientFactory.create_with_default_middleware(api_version=APIVersion.beta)
 
-# Make sure the base URL is set to beta
-client.request_adapter.base_url = "https://graph.microsoft.com/beta"
+client.base_url = "https://graph.microsoft.com/beta" # Make sure the base URL is set to beta
 
 async def retrieve():
     try:
-        # Print the URL being used
-        print(f"Using API base URL: {client.request_adapter.base_url}\n")
+        # Kick off device code flow and get the token.
+        loop = asyncio.get_running_loop()
+        token = await loop.run_in_executor(None, lambda: credentials.get_token("https://graph.microsoft.com/.default"))
+
+        # Set the access token.
+        headers = {"Authorization": f"Bearer {token.token}"}
+
+        # Print the URL being used.
+        print(f"Using API base URL for incoming request: {client.base_url}\n")
+
+        # Directly use httpx to test the endpoint.
+        response = await client.post("https://graph.microsoft.com/beta/copilot/retrieval", json={
+            "queryString": "What is the latest in my organization?",
+            "dataSource": "sharePoint",
+            "resourceMetadata": [
+                "title",
+                "author"
+            ],
+            "maximumNumberOfResults": "10"
+        }, headers=headers)
+
+        # Show the response
+        print(f"Response HTTP status: {response.status_code}")
+        print(f"Response JSON content: {response.text}")
             
-        # Create the retrieval request body
-        retrieval_body = RetrievalPostRequestBody()
-        retrieval_body.data_source = RetrievalDataSource.SharePoint
-        retrieval_body.query_string = "What is the latest in my organization?"
-            
-        # Try more parameters that might be required
-        # retrieval_body.maximum_number_of_results = 10
-            
-        # Make the API call
-        print("Making retrieval API request...")
-        retrieval = await client.copilot.retrieval.post(retrieval_body)
-        
-        # Process the results
-        if retrieval and hasattr(retrieval, "retrieval_hits"):
-            print(f"Received {len(retrieval.retrieval_hits)} hits")
-            for r in retrieval.retrieval_hits:
-                print(f"Web URL: {r.web_url}\n")
-                for extract in r.extracts:
-                    print(f"Text:\n{extract.text}\n")
-        else:
-            print(f"Retrieval response structure: {dir(retrieval)}")
-    except APIError as e:
-        print(f"Error: {e.error.code}: {e.error.message}")
-        if hasattr(e, 'error') and hasattr(e.error, 'inner_error'):
-            print(f"Inner error details: {e.error.inner_error}")
-        raise e
+    finally:
+        print("Your call to the Copilot APIs is now complete.")
 
 # Run the async function
 asyncio.run(retrieve())
