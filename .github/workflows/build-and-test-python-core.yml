@@ -35,7 +35,11 @@ jobs:
           poetry install
         working-directory: python/packages/microsoft_agents_m365copilot_core
 
-      # Core package specific steps
+      - name: Build
+        run: |
+          poetry build
+        working-directory: python/packages/microsoft_agents_m365copilot_core
+
       - name: Check import order
         run: |
           poetry run isort .
