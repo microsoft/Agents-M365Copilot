@@ -29,7 +29,9 @@ homepage = "https://github.com/microsoft/Agents-M365Copilot/tree/main/python"
 repository = "https://github.com/microsoft/Agents-M365Copilot"
 documentation = "https://github.com/microsoft/Agents-M365Copilot/tree/main/python/packages/microsoft_agents_m365copilot_beta#readme"
 
-packages = "microsoft_agents_m365copilot_beta"
+packages = [
+    {include = "microsoft_agents_m365copilot_beta"}
+]
 
 include = [
     "LICENSE",
