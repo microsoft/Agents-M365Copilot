@@ -18,6 +18,7 @@ jobs:
     outputs:
       dotnet: ${{ steps.check.outputs.dotnet }}
       python: ${{ steps.check.outputs.python }}
+      python_packages: ${{ steps.check.outputs.python_packages }}
       typescript: ${{ steps.check.outputs.typescript }}
     steps:
       - uses: actions/checkout@v4
@@ -28,8 +29,23 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             echo "dotnet=true" >> $GITHUB_OUTPUT
-            echo "python=true" >> $GITHUB_OUTPUT
             echo "typescript=true" >> $GITHUB_OUTPUT
+            # For manual runs, include all python packages
+            PY_PACKAGES=""
+            if [ -d python/packages ]; then
+              for d in python/packages/*; do
+                if [ -d "$d" ]; then
+                  name=$(basename "$d")
+                  if [ -z "$PY_PACKAGES" ]; then
+                    PY_PACKAGES="$name"
+                  else
+                    PY_PACKAGES="$PY_PACKAGES,$name"
+                  fi
+                fi
+              done
+            fi
+            echo "python=true" >> $GITHUB_OUTPUT
+            echo "python_packages=$PY_PACKAGES" >> $GITHUB_OUTPUT
             exit 0
           fi
 
@@ -61,16 +77,54 @@ jobs:
             echo "dotnet=false" >> $GITHUB_OUTPUT
           fi
 
-          if echo "$CHANGED_FILES" | grep -q "^python/"; then
-            echo "python=true" >> $GITHUB_OUTPUT
-          else
-            echo "python=false" >> $GITHUB_OUTPUT
-          fi
-
           if echo "$CHANGED_FILES" | grep -q "^typescript/"; then
             echo "typescript=true" >> $GITHUB_OUTPUT
           else
             echo "typescript=false" >> $GITHUB_OUTPUT
+          fi
+
+          # Determine python packages that changed (comma-separated names)
+          PY_PACKAGES=""
+          if [ -d python/packages ]; then
+            for d in python/packages/*; do
+              if [ -d "$d" ]; then
+                name=$(basename "$d")
+                if echo "$CHANGED_FILES" | grep -q "^python/packages/$name/"; then
+                  if [ -z "$PY_PACKAGES" ]; then
+                    PY_PACKAGES="$name"
+                  else
+                    PY_PACKAGES="$PY_PACKAGES,$name"
+                  fi
+                fi
+              fi
+            done
+          fi
+
+          if [ -n "$PY_PACKAGES" ]; then
+            echo "python=true" >> $GITHUB_OUTPUT
+            echo "python_packages=$PY_PACKAGES" >> $GITHUB_OUTPUT
+          else
+            # If there were python/ changes but we couldn't match packages, fall back to running all packages
+            if echo "$CHANGED_FILES" | grep -q "^python/"; then
+              echo "python=true" >> $GITHUB_OUTPUT
+              PY_PACKAGES=""
+              if [ -d python/packages ]; then
+                for d in python/packages/*; do
+                  if [ -d "$d" ]; then
+                    name=$(basename "$d")
+                    if [ -z "$PY_PACKAGES" ]; then
+                      PY_PACKAGES="$name"
+                    else
+                      PY_PACKAGES="$PY_PACKAGES,$name"
+                    fi
+                  fi
+                done
+              fi
+              echo "python_packages=$PY_PACKAGES" >> $GITHUB_OUTPUT
+            else
+              echo "python=false" >> $GITHUB_OUTPUT
+              echo "python_packages=" >> $GITHUB_OUTPUT
+            fi
           fi
 
   build-and-test-dotnet:
@@ -105,7 +159,7 @@ jobs:
   build-and-test-python:
     name: python-${{ matrix.packages.name }}
     needs: check-changes
-    if: needs.check-changes.outputs.python == 'true'
+    if: needs.check-changes.outputs.python == 'true' && contains(needs.check-changes.outputs.python_packages, ${{ matrix.packages.name }})
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 5
