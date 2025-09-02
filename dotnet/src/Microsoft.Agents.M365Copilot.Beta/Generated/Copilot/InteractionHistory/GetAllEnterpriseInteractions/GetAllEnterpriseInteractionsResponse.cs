@@ -20,7 +20,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnt
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static new global::Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnterpriseInteractions.GetAllEnterpriseInteractionsResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.GetAllEnterpriseInteractions.GetAllEnterpriseInteractionsResponse();
         }
     }
