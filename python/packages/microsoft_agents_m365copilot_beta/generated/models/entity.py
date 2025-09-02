@@ -14,9 +14,14 @@ if TYPE_CHECKING:
     from .copilot_admin import CopilotAdmin
     from .copilot_admin_limited_mode import CopilotAdminLimitedMode
     from .copilot_admin_setting import CopilotAdminSetting
+    from .copilot_communications_root import CopilotCommunicationsRoot
     from .copilot_people_admin_setting import CopilotPeopleAdminSetting
     from .copilot_setting import CopilotSetting
     from .enhanced_personalization_setting import EnhancedPersonalizationSetting
+    from .multi_activity_subscription import MultiActivitySubscription
+    from .realtime_activity_feed_root import RealtimeActivityFeedRoot
+    from .realtime_activity_meeting import RealtimeActivityMeeting
+    from .real_time_transcript import RealTimeTranscript
 
 @dataclass
 class Entity(AdditionalDataHolder, BackedModel, Parsable):
@@ -76,6 +81,10 @@ class Entity(AdditionalDataHolder, BackedModel, Parsable):
             from .copilot_admin_setting import CopilotAdminSetting
 
             return CopilotAdminSetting()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotCommunicationsRoot".casefold():
+            from .copilot_communications_root import CopilotCommunicationsRoot
+
+            return CopilotCommunicationsRoot()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotPeopleAdminSetting".casefold():
             from .copilot_people_admin_setting import CopilotPeopleAdminSetting
 
@@ -88,6 +97,22 @@ class Entity(AdditionalDataHolder, BackedModel, Parsable):
             from .enhanced_personalization_setting import EnhancedPersonalizationSetting
 
             return EnhancedPersonalizationSetting()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.multiActivitySubscription".casefold():
+            from .multi_activity_subscription import MultiActivitySubscription
+
+            return MultiActivitySubscription()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.realtimeActivityFeedRoot".casefold():
+            from .realtime_activity_feed_root import RealtimeActivityFeedRoot
+
+            return RealtimeActivityFeedRoot()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.realtimeActivityMeeting".casefold():
+            from .realtime_activity_meeting import RealtimeActivityMeeting
+
+            return RealtimeActivityMeeting()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.realTimeTranscript".casefold():
+            from .real_time_transcript import RealTimeTranscript
+
+            return RealTimeTranscript()
         return Entity()
     
     def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
@@ -103,9 +128,14 @@ class Entity(AdditionalDataHolder, BackedModel, Parsable):
         from .copilot_admin import CopilotAdmin
         from .copilot_admin_limited_mode import CopilotAdminLimitedMode
         from .copilot_admin_setting import CopilotAdminSetting
+        from .copilot_communications_root import CopilotCommunicationsRoot
         from .copilot_people_admin_setting import CopilotPeopleAdminSetting
         from .copilot_setting import CopilotSetting
         from .enhanced_personalization_setting import EnhancedPersonalizationSetting
+        from .multi_activity_subscription import MultiActivitySubscription
+        from .realtime_activity_feed_root import RealtimeActivityFeedRoot
+        from .realtime_activity_meeting import RealtimeActivityMeeting
+        from .real_time_transcript import RealTimeTranscript
 
         from .ai_interaction import AiInteraction
         from .ai_interaction_history import AiInteractionHistory
@@ -115,9 +145,14 @@ class Entity(AdditionalDataHolder, BackedModel, Parsable):
         from .copilot_admin import CopilotAdmin
         from .copilot_admin_limited_mode import CopilotAdminLimitedMode
         from .copilot_admin_setting import CopilotAdminSetting
+        from .copilot_communications_root import CopilotCommunicationsRoot
         from .copilot_people_admin_setting import CopilotPeopleAdminSetting
         from .copilot_setting import CopilotSetting
         from .enhanced_personalization_setting import EnhancedPersonalizationSetting
+        from .multi_activity_subscription import MultiActivitySubscription
+        from .realtime_activity_feed_root import RealtimeActivityFeedRoot
+        from .realtime_activity_meeting import RealtimeActivityMeeting
+        from .real_time_transcript import RealTimeTranscript
 
         fields: dict[str, Callable[[Any], None]] = {
             "id": lambda n : setattr(self, 'id', n.get_str_value()),

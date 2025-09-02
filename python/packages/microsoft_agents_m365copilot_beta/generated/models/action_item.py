@@ -14,11 +14,11 @@ class ActionItem(AdditionalDataHolder, BackedModel, Parsable):
     additional_data: dict[str, Any] = field(default_factory=dict)
     # The OdataType property
     odata_type: Optional[str] = None
-    # The display name of the owner of the action item.
+    # The ownerDisplayName property
     owner_display_name: Optional[str] = None
-    # The text content of the action item.
+    # The text property
     text: Optional[str] = None
-    # The title of the action item.
+    # The title property
     title: Optional[str] = None
     
     @staticmethod
