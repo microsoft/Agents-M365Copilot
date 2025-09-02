@@ -1,13 +1,13 @@
-name: Build and validate Python core package
+name: Build and validate Python beta package
 
 on:
   workflow_dispatch:
   pull_request:
     branches: ["main"]
     paths:
-      - "python/packages/microsoft_agents_m365copilot_core/microsoft_agents_m365copilot_core/**"
-      - "python/packages/microsoft_agents_m365copilot_core/tests/**"
-      - "python/packages/microsoft_agents_m365copilot_core/pyproject.toml"
+      - "python/packages/microsoft_agents_m365copilot_beta/microsoft_agents_m365copilot_beta/**"
+      - "python/packages/microsoft_agents_m365copilot_beta/*.py"
+      - "python/packages/microsoft_agents_m365copilot_beta/pyproject.toml"
 
 permissions:
   contents: read
@@ -15,8 +15,8 @@ permissions:
   security-events: write
 
 jobs:
-  build-and-test-python-core:
-    name: python-microsoft_agents_m365copilot_core
+  build-and-test-python-beta:
+    name: python-microsoft_agents_m365copilot_beta
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 5
@@ -29,26 +29,22 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      # Assume that core is published.
       - name: Install dependencies
         run: |
           python -m pip install --upgrade poetry
           poetry install
-        working-directory: python/packages/microsoft_agents_m365copilot_core
+        working-directory: python/packages/microsoft_agents_m365copilot_beta
+
+      - name: Lint SDK
+        run: |
+          poetry run pylint . --disable=W --rcfile=../../.pylintrc
+        working-directory: python/packages/microsoft_agents_m365copilot_beta
 
       - name: Build
         run: |
           poetry build
-        working-directory: python/packages/microsoft_agents_m365copilot_core
-
-      - name: Check import order
-        run: |
-          poetry run isort .
-        working-directory: python/packages/microsoft_agents_m365copilot_core
-
-      - name: Run tests
-        run: |
-          poetry run pytest .
-        working-directory: python/packages/microsoft_agents_m365copilot_core
+        working-directory: python/packages/microsoft_agents_m365copilot_beta
 
       # Common CodeQL steps
       - name: Initialize CodeQL
