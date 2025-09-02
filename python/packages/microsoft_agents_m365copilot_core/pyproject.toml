@@ -30,7 +30,7 @@ repository = "https://github.com/microsoft/Agents-M365Copilot"
 documentation = "https://github.com/microsoft/Agents-M365Copilot/tree/main/python/packages/microsoft_agents_m365copilot_core#readme"
 
 packages = [
-    {include = "*", from = "src"}
+    {include = "microsoft_agents_m365copilot_core"}
 ]
 
 include = [
@@ -63,6 +63,11 @@ based_on_style = "pep8"
 dedent_closing_brackets = true
 each_dict_entry_on_separate_line = true
 column_limit = 100
+
+[tool.yapfignore]
+ignore_patterns = [
+  "microsoft_agents_m365copilot_core/__init__.py"
+]
 
 [tool.isort]
 profile = "hug"
