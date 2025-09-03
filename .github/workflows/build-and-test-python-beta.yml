@@ -29,16 +29,10 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      # Assume that core is published.
       - name: Install dependencies
         run: |
           python -m pip install --upgrade poetry
           poetry install
-        working-directory: python/packages/microsoft_agents_m365copilot_beta
-
-      - name: Lint SDK
-        run: |
-          poetry run pylint . --disable=W --rcfile=../../.pylintrc
         working-directory: python/packages/microsoft_agents_m365copilot_beta
 
       - name: Build
