@@ -8,7 +8,7 @@ Integrate the Microsoft 365 Copilot APIs into your Python application!
 
 ## Installation
 
-The Microsoft 365 Copilot APIs client libraries will be available in the following packages in the Python Package Index (PyPi):
+The Microsoft 365 Copilot APIs client libraries are available in the following packages in the Python Package Index (PyPi):
 
 - [microsoft-agents-m365copilot-beta](https://github.com/microsoft/Agents-M365Copilot/tree/main/python/packages/microsoft_agents_m365copilot_beta): Contains the models and request builders for accessing the beta endpoint. microsoft-agents-m365copilot-beta has a dependency on microsoft-agents-m365copilot-core.
 - [microsoft-agents-m365copilot-core](https://github.com/microsoft/Agents-M365Copilot/tree/main/python/packages/microsoft_agents_m365copilot_core): The core library for making calls to the Copilot APIs.
