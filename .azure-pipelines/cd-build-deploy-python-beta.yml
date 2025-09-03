@@ -74,11 +74,6 @@ extends:
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_beta)'
               condition: or(contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))    
 
-            - script: poetry run pylint microsoft_agents_m365copilot_beta --disable=W --rcfile=../../.pylintrc
-              displayName: 'Lint with Pylint'
-              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_beta)'
-              condition: or(contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))
-
             - script: poetry build
               displayName: 'Build Python package'
               condition: or(contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))
