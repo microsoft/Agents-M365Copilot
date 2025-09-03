@@ -17,7 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       dotnet: ${{ steps.check.outputs.dotnet }}
-      python: ${{ steps.check.outputs.python }}
       typescript: ${{ steps.check.outputs.typescript }}
     steps:
       - uses: actions/checkout@v4
@@ -28,7 +27,6 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             echo "dotnet=true" >> $GITHUB_OUTPUT
-            echo "python=true" >> $GITHUB_OUTPUT
             echo "typescript=true" >> $GITHUB_OUTPUT
             exit 0
           fi
@@ -59,12 +57,6 @@ jobs:
             echo "dotnet=true" >> $GITHUB_OUTPUT
           else
             echo "dotnet=false" >> $GITHUB_OUTPUT
-          fi
-
-          if echo "$CHANGED_FILES" | grep -q "^python/"; then
-            echo "python=true" >> $GITHUB_OUTPUT
-          else
-            echo "python=false" >> $GITHUB_OUTPUT
           fi
 
           if echo "$CHANGED_FILES" | grep -q "^typescript/"; then
@@ -101,75 +93,6 @@ jobs:
         working-directory: dotnet
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
-
-  build-and-test-python:
-    name: python-${{ matrix.packages.name }}
-    needs: check-changes
-    if: needs.check-changes.outputs.python == 'true'
-    runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 5
-      matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
-        packages:
-          - name: "microsoft_agents_m365copilot_core"
-            path: "python/packages/microsoft_agents_m365copilot_core"
-          - name: "microsoft_agents_m365copilot_beta"
-            path: "python/packages/microsoft_agents_m365copilot_beta"
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade poetry
-          poetry install
-        working-directory: ${{ matrix.packages.path }}
-
-      - name: Install core dependency
-        if: matrix.packages.name == 'microsoft_agents_m365copilot_beta'
-        run: |
-          pushd ../microsoft_agents_m365copilot_core
-          poetry build -f wheel
-          popd
-          # install wheel into the beta poetry venv used by later steps
-          poetry run pip install ../microsoft_agents_m365copilot_core/dist/*.whl
-        working-directory: ${{ matrix.packages.path }}
-
-      # Core package specific steps
-      - name: Check import order
-        if: matrix.packages.name == 'microsoft_agents_m365copilot_core'
-        run: |
-          poetry run isort .
-        working-directory: ${{ matrix.packages.path }}
-
-      - name: Run tests
-        if: matrix.packages.name == 'microsoft_agents_m365copilot_core'
-        run: |
-          poetry run pytest .
-        working-directory: ${{ matrix.packages.path }}
-
-      # Beta package specific steps
-      - name: Lint SDK
-        if: matrix.packages.name == 'microsoft_agents_m365copilot_beta'
-        run: |
-          poetry run pylint . --disable=W --rcfile=../../.pylintrc
-        working-directory: ${{ matrix.packages.path }}
-
-      # Common CodeQL steps
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: python
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v3
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
-        with:
-          category: "/language:python"
 
   build-and-test-typescript:
     name: typescript
@@ -223,7 +146,6 @@ jobs:
       [
         check-changes,
         build-and-test-dotnet,
-        build-and-test-python,
         build-and-test-typescript,
       ]
     if: always()
@@ -232,24 +154,21 @@ jobs:
         run: |
           # Get the status of each job from the needs context
           DOTNET_TRIGGERED=${{ needs.check-changes.outputs.dotnet == 'true' }}
-          PYTHON_TRIGGERED=${{ needs.check-changes.outputs.python == 'true' }}
           TYPESCRIPT_TRIGGERED=${{ needs.check-changes.outputs.typescript == 'true' }}
 
           DOTNET_STATUS="${{ needs.build-and-test-dotnet.result }}"
-          PYTHON_STATUS="${{ needs.build-and-test-python.result }}"
           TYPESCRIPT_STATUS="${{ needs.build-and-test-typescript.result }}"
 
           echo "Build Status Summary:"
           echo "---------------------"
           echo "Dotnet triggered: $DOTNET_TRIGGERED, Status: $DOTNET_STATUS"
-          echo "Python triggered: $PYTHON_TRIGGERED, Status: $PYTHON_STATUS"
           echo "TypeScript triggered: $TYPESCRIPT_TRIGGERED, Status: $TYPESCRIPT_STATUS"
 
           # Track if we should fail
           SHOULD_FAIL=false
 
           # If no builds were triggered, this is a success
-          if [[ "$DOTNET_TRIGGERED" == "false" && "$PYTHON_TRIGGERED" == "false" && "$TYPESCRIPT_TRIGGERED" == "false" ]]; then
+          if [[ "$DOTNET_TRIGGERED" == "false" && "$TYPESCRIPT_TRIGGERED" == "false" ]]; then
             echo "✅ No language builds were triggered - changes were in other folders"
             exit 0
           fi
@@ -257,11 +176,6 @@ jobs:
           # Check each job that was triggered
           if [[ "$DOTNET_TRIGGERED" == "true" && "$DOTNET_STATUS" != "success" && "$DOTNET_STATUS" != "skipped" ]]; then
             echo "❌ Dotnet build failed or was cancelled"
-            SHOULD_FAIL=true
-          fi
-
-          if [[ "$PYTHON_TRIGGERED" == "true" && "$PYTHON_STATUS" != "success" && "$PYTHON_STATUS" != "skipped" ]]; then
-            echo "❌ Python build failed or was cancelled"
             SHOULD_FAIL=true
           fi
 
