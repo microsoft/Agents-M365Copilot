@@ -30,11 +30,11 @@ repository = "https://github.com/microsoft/Agents-M365Copilot"
 documentation = "https://github.com/microsoft/Agents-M365Copilot/tree/main/python/packages/microsoft_agents_m365copilot_beta#readme"
 
 packages = [
-    { include = "*.py" },
-    { include = "generated/**/*.py" }
+    {include = "microsoft_agents_m365copilot_beta"}
 ]
 
 include = [
+    "LICENSE",
     "README.md"
 ]
 
@@ -69,7 +69,7 @@ ignore_patterns = "generated/**/*.py"
 
 [tool.isort]
 profile = "hug"
-skip_glob = "generated/*"
+skip_glob = "microsoft_agents_m365copilot_beta/generated/*"
 
 [tool.poetry-monorepo.deps]
 enabled = true

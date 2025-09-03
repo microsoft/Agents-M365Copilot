@@ -6,6 +6,7 @@ on:
     branches: ["main"]
     paths:
       - "python/packages/microsoft_agents_m365copilot_beta/microsoft_agents_m365copilot_beta/**"
+      - "python/packages/microsoft_agents_m365copilot_beta/*.py"
       - "python/packages/microsoft_agents_m365copilot_beta/pyproject.toml"
 
 permissions:
