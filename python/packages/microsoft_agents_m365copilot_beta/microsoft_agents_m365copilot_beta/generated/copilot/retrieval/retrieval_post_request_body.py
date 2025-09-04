@@ -1,18 +1,12 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-
-from kiota_abstractions.serialization import (
-    AdditionalDataHolder,
-    Parsable,
-    ParseNode,
-    SerializationWriter,
-)
+from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
 from kiota_abstractions.store import BackedModel, BackingStore, BackingStoreFactorySingleton
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
+    from ...models.data_source_configuration import DataSourceConfiguration
     from ...models.retrieval_data_source import RetrievalDataSource
 
 @dataclass
@@ -24,6 +18,8 @@ class RetrievalPostRequestBody(AdditionalDataHolder, BackedModel, Parsable):
     additional_data: dict[str, Any] = field(default_factory=dict)
     # The dataSource property
     data_source: Optional[RetrievalDataSource] = None
+    # The dataSourceConfiguration property
+    data_source_configuration: Optional[DataSourceConfiguration] = None
     # The filterExpression property
     filter_expression: Optional[str] = None
     # The maximumNumberOfResults property
@@ -49,10 +45,15 @@ class RetrievalPostRequestBody(AdditionalDataHolder, BackedModel, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from ...models.data_source_configuration import DataSourceConfiguration
+        from ...models.retrieval_data_source import RetrievalDataSource
+
+        from ...models.data_source_configuration import DataSourceConfiguration
         from ...models.retrieval_data_source import RetrievalDataSource
 
         fields: dict[str, Callable[[Any], None]] = {
             "dataSource": lambda n : setattr(self, 'data_source', n.get_enum_value(RetrievalDataSource)),
+            "dataSourceConfiguration": lambda n : setattr(self, 'data_source_configuration', n.get_object_value(DataSourceConfiguration)),
             "filterExpression": lambda n : setattr(self, 'filter_expression', n.get_str_value()),
             "maximumNumberOfResults": lambda n : setattr(self, 'maximum_number_of_results', n.get_int_value()),
             "queryString": lambda n : setattr(self, 'query_string', n.get_str_value()),
@@ -69,6 +70,7 @@ class RetrievalPostRequestBody(AdditionalDataHolder, BackedModel, Parsable):
         if writer is None:
             raise TypeError("writer cannot be null.")
         writer.write_enum_value("dataSource", self.data_source)
+        writer.write_object_value("dataSourceConfiguration", self.data_source_configuration)
         writer.write_str_value("filterExpression", self.filter_expression)
         writer.write_int_value("maximumNumberOfResults", self.maximum_number_of_results)
         writer.write_str_value("queryString", self.query_string)

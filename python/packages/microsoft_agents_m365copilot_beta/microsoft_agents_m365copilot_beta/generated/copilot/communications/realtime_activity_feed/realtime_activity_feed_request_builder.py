@@ -1,0 +1,208 @@
+from __future__ import annotations
+from collections.abc import Callable
+from dataclasses import dataclass, field
+from kiota_abstractions.base_request_builder import BaseRequestBuilder
+from kiota_abstractions.base_request_configuration import RequestConfiguration
+from kiota_abstractions.default_query_parameters import QueryParameters
+from kiota_abstractions.get_path_parameters import get_path_parameters
+from kiota_abstractions.method import Method
+from kiota_abstractions.request_adapter import RequestAdapter
+from kiota_abstractions.request_information import RequestInformation
+from kiota_abstractions.request_option import RequestOption
+from kiota_abstractions.serialization import Parsable, ParsableFactory
+from typing import Any, Optional, TYPE_CHECKING, Union
+from warnings import warn
+
+if TYPE_CHECKING:
+    from ....models.o_data_errors.o_data_error import ODataError
+    from ....models.realtime_activity_feed_root import RealtimeActivityFeedRoot
+    from .meetings.meetings_request_builder import MeetingsRequestBuilder
+    from .multi_activity_subscriptions.multi_activity_subscriptions_request_builder import MultiActivitySubscriptionsRequestBuilder
+
+class RealtimeActivityFeedRequestBuilder(BaseRequestBuilder):
+    """
+    Provides operations to manage the realtimeActivityFeed property of the microsoft.graph.copilotCommunicationsRoot entity.
+    """
+    def __init__(self,request_adapter: RequestAdapter, path_parameters: Union[str, dict[str, Any]]) -> None:
+        """
+        Instantiates a new RealtimeActivityFeedRequestBuilder and sets the default values.
+        param path_parameters: The raw url or the url-template parameters for the request.
+        param request_adapter: The request adapter to use to execute the requests.
+        Returns: None
+        """
+        super().__init__(request_adapter, "{+baseurl}/copilot/communications/realtimeActivityFeed{?%24expand,%24select}", path_parameters)
+    
+    async def delete(self,request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> None:
+        """
+        Delete navigation property realtimeActivityFeed for copilot
+        param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
+        Returns: None
+        """
+        request_info = self.to_delete_request_information(
+            request_configuration
+        )
+        from ....models.o_data_errors.o_data_error import ODataError
+
+        error_mapping: dict[str, type[ParsableFactory]] = {
+            "XXX": ODataError,
+        }
+        if not self.request_adapter:
+            raise Exception("Http core is null") 
+        return await self.request_adapter.send_no_response_content_async(request_info, error_mapping)
+    
+    async def get(self,request_configuration: Optional[RequestConfiguration[RealtimeActivityFeedRequestBuilderGetQueryParameters]] = None) -> Optional[RealtimeActivityFeedRoot]:
+        """
+        Get realtimeActivityFeed from copilot
+        param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
+        Returns: Optional[RealtimeActivityFeedRoot]
+        """
+        request_info = self.to_get_request_information(
+            request_configuration
+        )
+        from ....models.o_data_errors.o_data_error import ODataError
+
+        error_mapping: dict[str, type[ParsableFactory]] = {
+            "XXX": ODataError,
+        }
+        if not self.request_adapter:
+            raise Exception("Http core is null") 
+        from ....models.realtime_activity_feed_root import RealtimeActivityFeedRoot
+
+        return await self.request_adapter.send_async(request_info, RealtimeActivityFeedRoot, error_mapping)
+    
+    async def patch(self,body: RealtimeActivityFeedRoot, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> Optional[RealtimeActivityFeedRoot]:
+        """
+        Update the navigation property realtimeActivityFeed in copilot
+        param body: The request body
+        param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
+        Returns: Optional[RealtimeActivityFeedRoot]
+        """
+        if body is None:
+            raise TypeError("body cannot be null.")
+        request_info = self.to_patch_request_information(
+            body, request_configuration
+        )
+        from ....models.o_data_errors.o_data_error import ODataError
+
+        error_mapping: dict[str, type[ParsableFactory]] = {
+            "XXX": ODataError,
+        }
+        if not self.request_adapter:
+            raise Exception("Http core is null") 
+        from ....models.realtime_activity_feed_root import RealtimeActivityFeedRoot
+
+        return await self.request_adapter.send_async(request_info, RealtimeActivityFeedRoot, error_mapping)
+    
+    def to_delete_request_information(self,request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> RequestInformation:
+        """
+        Delete navigation property realtimeActivityFeed for copilot
+        param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
+        Returns: RequestInformation
+        """
+        request_info = RequestInformation(Method.DELETE, self.url_template, self.path_parameters)
+        request_info.configure(request_configuration)
+        request_info.headers.try_add("Accept", "application/json")
+        return request_info
+    
+    def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[RealtimeActivityFeedRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
+        """
+        Get realtimeActivityFeed from copilot
+        param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
+        Returns: RequestInformation
+        """
+        request_info = RequestInformation(Method.GET, self.url_template, self.path_parameters)
+        request_info.configure(request_configuration)
+        request_info.headers.try_add("Accept", "application/json")
+        return request_info
+    
+    def to_patch_request_information(self,body: RealtimeActivityFeedRoot, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> RequestInformation:
+        """
+        Update the navigation property realtimeActivityFeed in copilot
+        param body: The request body
+        param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
+        Returns: RequestInformation
+        """
+        if body is None:
+            raise TypeError("body cannot be null.")
+        request_info = RequestInformation(Method.PATCH, self.url_template, self.path_parameters)
+        request_info.configure(request_configuration)
+        request_info.headers.try_add("Accept", "application/json")
+        request_info.set_content_from_parsable(self.request_adapter, "application/json", body)
+        return request_info
+    
+    def with_url(self,raw_url: str) -> RealtimeActivityFeedRequestBuilder:
+        """
+        Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        param raw_url: The raw URL to use for the request builder.
+        Returns: RealtimeActivityFeedRequestBuilder
+        """
+        if raw_url is None:
+            raise TypeError("raw_url cannot be null.")
+        return RealtimeActivityFeedRequestBuilder(self.request_adapter, raw_url)
+    
+    @property
+    def meetings(self) -> MeetingsRequestBuilder:
+        """
+        Provides operations to manage the meetings property of the microsoft.graph.realtimeActivityFeedRoot entity.
+        """
+        from .meetings.meetings_request_builder import MeetingsRequestBuilder
+
+        return MeetingsRequestBuilder(self.request_adapter, self.path_parameters)
+    
+    @property
+    def multi_activity_subscriptions(self) -> MultiActivitySubscriptionsRequestBuilder:
+        """
+        Provides operations to manage the multiActivitySubscriptions property of the microsoft.graph.realtimeActivityFeedRoot entity.
+        """
+        from .multi_activity_subscriptions.multi_activity_subscriptions_request_builder import MultiActivitySubscriptionsRequestBuilder
+
+        return MultiActivitySubscriptionsRequestBuilder(self.request_adapter, self.path_parameters)
+    
+    @dataclass
+    class RealtimeActivityFeedRequestBuilderDeleteRequestConfiguration(RequestConfiguration[QueryParameters]):
+        """
+        Configuration for the request such as headers, query parameters, and middleware options.
+        """
+        warn("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.", DeprecationWarning)
+    
+    @dataclass
+    class RealtimeActivityFeedRequestBuilderGetQueryParameters():
+        """
+        Get realtimeActivityFeed from copilot
+        """
+        def get_query_parameter(self,original_name: str) -> str:
+            """
+            Maps the query parameters names to their encoded names for the URI template parsing.
+            param original_name: The original query parameter name in the class.
+            Returns: str
+            """
+            if original_name is None:
+                raise TypeError("original_name cannot be null.")
+            if original_name == "expand":
+                return "%24expand"
+            if original_name == "select":
+                return "%24select"
+            return original_name
+        
+        # Expand related entities
+        expand: Optional[list[str]] = None
+
+        # Select properties to be returned
+        select: Optional[list[str]] = None
+
+    
+    @dataclass
+    class RealtimeActivityFeedRequestBuilderGetRequestConfiguration(RequestConfiguration[RealtimeActivityFeedRequestBuilderGetQueryParameters]):
+        """
+        Configuration for the request such as headers, query parameters, and middleware options.
+        """
+        warn("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.", DeprecationWarning)
+    
+    @dataclass
+    class RealtimeActivityFeedRequestBuilderPatchRequestConfiguration(RequestConfiguration[QueryParameters]):
+        """
+        Configuration for the request such as headers, query parameters, and middleware options.
+        """
+        warn("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.", DeprecationWarning)
+    
+
