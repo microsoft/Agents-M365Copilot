@@ -1,17 +1,14 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .enhanced_personalization_setting import EnhancedPersonalizationSetting
     from .entity import Entity
 
 from .entity import Entity
-
 
 @dataclass
 class CopilotPeopleAdminSetting(Entity, Parsable):
@@ -36,6 +33,9 @@ class CopilotPeopleAdminSetting(Entity, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from .enhanced_personalization_setting import EnhancedPersonalizationSetting
+        from .entity import Entity
+
         from .enhanced_personalization_setting import EnhancedPersonalizationSetting
         from .entity import Entity
 

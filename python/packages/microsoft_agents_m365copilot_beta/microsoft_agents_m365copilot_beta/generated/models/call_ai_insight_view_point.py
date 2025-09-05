@@ -1,16 +1,9 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-
-from kiota_abstractions.serialization import (
-    AdditionalDataHolder,
-    Parsable,
-    ParseNode,
-    SerializationWriter,
-)
+from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
 from kiota_abstractions.store import BackedModel, BackingStore, BackingStoreFactorySingleton
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .mention_event import MentionEvent
@@ -22,7 +15,7 @@ class CallAiInsightViewPoint(AdditionalDataHolder, BackedModel, Parsable):
 
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additional_data: dict[str, Any] = field(default_factory=dict)
-    # The collection of AI-generated mention events.
+    # The mentionEvents property
     mention_events: Optional[list[MentionEvent]] = None
     # The OdataType property
     odata_type: Optional[str] = None
@@ -43,6 +36,8 @@ class CallAiInsightViewPoint(AdditionalDataHolder, BackedModel, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from .mention_event import MentionEvent
+
         from .mention_event import MentionEvent
 
         fields: dict[str, Callable[[Any], None]] = {

@@ -1,10 +1,6 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-from warnings import warn
-
 from kiota_abstractions.base_request_builder import BaseRequestBuilder
 from kiota_abstractions.base_request_configuration import RequestConfiguration
 from kiota_abstractions.default_query_parameters import QueryParameters
@@ -14,6 +10,8 @@ from kiota_abstractions.request_adapter import RequestAdapter
 from kiota_abstractions.request_information import RequestInformation
 from kiota_abstractions.request_option import RequestOption
 from kiota_abstractions.serialization import Parsable, ParsableFactory
+from typing import Any, Optional, TYPE_CHECKING, Union
+from warnings import warn
 
 if TYPE_CHECKING:
     from ...models.copilot_admin import CopilotAdmin
@@ -53,7 +51,7 @@ class AdminRequestBuilder(BaseRequestBuilder):
     
     async def get(self,request_configuration: Optional[RequestConfiguration[AdminRequestBuilderGetQueryParameters]] = None) -> Optional[CopilotAdmin]:
         """
-        The Microsoft 365 Copilot admin who can add or modify Copilot settings. Read-only. Nullable.
+        Get admin from copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: Optional[CopilotAdmin]
         """
@@ -107,7 +105,7 @@ class AdminRequestBuilder(BaseRequestBuilder):
     
     def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[AdminRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
         """
-        The Microsoft 365 Copilot admin who can add or modify Copilot settings. Read-only. Nullable.
+        Get admin from copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -160,7 +158,7 @@ class AdminRequestBuilder(BaseRequestBuilder):
     @dataclass
     class AdminRequestBuilderGetQueryParameters():
         """
-        The Microsoft 365 Copilot admin who can add or modify Copilot settings. Read-only. Nullable.
+        Get admin from copilot
         """
         def get_query_parameter(self,original_name: str) -> str:
             """

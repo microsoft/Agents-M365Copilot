@@ -1,10 +1,6 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-from warnings import warn
-
 from kiota_abstractions.base_request_builder import BaseRequestBuilder
 from kiota_abstractions.base_request_configuration import RequestConfiguration
 from kiota_abstractions.default_query_parameters import QueryParameters
@@ -14,12 +10,12 @@ from kiota_abstractions.request_adapter import RequestAdapter
 from kiota_abstractions.request_information import RequestInformation
 from kiota_abstractions.request_option import RequestOption
 from kiota_abstractions.serialization import Parsable, ParsableFactory
+from typing import Any, Optional, TYPE_CHECKING, Union
+from warnings import warn
 
 if TYPE_CHECKING:
     from ....models.o_data_errors.o_data_error import ODataError
-    from .get_all_enterprise_interactions_get_response import (
-        GetAllEnterpriseInteractionsGetResponse,
-    )
+    from .get_all_enterprise_interactions_get_response import GetAllEnterpriseInteractionsGetResponse
 
 class GetAllEnterpriseInteractionsRequestBuilder(BaseRequestBuilder):
     """
@@ -36,10 +32,9 @@ class GetAllEnterpriseInteractionsRequestBuilder(BaseRequestBuilder):
     
     async def get(self,request_configuration: Optional[RequestConfiguration[GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters]] = None) -> Optional[GetAllEnterpriseInteractionsGetResponse]:
         """
-        Get all Microsoft 365 Copilot interaction data, including user prompts to Copilot and Copilot responses. This API captures the user intent, the resources accessed by Copilot, and the response to the user for Microsoft 365 apps such as Teams, Word, and Outlook. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
+        Invoke function getAllEnterpriseInteractions
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: Optional[GetAllEnterpriseInteractionsGetResponse]
-        Find more info here: https://learn.microsoft.com/graph/api/aiinteractionhistory-getallenterpriseinteractions?view=graph-rest-beta
         """
         request_info = self.to_get_request_information(
             request_configuration
@@ -51,15 +46,13 @@ class GetAllEnterpriseInteractionsRequestBuilder(BaseRequestBuilder):
         }
         if not self.request_adapter:
             raise Exception("Http core is null") 
-        from .get_all_enterprise_interactions_get_response import (
-            GetAllEnterpriseInteractionsGetResponse,
-        )
+        from .get_all_enterprise_interactions_get_response import GetAllEnterpriseInteractionsGetResponse
 
         return await self.request_adapter.send_async(request_info, GetAllEnterpriseInteractionsGetResponse, error_mapping)
     
     def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
         """
-        Get all Microsoft 365 Copilot interaction data, including user prompts to Copilot and Copilot responses. This API captures the user intent, the resources accessed by Copilot, and the response to the user for Microsoft 365 apps such as Teams, Word, and Outlook. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
+        Invoke function getAllEnterpriseInteractions
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -81,7 +74,7 @@ class GetAllEnterpriseInteractionsRequestBuilder(BaseRequestBuilder):
     @dataclass
     class GetAllEnterpriseInteractionsRequestBuilderGetQueryParameters():
         """
-        Get all Microsoft 365 Copilot interaction data, including user prompts to Copilot and Copilot responses. This API captures the user intent, the resources accessed by Copilot, and the response to the user for Microsoft 365 apps such as Teams, Word, and Outlook. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
+        Invoke function getAllEnterpriseInteractions
         """
         def get_query_parameter(self,original_name: str) -> str:
             """

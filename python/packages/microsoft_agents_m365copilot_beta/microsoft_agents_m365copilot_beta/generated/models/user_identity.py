@@ -1,17 +1,14 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .audit_user_identity import AuditUserIdentity
     from .identity import Identity
 
 from .identity import Identity
-
 
 @dataclass
 class UserIdentity(Identity, Parsable):
@@ -47,6 +44,9 @@ class UserIdentity(Identity, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from .audit_user_identity import AuditUserIdentity
+        from .identity import Identity
+
         from .audit_user_identity import AuditUserIdentity
         from .identity import Identity
 
