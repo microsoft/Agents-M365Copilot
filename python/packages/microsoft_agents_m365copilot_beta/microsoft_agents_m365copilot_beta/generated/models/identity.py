@@ -1,25 +1,16 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-
-from kiota_abstractions.serialization import (
-    AdditionalDataHolder,
-    Parsable,
-    ParseNode,
-    SerializationWriter,
-)
+from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
 from kiota_abstractions.store import BackedModel, BackingStore, BackingStoreFactorySingleton
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .audit_user_identity import AuditUserIdentity
     from .azure_communication_services_user_identity import AzureCommunicationServicesUserIdentity
     from .call_records.user_identity import UserIdentity
     from .communications_application_identity import CommunicationsApplicationIdentity
-    from .communications_application_instance_identity import (
-        CommunicationsApplicationInstanceIdentity,
-    )
+    from .communications_application_instance_identity import CommunicationsApplicationInstanceIdentity
     from .communications_encrypted_identity import CommunicationsEncryptedIdentity
     from .communications_guest_identity import CommunicationsGuestIdentity
     from .communications_phone_identity import CommunicationsPhoneIdentity
@@ -74,9 +65,7 @@ class Identity(AdditionalDataHolder, BackedModel, Parsable):
 
             return AuditUserIdentity()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.azureCommunicationServicesUserIdentity".casefold():
-            from .azure_communication_services_user_identity import (
-                AzureCommunicationServicesUserIdentity,
-            )
+            from .azure_communication_services_user_identity import AzureCommunicationServicesUserIdentity
 
             return AzureCommunicationServicesUserIdentity()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.callRecords.userIdentity".casefold():
@@ -89,9 +78,7 @@ class Identity(AdditionalDataHolder, BackedModel, Parsable):
 
             return CommunicationsApplicationIdentity()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.communicationsApplicationInstanceIdentity".casefold():
-            from .communications_application_instance_identity import (
-                CommunicationsApplicationInstanceIdentity,
-            )
+            from .communications_application_instance_identity import CommunicationsApplicationInstanceIdentity
 
             return CommunicationsApplicationInstanceIdentity()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.communicationsEncryptedIdentity".casefold():
@@ -183,14 +170,36 @@ class Identity(AdditionalDataHolder, BackedModel, Parsable):
         Returns: dict[str, Callable[[ParseNode], None]]
         """
         from .audit_user_identity import AuditUserIdentity
-        from .azure_communication_services_user_identity import (
-            AzureCommunicationServicesUserIdentity,
-        )
+        from .azure_communication_services_user_identity import AzureCommunicationServicesUserIdentity
         from .call_records.user_identity import UserIdentity
         from .communications_application_identity import CommunicationsApplicationIdentity
-        from .communications_application_instance_identity import (
-            CommunicationsApplicationInstanceIdentity,
-        )
+        from .communications_application_instance_identity import CommunicationsApplicationInstanceIdentity
+        from .communications_encrypted_identity import CommunicationsEncryptedIdentity
+        from .communications_guest_identity import CommunicationsGuestIdentity
+        from .communications_phone_identity import CommunicationsPhoneIdentity
+        from .communications_user_identity import CommunicationsUserIdentity
+        from .email_identity import EmailIdentity
+        from .initiator import Initiator
+        from .program_resource import ProgramResource
+        from .provisioned_identity import ProvisionedIdentity
+        from .provisioning_service_principal import ProvisioningServicePrincipal
+        from .provisioning_system import ProvisioningSystem
+        from .security.submission_user_identity import SubmissionUserIdentity
+        from .service_principal_identity import ServicePrincipalIdentity
+        from .share_point_identity import SharePointIdentity
+        from .source_provisioned_identity import SourceProvisionedIdentity
+        from .target_provisioned_identity import TargetProvisionedIdentity
+        from .teamwork_application_identity import TeamworkApplicationIdentity
+        from .teamwork_conversation_identity import TeamworkConversationIdentity
+        from .teamwork_tag_identity import TeamworkTagIdentity
+        from .teamwork_user_identity import TeamworkUserIdentity
+        from .user_identity import UserIdentity
+
+        from .audit_user_identity import AuditUserIdentity
+        from .azure_communication_services_user_identity import AzureCommunicationServicesUserIdentity
+        from .call_records.user_identity import UserIdentity
+        from .communications_application_identity import CommunicationsApplicationIdentity
+        from .communications_application_instance_identity import CommunicationsApplicationInstanceIdentity
         from .communications_encrypted_identity import CommunicationsEncryptedIdentity
         from .communications_guest_identity import CommunicationsGuestIdentity
         from .communications_phone_identity import CommunicationsPhoneIdentity

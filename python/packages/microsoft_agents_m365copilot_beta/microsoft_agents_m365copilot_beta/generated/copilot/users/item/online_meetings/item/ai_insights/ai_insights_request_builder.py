@@ -1,10 +1,6 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-from warnings import warn
-
 from kiota_abstractions.base_request_builder import BaseRequestBuilder
 from kiota_abstractions.base_request_configuration import RequestConfiguration
 from kiota_abstractions.default_query_parameters import QueryParameters
@@ -14,6 +10,8 @@ from kiota_abstractions.request_adapter import RequestAdapter
 from kiota_abstractions.request_information import RequestInformation
 from kiota_abstractions.request_option import RequestOption
 from kiota_abstractions.serialization import Parsable, ParsableFactory
+from typing import Any, Optional, TYPE_CHECKING, Union
+from warnings import warn
 
 if TYPE_CHECKING:
     from .......models.call_ai_insight import CallAiInsight
@@ -51,10 +49,9 @@ class AiInsightsRequestBuilder(BaseRequestBuilder):
     
     async def get(self,request_configuration: Optional[RequestConfiguration[AiInsightsRequestBuilderGetQueryParameters]] = None) -> Optional[CallAiInsightCollectionResponse]:
         """
-        Get the list of callAiInsight objects associated with an onlineMeeting.
+        Get aiInsights from copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: Optional[CallAiInsightCollectionResponse]
-        Find more info here: https://learn.microsoft.com/graph/api/onlinemeeting-list-aiinsights?view=graph-rest-beta
         """
         request_info = self.to_get_request_information(
             request_configuration
@@ -66,9 +63,7 @@ class AiInsightsRequestBuilder(BaseRequestBuilder):
         }
         if not self.request_adapter:
             raise Exception("Http core is null") 
-        from .......models.call_ai_insight_collection_response import (
-            CallAiInsightCollectionResponse,
-        )
+        from .......models.call_ai_insight_collection_response import CallAiInsightCollectionResponse
 
         return await self.request_adapter.send_async(request_info, CallAiInsightCollectionResponse, error_mapping)
     
@@ -97,7 +92,7 @@ class AiInsightsRequestBuilder(BaseRequestBuilder):
     
     def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[AiInsightsRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
         """
-        Get the list of callAiInsight objects associated with an onlineMeeting.
+        Get aiInsights from copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -143,7 +138,7 @@ class AiInsightsRequestBuilder(BaseRequestBuilder):
     @dataclass
     class AiInsightsRequestBuilderGetQueryParameters():
         """
-        Get the list of callAiInsight objects associated with an onlineMeeting.
+        Get aiInsights from copilot
         """
         def get_query_parameter(self,original_name: str) -> str:
             """

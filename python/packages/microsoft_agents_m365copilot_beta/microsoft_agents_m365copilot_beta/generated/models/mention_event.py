@@ -1,17 +1,10 @@
 from __future__ import annotations
-
 import datetime
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-
-from kiota_abstractions.serialization import (
-    AdditionalDataHolder,
-    Parsable,
-    ParseNode,
-    SerializationWriter,
-)
+from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
 from kiota_abstractions.store import BackedModel, BackingStore, BackingStoreFactorySingleton
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .identity_set import IdentitySet
@@ -23,13 +16,13 @@ class MentionEvent(AdditionalDataHolder, BackedModel, Parsable):
 
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additional_data: dict[str, Any] = field(default_factory=dict)
-    # The date and time of the mention event. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+    # The eventDateTime property
     event_date_time: Optional[datetime.datetime] = None
     # The OdataType property
     odata_type: Optional[str] = None
-    # The speaker who mentioned the user.
+    # The speaker property
     speaker: Optional[IdentitySet] = None
-    # The utterance in the online meeting transcript that contains the mention event.
+    # The transcriptUtterance property
     transcript_utterance: Optional[str] = None
     
     @staticmethod
@@ -48,6 +41,8 @@ class MentionEvent(AdditionalDataHolder, BackedModel, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from .identity_set import IdentitySet
+
         from .identity_set import IdentitySet
 
         fields: dict[str, Callable[[Any], None]] = {

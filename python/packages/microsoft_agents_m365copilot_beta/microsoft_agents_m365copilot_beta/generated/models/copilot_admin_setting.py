@@ -1,10 +1,8 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .copilot_admin_limited_mode import CopilotAdminLimitedMode
@@ -12,10 +10,9 @@ if TYPE_CHECKING:
 
 from .entity import Entity
 
-
 @dataclass
 class CopilotAdminSetting(Entity, Parsable):
-    # Represents a setting that controls whether users of Microsoft 365 Copilot in Teams meetings can receive responses to sentiment-related prompts. Read-only. Nullable.
+    # The limitedMode property
     limited_mode: Optional[CopilotAdminLimitedMode] = None
     # The OdataType property
     odata_type: Optional[str] = None
@@ -36,6 +33,9 @@ class CopilotAdminSetting(Entity, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from .copilot_admin_limited_mode import CopilotAdminLimitedMode
+        from .entity import Entity
+
         from .copilot_admin_limited_mode import CopilotAdminLimitedMode
         from .entity import Entity
 

@@ -1,36 +1,19 @@
 from __future__ import annotations
-
 from collections.abc import Callable
-from typing import TYPE_CHECKING, Any, Optional, Union
-
-from kiota_abstractions.api_client_builder import (
-    enable_backing_store_for_serialization_writer_factory,
-    register_default_deserializer,
-    register_default_serializer,
-)
+from kiota_abstractions.api_client_builder import enable_backing_store_for_serialization_writer_factory, register_default_deserializer, register_default_serializer
 from kiota_abstractions.base_request_builder import BaseRequestBuilder
 from kiota_abstractions.get_path_parameters import get_path_parameters
 from kiota_abstractions.request_adapter import RequestAdapter
-from kiota_abstractions.serialization import (
-    ParseNodeFactoryRegistry,
-    SerializationWriterFactoryRegistry,
-)
+from kiota_abstractions.serialization import ParseNodeFactoryRegistry, SerializationWriterFactoryRegistry
 from kiota_abstractions.store import BackingStoreFactory, BackingStoreFactorySingleton
 from kiota_serialization_form.form_parse_node_factory import FormParseNodeFactory
-from kiota_serialization_form.form_serialization_writer_factory import (
-    FormSerializationWriterFactory,
-)
+from kiota_serialization_form.form_serialization_writer_factory import FormSerializationWriterFactory
 from kiota_serialization_json.json_parse_node_factory import JsonParseNodeFactory
-from kiota_serialization_json.json_serialization_writer_factory import (
-    JsonSerializationWriterFactory,
-)
-from kiota_serialization_multipart.multipart_serialization_writer_factory import (
-    MultipartSerializationWriterFactory,
-)
+from kiota_serialization_json.json_serialization_writer_factory import JsonSerializationWriterFactory
+from kiota_serialization_multipart.multipart_serialization_writer_factory import MultipartSerializationWriterFactory
 from kiota_serialization_text.text_parse_node_factory import TextParseNodeFactory
-from kiota_serialization_text.text_serialization_writer_factory import (
-    TextSerializationWriterFactory,
-)
+from kiota_serialization_text.text_serialization_writer_factory import TextSerializationWriterFactory
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .copilot.copilot_request_builder import CopilotRequestBuilder

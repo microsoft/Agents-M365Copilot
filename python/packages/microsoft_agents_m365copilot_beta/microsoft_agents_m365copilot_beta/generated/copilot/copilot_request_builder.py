@@ -1,17 +1,14 @@
 from __future__ import annotations
-
 from collections.abc import Callable
-from typing import TYPE_CHECKING, Any, Optional, Union
-
 from kiota_abstractions.base_request_builder import BaseRequestBuilder
 from kiota_abstractions.get_path_parameters import get_path_parameters
 from kiota_abstractions.request_adapter import RequestAdapter
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .admin.admin_request_builder import AdminRequestBuilder
-    from .interaction_history.interaction_history_request_builder import (
-        InteractionHistoryRequestBuilder,
-    )
+    from .communications.communications_request_builder import CommunicationsRequestBuilder
+    from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
     from .retrieval.retrieval_request_builder import RetrievalRequestBuilder
     from .settings.settings_request_builder import SettingsRequestBuilder
     from .users.users_request_builder import UsersRequestBuilder
@@ -39,13 +36,20 @@ class CopilotRequestBuilder(BaseRequestBuilder):
         return AdminRequestBuilder(self.request_adapter, self.path_parameters)
     
     @property
+    def communications(self) -> CommunicationsRequestBuilder:
+        """
+        Provides operations to manage the communications property of the microsoft.graph.copilotRoot entity.
+        """
+        from .communications.communications_request_builder import CommunicationsRequestBuilder
+
+        return CommunicationsRequestBuilder(self.request_adapter, self.path_parameters)
+    
+    @property
     def interaction_history(self) -> InteractionHistoryRequestBuilder:
         """
         Provides operations to manage the interactionHistory property of the microsoft.graph.copilotRoot entity.
         """
-        from .interaction_history.interaction_history_request_builder import (
-            InteractionHistoryRequestBuilder,
-        )
+        from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
 
         return InteractionHistoryRequestBuilder(self.request_adapter, self.path_parameters)
     
