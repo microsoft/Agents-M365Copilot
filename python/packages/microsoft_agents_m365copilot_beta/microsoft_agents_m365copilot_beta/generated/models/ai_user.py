@@ -1,10 +1,8 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .ai_interaction_history import AiInteractionHistory
@@ -13,14 +11,13 @@ if TYPE_CHECKING:
 
 from .entity import Entity
 
-
 @dataclass
 class AiUser(Entity, Parsable):
-    # The history of interactions between AI agents and users.
+    # The interactionHistory property
     interaction_history: Optional[AiInteractionHistory] = None
     # The OdataType property
     odata_type: Optional[str] = None
-    # Information about an online meeting, including AI insights.
+    # The onlineMeetings property
     online_meetings: Optional[list[AiOnlineMeeting]] = None
     
     @staticmethod
@@ -39,6 +36,10 @@ class AiUser(Entity, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from .ai_interaction_history import AiInteractionHistory
+        from .ai_online_meeting import AiOnlineMeeting
+        from .entity import Entity
+
         from .ai_interaction_history import AiInteractionHistory
         from .ai_online_meeting import AiOnlineMeeting
         from .entity import Entity

@@ -1,10 +1,6 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-from warnings import warn
-
 from kiota_abstractions.base_request_builder import BaseRequestBuilder
 from kiota_abstractions.base_request_configuration import RequestConfiguration
 from kiota_abstractions.default_query_parameters import QueryParameters
@@ -14,6 +10,8 @@ from kiota_abstractions.request_adapter import RequestAdapter
 from kiota_abstractions.request_information import RequestInformation
 from kiota_abstractions.request_option import RequestOption
 from kiota_abstractions.serialization import Parsable, ParsableFactory
+from typing import Any, Optional, TYPE_CHECKING, Union
+from warnings import warn
 
 if TYPE_CHECKING:
     from ........models.call_ai_insight import CallAiInsight
@@ -52,10 +50,9 @@ class CallAiInsightItemRequestBuilder(BaseRequestBuilder):
     
     async def get(self,request_configuration: Optional[RequestConfiguration[CallAiInsightItemRequestBuilderGetQueryParameters]] = None) -> Optional[CallAiInsight]:
         """
-        Get a callAiInsight object associated with an onlineMeeting. This API returns the metadata and content of the single set of AI insights associated with the online meeting.
+        Get aiInsights from copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: Optional[CallAiInsight]
-        Find more info here: https://learn.microsoft.com/graph/api/callaiinsight-get?view=graph-rest-beta
         """
         request_info = self.to_get_request_information(
             request_configuration
@@ -107,7 +104,7 @@ class CallAiInsightItemRequestBuilder(BaseRequestBuilder):
     
     def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[CallAiInsightItemRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
         """
-        Get a callAiInsight object associated with an onlineMeeting. This API returns the metadata and content of the single set of AI insights associated with the online meeting.
+        Get aiInsights from copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -151,7 +148,7 @@ class CallAiInsightItemRequestBuilder(BaseRequestBuilder):
     @dataclass
     class CallAiInsightItemRequestBuilderGetQueryParameters():
         """
-        Get a callAiInsight object associated with an onlineMeeting. This API returns the metadata and content of the single set of AI insights associated with the online meeting.
+        Get aiInsights from copilot
         """
         def get_query_parameter(self,original_name: str) -> str:
             """

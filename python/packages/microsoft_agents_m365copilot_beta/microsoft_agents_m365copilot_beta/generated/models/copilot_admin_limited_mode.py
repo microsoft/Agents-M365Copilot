@@ -1,22 +1,19 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .entity import Entity
 
 from .entity import Entity
 
-
 @dataclass
 class CopilotAdminLimitedMode(Entity, Parsable):
-    # The ID of a Microsoft Entra group, for which the value of isEnabledForGroup is applied. The default value is null. If isEnabledForGroup is set to true, the groupId value must be provided for the Copilot limited mode in Teams meetings to be enabled for the members of the group. Optional.
+    # The groupId property
     group_id: Optional[str] = None
-    # Enables the user to be in limited mode for Copilot in Teams meetings. When copilotAdminLimitedMode=true, users in this mode can ask any questions, but Copilot doesn't respond to certain questions related to inferring emotions, behavior, or judgments. When copilotAdminLimitedMode=false, it responds to all types of questions grounded to the meeting conversation. The default value is false.
+    # The isEnabledForGroup property
     is_enabled_for_group: Optional[bool] = None
     # The OdataType property
     odata_type: Optional[str] = None
@@ -37,6 +34,8 @@ class CopilotAdminLimitedMode(Entity, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from .entity import Entity
+
         from .entity import Entity
 
         fields: dict[str, Callable[[Any], None]] = {

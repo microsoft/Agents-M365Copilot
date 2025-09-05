@@ -1,17 +1,14 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-
 from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .ai_online_meeting import AiOnlineMeeting
     from .base_collection_pagination_count_response import BaseCollectionPaginationCountResponse
 
 from .base_collection_pagination_count_response import BaseCollectionPaginationCountResponse
-
 
 @dataclass
 class AiOnlineMeetingCollectionResponse(BaseCollectionPaginationCountResponse, Parsable):
@@ -34,6 +31,9 @@ class AiOnlineMeetingCollectionResponse(BaseCollectionPaginationCountResponse, P
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from .ai_online_meeting import AiOnlineMeeting
+        from .base_collection_pagination_count_response import BaseCollectionPaginationCountResponse
+
         from .ai_online_meeting import AiOnlineMeeting
         from .base_collection_pagination_count_response import BaseCollectionPaginationCountResponse
 

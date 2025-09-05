@@ -1,10 +1,6 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-from warnings import warn
-
 from kiota_abstractions.base_request_builder import BaseRequestBuilder
 from kiota_abstractions.base_request_configuration import RequestConfiguration
 from kiota_abstractions.default_query_parameters import QueryParameters
@@ -14,13 +10,13 @@ from kiota_abstractions.request_adapter import RequestAdapter
 from kiota_abstractions.request_information import RequestInformation
 from kiota_abstractions.request_option import RequestOption
 from kiota_abstractions.serialization import Parsable, ParsableFactory
+from typing import Any, Optional, TYPE_CHECKING, Union
+from warnings import warn
 
 if TYPE_CHECKING:
     from .....models.ai_interaction_history import AiInteractionHistory
     from .....models.o_data_errors.o_data_error import ODataError
-    from .get_all_enterprise_interactions.get_all_enterprise_interactions_request_builder import (
-        GetAllEnterpriseInteractionsRequestBuilder,
-    )
+    from .get_all_enterprise_interactions.get_all_enterprise_interactions_request_builder import GetAllEnterpriseInteractionsRequestBuilder
 
 class InteractionHistoryRequestBuilder(BaseRequestBuilder):
     """
@@ -55,7 +51,7 @@ class InteractionHistoryRequestBuilder(BaseRequestBuilder):
     
     async def get(self,request_configuration: Optional[RequestConfiguration[InteractionHistoryRequestBuilderGetQueryParameters]] = None) -> Optional[AiInteractionHistory]:
         """
-        The history of interactions between AI agents and users.
+        Get interactionHistory from copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: Optional[AiInteractionHistory]
         """
@@ -109,7 +105,7 @@ class InteractionHistoryRequestBuilder(BaseRequestBuilder):
     
     def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[InteractionHistoryRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
         """
-        The history of interactions between AI agents and users.
+        Get interactionHistory from copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -148,9 +144,7 @@ class InteractionHistoryRequestBuilder(BaseRequestBuilder):
         """
         Provides operations to call the getAllEnterpriseInteractions method.
         """
-        from .get_all_enterprise_interactions.get_all_enterprise_interactions_request_builder import (
-            GetAllEnterpriseInteractionsRequestBuilder,
-        )
+        from .get_all_enterprise_interactions.get_all_enterprise_interactions_request_builder import GetAllEnterpriseInteractionsRequestBuilder
 
         return GetAllEnterpriseInteractionsRequestBuilder(self.request_adapter, self.path_parameters)
     
@@ -164,7 +158,7 @@ class InteractionHistoryRequestBuilder(BaseRequestBuilder):
     @dataclass
     class InteractionHistoryRequestBuilderGetQueryParameters():
         """
-        The history of interactions between AI agents and users.
+        Get interactionHistory from copilot
         """
         def get_query_parameter(self,original_name: str) -> str:
             """
