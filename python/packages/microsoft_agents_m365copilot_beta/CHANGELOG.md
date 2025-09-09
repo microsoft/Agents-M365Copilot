@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0-preview.5](https://github.com/microsoft/Agents-M365Copilot/compare/microsoft_agents_m365copilot_beta-v1.0.0-preview.4...microsoft_agents_m365copilot_beta-v1.0.0-preview.5) (2025-09-03)
+
+
+### Bug Fixes
+
+* trigger release please ([1a9a58b](https://github.com/microsoft/Agents-M365Copilot/commit/1a9a58b8eb4ed1bc931b98427b8e20847287e75b))
+
 ## [1.0.0-preview.4](https://github.com/microsoft/Agents-M365Copilot/compare/microsoft_agents_m365copilot_beta-v1.0.0-preview.3...microsoft_agents_m365copilot_beta-v1.0.0-preview.4) (2025-07-16)
 
 

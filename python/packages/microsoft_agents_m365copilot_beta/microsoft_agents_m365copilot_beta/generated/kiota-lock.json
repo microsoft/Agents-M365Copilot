@@ -1,0 +1,36 @@
+{
+  "descriptionHash": "0D38938D311E635FF57B4239A75FB12C264CB409EE50F7A355855B8E628AB799EBC08C4C1E309E96D25C9CCFD7B4753601601A4FCFD35EC261C05A27CF71848E",
+  "descriptionLocation": "../../msgraph-metadata/clean_beta_openapi/openapi.yaml",
+  "lockFileVersion": "1.0.0",
+  "kiotaVersion": "1.29.0",
+  "clientClassName": "BaseAgentsM365CopilotBetaServiceClient",
+  "typeAccessModifier": "Public",
+  "clientNamespaceName": "microsoft_agents_m365copilot_beta.generated",
+  "language": "Python",
+  "usesBackingStore": true,
+  "excludeBackwardCompatible": false,
+  "includeAdditionalData": true,
+  "disableSSLValidation": false,
+  "serializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Text.TextSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Form.FormSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Multipart.MultipartSerializationWriterFactory"
+  ],
+  "deserializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Text.TextParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Form.FormParseNodeFactory"
+  ],
+  "structuredMimeTypes": [
+    "application/json",
+    "text/plain;q=0.9",
+    "application/x-www-form-urlencoded;q=0.2",
+    "multipart/form-data;q=0.1"
+  ],
+  "includePatterns": [
+    "**/copilot/**"
+  ],
+  "excludePatterns": [],
+  "disabledValidationRules": []
+}

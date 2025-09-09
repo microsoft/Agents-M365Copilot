@@ -8,7 +8,7 @@ Integrate the Microsoft 365 Copilot APIs into your TypeScript application!
 
 ## Installation
 
-The Microsoft 365 Copilot APIs client libraries will be available in the following packages in Node Package Manager (npm):
+The Microsoft 365 Copilot APIs client libraries are available in the following packages in Node Package Manager (npm):
 
 - [microsoft/agents-m365copilot-beta](https://github.com/microsoft/Agents-M365Copilot/tree/main/typescript/packages/agents-m365copilot-beta): Contains the models and request builders for accessing the beta endpoint. microsoft/agents-m365copilot-beta has a dependency on microsoft/agents-m365copilot-core.
 - [microsoft/agents-m365copilot-core](https://github.com/microsoft/Agents-M365Copilot/tree/main/typescript/packages/agents-m365copilot-core): The core library for making calls to the Copilot APIs.

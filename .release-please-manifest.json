@@ -3,6 +3,6 @@
     "dotnet/src/Microsoft.Agents.M365Copilot.Core": "1.0.0-preview.3",
     "typescript/packages/agents-m365copilot-beta": "1.0.0-preview.6",
     "typescript/packages/agents-m365copilot-core": "1.0.0-preview.1",
-    "python/packages/microsoft_agents_m365copilot_beta": "1.0.0-preview.4",
-    "python/packages/microsoft_agents_m365copilot_core": "1.0.0-preview.1"
+    "python/packages/microsoft_agents_m365copilot_beta": "1.0.0-preview.5",
+    "python/packages/microsoft_agents_m365copilot_core": "1.0.0-preview.2"
 }
