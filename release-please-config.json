@@ -51,7 +51,7 @@
             "changelog-path": "CHANGELOG.md",
             "extra-files": [
                 "pyproject.toml",
-                "_version.py"
+                "microsoft_agents_m365copilot_beta/_version.py"
             ]
         },
         "python/packages/microsoft_agents_m365copilot_core": {
@@ -60,7 +60,7 @@
             "changelog-path": "CHANGELOG.md",
             "extra-files": [
                 "pyproject.toml",
-                "src/_constants.py"
+                "microsoft_agents_m365copilot_core/src/_constants.py"
             ]
         }
     }

@@ -1,16 +1,16 @@
-# Microsoft 365 Copilot APIs Python Beta Client Library
+# Microsoft 365 Copilot APIs Beta Python Client Library
 
 Integrate the Microsoft 365 Copilot APIs into your Python application!
 
 > **Note:**
 >
-> Because the Copilot APIs in the beta endpoint are subject to breaking changes, don't use a preview release of the client libraries in production apps.
+>Because the Copilot APIs in the beta endpoint are subject to breaking changes, don't use this preview release of the client libraries in production apps.
 
 ## Installation
 
 To install the client libraries via PyPi:
 
-```shell
+```py
 pip install microsoft-agents-m365copilot-beta
 ```
 
@@ -22,72 +22,120 @@ The example also shows how to make a call to the Microsoft 365 Copilot Retrieval
 
 The client ID is the app registration ID that is generated when you [register your app in the Azure portal](https://learn.microsoft.com/graph/auth-register-app-v2).
 
-> **Note:**
->    
-> Your tenant must have a Microsoft 365 Copilot license.
+1. Create a `.env` file with the following values:
 
-```TypeScript
-import { createBaseAgentsM365CopilotBetaServiceClient, RetrievalDataSourceObject } from '@microsoft/agents-m365copilot-beta';
-import { DeviceCodeCredential } from '@azure/identity';
-import { FetchRequestAdapter } from '@microsoft/kiota-http-fetchlibrary';
+    ```
+    TENANT_ID = "YOUR_TENANT_ID"
+    CLIENT_ID = "YOUR_CLIENT_ID"
+    ```
 
-async function main() {
-    // Initialize authentication with Device Code flow
-    const credential = new DeviceCodeCredential({
-        tenantId: process.env.TENANT_ID,
-        clientId: process.env.CLIENT_ID,
-        userPromptCallback: (info) => {
-            console.log(`\nTo sign in, use a web browser to open the page ${info.verificationUri}`);
-            console.log(`Enter the code ${info.userCode} to authenticate.`);
-            console.log(`The code will expire at ${info.expiresOn}`);
-        }
-    });
+    >**Note:**
+    >
+    > Your tenant must have a Microsoft 365 Copilot license.
 
-    // Create request adapter with auth
-    const adapter = new FetchRequestAdapter(credential, {
-        scopes: ['https://graph.microsoft.com/.default']
-    });
-    adapter.baseUrl = "https://graph.microsoft.com/beta";
+2. Create a `main.py` file with the following snippet:
 
-    // Create client instance
-    const client = createBaseAgentsM365CopilotBetaServiceClient(adapter);
+    ```python
+    import asyncio
+    import os
+    from datetime import datetime
 
-    try {
-        console.log(`Using API base URL: ${adapter.baseUrl}\n`);
+    from azure.identity import DeviceCodeCredential
+    from dotenv import load_dotenv
+    from kiota_abstractions.api_error import APIError
 
-        // Create the retrieval request body
-        const retrievalBody = {
-            dataSource: RetrievalDataSourceObject.SharePoint,
-            queryString: "What is the latest in my organization"
-        };
+    from microsoft_agents_m365copilot_beta import AgentsM365CopilotBetaServiceClient
+    from microsoft_agents_m365copilot_beta.generated.copilot.retrieval.retrieval_post_request_body import (
+        RetrievalPostRequestBody,
+    )
+    from microsoft_agents_m365copilot_beta.generated.models.retrieval_data_source import RetrievalDataSource
 
-        // Make the API call
-        console.log("Making retrieval API request...");
-        const retrieval = await client.copilot.retrieval.post(retrievalBody);
+    load_dotenv()
 
-        // Process the results
-        if (retrieval?.retrievalHits) {
-            console.log(`\nReceived ${retrieval.retrievalHits.length} hits`);
-            for (const hit of retrieval.retrievalHits) {
-                console.log(`\nWeb URL: ${hit.webUrl}`);
-                for (const extract of hit.extracts || []) {
-                    console.log(`Text:\n${extract.text}\n`);
-                }
-            }
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        throw error;
-    }
-}
-```
+    TENANT_ID = os.getenv("TENANT_ID")
+    CLIENT_ID = os.getenv("CLIENT_ID")
+
+    # Define a proper callback function that accepts all three parameters
+    def auth_callback(verification_uri: str, user_code: str, expires_on: datetime):
+        print(f"\nTo sign in, use a web browser to open the page {verification_uri}")
+        print(f"Enter the code {user_code} to authenticate.")
+        print(f"The code will expire at {expires_on}")
+
+    # Create device code credential with correct callback
+    credentials = DeviceCodeCredential(
+        client_id=CLIENT_ID,
+        tenant_id=TENANT_ID,
+        prompt_callback=auth_callback
+    )
+
+    # Use the Graph API beta endpoint explicitly
+    scopes = ['https://graph.microsoft.com/.default']
+    client = AgentsM365CopilotBetaServiceClient(credentials=credentials, scopes=scopes)
+
+    # Make sure the base URL is set to beta
+    client.request_adapter.base_url = "https://graph.microsoft.com/beta"
+
+    async def retrieve():
+        try:
+            # Print the URL being used
+            print(f"Using API base URL: {client.request_adapter.base_url}\n")
+            
+            # Create the retrieval request body
+            retrieval_body = RetrievalPostRequestBody()
+            retrieval_body.data_source = RetrievalDataSource.SharePoint
+            retrieval_body.query_string = "What is the latest in my organization?"
+            
+            # Try more parameters that might be required
+            # retrieval_body.maximum_number_of_results = 10
+            
+            # Make the API call
+            print("Making retrieval API request...")
+            retrieval = await client.copilot.retrieval.post(retrieval_body)
+            
+            # Process the results
+            if retrieval and hasattr(retrieval, "retrieval_hits"):
+                print(f"Received {len(retrieval.retrieval_hits)} hits")
+                for r in retrieval.retrieval_hits:
+                    print(f"Web URL: {r.web_url}\n")
+                    for extract in r.extracts:
+                        print(f"Text:\n{extract.text}\n")
+            else:
+                print(f"Retrieval response structure: {dir(retrieval)}")
+        except APIError as e:
+            print(f"Error: {e.error.code}: {e.error.message}")
+            if hasattr(e, 'error') and hasattr(e.error, 'inner_error'):
+                print(f"Inner error details: {e.error.inner_error}")
+            raise e
+
+
+    # Run the async function
+    asyncio.run(retrieve())
+    ```
+
+3. If successful, you should get a list of `retrievalHits` collection.
 
 ## Issues
 
-View or log issues on the [Issues](https://github.com/microsoft/Agents-M365Copilot/issues) tab in the repo and tag them as `python` or `python-core`.
+To view or log issues, see [issues](https://github.com/microsoft/Agents-M365Copilot/issues).
 
-## Copyright and license
+## Contributing
 
-Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT [license](https://github.com/microsoft/Agents-M365Copilot/tree/main/typescript/LICENSE).
+This project welcomes contributions and suggestions.  Most contributions require you to agree to a
+Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
+the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+When you submit a pull request, a CLA bot will automatically determine whether you need to provide
+a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
+provided by the bot. You will only need to do this once across all repos using our CLA.
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
+contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+## Trademarks
+
+This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
+trademarks or logos is subject to and must follow 
+[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
+Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
+Any use of third-party trademarks or logos are subject to those third-party's policies.
