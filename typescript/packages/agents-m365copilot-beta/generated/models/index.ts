@@ -2780,11 +2780,11 @@ export interface Identity extends AdditionalDataHolder, BackedModel, Parsable {
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The display name of the identity. For drive items, the display name might not always be available or up to date. For example, if a user changes their display name the API might show the new value in a future response, but the items associated with the user don't show up as changed when using delta.
+     * The display name of the identity. This property is read-only.
      */
     displayName?: string | null;
     /**
-     * Unique identifier for the identity or actor. For example, in the access reviews decisions API, this property might record the id of the principal, that is, the group, user, or application that's subject to review.
+     * The identifier of the identity. This property is read-only.
      */
     id?: string | null;
     /**
@@ -2794,7 +2794,7 @@ export interface Identity extends AdditionalDataHolder, BackedModel, Parsable {
 }
 export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * The Identity of the Application. This property is read-only.
+     * Optional. The application associated with this action.
      */
     application?: Identity | null;
     /**
@@ -2802,7 +2802,7 @@ export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The Identity of the Device. This property is read-only.
+     * Optional. The device associated with this action.
      */
     device?: Identity | null;
     /**
@@ -2810,7 +2810,7 @@ export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable
      */
     odataType?: string | null;
     /**
-     * The Identity of the User. This property is read-only.
+     * Optional. The user associated with this action.
      */
     user?: Identity | null;
 }
