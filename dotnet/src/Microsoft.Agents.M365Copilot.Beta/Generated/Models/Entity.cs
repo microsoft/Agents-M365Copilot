@@ -68,7 +68,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
         public static global::Microsoft.Agents.M365Copilot.Beta.Models.Entity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
+            if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
@@ -80,9 +80,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 "#microsoft.graph.copilotAdmin" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdmin(),
                 "#microsoft.graph.copilotAdminLimitedMode" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminLimitedMode(),
                 "#microsoft.graph.copilotAdminSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting(),
+                "#microsoft.graph.copilotCommunicationsRoot" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotCommunicationsRoot(),
                 "#microsoft.graph.copilotPeopleAdminSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPeopleAdminSetting(),
                 "#microsoft.graph.copilotSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotSetting(),
                 "#microsoft.graph.enhancedPersonalizationSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting(),
+                "#microsoft.graph.multiActivitySubscription" => new global::Microsoft.Agents.M365Copilot.Beta.Models.MultiActivitySubscription(),
+                "#microsoft.graph.realtimeActivityFeedRoot" => new global::Microsoft.Agents.M365Copilot.Beta.Models.RealtimeActivityFeedRoot(),
+                "#microsoft.graph.realtimeActivityMeeting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.RealtimeActivityMeeting(),
+                "#microsoft.graph.realTimeTranscript" => new global::Microsoft.Agents.M365Copilot.Beta.Models.RealTimeTranscript(),
                 _ => new global::Microsoft.Agents.M365Copilot.Beta.Models.Entity(),
             };
         }
@@ -104,7 +109,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
