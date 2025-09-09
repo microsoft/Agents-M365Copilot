@@ -1,17 +1,9 @@
 from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Any, Optional, Union
-
-from kiota_abstractions.serialization import (
-    AdditionalDataHolder,
-    Parsable,
-    ParseNode,
-    SerializationWriter,
-)
+from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
 from kiota_abstractions.store import BackedModel, BackingStore, BackingStoreFactorySingleton
-
+from typing import Any, Optional, TYPE_CHECKING, Union
 
 @dataclass
 class ActionItem(AdditionalDataHolder, BackedModel, Parsable):
@@ -22,11 +14,11 @@ class ActionItem(AdditionalDataHolder, BackedModel, Parsable):
     additional_data: dict[str, Any] = field(default_factory=dict)
     # The OdataType property
     odata_type: Optional[str] = None
-    # The display name of the owner of the action item.
+    # The ownerDisplayName property
     owner_display_name: Optional[str] = None
-    # The text content of the action item.
+    # The text property
     text: Optional[str] = None
-    # The title of the action item.
+    # The title property
     title: Optional[str] = None
     
     @staticmethod

@@ -102,7 +102,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Settings
         public async Task<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting> PatchAsync(global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
@@ -163,7 +163,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Settings
         public RequestInformation ToPatchRequestInformation(global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            _ = body ?? throw new ArgumentNullException(nameof(body));
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
