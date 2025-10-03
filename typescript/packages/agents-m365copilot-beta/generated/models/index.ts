@@ -2794,7 +2794,7 @@ export interface Identity extends AdditionalDataHolder, BackedModel, Parsable {
 }
 export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * The Identity of the Application. This property is read-only.
+     * Optional. The application associated with this action.
      */
     application?: Identity | null;
     /**
@@ -2802,7 +2802,7 @@ export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The Identity of the Device. This property is read-only.
+     * Optional. The device associated with this action.
      */
     device?: Identity | null;
     /**
@@ -2810,7 +2810,7 @@ export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable
      */
     odataType?: string | null;
     /**
-     * The Identity of the User. This property is read-only.
+     * Optional. The user associated with this action.
      */
     user?: Identity | null;
 }
