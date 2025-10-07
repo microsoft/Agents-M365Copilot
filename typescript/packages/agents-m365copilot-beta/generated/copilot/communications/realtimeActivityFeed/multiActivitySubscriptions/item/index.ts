@@ -6,12 +6,18 @@ import { createMultiActivitySubscriptionFromDiscriminatorValue, serializeMultiAc
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '../../../../../models/oDataErrors/index.js';
 // @ts-ignore
-import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
+import { GetArtifactsRequestBuilderRequestsMetadata, type GetArtifactsRequestBuilder } from './getArtifacts/index.js';
+// @ts-ignore
+import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the multiActivitySubscriptions property of the microsoft.graph.realtimeActivityFeedRoot entity.
  */
 export interface MultiActivitySubscriptionItemRequestBuilder extends BaseRequestBuilder<MultiActivitySubscriptionItemRequestBuilder> {
+    /**
+     * Provides operations to call the getArtifacts method.
+     */
+    get getArtifacts(): GetArtifactsRequestBuilder;
     /**
      * Delete navigation property multiActivitySubscriptions for copilot
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -76,6 +82,14 @@ export const MultiActivitySubscriptionItemRequestBuilderUriTemplate = "{+baseurl
 const MultiActivitySubscriptionItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "expand": "%24expand",
     "select": "%24select",
+};
+/**
+ * Metadata for all the navigation properties in the request builder.
+ */
+export const MultiActivitySubscriptionItemRequestBuilderNavigationMetadata: Record<Exclude<keyof MultiActivitySubscriptionItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    getArtifacts: {
+        requestsMetadata: GetArtifactsRequestBuilderRequestsMetadata,
+    },
 };
 /**
  * Metadata for all the requests in the request builder.

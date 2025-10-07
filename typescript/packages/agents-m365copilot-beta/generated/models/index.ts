@@ -248,6 +248,7 @@ export interface ApprovalIdentitySet extends IdentitySet, Parsable {
      */
     group?: Identity | null;
 }
+export type ArtifactType = (typeof ArtifactTypeObject)[keyof typeof ArtifactTypeObject];
 export interface AuditUserIdentity extends Parsable, UserIdentity {
     /**
      * For user sign ins, the identifier of the tenant that the user is a member of.
@@ -997,6 +998,15 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
 // @ts-ignore
 export function createExternalItemConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternalItemConfiguration;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {GetArtifactsResponse}
+ */
+// @ts-ignore
+export function createGetArtifactsResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetArtifactsResponse;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -2136,6 +2146,20 @@ export function deserializeIntoExternalItemConfiguration(externalItemConfigurati
 }
 /**
  * The deserialization information for the current model
+ * @param GetArtifactsResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoGetArtifactsResponse(getArtifactsResponse: Partial<GetArtifactsResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { getArtifactsResponse.backingStoreEnabled = true; },
+        "nextLink": n => { getArtifactsResponse.nextLink = n.getStringValue(); },
+        "@odata.type": n => { getArtifactsResponse.odataType = n.getStringValue(); },
+        "payloads": n => { getArtifactsResponse.payloads = n.getCollectionOfObjectValues<TranscriptPayload>(createTranscriptPayloadFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param Identity The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -2663,7 +2687,6 @@ export function deserializeIntoTranscriptPayload(transcriptPayload: Partial<Tran
         "audioCaptureDateTime": n => { transcriptPayload.audioCaptureDateTime = n.getDateValue(); },
         "backingStoreEnabled": n => { transcriptPayload.backingStoreEnabled = true; },
         "@odata.type": n => { transcriptPayload.odataType = n.getStringValue(); },
-        "sequenceId": n => { transcriptPayload.sequenceId = n.getNumberValue(); },
         "speaker": n => { transcriptPayload.speaker = n.getObjectValue<TranscriptSpeaker>(createTranscriptSpeakerFromDiscriminatorValue); },
         "spokenLanguage": n => { transcriptPayload.spokenLanguage = n.getStringValue(); },
         "text": n => { transcriptPayload.text = n.getStringValue(); },
@@ -2774,6 +2797,24 @@ export interface ExternalItemConfiguration extends AdditionalDataHolder, BackedM
      */
     odataType?: string | null;
 }
+export interface GetArtifactsResponse extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The nextLink property
+     */
+    nextLink?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The payloads property
+     */
+    payloads?: TranscriptPayload[] | null;
+}
 export interface Identity extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores model information.
@@ -2794,7 +2835,7 @@ export interface Identity extends AdditionalDataHolder, BackedModel, Parsable {
 }
 export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * The Identity of the Application. This property is read-only.
+     * Optional. The application associated with this action.
      */
     application?: Identity | null;
     /**
@@ -2802,7 +2843,7 @@ export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The Identity of the Device. This property is read-only.
+     * Optional. The device associated with this action.
      */
     device?: Identity | null;
     /**
@@ -2810,7 +2851,7 @@ export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable
      */
     odataType?: string | null;
     /**
-     * The Identity of the User. This property is read-only.
+     * Optional. The user associated with this action.
      */
     user?: Identity | null;
 }
@@ -3821,6 +3862,20 @@ export function serializeExternalItemConfiguration(writer: SerializationWriter, 
 }
 /**
  * Serializes information the current object
+ * @param GetArtifactsResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeGetArtifactsResponse(writer: SerializationWriter, getArtifactsResponse: Partial<GetArtifactsResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getArtifactsResponse || isSerializingDerivedType) { return; }
+    writer.writeStringValue("nextLink", getArtifactsResponse.nextLink);
+    writer.writeStringValue("@odata.type", getArtifactsResponse.odataType);
+    writer.writeCollectionOfObjectValues<TranscriptPayload>("payloads", getArtifactsResponse.payloads, serializeTranscriptPayload);
+    writer.writeAdditionalData(getArtifactsResponse.additionalData);
+}
+/**
+ * Serializes information the current object
  * @param Identity The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -4457,7 +4512,6 @@ export function serializeTranscriptPayload(writer: SerializationWriter, transcri
     if (!transcriptPayload || isSerializingDerivedType) { return; }
     writer.writeDateValue("audioCaptureDateTime", transcriptPayload.audioCaptureDateTime);
     writer.writeStringValue("@odata.type", transcriptPayload.odataType);
-    writer.writeNumberValue("sequenceId", transcriptPayload.sequenceId);
     writer.writeObjectValue<TranscriptSpeaker>("speaker", transcriptPayload.speaker, serializeTranscriptSpeaker);
     writer.writeStringValue("spokenLanguage", transcriptPayload.spokenLanguage);
     writer.writeStringValue("text", transcriptPayload.text);
@@ -4606,10 +4660,6 @@ export interface TranscriptPayload extends AdditionalDataHolder, BackedModel, Pa
      */
     odataType?: string | null;
     /**
-     * The sequenceId property
-     */
-    sequenceId?: number | null;
-    /**
      * The speaker property
      */
     speaker?: TranscriptSpeaker | null;
@@ -4659,6 +4709,10 @@ export const ActivityStatusObject = {
 export const AiInteractionTypeObject = {
     UserPrompt: "userPrompt",
     AiResponse: "aiResponse",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const ArtifactTypeObject = {
+    Transcript: "transcript",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const BodyTypeObject = {
