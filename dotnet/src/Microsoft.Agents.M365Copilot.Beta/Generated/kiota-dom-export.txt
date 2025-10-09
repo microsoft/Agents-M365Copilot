@@ -162,6 +162,25 @@ Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.Mu
 Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Count.CountRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):int?
 Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Count.CountRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Count.CountRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Count.CountRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.getArtifactsPostRequestBody::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.getArtifactsPostRequestBody::|public|ArtifactTypes:List<global.Microsoft.Agents.M365Copilot.Beta.Models.ArtifactType?>
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.getArtifactsPostRequestBody::|public|BackingStore:IBackingStore
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.getArtifactsPostRequestBody::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.getArtifactsPostRequestBody::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.getArtifactsPostRequestBody::|public|MaxResults:int?
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.getArtifactsPostRequestBody::|public|RangeInSec:int?
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.getArtifactsPostRequestBody::|public|SeedDateTime:DateTimeOffset?
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.getArtifactsPostRequestBody::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.getArtifactsPostRequestBody::|public|UserId:string
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.getArtifactsPostRequestBody::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.GetArtifactsPostRequestBody
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.getArtifactsPostRequestBody~~>IAdditionalDataHolder; IBackedModel; IParsable
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.getArtifactsRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.getArtifactsRequestBuilder.getArtifactsRequestBuilderPostRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.getArtifactsRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.getArtifactsRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.getArtifactsRequestBuilder::|public|PostAsync(body:global.Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.GetArtifactsPostRequestBody; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Beta.Models.GetArtifactsResponse
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.getArtifactsRequestBuilder::|public|ToPostRequestInformation(body:global.Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.GetArtifactsPostRequestBody; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.getArtifactsRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.GetArtifactsRequestBuilder
 Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.MultiActivitySubscriptionItemRequestBuilder-->BaseRequestBuilder
 Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.MultiActivitySubscriptionItemRequestBuilder.MultiActivitySubscriptionItemRequestBuilderDeleteRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
 Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.MultiActivitySubscriptionItemRequestBuilder.MultiActivitySubscriptionItemRequestBuilderGetQueryParameters::|public|Expand:string[]
@@ -171,6 +190,7 @@ Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.Mu
 Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.MultiActivitySubscriptionItemRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
 Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.MultiActivitySubscriptionItemRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
 Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.MultiActivitySubscriptionItemRequestBuilder::|public|DeleteAsync(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.MultiActivitySubscriptionItemRequestBuilder::|public|getArtifacts:global.Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.GetArtifactsRequestBuilder
 Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.MultiActivitySubscriptionItemRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.MultiActivitySubscriptionItemRequestBuilder.MultiActivitySubscriptionItemRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Beta.Models.MultiActivitySubscription
 Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.MultiActivitySubscriptionItemRequestBuilder::|public|PatchAsync(body:global.Microsoft.Agents.M365Copilot.Beta.Models.MultiActivitySubscription; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Beta.Models.MultiActivitySubscription
 Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.MultiActivitySubscriptionItemRequestBuilder::|public|ToDeleteRequestInformation(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
@@ -639,6 +659,8 @@ Microsoft.Agents.M365Copilot.Beta.Models.approvalIdentitySet::|public|Group:glob
 Microsoft.Agents.M365Copilot.Beta.Models.approvalIdentitySet::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.approvalIdentitySet::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.approvalIdentitySet::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.ApprovalIdentitySet
+Microsoft.Agents.M365Copilot.Beta.Models.artifactType::0000-transcript
+Microsoft.Agents.M365Copilot.Beta.Models.artifactType::0001-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.auditUserIdentity-->global.Microsoft.Agents.M365Copilot.Beta.Models.UserIdentity
 Microsoft.Agents.M365Copilot.Beta.Models.auditUserIdentity::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.auditUserIdentity::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -914,6 +936,16 @@ Microsoft.Agents.M365Copilot.Beta.Models.externalItemConfiguration::|public|Odat
 Microsoft.Agents.M365Copilot.Beta.Models.externalItemConfiguration::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.externalItemConfiguration::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.ExternalItemConfiguration
 Microsoft.Agents.M365Copilot.Beta.Models.externalItemConfiguration~~>IAdditionalDataHolder; IBackedModel; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.getArtifactsResponse::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.getArtifactsResponse::|public|BackingStore:IBackingStore
+Microsoft.Agents.M365Copilot.Beta.Models.getArtifactsResponse::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.getArtifactsResponse::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.getArtifactsResponse::|public|NextLink:string
+Microsoft.Agents.M365Copilot.Beta.Models.getArtifactsResponse::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.getArtifactsResponse::|public|Payloads:List<global.Microsoft.Agents.M365Copilot.Beta.Models.TranscriptPayload>
+Microsoft.Agents.M365Copilot.Beta.Models.getArtifactsResponse::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.getArtifactsResponse::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.GetArtifactsResponse
+Microsoft.Agents.M365Copilot.Beta.Models.getArtifactsResponse~~>IAdditionalDataHolder; IBackedModel; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.identity::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Beta.Models.identity::|public|BackingStore:IBackingStore
 Microsoft.Agents.M365Copilot.Beta.Models.identity::|public|constructor():void
@@ -1325,7 +1357,6 @@ Microsoft.Agents.M365Copilot.Beta.Models.transcriptPayload::|public|BackingStore
 Microsoft.Agents.M365Copilot.Beta.Models.transcriptPayload::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.transcriptPayload::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.transcriptPayload::|public|OdataType:string
-Microsoft.Agents.M365Copilot.Beta.Models.transcriptPayload::|public|SequenceId:int?
 Microsoft.Agents.M365Copilot.Beta.Models.transcriptPayload::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.transcriptPayload::|public|Speaker:global.Microsoft.Agents.M365Copilot.Beta.Models.TranscriptSpeaker
 Microsoft.Agents.M365Copilot.Beta.Models.transcriptPayload::|public|SpokenLanguage:string
