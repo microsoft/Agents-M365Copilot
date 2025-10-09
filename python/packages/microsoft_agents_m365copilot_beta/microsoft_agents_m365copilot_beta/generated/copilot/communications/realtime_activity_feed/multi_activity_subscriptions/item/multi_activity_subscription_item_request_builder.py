@@ -16,6 +16,7 @@ from warnings import warn
 if TYPE_CHECKING:
     from ......models.multi_activity_subscription import MultiActivitySubscription
     from ......models.o_data_errors.o_data_error import ODataError
+    from .get_artifacts.get_artifacts_request_builder import GetArtifactsRequestBuilder
 
 class MultiActivitySubscriptionItemRequestBuilder(BaseRequestBuilder):
     """
@@ -137,6 +138,15 @@ class MultiActivitySubscriptionItemRequestBuilder(BaseRequestBuilder):
         if raw_url is None:
             raise TypeError("raw_url cannot be null.")
         return MultiActivitySubscriptionItemRequestBuilder(self.request_adapter, raw_url)
+    
+    @property
+    def get_artifacts(self) -> GetArtifactsRequestBuilder:
+        """
+        Provides operations to call the getArtifacts method.
+        """
+        from .get_artifacts.get_artifacts_request_builder import GetArtifactsRequestBuilder
+
+        return GetArtifactsRequestBuilder(self.request_adapter, self.path_parameters)
     
     @dataclass
     class MultiActivitySubscriptionItemRequestBuilderDeleteRequestConfiguration(RequestConfiguration[QueryParameters]):
