@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '../../.
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
-import { MultiActivitySubscriptionItemRequestBuilderRequestsMetadata, type MultiActivitySubscriptionItemRequestBuilder } from './item/index.js';
+import { MultiActivitySubscriptionItemRequestBuilderNavigationMetadata, MultiActivitySubscriptionItemRequestBuilderRequestsMetadata, type MultiActivitySubscriptionItemRequestBuilder } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -115,6 +115,7 @@ const MultiActivitySubscriptionsRequestBuilderGetQueryParametersMapper: Record<s
 export const MultiActivitySubscriptionsRequestBuilderNavigationMetadata: Record<Exclude<keyof MultiActivitySubscriptionsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     byMultiActivitySubscriptionId: {
         requestsMetadata: MultiActivitySubscriptionItemRequestBuilderRequestsMetadata,
+        navigationMetadata: MultiActivitySubscriptionItemRequestBuilderNavigationMetadata,
         pathParametersMappings: ["multiActivitySubscription%2Did"],
     },
     count: {
