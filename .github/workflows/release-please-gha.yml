@@ -9,6 +9,9 @@
 # variables and secrets, and then runs the release-please-action to manage versioning and changelogs.
 
 name: Release Please
+permissions:
+  contents: read
+  pull-requests: write
 
 on:
   push:
