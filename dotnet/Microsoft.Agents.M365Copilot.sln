@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0AB3BF05
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Agents.M365Copilot.Sample", "src\Microsoft.Agents.M365Copilot.Sample\Microsoft.Agents.M365Copilot.Sample.csproj", "{FAC87736-1178-45E3-8692-CEE2FE051BBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Agents.M365Copilot", "src\Microsoft.Agents.M365Copilot\Microsoft.Agents.M365Copilot.csproj", "{DC8281F0-648B-B18D-DC4D-4C503F96E264}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,18 @@ Global
 		{FAC87736-1178-45E3-8692-CEE2FE051BBC}.Release|x64.Build.0 = Release|Any CPU
 		{FAC87736-1178-45E3-8692-CEE2FE051BBC}.Release|x86.ActiveCfg = Release|Any CPU
 		{FAC87736-1178-45E3-8692-CEE2FE051BBC}.Release|x86.Build.0 = Release|Any CPU
+		{DC8281F0-648B-B18D-DC4D-4C503F96E264}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC8281F0-648B-B18D-DC4D-4C503F96E264}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC8281F0-648B-B18D-DC4D-4C503F96E264}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DC8281F0-648B-B18D-DC4D-4C503F96E264}.Debug|x64.Build.0 = Debug|Any CPU
+		{DC8281F0-648B-B18D-DC4D-4C503F96E264}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DC8281F0-648B-B18D-DC4D-4C503F96E264}.Debug|x86.Build.0 = Debug|Any CPU
+		{DC8281F0-648B-B18D-DC4D-4C503F96E264}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC8281F0-648B-B18D-DC4D-4C503F96E264}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC8281F0-648B-B18D-DC4D-4C503F96E264}.Release|x64.ActiveCfg = Release|Any CPU
+		{DC8281F0-648B-B18D-DC4D-4C503F96E264}.Release|x64.Build.0 = Release|Any CPU
+		{DC8281F0-648B-B18D-DC4D-4C503F96E264}.Release|x86.ActiveCfg = Release|Any CPU
+		{DC8281F0-648B-B18D-DC4D-4C503F96E264}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,7 +9,7 @@ if TYPE_CHECKING:
     from .retrieval_entity_type import RetrievalEntityType
     from .retrieval_extract import RetrievalExtract
     from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
-    from .search_sensitivity_label_info import SearchSensitivityLabelInfo
+    from .sensitivity_label_info import SensitivityLabelInfo
 
 @dataclass
 class RetrievalHit(AdditionalDataHolder, BackedModel, Parsable):
@@ -27,7 +27,7 @@ class RetrievalHit(AdditionalDataHolder, BackedModel, Parsable):
     # The resourceType property
     resource_type: Optional[RetrievalEntityType] = None
     # The sensitivityLabel property
-    sensitivity_label: Optional[SearchSensitivityLabelInfo] = None
+    sensitivity_label: Optional[SensitivityLabelInfo] = None
     # The webUrl property
     web_url: Optional[str] = None
     
@@ -50,19 +50,19 @@ class RetrievalHit(AdditionalDataHolder, BackedModel, Parsable):
         from .retrieval_entity_type import RetrievalEntityType
         from .retrieval_extract import RetrievalExtract
         from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
-        from .search_sensitivity_label_info import SearchSensitivityLabelInfo
+        from .sensitivity_label_info import SensitivityLabelInfo
 
         from .retrieval_entity_type import RetrievalEntityType
         from .retrieval_extract import RetrievalExtract
         from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
-        from .search_sensitivity_label_info import SearchSensitivityLabelInfo
+        from .sensitivity_label_info import SensitivityLabelInfo
 
         fields: dict[str, Callable[[Any], None]] = {
             "extracts": lambda n : setattr(self, 'extracts', n.get_collection_of_object_values(RetrievalExtract)),
             "@odata.type": lambda n : setattr(self, 'odata_type', n.get_str_value()),
             "resourceMetadata": lambda n : setattr(self, 'resource_metadata', n.get_object_value(SearchResourceMetadataDictionary)),
             "resourceType": lambda n : setattr(self, 'resource_type', n.get_enum_value(RetrievalEntityType)),
-            "sensitivityLabel": lambda n : setattr(self, 'sensitivity_label', n.get_object_value(SearchSensitivityLabelInfo)),
+            "sensitivityLabel": lambda n : setattr(self, 'sensitivity_label', n.get_object_value(SensitivityLabelInfo)),
             "webUrl": lambda n : setattr(self, 'web_url', n.get_str_value()),
         }
         return fields

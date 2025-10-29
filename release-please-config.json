@@ -16,6 +16,14 @@
     "versioning": "prerelease",
     "bootstrap-sha": "b3123fb1d60eb4516b71ecf0370d48cefb891870",
     "packages": {
+        "dotnet/src/Microsoft.Agents.M365Copilot": {
+            "component": "Microsoft.Agents.M365Copilot",
+            "release-type": "simple",
+            "changelog-path": "CHANGELOG.md",
+            "extra-files": [
+                "Microsoft.Agents.M365Copilot.csproj"
+            ]
+        },        
         "dotnet/src/Microsoft.Agents.M365Copilot.Beta": {
             "component": "Microsoft.Agents.M365Copilot.Beta",
             "release-type": "simple",

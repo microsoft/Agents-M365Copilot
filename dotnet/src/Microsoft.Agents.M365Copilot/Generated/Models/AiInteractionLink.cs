@@ -6,13 +6,12 @@ using Microsoft.Kiota.Abstractions.Store;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Microsoft.Agents.M365Copilot.Beta.Models
+namespace Microsoft.Agents.M365Copilot.Models
 {
-    /// <summary>
-    /// Represents a sensitivityLabel.This model is shared with the CCS retrieval API and search where it is already unhidden.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SearchSensitivityLabelInfo : IAdditionalDataHolder, IBackedModel, IParsable
+    #pragma warning disable CS1591
+    public partial class AiInteractionLink : IAdditionalDataHolder, IBackedModel, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData
@@ -22,22 +21,6 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         }
         /// <summary>Stores model information.</summary>
         public IBackingStore BackingStore { get; private set; }
-        /// <summary>The color property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Color
-        {
-            get { return BackingStore?.Get<string?>("color"); }
-            set { BackingStore?.Set("color", value); }
-        }
-#nullable restore
-#else
-        public string Color
-        {
-            get { return BackingStore?.Get<string>("color"); }
-            set { BackingStore?.Set("color", value); }
-        }
-#endif
         /// <summary>The displayName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -52,6 +35,38 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             get { return BackingStore?.Get<string>("displayName"); }
             set { BackingStore?.Set("displayName", value); }
+        }
+#endif
+        /// <summary>The linkType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LinkType
+        {
+            get { return BackingStore?.Get<string?>("linkType"); }
+            set { BackingStore?.Set("linkType", value); }
+        }
+#nullable restore
+#else
+        public string LinkType
+        {
+            get { return BackingStore?.Get<string>("linkType"); }
+            set { BackingStore?.Set("linkType", value); }
+        }
+#endif
+        /// <summary>The linkUrl property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LinkUrl
+        {
+            get { return BackingStore?.Get<string?>("linkUrl"); }
+            set { BackingStore?.Set("linkUrl", value); }
+        }
+#nullable restore
+#else
+        public string LinkUrl
+        {
+            get { return BackingStore?.Get<string>("linkUrl"); }
+            set { BackingStore?.Set("linkUrl", value); }
         }
 #endif
         /// <summary>The OdataType property</summary>
@@ -70,48 +85,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
-        /// <summary>The priority property</summary>
-        public int? Priority
-        {
-            get { return BackingStore?.Get<int?>("priority"); }
-            set { BackingStore?.Set("priority", value); }
-        }
-        /// <summary>The sensitivityLabelId property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? SensitivityLabelId
-        {
-            get { return BackingStore?.Get<string?>("sensitivityLabelId"); }
-            set { BackingStore?.Set("sensitivityLabelId", value); }
-        }
-#nullable restore
-#else
-        public string SensitivityLabelId
-        {
-            get { return BackingStore?.Get<string>("sensitivityLabelId"); }
-            set { BackingStore?.Set("sensitivityLabelId", value); }
-        }
-#endif
-        /// <summary>The tooltip property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Tooltip
-        {
-            get { return BackingStore?.Get<string?>("tooltip"); }
-            set { BackingStore?.Set("tooltip", value); }
-        }
-#nullable restore
-#else
-        public string Tooltip
-        {
-            get { return BackingStore?.Get<string>("tooltip"); }
-            set { BackingStore?.Set("tooltip", value); }
-        }
-#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.SearchSensitivityLabelInfo"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Models.AiInteractionLink"/> and sets the default values.
         /// </summary>
-        public SearchSensitivityLabelInfo()
+        public AiInteractionLink()
         {
             BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
@@ -119,12 +96,12 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.SearchSensitivityLabelInfo"/></returns>
+        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Models.AiInteractionLink"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Microsoft.Agents.M365Copilot.Beta.Models.SearchSensitivityLabelInfo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Microsoft.Agents.M365Copilot.Models.AiInteractionLink CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Microsoft.Agents.M365Copilot.Beta.Models.SearchSensitivityLabelInfo();
+            return new global::Microsoft.Agents.M365Copilot.Models.AiInteractionLink();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -134,12 +111,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "color", n => { Color = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "linkType", n => { LinkType = n.GetStringValue(); } },
+                { "linkUrl", n => { LinkUrl = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "priority", n => { Priority = n.GetIntValue(); } },
-                { "sensitivityLabelId", n => { SensitivityLabelId = n.GetStringValue(); } },
-                { "tooltip", n => { Tooltip = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -149,6 +124,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("displayName", DisplayName);
+            writer.WriteStringValue("linkType", LinkType);
+            writer.WriteStringValue("linkUrl", LinkUrl);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

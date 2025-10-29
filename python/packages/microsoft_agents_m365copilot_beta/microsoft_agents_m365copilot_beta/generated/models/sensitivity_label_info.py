@@ -6,10 +6,7 @@ from kiota_abstractions.store import BackedModel, BackingStore, BackingStoreFact
 from typing import Any, Optional, TYPE_CHECKING, Union
 
 @dataclass
-class SearchSensitivityLabelInfo(AdditionalDataHolder, BackedModel, Parsable):
-    """
-    Represents a sensitivityLabel.This model is shared with the CCS retrieval API and search where it is already unhidden.
-    """
+class SensitivityLabelInfo(AdditionalDataHolder, BackedModel, Parsable):
     # Stores model information.
     backing_store: BackingStore = field(default_factory=BackingStoreFactorySingleton(backing_store_factory=None).backing_store_factory.create_backing_store, repr=False)
 
@@ -29,15 +26,15 @@ class SearchSensitivityLabelInfo(AdditionalDataHolder, BackedModel, Parsable):
     tooltip: Optional[str] = None
     
     @staticmethod
-    def create_from_discriminator_value(parse_node: ParseNode) -> SearchSensitivityLabelInfo:
+    def create_from_discriminator_value(parse_node: ParseNode) -> SensitivityLabelInfo:
         """
         Creates a new instance of the appropriate class based on discriminator value
         param parse_node: The parse node to use to read the discriminator value and create the object
-        Returns: SearchSensitivityLabelInfo
+        Returns: SensitivityLabelInfo
         """
         if parse_node is None:
             raise TypeError("parse_node cannot be null.")
-        return SearchSensitivityLabelInfo()
+        return SensitivityLabelInfo()
     
     def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
         """
@@ -62,7 +59,12 @@ class SearchSensitivityLabelInfo(AdditionalDataHolder, BackedModel, Parsable):
         """
         if writer is None:
             raise TypeError("writer cannot be null.")
+        writer.write_str_value("color", self.color)
+        writer.write_str_value("displayName", self.display_name)
         writer.write_str_value("@odata.type", self.odata_type)
+        writer.write_int_value("priority", self.priority)
+        writer.write_str_value("sensitivityLabelId", self.sensitivity_label_id)
+        writer.write_str_value("tooltip", self.tooltip)
         writer.write_additional_data_value(self.additional_data)
     
 
