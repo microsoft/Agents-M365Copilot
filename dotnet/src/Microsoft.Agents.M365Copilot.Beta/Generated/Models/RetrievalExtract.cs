@@ -37,6 +37,12 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             set { BackingStore?.Set("@odata.type", value); }
         }
 #endif
+        /// <summary>The relevanceScore property</summary>
+        public double? RelevanceScore
+        {
+            get { return BackingStore?.Get<double?>("relevanceScore"); }
+            set { BackingStore?.Set("relevanceScore", value); }
+        }
         /// <summary>The text property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -80,6 +86,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "relevanceScore", n => { RelevanceScore = n.GetDoubleValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
             };
         }
@@ -91,6 +98,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteDoubleValue("relevanceScore", RelevanceScore);
             writer.WriteStringValue("text", Text);
             writer.WriteAdditionalData(AdditionalData);
         }

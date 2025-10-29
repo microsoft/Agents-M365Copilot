@@ -78,16 +78,16 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The sensitivityLabel property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.SearchSensitivityLabelInfo? SensitivityLabel
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo? SensitivityLabel
         {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.SearchSensitivityLabelInfo?>("sensitivityLabel"); }
+            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo?>("sensitivityLabel"); }
             set { BackingStore?.Set("sensitivityLabel", value); }
         }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.SearchSensitivityLabelInfo SensitivityLabel
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo SensitivityLabel
         {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.SearchSensitivityLabelInfo>("sensitivityLabel"); }
+            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo>("sensitivityLabel"); }
             set { BackingStore?.Set("sensitivityLabel", value); }
         }
 #endif
@@ -137,7 +137,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "resourceMetadata", n => { ResourceMetadata = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary>(global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary.CreateFromDiscriminatorValue); } },
                 { "resourceType", n => { ResourceType = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalEntityType>(); } },
-                { "sensitivityLabel", n => { SensitivityLabel = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SearchSensitivityLabelInfo>(global::Microsoft.Agents.M365Copilot.Beta.Models.SearchSensitivityLabelInfo.CreateFromDiscriminatorValue); } },
+                { "sensitivityLabel", n => { SensitivityLabel = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo>(global::Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo.CreateFromDiscriminatorValue); } },
                 { "webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
         }
@@ -152,7 +152,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary>("resourceMetadata", ResourceMetadata);
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalEntityType>("resourceType", ResourceType);
-            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SearchSensitivityLabelInfo>("sensitivityLabel", SensitivityLabel);
+            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo>("sensitivityLabel", SensitivityLabel);
             writer.WriteStringValue("webUrl", WebUrl);
             writer.WriteAdditionalData(AdditionalData);
         }
