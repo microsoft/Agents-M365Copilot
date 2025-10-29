@@ -1185,6 +1185,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.retrievalExtract::|public|BackingStore:
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalExtract::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalExtract::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalExtract::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalExtract::|public|RelevanceScore:double?
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalExtract::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalExtract::|public|Text:string
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalExtract::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.RetrievalExtract
@@ -1197,7 +1198,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.retrievalHit::|public|GetFieldDeseriali
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalHit::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalHit::|public|ResourceMetadata:global.Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalHit::|public|ResourceType:global.Microsoft.Agents.M365Copilot.Beta.Models.RetrievalEntityType?
-Microsoft.Agents.M365Copilot.Beta.Models.retrievalHit::|public|SensitivityLabel:global.Microsoft.Agents.M365Copilot.Beta.Models.SearchSensitivityLabelInfo
+Microsoft.Agents.M365Copilot.Beta.Models.retrievalHit::|public|SensitivityLabel:global.Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalHit::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalHit::|public|WebUrl:string
 Microsoft.Agents.M365Copilot.Beta.Models.retrievalHit::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.RetrievalHit
@@ -1216,19 +1217,6 @@ Microsoft.Agents.M365Copilot.Beta.Models.searchResourceMetadataDictionary::|publ
 Microsoft.Agents.M365Copilot.Beta.Models.searchResourceMetadataDictionary::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.searchResourceMetadataDictionary::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.searchResourceMetadataDictionary::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary
-Microsoft.Agents.M365Copilot.Beta.Models.searchSensitivityLabelInfo::|public|AdditionalData:IDictionary<string, object>
-Microsoft.Agents.M365Copilot.Beta.Models.searchSensitivityLabelInfo::|public|BackingStore:IBackingStore
-Microsoft.Agents.M365Copilot.Beta.Models.searchSensitivityLabelInfo::|public|Color:string
-Microsoft.Agents.M365Copilot.Beta.Models.searchSensitivityLabelInfo::|public|constructor():void
-Microsoft.Agents.M365Copilot.Beta.Models.searchSensitivityLabelInfo::|public|DisplayName:string
-Microsoft.Agents.M365Copilot.Beta.Models.searchSensitivityLabelInfo::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
-Microsoft.Agents.M365Copilot.Beta.Models.searchSensitivityLabelInfo::|public|OdataType:string
-Microsoft.Agents.M365Copilot.Beta.Models.searchSensitivityLabelInfo::|public|Priority:int?
-Microsoft.Agents.M365Copilot.Beta.Models.searchSensitivityLabelInfo::|public|SensitivityLabelId:string
-Microsoft.Agents.M365Copilot.Beta.Models.searchSensitivityLabelInfo::|public|Serialize(writer:ISerializationWriter):void
-Microsoft.Agents.M365Copilot.Beta.Models.searchSensitivityLabelInfo::|public|Tooltip:string
-Microsoft.Agents.M365Copilot.Beta.Models.searchSensitivityLabelInfo::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.SearchSensitivityLabelInfo
-Microsoft.Agents.M365Copilot.Beta.Models.searchSensitivityLabelInfo~~>IAdditionalDataHolder; IBackedModel; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.Security.submissionUserIdentity-->global.Microsoft.Agents.M365Copilot.Beta.Models.Identity
 Microsoft.Agents.M365Copilot.Beta.Models.Security.submissionUserIdentity::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.Security.submissionUserIdentity::|public|Email:string
@@ -1236,6 +1224,19 @@ Microsoft.Agents.M365Copilot.Beta.Models.Security.submissionUserIdentity::|publi
 Microsoft.Agents.M365Copilot.Beta.Models.Security.submissionUserIdentity::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.Security.submissionUserIdentity::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.Security.submissionUserIdentity::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.Security.SubmissionUserIdentity
+Microsoft.Agents.M365Copilot.Beta.Models.sensitivityLabelInfo::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.sensitivityLabelInfo::|public|BackingStore:IBackingStore
+Microsoft.Agents.M365Copilot.Beta.Models.sensitivityLabelInfo::|public|Color:string
+Microsoft.Agents.M365Copilot.Beta.Models.sensitivityLabelInfo::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.sensitivityLabelInfo::|public|DisplayName:string
+Microsoft.Agents.M365Copilot.Beta.Models.sensitivityLabelInfo::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.sensitivityLabelInfo::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.sensitivityLabelInfo::|public|Priority:int?
+Microsoft.Agents.M365Copilot.Beta.Models.sensitivityLabelInfo::|public|SensitivityLabelId:string
+Microsoft.Agents.M365Copilot.Beta.Models.sensitivityLabelInfo::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.sensitivityLabelInfo::|public|Tooltip:string
+Microsoft.Agents.M365Copilot.Beta.Models.sensitivityLabelInfo::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo
+Microsoft.Agents.M365Copilot.Beta.Models.sensitivityLabelInfo~~>IAdditionalDataHolder; IBackedModel; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.servicePrincipalIdentity-->global.Microsoft.Agents.M365Copilot.Beta.Models.Identity
 Microsoft.Agents.M365Copilot.Beta.Models.servicePrincipalIdentity::|public|AppId:string
 Microsoft.Agents.M365Copilot.Beta.Models.servicePrincipalIdentity::|public|constructor():void
