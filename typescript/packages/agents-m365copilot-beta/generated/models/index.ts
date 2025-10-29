@@ -1344,11 +1344,11 @@ export function createSearchResourceMetadataDictionaryFromDiscriminatorValue(par
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {SearchSensitivityLabelInfo}
+ * @returns {SensitivityLabelInfo}
  */
 // @ts-ignore
-export function createSearchSensitivityLabelInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoSearchSensitivityLabelInfo;
+export function createSensitivityLabelInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSensitivityLabelInfo;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -2457,6 +2457,7 @@ export function deserializeIntoRetrievalExtract(retrievalExtract: Partial<Retrie
     return {
         "backingStoreEnabled": n => { retrievalExtract.backingStoreEnabled = true; },
         "@odata.type": n => { retrievalExtract.odataType = n.getStringValue(); },
+        "relevanceScore": n => { retrievalExtract.relevanceScore = n.getNumberValue(); },
         "text": n => { retrievalExtract.text = n.getStringValue(); },
     }
 }
@@ -2473,7 +2474,7 @@ export function deserializeIntoRetrievalHit(retrievalHit: Partial<RetrievalHit> 
         "@odata.type": n => { retrievalHit.odataType = n.getStringValue(); },
         "resourceMetadata": n => { retrievalHit.resourceMetadata = n.getObjectValue<SearchResourceMetadataDictionary>(createSearchResourceMetadataDictionaryFromDiscriminatorValue); },
         "resourceType": n => { retrievalHit.resourceType = n.getEnumValue<RetrievalEntityType>(RetrievalEntityTypeObject); },
-        "sensitivityLabel": n => { retrievalHit.sensitivityLabel = n.getObjectValue<SearchSensitivityLabelInfo>(createSearchSensitivityLabelInfoFromDiscriminatorValue); },
+        "sensitivityLabel": n => { retrievalHit.sensitivityLabel = n.getObjectValue<SensitivityLabelInfo>(createSensitivityLabelInfoFromDiscriminatorValue); },
         "webUrl": n => { retrievalHit.webUrl = n.getStringValue(); },
     }
 }
@@ -2503,19 +2504,19 @@ export function deserializeIntoSearchResourceMetadataDictionary(searchResourceMe
 }
 /**
  * The deserialization information for the current model
- * @param SearchSensitivityLabelInfo The instance to deserialize into.
+ * @param SensitivityLabelInfo The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoSearchSensitivityLabelInfo(searchSensitivityLabelInfo: Partial<SearchSensitivityLabelInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSensitivityLabelInfo(sensitivityLabelInfo: Partial<SensitivityLabelInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { searchSensitivityLabelInfo.backingStoreEnabled = true; },
-        "color": n => { searchSensitivityLabelInfo.color = n.getStringValue(); },
-        "displayName": n => { searchSensitivityLabelInfo.displayName = n.getStringValue(); },
-        "@odata.type": n => { searchSensitivityLabelInfo.odataType = n.getStringValue(); },
-        "priority": n => { searchSensitivityLabelInfo.priority = n.getNumberValue(); },
-        "sensitivityLabelId": n => { searchSensitivityLabelInfo.sensitivityLabelId = n.getStringValue(); },
-        "tooltip": n => { searchSensitivityLabelInfo.tooltip = n.getStringValue(); },
+        "backingStoreEnabled": n => { sensitivityLabelInfo.backingStoreEnabled = true; },
+        "color": n => { sensitivityLabelInfo.color = n.getStringValue(); },
+        "displayName": n => { sensitivityLabelInfo.displayName = n.getStringValue(); },
+        "@odata.type": n => { sensitivityLabelInfo.odataType = n.getStringValue(); },
+        "priority": n => { sensitivityLabelInfo.priority = n.getNumberValue(); },
+        "sensitivityLabelId": n => { sensitivityLabelInfo.sensitivityLabelId = n.getStringValue(); },
+        "tooltip": n => { sensitivityLabelInfo.tooltip = n.getStringValue(); },
     }
 }
 /**
@@ -3092,6 +3093,10 @@ export interface RetrievalExtract extends AdditionalDataHolder, BackedModel, Par
      */
     odataType?: string | null;
     /**
+     * The relevanceScore property
+     */
+    relevanceScore?: number | null;
+    /**
      * The text property
      */
     text?: string | null;
@@ -3120,7 +3125,7 @@ export interface RetrievalHit extends AdditionalDataHolder, BackedModel, Parsabl
     /**
      * The sensitivityLabel property
      */
-    sensitivityLabel?: SearchSensitivityLabelInfo | null;
+    sensitivityLabel?: SensitivityLabelInfo | null;
     /**
      * The webUrl property
      */
@@ -3142,10 +3147,7 @@ export interface RetrievalResponse extends AdditionalDataHolder, BackedModel, Pa
 }
 export interface SearchResourceMetadataDictionary extends Dictionaries, Parsable {
 }
-/**
- * Represents a sensitivityLabel.This model is shared with the CCS retrieval API and search where it is already unhidden.
- */
-export interface SearchSensitivityLabelInfo extends AdditionalDataHolder, BackedModel, Parsable {
+export interface SensitivityLabelInfo extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores model information.
      */
@@ -4287,6 +4289,7 @@ export function serializeResultInfo(writer: SerializationWriter, resultInfo: Par
 export function serializeRetrievalExtract(writer: SerializationWriter, retrievalExtract: Partial<RetrievalExtract> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!retrievalExtract || isSerializingDerivedType) { return; }
     writer.writeStringValue("@odata.type", retrievalExtract.odataType);
+    writer.writeNumberValue("relevanceScore", retrievalExtract.relevanceScore);
     writer.writeStringValue("text", retrievalExtract.text);
     writer.writeAdditionalData(retrievalExtract.additionalData);
 }
@@ -4303,7 +4306,7 @@ export function serializeRetrievalHit(writer: SerializationWriter, retrievalHit:
     writer.writeStringValue("@odata.type", retrievalHit.odataType);
     writer.writeObjectValue<SearchResourceMetadataDictionary>("resourceMetadata", retrievalHit.resourceMetadata, serializeSearchResourceMetadataDictionary);
     writer.writeEnumValue<RetrievalEntityType>("resourceType", retrievalHit.resourceType);
-    writer.writeObjectValue<SearchSensitivityLabelInfo>("sensitivityLabel", retrievalHit.sensitivityLabel, serializeSearchSensitivityLabelInfo);
+    writer.writeObjectValue<SensitivityLabelInfo>("sensitivityLabel", retrievalHit.sensitivityLabel, serializeSensitivityLabelInfo);
     writer.writeStringValue("webUrl", retrievalHit.webUrl);
     writer.writeAdditionalData(retrievalHit.additionalData);
 }
@@ -4334,14 +4337,19 @@ export function serializeSearchResourceMetadataDictionary(writer: SerializationW
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
- * @param SearchSensitivityLabelInfo The instance to serialize from.
+ * @param SensitivityLabelInfo The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSearchSensitivityLabelInfo(writer: SerializationWriter, searchSensitivityLabelInfo: Partial<SearchSensitivityLabelInfo> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
-    if (!searchSensitivityLabelInfo || isSerializingDerivedType) { return; }
-    writer.writeStringValue("@odata.type", searchSensitivityLabelInfo.odataType);
-    writer.writeAdditionalData(searchSensitivityLabelInfo.additionalData);
+export function serializeSensitivityLabelInfo(writer: SerializationWriter, sensitivityLabelInfo: Partial<SensitivityLabelInfo> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!sensitivityLabelInfo || isSerializingDerivedType) { return; }
+    writer.writeStringValue("color", sensitivityLabelInfo.color);
+    writer.writeStringValue("displayName", sensitivityLabelInfo.displayName);
+    writer.writeStringValue("@odata.type", sensitivityLabelInfo.odataType);
+    writer.writeNumberValue("priority", sensitivityLabelInfo.priority);
+    writer.writeStringValue("sensitivityLabelId", sensitivityLabelInfo.sensitivityLabelId);
+    writer.writeStringValue("tooltip", sensitivityLabelInfo.tooltip);
+    writer.writeAdditionalData(sensitivityLabelInfo.additionalData);
 }
 /**
  * Serializes information the current object
