@@ -14,6 +14,8 @@ class RetrievalExtract(AdditionalDataHolder, BackedModel, Parsable):
     additional_data: dict[str, Any] = field(default_factory=dict)
     # The OdataType property
     odata_type: Optional[str] = None
+    # The relevanceScore property
+    relevance_score: Optional[float] = None
     # The text property
     text: Optional[str] = None
     
@@ -35,6 +37,7 @@ class RetrievalExtract(AdditionalDataHolder, BackedModel, Parsable):
         """
         fields: dict[str, Callable[[Any], None]] = {
             "@odata.type": lambda n : setattr(self, 'odata_type', n.get_str_value()),
+            "relevanceScore": lambda n : setattr(self, 'relevance_score', n.get_float_value()),
             "text": lambda n : setattr(self, 'text', n.get_str_value()),
         }
         return fields
@@ -48,6 +51,7 @@ class RetrievalExtract(AdditionalDataHolder, BackedModel, Parsable):
         if writer is None:
             raise TypeError("writer cannot be null.")
         writer.write_str_value("@odata.type", self.odata_type)
+        writer.write_float_value("relevanceScore", self.relevance_score)
         writer.write_str_value("text", self.text)
         writer.write_additional_data_value(self.additional_data)
     
