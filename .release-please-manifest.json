@@ -1,9 +1,9 @@
 {
-    "dotnet/src/Microsoft.Agents.M365Copilot": "0.1.0-preview.0",
-    "dotnet/src/Microsoft.Agents.M365Copilot.Beta": "1.0.0-preview.7",
+    "dotnet/src/Microsoft.Agents.M365Copilot": "0.1.0-preview.1",
+    "dotnet/src/Microsoft.Agents.M365Copilot.Beta": "1.0.0-preview.8",
     "dotnet/src/Microsoft.Agents.M365Copilot.Core": "1.0.0-preview.3",
-    "typescript/packages/agents-m365copilot-beta": "1.0.0-preview.7",
+    "typescript/packages/agents-m365copilot-beta": "1.0.0-preview.8",
     "typescript/packages/agents-m365copilot-core": "1.0.0-preview.1",
-    "python/packages/microsoft_agents_m365copilot_beta": "1.0.0-preview.6",
+    "python/packages/microsoft_agents_m365copilot_beta": "1.0.0-preview.7",
     "python/packages/microsoft_agents_m365copilot_core": "1.0.0-preview.2"
 }
