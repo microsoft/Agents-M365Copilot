@@ -1,0 +1,12 @@
+.eslint**
+.prettier**
+*.log
+*.tgz
+**/test/**/*
+docs/
+karma.conf.js
+node_modules/
+rollup.config.js
+tsconfig.**.json
+*.ts
+!*.d.ts
