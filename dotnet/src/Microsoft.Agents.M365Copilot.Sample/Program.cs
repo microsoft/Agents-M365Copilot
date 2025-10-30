@@ -41,7 +41,7 @@ var deviceCodeCredentialOptions = new DeviceCodeCredentialOptions
 
 var credential = new DeviceCodeCredential(deviceCodeCredentialOptions);
 
-// Create the client with explicit base URL
+// Create the client
 AgentsM365CopilotServiceClient copilotClient = new AgentsM365CopilotServiceClient(credential, scopes);
 
 try
