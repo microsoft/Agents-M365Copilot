@@ -1,8 +1,8 @@
 ﻿using Azure.Identity;
 using Microsoft.Agents.M365Copilot.Sample;
-using Microsoft.Agents.M365Copilot.Beta;
-using Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval;
-using Microsoft.Agents.M365Copilot.Beta.Models;
+using Microsoft.Agents.M365Copilot;
+using Microsoft.Agents.M365Copilot.Copilot.Retrieval;
+using Microsoft.Agents.M365Copilot.Models;
 using Microsoft.Extensions.Configuration;
 
 var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "development";
@@ -42,8 +42,8 @@ var deviceCodeCredentialOptions = new DeviceCodeCredentialOptions
 var credential = new DeviceCodeCredential(deviceCodeCredentialOptions);
 
 // Create the client with explicit base URL
-var baseUrl = "https://graph.microsoft.com/beta";
-AgentsM365CopilotBetaServiceClient copilotClient = new AgentsM365CopilotBetaServiceClient(credential, scopes, baseUrl);
+var baseUrl = "https://graph.microsoft.com/v1.0";
+AgentsM365CopilotServiceClient copilotClient = new AgentsM365CopilotServiceClient(credential, scopes, baseUrl);
 
 try
 {
