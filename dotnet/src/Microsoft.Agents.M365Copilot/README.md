@@ -55,9 +55,8 @@ var deviceCodeCredentialOptions = new DeviceCodeCredentialOptions
 // https://learn.microsoft.com/dotnet/api/azure.identity.devicecodecredential 
 var deviceCodeCredential = new DeviceCodeCredential(deviceCodeCredentialOptions); 
 
-//Create the client with explicit base URL 
-var baseURL = “https://graph.microsoft.com/v1.0”; 
-AgentsM365CopilotServiceClient client = new AgentsM365CopilotServiceClient (deviceCodeCredential, scopes, baseURL); 
+//Create the client
+AgentsM365CopilotServiceClient client = new AgentsM365CopilotServiceClient (deviceCodeCredential, scopes); 
 
 try
 {
