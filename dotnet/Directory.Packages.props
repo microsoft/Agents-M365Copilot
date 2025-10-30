@@ -11,6 +11,7 @@
     <PackageVersion Include="Microsoft.IdentityModel.Validators" Version="8.6.1" />
     <PackageVersion Include="Microsoft.Kiota.Bundle" Version="1.17.4" />
     <PackageVersion Include="Microsoft.Kiota.Authentication.Azure" Version="1.17.4" />
+    <PackageVersion Include="Microsoft.Agents.M365Copilot" Version="0.1.0-preview.1" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
     <PackageVersion Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.13.2">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

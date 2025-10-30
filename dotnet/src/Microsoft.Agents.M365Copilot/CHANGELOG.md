@@ -1,5 +1,32 @@
 # Changelog
 
+## [1.0.0] - 2024-10-30
+
+### 🎉 First Stable Release
+
+This marks the first stable release of the Microsoft.Agents.M365Copilot SDK, providing production-ready access to Microsoft 365 Copilot APIs v1.0.
+
+### ✨ Features
+- Full support for Copilot APIs v1.0 endpoints
+- Stable API surface with semantic versioning guarantees
+- Production-ready authentication with Azure Identity
+- Support for .NET Standard 2.0, 2.1, .NET 8.0, and .NET 9.0
+
+### 📦 What's Included
+- Complete set of models for Copilot Retrieval API responses
+- Request builders for Retrieval endpoint
+- Integration with Microsoft.Agents.M365Copilot.Core
+
+### 🔄 Migration from Preview
+If you're upgrading from 0.1.0-preview.1:
+1. Update your package reference to `Microsoft.Agents.M365Copilot` version `1.0.0`
+2. No breaking API changes - your existing code should work as-is
+3. Review the API documentation for any new features
+
+### 📝 Notes
+- The Beta and Core packages remain in preview status
+- This stable release focuses on the v1.0 API endpoints only
+
 ## [0.1.0-preview.1](https://github.com/microsoft/Agents-M365Copilot/compare/Microsoft.Agents.M365Copilot-v0.1.0-preview.0...Microsoft.Agents.M365Copilot-v0.1.0-preview.1) (2025-10-29)
 
 

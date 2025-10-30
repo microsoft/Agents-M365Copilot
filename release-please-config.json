@@ -20,6 +20,7 @@
             "component": "Microsoft.Agents.M365Copilot",
             "release-type": "simple",
             "changelog-path": "CHANGELOG.md",
+            "prerelease": false, 
             "extra-files": [
                 "Microsoft.Agents.M365Copilot.csproj"
             ]
