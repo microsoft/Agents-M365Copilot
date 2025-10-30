@@ -51,14 +51,14 @@ extends:
             vmImage: windows-latest
           steps:
             - task: UseDotNet@2
+              displayName: 'Use .NET 9'
+              inputs:
+                version: 9.x
+            - task: UseDotNet@2
               displayName: 'Use .NET 8'
               inputs:
                 version: 8.x
-            - task: UseDotNet@2
-              displayName: 'Use .NET 6 (for code signing tasks)'
-              inputs:
                 packageType: sdk
-                version: 6.x
             - task: NuGetToolInstaller@1
               displayName: 'Install Nuget dependency manager'
               inputs:
