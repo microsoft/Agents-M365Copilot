@@ -2,12 +2,6 @@
 
 Integrate the Microsoft 365 Copilot APIs into your .NET project!
 
-The Microsoft 365 Copilot APIs. NET v1.0 Client Library targets .NetStandard 2.0.
-
-> **Note:**
->
-> Because the Microsoft 365 Copilot APIs in the v1.0 endpoint are subject to breaking changes, don't use a preview release of the client library in production apps.
-
 ## Installation via NuGet
 
 To install the client library via NuGet:
