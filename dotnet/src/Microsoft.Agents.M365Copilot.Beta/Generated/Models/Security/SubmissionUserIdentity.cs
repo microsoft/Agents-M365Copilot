@@ -15,18 +15,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.Security
         /// <summary>The email of user who is making the submission when logged in (delegated token case).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Email
-        {
-            get { return BackingStore?.Get<string?>("email"); }
-            set { BackingStore?.Set("email", value); }
-        }
+        public string? Email { get; set; }
 #nullable restore
 #else
-        public string Email
-        {
-            get { return BackingStore?.Get<string>("email"); }
-            set { BackingStore?.Set("email", value); }
-        }
+        public string Email { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.Security.SubmissionUserIdentity"/> and sets the default values.

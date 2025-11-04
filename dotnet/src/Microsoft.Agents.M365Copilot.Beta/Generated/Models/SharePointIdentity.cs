@@ -15,18 +15,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The sign in name of the SharePoint identity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LoginName
-        {
-            get { return BackingStore?.Get<string?>("loginName"); }
-            set { BackingStore?.Set("loginName", value); }
-        }
+        public string? LoginName { get; set; }
 #nullable restore
 #else
-        public string LoginName
-        {
-            get { return BackingStore?.Get<string>("loginName"); }
-            set { BackingStore?.Set("loginName", value); }
-        }
+        public string LoginName { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointIdentity"/> and sets the default values.

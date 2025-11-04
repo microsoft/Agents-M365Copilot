@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions.Store;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -10,77 +9,42 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class BaseActivity : IAdditionalDataHolder, IBackedModel, IParsable
+    public partial class BaseActivity : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData
-        {
-            get { return BackingStore.Get<IDictionary<string, object>>("AdditionalData") ?? new Dictionary<string, object>(); }
-            set { BackingStore.Set("AdditionalData", value); }
-        }
-        /// <summary>Stores model information.</summary>
-        public IBackingStore BackingStore { get; private set; }
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OdataType
-        {
-            get { return BackingStore?.Get<string?>("@odata.type"); }
-            set { BackingStore?.Set("@odata.type", value); }
-        }
+        public string? OdataType { get; set; }
 #nullable restore
 #else
-        public string OdataType
-        {
-            get { return BackingStore?.Get<string>("@odata.type"); }
-            set { BackingStore?.Set("@odata.type", value); }
-        }
+        public string OdataType { get; set; }
 #endif
         /// <summary>The resultInfo property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.ResultInfo? ResultInfo
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.ResultInfo?>("resultInfo"); }
-            set { BackingStore?.Set("resultInfo", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.ResultInfo? ResultInfo { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.ResultInfo ResultInfo
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.ResultInfo>("resultInfo"); }
-            set { BackingStore?.Set("resultInfo", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.ResultInfo ResultInfo { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.ActivityStatus? Status
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.ActivityStatus?>("status"); }
-            set { BackingStore?.Set("status", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.ActivityStatus? Status { get; set; }
         /// <summary>The transport property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.ActivityTransport? Transport
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.ActivityTransport?>("transport"); }
-            set { BackingStore?.Set("transport", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.ActivityTransport? Transport { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.ActivityTransport Transport
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.ActivityTransport>("transport"); }
-            set { BackingStore?.Set("transport", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.ActivityTransport Transport { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.BaseActivity"/> and sets the default values.
         /// </summary>
         public BaseActivity()
         {
-            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>

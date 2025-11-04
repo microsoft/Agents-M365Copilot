@@ -3,7 +3,6 @@
 using Microsoft.Agents.M365Copilot.Beta.Models;
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions.Store;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -11,73 +10,38 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActiv
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class GetArtifactsPostRequestBody : IAdditionalDataHolder, IBackedModel, IParsable
+    public partial class GetArtifactsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData
-        {
-            get { return BackingStore.Get<IDictionary<string, object>>("AdditionalData") ?? new Dictionary<string, object>(); }
-            set { BackingStore.Set("AdditionalData", value); }
-        }
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The artifactTypes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ArtifactType?>? ArtifactTypes
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.ArtifactType?>?>("artifactTypes"); }
-            set { BackingStore?.Set("artifactTypes", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ArtifactType?>? ArtifactTypes { get; set; }
 #nullable restore
 #else
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ArtifactType?> ArtifactTypes
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.ArtifactType?>>("artifactTypes"); }
-            set { BackingStore?.Set("artifactTypes", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ArtifactType?> ArtifactTypes { get; set; }
 #endif
-        /// <summary>Stores model information.</summary>
-        public IBackingStore BackingStore { get; private set; }
         /// <summary>The maxResults property</summary>
-        public int? MaxResults
-        {
-            get { return BackingStore?.Get<int?>("maxResults"); }
-            set { BackingStore?.Set("maxResults", value); }
-        }
+        public int? MaxResults { get; set; }
         /// <summary>The rangeInSec property</summary>
-        public int? RangeInSec
-        {
-            get { return BackingStore?.Get<int?>("rangeInSec"); }
-            set { BackingStore?.Set("rangeInSec", value); }
-        }
+        public int? RangeInSec { get; set; }
         /// <summary>The seedDateTime property</summary>
-        public DateTimeOffset? SeedDateTime
-        {
-            get { return BackingStore?.Get<DateTimeOffset?>("seedDateTime"); }
-            set { BackingStore?.Set("seedDateTime", value); }
-        }
+        public DateTimeOffset? SeedDateTime { get; set; }
         /// <summary>The userId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserId
-        {
-            get { return BackingStore?.Get<string?>("userId"); }
-            set { BackingStore?.Set("userId", value); }
-        }
+        public string? UserId { get; set; }
 #nullable restore
 #else
-        public string UserId
-        {
-            get { return BackingStore?.Get<string>("userId"); }
-            set { BackingStore?.Set("userId", value); }
-        }
+        public string UserId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActivityFeed.MultiActivitySubscriptions.Item.GetArtifacts.GetArtifactsPostRequestBody"/> and sets the default values.
         /// </summary>
         public GetArtifactsPostRequestBody()
         {
-            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>

@@ -13,26 +13,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     #pragma warning restore CS1591
     {
         /// <summary>Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, emailUser and azureCommunicationServicesUser.</summary>
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkUserIdentityType? UserIdentityType
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkUserIdentityType?>("userIdentityType"); }
-            set { BackingStore?.Set("userIdentityType", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkUserIdentityType? UserIdentityType { get; set; }
         /// <summary>User principal name (UPN) of the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserPrincipalName
-        {
-            get { return BackingStore?.Get<string?>("userPrincipalName"); }
-            set { BackingStore?.Set("userPrincipalName", value); }
-        }
+        public string? UserPrincipalName { get; set; }
 #nullable restore
 #else
-        public string UserPrincipalName
-        {
-            get { return BackingStore?.Get<string>("userPrincipalName"); }
-            set { BackingStore?.Set("userPrincipalName", value); }
-        }
+        public string UserPrincipalName { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkUserIdentity"/> and sets the default values.

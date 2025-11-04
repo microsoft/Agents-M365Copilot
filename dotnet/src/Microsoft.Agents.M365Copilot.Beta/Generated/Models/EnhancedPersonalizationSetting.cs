@@ -15,25 +15,13 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The ID of a Microsoft Entra group to which the value is used to disable the control for populated users. The default value is null. This parameter is optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisabledForGroup
-        {
-            get { return BackingStore?.Get<string?>("disabledForGroup"); }
-            set { BackingStore?.Set("disabledForGroup", value); }
-        }
+        public string? DisabledForGroup { get; set; }
 #nullable restore
 #else
-        public string DisabledForGroup
-        {
-            get { return BackingStore?.Get<string>("disabledForGroup"); }
-            set { BackingStore?.Set("disabledForGroup", value); }
-        }
+        public string DisabledForGroup { get; set; }
 #endif
         /// <summary>If true, enables the enhanced personalization control and therefore related features as defined in control enhanced personalization privacy</summary>
-        public bool? IsEnabledInOrganization
-        {
-            get { return BackingStore?.Get<bool?>("isEnabledInOrganization"); }
-            set { BackingStore?.Set("isEnabledInOrganization", value); }
-        }
+        public bool? IsEnabledInOrganization { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
