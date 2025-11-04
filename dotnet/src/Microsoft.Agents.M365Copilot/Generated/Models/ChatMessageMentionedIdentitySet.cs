@@ -15,18 +15,10 @@ namespace Microsoft.Agents.M365Copilot.Models
         /// <summary>If present, represents a conversation (for example, team, channel, or chat) @mentioned in a message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Models.TeamworkConversationIdentity? Conversation
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Models.TeamworkConversationIdentity?>("conversation"); }
-            set { BackingStore?.Set("conversation", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Models.TeamworkConversationIdentity? Conversation { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Models.TeamworkConversationIdentity Conversation
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Models.TeamworkConversationIdentity>("conversation"); }
-            set { BackingStore?.Set("conversation", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Models.TeamworkConversationIdentity Conversation { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Models.ChatMessageMentionedIdentitySet"/> and sets the default values.
