@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Agents.M365Copilot.Copilot;
 using Microsoft.Kiota.Abstractions.Extensions;
-using Microsoft.Kiota.Abstractions.Store;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Serialization.Form;
 using Microsoft.Kiota.Serialization.Json;
@@ -28,9 +27,8 @@ namespace Microsoft.Agents.M365Copilot
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.BaseAgentsM365CopilotServiceClient"/> and sets the default values.
         /// </summary>
-        /// <param name="backingStore">The backing store to use for the models.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BaseAgentsM365CopilotServiceClient(IRequestAdapter requestAdapter, IBackingStoreFactory backingStore = default) : base(requestAdapter, "{+baseurl}", new Dictionary<string, object>())
+        public BaseAgentsM365CopilotServiceClient(IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}", new Dictionary<string, object>())
         {
             ApiClientBuilder.RegisterDefaultSerializer<JsonSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultSerializer<TextSerializationWriterFactory>();
@@ -44,7 +42,6 @@ namespace Microsoft.Agents.M365Copilot
                 RequestAdapter.BaseUrl = "https://graph.microsoft.com/v1.0";
             }
             PathParameters.TryAdd("baseurl", RequestAdapter.BaseUrl);
-            RequestAdapter.EnableBackingStore(backingStore);
         }
     }
 }

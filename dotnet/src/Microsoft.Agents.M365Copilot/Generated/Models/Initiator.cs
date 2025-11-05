@@ -13,11 +13,7 @@ namespace Microsoft.Agents.M365Copilot.Models
     #pragma warning restore CS1591
     {
         /// <summary>Type of initiator. Possible values are: user, application, system, unknownFutureValue.</summary>
-        public global::Microsoft.Agents.M365Copilot.Models.InitiatorType? InitiatorType
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Models.InitiatorType?>("initiatorType"); }
-            set { BackingStore?.Set("initiatorType", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Models.InitiatorType? InitiatorType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Models.Initiator"/> and sets the default values.
         /// </summary>

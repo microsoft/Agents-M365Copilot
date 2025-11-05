@@ -15,34 +15,18 @@ namespace Microsoft.Agents.M365Copilot.Models
         /// <summary>The conversation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Models.TeamworkConversationIdentity? Conversation
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Models.TeamworkConversationIdentity?>("conversation"); }
-            set { BackingStore?.Set("conversation", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Models.TeamworkConversationIdentity? Conversation { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Models.TeamworkConversationIdentity Conversation
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Models.TeamworkConversationIdentity>("conversation"); }
-            set { BackingStore?.Set("conversation", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Models.TeamworkConversationIdentity Conversation { get; set; }
 #endif
         /// <summary>The tag property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Models.TeamworkTagIdentity? Tag
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Models.TeamworkTagIdentity?>("tag"); }
-            set { BackingStore?.Set("tag", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Models.TeamworkTagIdentity? Tag { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Models.TeamworkTagIdentity Tag
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Models.TeamworkTagIdentity>("tag"); }
-            set { BackingStore?.Set("tag", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Models.TeamworkTagIdentity Tag { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Models.AiInteractionMentionedIdentitySet"/> and sets the default values.

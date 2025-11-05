@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions.Store;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -10,119 +9,64 @@ namespace Microsoft.Agents.M365Copilot.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class AiInteractionAttachment : IAdditionalDataHolder, IBackedModel, IParsable
+    public partial class AiInteractionAttachment : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData
-        {
-            get { return BackingStore.Get<IDictionary<string, object>>("AdditionalData") ?? new Dictionary<string, object>(); }
-            set { BackingStore.Set("AdditionalData", value); }
-        }
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The attachmentId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AttachmentId
-        {
-            get { return BackingStore?.Get<string?>("attachmentId"); }
-            set { BackingStore?.Set("attachmentId", value); }
-        }
+        public string? AttachmentId { get; set; }
 #nullable restore
 #else
-        public string AttachmentId
-        {
-            get { return BackingStore?.Get<string>("attachmentId"); }
-            set { BackingStore?.Set("attachmentId", value); }
-        }
+        public string AttachmentId { get; set; }
 #endif
-        /// <summary>Stores model information.</summary>
-        public IBackingStore BackingStore { get; private set; }
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Content
-        {
-            get { return BackingStore?.Get<string?>("content"); }
-            set { BackingStore?.Set("content", value); }
-        }
+        public string? Content { get; set; }
 #nullable restore
 #else
-        public string Content
-        {
-            get { return BackingStore?.Get<string>("content"); }
-            set { BackingStore?.Set("content", value); }
-        }
+        public string Content { get; set; }
 #endif
         /// <summary>The contentType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ContentType
-        {
-            get { return BackingStore?.Get<string?>("contentType"); }
-            set { BackingStore?.Set("contentType", value); }
-        }
+        public string? ContentType { get; set; }
 #nullable restore
 #else
-        public string ContentType
-        {
-            get { return BackingStore?.Get<string>("contentType"); }
-            set { BackingStore?.Set("contentType", value); }
-        }
+        public string ContentType { get; set; }
 #endif
         /// <summary>The contentUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ContentUrl
-        {
-            get { return BackingStore?.Get<string?>("contentUrl"); }
-            set { BackingStore?.Set("contentUrl", value); }
-        }
+        public string? ContentUrl { get; set; }
 #nullable restore
 #else
-        public string ContentUrl
-        {
-            get { return BackingStore?.Get<string>("contentUrl"); }
-            set { BackingStore?.Set("contentUrl", value); }
-        }
+        public string ContentUrl { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name
-        {
-            get { return BackingStore?.Get<string?>("name"); }
-            set { BackingStore?.Set("name", value); }
-        }
+        public string? Name { get; set; }
 #nullable restore
 #else
-        public string Name
-        {
-            get { return BackingStore?.Get<string>("name"); }
-            set { BackingStore?.Set("name", value); }
-        }
+        public string Name { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OdataType
-        {
-            get { return BackingStore?.Get<string?>("@odata.type"); }
-            set { BackingStore?.Set("@odata.type", value); }
-        }
+        public string? OdataType { get; set; }
 #nullable restore
 #else
-        public string OdataType
-        {
-            get { return BackingStore?.Get<string>("@odata.type"); }
-            set { BackingStore?.Set("@odata.type", value); }
-        }
+        public string OdataType { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Models.AiInteractionAttachment"/> and sets the default values.
         /// </summary>
         public AiInteractionAttachment()
         {
-            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
