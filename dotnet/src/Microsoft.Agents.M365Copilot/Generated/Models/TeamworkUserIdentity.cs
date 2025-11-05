@@ -13,11 +13,7 @@ namespace Microsoft.Agents.M365Copilot.Models
     #pragma warning restore CS1591
     {
         /// <summary>Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, unknownFutureValue and emailUser.</summary>
-        public global::Microsoft.Agents.M365Copilot.Models.TeamworkUserIdentityType? UserIdentityType
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Models.TeamworkUserIdentityType?>("userIdentityType"); }
-            set { BackingStore?.Set("userIdentityType", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Models.TeamworkUserIdentityType? UserIdentityType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Models.TeamworkUserIdentity"/> and sets the default values.
         /// </summary>

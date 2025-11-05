@@ -15,18 +15,10 @@ namespace Microsoft.Agents.M365Copilot.Models
         /// <summary>The limitedMode property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Models.CopilotAdminLimitedMode? LimitedMode
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Models.CopilotAdminLimitedMode?>("limitedMode"); }
-            set { BackingStore?.Set("limitedMode", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Models.CopilotAdminLimitedMode? LimitedMode { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Models.CopilotAdminLimitedMode LimitedMode
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Models.CopilotAdminLimitedMode>("limitedMode"); }
-            set { BackingStore?.Set("limitedMode", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Models.CopilotAdminLimitedMode LimitedMode { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
