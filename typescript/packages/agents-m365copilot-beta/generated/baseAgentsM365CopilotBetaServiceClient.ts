@@ -4,7 +4,7 @@
 // @ts-ignore
 import { CopilotRequestBuilderNavigationMetadata, type CopilotRequestBuilder } from './copilot/index.js';
 // @ts-ignore
-import { apiClientProxifier, ParseNodeFactoryRegistry, SerializationWriterFactoryRegistry, type BackingStoreFactory, type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type RequestAdapter } from '@microsoft/kiota-abstractions';
+import { apiClientProxifier, ParseNodeFactoryRegistry, SerializationWriterFactoryRegistry, type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type RequestAdapter } from '@microsoft/kiota-abstractions';
 // @ts-ignore
 import { FormParseNodeFactory, FormSerializationWriterFactory } from '@microsoft/kiota-serialization-form';
 // @ts-ignore
@@ -25,11 +25,10 @@ export interface BaseAgentsM365CopilotBetaServiceClient extends BaseRequestBuild
 }
 /**
  * Instantiates a new {@link BaseAgentsM365CopilotBetaServiceClient} and sets the default values.
- * @param backingStore The backing store to use for the models.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
 // @ts-ignore
-export function createBaseAgentsM365CopilotBetaServiceClient(requestAdapter: RequestAdapter, backingStore?: BackingStoreFactory | undefined) {
+export function createBaseAgentsM365CopilotBetaServiceClient(requestAdapter: RequestAdapter) {
     if (requestAdapter === undefined) {
         throw new Error("requestAdapter cannot be undefined");
     }
@@ -56,7 +55,6 @@ export function createBaseAgentsM365CopilotBetaServiceClient(requestAdapter: Req
     const pathParameters: Record<string, unknown> = {
         "baseurl": requestAdapter.baseUrl,
     };
-    requestAdapter.enableBackingStore(backingStore);
     return apiClientProxifier<BaseAgentsM365CopilotBetaServiceClient>(requestAdapter, pathParameters, BaseAgentsM365CopilotBetaServiceClientNavigationMetadata, undefined);
 }
 /**

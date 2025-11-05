@@ -4,13 +4,9 @@
 // @ts-ignore
 import { deserializeIntoSubmissionUserIdentity, serializeSubmissionUserIdentity, type SubmissionUserIdentity } from './security/index.js';
 // @ts-ignore
-import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
-export interface ActionItem extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface ActionItem extends AdditionalDataHolder, Parsable {
     /**
      * The OdataType property
      */
@@ -29,11 +25,7 @@ export interface ActionItem extends AdditionalDataHolder, BackedModel, Parsable 
     title?: string | null;
 }
 export type ActivityStatus = (typeof ActivityStatusObject)[keyof typeof ActivityStatusObject];
-export interface ActivityTransport extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface ActivityTransport extends AdditionalDataHolder, Parsable {
     /**
      * The connectionType property
      */
@@ -105,15 +97,11 @@ export interface AiInteraction extends Entity, Parsable {
      */
     sessionId?: string | null;
 }
-export interface AiInteractionAttachment extends AdditionalDataHolder, BackedModel, Parsable {
+export interface AiInteractionAttachment extends AdditionalDataHolder, Parsable {
     /**
      * The attachmentId property
      */
     attachmentId?: string | null;
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
     /**
      * The content property
      */
@@ -135,11 +123,7 @@ export interface AiInteractionAttachment extends AdditionalDataHolder, BackedMod
      */
     odataType?: string | null;
 }
-export interface AiInteractionContext extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface AiInteractionContext extends AdditionalDataHolder, Parsable {
     /**
      * The contextReference property
      */
@@ -159,11 +143,7 @@ export interface AiInteractionContext extends AdditionalDataHolder, BackedModel,
 }
 export interface AiInteractionHistory extends Entity, Parsable {
 }
-export interface AiInteractionLink extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface AiInteractionLink extends AdditionalDataHolder, Parsable {
     /**
      * The displayName property
      */
@@ -181,11 +161,7 @@ export interface AiInteractionLink extends AdditionalDataHolder, BackedModel, Pa
      */
     odataType?: string | null;
 }
-export interface AiInteractionMention extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface AiInteractionMention extends AdditionalDataHolder, Parsable {
     /**
      * The mentioned property
      */
@@ -265,11 +241,7 @@ export interface AzureCommunicationServicesUserIdentity extends Identity, Parsab
      */
     azureCommunicationServicesResourceId?: string | null;
 }
-export interface BaseActivity extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface BaseActivity extends AdditionalDataHolder, Parsable {
     /**
      * The OdataType property
      */
@@ -287,11 +259,7 @@ export interface BaseActivity extends AdditionalDataHolder, BackedModel, Parsabl
      */
     transport?: ActivityTransport | null;
 }
-export interface BaseCollectionPaginationCountResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface BaseCollectionPaginationCountResponse extends AdditionalDataHolder, Parsable {
     /**
      * The OdataCount property
      */
@@ -338,11 +306,7 @@ export interface CallAiInsightCollectionResponse extends BaseCollectionPaginatio
      */
     value?: CallAiInsight[] | null;
 }
-export interface CallAiInsightViewPoint extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface CallAiInsightViewPoint extends AdditionalDataHolder, Parsable {
     /**
      * The mentionEvents property
      */
@@ -352,11 +316,7 @@ export interface CallAiInsightViewPoint extends AdditionalDataHolder, BackedMode
      */
     odataType?: string | null;
 }
-export interface ChatInfo extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface ChatInfo extends AdditionalDataHolder, Parsable {
     /**
      * The unique identifier for a message in a Microsoft Teams channel.
      */
@@ -458,11 +418,7 @@ export interface CommunicationsUserIdentity extends Identity, Parsable {
      */
     tenantId?: string | null;
 }
-export interface ConnectionItem extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface ConnectionItem extends AdditionalDataHolder, Parsable {
     /**
      * The connectionId property
      */
@@ -1505,11 +1461,7 @@ export function createUserIdentityFromDiscriminatorValue(parseNode: ParseNode | 
     }
     return deserializeIntoUserIdentity;
 }
-export interface DataSourceConfiguration extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface DataSourceConfiguration extends AdditionalDataHolder, Parsable {
     /**
      * The externalItem property
      */
@@ -1527,7 +1479,6 @@ export interface DataSourceConfiguration extends AdditionalDataHolder, BackedMod
 // @ts-ignore
 export function deserializeIntoActionItem(actionItem: Partial<ActionItem> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { actionItem.backingStoreEnabled = true; },
         "@odata.type": n => { actionItem.odataType = n.getStringValue(); },
         "ownerDisplayName": n => { actionItem.ownerDisplayName = n.getStringValue(); },
         "text": n => { actionItem.text = n.getStringValue(); },
@@ -1542,7 +1493,6 @@ export function deserializeIntoActionItem(actionItem: Partial<ActionItem> | unde
 // @ts-ignore
 export function deserializeIntoActivityTransport(activityTransport: Partial<ActivityTransport> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { activityTransport.backingStoreEnabled = true; },
         "connectionType": n => { activityTransport.connectionType = n.getEnumValue<ConnectionType>(ConnectionTypeObject); },
         "@odata.type": n => { activityTransport.odataType = n.getStringValue(); },
         "url": n => { activityTransport.url = n.getStringValue(); },
@@ -1582,7 +1532,6 @@ export function deserializeIntoAiInteraction(aiInteraction: Partial<AiInteractio
 export function deserializeIntoAiInteractionAttachment(aiInteractionAttachment: Partial<AiInteractionAttachment> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "attachmentId": n => { aiInteractionAttachment.attachmentId = n.getStringValue(); },
-        "backingStoreEnabled": n => { aiInteractionAttachment.backingStoreEnabled = true; },
         "content": n => { aiInteractionAttachment.content = n.getStringValue(); },
         "contentType": n => { aiInteractionAttachment.contentType = n.getStringValue(); },
         "contentUrl": n => { aiInteractionAttachment.contentUrl = n.getStringValue(); },
@@ -1598,7 +1547,6 @@ export function deserializeIntoAiInteractionAttachment(aiInteractionAttachment: 
 // @ts-ignore
 export function deserializeIntoAiInteractionContext(aiInteractionContext: Partial<AiInteractionContext> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { aiInteractionContext.backingStoreEnabled = true; },
         "contextReference": n => { aiInteractionContext.contextReference = n.getStringValue(); },
         "contextType": n => { aiInteractionContext.contextType = n.getStringValue(); },
         "displayName": n => { aiInteractionContext.displayName = n.getStringValue(); },
@@ -1624,7 +1572,6 @@ export function deserializeIntoAiInteractionHistory(aiInteractionHistory: Partia
 // @ts-ignore
 export function deserializeIntoAiInteractionLink(aiInteractionLink: Partial<AiInteractionLink> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { aiInteractionLink.backingStoreEnabled = true; },
         "displayName": n => { aiInteractionLink.displayName = n.getStringValue(); },
         "linkType": n => { aiInteractionLink.linkType = n.getStringValue(); },
         "linkUrl": n => { aiInteractionLink.linkUrl = n.getStringValue(); },
@@ -1639,7 +1586,6 @@ export function deserializeIntoAiInteractionLink(aiInteractionLink: Partial<AiIn
 // @ts-ignore
 export function deserializeIntoAiInteractionMention(aiInteractionMention: Partial<AiInteractionMention> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { aiInteractionMention.backingStoreEnabled = true; },
         "mentioned": n => { aiInteractionMention.mentioned = n.getObjectValue<AiInteractionMentionedIdentitySet>(createAiInteractionMentionedIdentitySetFromDiscriminatorValue); },
         "mentionId": n => { aiInteractionMention.mentionId = n.getNumberValue(); },
         "mentionText": n => { aiInteractionMention.mentionText = n.getStringValue(); },
@@ -1753,7 +1699,6 @@ export function deserializeIntoAzureCommunicationServicesUserIdentity(azureCommu
 // @ts-ignore
 export function deserializeIntoBaseActivity(baseActivity: Partial<BaseActivity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { baseActivity.backingStoreEnabled = true; },
         "@odata.type": n => { baseActivity.odataType = n.getStringValue(); },
         "resultInfo": n => { baseActivity.resultInfo = n.getObjectValue<ResultInfo>(createResultInfoFromDiscriminatorValue); },
         "status": n => { baseActivity.status = n.getEnumValue<ActivityStatus>(ActivityStatusObject); },
@@ -1768,7 +1713,6 @@ export function deserializeIntoBaseActivity(baseActivity: Partial<BaseActivity> 
 // @ts-ignore
 export function deserializeIntoBaseCollectionPaginationCountResponse(baseCollectionPaginationCountResponse: Partial<BaseCollectionPaginationCountResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { baseCollectionPaginationCountResponse.backingStoreEnabled = true; },
         "@odata.count": n => { baseCollectionPaginationCountResponse.odataCount = n.getNumberValue(); },
         "@odata.nextLink": n => { baseCollectionPaginationCountResponse.odataNextLink = n.getStringValue(); },
     }
@@ -1811,7 +1755,6 @@ export function deserializeIntoCallAiInsightCollectionResponse(callAiInsightColl
 // @ts-ignore
 export function deserializeIntoCallAiInsightViewPoint(callAiInsightViewPoint: Partial<CallAiInsightViewPoint> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { callAiInsightViewPoint.backingStoreEnabled = true; },
         "mentionEvents": n => { callAiInsightViewPoint.mentionEvents = n.getCollectionOfObjectValues<MentionEvent>(createMentionEventFromDiscriminatorValue); },
         "@odata.type": n => { callAiInsightViewPoint.odataType = n.getStringValue(); },
     }
@@ -1824,7 +1767,6 @@ export function deserializeIntoCallAiInsightViewPoint(callAiInsightViewPoint: Pa
 // @ts-ignore
 export function deserializeIntoChatInfo(chatInfo: Partial<ChatInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { chatInfo.backingStoreEnabled = true; },
         "messageId": n => { chatInfo.messageId = n.getStringValue(); },
         "@odata.type": n => { chatInfo.odataType = n.getStringValue(); },
         "replyChainMessageId": n => { chatInfo.replyChainMessageId = n.getStringValue(); },
@@ -1965,7 +1907,6 @@ export function deserializeIntoCommunicationsUserIdentity(communicationsUserIden
 // @ts-ignore
 export function deserializeIntoConnectionItem(connectionItem: Partial<ConnectionItem> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { connectionItem.backingStoreEnabled = true; },
         "connectionId": n => { connectionItem.connectionId = n.getStringValue(); },
         "@odata.type": n => { connectionItem.odataType = n.getStringValue(); },
     }
@@ -2051,7 +1992,6 @@ export function deserializeIntoCopilotSetting(copilotSetting: Partial<CopilotSet
 // @ts-ignore
 export function deserializeIntoDataSourceConfiguration(dataSourceConfiguration: Partial<DataSourceConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { dataSourceConfiguration.backingStoreEnabled = true; },
         "externalItem": n => { dataSourceConfiguration.externalItem = n.getObjectValue<ExternalItemConfiguration>(createExternalItemConfigurationFromDiscriminatorValue); },
         "@odata.type": n => { dataSourceConfiguration.odataType = n.getStringValue(); },
     }
@@ -2064,7 +2004,6 @@ export function deserializeIntoDataSourceConfiguration(dataSourceConfiguration: 
 // @ts-ignore
 export function deserializeIntoDetailsInfo(detailsInfo: Partial<DetailsInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { detailsInfo.backingStoreEnabled = true; },
         "@odata.type": n => { detailsInfo.odataType = n.getStringValue(); },
     }
 }
@@ -2076,7 +2015,6 @@ export function deserializeIntoDetailsInfo(detailsInfo: Partial<DetailsInfo> | u
 // @ts-ignore
 export function deserializeIntoDictionaries(dictionaries: Partial<Dictionaries> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { dictionaries.backingStoreEnabled = true; },
         "@odata.type": n => { dictionaries.odataType = n.getStringValue(); },
     }
 }
@@ -2126,7 +2064,6 @@ export function deserializeIntoEnhancedPersonalizationSetting(enhancedPersonaliz
 // @ts-ignore
 export function deserializeIntoEntity(entity: Partial<Entity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { entity.backingStoreEnabled = true; },
         "id": n => { entity.id = n.getStringValue(); },
         "@odata.type": n => { entity.odataType = n.getStringValue(); },
     }
@@ -2139,7 +2076,6 @@ export function deserializeIntoEntity(entity: Partial<Entity> | undefined = {}) 
 // @ts-ignore
 export function deserializeIntoExternalItemConfiguration(externalItemConfiguration: Partial<ExternalItemConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { externalItemConfiguration.backingStoreEnabled = true; },
         "connections": n => { externalItemConfiguration.connections = n.getCollectionOfObjectValues<ConnectionItem>(createConnectionItemFromDiscriminatorValue); },
         "@odata.type": n => { externalItemConfiguration.odataType = n.getStringValue(); },
     }
@@ -2152,7 +2088,6 @@ export function deserializeIntoExternalItemConfiguration(externalItemConfigurati
 // @ts-ignore
 export function deserializeIntoGetArtifactsResponse(getArtifactsResponse: Partial<GetArtifactsResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { getArtifactsResponse.backingStoreEnabled = true; },
         "nextLink": n => { getArtifactsResponse.nextLink = n.getStringValue(); },
         "@odata.type": n => { getArtifactsResponse.odataType = n.getStringValue(); },
         "payloads": n => { getArtifactsResponse.payloads = n.getCollectionOfObjectValues<TranscriptPayload>(createTranscriptPayloadFromDiscriminatorValue); },
@@ -2166,7 +2101,6 @@ export function deserializeIntoGetArtifactsResponse(getArtifactsResponse: Partia
 // @ts-ignore
 export function deserializeIntoIdentity(identity: Partial<Identity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { identity.backingStoreEnabled = true; },
         "displayName": n => { identity.displayName = n.getStringValue(); },
         "id": n => { identity.id = n.getStringValue(); },
         "@odata.type": n => { identity.odataType = n.getStringValue(); },
@@ -2181,7 +2115,6 @@ export function deserializeIntoIdentity(identity: Partial<Identity> | undefined 
 export function deserializeIntoIdentitySet(identitySet: Partial<IdentitySet> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "application": n => { identitySet.application = n.getObjectValue<Identity>(createIdentityFromDiscriminatorValue); },
-        "backingStoreEnabled": n => { identitySet.backingStoreEnabled = true; },
         "device": n => { identitySet.device = n.getObjectValue<Identity>(createIdentityFromDiscriminatorValue); },
         "@odata.type": n => { identitySet.odataType = n.getStringValue(); },
         "user": n => { identitySet.user = n.getObjectValue<Identity>(createIdentityFromDiscriminatorValue); },
@@ -2207,7 +2140,6 @@ export function deserializeIntoInitiator(initiator: Partial<Initiator> | undefin
 // @ts-ignore
 export function deserializeIntoItemBody(itemBody: Partial<ItemBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { itemBody.backingStoreEnabled = true; },
         "content": n => { itemBody.content = n.getStringValue(); },
         "contentType": n => { itemBody.contentType = n.getEnumValue<BodyType>(BodyTypeObject); },
         "@odata.type": n => { itemBody.odataType = n.getStringValue(); },
@@ -2235,7 +2167,6 @@ export function deserializeIntoJoinMeetingIdMeetingInfo(joinMeetingIdMeetingInfo
 export function deserializeIntoMeetingInfo(meetingInfo: Partial<MeetingInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "allowConversationWithoutHost": n => { meetingInfo.allowConversationWithoutHost = n.getBooleanValue(); },
-        "backingStoreEnabled": n => { meetingInfo.backingStoreEnabled = true; },
         "@odata.type": n => { meetingInfo.odataType = n.getStringValue(); },
     }
 }
@@ -2247,7 +2178,6 @@ export function deserializeIntoMeetingInfo(meetingInfo: Partial<MeetingInfo> | u
 // @ts-ignore
 export function deserializeIntoMeetingNote(meetingNote: Partial<MeetingNote> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { meetingNote.backingStoreEnabled = true; },
         "@odata.type": n => { meetingNote.odataType = n.getStringValue(); },
         "subpoints": n => { meetingNote.subpoints = n.getCollectionOfObjectValues<MeetingNoteSubpoint>(createMeetingNoteSubpointFromDiscriminatorValue); },
         "text": n => { meetingNote.text = n.getStringValue(); },
@@ -2262,7 +2192,6 @@ export function deserializeIntoMeetingNote(meetingNote: Partial<MeetingNote> | u
 // @ts-ignore
 export function deserializeIntoMeetingNoteSubpoint(meetingNoteSubpoint: Partial<MeetingNoteSubpoint> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { meetingNoteSubpoint.backingStoreEnabled = true; },
         "@odata.type": n => { meetingNoteSubpoint.odataType = n.getStringValue(); },
         "text": n => { meetingNoteSubpoint.text = n.getStringValue(); },
         "title": n => { meetingNoteSubpoint.title = n.getStringValue(); },
@@ -2276,7 +2205,6 @@ export function deserializeIntoMeetingNoteSubpoint(meetingNoteSubpoint: Partial<
 // @ts-ignore
 export function deserializeIntoMentionEvent(mentionEvent: Partial<MentionEvent> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { mentionEvent.backingStoreEnabled = true; },
         "eventDateTime": n => { mentionEvent.eventDateTime = n.getDateValue(); },
         "@odata.type": n => { mentionEvent.odataType = n.getStringValue(); },
         "speaker": n => { mentionEvent.speaker = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
@@ -2440,7 +2368,6 @@ export function deserializeIntoRealTimeTranscriptCollectionResponse(realTimeTran
 // @ts-ignore
 export function deserializeIntoResultInfo(resultInfo: Partial<ResultInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { resultInfo.backingStoreEnabled = true; },
         "code": n => { resultInfo.code = n.getNumberValue(); },
         "message": n => { resultInfo.message = n.getStringValue(); },
         "@odata.type": n => { resultInfo.odataType = n.getStringValue(); },
@@ -2455,7 +2382,6 @@ export function deserializeIntoResultInfo(resultInfo: Partial<ResultInfo> | unde
 // @ts-ignore
 export function deserializeIntoRetrievalExtract(retrievalExtract: Partial<RetrievalExtract> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { retrievalExtract.backingStoreEnabled = true; },
         "@odata.type": n => { retrievalExtract.odataType = n.getStringValue(); },
         "relevanceScore": n => { retrievalExtract.relevanceScore = n.getNumberValue(); },
         "text": n => { retrievalExtract.text = n.getStringValue(); },
@@ -2469,7 +2395,6 @@ export function deserializeIntoRetrievalExtract(retrievalExtract: Partial<Retrie
 // @ts-ignore
 export function deserializeIntoRetrievalHit(retrievalHit: Partial<RetrievalHit> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { retrievalHit.backingStoreEnabled = true; },
         "extracts": n => { retrievalHit.extracts = n.getCollectionOfObjectValues<RetrievalExtract>(createRetrievalExtractFromDiscriminatorValue); },
         "@odata.type": n => { retrievalHit.odataType = n.getStringValue(); },
         "resourceMetadata": n => { retrievalHit.resourceMetadata = n.getObjectValue<SearchResourceMetadataDictionary>(createSearchResourceMetadataDictionaryFromDiscriminatorValue); },
@@ -2486,7 +2411,6 @@ export function deserializeIntoRetrievalHit(retrievalHit: Partial<RetrievalHit> 
 // @ts-ignore
 export function deserializeIntoRetrievalResponse(retrievalResponse: Partial<RetrievalResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { retrievalResponse.backingStoreEnabled = true; },
         "@odata.type": n => { retrievalResponse.odataType = n.getStringValue(); },
         "retrievalHits": n => { retrievalResponse.retrievalHits = n.getCollectionOfObjectValues<RetrievalHit>(createRetrievalHitFromDiscriminatorValue); },
     }
@@ -2510,7 +2434,6 @@ export function deserializeIntoSearchResourceMetadataDictionary(searchResourceMe
 // @ts-ignore
 export function deserializeIntoSensitivityLabelInfo(sensitivityLabelInfo: Partial<SensitivityLabelInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { sensitivityLabelInfo.backingStoreEnabled = true; },
         "color": n => { sensitivityLabelInfo.color = n.getStringValue(); },
         "displayName": n => { sensitivityLabelInfo.displayName = n.getStringValue(); },
         "@odata.type": n => { sensitivityLabelInfo.odataType = n.getStringValue(); },
@@ -2576,7 +2499,6 @@ export function deserializeIntoSourceProvisionedIdentity(sourceProvisionedIdenti
 // @ts-ignore
 export function deserializeIntoSpeakerInfo(speakerInfo: Partial<SpeakerInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { speakerInfo.backingStoreEnabled = true; },
         "displayName": n => { speakerInfo.displayName = n.getStringValue(); },
         "@odata.type": n => { speakerInfo.odataType = n.getStringValue(); },
         "rawId": n => { speakerInfo.rawId = n.getStringValue(); },
@@ -2590,7 +2512,6 @@ export function deserializeIntoSpeakerInfo(speakerInfo: Partial<SpeakerInfo> | u
 // @ts-ignore
 export function deserializeIntoSubscriptionActivities(subscriptionActivities: Partial<SubscriptionActivities> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { subscriptionActivities.backingStoreEnabled = true; },
         "@odata.type": n => { subscriptionActivities.odataType = n.getStringValue(); },
         "transcript": n => { subscriptionActivities.transcript = n.getObjectValue<TranscriptActivity>(createTranscriptActivityFromDiscriminatorValue); },
     }
@@ -2686,7 +2607,6 @@ export function deserializeIntoTranscriptActivity(transcriptActivity: Partial<Tr
 export function deserializeIntoTranscriptPayload(transcriptPayload: Partial<TranscriptPayload> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "audioCaptureDateTime": n => { transcriptPayload.audioCaptureDateTime = n.getDateValue(); },
-        "backingStoreEnabled": n => { transcriptPayload.backingStoreEnabled = true; },
         "@odata.type": n => { transcriptPayload.odataType = n.getStringValue(); },
         "speaker": n => { transcriptPayload.speaker = n.getObjectValue<TranscriptSpeaker>(createTranscriptSpeakerFromDiscriminatorValue); },
         "spokenLanguage": n => { transcriptPayload.spokenLanguage = n.getStringValue(); },
@@ -2701,7 +2621,6 @@ export function deserializeIntoTranscriptPayload(transcriptPayload: Partial<Tran
 // @ts-ignore
 export function deserializeIntoTranscriptSpeaker(transcriptSpeaker: Partial<TranscriptSpeaker> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { transcriptSpeaker.backingStoreEnabled = true; },
         "@odata.type": n => { transcriptSpeaker.odataType = n.getStringValue(); },
         "room": n => { transcriptSpeaker.room = n.getObjectValue<SpeakerInfo>(createSpeakerInfoFromDiscriminatorValue); },
         "user": n => { transcriptSpeaker.user = n.getObjectValue<SpeakerInfo>(createSpeakerInfoFromDiscriminatorValue); },
@@ -2720,21 +2639,13 @@ export function deserializeIntoUserIdentity(userIdentity: Partial<UserIdentity> 
         "userPrincipalName": n => { userIdentity.userPrincipalName = n.getStringValue(); },
     }
 }
-export interface DetailsInfo extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface DetailsInfo extends AdditionalDataHolder, Parsable {
     /**
      * The OdataType property
      */
     odataType?: string | null;
 }
-export interface Dictionaries extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface Dictionaries extends AdditionalDataHolder, Parsable {
     /**
      * The OdataType property
      */
@@ -2770,11 +2681,7 @@ export interface EnhancedPersonalizationSetting extends Entity, Parsable {
      */
     isEnabledInOrganization?: boolean | null;
 }
-export interface Entity extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface Entity extends AdditionalDataHolder, Parsable {
     /**
      * The unique identifier for an entity. Read-only.
      */
@@ -2784,11 +2691,7 @@ export interface Entity extends AdditionalDataHolder, BackedModel, Parsable {
      */
     odataType?: string | null;
 }
-export interface ExternalItemConfiguration extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface ExternalItemConfiguration extends AdditionalDataHolder, Parsable {
     /**
      * The connections property
      */
@@ -2798,11 +2701,7 @@ export interface ExternalItemConfiguration extends AdditionalDataHolder, BackedM
      */
     odataType?: string | null;
 }
-export interface GetArtifactsResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface GetArtifactsResponse extends AdditionalDataHolder, Parsable {
     /**
      * The nextLink property
      */
@@ -2816,11 +2715,7 @@ export interface GetArtifactsResponse extends AdditionalDataHolder, BackedModel,
      */
     payloads?: TranscriptPayload[] | null;
 }
-export interface Identity extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface Identity extends AdditionalDataHolder, Parsable {
     /**
      * The display name of the identity. For drive items, the display name might not always be available or up to date. For example, if a user changes their display name the API might show the new value in a future response, but the items associated with the user don't show up as changed when using delta.
      */
@@ -2834,15 +2729,11 @@ export interface Identity extends AdditionalDataHolder, BackedModel, Parsable {
      */
     odataType?: string | null;
 }
-export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable {
+export interface IdentitySet extends AdditionalDataHolder, Parsable {
     /**
      * Optional. The application associated with this action.
      */
     application?: Identity | null;
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
     /**
      * Optional. The device associated with this action.
      */
@@ -2863,11 +2754,7 @@ export interface Initiator extends Identity, Parsable {
     initiatorType?: InitiatorType | null;
 }
 export type InitiatorType = (typeof InitiatorTypeObject)[keyof typeof InitiatorTypeObject];
-export interface ItemBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface ItemBody extends AdditionalDataHolder, Parsable {
     /**
      * The content of the item.
      */
@@ -2891,25 +2778,17 @@ export interface JoinMeetingIdMeetingInfo extends MeetingInfo, Parsable {
      */
     passcode?: string | null;
 }
-export interface MeetingInfo extends AdditionalDataHolder, BackedModel, Parsable {
+export interface MeetingInfo extends AdditionalDataHolder, Parsable {
     /**
      * The allowConversationWithoutHost property
      */
     allowConversationWithoutHost?: boolean | null;
     /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
-    /**
      * The OdataType property
      */
     odataType?: string | null;
 }
-export interface MeetingNote extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface MeetingNote extends AdditionalDataHolder, Parsable {
     /**
      * The OdataType property
      */
@@ -2927,11 +2806,7 @@ export interface MeetingNote extends AdditionalDataHolder, BackedModel, Parsable
      */
     title?: string | null;
 }
-export interface MeetingNoteSubpoint extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface MeetingNoteSubpoint extends AdditionalDataHolder, Parsable {
     /**
      * The OdataType property
      */
@@ -2945,11 +2820,7 @@ export interface MeetingNoteSubpoint extends AdditionalDataHolder, BackedModel, 
      */
     title?: string | null;
 }
-export interface MentionEvent extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface MentionEvent extends AdditionalDataHolder, Parsable {
     /**
      * The eventDateTime property
      */
@@ -3059,11 +2930,7 @@ export interface RealTimeTranscriptCollectionResponse extends BaseCollectionPagi
      */
     value?: RealTimeTranscript[] | null;
 }
-export interface ResultInfo extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface ResultInfo extends AdditionalDataHolder, Parsable {
     /**
      * The result code.
      */
@@ -3083,11 +2950,7 @@ export interface ResultInfo extends AdditionalDataHolder, BackedModel, Parsable 
 }
 export type RetrievalDataSource = (typeof RetrievalDataSourceObject)[keyof typeof RetrievalDataSourceObject];
 export type RetrievalEntityType = (typeof RetrievalEntityTypeObject)[keyof typeof RetrievalEntityTypeObject];
-export interface RetrievalExtract extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface RetrievalExtract extends AdditionalDataHolder, Parsable {
     /**
      * The OdataType property
      */
@@ -3101,11 +2964,7 @@ export interface RetrievalExtract extends AdditionalDataHolder, BackedModel, Par
      */
     text?: string | null;
 }
-export interface RetrievalHit extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface RetrievalHit extends AdditionalDataHolder, Parsable {
     /**
      * The extracts property
      */
@@ -3131,11 +2990,7 @@ export interface RetrievalHit extends AdditionalDataHolder, BackedModel, Parsabl
      */
     webUrl?: string | null;
 }
-export interface RetrievalResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface RetrievalResponse extends AdditionalDataHolder, Parsable {
     /**
      * The OdataType property
      */
@@ -3147,11 +3002,7 @@ export interface RetrievalResponse extends AdditionalDataHolder, BackedModel, Pa
 }
 export interface SearchResourceMetadataDictionary extends Dictionaries, Parsable {
 }
-export interface SensitivityLabelInfo extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface SensitivityLabelInfo extends AdditionalDataHolder, Parsable {
     /**
      * The color property
      */
@@ -4585,11 +4436,7 @@ export interface SharePointIdentitySet extends IdentitySet, Parsable {
 }
 export interface SourceProvisionedIdentity extends Identity, Parsable {
 }
-export interface SpeakerInfo extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface SpeakerInfo extends AdditionalDataHolder, Parsable {
     /**
      * The displayName property
      */
@@ -4603,11 +4450,7 @@ export interface SpeakerInfo extends AdditionalDataHolder, BackedModel, Parsable
      */
     rawId?: string | null;
 }
-export interface SubscriptionActivities extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface SubscriptionActivities extends AdditionalDataHolder, Parsable {
     /**
      * The OdataType property
      */
@@ -4654,15 +4497,11 @@ export interface TokenMeetingInfo extends MeetingInfo, Parsable {
 }
 export interface TranscriptActivity extends BaseActivity, Parsable {
 }
-export interface TranscriptPayload extends AdditionalDataHolder, BackedModel, Parsable {
+export interface TranscriptPayload extends AdditionalDataHolder, Parsable {
     /**
      * The audioCaptureDateTime property
      */
     audioCaptureDateTime?: Date | null;
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
     /**
      * The OdataType property
      */
@@ -4680,11 +4519,7 @@ export interface TranscriptPayload extends AdditionalDataHolder, BackedModel, Pa
      */
     text?: string | null;
 }
-export interface TranscriptSpeaker extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface TranscriptSpeaker extends AdditionalDataHolder, Parsable {
     /**
      * The OdataType property
      */
