@@ -3,16 +3,13 @@ import datetime
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
-from kiota_abstractions.store import BackedModel, BackingStore, BackingStoreFactorySingleton
 from typing import Any, Optional, TYPE_CHECKING, Union
 
 @dataclass
-class InnerError(AdditionalDataHolder, BackedModel, Parsable):
-    # Stores model information.
-    backing_store: BackingStore = field(default_factory=BackingStoreFactorySingleton(backing_store_factory=None).backing_store_factory.create_backing_store, repr=False)
-
+class InnerError(AdditionalDataHolder, Parsable):
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additional_data: dict[str, Any] = field(default_factory=dict)
+
     # Client request Id as sent by the client application.
     client_request_id: Optional[str] = None
     # Date when the error occured.

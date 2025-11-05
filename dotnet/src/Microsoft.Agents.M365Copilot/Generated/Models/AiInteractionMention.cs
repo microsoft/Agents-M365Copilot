@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions.Store;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -10,77 +9,42 @@ namespace Microsoft.Agents.M365Copilot.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class AiInteractionMention : IAdditionalDataHolder, IBackedModel, IParsable
+    public partial class AiInteractionMention : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData
-        {
-            get { return BackingStore.Get<IDictionary<string, object>>("AdditionalData") ?? new Dictionary<string, object>(); }
-            set { BackingStore.Set("AdditionalData", value); }
-        }
-        /// <summary>Stores model information.</summary>
-        public IBackingStore BackingStore { get; private set; }
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The mentioned property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Models.AiInteractionMentionedIdentitySet? Mentioned
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Models.AiInteractionMentionedIdentitySet?>("mentioned"); }
-            set { BackingStore?.Set("mentioned", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Models.AiInteractionMentionedIdentitySet? Mentioned { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Models.AiInteractionMentionedIdentitySet Mentioned
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Models.AiInteractionMentionedIdentitySet>("mentioned"); }
-            set { BackingStore?.Set("mentioned", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Models.AiInteractionMentionedIdentitySet Mentioned { get; set; }
 #endif
         /// <summary>The mentionId property</summary>
-        public int? MentionId
-        {
-            get { return BackingStore?.Get<int?>("mentionId"); }
-            set { BackingStore?.Set("mentionId", value); }
-        }
+        public int? MentionId { get; set; }
         /// <summary>The mentionText property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MentionText
-        {
-            get { return BackingStore?.Get<string?>("mentionText"); }
-            set { BackingStore?.Set("mentionText", value); }
-        }
+        public string? MentionText { get; set; }
 #nullable restore
 #else
-        public string MentionText
-        {
-            get { return BackingStore?.Get<string>("mentionText"); }
-            set { BackingStore?.Set("mentionText", value); }
-        }
+        public string MentionText { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OdataType
-        {
-            get { return BackingStore?.Get<string?>("@odata.type"); }
-            set { BackingStore?.Set("@odata.type", value); }
-        }
+        public string? OdataType { get; set; }
 #nullable restore
 #else
-        public string OdataType
-        {
-            get { return BackingStore?.Get<string>("@odata.type"); }
-            set { BackingStore?.Set("@odata.type", value); }
-        }
+        public string OdataType { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Models.AiInteractionMention"/> and sets the default values.
         /// </summary>
         public AiInteractionMention()
         {
-            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>

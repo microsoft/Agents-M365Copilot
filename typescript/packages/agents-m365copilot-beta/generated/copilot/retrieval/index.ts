@@ -6,7 +6,7 @@ import { createDataSourceConfigurationFromDiscriminatorValue, createRetrievalRes
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '../../models/oDataErrors/index.js';
 // @ts-ignore
-import { type AdditionalDataHolder, type BackedModel, type BackingStore, type BaseRequestBuilder, type Parsable, type ParsableFactory, type ParseNode, type RequestConfiguration, type RequestInformation, type RequestsMetadata, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { type AdditionalDataHolder, type BaseRequestBuilder, type Parsable, type ParsableFactory, type ParseNode, type RequestConfiguration, type RequestInformation, type RequestsMetadata, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -25,7 +25,6 @@ export function createRetrievalPostRequestBodyFromDiscriminatorValue(parseNode: 
 // @ts-ignore
 export function deserializeIntoRetrievalPostRequestBody(retrievalPostRequestBody: Partial<RetrievalPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { retrievalPostRequestBody.backingStoreEnabled = true; },
         "dataSource": n => { retrievalPostRequestBody.dataSource = n.getEnumValue<RetrievalDataSource>(RetrievalDataSourceObject); },
         "dataSourceConfiguration": n => { retrievalPostRequestBody.dataSourceConfiguration = n.getObjectValue<DataSourceConfiguration>(createDataSourceConfigurationFromDiscriminatorValue); },
         "filterExpression": n => { retrievalPostRequestBody.filterExpression = n.getStringValue(); },
@@ -34,11 +33,7 @@ export function deserializeIntoRetrievalPostRequestBody(retrievalPostRequestBody
         "resourceMetadata": n => { retrievalPostRequestBody.resourceMetadata = n.getCollectionOfPrimitiveValues<string>(); },
     }
 }
-export interface RetrievalPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
+export interface RetrievalPostRequestBody extends AdditionalDataHolder, Parsable {
     /**
      * The dataSource property
      */

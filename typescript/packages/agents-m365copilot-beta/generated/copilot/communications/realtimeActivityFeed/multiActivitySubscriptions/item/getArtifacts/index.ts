@@ -6,7 +6,7 @@ import { ArtifactType, ArtifactTypeObject, createGetArtifactsResponseFromDiscrim
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '../../../../../../models/oDataErrors/index.js';
 // @ts-ignore
-import { type AdditionalDataHolder, type BackedModel, type BackingStore, type BaseRequestBuilder, type Parsable, type ParsableFactory, type ParseNode, type RequestConfiguration, type RequestInformation, type RequestsMetadata, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { type AdditionalDataHolder, type BaseRequestBuilder, type Parsable, type ParsableFactory, type ParseNode, type RequestConfiguration, type RequestInformation, type RequestsMetadata, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -26,22 +26,17 @@ export function createGetArtifactsPostRequestBodyFromDiscriminatorValue(parseNod
 export function deserializeIntoGetArtifactsPostRequestBody(getArtifactsPostRequestBody: Partial<GetArtifactsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "artifactTypes": n => { getArtifactsPostRequestBody.artifactTypes = n.getCollectionOfEnumValues<ArtifactType>(ArtifactTypeObject); },
-        "backingStoreEnabled": n => { getArtifactsPostRequestBody.backingStoreEnabled = true; },
         "maxResults": n => { getArtifactsPostRequestBody.maxResults = n.getNumberValue(); },
         "rangeInSec": n => { getArtifactsPostRequestBody.rangeInSec = n.getNumberValue(); },
         "seedDateTime": n => { getArtifactsPostRequestBody.seedDateTime = n.getDateValue(); },
         "userId": n => { getArtifactsPostRequestBody.userId = n.getStringValue(); },
     }
 }
-export interface GetArtifactsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
+export interface GetArtifactsPostRequestBody extends AdditionalDataHolder, Parsable {
     /**
      * The artifactTypes property
      */
     artifactTypes?: ArtifactType[] | null;
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
     /**
      * The maxResults property
      */
