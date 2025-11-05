@@ -15,18 +15,10 @@ namespace Microsoft.Agents.M365Copilot.Models.CallRecords
         /// <summary>The userPrincipalName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserPrincipalName
-        {
-            get { return BackingStore?.Get<string?>("userPrincipalName"); }
-            set { BackingStore?.Set("userPrincipalName", value); }
-        }
+        public string? UserPrincipalName { get; set; }
 #nullable restore
 #else
-        public string UserPrincipalName
-        {
-            get { return BackingStore?.Get<string>("userPrincipalName"); }
-            set { BackingStore?.Set("userPrincipalName", value); }
-        }
+        public string UserPrincipalName { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Models.CallRecords.UserIdentity"/> and sets the default values.

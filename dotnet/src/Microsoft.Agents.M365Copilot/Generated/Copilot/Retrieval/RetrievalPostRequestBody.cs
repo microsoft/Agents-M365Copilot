@@ -3,7 +3,6 @@
 using Microsoft.Agents.M365Copilot.Models;
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions.Store;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -11,99 +10,52 @@ namespace Microsoft.Agents.M365Copilot.Copilot.Retrieval
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class RetrievalPostRequestBody : IAdditionalDataHolder, IBackedModel, IParsable
+    public partial class RetrievalPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData
-        {
-            get { return BackingStore.Get<IDictionary<string, object>>("AdditionalData") ?? new Dictionary<string, object>(); }
-            set { BackingStore.Set("AdditionalData", value); }
-        }
-        /// <summary>Stores model information.</summary>
-        public IBackingStore BackingStore { get; private set; }
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The dataSource property</summary>
-        public global::Microsoft.Agents.M365Copilot.Models.RetrievalDataSource? DataSource
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Models.RetrievalDataSource?>("dataSource"); }
-            set { BackingStore?.Set("dataSource", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Models.RetrievalDataSource? DataSource { get; set; }
         /// <summary>The dataSourceConfiguration property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Models.DataSourceConfiguration? DataSourceConfiguration
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Models.DataSourceConfiguration?>("dataSourceConfiguration"); }
-            set { BackingStore?.Set("dataSourceConfiguration", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Models.DataSourceConfiguration? DataSourceConfiguration { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Models.DataSourceConfiguration DataSourceConfiguration
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Models.DataSourceConfiguration>("dataSourceConfiguration"); }
-            set { BackingStore?.Set("dataSourceConfiguration", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Models.DataSourceConfiguration DataSourceConfiguration { get; set; }
 #endif
         /// <summary>The filterExpression property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FilterExpression
-        {
-            get { return BackingStore?.Get<string?>("filterExpression"); }
-            set { BackingStore?.Set("filterExpression", value); }
-        }
+        public string? FilterExpression { get; set; }
 #nullable restore
 #else
-        public string FilterExpression
-        {
-            get { return BackingStore?.Get<string>("filterExpression"); }
-            set { BackingStore?.Set("filterExpression", value); }
-        }
+        public string FilterExpression { get; set; }
 #endif
         /// <summary>The maximumNumberOfResults property</summary>
-        public int? MaximumNumberOfResults
-        {
-            get { return BackingStore?.Get<int?>("maximumNumberOfResults"); }
-            set { BackingStore?.Set("maximumNumberOfResults", value); }
-        }
+        public int? MaximumNumberOfResults { get; set; }
         /// <summary>The queryString property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? QueryString
-        {
-            get { return BackingStore?.Get<string?>("queryString"); }
-            set { BackingStore?.Set("queryString", value); }
-        }
+        public string? QueryString { get; set; }
 #nullable restore
 #else
-        public string QueryString
-        {
-            get { return BackingStore?.Get<string>("queryString"); }
-            set { BackingStore?.Set("queryString", value); }
-        }
+        public string QueryString { get; set; }
 #endif
         /// <summary>The resourceMetadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ResourceMetadata
-        {
-            get { return BackingStore?.Get<List<string>?>("resourceMetadata"); }
-            set { BackingStore?.Set("resourceMetadata", value); }
-        }
+        public List<string>? ResourceMetadata { get; set; }
 #nullable restore
 #else
-        public List<string> ResourceMetadata
-        {
-            get { return BackingStore?.Get<List<string>>("resourceMetadata"); }
-            set { BackingStore?.Set("resourceMetadata", value); }
-        }
+        public List<string> ResourceMetadata { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Copilot.Retrieval.RetrievalPostRequestBody"/> and sets the default values.
         /// </summary>
         public RetrievalPostRequestBody()
         {
-            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
