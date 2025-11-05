@@ -15,18 +15,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>Type of the resource, indicating whether it is a group or an app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type
-        {
-            get { return BackingStore?.Get<string?>("type"); }
-            set { BackingStore?.Set("type", value); }
-        }
+        public string? Type { get; set; }
 #nullable restore
 #else
-        public string Type
-        {
-            get { return BackingStore?.Get<string>("type"); }
-            set { BackingStore?.Set("type", value); }
-        }
+        public string Type { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.ProgramResource"/> and sets the default values.

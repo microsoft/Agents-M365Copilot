@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions.Store;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -10,77 +9,42 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class InnerError : IAdditionalDataHolder, IBackedModel, IParsable
+    public partial class InnerError : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData
-        {
-            get { return BackingStore.Get<IDictionary<string, object>>("AdditionalData") ?? new Dictionary<string, object>(); }
-            set { BackingStore.Set("AdditionalData", value); }
-        }
-        /// <summary>Stores model information.</summary>
-        public IBackingStore BackingStore { get; private set; }
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Client request Id as sent by the client application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientRequestId
-        {
-            get { return BackingStore?.Get<string?>("client-request-id"); }
-            set { BackingStore?.Set("client-request-id", value); }
-        }
+        public string? ClientRequestId { get; set; }
 #nullable restore
 #else
-        public string ClientRequestId
-        {
-            get { return BackingStore?.Get<string>("client-request-id"); }
-            set { BackingStore?.Set("client-request-id", value); }
-        }
+        public string ClientRequestId { get; set; }
 #endif
         /// <summary>Date when the error occured.</summary>
-        public DateTimeOffset? Date
-        {
-            get { return BackingStore?.Get<DateTimeOffset?>("date"); }
-            set { BackingStore?.Set("date", value); }
-        }
+        public DateTimeOffset? Date { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OdataType
-        {
-            get { return BackingStore?.Get<string?>("@odata.type"); }
-            set { BackingStore?.Set("@odata.type", value); }
-        }
+        public string? OdataType { get; set; }
 #nullable restore
 #else
-        public string OdataType
-        {
-            get { return BackingStore?.Get<string>("@odata.type"); }
-            set { BackingStore?.Set("@odata.type", value); }
-        }
+        public string OdataType { get; set; }
 #endif
         /// <summary>Request Id as tracked internally by the service</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RequestId
-        {
-            get { return BackingStore?.Get<string?>("request-id"); }
-            set { BackingStore?.Set("request-id", value); }
-        }
+        public string? RequestId { get; set; }
 #nullable restore
 #else
-        public string RequestId
-        {
-            get { return BackingStore?.Get<string>("request-id"); }
-            set { BackingStore?.Set("request-id", value); }
-        }
+        public string RequestId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors.InnerError"/> and sets the default values.
         /// </summary>
         public InnerError()
         {
-            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>

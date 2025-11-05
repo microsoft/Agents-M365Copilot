@@ -15,34 +15,18 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The meetings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.RealtimeActivityMeeting>? Meetings
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.RealtimeActivityMeeting>?>("meetings"); }
-            set { BackingStore?.Set("meetings", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.RealtimeActivityMeeting>? Meetings { get; set; }
 #nullable restore
 #else
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.RealtimeActivityMeeting> Meetings
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.RealtimeActivityMeeting>>("meetings"); }
-            set { BackingStore?.Set("meetings", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.RealtimeActivityMeeting> Meetings { get; set; }
 #endif
         /// <summary>The multiActivitySubscriptions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.MultiActivitySubscription>? MultiActivitySubscriptions
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.MultiActivitySubscription>?>("multiActivitySubscriptions"); }
-            set { BackingStore?.Set("multiActivitySubscriptions", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.MultiActivitySubscription>? MultiActivitySubscriptions { get; set; }
 #nullable restore
 #else
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.MultiActivitySubscription> MultiActivitySubscriptions
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.MultiActivitySubscription>>("multiActivitySubscriptions"); }
-            set { BackingStore?.Set("multiActivitySubscriptions", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.MultiActivitySubscription> MultiActivitySubscriptions { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -15,34 +15,18 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The interactionHistory property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionHistory? InteractionHistory
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionHistory?>("interactionHistory"); }
-            set { BackingStore?.Set("interactionHistory", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionHistory? InteractionHistory { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionHistory InteractionHistory
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionHistory>("interactionHistory"); }
-            set { BackingStore?.Set("interactionHistory", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionHistory InteractionHistory { get; set; }
 #endif
         /// <summary>The onlineMeetings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiOnlineMeeting>? OnlineMeetings
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiOnlineMeeting>?>("onlineMeetings"); }
-            set { BackingStore?.Set("onlineMeetings", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiOnlineMeeting>? OnlineMeetings { get; set; }
 #nullable restore
 #else
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiOnlineMeeting> OnlineMeetings
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiOnlineMeeting>>("onlineMeetings"); }
-            set { BackingStore?.Set("onlineMeetings", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiOnlineMeeting> OnlineMeetings { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

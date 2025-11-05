@@ -5,7 +5,6 @@ from kiota_abstractions.base_request_builder import BaseRequestBuilder
 from kiota_abstractions.get_path_parameters import get_path_parameters
 from kiota_abstractions.request_adapter import RequestAdapter
 from kiota_abstractions.serialization import ParseNodeFactoryRegistry, SerializationWriterFactoryRegistry
-from kiota_abstractions.store import BackingStoreFactory, BackingStoreFactorySingleton
 from kiota_serialization_form.form_parse_node_factory import FormParseNodeFactory
 from kiota_serialization_form.form_serialization_writer_factory import FormSerializationWriterFactory
 from kiota_serialization_json.json_parse_node_factory import JsonParseNodeFactory
@@ -22,10 +21,9 @@ class BaseAgentsM365CopilotBetaServiceClient(BaseRequestBuilder):
     """
     The main entry point of the SDK, exposes the configuration and the fluent API.
     """
-    def __init__(self,request_adapter: RequestAdapter, backing_store: Optional[BackingStoreFactory] = None) -> None:
+    def __init__(self,request_adapter: RequestAdapter) -> None:
         """
         Instantiates a new BaseAgentsM365CopilotBetaServiceClient and sets the default values.
-        param backing_store: The backing store to use for the models.
         param request_adapter: The request adapter to use to execute the requests.
         Returns: None
         """
@@ -42,7 +40,6 @@ class BaseAgentsM365CopilotBetaServiceClient(BaseRequestBuilder):
         if not self.request_adapter.base_url:
             self.request_adapter.base_url = "https://graph.microsoft.com/beta"
         self.path_parameters["base_url"] = self.request_adapter.base_url
-        self.request_adapter.enable_backing_store(backing_store)
     
     @property
     def copilot(self) -> CopilotRequestBuilder:

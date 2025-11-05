@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions.Store;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -10,67 +9,36 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ResultInfo : IAdditionalDataHolder, IBackedModel, IParsable
+    public partial class ResultInfo : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData
-        {
-            get { return BackingStore.Get<IDictionary<string, object>>("AdditionalData") ?? new Dictionary<string, object>(); }
-            set { BackingStore.Set("AdditionalData", value); }
-        }
-        /// <summary>Stores model information.</summary>
-        public IBackingStore BackingStore { get; private set; }
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The result code.</summary>
-        public int? Code
-        {
-            get { return BackingStore?.Get<int?>("code"); }
-            set { BackingStore?.Set("code", value); }
-        }
+        public int? Code { get; set; }
         /// <summary>The message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Message
-        {
-            get { return BackingStore?.Get<string?>("message"); }
-            set { BackingStore?.Set("message", value); }
-        }
+        public string? Message { get; set; }
 #nullable restore
 #else
-        public string Message
-        {
-            get { return BackingStore?.Get<string>("message"); }
-            set { BackingStore?.Set("message", value); }
-        }
+        public string Message { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OdataType
-        {
-            get { return BackingStore?.Get<string?>("@odata.type"); }
-            set { BackingStore?.Set("@odata.type", value); }
-        }
+        public string? OdataType { get; set; }
 #nullable restore
 #else
-        public string OdataType
-        {
-            get { return BackingStore?.Get<string>("@odata.type"); }
-            set { BackingStore?.Set("@odata.type", value); }
-        }
+        public string OdataType { get; set; }
 #endif
         /// <summary>The result sub-code.</summary>
-        public int? Subcode
-        {
-            get { return BackingStore?.Get<int?>("subcode"); }
-            set { BackingStore?.Set("subcode", value); }
-        }
+        public int? Subcode { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.ResultInfo"/> and sets the default values.
         /// </summary>
         public ResultInfo()
         {
-            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>

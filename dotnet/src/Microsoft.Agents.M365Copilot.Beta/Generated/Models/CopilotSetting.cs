@@ -15,18 +15,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The people property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPeopleAdminSetting? People
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPeopleAdminSetting?>("people"); }
-            set { BackingStore?.Set("people", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPeopleAdminSetting? People { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPeopleAdminSetting People
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPeopleAdminSetting>("people"); }
-            set { BackingStore?.Set("people", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPeopleAdminSetting People { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

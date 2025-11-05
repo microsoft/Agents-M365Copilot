@@ -13,11 +13,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     #pragma warning restore CS1591
     {
         /// <summary>Type of application that is referenced. Possible values are: aadApplication, bot, tenantBot, office365Connector, and outgoingWebhook.</summary>
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkApplicationIdentityType? ApplicationIdentityType
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkApplicationIdentityType?>("applicationIdentityType"); }
-            set { BackingStore?.Set("applicationIdentityType", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkApplicationIdentityType? ApplicationIdentityType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkApplicationIdentity"/> and sets the default values.
         /// </summary>

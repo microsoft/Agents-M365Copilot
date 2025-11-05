@@ -15,18 +15,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The Microsoft Entra group associated with the approval item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity? Group
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.Identity?>("group"); }
-            set { BackingStore?.Set("group", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity? Group { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity Group
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.Identity>("group"); }
-            set { BackingStore?.Set("group", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity Group { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.ApprovalIdentitySet"/> and sets the default values.

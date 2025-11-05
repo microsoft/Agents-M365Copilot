@@ -15,34 +15,18 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>Details of the identity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.DetailsInfo? Details
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.DetailsInfo?>("details"); }
-            set { BackingStore?.Set("details", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.DetailsInfo? Details { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.DetailsInfo Details
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.DetailsInfo>("details"); }
-            set { BackingStore?.Set("details", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.DetailsInfo Details { get; set; }
 #endif
         /// <summary>Type of identity that has been provisioned, such as &apos;user&apos; or &apos;group.&apos; Supports $filter (eq, contains).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdentityType
-        {
-            get { return BackingStore?.Get<string?>("identityType"); }
-            set { BackingStore?.Set("identityType", value); }
-        }
+        public string? IdentityType { get; set; }
 #nullable restore
 #else
-        public string IdentityType
-        {
-            get { return BackingStore?.Get<string>("identityType"); }
-            set { BackingStore?.Set("identityType", value); }
-        }
+        public string IdentityType { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.ProvisionedIdentity"/> and sets the default values.

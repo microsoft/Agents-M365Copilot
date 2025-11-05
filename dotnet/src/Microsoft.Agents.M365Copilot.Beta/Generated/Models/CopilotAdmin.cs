@@ -15,18 +15,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting? Settings
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting?>("settings"); }
-            set { BackingStore?.Set("settings", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting? Settings { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting Settings
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting>("settings"); }
-            set { BackingStore?.Set("settings", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting Settings { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

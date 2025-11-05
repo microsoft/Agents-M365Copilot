@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions.Store;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -10,109 +9,58 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class SensitivityLabelInfo : IAdditionalDataHolder, IBackedModel, IParsable
+    public partial class SensitivityLabelInfo : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData
-        {
-            get { return BackingStore.Get<IDictionary<string, object>>("AdditionalData") ?? new Dictionary<string, object>(); }
-            set { BackingStore.Set("AdditionalData", value); }
-        }
-        /// <summary>Stores model information.</summary>
-        public IBackingStore BackingStore { get; private set; }
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The color property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Color
-        {
-            get { return BackingStore?.Get<string?>("color"); }
-            set { BackingStore?.Set("color", value); }
-        }
+        public string? Color { get; set; }
 #nullable restore
 #else
-        public string Color
-        {
-            get { return BackingStore?.Get<string>("color"); }
-            set { BackingStore?.Set("color", value); }
-        }
+        public string Color { get; set; }
 #endif
         /// <summary>The displayName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayName
-        {
-            get { return BackingStore?.Get<string?>("displayName"); }
-            set { BackingStore?.Set("displayName", value); }
-        }
+        public string? DisplayName { get; set; }
 #nullable restore
 #else
-        public string DisplayName
-        {
-            get { return BackingStore?.Get<string>("displayName"); }
-            set { BackingStore?.Set("displayName", value); }
-        }
+        public string DisplayName { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OdataType
-        {
-            get { return BackingStore?.Get<string?>("@odata.type"); }
-            set { BackingStore?.Set("@odata.type", value); }
-        }
+        public string? OdataType { get; set; }
 #nullable restore
 #else
-        public string OdataType
-        {
-            get { return BackingStore?.Get<string>("@odata.type"); }
-            set { BackingStore?.Set("@odata.type", value); }
-        }
+        public string OdataType { get; set; }
 #endif
         /// <summary>The priority property</summary>
-        public int? Priority
-        {
-            get { return BackingStore?.Get<int?>("priority"); }
-            set { BackingStore?.Set("priority", value); }
-        }
+        public int? Priority { get; set; }
         /// <summary>The sensitivityLabelId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SensitivityLabelId
-        {
-            get { return BackingStore?.Get<string?>("sensitivityLabelId"); }
-            set { BackingStore?.Set("sensitivityLabelId", value); }
-        }
+        public string? SensitivityLabelId { get; set; }
 #nullable restore
 #else
-        public string SensitivityLabelId
-        {
-            get { return BackingStore?.Get<string>("sensitivityLabelId"); }
-            set { BackingStore?.Set("sensitivityLabelId", value); }
-        }
+        public string SensitivityLabelId { get; set; }
 #endif
         /// <summary>The tooltip property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Tooltip
-        {
-            get { return BackingStore?.Get<string?>("tooltip"); }
-            set { BackingStore?.Set("tooltip", value); }
-        }
+        public string? Tooltip { get; set; }
 #nullable restore
 #else
-        public string Tooltip
-        {
-            get { return BackingStore?.Get<string>("tooltip"); }
-            set { BackingStore?.Set("tooltip", value); }
-        }
+        public string Tooltip { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo"/> and sets the default values.
         /// </summary>
         public SensitivityLabelInfo()
         {
-            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>

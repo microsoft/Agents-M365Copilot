@@ -15,18 +15,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The application identifier of the service principal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AppId
-        {
-            get { return BackingStore?.Get<string?>("appId"); }
-            set { BackingStore?.Set("appId", value); }
-        }
+        public string? AppId { get; set; }
 #nullable restore
 #else
-        public string AppId
-        {
-            get { return BackingStore?.Get<string>("appId"); }
-            set { BackingStore?.Set("appId", value); }
-        }
+        public string AppId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.ServicePrincipalIdentity"/> and sets the default values.

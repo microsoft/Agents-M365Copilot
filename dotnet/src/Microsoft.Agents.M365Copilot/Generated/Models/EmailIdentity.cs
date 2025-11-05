@@ -15,18 +15,10 @@ namespace Microsoft.Agents.M365Copilot.Models
         /// <summary>Email address of the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Email
-        {
-            get { return BackingStore?.Get<string?>("email"); }
-            set { BackingStore?.Set("email", value); }
-        }
+        public string? Email { get; set; }
 #nullable restore
 #else
-        public string Email
-        {
-            get { return BackingStore?.Get<string>("email"); }
-            set { BackingStore?.Set("email", value); }
-        }
+        public string Email { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Models.EmailIdentity"/> and sets the default values.

@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions.Store;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -10,109 +9,58 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class RetrievalHit : IAdditionalDataHolder, IBackedModel, IParsable
+    public partial class RetrievalHit : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData
-        {
-            get { return BackingStore.Get<IDictionary<string, object>>("AdditionalData") ?? new Dictionary<string, object>(); }
-            set { BackingStore.Set("AdditionalData", value); }
-        }
-        /// <summary>Stores model information.</summary>
-        public IBackingStore BackingStore { get; private set; }
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The extracts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalExtract>? Extracts
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalExtract>?>("extracts"); }
-            set { BackingStore?.Set("extracts", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalExtract>? Extracts { get; set; }
 #nullable restore
 #else
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalExtract> Extracts
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalExtract>>("extracts"); }
-            set { BackingStore?.Set("extracts", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalExtract> Extracts { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OdataType
-        {
-            get { return BackingStore?.Get<string?>("@odata.type"); }
-            set { BackingStore?.Set("@odata.type", value); }
-        }
+        public string? OdataType { get; set; }
 #nullable restore
 #else
-        public string OdataType
-        {
-            get { return BackingStore?.Get<string>("@odata.type"); }
-            set { BackingStore?.Set("@odata.type", value); }
-        }
+        public string OdataType { get; set; }
 #endif
         /// <summary>The resourceMetadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary? ResourceMetadata
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary?>("resourceMetadata"); }
-            set { BackingStore?.Set("resourceMetadata", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary? ResourceMetadata { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary ResourceMetadata
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary>("resourceMetadata"); }
-            set { BackingStore?.Set("resourceMetadata", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary ResourceMetadata { get; set; }
 #endif
         /// <summary>The resourceType property</summary>
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalEntityType? ResourceType
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalEntityType?>("resourceType"); }
-            set { BackingStore?.Set("resourceType", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalEntityType? ResourceType { get; set; }
         /// <summary>The sensitivityLabel property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo? SensitivityLabel
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo?>("sensitivityLabel"); }
-            set { BackingStore?.Set("sensitivityLabel", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo? SensitivityLabel { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo SensitivityLabel
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo>("sensitivityLabel"); }
-            set { BackingStore?.Set("sensitivityLabel", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo SensitivityLabel { get; set; }
 #endif
         /// <summary>The webUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebUrl
-        {
-            get { return BackingStore?.Get<string?>("webUrl"); }
-            set { BackingStore?.Set("webUrl", value); }
-        }
+        public string? WebUrl { get; set; }
 #nullable restore
 #else
-        public string WebUrl
-        {
-            get { return BackingStore?.Get<string>("webUrl"); }
-            set { BackingStore?.Set("webUrl", value); }
-        }
+        public string WebUrl { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalHit"/> and sets the default values.
         /// </summary>
         public RetrievalHit()
         {
-            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>

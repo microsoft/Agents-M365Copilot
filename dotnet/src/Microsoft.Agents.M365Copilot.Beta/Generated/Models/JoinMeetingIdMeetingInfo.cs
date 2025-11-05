@@ -15,34 +15,18 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The ID used to join the meeting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JoinMeetingId
-        {
-            get { return BackingStore?.Get<string?>("joinMeetingId"); }
-            set { BackingStore?.Set("joinMeetingId", value); }
-        }
+        public string? JoinMeetingId { get; set; }
 #nullable restore
 #else
-        public string JoinMeetingId
-        {
-            get { return BackingStore?.Get<string>("joinMeetingId"); }
-            set { BackingStore?.Set("joinMeetingId", value); }
-        }
+        public string JoinMeetingId { get; set; }
 #endif
         /// <summary>The passcode used to join the meeting. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Passcode
-        {
-            get { return BackingStore?.Get<string?>("passcode"); }
-            set { BackingStore?.Set("passcode", value); }
-        }
+        public string? Passcode { get; set; }
 #nullable restore
 #else
-        public string Passcode
-        {
-            get { return BackingStore?.Get<string>("passcode"); }
-            set { BackingStore?.Set("passcode", value); }
-        }
+        public string Passcode { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.JoinMeetingIdMeetingInfo"/> and sets the default values.

@@ -15,94 +15,46 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The actionItems property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ActionItem>? ActionItems
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.ActionItem>?>("actionItems"); }
-            set { BackingStore?.Set("actionItems", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ActionItem>? ActionItems { get; set; }
 #nullable restore
 #else
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ActionItem> ActionItems
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.ActionItem>>("actionItems"); }
-            set { BackingStore?.Set("actionItems", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ActionItem> ActionItems { get; set; }
 #endif
         /// <summary>The callId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallId
-        {
-            get { return BackingStore?.Get<string?>("callId"); }
-            set { BackingStore?.Set("callId", value); }
-        }
+        public string? CallId { get; set; }
 #nullable restore
 #else
-        public string CallId
-        {
-            get { return BackingStore?.Get<string>("callId"); }
-            set { BackingStore?.Set("callId", value); }
-        }
+        public string CallId { get; set; }
 #endif
         /// <summary>The contentCorrelationId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ContentCorrelationId
-        {
-            get { return BackingStore?.Get<string?>("contentCorrelationId"); }
-            set { BackingStore?.Set("contentCorrelationId", value); }
-        }
+        public string? ContentCorrelationId { get; set; }
 #nullable restore
 #else
-        public string ContentCorrelationId
-        {
-            get { return BackingStore?.Get<string>("contentCorrelationId"); }
-            set { BackingStore?.Set("contentCorrelationId", value); }
-        }
+        public string ContentCorrelationId { get; set; }
 #endif
         /// <summary>The createdDateTime property</summary>
-        public DateTimeOffset? CreatedDateTime
-        {
-            get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
-            set { BackingStore?.Set("createdDateTime", value); }
-        }
+        public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The endDateTime property</summary>
-        public DateTimeOffset? EndDateTime
-        {
-            get { return BackingStore?.Get<DateTimeOffset?>("endDateTime"); }
-            set { BackingStore?.Set("endDateTime", value); }
-        }
+        public DateTimeOffset? EndDateTime { get; set; }
         /// <summary>The meetingNotes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingNote>? MeetingNotes
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingNote>?>("meetingNotes"); }
-            set { BackingStore?.Set("meetingNotes", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingNote>? MeetingNotes { get; set; }
 #nullable restore
 #else
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingNote> MeetingNotes
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingNote>>("meetingNotes"); }
-            set { BackingStore?.Set("meetingNotes", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingNote> MeetingNotes { get; set; }
 #endif
         /// <summary>The viewpoint property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.CallAiInsightViewPoint? Viewpoint
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.CallAiInsightViewPoint?>("viewpoint"); }
-            set { BackingStore?.Set("viewpoint", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.CallAiInsightViewPoint? Viewpoint { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.CallAiInsightViewPoint Viewpoint
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.CallAiInsightViewPoint>("viewpoint"); }
-            set { BackingStore?.Set("viewpoint", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.CallAiInsightViewPoint Viewpoint { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -15,120 +15,60 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The application instance associated with this action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity? ApplicationInstance
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.Identity?>("applicationInstance"); }
-            set { BackingStore?.Set("applicationInstance", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity? ApplicationInstance { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity ApplicationInstance
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.Identity>("applicationInstance"); }
-            set { BackingStore?.Set("applicationInstance", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity ApplicationInstance { get; set; }
 #endif
         /// <summary>An identity the participant would like to present itself as to the other participants in the call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity? AssertedIdentity
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.Identity?>("assertedIdentity"); }
-            set { BackingStore?.Set("assertedIdentity", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity? AssertedIdentity { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity AssertedIdentity
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.Identity>("assertedIdentity"); }
-            set { BackingStore?.Set("assertedIdentity", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity AssertedIdentity { get; set; }
 #endif
         /// <summary>The Azure Communication Services user associated with this action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity? AzureCommunicationServicesUser
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.Identity?>("azureCommunicationServicesUser"); }
-            set { BackingStore?.Set("azureCommunicationServicesUser", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity? AzureCommunicationServicesUser { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity AzureCommunicationServicesUser
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.Identity>("azureCommunicationServicesUser"); }
-            set { BackingStore?.Set("azureCommunicationServicesUser", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity AzureCommunicationServicesUser { get; set; }
 #endif
         /// <summary>The encrypted user associated with this action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity? Encrypted
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.Identity?>("encrypted"); }
-            set { BackingStore?.Set("encrypted", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity? Encrypted { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity Encrypted
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.Identity>("encrypted"); }
-            set { BackingStore?.Set("encrypted", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity Encrypted { get; set; }
 #endif
         /// <summary>Type of endpoint the participant uses. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.</summary>
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.EndpointType? EndpointType
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.EndpointType?>("endpointType"); }
-            set { BackingStore?.Set("endpointType", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.EndpointType? EndpointType { get; set; }
         /// <summary>The guest user associated with this action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity? Guest
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.Identity?>("guest"); }
-            set { BackingStore?.Set("guest", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity? Guest { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity Guest
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.Identity>("guest"); }
-            set { BackingStore?.Set("guest", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity Guest { get; set; }
 #endif
         /// <summary>The Skype for Business on-premises user associated with this action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity? OnPremises
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.Identity?>("onPremises"); }
-            set { BackingStore?.Set("onPremises", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity? OnPremises { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity OnPremises
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.Identity>("onPremises"); }
-            set { BackingStore?.Set("onPremises", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity OnPremises { get; set; }
 #endif
         /// <summary>The phone user associated with this action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity? Phone
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.Identity?>("phone"); }
-            set { BackingStore?.Set("phone", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity? Phone { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity Phone
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.Identity>("phone"); }
-            set { BackingStore?.Set("phone", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity Phone { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.CommunicationsIdentitySet"/> and sets the default values.
