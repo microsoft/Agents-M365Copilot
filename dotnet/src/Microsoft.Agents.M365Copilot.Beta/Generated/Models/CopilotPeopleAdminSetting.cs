@@ -15,18 +15,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The enhancedPersonalization property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting? EnhancedPersonalization
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting?>("enhancedPersonalization"); }
-            set { BackingStore?.Set("enhancedPersonalization", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting? EnhancedPersonalization { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting EnhancedPersonalization
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting>("enhancedPersonalization"); }
-            set { BackingStore?.Set("enhancedPersonalization", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting EnhancedPersonalization { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -15,50 +15,26 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The group associated with this action. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity? Group
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.Identity?>("group"); }
-            set { BackingStore?.Set("group", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity? Group { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity Group
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.Identity>("group"); }
-            set { BackingStore?.Set("group", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity Group { get; set; }
 #endif
         /// <summary>The SharePoint group associated with this action. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointIdentity? SiteGroup
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointIdentity?>("siteGroup"); }
-            set { BackingStore?.Set("siteGroup", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointIdentity? SiteGroup { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointIdentity SiteGroup
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointIdentity>("siteGroup"); }
-            set { BackingStore?.Set("siteGroup", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointIdentity SiteGroup { get; set; }
 #endif
         /// <summary>The SharePoint user associated with this action. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointIdentity? SiteUser
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointIdentity?>("siteUser"); }
-            set { BackingStore?.Set("siteUser", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointIdentity? SiteUser { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointIdentity SiteUser
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointIdentity>("siteUser"); }
-            set { BackingStore?.Set("siteUser", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointIdentity SiteUser { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointIdentitySet"/> and sets the default values.

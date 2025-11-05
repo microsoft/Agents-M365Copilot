@@ -15,25 +15,13 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The groupId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GroupId
-        {
-            get { return BackingStore?.Get<string?>("groupId"); }
-            set { BackingStore?.Set("groupId", value); }
-        }
+        public string? GroupId { get; set; }
 #nullable restore
 #else
-        public string GroupId
-        {
-            get { return BackingStore?.Get<string>("groupId"); }
-            set { BackingStore?.Set("groupId", value); }
-        }
+        public string GroupId { get; set; }
 #endif
         /// <summary>The isEnabledForGroup property</summary>
-        public bool? IsEnabledForGroup
-        {
-            get { return BackingStore?.Get<bool?>("isEnabledForGroup"); }
-            set { BackingStore?.Set("isEnabledForGroup", value); }
-        }
+        public bool? IsEnabledForGroup { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>

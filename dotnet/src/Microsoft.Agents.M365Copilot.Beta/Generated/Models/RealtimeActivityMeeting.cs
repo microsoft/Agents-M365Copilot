@@ -15,18 +15,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The transcripts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.RealTimeTranscript>? Transcripts
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.RealTimeTranscript>?>("transcripts"); }
-            set { BackingStore?.Set("transcripts", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.RealTimeTranscript>? Transcripts { get; set; }
 #nullable restore
 #else
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.RealTimeTranscript> Transcripts
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.RealTimeTranscript>>("transcripts"); }
-            set { BackingStore?.Set("transcripts", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.RealTimeTranscript> Transcripts { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

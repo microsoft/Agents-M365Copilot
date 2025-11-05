@@ -15,18 +15,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The realtimeActivityFeed property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.RealtimeActivityFeedRoot? RealtimeActivityFeed
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.RealtimeActivityFeedRoot?>("realtimeActivityFeed"); }
-            set { BackingStore?.Set("realtimeActivityFeed", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.RealtimeActivityFeedRoot? RealtimeActivityFeed { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.RealtimeActivityFeedRoot RealtimeActivityFeed
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.RealtimeActivityFeedRoot>("realtimeActivityFeed"); }
-            set { BackingStore?.Set("realtimeActivityFeed", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.RealtimeActivityFeedRoot RealtimeActivityFeed { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -15,206 +15,102 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The appClass property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AppClass
-        {
-            get { return BackingStore?.Get<string?>("appClass"); }
-            set { BackingStore?.Set("appClass", value); }
-        }
+        public string? AppClass { get; set; }
 #nullable restore
 #else
-        public string AppClass
-        {
-            get { return BackingStore?.Get<string>("appClass"); }
-            set { BackingStore?.Set("appClass", value); }
-        }
+        public string AppClass { get; set; }
 #endif
         /// <summary>The attachments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionAttachment>? Attachments
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionAttachment>?>("attachments"); }
-            set { BackingStore?.Set("attachments", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionAttachment>? Attachments { get; set; }
 #nullable restore
 #else
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionAttachment> Attachments
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionAttachment>>("attachments"); }
-            set { BackingStore?.Set("attachments", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionAttachment> Attachments { get; set; }
 #endif
         /// <summary>The body property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.ItemBody? Body
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.ItemBody?>("body"); }
-            set { BackingStore?.Set("body", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.ItemBody? Body { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.ItemBody Body
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.ItemBody>("body"); }
-            set { BackingStore?.Set("body", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.ItemBody Body { get; set; }
 #endif
         /// <summary>The contexts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionContext>? Contexts
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionContext>?>("contexts"); }
-            set { BackingStore?.Set("contexts", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionContext>? Contexts { get; set; }
 #nullable restore
 #else
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionContext> Contexts
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionContext>>("contexts"); }
-            set { BackingStore?.Set("contexts", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionContext> Contexts { get; set; }
 #endif
         /// <summary>The conversationType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConversationType
-        {
-            get { return BackingStore?.Get<string?>("conversationType"); }
-            set { BackingStore?.Set("conversationType", value); }
-        }
+        public string? ConversationType { get; set; }
 #nullable restore
 #else
-        public string ConversationType
-        {
-            get { return BackingStore?.Get<string>("conversationType"); }
-            set { BackingStore?.Set("conversationType", value); }
-        }
+        public string ConversationType { get; set; }
 #endif
         /// <summary>The createdDateTime property</summary>
-        public DateTimeOffset? CreatedDateTime
-        {
-            get { return BackingStore?.Get<DateTimeOffset?>("createdDateTime"); }
-            set { BackingStore?.Set("createdDateTime", value); }
-        }
+        public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The etag property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Etag
-        {
-            get { return BackingStore?.Get<string?>("etag"); }
-            set { BackingStore?.Set("etag", value); }
-        }
+        public string? Etag { get; set; }
 #nullable restore
 #else
-        public string Etag
-        {
-            get { return BackingStore?.Get<string>("etag"); }
-            set { BackingStore?.Set("etag", value); }
-        }
+        public string Etag { get; set; }
 #endif
         /// <summary>The from property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet? From
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet?>("from"); }
-            set { BackingStore?.Set("from", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet? From { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet From
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet>("from"); }
-            set { BackingStore?.Set("from", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet From { get; set; }
 #endif
         /// <summary>The interactionType property</summary>
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionType? InteractionType
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionType?>("interactionType"); }
-            set { BackingStore?.Set("interactionType", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionType? InteractionType { get; set; }
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionLink>? Links
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionLink>?>("links"); }
-            set { BackingStore?.Set("links", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionLink>? Links { get; set; }
 #nullable restore
 #else
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionLink> Links
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionLink>>("links"); }
-            set { BackingStore?.Set("links", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionLink> Links { get; set; }
 #endif
         /// <summary>The locale property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Locale
-        {
-            get { return BackingStore?.Get<string?>("locale"); }
-            set { BackingStore?.Set("locale", value); }
-        }
+        public string? Locale { get; set; }
 #nullable restore
 #else
-        public string Locale
-        {
-            get { return BackingStore?.Get<string>("locale"); }
-            set { BackingStore?.Set("locale", value); }
-        }
+        public string Locale { get; set; }
 #endif
         /// <summary>The mentions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionMention>? Mentions
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionMention>?>("mentions"); }
-            set { BackingStore?.Set("mentions", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionMention>? Mentions { get; set; }
 #nullable restore
 #else
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionMention> Mentions
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionMention>>("mentions"); }
-            set { BackingStore?.Set("mentions", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionMention> Mentions { get; set; }
 #endif
         /// <summary>The requestId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RequestId
-        {
-            get { return BackingStore?.Get<string?>("requestId"); }
-            set { BackingStore?.Set("requestId", value); }
-        }
+        public string? RequestId { get; set; }
 #nullable restore
 #else
-        public string RequestId
-        {
-            get { return BackingStore?.Get<string>("requestId"); }
-            set { BackingStore?.Set("requestId", value); }
-        }
+        public string RequestId { get; set; }
 #endif
         /// <summary>The sessionId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SessionId
-        {
-            get { return BackingStore?.Get<string?>("sessionId"); }
-            set { BackingStore?.Set("sessionId", value); }
-        }
+        public string? SessionId { get; set; }
 #nullable restore
 #else
-        public string SessionId
-        {
-            get { return BackingStore?.Get<string>("sessionId"); }
-            set { BackingStore?.Set("sessionId", value); }
-        }
+        public string SessionId { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

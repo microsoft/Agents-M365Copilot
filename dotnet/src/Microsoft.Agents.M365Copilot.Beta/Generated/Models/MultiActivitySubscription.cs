@@ -15,82 +15,42 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The activities property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.SubscriptionActivities? Activities
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.SubscriptionActivities?>("activities"); }
-            set { BackingStore?.Set("activities", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.SubscriptionActivities? Activities { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.SubscriptionActivities Activities
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.SubscriptionActivities>("activities"); }
-            set { BackingStore?.Set("activities", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.SubscriptionActivities Activities { get; set; }
 #endif
         /// <summary>The callbackUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallbackUrl
-        {
-            get { return BackingStore?.Get<string?>("callbackUrl"); }
-            set { BackingStore?.Set("callbackUrl", value); }
-        }
+        public string? CallbackUrl { get; set; }
 #nullable restore
 #else
-        public string CallbackUrl
-        {
-            get { return BackingStore?.Get<string>("callbackUrl"); }
-            set { BackingStore?.Set("callbackUrl", value); }
-        }
+        public string CallbackUrl { get; set; }
 #endif
         /// <summary>The chatInfo property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.ChatInfo? ChatInfo
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.ChatInfo?>("chatInfo"); }
-            set { BackingStore?.Set("chatInfo", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.ChatInfo? ChatInfo { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.ChatInfo ChatInfo
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.ChatInfo>("chatInfo"); }
-            set { BackingStore?.Set("chatInfo", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.ChatInfo ChatInfo { get; set; }
 #endif
         /// <summary>The meetingInfo property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingInfo? MeetingInfo
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingInfo?>("meetingInfo"); }
-            set { BackingStore?.Set("meetingInfo", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingInfo? MeetingInfo { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingInfo MeetingInfo
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingInfo>("meetingInfo"); }
-            set { BackingStore?.Set("meetingInfo", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.MeetingInfo MeetingInfo { get; set; }
 #endif
         /// <summary>The userId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserId
-        {
-            get { return BackingStore?.Get<string?>("userId"); }
-            set { BackingStore?.Set("userId", value); }
-        }
+        public string? UserId { get; set; }
 #nullable restore
 #else
-        public string UserId
-        {
-            get { return BackingStore?.Get<string>("userId"); }
-            set { BackingStore?.Set("userId", value); }
-        }
+        public string UserId { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

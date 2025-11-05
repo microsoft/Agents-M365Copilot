@@ -15,34 +15,18 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>For user sign ins, the identifier of the tenant that the user is a member of.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HomeTenantId
-        {
-            get { return BackingStore?.Get<string?>("homeTenantId"); }
-            set { BackingStore?.Set("homeTenantId", value); }
-        }
+        public string? HomeTenantId { get; set; }
 #nullable restore
 #else
-        public string HomeTenantId
-        {
-            get { return BackingStore?.Get<string>("homeTenantId"); }
-            set { BackingStore?.Set("homeTenantId", value); }
-        }
+        public string HomeTenantId { get; set; }
 #endif
         /// <summary>For user sign ins, the name of the tenant that the user is a member of. Only populated in cases where the home tenant has provided affirmative consent to Microsoft Entra ID to show the tenant content.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HomeTenantName
-        {
-            get { return BackingStore?.Get<string?>("homeTenantName"); }
-            set { BackingStore?.Set("homeTenantName", value); }
-        }
+        public string? HomeTenantName { get; set; }
 #nullable restore
 #else
-        public string HomeTenantName
-        {
-            get { return BackingStore?.Get<string>("homeTenantName"); }
-            set { BackingStore?.Set("homeTenantName", value); }
-        }
+        public string HomeTenantName { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.AuditUserIdentity"/> and sets the default values.

@@ -13,11 +13,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     #pragma warning restore CS1591
     {
         /// <summary>Type of conversation. Possible values are: team, channel, and chat.</summary>
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkConversationIdentityType? ConversationIdentityType
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkConversationIdentityType?>("conversationIdentityType"); }
-            set { BackingStore?.Set("conversationIdentityType", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkConversationIdentityType? ConversationIdentityType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkConversationIdentity"/> and sets the default values.
         /// </summary>

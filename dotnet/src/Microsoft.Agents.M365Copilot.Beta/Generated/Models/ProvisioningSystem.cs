@@ -15,18 +15,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>Details of the system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.DetailsInfo? Details
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.DetailsInfo?>("details"); }
-            set { BackingStore?.Set("details", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.DetailsInfo? Details { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.DetailsInfo Details
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.DetailsInfo>("details"); }
-            set { BackingStore?.Set("details", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.DetailsInfo Details { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.ProvisioningSystem"/> and sets the default values.
