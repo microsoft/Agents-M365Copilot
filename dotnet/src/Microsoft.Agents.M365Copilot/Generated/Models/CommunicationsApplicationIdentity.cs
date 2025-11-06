@@ -15,25 +15,13 @@ namespace Microsoft.Agents.M365Copilot.Models
         /// <summary>First-party Microsoft application that presents this identity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApplicationType
-        {
-            get { return BackingStore?.Get<string?>("applicationType"); }
-            set { BackingStore?.Set("applicationType", value); }
-        }
+        public string? ApplicationType { get; set; }
 #nullable restore
 #else
-        public string ApplicationType
-        {
-            get { return BackingStore?.Get<string>("applicationType"); }
-            set { BackingStore?.Set("applicationType", value); }
-        }
+        public string ApplicationType { get; set; }
 #endif
         /// <summary>True if the participant shouldn&apos;t be shown in other participants&apos; rosters.</summary>
-        public bool? Hidden
-        {
-            get { return BackingStore?.Get<bool?>("hidden"); }
-            set { BackingStore?.Set("hidden", value); }
-        }
+        public bool? Hidden { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Models.CommunicationsApplicationIdentity"/> and sets the default values.
         /// </summary>

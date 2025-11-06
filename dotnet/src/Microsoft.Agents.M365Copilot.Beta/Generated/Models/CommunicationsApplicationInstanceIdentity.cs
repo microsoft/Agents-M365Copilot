@@ -13,26 +13,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     #pragma warning restore CS1591
     {
         /// <summary>True if the participant shouldn&apos;t be shown in other participants&apos; rosters.</summary>
-        public bool? Hidden
-        {
-            get { return BackingStore?.Get<bool?>("hidden"); }
-            set { BackingStore?.Set("hidden", value); }
-        }
+        public bool? Hidden { get; set; }
         /// <summary>The tenant ID of the application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TenantId
-        {
-            get { return BackingStore?.Get<string?>("tenantId"); }
-            set { BackingStore?.Set("tenantId", value); }
-        }
+        public string? TenantId { get; set; }
 #nullable restore
 #else
-        public string TenantId
-        {
-            get { return BackingStore?.Get<string>("tenantId"); }
-            set { BackingStore?.Set("tenantId", value); }
-        }
+        public string TenantId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.CommunicationsApplicationInstanceIdentity"/> and sets the default values.

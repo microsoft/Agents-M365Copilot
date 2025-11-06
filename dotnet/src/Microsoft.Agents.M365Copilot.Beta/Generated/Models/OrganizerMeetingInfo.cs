@@ -15,18 +15,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The organizer property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet? Organizer
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet?>("organizer"); }
-            set { BackingStore?.Set("organizer", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet? Organizer { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet Organizer
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet>("organizer"); }
-            set { BackingStore?.Set("organizer", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet Organizer { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.OrganizerMeetingInfo"/> and sets the default values.

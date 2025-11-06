@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions.Store;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -10,103 +9,56 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class MainError : IAdditionalDataHolder, IBackedModel, IParsable
+    public partial class MainError : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData
-        {
-            get { return BackingStore.Get<IDictionary<string, object>>("AdditionalData") ?? new Dictionary<string, object>(); }
-            set { BackingStore.Set("AdditionalData", value); }
-        }
-        /// <summary>Stores model information.</summary>
-        public IBackingStore BackingStore { get; private set; }
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Code
-        {
-            get { return BackingStore?.Get<string?>("code"); }
-            set { BackingStore?.Set("code", value); }
-        }
+        public string? Code { get; set; }
 #nullable restore
 #else
-        public string Code
-        {
-            get { return BackingStore?.Get<string>("code"); }
-            set { BackingStore?.Set("code", value); }
-        }
+        public string Code { get; set; }
 #endif
         /// <summary>The details property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors.ErrorDetails>? Details
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors.ErrorDetails>?>("details"); }
-            set { BackingStore?.Set("details", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors.ErrorDetails>? Details { get; set; }
 #nullable restore
 #else
-        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors.ErrorDetails> Details
-        {
-            get { return BackingStore?.Get<List<global::Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors.ErrorDetails>>("details"); }
-            set { BackingStore?.Set("details", value); }
-        }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors.ErrorDetails> Details { get; set; }
 #endif
         /// <summary>The innerError property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors.InnerError? InnerError
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors.InnerError?>("innerError"); }
-            set { BackingStore?.Set("innerError", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors.InnerError? InnerError { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors.InnerError InnerError
-        {
-            get { return BackingStore?.Get<global::Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors.InnerError>("innerError"); }
-            set { BackingStore?.Set("innerError", value); }
-        }
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors.InnerError InnerError { get; set; }
 #endif
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Message
-        {
-            get { return BackingStore?.Get<string?>("message"); }
-            set { BackingStore?.Set("message", value); }
-        }
+        public string? Message { get; set; }
 #nullable restore
 #else
-        public string Message
-        {
-            get { return BackingStore?.Get<string>("message"); }
-            set { BackingStore?.Set("message", value); }
-        }
+        public string Message { get; set; }
 #endif
         /// <summary>The target property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Target
-        {
-            get { return BackingStore?.Get<string?>("target"); }
-            set { BackingStore?.Set("target", value); }
-        }
+        public string? Target { get; set; }
 #nullable restore
 #else
-        public string Target
-        {
-            get { return BackingStore?.Get<string>("target"); }
-            set { BackingStore?.Set("target", value); }
-        }
+        public string Target { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.ODataErrors.MainError"/> and sets the default values.
         /// </summary>
         public MainError()
         {
-            BackingStore = BackingStoreFactorySingleton.Instance.CreateBackingStore();
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>

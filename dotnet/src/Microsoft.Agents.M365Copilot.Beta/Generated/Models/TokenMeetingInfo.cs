@@ -15,18 +15,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>The token used to join the call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Token
-        {
-            get { return BackingStore?.Get<string?>("token"); }
-            set { BackingStore?.Set("token", value); }
-        }
+        public string? Token { get; set; }
 #nullable restore
 #else
-        public string Token
-        {
-            get { return BackingStore?.Get<string>("token"); }
-            set { BackingStore?.Set("token", value); }
-        }
+        public string Token { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.TokenMeetingInfo"/> and sets the default values.

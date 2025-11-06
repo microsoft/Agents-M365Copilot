@@ -146,12 +146,11 @@ github.com/microsoft/Agents-M365Copilot/typescript/.copilot.communications.realt
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.communications.realtimeActivityFeed.multiActivitySubscriptions.count.CountRequestBuilder~~>BaseRequestBuilder<CountRequestBuilder>
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.communications.realtimeActivityFeed.multiActivitySubscriptions.item.getArtifacts.GetArtifactsPostRequestBody::|public|AdditionalData:Record<string, unknown>
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.communications.realtimeActivityFeed.multiActivitySubscriptions.item.getArtifacts.GetArtifactsPostRequestBody::|public|artifactTypes:ArtifactType[]
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.communications.realtimeActivityFeed.multiActivitySubscriptions.item.getArtifacts.GetArtifactsPostRequestBody::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.communications.realtimeActivityFeed.multiActivitySubscriptions.item.getArtifacts.GetArtifactsPostRequestBody::|public|maxResults:number
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.communications.realtimeActivityFeed.multiActivitySubscriptions.item.getArtifacts.GetArtifactsPostRequestBody::|public|rangeInSec:number
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.communications.realtimeActivityFeed.multiActivitySubscriptions.item.getArtifacts.GetArtifactsPostRequestBody::|public|seedDateTime:Date
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.communications.realtimeActivityFeed.multiActivitySubscriptions.item.getArtifacts.GetArtifactsPostRequestBody::|public|userId:string
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.communications.realtimeActivityFeed.multiActivitySubscriptions.item.getArtifacts.GetArtifactsPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.communications.realtimeActivityFeed.multiActivitySubscriptions.item.getArtifacts.GetArtifactsPostRequestBody~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.communications.realtimeActivityFeed.multiActivitySubscriptions.item.getArtifacts.getArtifactsRequestBuilder::|public|post(body:GetArtifactsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):GetArtifactsResponse
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.communications.realtimeActivityFeed.multiActivitySubscriptions.item.getArtifacts.getArtifactsRequestBuilder::|public|toPostRequestInformation(body:GetArtifactsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.communications.realtimeActivityFeed.multiActivitySubscriptions.item.getArtifacts.getArtifactsRequestBuilderRequestsMetadata
@@ -251,14 +250,13 @@ github.com/microsoft/Agents-M365Copilot/typescript/.copilot.interactionHistory.i
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.interactionHistory.interactionHistoryRequestBuilderUriTemplate
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.interactionHistory.interactionHistoryRequestBuilder~~>BaseRequestBuilder<InteractionHistoryRequestBuilder>
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.RetrievalPostRequestBody::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.RetrievalPostRequestBody::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.RetrievalPostRequestBody::|public|dataSource:RetrievalDataSource
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.RetrievalPostRequestBody::|public|dataSourceConfiguration:DataSourceConfiguration
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.RetrievalPostRequestBody::|public|filterExpression:string
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.RetrievalPostRequestBody::|public|maximumNumberOfResults:number
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.RetrievalPostRequestBody::|public|queryString:string
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.RetrievalPostRequestBody::|public|resourceMetadata:string[]
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.RetrievalPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.RetrievalPostRequestBody~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.retrievalRequestBuilder::|public|post(body:RetrievalPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RetrievalResponse
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.retrievalRequestBuilder::|public|toPostRequestInformation(body:RetrievalPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.retrievalRequestBuilderRequestsMetadata
@@ -463,23 +461,21 @@ github.com/microsoft/Agents-M365Copilot/typescript/.copilot.users.usersRequestBu
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.users.usersRequestBuilderUriTemplate
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.users.usersRequestBuilder~~>BaseRequestBuilder<UsersRequestBuilder>
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ActionItem::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ActionItem::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ActionItem::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ActionItem::|public|ownerDisplayName:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ActionItem::|public|text:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ActionItem::|public|title:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ActionItem~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ActionItem~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.activityStatus::0000-notStarted
 github.com/microsoft/Agents-M365Copilot/typescript/.models.activityStatus::0001-running
 github.com/microsoft/Agents-M365Copilot/typescript/.models.activityStatus::0002-failed
 github.com/microsoft/Agents-M365Copilot/typescript/.models.activityStatus::0003-unknownFutureValue
 github.com/microsoft/Agents-M365Copilot/typescript/.models.activityStatusObject
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ActivityTransport::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ActivityTransport::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ActivityTransport::|public|connectionType:ConnectionType
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ActivityTransport::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ActivityTransport::|public|url:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ActivityTransport~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ActivityTransport~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteraction::|public|appClass:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteraction::|public|attachments:AiInteractionAttachment[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteraction::|public|body:ItemBody
@@ -497,31 +493,27 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteraction::|publi
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteraction::|public|sessionId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionAttachment::|public|AdditionalData:Record<string, unknown>
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionAttachment::|public|attachmentId:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionAttachment::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionAttachment::|public|content:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionAttachment::|public|contentType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionAttachment::|public|contentUrl:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionAttachment::|public|name:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionAttachment::|public|odataType:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionAttachment~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionAttachment~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionContext::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionContext::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionContext::|public|contextReference:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionContext::|public|contextType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionContext::|public|displayName:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionContext::|public|odataType:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionContext~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionContext~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionHistory::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionHistory~~>Entity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionLink::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionLink::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionLink::|public|displayName:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionLink::|public|linkType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionLink::|public|linkUrl:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionLink::|public|odataType:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionLink~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionLink~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionMention::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionMention::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionMention::|public|mentioned:AiInteractionMentionedIdentitySet
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionMention::|public|mentionId:number
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionMention::|public|mentionText:string
@@ -530,7 +522,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionMentione
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionMentionedIdentitySet::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionMentionedIdentitySet::|public|tag:TeamworkTagIdentity
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionMentionedIdentitySet~~>IdentitySet; Parsable
-github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionMention~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteractionMention~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.aiInteractionType::0000-userPrompt
 github.com/microsoft/Agents-M365Copilot/typescript/.models.aiInteractionType::0001-aiResponse
 github.com/microsoft/Agents-M365Copilot/typescript/.models.aiInteractionType::0002-unknownFutureValue
@@ -561,17 +553,15 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.AzureCommunicationSer
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AzureCommunicationServicesUserIdentity::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AzureCommunicationServicesUserIdentity~~>Identity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.BaseActivity::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.BaseActivity::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.BaseActivity::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.BaseActivity::|public|resultInfo:ResultInfo
 github.com/microsoft/Agents-M365Copilot/typescript/.models.BaseActivity::|public|status:ActivityStatus
 github.com/microsoft/Agents-M365Copilot/typescript/.models.BaseActivity::|public|transport:ActivityTransport
-github.com/microsoft/Agents-M365Copilot/typescript/.models.BaseActivity~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.BaseActivity~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.BaseCollectionPaginationCountResponse::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.BaseCollectionPaginationCountResponse::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.BaseCollectionPaginationCountResponse::|public|odataCount:number
 github.com/microsoft/Agents-M365Copilot/typescript/.models.BaseCollectionPaginationCountResponse::|public|odataNextLink:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.BaseCollectionPaginationCountResponse~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.BaseCollectionPaginationCountResponse~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.bodyType::0000-text
 github.com/microsoft/Agents-M365Copilot/typescript/.models.bodyType::0001-html
 github.com/microsoft/Agents-M365Copilot/typescript/.models.bodyTypeObject
@@ -586,10 +576,9 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.CallAiInsight::|publi
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CallAiInsightCollectionResponse::|public|value:CallAiInsight[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CallAiInsightCollectionResponse~~>BaseCollectionPaginationCountResponse; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CallAiInsightViewPoint::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.CallAiInsightViewPoint::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CallAiInsightViewPoint::|public|mentionEvents:MentionEvent[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CallAiInsightViewPoint::|public|odataType:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.CallAiInsightViewPoint~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CallAiInsightViewPoint~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CallAiInsight~~>Entity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.callRecords.UserIdentity::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.callRecords.UserIdentity::|public|userPrincipalName:string
@@ -598,12 +587,11 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.callRecords::createUs
 github.com/microsoft/Agents-M365Copilot/typescript/.models.callRecords::deserializeIntoUserIdentity(UserIdentity:UserIdentity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models.callRecords::serializeUserIdentity(writer:SerializationWriter; UserIdentity:UserIdentity={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatInfo::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatInfo::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatInfo::|public|messageId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatInfo::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatInfo::|public|replyChainMessageId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatInfo::|public|threadId:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatInfo~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatInfo~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatMessageFromIdentitySet::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatMessageFromIdentitySet~~>IdentitySet; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatMessageMentionedIdentitySet::|public|conversation:TeamworkConversationIdentity
@@ -641,10 +629,9 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.CommunicationsUserIde
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CommunicationsUserIdentity::|public|tenantId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CommunicationsUserIdentity~~>Identity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ConnectionItem::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ConnectionItem::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ConnectionItem::|public|connectionId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ConnectionItem::|public|odataType:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ConnectionItem~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ConnectionItem~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.connectionType::0000-webSocket
 github.com/microsoft/Agents-M365Copilot/typescript/.models.connectionType::0001-unknownFutureValue
 github.com/microsoft/Agents-M365Copilot/typescript/.models.connectionTypeObject
@@ -668,18 +655,15 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotSetting::|publ
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotSetting::|public|people:CopilotPeopleAdminSetting
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotSetting~~>Entity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.DataSourceConfiguration::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.DataSourceConfiguration::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.DataSourceConfiguration::|public|externalItem:ExternalItemConfiguration
 github.com/microsoft/Agents-M365Copilot/typescript/.models.DataSourceConfiguration::|public|odataType:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.DataSourceConfiguration~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.DataSourceConfiguration~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.DetailsInfo::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.DetailsInfo::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.DetailsInfo::|public|odataType:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.DetailsInfo~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.DetailsInfo~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Dictionaries::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.Dictionaries::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Dictionaries::|public|odataType:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.Dictionaries~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.Dictionaries~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.EmailIdentity::|public|email:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.EmailIdentity::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.EmailIdentity~~>Identity; Parsable
@@ -698,34 +682,29 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.EnhancedPersonalizati
 github.com/microsoft/Agents-M365Copilot/typescript/.models.EnhancedPersonalizationSetting::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.EnhancedPersonalizationSetting~~>Entity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Entity::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.Entity::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Entity::|public|id:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Entity::|public|odataType:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.Entity~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.Entity~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ExternalItemConfiguration::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ExternalItemConfiguration::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ExternalItemConfiguration::|public|connections:ConnectionItem[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ExternalItemConfiguration::|public|odataType:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ExternalItemConfiguration~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ExternalItemConfiguration~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.GetArtifactsResponse::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.GetArtifactsResponse::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.GetArtifactsResponse::|public|nextLink:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.GetArtifactsResponse::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.GetArtifactsResponse::|public|payloads:TranscriptPayload[]
-github.com/microsoft/Agents-M365Copilot/typescript/.models.GetArtifactsResponse~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.GetArtifactsResponse~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Identity::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.Identity::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Identity::|public|displayName:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Identity::|public|id:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Identity::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.IdentitySet::|public|AdditionalData:Record<string, unknown>
 github.com/microsoft/Agents-M365Copilot/typescript/.models.IdentitySet::|public|application:Identity
-github.com/microsoft/Agents-M365Copilot/typescript/.models.IdentitySet::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.IdentitySet::|public|device:Identity
 github.com/microsoft/Agents-M365Copilot/typescript/.models.IdentitySet::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.IdentitySet::|public|user:Identity
-github.com/microsoft/Agents-M365Copilot/typescript/.models.IdentitySet~~>AdditionalDataHolder; BackedModel; Parsable
-github.com/microsoft/Agents-M365Copilot/typescript/.models.Identity~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.IdentitySet~~>AdditionalDataHolder; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.Identity~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Initiator::|public|initiatorType:InitiatorType
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Initiator::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.initiatorType::0000-user
@@ -735,40 +714,35 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.initiatorType::0003-u
 github.com/microsoft/Agents-M365Copilot/typescript/.models.initiatorTypeObject
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Initiator~~>Identity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ItemBody::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ItemBody::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ItemBody::|public|content:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ItemBody::|public|contentType:BodyType
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ItemBody::|public|odataType:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ItemBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ItemBody~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.JoinMeetingIdMeetingInfo::|public|joinMeetingId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.JoinMeetingIdMeetingInfo::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.JoinMeetingIdMeetingInfo::|public|passcode:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.JoinMeetingIdMeetingInfo~~>MeetingInfo; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingInfo::|public|AdditionalData:Record<string, unknown>
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingInfo::|public|allowConversationWithoutHost:boolean
-github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingInfo::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingInfo::|public|odataType:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingInfo~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingInfo~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingNote::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingNote::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingNote::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingNote::|public|subpoints:MeetingNoteSubpoint[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingNote::|public|text:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingNote::|public|title:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingNoteSubpoint::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingNoteSubpoint::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingNoteSubpoint::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingNoteSubpoint::|public|text:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingNoteSubpoint::|public|title:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingNoteSubpoint~~>AdditionalDataHolder; BackedModel; Parsable
-github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingNote~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingNoteSubpoint~~>AdditionalDataHolder; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.MeetingNote~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MentionEvent::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.MentionEvent::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MentionEvent::|public|eventDateTime:Date
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MentionEvent::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MentionEvent::|public|speaker:IdentitySet
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MentionEvent::|public|transcriptUtterance:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.MentionEvent~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.MentionEvent~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MultiActivitySubscription::|public|activities:SubscriptionActivities
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MultiActivitySubscription::|public|callbackUrl:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MultiActivitySubscription::|public|chatInfo:ChatInfo
@@ -779,30 +753,26 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.MultiActivitySubscrip
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MultiActivitySubscriptionCollectionResponse~~>BaseCollectionPaginationCountResponse; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.MultiActivitySubscription~~>Entity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.ErrorDetails::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.ErrorDetails::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.ErrorDetails::|public|code:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.ErrorDetails::|public|message:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.ErrorDetails::|public|target:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.ErrorDetails~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.ErrorDetails~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.InnerError::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.InnerError::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.InnerError::|public|clientRequestId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.InnerError::|public|date:Date
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.InnerError::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.InnerError::|public|requestId:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.InnerError~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.InnerError~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.MainError::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.MainError::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.MainError::|public|code:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.MainError::|public|details:ErrorDetails[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.MainError::|public|innerError:InnerError
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.MainError::|public|message:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.MainError::|public|target:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.MainError~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.MainError~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.ODataError::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.ODataError::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.ODataError::|public|errorEscaped:MainError
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.ODataError~~>AdditionalDataHolder; ApiError; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors.ODataError~~>AdditionalDataHolder; ApiError; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors::createErrorDetailsFromDiscriminatorValue(parseNode:ParseNode):ErrorDetails
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors::createInnerErrorFromDiscriminatorValue(parseNode:ParseNode):InnerError
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ODataErrors::createMainErrorFromDiscriminatorValue(parseNode:ParseNode):MainError
@@ -845,12 +815,11 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.RealTimeTranscriptCol
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RealTimeTranscriptCollectionResponse~~>BaseCollectionPaginationCountResponse; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RealTimeTranscript~~>Entity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ResultInfo::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ResultInfo::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ResultInfo::|public|code:number
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ResultInfo::|public|message:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ResultInfo::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ResultInfo::|public|subcode:number
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ResultInfo~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ResultInfo~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.retrievalDataSource::0000-sharePoint
 github.com/microsoft/Agents-M365Copilot/typescript/.models.retrievalDataSource::0001-oneDriveBusiness
 github.com/microsoft/Agents-M365Copilot/typescript/.models.retrievalDataSource::0002-externalItem
@@ -865,25 +834,22 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.retrievalEntityType::
 github.com/microsoft/Agents-M365Copilot/typescript/.models.retrievalEntityType::0006-unknownFutureValue
 github.com/microsoft/Agents-M365Copilot/typescript/.models.retrievalEntityTypeObject
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalExtract::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalExtract::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalExtract::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalExtract::|public|relevanceScore:number
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalExtract::|public|text:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalExtract~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalExtract~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalHit::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalHit::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalHit::|public|extracts:RetrievalExtract[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalHit::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalHit::|public|resourceMetadata:SearchResourceMetadataDictionary
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalHit::|public|resourceType:RetrievalEntityType
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalHit::|public|sensitivityLabel:SensitivityLabelInfo
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalHit::|public|webUrl:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalHit~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalHit~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalResponse::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalResponse::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalResponse::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalResponse::|public|retrievalHits:RetrievalHit[]
-github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalResponse~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalResponse~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SearchResourceMetadataDictionary::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SearchResourceMetadataDictionary~~>Dictionaries; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.security.SubmissionUserIdentity::|public|email:string
@@ -893,14 +859,13 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.security::createSubmi
 github.com/microsoft/Agents-M365Copilot/typescript/.models.security::deserializeIntoSubmissionUserIdentity(SubmissionUserIdentity:SubmissionUserIdentity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models.security::serializeSubmissionUserIdentity(writer:SerializationWriter; SubmissionUserIdentity:SubmissionUserIdentity={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SensitivityLabelInfo::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.SensitivityLabelInfo::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SensitivityLabelInfo::|public|color:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SensitivityLabelInfo::|public|displayName:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SensitivityLabelInfo::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SensitivityLabelInfo::|public|priority:number
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SensitivityLabelInfo::|public|sensitivityLabelId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SensitivityLabelInfo::|public|tooltip:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.SensitivityLabelInfo~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.SensitivityLabelInfo~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ServicePrincipalIdentity::|public|appId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ServicePrincipalIdentity::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ServicePrincipalIdentity~~>Identity; Parsable
@@ -915,16 +880,14 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointIdentity~~>
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SourceProvisionedIdentity::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SourceProvisionedIdentity~~>Identity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SpeakerInfo::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.SpeakerInfo::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SpeakerInfo::|public|displayName:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SpeakerInfo::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SpeakerInfo::|public|rawId:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.SpeakerInfo~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.SpeakerInfo~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SubscriptionActivities::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.SubscriptionActivities::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SubscriptionActivities::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SubscriptionActivities::|public|transcript:TranscriptActivity
-github.com/microsoft/Agents-M365Copilot/typescript/.models.SubscriptionActivities~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.SubscriptionActivities~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.TargetProvisionedIdentity::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.TargetProvisionedIdentity~~>Identity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.TeamworkApplicationIdentity::|public|applicationIdentityType:TeamworkApplicationIdentityType
@@ -969,18 +932,16 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.TranscriptActivity::|
 github.com/microsoft/Agents-M365Copilot/typescript/.models.TranscriptActivity~~>BaseActivity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.TranscriptPayload::|public|AdditionalData:Record<string, unknown>
 github.com/microsoft/Agents-M365Copilot/typescript/.models.TranscriptPayload::|public|audioCaptureDateTime:Date
-github.com/microsoft/Agents-M365Copilot/typescript/.models.TranscriptPayload::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.TranscriptPayload::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.TranscriptPayload::|public|speaker:TranscriptSpeaker
 github.com/microsoft/Agents-M365Copilot/typescript/.models.TranscriptPayload::|public|spokenLanguage:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.TranscriptPayload::|public|text:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.TranscriptPayload~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.TranscriptPayload~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.TranscriptSpeaker::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.TranscriptSpeaker::|public|backingStoreEnabled:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.TranscriptSpeaker::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.TranscriptSpeaker::|public|room:SpeakerInfo
 github.com/microsoft/Agents-M365Copilot/typescript/.models.TranscriptSpeaker::|public|user:SpeakerInfo
-github.com/microsoft/Agents-M365Copilot/typescript/.models.TranscriptSpeaker~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.TranscriptSpeaker~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.UserIdentity::|public|ipAddress:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.UserIdentity::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.UserIdentity::|public|userPrincipalName:string
@@ -1258,4 +1219,4 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeTranscriptA
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeTranscriptPayload(writer:SerializationWriter; TranscriptPayload:TranscriptPayload={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeTranscriptSpeaker(writer:SerializationWriter; TranscriptSpeaker:TranscriptSpeaker={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeUserIdentity(writer:SerializationWriter; UserIdentity:UserIdentity={}; isSerializingDerivedType?:boolean=false):void
-github.com/microsoft/Agents-M365Copilot/typescript/::CreateBaseAgentsM365CopilotBetaServiceClient(requestAdapter:RequestAdapter; backingStore?:BackingStoreFactory):void
+github.com/microsoft/Agents-M365Copilot/typescript/::CreateBaseAgentsM365CopilotBetaServiceClient(requestAdapter:RequestAdapter):void
