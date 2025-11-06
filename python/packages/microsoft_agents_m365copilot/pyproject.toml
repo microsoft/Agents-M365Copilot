@@ -5,7 +5,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry]
 name = "microsoft-agents-m365copilot"
 # x-release-please-start-version
-version = "0.1.0-preview.0"
+version = "0.1.0-preview.1"
 # x-release-please-end
 description = "Microsoft Agents M365 Copilot Python SDK (V1.0)"
 authors = ["Microsoft <graphtooling+ccspython@microsoft.com>"]

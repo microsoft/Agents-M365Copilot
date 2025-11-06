@@ -21,7 +21,7 @@
 
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>    
     <!-- x-release-please-start-version -->
-    <Version>0.1.0-preview.1</Version>
+    <Version>1.0.0</Version>
     <!-- x-release-please-end -->
     <!-- VersionPrefix minor version should not be set when the change comes from the generator. It will be updated automatically. -->
     <!-- VersionPrefix minor version must be manually set when making manual changes to code. -->
