@@ -41,6 +41,11 @@
                 "Microsoft.Agents.M365Copilot.Core.csproj"
             ]
         },
+        "typescript/packages/agents-m365copilot": {
+            "component": "@microsoft/agents-m365copilot",
+            "release-type": "node",
+            "changelog-path": "CHANGELOG.md"
+        },
         "typescript/packages/agents-m365copilot-beta": {
             "component": "@microsoft/agents-m365copilot-beta",
             "release-type": "node",
@@ -52,6 +57,15 @@
             "changelog-path": "CHANGELOG.md",
             "extra-files": [
                 "src/utils/Version.ts"
+            ]
+        },
+        "python/packages/microsoft_agents_m365copilot": {
+            "component": "microsoft_agents_m365copilot",
+            "release-type": "simple",
+            "changelog-path": "CHANGELOG.md",
+            "extra-files": [
+                "pyproject.toml",
+                "microsoft_agents_m365copilot/_version.py"
             ]
         },
         "python/packages/microsoft_agents_m365copilot_beta": {

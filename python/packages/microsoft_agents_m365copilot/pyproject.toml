@@ -1,0 +1,76 @@
+[build-system]
+requires = ["poetry-core>=1.0.0", "wheel", "setuptools>=42.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "microsoft-agents-m365copilot"
+# x-release-please-start-version
+version = "0.1.0-preview.0"
+# x-release-please-end
+description = "Microsoft Agents M365 Copilot Python SDK (V1.0)"
+authors = ["Microsoft <graphtooling+ccspython@microsoft.com>"]
+maintainers = ["Microsoft <graphtooling+ccspython@microsoft.com>"]
+license = "MIT"
+readme = "README.md"
+keywords = ["copilot", "openAPI", "Microsoft", "M365", "V1.0"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Operating System :: OS Independent"
+]
+homepage = "https://github.com/microsoft/Agents-M365Copilot/tree/main/python"
+repository = "https://github.com/microsoft/Agents-M365Copilot"
+documentation = "https://github.com/microsoft/Agents-M365Copilot/tree/main/python/packages/microsoft_agents_m365copilot#readme"
+
+packages = [
+    {include = "microsoft_agents_m365copilot"}
+]
+
+include = [
+    "LICENSE",
+    "README.md"
+]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4.0"
+microsoft-kiota-authentication-azure = ">=1.8.0,<2.0.0"
+microsoft-kiota-bundle = ">=1.8.0,<2.0.0"
+httpx = {extras = ["http2"], version = ">=0.23.0"}
+microsoft-agents-m365copilot-core = ">=1.0.0rc1"
+
+[tool.poetry.group.dev.dependencies]
+yapf = ">=0.40.2,<0.44.0"
+isort = ">=5.13.2,<7.0.0"
+pylint = "^3.2.7"
+pytest = "^8.3.2"
+pytest-asyncio = ">=0.24,<0.26"
+pytest-mock = "^3.14.0"
+poetry-plugin-mono-repo-deps = ">=0.2.1,<0.4.0"
+
+[tool.mypy]
+warn_unused_configs = true
+files = ["microsoft_agents_m365copilot", "generated"]
+
+[tool.yapf]
+based_on_style = "pep8"
+dedent_closing_brackets = true
+each_dict_entry_on_separate_line = true
+column_limit = 100
+
+[tool.yapfignore]
+ignore_patterns = "generated/**/*.py"
+
+[tool.isort]
+profile = "hug"
+skip_glob = "microsoft_agents_m365copilot/generated/*"
+
+[tool.poetry-monorepo.deps]
+enabled = true
+commands = ["build", "export", "publish"]
