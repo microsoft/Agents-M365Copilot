@@ -6,9 +6,6 @@
 name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
-  branches:
-    include:
-      - main
   paths:
     include:
       - 'python/packages/microsoft_agents_m365copilot_beta/generated/**'
