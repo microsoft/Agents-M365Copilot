@@ -1,1 +1,0 @@
-This directory is where generated files will go. You can delete this file after initial generation.
