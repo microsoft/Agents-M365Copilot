@@ -73,67 +73,17 @@ extends:
             - script: pip install poetry
               displayName: 'Install Poetry'
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_v1)'
-              # This condition allows the build to run for both tagged V1 builds or manual builds.
-              condition: |
-                and
-                (
-                  or
-                  (
-                    contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot'),
-                    eq(variables['Build.Reason'], 'Manual')
-                  ),
-                  not
-                  (
-                    contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta')
-                  )
-                )
+
             - script: poetry install
               displayName: 'Install v1 dependencies'
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_v1)'
-              condition: |
-                and
-                (
-                  or
-                  (
-                    contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot'),
-                    eq(variables['Build.Reason'], 'Manual')
-                  ),
-                  not
-                  (
-                    contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta')
-                  )
-                )
+
             - script: poetry run isort .
               displayName: 'Check import order'
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_v1)'
-              condition: |
-                and
-                (
-                  or
-                  (
-                    contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot'),
-                    eq(variables['Build.Reason'], 'Manual')
-                  ),
-                  not
-                  (
-                    contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta')
-                  )
-                )
+
             - script: poetry build
               displayName: 'Build Python package'
-              condition:  |
-                and
-                (
-                  or
-                  (
-                    contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot'),
-                    eq(variables['Build.Reason'], 'Manual')
-                  ),
-                  not
-                  (
-                    contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta')
-                  )
-                )
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_v1)'
               
             - task: CopyFiles@2
@@ -145,38 +95,14 @@ extends:
                   *.tar.gz
                   *.whl
               displayName: "Copy V1 Python package files"
-              condition:  |
-                and
-                (
-                  or
-                  (
-                    contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot'),
-                    eq(variables['Build.Reason'], 'Manual')
-                  ),
-                  not
-                  (
-                    contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta')
-                  )
-                )
+
           templateContext:
             outputs:
               - output: pipelineArtifact
                 displayName: 'Stage V1 Python package artifact'
                 artifactName: pypi_$(library_name_v1)
                 targetPath: '$(Build.ArtifactStagingDirectory)/python/$(library_name_v1)' 
-                condition:  |
-                  and
-                  (
-                    or
-                    (
-                      contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot'),
-                      eq(variables['Build.Reason'], 'Manual')
-                    ),
-                    not
-                    (
-                      contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta')
-                    )
-                  )
+
     - stage: deploy
       displayName: 'Publish Beta Python Package'
       dependsOn: build
