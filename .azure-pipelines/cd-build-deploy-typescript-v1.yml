@@ -6,16 +6,14 @@
 name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
-  branches:
-    include:
-      - main
   paths:
     include:
       - 'typescript/packages/agents-m365copilot/generated/**'
   tags:
     include:
-      - '@microsoft/agents-m365copilot-v1*'
-
+      - '@microsoft/agents-m365copilot-v*'
+      # V1 tags look like @microsoft/agents-m365copilot-v0.1.0-preview.0
+      # Beta tags look like @microsoft/agents-m365copilot-beta-v0.1.0-preview.0 and are excluded.
 pr: none
 
 variables:
@@ -40,7 +38,8 @@ extends:
     - stage: build
       displayName: 'Build and Package V1 TypeScript Package'
       # This condition allows the build to run for both tagged builds and manual builds.
-      condition: or(contains(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-v1'), eq(variables['Build.Reason'], 'Manual'))
+      # Beta tags look @microsoft/agents-m365copilot-beta-v0.1.0-preview.0 and are excluded.
+      condition: or(contains(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-v'), eq(variables['Build.Reason'], 'Manual'))
       jobs:
         - job: build_typescript
           displayName: 'Build, Test, and Package V1'
@@ -82,14 +81,14 @@ extends:
                 displayName: 'Stage V1 TypeScript package artifacts'
                 artifactName: npm_$(package_name_v1)
                 targetPath: '$(Build.ArtifactStagingDirectory)/npm/$(package_name_v1)'
-                condition: or(contains(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-v1'), eq(variables['Build.Reason'], 'Manual'))
-                # Build.SourceBranch expands to 'refs/tags/@microsoft/agents-m365copilot-v1-v0.1.0-preview.0'
+                condition: or(contains(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-v'), eq(variables['Build.Reason'], 'Manual'))
+                # Build.SourceBranch expands to 'refs/tags/@microsoft/agents-m365copilot-v0.1.0-preview.0'
 
     - stage: deploy
       displayName: 'Deploy V1 NPM Package'
       dependsOn: build
       # This condition allows the build to run for only tagged builds. Manual runs are temp and should be removed after validation.
-      condition: or(and(contains(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-v1'), succeeded()), eq(variables['Build.Reason'], 'Manual'))
+      condition: or(and(contains(variables['Build.SourceBranch'], '@microsoft/agents-m365copilot-v'), succeeded()), eq(variables['Build.Reason'], 'Manual'))
       jobs:
         - deployment: publish_npm_package
           displayName: 'Publish npm Package'
