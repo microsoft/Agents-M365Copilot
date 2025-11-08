@@ -6,9 +6,6 @@
 name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
-  branches:
-    include:
-      - main
   paths:
     include:
       - 'dotnet/src/Microsoft.Agents.M365Copilot.Core/**/*.cs'

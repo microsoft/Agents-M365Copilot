@@ -1,23 +1,25 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License.
 
-# Build, package, and deploy Python packages for microsoft_agents_m365copilot_beta
+# Build, package, and deploy Python packages for microsoft_agents_m365copilot
 
 name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
   paths:
     include:
-      - 'python/packages/microsoft_agents_m365copilot_beta/generated/**'
-      - 'python/packages/microsoft_agents_m365copilot_beta/src/agents_m365_copilot_beta_request_adapter.py'      
-      - 'python/packages/microsoft_agents_m365copilot_beta/src/agents_m365_copilot_beta_service_client.py'
+      - 'python/packages/microsoft_agents_m365copilot/generated/**'
+      - 'python/packages/microsoft_agents_m365copilot/src/agents_m365_copilot_request_adapter.py'      
+      - 'python/packages/microsoft_agents_m365copilot/src/agents_m365_copilot_service_client.py'
   tags:
     include:
+      - 'microsoft_agents_m365copilot_*'
+    exclude:
       - 'microsoft_agents_m365copilot_beta*'
 
 variables:
-  library_name_beta: 'microsoft_agents_m365copilot_beta'
-  library_dir_beta: 'packages/microsoft_agents_m365copilot_beta'
+  library_name_v1: 'microsoft_agents_m365copilot'
+  library_dir_v1: 'packages/microsoft_agents_m365copilot'
 
 resources:
   repositories:
@@ -35,12 +37,25 @@ extends:
     stages:
 
     - stage: build
-      displayName: 'Build and Package Beta Python'
-      # This condition allows the build to run for both tagged builds and manual builds.
-      condition: or(contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))
+      displayName: 'Build and Package V1 Python'
+      # This condition allows the build to run for both tagged builds and manual builds, but not for beta tagged commits.
+      condition: |
+        and
+        (
+          or
+          (
+            contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot'),
+            eq(variables['Build.Reason'], 'Manual')
+          ),
+          not
+          (
+            contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta')
+          )
+        )
+
       jobs:
         - job: build_python
-          displayName: 'Build, Test, and Package Beta'
+          displayName: 'Build, Test, and Package V1'
           pool:
             name: Azure-Pipelines-1ESPT-ExDShared
             vmImage: ubuntu-latest
@@ -54,55 +69,61 @@ extends:
 
             - script: python -m pip install --upgrade pip
 
-            # Build, test, and package Beta Python library
+            # Build, test, and package V1 Python library
             - script: pip install poetry
               displayName: 'Install Poetry'
-              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_beta)'
-              # This condition allows the build to run for both tagged beta builds or manual builds.
-              condition: or(contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))
+              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_v1)'
 
             - script: poetry install
-              displayName: 'Install beta dependencies'
-              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_beta)'
-              condition: or(contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))
+              displayName: 'Install v1 dependencies'
+              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_v1)'
 
             - script: poetry run isort .
               displayName: 'Check import order'
-              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_beta)'
-              condition: or(contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))    
+              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_v1)'
 
             - script: poetry build
               displayName: 'Build Python package'
-              condition: or(contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))
-              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_beta)'
+              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_v1)'
               
             - task: CopyFiles@2
               inputs:
                 CleanTargetFolder: true
-                sourceFolder: '$(Build.SourcesDirectory)/python/$(library_dir_beta)/dist/'
-                targetFolder: '$(Build.ArtifactStagingDirectory)/python/$(library_name_beta)'
+                sourceFolder: '$(Build.SourcesDirectory)/python/$(library_dir_v1)/dist/'
+                targetFolder: '$(Build.ArtifactStagingDirectory)/python/$(library_name_v1)'
                 Contents: |
                   *.tar.gz
                   *.whl
-              displayName: "Copy Beta Python package files"
-              condition: or(contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))
+              displayName: "Copy V1 Python package files"
 
           templateContext:
             outputs:
               - output: pipelineArtifact
-                displayName: 'Stage Beta Python package artifact'
-                artifactName: pypi_$(library_name_beta)
-                targetPath: '$(Build.ArtifactStagingDirectory)/python/$(library_name_beta)' 
-                condition: or(contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))
+                displayName: 'Stage V1 Python package artifact'
+                artifactName: pypi_$(library_name_v1)
+                targetPath: '$(Build.ArtifactStagingDirectory)/python/$(library_name_v1)' 
 
     - stage: deploy
       displayName: 'Publish Beta Python Package'
       dependsOn: build
       # This condition allows the build to run for only tagged builds. Manual runs are temp and should be removed after validation.
-      condition: or(and(contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta'), succeeded()), eq(variables['Build.Reason'], 'Manual'))             
+      condition: |
+        or
+        (
+          and
+          (
+            contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot'),
+            succeeded(),
+            not
+            (
+              contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta')
+            )
+          ), 
+          eq(variables['Build.Reason'], 'Manual')
+        )             
       jobs:
         - deployment: publish_python_packages
-          displayName: 'Publish Beta Python Package'
+          displayName: 'Publish V1 Python Package'
           environment: agents-m365copilot-prod          
           pool:
             name: Azure-Pipelines-1ESPT-ExDShared
@@ -114,14 +135,14 @@ extends:
               isProduction: true
               inputs:
                 - input: pipelineArtifact
-                  artifactName: pypi_$(library_name_beta)
+                  artifactName: pypi_$(library_name_v1)
                   targetPath: '$(Build.ArtifactStagingDirectory)/python'
           strategy:
             runOnce:
               deploy:
                 steps:    
                 - task: EsrpRelease@9
-                  displayName: 'Publish Beta Python package via ESRP Release'
+                  displayName: 'Publish V1 Python package via ESRP Release'
                   inputs:
                     connectedservicename: "Federated DevX ESRP Managed Identity Connection"
                     usemanagedidentity: false
