@@ -72,7 +72,7 @@ extends:
                 sourceFolder: '$(Build.SourcesDirectory)/typescript/$(package_dir_v1)'
                 targetFolder: '$(Build.ArtifactStagingDirectory)/npm/$(package_name_v1)'
                 Contents: |
-                  microsoft-agents-m365copilot-v1*.tgz
+                  microsoft-agents-m365copilot*.tgz
               displayName: "Copy npm package files for $(package_name_v1)"
 
           templateContext:
