@@ -44,7 +44,8 @@
         "typescript/packages/agents-m365copilot": {
             "component": "@microsoft/agents-m365copilot",
             "release-type": "node",
-            "changelog-path": "CHANGELOG.md"
+            "changelog-path": "CHANGELOG.md",
+            "prerelease": false
         },
         "typescript/packages/agents-m365copilot-beta": {
             "component": "@microsoft/agents-m365copilot-beta",
@@ -63,6 +64,7 @@
             "component": "microsoft_agents_m365copilot",
             "release-type": "simple",
             "changelog-path": "CHANGELOG.md",
+            "prerelease": false,
             "extra-files": [
                 "pyproject.toml",
                 "microsoft_agents_m365copilot/_version.py"
