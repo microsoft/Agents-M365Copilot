@@ -37,6 +37,7 @@
             "component": "Microsoft.Agents.M365Copilot.Core",
             "release-type": "simple",
             "changelog-path": "CHANGELOG.md",
+            "prerelease": false,
             "extra-files": [
                 "Microsoft.Agents.M365Copilot.Core.csproj"
             ]
@@ -56,6 +57,7 @@
             "component": "@microsoft/agents-m365copilot-core",
             "release-type": "node",
             "changelog-path": "CHANGELOG.md",
+            "prerelease": false,
             "extra-files": [
                 "src/utils/Version.ts"
             ]
@@ -83,6 +85,7 @@
             "component": "microsoft_agents_m365copilot_core",
             "release-type": "simple",
             "changelog-path": "CHANGELOG.md",
+            "prerelease": false,
             "extra-files": [
                 "pyproject.toml",
                 "microsoft_agents_m365copilot_core/src/_constants.py"
