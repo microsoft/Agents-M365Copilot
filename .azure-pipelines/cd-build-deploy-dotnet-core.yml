@@ -6,14 +6,13 @@
 name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
+  branches:
+    include: # ex Microsoft.Agents.M365Copilot.Core-v1.0.0-preview.2
+      - 'refs/tags/Microsoft.Agents.M365Copilot.Core*'
   paths:
     include:
       - 'dotnet/src/Microsoft.Agents.M365Copilot.Core/**/*.cs'
       - 'dotnet/src/Microsoft.Agents.M365Copilot.Core/Microsoft.Agents.M365Copilot.Core.csproj'      
-
-  tags:
-    include: # ex Microsoft.Agents.M365Copilot.Core-v1.0.0-preview.2
-      - 'Microsoft.Agents.M365Copilot.Core*'
 
 pr: none
 

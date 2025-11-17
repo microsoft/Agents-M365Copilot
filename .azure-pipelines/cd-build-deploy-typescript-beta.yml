@@ -6,12 +6,12 @@
 name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
+  branches:
+    include:
+      - 'refs/tags/@microsoft/agents-m365copilot-beta*'
   paths:
     include:
       - 'typescript/packages/agents-m365copilot-beta/generated/**'
-  tags:
-    include:
-      - '@microsoft/agents-m365copilot-beta*'
 
 pr: none
 
