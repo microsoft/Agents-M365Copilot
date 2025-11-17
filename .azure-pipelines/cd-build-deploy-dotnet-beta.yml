@@ -6,14 +6,9 @@
 name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
-  branches:
+  tags:
     include: # ex Microsoft.Agents.M365Copilot.Beta-v1.0.0-preview.2
-      - 'refs/tags/Microsoft.Agents.M365Copilot.Beta*'
-  paths:
-    include:
-      - 'dotnet/src/Microsoft.Agents.M365Copilot.Beta/Generated/**'
-      - 'dotnet/src/Microsoft.Agents.M365Copilot.Beta/**/*.cs'
-      - 'dotnet/src/Microsoft.Agents.M365Copilot.Beta/Microsoft.Agents.M365Copilot.Beta.csproj'
+      - 'Microsoft.Agents.M365Copilot.Beta*'
 
 pr: none
 

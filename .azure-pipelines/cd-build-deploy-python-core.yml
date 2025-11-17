@@ -6,12 +6,11 @@
 name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
-  branches:
+  tags:
     include:
-      - 'refs/tags/microsoft_agents_m365copilot_core*'
-  paths:
-    include:
-      - 'python/packages/microsoft_agents_m365copilot_core/src/**'
+      - 'microsoft_agents_m365copilot_core*'
+
+pr: none
 
 variables:
   library_name_core: 'microsoft_agents_m365copilot_core'

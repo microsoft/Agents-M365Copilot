@@ -6,17 +6,14 @@
 name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
-  branches:
+  tags:
     include:
-      - 'refs/tags/@microsoft/agents-m365copilot*'
+      - '@microsoft/agents-m365copilot*'
     exclude:
-      - 'refs/tags/@microsoft/agents-m365copilot-beta*'
-      - 'refs/tags/@microsoft/agents-m365copilot-core*'
+      - '@microsoft/agents-m365copilot-beta*'
+      - '@microsoft/agents-m365copilot-core*'
       # V1 tags look like @microsoft/agents-m365copilot-v0.1.0-preview.0
       # Beta tags look like @microsoft/agents-m365copilot-beta-v0.1.0-preview.0 and are excluded.
-  paths:
-    include:
-      - 'typescript/packages/agents-m365copilot/generated/**'
 
 pr: none
 

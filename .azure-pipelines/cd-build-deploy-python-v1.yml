@@ -6,17 +6,14 @@
 name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
-  branches:
+  tags:
     include:
-      - 'refs/tags/microsoft_agents_m365copilot*'
+      - 'microsoft_agents_m365copilot*'
     exclude:
-      - 'refs/tags/microsoft_agents_m365copilot_beta*'
-      - 'refs/tags/microsoft_agents_m365copilot_core*'
-  paths:
-    include:
-      - 'python/packages/microsoft_agents_m365copilot/generated/**'
-      - 'python/packages/microsoft_agents_m365copilot/src/agents_m365_copilot_request_adapter.py'      
-      - 'python/packages/microsoft_agents_m365copilot/src/agents_m365_copilot_service_client.py'
+      - 'microsoft_agents_m365copilot_beta*'
+      - 'microsoft_agents_m365copilot_core*'
+
+pr: none
 
 variables:
   library_name_v1: 'microsoft_agents_m365copilot'
