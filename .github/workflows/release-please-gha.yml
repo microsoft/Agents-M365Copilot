@@ -17,6 +17,12 @@ on:
   push:
     branches:
       - main
+    paths:
+    - 'dotnet/src/Microsoft.Agents.M365Copilot.Beta/**/*.cs'
+    - 'dotnet/src/Microsoft.Agents.M365Copilot.Core/**/*.cs'
+    - 'dotnet/src/Microsoft.Agents.M365Copilot/**/*.cs'
+    - 'typescript/packages/agents-m365copilot*/**/*.ts'
+    - 'python/packages/microsoft_agents_m365copilot*/**/*.py'
 
 jobs:
   release:
