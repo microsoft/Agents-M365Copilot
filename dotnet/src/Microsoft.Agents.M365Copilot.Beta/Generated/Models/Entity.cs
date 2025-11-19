@@ -48,15 +48,19 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
+                "#microsoft.graph.agent" => new global::Microsoft.Agents.M365Copilot.Beta.Models.Agent(),
                 "#microsoft.graph.aiInteraction" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteraction(),
                 "#microsoft.graph.aiInteractionHistory" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionHistory(),
                 "#microsoft.graph.aiOnlineMeeting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AiOnlineMeeting(),
                 "#microsoft.graph.aiUser" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AiUser(),
                 "#microsoft.graph.callAiInsight" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CallAiInsight(),
                 "#microsoft.graph.copilotAdmin" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdmin(),
+                "#microsoft.graph.copilotAdminCatalog" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminCatalog(),
                 "#microsoft.graph.copilotAdminLimitedMode" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminLimitedMode(),
                 "#microsoft.graph.copilotAdminSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting(),
                 "#microsoft.graph.copilotCommunicationsRoot" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotCommunicationsRoot(),
+                "#microsoft.graph.copilotPackage" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackage(),
+                "#microsoft.graph.copilotPackageDetail" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageDetail(),
                 "#microsoft.graph.copilotPeopleAdminSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPeopleAdminSetting(),
                 "#microsoft.graph.copilotSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotSetting(),
                 "#microsoft.graph.enhancedPersonalizationSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting(),
