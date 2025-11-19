@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.1.0](https://github.com/microsoft/Agents-M365Copilot/compare/@microsoft/agents-m365copilot-core-v1.0.0...@microsoft/agents-m365copilot-core-v1.1.0) (2025-11-19)
+## [1.0.0](https://github.com/microsoft/Agents-M365Copilot/compare/@microsoft/agents-m365copilot-core-v1.0.0...@microsoft/agents-m365copilot-core-v1.0.0) (2025-11-19)
 
 
 ### Features
