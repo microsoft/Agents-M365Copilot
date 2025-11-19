@@ -11,6 +11,7 @@ microsoft_agents_m365copilot_beta.generated.copilot.admin.AdminRequestBuilder.Ad
 microsoft_agents_m365copilot_beta.generated.copilot.admin.AdminRequestBuilder.AdminRequestBuilderGetQueryParameters::|public|select:list[str]
 microsoft_agents_m365copilot_beta.generated.copilot.admin.AdminRequestBuilder.AdminRequestBuilderGetRequestConfiguration-->RequestConfiguration[AdminRequestBuilderGetQueryParameters]
 microsoft_agents_m365copilot_beta.generated.copilot.admin.AdminRequestBuilder.AdminRequestBuilderPatchRequestConfiguration-->RequestConfiguration[QueryParameters]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.AdminRequestBuilder::|public|catalog:CatalogRequestBuilder
 microsoft_agents_m365copilot_beta.generated.copilot.admin.AdminRequestBuilder::|public|constructor(path_parameters:Union[str, dict[str, Any]]; request_adapter:RequestAdapter):None
 microsoft_agents_m365copilot_beta.generated.copilot.admin.AdminRequestBuilder::|public|delete(request_configuration?:RequestConfiguration[QueryParameters]):None
 microsoft_agents_m365copilot_beta.generated.copilot.admin.AdminRequestBuilder::|public|get(request_configuration?:RequestConfiguration[AdminRequestBuilderGetQueryParameters]):CopilotAdmin
@@ -23,6 +24,78 @@ microsoft_agents_m365copilot_beta.generated.copilot.admin.AdminRequestBuilder::|
 microsoft_agents_m365copilot_beta.generated.copilot.admin.AdminRequestBuilder::|public|to_patch_request_information(body:CopilotAdmin; request_configuration?:RequestConfiguration[QueryParameters]):RequestInformation
 microsoft_agents_m365copilot_beta.generated.copilot.admin.AdminRequestBuilder::|public|url_template:str
 microsoft_agents_m365copilot_beta.generated.copilot.admin.AdminRequestBuilder::|public|with_url(raw_url:str):AdminRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.CatalogRequestBuilder-->BaseRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.CatalogRequestBuilder.CatalogRequestBuilderDeleteRequestConfiguration-->RequestConfiguration[QueryParameters]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.CatalogRequestBuilder.CatalogRequestBuilderGetQueryParameters::|public|expand:list[str]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.CatalogRequestBuilder.CatalogRequestBuilderGetQueryParameters::|public|get_query_parameter(original_name:str):str
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.CatalogRequestBuilder.CatalogRequestBuilderGetQueryParameters::|public|select:list[str]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.CatalogRequestBuilder.CatalogRequestBuilderGetRequestConfiguration-->RequestConfiguration[CatalogRequestBuilderGetQueryParameters]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.CatalogRequestBuilder.CatalogRequestBuilderPatchRequestConfiguration-->RequestConfiguration[QueryParameters]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.CatalogRequestBuilder::|public|constructor(path_parameters:Union[str, dict[str, Any]]; request_adapter:RequestAdapter):None
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.CatalogRequestBuilder::|public|delete(request_configuration?:RequestConfiguration[QueryParameters]):None
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.CatalogRequestBuilder::|public|get(request_configuration?:RequestConfiguration[CatalogRequestBuilderGetQueryParameters]):CopilotAdminCatalog
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.CatalogRequestBuilder::|public|packages:PackagesRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.CatalogRequestBuilder::|public|patch(body:CopilotAdminCatalog; request_configuration?:RequestConfiguration[QueryParameters]):CopilotAdminCatalog
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.CatalogRequestBuilder::|public|path_parameters:Union[str, dict[str, Any]]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.CatalogRequestBuilder::|public|request_adapter:RequestAdapter
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.CatalogRequestBuilder::|public|to_delete_request_information(request_configuration?:RequestConfiguration[QueryParameters]):RequestInformation
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.CatalogRequestBuilder::|public|to_get_request_information(request_configuration?:RequestConfiguration[CatalogRequestBuilderGetQueryParameters]):RequestInformation
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.CatalogRequestBuilder::|public|to_patch_request_information(body:CopilotAdminCatalog; request_configuration?:RequestConfiguration[QueryParameters]):RequestInformation
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.CatalogRequestBuilder::|public|url_template:str
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.CatalogRequestBuilder::|public|with_url(raw_url:str):CatalogRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.count.CountRequestBuilder-->BaseRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.count.CountRequestBuilder.CountRequestBuilderGetQueryParameters::|public|filter:str
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.count.CountRequestBuilder.CountRequestBuilderGetQueryParameters::|public|get_query_parameter(original_name:str):str
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.count.CountRequestBuilder.CountRequestBuilderGetQueryParameters::|public|search:str
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.count.CountRequestBuilder.CountRequestBuilderGetRequestConfiguration-->RequestConfiguration[CountRequestBuilderGetQueryParameters]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.count.CountRequestBuilder::|public|constructor(path_parameters:Union[str, dict[str, Any]]; request_adapter:RequestAdapter):None
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.count.CountRequestBuilder::|public|get(request_configuration?:RequestConfiguration[CountRequestBuilderGetQueryParameters]):int
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.count.CountRequestBuilder::|public|path_parameters:Union[str, dict[str, Any]]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.count.CountRequestBuilder::|public|request_adapter:RequestAdapter
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.count.CountRequestBuilder::|public|to_get_request_information(request_configuration?:RequestConfiguration[CountRequestBuilderGetQueryParameters]):RequestInformation
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.count.CountRequestBuilder::|public|url_template:str
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.count.CountRequestBuilder::|public|with_url(raw_url:str):CountRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder-->BaseRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder.CopilotPackageDetailItemRequestBuilderDeleteRequestConfiguration-->RequestConfiguration[QueryParameters]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder.CopilotPackageDetailItemRequestBuilderGetQueryParameters::|public|expand:list[str]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder.CopilotPackageDetailItemRequestBuilderGetQueryParameters::|public|get_query_parameter(original_name:str):str
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder.CopilotPackageDetailItemRequestBuilderGetQueryParameters::|public|select:list[str]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder.CopilotPackageDetailItemRequestBuilderGetRequestConfiguration-->RequestConfiguration[CopilotPackageDetailItemRequestBuilderGetQueryParameters]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder.CopilotPackageDetailItemRequestBuilderPatchRequestConfiguration-->RequestConfiguration[QueryParameters]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder::|public|constructor(path_parameters:Union[str, dict[str, Any]]; request_adapter:RequestAdapter):None
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder::|public|delete(request_configuration?:RequestConfiguration[QueryParameters]):None
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder::|public|get(request_configuration?:RequestConfiguration[CopilotPackageDetailItemRequestBuilderGetQueryParameters]):CopilotPackageDetail
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder::|public|patch(body:CopilotPackageDetail; request_configuration?:RequestConfiguration[QueryParameters]):CopilotPackageDetail
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder::|public|path_parameters:Union[str, dict[str, Any]]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder::|public|request_adapter:RequestAdapter
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder::|public|to_delete_request_information(request_configuration?:RequestConfiguration[QueryParameters]):RequestInformation
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder::|public|to_get_request_information(request_configuration?:RequestConfiguration[CopilotPackageDetailItemRequestBuilderGetQueryParameters]):RequestInformation
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder::|public|to_patch_request_information(body:CopilotPackageDetail; request_configuration?:RequestConfiguration[QueryParameters]):RequestInformation
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder::|public|url_template:str
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder::|public|with_url(raw_url:str):CopilotPackageDetailItemRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder-->BaseRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder.PackagesRequestBuilderGetQueryParameters::|public|count:bool
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder.PackagesRequestBuilderGetQueryParameters::|public|expand:list[str]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder.PackagesRequestBuilderGetQueryParameters::|public|filter:str
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder.PackagesRequestBuilderGetQueryParameters::|public|get_query_parameter(original_name:str):str
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder.PackagesRequestBuilderGetQueryParameters::|public|orderby:list[str]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder.PackagesRequestBuilderGetQueryParameters::|public|search:str
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder.PackagesRequestBuilderGetQueryParameters::|public|select:list[str]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder.PackagesRequestBuilderGetQueryParameters::|public|skip:int
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder.PackagesRequestBuilderGetQueryParameters::|public|top:int
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder.PackagesRequestBuilderGetRequestConfiguration-->RequestConfiguration[PackagesRequestBuilderGetQueryParameters]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder.PackagesRequestBuilderPostRequestConfiguration-->RequestConfiguration[QueryParameters]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder::|public|by_copilot_package_detail_id(copilot_package_detail_id:str):CopilotPackageDetailItemRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder::|public|constructor(path_parameters:Union[str, dict[str, Any]]; request_adapter:RequestAdapter):None
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder::|public|count:CountRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder::|public|get(request_configuration?:RequestConfiguration[PackagesRequestBuilderGetQueryParameters]):CopilotPackageDetailCollectionResponse
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder::|public|path_parameters:Union[str, dict[str, Any]]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder::|public|post(body:CopilotPackageDetail; request_configuration?:RequestConfiguration[QueryParameters]):CopilotPackageDetail
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder::|public|request_adapter:RequestAdapter
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder::|public|to_get_request_information(request_configuration?:RequestConfiguration[PackagesRequestBuilderGetQueryParameters]):RequestInformation
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder::|public|to_post_request_information(body:CopilotPackageDetail; request_configuration?:RequestConfiguration[QueryParameters]):RequestInformation
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder::|public|url_template:str
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder::|public|with_url(raw_url:str):PackagesRequestBuilder
 microsoft_agents_m365copilot_beta.generated.copilot.admin.settings.limitedMode.LimitedModeRequestBuilder-->BaseRequestBuilder
 microsoft_agents_m365copilot_beta.generated.copilot.admin.settings.limitedMode.LimitedModeRequestBuilder.LimitedModeRequestBuilderDeleteRequestConfiguration-->RequestConfiguration[QueryParameters]
 microsoft_agents_m365copilot_beta.generated.copilot.admin.settings.limitedMode.LimitedModeRequestBuilder.LimitedModeRequestBuilderGetQueryParameters::|public|expand:list[str]
@@ -60,6 +133,50 @@ microsoft_agents_m365copilot_beta.generated.copilot.admin.settings.SettingsReque
 microsoft_agents_m365copilot_beta.generated.copilot.admin.settings.SettingsRequestBuilder::|public|to_patch_request_information(body:CopilotAdminSetting; request_configuration?:RequestConfiguration[QueryParameters]):RequestInformation
 microsoft_agents_m365copilot_beta.generated.copilot.admin.settings.SettingsRequestBuilder::|public|url_template:str
 microsoft_agents_m365copilot_beta.generated.copilot.admin.settings.SettingsRequestBuilder::|public|with_url(raw_url:str):SettingsRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder-->BaseRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder.AgentsRequestBuilderGetQueryParameters::|public|count:bool
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder.AgentsRequestBuilderGetQueryParameters::|public|expand:list[str]
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder.AgentsRequestBuilderGetQueryParameters::|public|filter:str
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder.AgentsRequestBuilderGetQueryParameters::|public|get_query_parameter(original_name:str):str
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder.AgentsRequestBuilderGetQueryParameters::|public|orderby:list[str]
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder.AgentsRequestBuilderGetQueryParameters::|public|search:str
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder.AgentsRequestBuilderGetQueryParameters::|public|select:list[str]
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder.AgentsRequestBuilderGetQueryParameters::|public|skip:int
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder.AgentsRequestBuilderGetQueryParameters::|public|top:int
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder.AgentsRequestBuilderGetRequestConfiguration-->RequestConfiguration[AgentsRequestBuilderGetQueryParameters]
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder::|public|by_agent_id(agent_id:str):AgentItemRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder::|public|constructor(path_parameters:Union[str, dict[str, Any]]; request_adapter:RequestAdapter):None
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder::|public|count:CountRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder::|public|get(request_configuration?:RequestConfiguration[AgentsRequestBuilderGetQueryParameters]):AgentCollectionResponse
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder::|public|path_parameters:Union[str, dict[str, Any]]
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder::|public|request_adapter:RequestAdapter
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder::|public|to_get_request_information(request_configuration?:RequestConfiguration[AgentsRequestBuilderGetQueryParameters]):RequestInformation
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder::|public|url_template:str
+microsoft_agents_m365copilot_beta.generated.copilot.agents.AgentsRequestBuilder::|public|with_url(raw_url:str):AgentsRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.agents.count.CountRequestBuilder-->BaseRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.agents.count.CountRequestBuilder.CountRequestBuilderGetQueryParameters::|public|filter:str
+microsoft_agents_m365copilot_beta.generated.copilot.agents.count.CountRequestBuilder.CountRequestBuilderGetQueryParameters::|public|get_query_parameter(original_name:str):str
+microsoft_agents_m365copilot_beta.generated.copilot.agents.count.CountRequestBuilder.CountRequestBuilderGetQueryParameters::|public|search:str
+microsoft_agents_m365copilot_beta.generated.copilot.agents.count.CountRequestBuilder.CountRequestBuilderGetRequestConfiguration-->RequestConfiguration[CountRequestBuilderGetQueryParameters]
+microsoft_agents_m365copilot_beta.generated.copilot.agents.count.CountRequestBuilder::|public|constructor(path_parameters:Union[str, dict[str, Any]]; request_adapter:RequestAdapter):None
+microsoft_agents_m365copilot_beta.generated.copilot.agents.count.CountRequestBuilder::|public|get(request_configuration?:RequestConfiguration[CountRequestBuilderGetQueryParameters]):int
+microsoft_agents_m365copilot_beta.generated.copilot.agents.count.CountRequestBuilder::|public|path_parameters:Union[str, dict[str, Any]]
+microsoft_agents_m365copilot_beta.generated.copilot.agents.count.CountRequestBuilder::|public|request_adapter:RequestAdapter
+microsoft_agents_m365copilot_beta.generated.copilot.agents.count.CountRequestBuilder::|public|to_get_request_information(request_configuration?:RequestConfiguration[CountRequestBuilderGetQueryParameters]):RequestInformation
+microsoft_agents_m365copilot_beta.generated.copilot.agents.count.CountRequestBuilder::|public|url_template:str
+microsoft_agents_m365copilot_beta.generated.copilot.agents.count.CountRequestBuilder::|public|with_url(raw_url:str):CountRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.agents.item.AgentItemRequestBuilder-->BaseRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.agents.item.AgentItemRequestBuilder.AgentItemRequestBuilderGetQueryParameters::|public|expand:list[str]
+microsoft_agents_m365copilot_beta.generated.copilot.agents.item.AgentItemRequestBuilder.AgentItemRequestBuilderGetQueryParameters::|public|get_query_parameter(original_name:str):str
+microsoft_agents_m365copilot_beta.generated.copilot.agents.item.AgentItemRequestBuilder.AgentItemRequestBuilderGetQueryParameters::|public|select:list[str]
+microsoft_agents_m365copilot_beta.generated.copilot.agents.item.AgentItemRequestBuilder.AgentItemRequestBuilderGetRequestConfiguration-->RequestConfiguration[AgentItemRequestBuilderGetQueryParameters]
+microsoft_agents_m365copilot_beta.generated.copilot.agents.item.AgentItemRequestBuilder::|public|constructor(path_parameters:Union[str, dict[str, Any]]; request_adapter:RequestAdapter):None
+microsoft_agents_m365copilot_beta.generated.copilot.agents.item.AgentItemRequestBuilder::|public|get(request_configuration?:RequestConfiguration[AgentItemRequestBuilderGetQueryParameters]):Agent
+microsoft_agents_m365copilot_beta.generated.copilot.agents.item.AgentItemRequestBuilder::|public|path_parameters:Union[str, dict[str, Any]]
+microsoft_agents_m365copilot_beta.generated.copilot.agents.item.AgentItemRequestBuilder::|public|request_adapter:RequestAdapter
+microsoft_agents_m365copilot_beta.generated.copilot.agents.item.AgentItemRequestBuilder::|public|to_get_request_information(request_configuration?:RequestConfiguration[AgentItemRequestBuilderGetQueryParameters]):RequestInformation
+microsoft_agents_m365copilot_beta.generated.copilot.agents.item.AgentItemRequestBuilder::|public|url_template:str
+microsoft_agents_m365copilot_beta.generated.copilot.agents.item.AgentItemRequestBuilder::|public|with_url(raw_url:str):AgentItemRequestBuilder
 microsoft_agents_m365copilot_beta.generated.copilot.communications.CommunicationsRequestBuilder-->BaseRequestBuilder
 microsoft_agents_m365copilot_beta.generated.copilot.communications.CommunicationsRequestBuilder.CommunicationsRequestBuilderDeleteRequestConfiguration-->RequestConfiguration[QueryParameters]
 microsoft_agents_m365copilot_beta.generated.copilot.communications.CommunicationsRequestBuilder.CommunicationsRequestBuilderGetQueryParameters::|public|expand:list[str]
@@ -288,6 +405,7 @@ microsoft_agents_m365copilot_beta.generated.copilot.communications.realtimeActiv
 microsoft_agents_m365copilot_beta.generated.copilot.communications.realtimeActivityFeed.RealtimeActivityFeedRequestBuilder::|public|with_url(raw_url:str):RealtimeActivityFeedRequestBuilder
 microsoft_agents_m365copilot_beta.generated.copilot.CopilotRequestBuilder-->BaseRequestBuilder
 microsoft_agents_m365copilot_beta.generated.copilot.CopilotRequestBuilder::|public|admin:AdminRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.CopilotRequestBuilder::|public|agents:AgentsRequestBuilder
 microsoft_agents_m365copilot_beta.generated.copilot.CopilotRequestBuilder::|public|communications:CommunicationsRequestBuilder
 microsoft_agents_m365copilot_beta.generated.copilot.CopilotRequestBuilder::|public|constructor(path_parameters:Union[str, dict[str, Any]]; request_adapter:RequestAdapter):None
 microsoft_agents_m365copilot_beta.generated.copilot.CopilotRequestBuilder::|public|interaction_history:InteractionHistoryRequestBuilder
@@ -631,6 +749,9 @@ microsoft_agents_m365copilot_beta.generated.copilot.users.UsersRequestBuilder::|
 microsoft_agents_m365copilot_beta.generated.copilot.users.UsersRequestBuilder::|public|to_post_request_information(body:AiUser; request_configuration?:RequestConfiguration[QueryParameters]):RequestInformation
 microsoft_agents_m365copilot_beta.generated.copilot.users.UsersRequestBuilder::|public|url_template:str
 microsoft_agents_m365copilot_beta.generated.copilot.users.UsersRequestBuilder::|public|with_url(raw_url:str):UsersRequestBuilder
+microsoft_agents_m365copilot_beta.generated.models.AccessEntityType::0000-User
+microsoft_agents_m365copilot_beta.generated.models.AccessEntityType::0001-Group
+microsoft_agents_m365copilot_beta.generated.models.AccessEntityType::0002-UnknownFutureValue
 microsoft_agents_m365copilot_beta.generated.models.ActionItem::|public|additional_data():dict[str, Any]
 microsoft_agents_m365copilot_beta.generated.models.ActionItem::|public|additional_data(value:dict[str, Any]):None
 microsoft_agents_m365copilot_beta.generated.models.ActionItem::|public|constructor():None
@@ -663,6 +784,21 @@ microsoft_agents_m365copilot_beta.generated.models.ActivityTransport::|public|ur
 microsoft_agents_m365copilot_beta.generated.models.ActivityTransport::|public|url(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.ActivityTransport::|static|public|create_from_discriminator_value(parse_node:ParseNode):ActivityTransport
 microsoft_agents_m365copilot_beta.generated.models.ActivityTransport~~>AdditionalDataHolder; Parsable
+microsoft_agents_m365copilot_beta.generated.models.Agent-->Entity
+microsoft_agents_m365copilot_beta.generated.models.Agent::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.Agent::|public|copilot_tools():list[CopilotTool]
+microsoft_agents_m365copilot_beta.generated.models.Agent::|public|copilot_tools(value:list[CopilotTool]):None
+microsoft_agents_m365copilot_beta.generated.models.Agent::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.Agent::|public|odata_type:str
+microsoft_agents_m365copilot_beta.generated.models.Agent::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.Agent::|static|public|create_from_discriminator_value(parse_node:ParseNode):Agent
+microsoft_agents_m365copilot_beta.generated.models.AgentCollectionResponse-->BaseCollectionPaginationCountResponse
+microsoft_agents_m365copilot_beta.generated.models.AgentCollectionResponse::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.AgentCollectionResponse::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.AgentCollectionResponse::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.AgentCollectionResponse::|public|value():list[Agent]
+microsoft_agents_m365copilot_beta.generated.models.AgentCollectionResponse::|public|value(value:list[Agent]):None
+microsoft_agents_m365copilot_beta.generated.models.AgentCollectionResponse::|static|public|create_from_discriminator_value(parse_node:ParseNode):AgentCollectionResponse
 microsoft_agents_m365copilot_beta.generated.models.AiInteraction-->Entity
 microsoft_agents_m365copilot_beta.generated.models.AiInteraction::|public|app_class():str
 microsoft_agents_m365copilot_beta.generated.models.AiInteraction::|public|app_class(value:str):None
@@ -1035,6 +1171,8 @@ microsoft_agents_m365copilot_beta.generated.models.ConnectionItem~~>AdditionalDa
 microsoft_agents_m365copilot_beta.generated.models.ConnectionType::0000-WebSocket
 microsoft_agents_m365copilot_beta.generated.models.ConnectionType::0001-UnknownFutureValue
 microsoft_agents_m365copilot_beta.generated.models.CopilotAdmin-->Entity
+microsoft_agents_m365copilot_beta.generated.models.CopilotAdmin::|public|catalog():CopilotAdminCatalog
+microsoft_agents_m365copilot_beta.generated.models.CopilotAdmin::|public|catalog(value:CopilotAdminCatalog):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotAdmin::|public|constructor():None
 microsoft_agents_m365copilot_beta.generated.models.CopilotAdmin::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
 microsoft_agents_m365copilot_beta.generated.models.CopilotAdmin::|public|odata_type:str
@@ -1042,6 +1180,14 @@ microsoft_agents_m365copilot_beta.generated.models.CopilotAdmin::|public|seriali
 microsoft_agents_m365copilot_beta.generated.models.CopilotAdmin::|public|settings():CopilotAdminSetting
 microsoft_agents_m365copilot_beta.generated.models.CopilotAdmin::|public|settings(value:CopilotAdminSetting):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotAdmin::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotAdmin
+microsoft_agents_m365copilot_beta.generated.models.CopilotAdminCatalog-->Entity
+microsoft_agents_m365copilot_beta.generated.models.CopilotAdminCatalog::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.CopilotAdminCatalog::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.CopilotAdminCatalog::|public|odata_type:str
+microsoft_agents_m365copilot_beta.generated.models.CopilotAdminCatalog::|public|packages():list[CopilotPackageDetail]
+microsoft_agents_m365copilot_beta.generated.models.CopilotAdminCatalog::|public|packages(value:list[CopilotPackageDetail]):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotAdminCatalog::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotAdminCatalog::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotAdminCatalog
 microsoft_agents_m365copilot_beta.generated.models.CopilotAdminLimitedMode-->Entity
 microsoft_agents_m365copilot_beta.generated.models.CopilotAdminLimitedMode::|public|constructor():None
 microsoft_agents_m365copilot_beta.generated.models.CopilotAdminLimitedMode::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
@@ -1068,6 +1214,61 @@ microsoft_agents_m365copilot_beta.generated.models.CopilotCommunicationsRoot::|p
 microsoft_agents_m365copilot_beta.generated.models.CopilotCommunicationsRoot::|public|realtime_activity_feed(value:RealtimeActivityFeedRoot):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotCommunicationsRoot::|public|serialize(writer:SerializationWriter):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotCommunicationsRoot::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotCommunicationsRoot
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage-->Entity
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|available_to():PackageStatus
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|available_to(value:PackageStatus):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|deployed_to():PackageStatus
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|deployed_to(value:PackageStatus):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|display_name():str
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|display_name(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|element_types():list[str]
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|element_types(value:list[str]):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|is_blocked():bool
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|is_blocked(value:bool):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|last_modified_date_time():datetime.datetime
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|last_modified_date_time(value:datetime.datetime):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|odata_type:str
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|publisher():str
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|publisher(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|short_description():str
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|short_description(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|supported_hosts():list[str]
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|supported_hosts(value:list[str]):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|type():PackageType
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|type(value:PackageType):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotPackage
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail-->CopilotPackage
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|acquire_users_and_groups():list[PackageAccessEntity]
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|acquire_users_and_groups(value:list[PackageAccessEntity]):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|allowed_users_and_groups():list[PackageAccessEntity]
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|allowed_users_and_groups(value:list[PackageAccessEntity]):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|categories():list[str]
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|categories(value:list[str]):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|element_details():list[PackageElementDetail]
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|element_details(value:list[PackageElementDetail]):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|long_description():str
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|long_description(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|manifest_version():str
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|manifest_version(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|odata_type:str
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|sensitivity():str
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|sensitivity(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|version():str
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|version(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotPackageDetail
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetailCollectionResponse-->BaseCollectionPaginationCountResponse
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetailCollectionResponse::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetailCollectionResponse::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetailCollectionResponse::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetailCollectionResponse::|public|value():list[CopilotPackageDetail]
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetailCollectionResponse::|public|value(value:list[CopilotPackageDetail]):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetailCollectionResponse::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotPackageDetailCollectionResponse
 microsoft_agents_m365copilot_beta.generated.models.CopilotPeopleAdminSetting-->Entity
 microsoft_agents_m365copilot_beta.generated.models.CopilotPeopleAdminSetting::|public|constructor():None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPeopleAdminSetting::|public|enhanced_personalization():EnhancedPersonalizationSetting
@@ -1084,6 +1285,19 @@ microsoft_agents_m365copilot_beta.generated.models.CopilotSetting::|public|peopl
 microsoft_agents_m365copilot_beta.generated.models.CopilotSetting::|public|people(value:CopilotPeopleAdminSetting):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotSetting::|public|serialize(writer:SerializationWriter):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotSetting::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotSetting
+microsoft_agents_m365copilot_beta.generated.models.CopilotTool::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot_beta.generated.models.CopilotTool::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotTool::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.CopilotTool::|public|copilot_tool_name():str
+microsoft_agents_m365copilot_beta.generated.models.CopilotTool::|public|copilot_tool_name(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotTool::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.CopilotTool::|public|odata_type():str
+microsoft_agents_m365copilot_beta.generated.models.CopilotTool::|public|odata_type(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotTool::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotTool::|public|url():str
+microsoft_agents_m365copilot_beta.generated.models.CopilotTool::|public|url(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotTool::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotTool
+microsoft_agents_m365copilot_beta.generated.models.CopilotTool~~>AdditionalDataHolder; Parsable
 microsoft_agents_m365copilot_beta.generated.models.DataSourceConfiguration::|public|additional_data():dict[str, Any]
 microsoft_agents_m365copilot_beta.generated.models.DataSourceConfiguration::|public|additional_data(value:dict[str, Any]):None
 microsoft_agents_m365copilot_beta.generated.models.DataSourceConfiguration::|public|constructor():None
@@ -1384,6 +1598,52 @@ microsoft_agents_m365copilot_beta.generated.models.OrganizerMeetingInfo::|public
 microsoft_agents_m365copilot_beta.generated.models.OrganizerMeetingInfo::|public|organizer(value:IdentitySet):None
 microsoft_agents_m365copilot_beta.generated.models.OrganizerMeetingInfo::|public|serialize(writer:SerializationWriter):None
 microsoft_agents_m365copilot_beta.generated.models.OrganizerMeetingInfo::|static|public|create_from_discriminator_value(parse_node:ParseNode):OrganizerMeetingInfo
+microsoft_agents_m365copilot_beta.generated.models.PackageAccessEntity::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot_beta.generated.models.PackageAccessEntity::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot_beta.generated.models.PackageAccessEntity::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.PackageAccessEntity::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.PackageAccessEntity::|public|odata_type():str
+microsoft_agents_m365copilot_beta.generated.models.PackageAccessEntity::|public|odata_type(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.PackageAccessEntity::|public|resource_id():str
+microsoft_agents_m365copilot_beta.generated.models.PackageAccessEntity::|public|resource_id(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.PackageAccessEntity::|public|resource_type():AccessEntityType
+microsoft_agents_m365copilot_beta.generated.models.PackageAccessEntity::|public|resource_type(value:AccessEntityType):None
+microsoft_agents_m365copilot_beta.generated.models.PackageAccessEntity::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.PackageAccessEntity::|static|public|create_from_discriminator_value(parse_node:ParseNode):PackageAccessEntity
+microsoft_agents_m365copilot_beta.generated.models.PackageAccessEntity~~>AdditionalDataHolder; Parsable
+microsoft_agents_m365copilot_beta.generated.models.PackageElement::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot_beta.generated.models.PackageElement::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot_beta.generated.models.PackageElement::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.PackageElement::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.PackageElement::|public|id():str
+microsoft_agents_m365copilot_beta.generated.models.PackageElement::|public|id(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.PackageElement::|public|odata_type():str
+microsoft_agents_m365copilot_beta.generated.models.PackageElement::|public|odata_type(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.PackageElement::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.PackageElement::|static|public|create_from_discriminator_value(parse_node:ParseNode):PackageElement
+microsoft_agents_m365copilot_beta.generated.models.PackageElementDetail::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot_beta.generated.models.PackageElementDetail::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot_beta.generated.models.PackageElementDetail::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.PackageElementDetail::|public|elements():list[PackageElement]
+microsoft_agents_m365copilot_beta.generated.models.PackageElementDetail::|public|elements(value:list[PackageElement]):None
+microsoft_agents_m365copilot_beta.generated.models.PackageElementDetail::|public|element_type():str
+microsoft_agents_m365copilot_beta.generated.models.PackageElementDetail::|public|element_type(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.PackageElementDetail::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.PackageElementDetail::|public|odata_type():str
+microsoft_agents_m365copilot_beta.generated.models.PackageElementDetail::|public|odata_type(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.PackageElementDetail::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.PackageElementDetail::|static|public|create_from_discriminator_value(parse_node:ParseNode):PackageElementDetail
+microsoft_agents_m365copilot_beta.generated.models.PackageElementDetail~~>AdditionalDataHolder; Parsable
+microsoft_agents_m365copilot_beta.generated.models.PackageElement~~>AdditionalDataHolder; Parsable
+microsoft_agents_m365copilot_beta.generated.models.PackageStatus::0000-None_
+microsoft_agents_m365copilot_beta.generated.models.PackageStatus::0001-Some
+microsoft_agents_m365copilot_beta.generated.models.PackageStatus::0002-All
+microsoft_agents_m365copilot_beta.generated.models.PackageStatus::0003-UnknownFutureValue
+microsoft_agents_m365copilot_beta.generated.models.PackageType::0000-Microsoft
+microsoft_agents_m365copilot_beta.generated.models.PackageType::0001-External
+microsoft_agents_m365copilot_beta.generated.models.PackageType::0002-Shared
+microsoft_agents_m365copilot_beta.generated.models.PackageType::0003-Custom
+microsoft_agents_m365copilot_beta.generated.models.PackageType::0004-UnknownFutureValue
 microsoft_agents_m365copilot_beta.generated.models.ProgramResource-->Identity
 microsoft_agents_m365copilot_beta.generated.models.ProgramResource::|public|constructor():None
 microsoft_agents_m365copilot_beta.generated.models.ProgramResource::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
