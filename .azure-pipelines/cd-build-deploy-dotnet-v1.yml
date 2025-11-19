@@ -6,14 +6,12 @@
 name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
-  paths:
-    include:
-      - 'dotnet/src/Microsoft.Agents.M365Copilot/Generated/**'
-      - 'dotnet/src/Microsoft.Agents.M365Copilot/**/*.cs'
-      - 'dotnet/src/Microsoft.Agents.M365Copilot/Microsoft.Agents.M365Copilot.csproj'
   tags:
-    include: # ex Microsoft.Agents.M365Copilot-v0.1.0-preview.0, must use the hyphen t distinguish from Beta
+    include:
       - 'Microsoft.Agents.M365Copilot-*'
+    exclude:
+      - 'Microsoft.Agents.M365Copilot.Beta*'
+      - 'Microsoft.Agents.M365Copilot.Core*'
 
 pr: none
 
@@ -48,9 +46,10 @@ extends:
             vmImage: windows-latest
           steps:
             - task: UseDotNet@2
-              displayName: 'Use .NET 9'
+              displayName: 'Use .NET 10'
               inputs:
-                version: 9.x
+                packageType: sdk
+                version: 10.x
             - task: UseDotNet@2
               displayName: 'Use .NET 8'
               inputs:
