@@ -5,15 +5,19 @@ from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, Par
 from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
+    from .agent import Agent
     from .ai_interaction import AiInteraction
     from .ai_interaction_history import AiInteractionHistory
     from .ai_online_meeting import AiOnlineMeeting
     from .ai_user import AiUser
     from .call_ai_insight import CallAiInsight
     from .copilot_admin import CopilotAdmin
+    from .copilot_admin_catalog import CopilotAdminCatalog
     from .copilot_admin_limited_mode import CopilotAdminLimitedMode
     from .copilot_admin_setting import CopilotAdminSetting
     from .copilot_communications_root import CopilotCommunicationsRoot
+    from .copilot_package import CopilotPackage
+    from .copilot_package_detail import CopilotPackageDetail
     from .copilot_people_admin_setting import CopilotPeopleAdminSetting
     from .copilot_setting import CopilotSetting
     from .enhanced_personalization_setting import EnhancedPersonalizationSetting
@@ -46,6 +50,10 @@ class Entity(AdditionalDataHolder, Parsable):
             mapping_value = child_node.get_str_value() if child_node else None
         except AttributeError:
             mapping_value = None
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.agent".casefold():
+            from .agent import Agent
+
+            return Agent()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.aiInteraction".casefold():
             from .ai_interaction import AiInteraction
 
@@ -70,6 +78,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .copilot_admin import CopilotAdmin
 
             return CopilotAdmin()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotAdminCatalog".casefold():
+            from .copilot_admin_catalog import CopilotAdminCatalog
+
+            return CopilotAdminCatalog()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotAdminLimitedMode".casefold():
             from .copilot_admin_limited_mode import CopilotAdminLimitedMode
 
@@ -82,6 +94,14 @@ class Entity(AdditionalDataHolder, Parsable):
             from .copilot_communications_root import CopilotCommunicationsRoot
 
             return CopilotCommunicationsRoot()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotPackage".casefold():
+            from .copilot_package import CopilotPackage
+
+            return CopilotPackage()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotPackageDetail".casefold():
+            from .copilot_package_detail import CopilotPackageDetail
+
+            return CopilotPackageDetail()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotPeopleAdminSetting".casefold():
             from .copilot_people_admin_setting import CopilotPeopleAdminSetting
 
@@ -117,15 +137,19 @@ class Entity(AdditionalDataHolder, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from .agent import Agent
         from .ai_interaction import AiInteraction
         from .ai_interaction_history import AiInteractionHistory
         from .ai_online_meeting import AiOnlineMeeting
         from .ai_user import AiUser
         from .call_ai_insight import CallAiInsight
         from .copilot_admin import CopilotAdmin
+        from .copilot_admin_catalog import CopilotAdminCatalog
         from .copilot_admin_limited_mode import CopilotAdminLimitedMode
         from .copilot_admin_setting import CopilotAdminSetting
         from .copilot_communications_root import CopilotCommunicationsRoot
+        from .copilot_package import CopilotPackage
+        from .copilot_package_detail import CopilotPackageDetail
         from .copilot_people_admin_setting import CopilotPeopleAdminSetting
         from .copilot_setting import CopilotSetting
         from .enhanced_personalization_setting import EnhancedPersonalizationSetting
@@ -134,15 +158,19 @@ class Entity(AdditionalDataHolder, Parsable):
         from .realtime_activity_meeting import RealtimeActivityMeeting
         from .real_time_transcript import RealTimeTranscript
 
+        from .agent import Agent
         from .ai_interaction import AiInteraction
         from .ai_interaction_history import AiInteractionHistory
         from .ai_online_meeting import AiOnlineMeeting
         from .ai_user import AiUser
         from .call_ai_insight import CallAiInsight
         from .copilot_admin import CopilotAdmin
+        from .copilot_admin_catalog import CopilotAdminCatalog
         from .copilot_admin_limited_mode import CopilotAdminLimitedMode
         from .copilot_admin_setting import CopilotAdminSetting
         from .copilot_communications_root import CopilotCommunicationsRoot
+        from .copilot_package import CopilotPackage
+        from .copilot_package_detail import CopilotPackageDetail
         from .copilot_people_admin_setting import CopilotPeopleAdminSetting
         from .copilot_setting import CopilotSetting
         from .enhanced_personalization_setting import EnhancedPersonalizationSetting

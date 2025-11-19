@@ -14,34 +14,32 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 from warnings import warn
 
 if TYPE_CHECKING:
-    from ...models.copilot_admin import CopilotAdmin
-    from ...models.o_data_errors.o_data_error import ODataError
-    from .catalog.catalog_request_builder import CatalogRequestBuilder
-    from .settings.settings_request_builder import SettingsRequestBuilder
+    from ......models.copilot_package_detail import CopilotPackageDetail
+    from ......models.o_data_errors.o_data_error import ODataError
 
-class AdminRequestBuilder(BaseRequestBuilder):
+class CopilotPackageDetailItemRequestBuilder(BaseRequestBuilder):
     """
-    Provides operations to manage the admin property of the microsoft.graph.copilotRoot entity.
+    Provides operations to manage the packages property of the microsoft.graph.copilotAdminCatalog entity.
     """
     def __init__(self,request_adapter: RequestAdapter, path_parameters: Union[str, dict[str, Any]]) -> None:
         """
-        Instantiates a new AdminRequestBuilder and sets the default values.
+        Instantiates a new CopilotPackageDetailItemRequestBuilder and sets the default values.
         param path_parameters: The raw url or the url-template parameters for the request.
         param request_adapter: The request adapter to use to execute the requests.
         Returns: None
         """
-        super().__init__(request_adapter, "{+baseurl}/copilot/admin{?%24expand,%24select}", path_parameters)
+        super().__init__(request_adapter, "{+baseurl}/copilot/admin/catalog/packages/{copilotPackageDetail%2Did}{?%24expand,%24select}", path_parameters)
     
     async def delete(self,request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> None:
         """
-        Delete navigation property admin for copilot
+        Delete navigation property packages for copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: None
         """
         request_info = self.to_delete_request_information(
             request_configuration
         )
-        from ...models.o_data_errors.o_data_error import ODataError
+        from ......models.o_data_errors.o_data_error import ODataError
 
         error_mapping: dict[str, type[ParsableFactory]] = {
             "XXX": ODataError,
@@ -50,52 +48,52 @@ class AdminRequestBuilder(BaseRequestBuilder):
             raise Exception("Http core is null") 
         return await self.request_adapter.send_no_response_content_async(request_info, error_mapping)
     
-    async def get(self,request_configuration: Optional[RequestConfiguration[AdminRequestBuilderGetQueryParameters]] = None) -> Optional[CopilotAdmin]:
+    async def get(self,request_configuration: Optional[RequestConfiguration[CopilotPackageDetailItemRequestBuilderGetQueryParameters]] = None) -> Optional[CopilotPackageDetail]:
         """
-        Get admin from copilot
+        Get packages from copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
-        Returns: Optional[CopilotAdmin]
+        Returns: Optional[CopilotPackageDetail]
         """
         request_info = self.to_get_request_information(
             request_configuration
         )
-        from ...models.o_data_errors.o_data_error import ODataError
+        from ......models.o_data_errors.o_data_error import ODataError
 
         error_mapping: dict[str, type[ParsableFactory]] = {
             "XXX": ODataError,
         }
         if not self.request_adapter:
             raise Exception("Http core is null") 
-        from ...models.copilot_admin import CopilotAdmin
+        from ......models.copilot_package_detail import CopilotPackageDetail
 
-        return await self.request_adapter.send_async(request_info, CopilotAdmin, error_mapping)
+        return await self.request_adapter.send_async(request_info, CopilotPackageDetail, error_mapping)
     
-    async def patch(self,body: CopilotAdmin, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> Optional[CopilotAdmin]:
+    async def patch(self,body: CopilotPackageDetail, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> Optional[CopilotPackageDetail]:
         """
-        Update the navigation property admin in copilot
+        Update the navigation property packages in copilot
         param body: The request body
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
-        Returns: Optional[CopilotAdmin]
+        Returns: Optional[CopilotPackageDetail]
         """
         if body is None:
             raise TypeError("body cannot be null.")
         request_info = self.to_patch_request_information(
             body, request_configuration
         )
-        from ...models.o_data_errors.o_data_error import ODataError
+        from ......models.o_data_errors.o_data_error import ODataError
 
         error_mapping: dict[str, type[ParsableFactory]] = {
             "XXX": ODataError,
         }
         if not self.request_adapter:
             raise Exception("Http core is null") 
-        from ...models.copilot_admin import CopilotAdmin
+        from ......models.copilot_package_detail import CopilotPackageDetail
 
-        return await self.request_adapter.send_async(request_info, CopilotAdmin, error_mapping)
+        return await self.request_adapter.send_async(request_info, CopilotPackageDetail, error_mapping)
     
     def to_delete_request_information(self,request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> RequestInformation:
         """
-        Delete navigation property admin for copilot
+        Delete navigation property packages for copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -104,9 +102,9 @@ class AdminRequestBuilder(BaseRequestBuilder):
         request_info.headers.try_add("Accept", "application/json")
         return request_info
     
-    def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[AdminRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
+    def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[CopilotPackageDetailItemRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
         """
-        Get admin from copilot
+        Get packages from copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -115,9 +113,9 @@ class AdminRequestBuilder(BaseRequestBuilder):
         request_info.headers.try_add("Accept", "application/json")
         return request_info
     
-    def to_patch_request_information(self,body: CopilotAdmin, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> RequestInformation:
+    def to_patch_request_information(self,body: CopilotPackageDetail, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> RequestInformation:
         """
-        Update the navigation property admin in copilot
+        Update the navigation property packages in copilot
         param body: The request body
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
@@ -130,45 +128,27 @@ class AdminRequestBuilder(BaseRequestBuilder):
         request_info.set_content_from_parsable(self.request_adapter, "application/json", body)
         return request_info
     
-    def with_url(self,raw_url: str) -> AdminRequestBuilder:
+    def with_url(self,raw_url: str) -> CopilotPackageDetailItemRequestBuilder:
         """
         Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         param raw_url: The raw URL to use for the request builder.
-        Returns: AdminRequestBuilder
+        Returns: CopilotPackageDetailItemRequestBuilder
         """
         if raw_url is None:
             raise TypeError("raw_url cannot be null.")
-        return AdminRequestBuilder(self.request_adapter, raw_url)
-    
-    @property
-    def catalog(self) -> CatalogRequestBuilder:
-        """
-        Provides operations to manage the catalog property of the microsoft.graph.copilotAdmin entity.
-        """
-        from .catalog.catalog_request_builder import CatalogRequestBuilder
-
-        return CatalogRequestBuilder(self.request_adapter, self.path_parameters)
-    
-    @property
-    def settings(self) -> SettingsRequestBuilder:
-        """
-        Provides operations to manage the settings property of the microsoft.graph.copilotAdmin entity.
-        """
-        from .settings.settings_request_builder import SettingsRequestBuilder
-
-        return SettingsRequestBuilder(self.request_adapter, self.path_parameters)
+        return CopilotPackageDetailItemRequestBuilder(self.request_adapter, raw_url)
     
     @dataclass
-    class AdminRequestBuilderDeleteRequestConfiguration(RequestConfiguration[QueryParameters]):
+    class CopilotPackageDetailItemRequestBuilderDeleteRequestConfiguration(RequestConfiguration[QueryParameters]):
         """
         Configuration for the request such as headers, query parameters, and middleware options.
         """
         warn("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.", DeprecationWarning)
     
     @dataclass
-    class AdminRequestBuilderGetQueryParameters():
+    class CopilotPackageDetailItemRequestBuilderGetQueryParameters():
         """
-        Get admin from copilot
+        Get packages from copilot
         """
         def get_query_parameter(self,original_name: str) -> str:
             """
@@ -192,14 +172,14 @@ class AdminRequestBuilder(BaseRequestBuilder):
 
     
     @dataclass
-    class AdminRequestBuilderGetRequestConfiguration(RequestConfiguration[AdminRequestBuilderGetQueryParameters]):
+    class CopilotPackageDetailItemRequestBuilderGetRequestConfiguration(RequestConfiguration[CopilotPackageDetailItemRequestBuilderGetQueryParameters]):
         """
         Configuration for the request such as headers, query parameters, and middleware options.
         """
         warn("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.", DeprecationWarning)
     
     @dataclass
-    class AdminRequestBuilderPatchRequestConfiguration(RequestConfiguration[QueryParameters]):
+    class CopilotPackageDetailItemRequestBuilderPatchRequestConfiguration(RequestConfiguration[QueryParameters]):
         """
         Configuration for the request such as headers, query parameters, and middleware options.
         """
