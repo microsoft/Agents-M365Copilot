@@ -12,6 +12,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class CopilotAdmin : global::Microsoft.Agents.M365Copilot.Beta.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The catalog property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminCatalog? Catalog { get; set; }
+#nullable restore
+#else
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminCatalog Catalog { get; set; }
+#endif
         /// <summary>The settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,6 +46,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                { "catalog", n => { Catalog = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminCatalog>(global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminCatalog.CreateFromDiscriminatorValue); } },
                 { "settings", n => { Settings = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting>(global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting.CreateFromDiscriminatorValue); } },
             };
         }
@@ -49,6 +58,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminCatalog>("catalog", Catalog);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting>("settings", Settings);
         }
     }
