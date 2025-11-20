@@ -6,6 +6,8 @@ import { createCopilotAdminFromDiscriminatorValue, serializeCopilotAdmin, type C
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '../../models/oDataErrors/index.js';
 // @ts-ignore
+import { CatalogRequestBuilderNavigationMetadata, CatalogRequestBuilderRequestsMetadata, type CatalogRequestBuilder } from './catalog/index.js';
+// @ts-ignore
 import { SettingsRequestBuilderNavigationMetadata, SettingsRequestBuilderRequestsMetadata, type SettingsRequestBuilder } from './settings/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -14,6 +16,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the admin property of the microsoft.graph.copilotRoot entity.
  */
 export interface AdminRequestBuilder extends BaseRequestBuilder<AdminRequestBuilder> {
+    /**
+     * Provides operations to manage the catalog property of the microsoft.graph.copilotAdmin entity.
+     */
+    get catalog(): CatalogRequestBuilder;
     /**
      * Provides operations to manage the settings property of the microsoft.graph.copilotAdmin entity.
      */
@@ -87,6 +93,10 @@ const AdminRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  * Metadata for all the navigation properties in the request builder.
  */
 export const AdminRequestBuilderNavigationMetadata: Record<Exclude<keyof AdminRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    catalog: {
+        requestsMetadata: CatalogRequestBuilderRequestsMetadata,
+        navigationMetadata: CatalogRequestBuilderNavigationMetadata,
+    },
     settings: {
         requestsMetadata: SettingsRequestBuilderRequestsMetadata,
         navigationMetadata: SettingsRequestBuilderNavigationMetadata,

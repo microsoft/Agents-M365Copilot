@@ -6,9 +6,6 @@
 name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
-  paths:
-    include:
-      - 'typescript/packages/agents-m365copilot-beta/generated/**'
   tags:
     include:
       - '@microsoft/agents-m365copilot-beta*'
