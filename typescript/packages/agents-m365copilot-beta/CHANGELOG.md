@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0-preview.10](https://github.com/microsoft/Agents-M365Copilot/compare/@microsoft/agents-m365copilot-beta-v1.0.0-preview.9...@microsoft/agents-m365copilot-beta-v1.0.0-preview.10) (2025-11-20)
+
+
+### Features
+
+* **generation:** update request builders and models for typescript beta ([f7a3112](https://github.com/microsoft/Agents-M365Copilot/commit/f7a31127c7a00bc0668ca9827dfa320e14be3722))
+
 ## [1.0.0-preview.9](https://github.com/microsoft/Agents-M365Copilot/compare/@microsoft/agents-m365copilot-beta-v1.0.0-preview.8...@microsoft/agents-m365copilot-beta-v1.0.0-preview.9) (2025-11-06)
 
 
