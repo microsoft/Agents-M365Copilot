@@ -19,7 +19,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <!-- x-release-please-start-version -->
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <!-- x-release-please-end -->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
