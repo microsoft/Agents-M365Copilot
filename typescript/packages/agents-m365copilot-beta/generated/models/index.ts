@@ -568,6 +568,8 @@ export interface CopilotPeopleAdminSetting extends Entity, Parsable {
      */
     enhancedPersonalization?: EnhancedPersonalizationSetting | null;
 }
+export interface CopilotReportRoot extends Entity, Parsable {
+}
 export interface CopilotSetting extends Entity, Parsable {
     /**
      * The people property
@@ -1009,6 +1011,15 @@ export function createCopilotPeopleAdminSettingFromDiscriminatorValue(parseNode:
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotReportRoot}
+ */
+// @ts-ignore
+export function createCopilotReportRootFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotReportRoot;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CopilotSetting}
  */
 // @ts-ignore
@@ -1130,6 +1141,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoCopilotPackageDetail;
                 case "#microsoft.graph.copilotPeopleAdminSetting":
                     return deserializeIntoCopilotPeopleAdminSetting;
+                case "#microsoft.graph.copilotReportRoot":
+                    return deserializeIntoCopilotReportRoot;
                 case "#microsoft.graph.copilotSetting":
                     return deserializeIntoCopilotSetting;
                 case "#microsoft.graph.enhancedPersonalizationSetting":
@@ -1168,6 +1181,15 @@ export function createGetArtifactsResponseFromDiscriminatorValue(parseNode: Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {GroupIdentity}
+ */
+// @ts-ignore
+export function createGroupIdentityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGroupIdentity;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Identity}
  */
 // @ts-ignore
@@ -1198,6 +1220,8 @@ export function createIdentityFromDiscriminatorValue(parseNode: ParseNode | unde
                     return deserializeIntoCommunicationsUserIdentity;
                 case "#microsoft.graph.emailIdentity":
                     return deserializeIntoEmailIdentity;
+                case "#microsoft.graph.groupIdentity":
+                    return deserializeIntoGroupIdentity;
                 case "#microsoft.graph.initiator":
                     return deserializeIntoInitiator;
                 case "#microsoft.graph.programResource":
@@ -2291,6 +2315,17 @@ export function deserializeIntoCopilotPeopleAdminSetting(copilotPeopleAdminSetti
 }
 /**
  * The deserialization information for the current model
+ * @param CopilotReportRoot The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotReportRoot(copilotReportRoot: Partial<CopilotReportRoot> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(copilotReportRoot),
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param CopilotSetting The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -2421,6 +2456,18 @@ export function deserializeIntoGetArtifactsResponse(getArtifactsResponse: Partia
         "nextLink": n => { getArtifactsResponse.nextLink = n.getStringValue(); },
         "@odata.type": n => { getArtifactsResponse.odataType = n.getStringValue(); },
         "payloads": n => { getArtifactsResponse.payloads = n.getCollectionOfObjectValues<TranscriptPayload>(createTranscriptPayloadFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param GroupIdentity The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoGroupIdentity(groupIdentity: Partial<GroupIdentity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoIdentity(groupIdentity),
+        "mailNickname": n => { groupIdentity.mailNickname = n.getStringValue(); },
     }
 }
 /**
@@ -3083,6 +3130,12 @@ export interface GetArtifactsResponse extends AdditionalDataHolder, Parsable {
      * The payloads property
      */
     payloads?: TranscriptPayload[] | null;
+}
+export interface GroupIdentity extends Identity, Parsable {
+    /**
+     * The mailNickname property
+     */
+    mailNickname?: string | null;
 }
 export interface Identity extends AdditionalDataHolder, Parsable {
     /**
@@ -4054,6 +4107,17 @@ export function serializeCopilotPeopleAdminSetting(writer: SerializationWriter, 
 }
 /**
  * Serializes information the current object
+ * @param CopilotReportRoot The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotReportRoot(writer: SerializationWriter, copilotReportRoot: Partial<CopilotReportRoot> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotReportRoot || isSerializingDerivedType) { return; }
+    serializeEntity(writer, copilotReportRoot, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
  * @param CopilotSetting The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -4213,6 +4277,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.copilotPeopleAdminSetting":
             serializeCopilotPeopleAdminSetting(writer, entity, true);
         break;
+        case "#microsoft.graph.copilotReportRoot":
+            serializeCopilotReportRoot(writer, entity, true);
+        break;
         case "#microsoft.graph.copilotSetting":
             serializeCopilotSetting(writer, entity, true);
         break;
@@ -4262,6 +4329,18 @@ export function serializeGetArtifactsResponse(writer: SerializationWriter, getAr
 }
 /**
  * Serializes information the current object
+ * @param GroupIdentity The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeGroupIdentity(writer: SerializationWriter, groupIdentity: Partial<GroupIdentity> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!groupIdentity || isSerializingDerivedType) { return; }
+    serializeIdentity(writer, groupIdentity, isSerializingDerivedType)
+    writer.writeStringValue("mailNickname", groupIdentity.mailNickname);
+}
+/**
+ * Serializes information the current object
  * @param Identity The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -4303,6 +4382,9 @@ export function serializeIdentity(writer: SerializationWriter, identity: Partial
         break;
         case "#microsoft.graph.emailIdentity":
             serializeEmailIdentity(writer, identity, true);
+        break;
+        case "#microsoft.graph.groupIdentity":
+            serializeGroupIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.initiator":
             serializeInitiator(writer, identity, true);

@@ -10,6 +10,8 @@ import { CommunicationsRequestBuilderNavigationMetadata, CommunicationsRequestBu
 // @ts-ignore
 import { InteractionHistoryRequestBuilderNavigationMetadata, InteractionHistoryRequestBuilderRequestsMetadata, type InteractionHistoryRequestBuilder } from './interactionHistory/index.js';
 // @ts-ignore
+import { ReportsRequestBuilderRequestsMetadata, type ReportsRequestBuilder } from './reports/index.js';
+// @ts-ignore
 import { RetrievalRequestBuilderRequestsMetadata, type RetrievalRequestBuilder } from './retrieval/index.js';
 // @ts-ignore
 import { SettingsRequestBuilderNavigationMetadata, SettingsRequestBuilderRequestsMetadata, type SettingsRequestBuilder } from './settings/index.js';
@@ -38,6 +40,10 @@ export interface CopilotRequestBuilder extends BaseRequestBuilder<CopilotRequest
      * Provides operations to manage the interactionHistory property of the microsoft.graph.copilotRoot entity.
      */
     get interactionHistory(): InteractionHistoryRequestBuilder;
+    /**
+     * Provides operations to manage the reports property of the microsoft.graph.copilotRoot entity.
+     */
+    get reports(): ReportsRequestBuilder;
     /**
      * Provides operations to call the retrieval method.
      */
@@ -74,6 +80,9 @@ export const CopilotRequestBuilderNavigationMetadata: Record<Exclude<keyof Copil
     interactionHistory: {
         requestsMetadata: InteractionHistoryRequestBuilderRequestsMetadata,
         navigationMetadata: InteractionHistoryRequestBuilderNavigationMetadata,
+    },
+    reports: {
+        requestsMetadata: ReportsRequestBuilderRequestsMetadata,
     },
     retrieval: {
         requestsMetadata: RetrievalRequestBuilderRequestsMetadata,
