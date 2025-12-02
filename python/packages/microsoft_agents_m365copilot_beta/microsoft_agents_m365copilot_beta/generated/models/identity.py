@@ -15,6 +15,7 @@ if TYPE_CHECKING:
     from .communications_phone_identity import CommunicationsPhoneIdentity
     from .communications_user_identity import CommunicationsUserIdentity
     from .email_identity import EmailIdentity
+    from .group_identity import GroupIdentity
     from .initiator import Initiator
     from .program_resource import ProgramResource
     from .provisioned_identity import ProvisionedIdentity
@@ -98,6 +99,10 @@ class Identity(AdditionalDataHolder, Parsable):
             from .email_identity import EmailIdentity
 
             return EmailIdentity()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.groupIdentity".casefold():
+            from .group_identity import GroupIdentity
+
+            return GroupIdentity()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.initiator".casefold():
             from .initiator import Initiator
 
@@ -176,6 +181,7 @@ class Identity(AdditionalDataHolder, Parsable):
         from .communications_phone_identity import CommunicationsPhoneIdentity
         from .communications_user_identity import CommunicationsUserIdentity
         from .email_identity import EmailIdentity
+        from .group_identity import GroupIdentity
         from .initiator import Initiator
         from .program_resource import ProgramResource
         from .provisioned_identity import ProvisionedIdentity
@@ -202,6 +208,7 @@ class Identity(AdditionalDataHolder, Parsable):
         from .communications_phone_identity import CommunicationsPhoneIdentity
         from .communications_user_identity import CommunicationsUserIdentity
         from .email_identity import EmailIdentity
+        from .group_identity import GroupIdentity
         from .initiator import Initiator
         from .program_resource import ProgramResource
         from .provisioned_identity import ProvisionedIdentity
