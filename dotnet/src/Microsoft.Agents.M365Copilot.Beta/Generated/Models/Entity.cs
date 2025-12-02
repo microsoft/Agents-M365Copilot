@@ -62,6 +62,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 "#microsoft.graph.copilotPackage" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackage(),
                 "#microsoft.graph.copilotPackageDetail" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageDetail(),
                 "#microsoft.graph.copilotPeopleAdminSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPeopleAdminSetting(),
+                "#microsoft.graph.copilotReportRoot" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotReportRoot(),
                 "#microsoft.graph.copilotSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotSetting(),
                 "#microsoft.graph.enhancedPersonalizationSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting(),
                 "#microsoft.graph.multiActivitySubscription" => new global::Microsoft.Agents.M365Copilot.Beta.Models.MultiActivitySubscription(),
