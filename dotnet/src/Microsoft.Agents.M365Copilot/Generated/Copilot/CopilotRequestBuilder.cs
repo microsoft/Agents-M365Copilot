@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Agents.M365Copilot.Copilot.Admin;
 using Microsoft.Agents.M365Copilot.Copilot.InteractionHistory;
+using Microsoft.Agents.M365Copilot.Copilot.Reports;
 using Microsoft.Agents.M365Copilot.Copilot.Retrieval;
 using Microsoft.Agents.M365Copilot.Copilot.Users;
 using Microsoft.Kiota.Abstractions.Extensions;
@@ -27,6 +28,11 @@ namespace Microsoft.Agents.M365Copilot.Copilot
         public global::Microsoft.Agents.M365Copilot.Copilot.InteractionHistory.InteractionHistoryRequestBuilder InteractionHistory
         {
             get => new global::Microsoft.Agents.M365Copilot.Copilot.InteractionHistory.InteractionHistoryRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the reports property of the microsoft.graph.copilotRoot entity.</summary>
+        public global::Microsoft.Agents.M365Copilot.Copilot.Reports.ReportsRequestBuilder Reports
+        {
+            get => new global::Microsoft.Agents.M365Copilot.Copilot.Reports.ReportsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the retrieval method.</summary>
         public global::Microsoft.Agents.M365Copilot.Copilot.Retrieval.RetrievalRequestBuilder Retrieval
