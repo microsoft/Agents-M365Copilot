@@ -19,6 +19,7 @@ if TYPE_CHECKING:
     from .copilot_package import CopilotPackage
     from .copilot_package_detail import CopilotPackageDetail
     from .copilot_people_admin_setting import CopilotPeopleAdminSetting
+    from .copilot_report_root import CopilotReportRoot
     from .copilot_setting import CopilotSetting
     from .enhanced_personalization_setting import EnhancedPersonalizationSetting
     from .multi_activity_subscription import MultiActivitySubscription
@@ -106,6 +107,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .copilot_people_admin_setting import CopilotPeopleAdminSetting
 
             return CopilotPeopleAdminSetting()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotReportRoot".casefold():
+            from .copilot_report_root import CopilotReportRoot
+
+            return CopilotReportRoot()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotSetting".casefold():
             from .copilot_setting import CopilotSetting
 
@@ -151,6 +156,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .copilot_package import CopilotPackage
         from .copilot_package_detail import CopilotPackageDetail
         from .copilot_people_admin_setting import CopilotPeopleAdminSetting
+        from .copilot_report_root import CopilotReportRoot
         from .copilot_setting import CopilotSetting
         from .enhanced_personalization_setting import EnhancedPersonalizationSetting
         from .multi_activity_subscription import MultiActivitySubscription
@@ -172,6 +178,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .copilot_package import CopilotPackage
         from .copilot_package_detail import CopilotPackageDetail
         from .copilot_people_admin_setting import CopilotPeopleAdminSetting
+        from .copilot_report_root import CopilotReportRoot
         from .copilot_setting import CopilotSetting
         from .enhanced_personalization_setting import EnhancedPersonalizationSetting
         from .multi_activity_subscription import MultiActivitySubscription

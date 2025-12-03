@@ -10,6 +10,7 @@ if TYPE_CHECKING:
     from .agents.agents_request_builder import AgentsRequestBuilder
     from .communications.communications_request_builder import CommunicationsRequestBuilder
     from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
+    from .reports.reports_request_builder import ReportsRequestBuilder
     from .retrieval.retrieval_request_builder import RetrievalRequestBuilder
     from .settings.settings_request_builder import SettingsRequestBuilder
     from .users.users_request_builder import UsersRequestBuilder
@@ -62,6 +63,15 @@ class CopilotRequestBuilder(BaseRequestBuilder):
         from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
 
         return InteractionHistoryRequestBuilder(self.request_adapter, self.path_parameters)
+    
+    @property
+    def reports(self) -> ReportsRequestBuilder:
+        """
+        Provides operations to manage the reports property of the microsoft.graph.copilotRoot entity.
+        """
+        from .reports.reports_request_builder import ReportsRequestBuilder
+
+        return ReportsRequestBuilder(self.request_adapter, self.path_parameters)
     
     @property
     def retrieval(self) -> RetrievalRequestBuilder:
