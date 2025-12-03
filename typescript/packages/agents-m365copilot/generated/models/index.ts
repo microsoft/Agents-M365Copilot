@@ -217,6 +217,10 @@ export interface CommunicationsApplicationInstanceIdentity extends Identity, Par
 export interface CommunicationsEncryptedIdentity extends Identity, Parsable {
 }
 export interface CommunicationsGuestIdentity extends Identity, Parsable {
+    /**
+     * The email of the guest user.
+     */
+    email?: string | null;
 }
 export interface CommunicationsIdentitySet extends IdentitySet, Parsable {
     /**
@@ -291,6 +295,8 @@ export interface CopilotAdminSetting extends Entity, Parsable {
      * The limitedMode property
      */
     limitedMode?: CopilotAdminLimitedMode | null;
+}
+export interface CopilotReportRoot extends Entity, Parsable {
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -520,6 +526,15 @@ export function createCopilotAdminSettingFromDiscriminatorValue(parseNode: Parse
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotReportRoot}
+ */
+// @ts-ignore
+export function createCopilotReportRootFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotReportRoot;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DataSourceConfiguration}
  */
 // @ts-ignore
@@ -598,6 +613,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoCopilotAdminLimitedMode;
                 case "#microsoft.graph.copilotAdminSetting":
                     return deserializeIntoCopilotAdminSetting;
+                case "#microsoft.graph.copilotReportRoot":
+                    return deserializeIntoCopilotReportRoot;
             }
         }
     }
@@ -1109,6 +1126,7 @@ export function deserializeIntoCommunicationsEncryptedIdentity(communicationsEnc
 export function deserializeIntoCommunicationsGuestIdentity(communicationsGuestIdentity: Partial<CommunicationsGuestIdentity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoIdentity(communicationsGuestIdentity),
+        "email": n => { communicationsGuestIdentity.email = n.getStringValue(); },
     }
 }
 /**
@@ -1200,6 +1218,17 @@ export function deserializeIntoCopilotAdminSetting(copilotAdminSetting: Partial<
     return {
         ...deserializeIntoEntity(copilotAdminSetting),
         "limitedMode": n => { copilotAdminSetting.limitedMode = n.getObjectValue<CopilotAdminLimitedMode>(createCopilotAdminLimitedModeFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotReportRoot The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotReportRoot(copilotReportRoot: Partial<CopilotReportRoot> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(copilotReportRoot),
     }
 }
 /**
@@ -1983,6 +2012,7 @@ export function serializeCommunicationsEncryptedIdentity(writer: SerializationWr
 export function serializeCommunicationsGuestIdentity(writer: SerializationWriter, communicationsGuestIdentity: Partial<CommunicationsGuestIdentity> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!communicationsGuestIdentity || isSerializingDerivedType) { return; }
     serializeIdentity(writer, communicationsGuestIdentity, isSerializingDerivedType)
+    writer.writeStringValue("email", communicationsGuestIdentity.email);
 }
 /**
  * Serializes information the current object
@@ -2075,6 +2105,17 @@ export function serializeCopilotAdminSetting(writer: SerializationWriter, copilo
     if (!copilotAdminSetting || isSerializingDerivedType) { return; }
     serializeEntity(writer, copilotAdminSetting, isSerializingDerivedType)
     writer.writeObjectValue<CopilotAdminLimitedMode>("limitedMode", copilotAdminSetting.limitedMode, serializeCopilotAdminLimitedMode);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotReportRoot The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotReportRoot(writer: SerializationWriter, copilotReportRoot: Partial<CopilotReportRoot> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotReportRoot || isSerializingDerivedType) { return; }
+    serializeEntity(writer, copilotReportRoot, isSerializingDerivedType)
 }
 /**
  * Serializes information the current object
@@ -2173,6 +2214,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.copilotAdminSetting":
             serializeCopilotAdminSetting(writer, entity, true);
+        break;
+        case "#microsoft.graph.copilotReportRoot":
+            serializeCopilotReportRoot(writer, entity, true);
         break;
     }
 }
