@@ -53,6 +53,7 @@ Microsoft.Agents.M365Copilot.Copilot.copilotRequestBuilder::|public|admin:global
 Microsoft.Agents.M365Copilot.Copilot.copilotRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
 Microsoft.Agents.M365Copilot.Copilot.copilotRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
 Microsoft.Agents.M365Copilot.Copilot.copilotRequestBuilder::|public|interactionHistory:global.Microsoft.Agents.M365Copilot.Copilot.InteractionHistory.InteractionHistoryRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.copilotRequestBuilder::|public|reports:global.Microsoft.Agents.M365Copilot.Copilot.Reports.ReportsRequestBuilder
 Microsoft.Agents.M365Copilot.Copilot.copilotRequestBuilder::|public|retrieval:global.Microsoft.Agents.M365Copilot.Copilot.Retrieval.RetrievalRequestBuilder
 Microsoft.Agents.M365Copilot.Copilot.copilotRequestBuilder::|public|users:global.Microsoft.Agents.M365Copilot.Copilot.Users.UsersRequestBuilder
 Microsoft.Agents.M365Copilot.Copilot.InteractionHistory.GetAllEnterpriseInteractions.getAllEnterpriseInteractionsGetResponse-->global.Microsoft.Agents.M365Copilot.Models.BaseCollectionPaginationCountResponse
@@ -94,6 +95,15 @@ Microsoft.Agents.M365Copilot.Copilot.InteractionHistory.interactionHistoryReques
 Microsoft.Agents.M365Copilot.Copilot.InteractionHistory.interactionHistoryRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.InteractionHistory.InteractionHistoryRequestBuilder.InteractionHistoryRequestBuilderGetQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Copilot.InteractionHistory.interactionHistoryRequestBuilder::|public|ToPatchRequestInformation(body:global.Microsoft.Agents.M365Copilot.Models.AiInteractionHistory; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Copilot.InteractionHistory.interactionHistoryRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.InteractionHistory.InteractionHistoryRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder.reportsRequestBuilderGetQueryParameters::|public|Expand:string[]
+Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder.reportsRequestBuilderGetQueryParameters::|public|Select:string[]
+Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder.reportsRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Reports.ReportsRequestBuilder.ReportsRequestBuilderGetQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Reports.ReportsRequestBuilder.ReportsRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Models.CopilotReportRoot
+Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Reports.ReportsRequestBuilder.ReportsRequestBuilderGetQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Reports.ReportsRequestBuilder
 Microsoft.Agents.M365Copilot.Copilot.Retrieval.retrievalPostRequestBody::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Copilot.Retrieval.retrievalPostRequestBody::|public|constructor():void
 Microsoft.Agents.M365Copilot.Copilot.Retrieval.retrievalPostRequestBody::|public|DataSource:global.Microsoft.Agents.M365Copilot.Models.RetrievalDataSource?
@@ -352,6 +362,7 @@ Microsoft.Agents.M365Copilot.Models.communicationsEncryptedIdentity::|public|Ser
 Microsoft.Agents.M365Copilot.Models.communicationsEncryptedIdentity::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.CommunicationsEncryptedIdentity
 Microsoft.Agents.M365Copilot.Models.communicationsGuestIdentity-->global.Microsoft.Agents.M365Copilot.Models.Identity
 Microsoft.Agents.M365Copilot.Models.communicationsGuestIdentity::|public|constructor():void
+Microsoft.Agents.M365Copilot.Models.communicationsGuestIdentity::|public|Email:string
 Microsoft.Agents.M365Copilot.Models.communicationsGuestIdentity::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Models.communicationsGuestIdentity::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Models.communicationsGuestIdentity::|public|Serialize(writer:ISerializationWriter):void
@@ -410,6 +421,11 @@ Microsoft.Agents.M365Copilot.Models.copilotAdminSetting::|public|LimitedMode:glo
 Microsoft.Agents.M365Copilot.Models.copilotAdminSetting::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Models.copilotAdminSetting::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Models.copilotAdminSetting::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.CopilotAdminSetting
+Microsoft.Agents.M365Copilot.Models.copilotReportRoot-->global.Microsoft.Agents.M365Copilot.Models.Entity
+Microsoft.Agents.M365Copilot.Models.copilotReportRoot::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.copilotReportRoot::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.copilotReportRoot::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.copilotReportRoot::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.CopilotReportRoot
 Microsoft.Agents.M365Copilot.Models.dataSourceConfiguration::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Models.dataSourceConfiguration::|public|constructor():void
 Microsoft.Agents.M365Copilot.Models.dataSourceConfiguration::|public|ExternalItem:global.Microsoft.Agents.M365Copilot.Models.ExternalItemConfiguration

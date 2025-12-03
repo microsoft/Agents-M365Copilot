@@ -54,6 +54,7 @@ namespace Microsoft.Agents.M365Copilot.Models
                 "#microsoft.graph.copilotAdmin" => new global::Microsoft.Agents.M365Copilot.Models.CopilotAdmin(),
                 "#microsoft.graph.copilotAdminLimitedMode" => new global::Microsoft.Agents.M365Copilot.Models.CopilotAdminLimitedMode(),
                 "#microsoft.graph.copilotAdminSetting" => new global::Microsoft.Agents.M365Copilot.Models.CopilotAdminSetting(),
+                "#microsoft.graph.copilotReportRoot" => new global::Microsoft.Agents.M365Copilot.Models.CopilotReportRoot(),
                 _ => new global::Microsoft.Agents.M365Copilot.Models.Entity(),
             };
         }
