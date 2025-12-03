@@ -11,6 +11,7 @@ if TYPE_CHECKING:
     from .copilot_admin import CopilotAdmin
     from .copilot_admin_limited_mode import CopilotAdminLimitedMode
     from .copilot_admin_setting import CopilotAdminSetting
+    from .copilot_report_root import CopilotReportRoot
 
 @dataclass
 class Entity(AdditionalDataHolder, Parsable):
@@ -60,6 +61,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .copilot_admin_setting import CopilotAdminSetting
 
             return CopilotAdminSetting()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotReportRoot".casefold():
+            from .copilot_report_root import CopilotReportRoot
+
+            return CopilotReportRoot()
         return Entity()
     
     def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
@@ -73,6 +78,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .copilot_admin import CopilotAdmin
         from .copilot_admin_limited_mode import CopilotAdminLimitedMode
         from .copilot_admin_setting import CopilotAdminSetting
+        from .copilot_report_root import CopilotReportRoot
 
         from .ai_interaction import AiInteraction
         from .ai_interaction_history import AiInteractionHistory
@@ -80,6 +86,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .copilot_admin import CopilotAdmin
         from .copilot_admin_limited_mode import CopilotAdminLimitedMode
         from .copilot_admin_setting import CopilotAdminSetting
+        from .copilot_report_root import CopilotReportRoot
 
         fields: dict[str, Callable[[Any], None]] = {
             "id": lambda n : setattr(self, 'id', n.get_str_value()),

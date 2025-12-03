@@ -9,33 +9,18 @@ namespace Microsoft.Agents.M365Copilot.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class CommunicationsGuestIdentity : global::Microsoft.Agents.M365Copilot.Models.Identity, IParsable
+    public partial class CopilotReportRoot : global::Microsoft.Agents.M365Copilot.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The email of the guest user.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Email { get; set; }
-#nullable restore
-#else
-        public string Email { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Models.CommunicationsGuestIdentity"/> and sets the default values.
-        /// </summary>
-        public CommunicationsGuestIdentity() : base()
-        {
-            OdataType = "#microsoft.graph.communicationsGuestIdentity";
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Models.CommunicationsGuestIdentity"/></returns>
+        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Models.CopilotReportRoot"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Microsoft.Agents.M365Copilot.Models.CommunicationsGuestIdentity CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Microsoft.Agents.M365Copilot.Models.CopilotReportRoot CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Microsoft.Agents.M365Copilot.Models.CommunicationsGuestIdentity();
+            return new global::Microsoft.Agents.M365Copilot.Models.CopilotReportRoot();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -45,7 +30,6 @@ namespace Microsoft.Agents.M365Copilot.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "email", n => { Email = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -56,7 +40,6 @@ namespace Microsoft.Agents.M365Copilot.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteStringValue("email", Email);
         }
     }
 }

@@ -8,6 +8,7 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 if TYPE_CHECKING:
     from .admin.admin_request_builder import AdminRequestBuilder
     from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
+    from .reports.reports_request_builder import ReportsRequestBuilder
     from .retrieval.retrieval_request_builder import RetrievalRequestBuilder
     from .users.users_request_builder import UsersRequestBuilder
 
@@ -41,6 +42,15 @@ class CopilotRequestBuilder(BaseRequestBuilder):
         from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
 
         return InteractionHistoryRequestBuilder(self.request_adapter, self.path_parameters)
+    
+    @property
+    def reports(self) -> ReportsRequestBuilder:
+        """
+        Provides operations to manage the reports property of the microsoft.graph.copilotRoot entity.
+        """
+        from .reports.reports_request_builder import ReportsRequestBuilder
+
+        return ReportsRequestBuilder(self.request_adapter, self.path_parameters)
     
     @property
     def retrieval(self) -> RetrievalRequestBuilder:

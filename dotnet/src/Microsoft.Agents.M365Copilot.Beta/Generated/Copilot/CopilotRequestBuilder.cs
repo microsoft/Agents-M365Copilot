@@ -4,6 +4,7 @@ using Microsoft.Agents.M365Copilot.Beta.Copilot.Admin;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Agents;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Communications;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory;
+using Microsoft.Agents.M365Copilot.Beta.Copilot.Reports;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Settings;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Users;
@@ -40,6 +41,11 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot
         public global::Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.InteractionHistoryRequestBuilder InteractionHistory
         {
             get => new global::Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.InteractionHistoryRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to manage the reports property of the microsoft.graph.copilotRoot entity.</summary>
+        public global::Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.ReportsRequestBuilder Reports
+        {
+            get => new global::Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.ReportsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the retrieval method.</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.RetrievalRequestBuilder Retrieval
