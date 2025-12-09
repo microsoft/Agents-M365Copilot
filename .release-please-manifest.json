@@ -1,7 +1,7 @@
 {
     "dotnet/src/Microsoft.Agents.M365Copilot": "1.2.0",
     "dotnet/src/Microsoft.Agents.M365Copilot.Beta": "1.0.0-preview.12",
-    "dotnet/src/Microsoft.Agents.M365Copilot.Core": "1.1.0",
+    "dotnet/src/Microsoft.Agents.M365Copilot.Core": "1.0.0",
     "typescript/packages/agents-m365copilot": "1.2.0",
     "typescript/packages/agents-m365copilot-beta": "1.0.0-preview.12",
     "typescript/packages/agents-m365copilot-core": "1.1.0",
