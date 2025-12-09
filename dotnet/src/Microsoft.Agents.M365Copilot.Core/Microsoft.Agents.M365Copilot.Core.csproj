@@ -36,6 +36,10 @@
   <PropertyGroup Condition="'$(TF_BUILD)' == 'true'">
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
+  <!-- Define SIGN_ASSEMBLY constant when assembly signing is enabled -->
+  <PropertyGroup Condition="'$(SignAssembly)' == 'true'">
+    <DefineConstants>$(DefineConstants);SIGN_ASSEMBLY</DefineConstants>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
     <DocumentationFile>bin\Debug\netstandard2.0\Microsoft.Agents.M365Copilot.Core.xml</DocumentationFile>
     <NoWarn>1701;1702;1705;1591</NoWarn>
