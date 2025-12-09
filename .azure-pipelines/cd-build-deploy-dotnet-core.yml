@@ -97,7 +97,7 @@ extends:
               inputs:
                 command: test
                 projects: '$(Build.SourcesDirectory)/dotnet/tests/Microsoft.Agents.M365Copilot.Core.Tests/Microsoft.Agents.M365Copilot.Core.Tests.csproj'
-                arguments: '--configuration $(buildConfiguration) -f net10.0'
+                arguments: '--configuration $(buildConfiguration)'
 
             # Strong name for Core using ESRP
             - template: .azure-pipelines/templates/esrp-strongname.yml@self

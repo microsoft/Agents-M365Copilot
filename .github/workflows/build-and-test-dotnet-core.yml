@@ -21,18 +21,19 @@ jobs:
     name: Build and Test Core Library
     runs-on: ubuntu-latest
     
-    strategy:
-      matrix:
-        dotnet-version: ['8.x', '10.x']
-    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
       
-      - name: Setup .NET ${{ matrix.dotnet-version }}
+      - name: Setup .NET 8.x
         uses: actions/setup-dotnet@v4.3.1
         with:
-          dotnet-version: ${{ matrix.dotnet-version }}
+          dotnet-version: 8.x
+
+      - name: Setup .NET 10.x
+        uses: actions/setup-dotnet@v4.3.1
+        with:
+          dotnet-version: 10.x          
       
       - name: Restore dependencies
         run: dotnet restore src/Microsoft.Agents.M365Copilot.Core/Microsoft.Agents.M365Copilot.Core.csproj
