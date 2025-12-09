@@ -1,0 +1,92 @@
+name: Build and Test - Microsoft.Agents.M365Copilot.Core
+
+on:
+  workflow_dispatch:  
+  pull_request:
+    branches: ["main"]
+    paths:
+      - 'dotnet/src/Microsoft.Agents.M365Copilot.Core/**'
+      - 'dotnet/tests/Microsoft.Agents.M365Copilot.Core.Tests/**'
+      - 'dotnet/Directory.Build.props'
+      - 'dotnet/Directory.Packages.props'
+      - '.github/workflows/build-and-test-dotnet-core.yml'
+
+permissions:
+  contents: read
+  actions: read
+  security-events: write
+
+jobs:
+  build-and-test-core:
+    name: Build and Test Core Library
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        dotnet-version: ['8.x', '10.x']
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup .NET ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v4.3.1
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      
+      - name: Restore dependencies
+        run: dotnet restore src/Microsoft.Agents.M365Copilot.Core/Microsoft.Agents.M365Copilot.Core.csproj
+        working-directory: dotnet
+      
+      - name: Build Core library
+        run: dotnet build src/Microsoft.Agents.M365Copilot.Core/Microsoft.Agents.M365Copilot.Core.csproj --no-restore -c Release
+        working-directory: dotnet
+      
+      - name: Restore test dependencies
+        run: dotnet restore tests/Microsoft.Agents.M365Copilot.Core.Tests/Microsoft.Agents.M365Copilot.Core.Tests.csproj
+        working-directory: dotnet
+      
+      - name: Build Core tests
+        run: dotnet build tests/Microsoft.Agents.M365Copilot.Core.Tests/Microsoft.Agents.M365Copilot.Core.Tests.csproj --no-restore -c Release
+        working-directory: dotnet
+      
+      - name: Run Core tests
+        run: dotnet test tests/Microsoft.Agents.M365Copilot.Core.Tests/Microsoft.Agents.M365Copilot.Core.Tests.csproj --no-build --verbosity normal -c Release /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=opencover
+        working-directory: dotnet
+      
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-${{ matrix.dotnet-version }}
+          path: dotnet/tests/Microsoft.Agents.M365Copilot.Core.Tests/TestResults/
+          retention-days: 7
+  
+  code-analysis:
+    name: CodeQL Analysis
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4.3.1
+        with:
+          dotnet-version: '10.x'
+      
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: csharp
+      
+      - name: Restore dependencies
+        run: dotnet restore src/Microsoft.Agents.M365Copilot.Core/Microsoft.Agents.M365Copilot.Core.csproj
+        working-directory: dotnet
+      
+      - name: Build for analysis
+        run: dotnet build src/Microsoft.Agents.M365Copilot.Core/Microsoft.Agents.M365Copilot.Core.csproj --no-restore -c Debug /p:UseSharedCompilation=false
+        working-directory: dotnet
+      
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
