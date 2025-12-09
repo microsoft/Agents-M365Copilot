@@ -153,7 +153,7 @@ extends:
                   inputs:
                     useDotNetTask: false
                     packageParentPath: $(nugetArtifacts)
-                    packagesToPush: '!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg;$(nugetArtifacts)/**/*nupkg'
+                    packagesToPush: '!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg;$(nugetArtifacts)/**/*.nupkg'
                     nuGetFeedType: external  # Change to external for external
                     publishPackageMetadata: true
                     publishFeedCredentials: 'M365 Copilot NuGet Connection'
