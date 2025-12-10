@@ -4,8 +4,28 @@ on:
   workflow_dispatch:
   push:
     branches: ["main"]
+    paths:
+      - "dotnet/**"
+      - "python/**"
+      - "typescript/**"
+      - "!dotnet/**/*.md"
+      - "!python/**/*.md"
+      - "!typescript/**/*.md"
+      - "dotnet/**/README.md"
+      - "python/**/README.md"
+      - "typescript/**/README.md"
   pull_request:
     branches: ["main"]
+    paths:
+      - "dotnet/**"
+      - "python/**"
+      - "typescript/**"
+      - "!dotnet/**/*.md"
+      - "!python/**/*.md"
+      - "!typescript/**/*.md"
+      - "dotnet/**/README.md"
+      - "python/**/README.md"
+      - "typescript/**/README.md"
 
 permissions:
   contents: read
