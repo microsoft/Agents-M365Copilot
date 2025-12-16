@@ -23,7 +23,7 @@ class CommunicationsIdentitySet(IdentitySet, Parsable):
     azure_communication_services_user: Optional[Identity] = None
     # The encrypted user associated with this action.
     encrypted: Optional[Identity] = None
-    # Type of endpoint the participant uses. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
+    # Type of endpoint the participant uses. The possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
     endpoint_type: Optional[EndpointType] = None
     # The guest user associated with this action.
     guest: Optional[Identity] = None
