@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Models
     public partial class Initiator : global::Microsoft.Agents.M365Copilot.Models.Identity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Type of initiator. Possible values are: user, application, system, unknownFutureValue.</summary>
+        /// <summary>Type of initiator. The possible values are: user, application, system, unknownFutureValue.</summary>
         public global::Microsoft.Agents.M365Copilot.Models.InitiatorType? InitiatorType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Models.Initiator"/> and sets the default values.
