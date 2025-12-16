@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Models
     public partial class TeamworkConversationIdentity : global::Microsoft.Agents.M365Copilot.Models.Identity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Type of conversation. Possible values are: team, channel, chat, and unknownFutureValue.</summary>
+        /// <summary>Type of conversation. The possible values are: team, channel, chat, and unknownFutureValue.</summary>
         public global::Microsoft.Agents.M365Copilot.Models.TeamworkConversationIdentityType? ConversationIdentityType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Models.TeamworkConversationIdentity"/> and sets the default values.

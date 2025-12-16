@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Models
     public partial class TeamworkUserIdentity : global::Microsoft.Agents.M365Copilot.Models.Identity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, unknownFutureValue and emailUser.</summary>
+        /// <summary>Type of user. The possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, unknownFutureValue and emailUser.</summary>
         public global::Microsoft.Agents.M365Copilot.Models.TeamworkUserIdentityType? UserIdentityType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Models.TeamworkUserIdentity"/> and sets the default values.
