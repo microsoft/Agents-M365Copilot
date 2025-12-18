@@ -407,7 +407,7 @@ export interface CommunicationsIdentitySet extends IdentitySet, Parsable {
      */
     encrypted?: Identity | null;
     /**
-     * Type of endpoint the participant uses. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
+     * Type of endpoint the participant uses. The possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
      */
     endpointType?: EndpointType | null;
     /**
@@ -3133,7 +3133,7 @@ export interface GetArtifactsResponse extends AdditionalDataHolder, Parsable {
 }
 export interface GroupIdentity extends Identity, Parsable {
     /**
-     * The mailNickname property
+     * The mail nick name, also known as group alias of the group-connected site.
      */
     mailNickname?: string | null;
 }
@@ -3171,7 +3171,7 @@ export interface IdentitySet extends AdditionalDataHolder, Parsable {
 }
 export interface Initiator extends Identity, Parsable {
     /**
-     * The type of the initiator. Possible values are: user, application, system, unknownFutureValue.
+     * The type of the initiator. The possible values are: user, application, system, unknownFutureValue.
      */
     initiatorType?: InitiatorType | null;
 }
@@ -5121,14 +5121,14 @@ export interface TargetProvisionedIdentity extends Identity, Parsable {
 }
 export interface TeamworkApplicationIdentity extends Identity, Parsable {
     /**
-     * Type of application that is referenced. Possible values are: aadApplication, bot, tenantBot, office365Connector, and outgoingWebhook.
+     * Type of application that is referenced. The possible values are: aadApplication, bot, tenantBot, office365Connector, and outgoingWebhook.
      */
     applicationIdentityType?: TeamworkApplicationIdentityType | null;
 }
 export type TeamworkApplicationIdentityType = (typeof TeamworkApplicationIdentityTypeObject)[keyof typeof TeamworkApplicationIdentityTypeObject];
 export interface TeamworkConversationIdentity extends Identity, Parsable {
     /**
-     * Type of conversation. Possible values are: team, channel, and chat.
+     * Type of conversation. The possible values are: team, channel, and chat.
      */
     conversationIdentityType?: TeamworkConversationIdentityType | null;
 }
@@ -5137,7 +5137,7 @@ export interface TeamworkTagIdentity extends Identity, Parsable {
 }
 export interface TeamworkUserIdentity extends Identity, Parsable {
     /**
-     * Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, emailUser and azureCommunicationServicesUser.
+     * Type of user. The possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, emailUser and azureCommunicationServicesUser.
      */
     userIdentityType?: TeamworkUserIdentityType | null;
     /**
