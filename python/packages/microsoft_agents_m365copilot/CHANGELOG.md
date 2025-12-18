@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/microsoft/Agents-M365Copilot/compare/microsoft_agents_m365copilot-v1.2.0...microsoft_agents_m365copilot-v1.3.0) (2025-12-18)
+
+
+### Features
+
+* **generation:** update request builders and models for python v1 ([835af61](https://github.com/microsoft/Agents-M365Copilot/commit/835af61d58891c6b3d27cc03562e485ab264c2eb))
+
 ## [1.2.0](https://github.com/microsoft/Agents-M365Copilot/compare/microsoft_agents_m365copilot-v1.1.0...microsoft_agents_m365copilot-v1.2.0) (2025-12-05)
 
 
