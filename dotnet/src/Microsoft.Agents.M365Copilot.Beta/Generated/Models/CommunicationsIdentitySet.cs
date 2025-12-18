@@ -44,7 +44,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity Encrypted { get; set; }
 #endif
-        /// <summary>Type of endpoint the participant uses. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.</summary>
+        /// <summary>Type of endpoint the participant uses. The possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.EndpointType? EndpointType { get; set; }
         /// <summary>The guest user associated with this action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
