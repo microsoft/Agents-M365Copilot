@@ -13,7 +13,7 @@ from .identity import Identity
 class GroupIdentity(Identity, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.groupIdentity"
-    # The mailNickname property
+    # The mail nick name, also known as group alias of the group-connected site.
     mail_nickname: Optional[str] = None
     
     @staticmethod
