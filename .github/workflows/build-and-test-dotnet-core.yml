@@ -5,12 +5,11 @@ on:
   pull_request:
     branches: ["main"]
     paths:
-      - 'dotnet/src/Microsoft.Agents.M365Copilot.Core/**'
-      - 'dotnet/tests/Microsoft.Agents.M365Copilot.Core.Tests/**'
-      - 'dotnet/Directory.Build.props'
-      - 'dotnet/Directory.Packages.props'
-      - '.github/workflows/build-and-test-dotnet-core.yml'
-
+      - "dotnet/src/Microsoft.Agents.M365Copilot.Core/**"
+      - "dotnet/tests/Microsoft.Agents.M365Copilot.Core.Tests/**"
+      - "dotnet/Directory.Build.props"
+      - "dotnet/Directory.Packages.props"
+      - ".github/workflows/build-and-test-dotnet-core.yml"
 permissions:
   contents: read
   actions: read
