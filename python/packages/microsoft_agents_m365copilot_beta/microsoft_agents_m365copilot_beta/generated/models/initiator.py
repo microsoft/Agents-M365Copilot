@@ -14,7 +14,7 @@ from .identity import Identity
 class Initiator(Identity, Parsable):
     # The OdataType property
     odata_type: Optional[str] = "#microsoft.graph.initiator"
-    # The type of the initiator. Possible values are: user, application, system, unknownFutureValue.
+    # The type of the initiator. The possible values are: user, application, system, unknownFutureValue.
     initiator_type: Optional[InitiatorType] = None
     
     @staticmethod

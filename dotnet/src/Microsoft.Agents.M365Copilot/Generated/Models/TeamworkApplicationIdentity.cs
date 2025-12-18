@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Models
     public partial class TeamworkApplicationIdentity : global::Microsoft.Agents.M365Copilot.Models.Identity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Type of application that is referenced. Possible values are: aadApplication, bot, tenantBot, office365Connector, outgoingWebhook, and unknownFutureValue.</summary>
+        /// <summary>Type of application that is referenced. The possible values are: aadApplication, bot, tenantBot, office365Connector, outgoingWebhook, and unknownFutureValue.</summary>
         public global::Microsoft.Agents.M365Copilot.Models.TeamworkApplicationIdentityType? ApplicationIdentityType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Models.TeamworkApplicationIdentity"/> and sets the default values.
