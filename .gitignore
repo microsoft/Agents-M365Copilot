@@ -1,5 +1,0 @@
-.env
-.venv
-appsettings.*.json
-**/appsettings.*.json
-.idea/
