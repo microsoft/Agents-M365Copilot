@@ -23,101 +23,297 @@ pip install microsoft-agents-m365copilot-beta
 
 The following code example shows how to create an instance of a Microsoft 365 Copilot APIs client with an authentication provider in the supported languages. The authentication provider handles acquiring access tokens for the application. Many different authentication providers are available for each language and platform. The different authentication providers support different client scenarios. For details about which provider and options are appropriate for your scenario, see [Choose an Authentication Provider](https://learn.microsoft.com/graph/sdks/choose-authentication-providers). 
 
-The example also shows how to make a call to the Microsoft 365 Copilot Retrieval API. To call this API, you first need to create a request object and then run the POST method on the request.
+The example also shows how to make a call to the Microsoft 365 Copilot Retrieval API. 
 
-The client ID is the app registration ID that is generated when you [register your app in the Azure portal](https://learn.microsoft.com/graph/auth-register-app-v2).
+This README documents the complete **On-Behalf-Of (OBO) authentication flow** used to call Microsoft 365 Copilot / Microsoft Graph APIs from a backend service on behalf of a signed-in user.
 
-1. Create a `.env` file with the following values:
+---
 
-    ```
-    TENANT_ID = "YOUR_TENANT_ID"
-    CLIENT_ID = "YOUR_CLIENT_ID"
-    ```
+## Overview
 
-    >**Note:**
-    >
-    > Your tenant must have a Microsoft 365 Copilot license.
+The OBO flow enables:
 
-2. Create a `main.py` file with the following snippet:
+1. **Frontend app** authenticates the user
+2. **Frontend** obtains a token for the Backend API (Token A)
+3. **Backend API** exchanges Token A for a Graph token using OBO (Token B)
+4. **Backend** calls Copilot / Graph APIs
+5. Results flow back to the frontend
 
-    ```python
-    import asyncio
-    import os
-    from datetime import datetime
+```
+User → Frontend App → Backend API → Copilot / Graph API
+                                ← Results
+```
 
-    from azure.identity import DeviceCodeCredential
-    from dotenv import load_dotenv
-    from kiota_abstractions.api_error import APIError
+---
 
-    from microsoft_agents_m365copilot_beta import AgentsM365CopilotBetaServiceClient
-    from microsoft_agents_m365copilot_beta.generated.copilot.retrieval.retrieval_post_request_body import (
-        RetrievalPostRequestBody,
-    )
-    from microsoft_agents_m365copilot_beta.generated.models.retrieval_data_source import RetrievalDataSource
+## Prerequisites
 
-    load_dotenv()
+- Azure subscription (Admin access)
+- Azure AD / Entra ID tenant
+- Python 3.9+
+- Virtual environment enabled
+- VS Code / Terminal
+- Admin rights to manage Conditional Access policies
 
-    TENANT_ID = os.getenv("TENANT_ID")
-    CLIENT_ID = os.getenv("CLIENT_ID")
+---
 
-    # Define a proper callback function that accepts all three parameters
-    def auth_callback(verification_uri: str, user_code: str, expires_on: datetime):
-        print(f"\nTo sign in, use a web browser to open the page {verification_uri}")
-        print(f"Enter the code {user_code} to authenticate.")
-        print(f"The code will expire at {expires_on}")
+## Architecture
 
-    # Create device code credential with correct callback
-    credentials = DeviceCodeCredential(
-        client_id=CLIENT_ID,
-        tenant_id=TENANT_ID,
-        prompt_callback=auth_callback
-    )
+### Tokens
 
-    # Use the Graph API beta endpoint explicitly
-    scopes = ['https://graph.microsoft.com/.default']
-    client = AgentsM365CopilotBetaServiceClient(credentials=credentials, scopes=scopes)
+| Token | Audience | Used For |
+|------|--------|---------|
+| Token A | Backend API | Frontend → Backend authentication |
+| Token B | Microsoft Graph | Backend → Copilot / Graph APIs |
 
-    # Make sure the base URL is set to beta
-    client.request_adapter.base_url = "https://graph.microsoft.com/beta"
+### App Registrations
 
-    async def retrieve():
-        try:
-            # Print the URL being used
-            print(f"Using API base URL: {client.request_adapter.base_url}\n")
-            
-            # Create the retrieval request body
-            retrieval_body = RetrievalPostRequestBody()
-            retrieval_body.data_source = RetrievalDataSource.SharePoint
-            retrieval_body.query_string = "What is the latest in my organization?"
-            
-            # Try more parameters that might be required
-            # retrieval_body.maximum_number_of_results = 10
-            
-            # Make the API call
-            print("Making retrieval API request...")
-            retrieval = await client.copilot.retrieval.post(retrieval_body)
-            
-            # Process the results
-            if retrieval and hasattr(retrieval, "retrieval_hits"):
-                print(f"Received {len(retrieval.retrieval_hits)} hits")
-                for r in retrieval.retrieval_hits:
-                    print(f"Web URL: {r.web_url}\n")
-                    for extract in r.extracts:
-                        print(f"Text:\n{extract.text}\n")
-            else:
-                print(f"Retrieval response structure: {dir(retrieval)}")
-        except APIError as e:
-            print(f"Error: {e.error.code}: {e.error.message}")
-            if hasattr(e, 'error') and hasattr(e.error, 'inner_error'):
-                print(f"Inner error details: {e.error.inner_error}")
-            raise e
+1. **Frontend App** (Public client)
+   - Handles user sign-in
+   - Requests token for Backend API
+
+2. **Backend App** (Confidential client)
+   - Has client secret
+   - Performs OBO token exchange
+   - Calls Microsoft Graph / Copilot APIs
+
+---
+
+## Part 1 – Azure Portal Configuration
+
+### Step 1: Register Backend API App
+
+- Azure Portal → Azure AD → App registrations → New registration
+- Name: `m365copilot-backend-api`
+- Accounts: Single tenant
+- Redirect URI: None
+
+Save:
+- Tenant ID
+- Backend Client ID
+
+---
+
+### Step 2: Expose Backend API
+
+- Expose an API → Set Application ID URI
+
+```
+api://<BACKEND_CLIENT_ID>
+```
+
+Add Scope:
+
+| Setting | Value |
+|------|------|
+| Scope name | access_as_user |
+| Consent | Admin & User |
+| State | Enabled |
+
+---
+
+### Step 3: Create Backend Client Secret
+
+- Certificates & secrets → New client secret
+- Copy secret immediately
+
+Save as:
+
+```
+BACKEND_CLIENT_SECRET
+```
+
+---
+
+### Step 4: Add Graph Permissions (Delegated)
+
+Add Microsoft Graph permissions:
+
+- Files.Read.All
+- Sites.Read.All
+- User.Read
+
+Grant **Admin Consent**
+
+---
+
+### Step 5: Configure Known Client Applications
+
+Edit **Manifest** of backend app:
+
+```json
+"knownClientApplications": [
+  "00000000000000000000"
+]
+```
+
+Save changes
+
+---
+
+### Step 6: Configure Frontend App Redirect URI
+
+- App registrations → Frontend app
+- Authentication → Add platform
+- Mobile & desktop applications
+
+Add:
+
+```
+http://localhost
+```
+
+---
+
+### Step 7: Add Backend API Permission to Frontend
+
+- API permissions → Add a permission → My APIs
+- Select backend API
+- Delegated permission: `access_as_user`
+
+Grant **Admin Consent**
+
+---
+
+## Part 2 – Local Configuration
+
+### Step 8: `.env` File
+
+```env
+TENANT_ID=xxxx
+
+# Frontend App
+FRONTEND_CLIENT_ID=048d1f20-xxxx
+
+# Backend App
+BACKEND_CLIENT_ID=xxxx
+BACKEND_CLIENT_SECRET=xxxx
+
+BACKEND_API_URL=http://localhost:5000
+
+# Legacy (optional)
+CLIENT_ID=048d1f20
+CLIENT_SECRET=xxxx
+```
+
+---
+
+### Step 9: Install Dependencies
+
+```bash
+pip install msal flask requests
+```
+
+---
+
+## Conditional Access Warning
+
+If testing on **unmanaged devices**, temporarily disable or set to report-only:
+
+```
+[SharePoint admin center] Block access from apps on unmanaged devices
+```
+
+Azure Portal → Azure AD → Security → Conditional Access → Policies
+
+---
+
+## Part 3 – Run the Application
+
+### Step 10: Start Backend API
+
+```bash
+python backend_api.py
+```
+
+Expected output:
+
+```
+Starting Backend API Server...
+Running at http://localhost:5000
+```
+
+---
+
+### Step 11: Run Frontend Client
+
+```bash
+python frontend_client.py
+```
+
+---
+
+### Step 12: Authenticate User
+
+- Browser opens
+- Sign in with Azure AD credentials
+- Consent permissions
+- Browser may redirect to localhost (error page is OK)
+
+---
+
+## Verification
+
+Success output:
+
+```
+SUCCESS! OBO Flow Completed
+Total hits: X
+```
+
+---
+
+## Common Errors & Fixes
+
+### AADSTS65001 – User not consented
+- Re-run Step 7
+- Grant admin consent
+
+### AADSTS50013 – Assertion audience mismatch
+- Verify Application ID URI
+
+### 401 Unauthorized
+- Validate BACKEND_CLIENT_SECRET
+- Ensure Graph permissions are granted
+
+### Connection refused
+- Ensure backend API is running
+
+### Browser not opening
+- Ensure redirect URI is configured
+
+---
+
+## Verification Checklist
+
+✅ Backend app exposed API
+✅ access_as_user scope exists
+✅ Known client applications configured
+✅ Frontend redirect URI added
+✅ Admin consents granted
+✅ Backend API running
+✅ Frontend client successful
+
+---
 
 
-    # Run the async function
-    asyncio.run(retrieve())
-    ```
+---
 
-3. If successful, you should get a list of `retrievalHits` collection.
+## Ports
+
+| Service | Port |
+|------|----|
+| Backend API | 5000 |
+
+---
+
+## Key Takeaway
+
+OBO enables **secure user-delegated access** from backend services without re-prompting users, following Zero Trust principles.
+
+---
+
+
 
 ## Issues
 
