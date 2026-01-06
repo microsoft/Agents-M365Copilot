@@ -47,6 +47,11 @@ pipelines:
           lastModifiedDate: 2025-07-16
         accessibilityinsights:
           lastModifiedDate: 2025-07-16
+      binary:
+        binskim:
+          lastModifiedDate: 2026-01-06
+        spotbugs:
+          lastModifiedDate: 2026-01-06
   643:
     retail:
       source:
