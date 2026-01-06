@@ -4,6 +4,24 @@
 // @ts-ignore
 import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
+export interface ActionItem extends AdditionalDataHolder, Parsable {
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The ownerDisplayName property
+     */
+    ownerDisplayName?: string | null;
+    /**
+     * The text property
+     */
+    text?: string | null;
+    /**
+     * The title property
+     */
+    title?: string | null;
+}
 export interface AiInteraction extends Entity, Parsable {
     /**
      * The appClass property
@@ -155,11 +173,27 @@ export interface AiInteractionMentionedIdentitySet extends IdentitySet, Parsable
     tag?: TeamworkTagIdentity | null;
 }
 export type AiInteractionType = (typeof AiInteractionTypeObject)[keyof typeof AiInteractionTypeObject];
+export interface AiOnlineMeeting extends Entity, Parsable {
+    /**
+     * The aiInsights property
+     */
+    aiInsights?: CallAiInsight[] | null;
+}
+export interface AiOnlineMeetingCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: AiOnlineMeeting[] | null;
+}
 export interface AiUser extends Entity, Parsable {
     /**
      * The interactionHistory property
      */
     interactionHistory?: AiInteractionHistory | null;
+    /**
+     * The onlineMeetings property
+     */
+    onlineMeetings?: AiOnlineMeeting[] | null;
 }
 export interface AiUserCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
@@ -184,6 +218,52 @@ export interface BaseCollectionPaginationCountResponse extends AdditionalDataHol
     odataNextLink?: string | null;
 }
 export type BodyType = (typeof BodyTypeObject)[keyof typeof BodyTypeObject];
+export interface CallAiInsight extends Entity, Parsable {
+    /**
+     * The actionItems property
+     */
+    actionItems?: ActionItem[] | null;
+    /**
+     * The callId property
+     */
+    callId?: string | null;
+    /**
+     * The contentCorrelationId property
+     */
+    contentCorrelationId?: string | null;
+    /**
+     * The createdDateTime property
+     */
+    createdDateTime?: Date | null;
+    /**
+     * The endDateTime property
+     */
+    endDateTime?: Date | null;
+    /**
+     * The meetingNotes property
+     */
+    meetingNotes?: MeetingNote[] | null;
+    /**
+     * The viewpoint property
+     */
+    viewpoint?: CallAiInsightViewPoint | null;
+}
+export interface CallAiInsightCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: CallAiInsight[] | null;
+}
+export interface CallAiInsightViewPoint extends AdditionalDataHolder, Parsable {
+    /**
+     * The mentionEvents property
+     */
+    mentionEvents?: MentionEvent[] | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 export interface ChatMessageFromIdentitySet extends IdentitySet, Parsable {
 }
 export interface ChatMessageMentionedIdentitySet extends IdentitySet, Parsable {
@@ -301,6 +381,15 @@ export interface CopilotReportRoot extends Entity, Parsable {
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ActionItem}
+ */
+// @ts-ignore
+export function createActionItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoActionItem;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AiInteractionAttachment}
  */
 // @ts-ignore
@@ -364,6 +453,24 @@ export function createAiInteractionMentionFromDiscriminatorValue(parseNode: Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {AiOnlineMeetingCollectionResponse}
+ */
+// @ts-ignore
+export function createAiOnlineMeetingCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAiOnlineMeetingCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {AiOnlineMeeting}
+ */
+// @ts-ignore
+export function createAiOnlineMeetingFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAiOnlineMeeting;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AiUserCollectionResponse}
  */
 // @ts-ignore
@@ -396,6 +503,33 @@ export function createAzureCommunicationServicesUserIdentityFromDiscriminatorVal
 // @ts-ignore
 export function createBaseCollectionPaginationCountResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBaseCollectionPaginationCountResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CallAiInsightCollectionResponse}
+ */
+// @ts-ignore
+export function createCallAiInsightCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCallAiInsightCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CallAiInsight}
+ */
+// @ts-ignore
+export function createCallAiInsightFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCallAiInsight;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CallAiInsightViewPoint}
+ */
+// @ts-ignore
+export function createCallAiInsightViewPointFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCallAiInsightViewPoint;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -605,8 +739,12 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoAiInteraction;
                 case "#microsoft.graph.aiInteractionHistory":
                     return deserializeIntoAiInteractionHistory;
+                case "#microsoft.graph.aiOnlineMeeting":
+                    return deserializeIntoAiOnlineMeeting;
                 case "#microsoft.graph.aiUser":
                     return deserializeIntoAiUser;
+                case "#microsoft.graph.callAiInsight":
+                    return deserializeIntoCallAiInsight;
                 case "#microsoft.graph.copilotAdmin":
                     return deserializeIntoCopilotAdmin;
                 case "#microsoft.graph.copilotAdminLimitedMode":
@@ -736,6 +874,33 @@ export function createInitiatorFromDiscriminatorValue(parseNode: ParseNode | und
 // @ts-ignore
 export function createItemBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoItemBody;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {MeetingNote}
+ */
+// @ts-ignore
+export function createMeetingNoteFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoMeetingNote;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {MeetingNoteSubpoint}
+ */
+// @ts-ignore
+export function createMeetingNoteSubpointFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoMeetingNoteSubpoint;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {MentionEvent}
+ */
+// @ts-ignore
+export function createMentionEventFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoMentionEvent;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -893,6 +1058,20 @@ export interface DataSourceConfiguration extends AdditionalDataHolder, Parsable 
 }
 /**
  * The deserialization information for the current model
+ * @param ActionItem The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoActionItem(actionItem: Partial<ActionItem> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "@odata.type": n => { actionItem.odataType = n.getStringValue(); },
+        "ownerDisplayName": n => { actionItem.ownerDisplayName = n.getStringValue(); },
+        "text": n => { actionItem.text = n.getStringValue(); },
+        "title": n => { actionItem.title = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param AiInteraction The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -1000,6 +1179,30 @@ export function deserializeIntoAiInteractionMentionedIdentitySet(aiInteractionMe
 }
 /**
  * The deserialization information for the current model
+ * @param AiOnlineMeeting The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoAiOnlineMeeting(aiOnlineMeeting: Partial<AiOnlineMeeting> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(aiOnlineMeeting),
+        "aiInsights": n => { aiOnlineMeeting.aiInsights = n.getCollectionOfObjectValues<CallAiInsight>(createCallAiInsightFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param AiOnlineMeetingCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoAiOnlineMeetingCollectionResponse(aiOnlineMeetingCollectionResponse: Partial<AiOnlineMeetingCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(aiOnlineMeetingCollectionResponse),
+        "value": n => { aiOnlineMeetingCollectionResponse.value = n.getCollectionOfObjectValues<AiOnlineMeeting>(createAiOnlineMeetingFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param AiUser The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -1008,6 +1211,7 @@ export function deserializeIntoAiUser(aiUser: Partial<AiUser> | undefined = {}) 
     return {
         ...deserializeIntoEntity(aiUser),
         "interactionHistory": n => { aiUser.interactionHistory = n.getObjectValue<AiInteractionHistory>(createAiInteractionHistoryFromDiscriminatorValue); },
+        "onlineMeetings": n => { aiUser.onlineMeetings = n.getCollectionOfObjectValues<AiOnlineMeeting>(createAiOnlineMeetingFromDiscriminatorValue); },
     }
 }
 /**
@@ -1044,6 +1248,48 @@ export function deserializeIntoBaseCollectionPaginationCountResponse(baseCollect
     return {
         "@odata.count": n => { baseCollectionPaginationCountResponse.odataCount = n.getNumberValue(); },
         "@odata.nextLink": n => { baseCollectionPaginationCountResponse.odataNextLink = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CallAiInsight The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCallAiInsight(callAiInsight: Partial<CallAiInsight> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(callAiInsight),
+        "actionItems": n => { callAiInsight.actionItems = n.getCollectionOfObjectValues<ActionItem>(createActionItemFromDiscriminatorValue); },
+        "callId": n => { callAiInsight.callId = n.getStringValue(); },
+        "contentCorrelationId": n => { callAiInsight.contentCorrelationId = n.getStringValue(); },
+        "createdDateTime": n => { callAiInsight.createdDateTime = n.getDateValue(); },
+        "endDateTime": n => { callAiInsight.endDateTime = n.getDateValue(); },
+        "meetingNotes": n => { callAiInsight.meetingNotes = n.getCollectionOfObjectValues<MeetingNote>(createMeetingNoteFromDiscriminatorValue); },
+        "viewpoint": n => { callAiInsight.viewpoint = n.getObjectValue<CallAiInsightViewPoint>(createCallAiInsightViewPointFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CallAiInsightCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCallAiInsightCollectionResponse(callAiInsightCollectionResponse: Partial<CallAiInsightCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(callAiInsightCollectionResponse),
+        "value": n => { callAiInsightCollectionResponse.value = n.getCollectionOfObjectValues<CallAiInsight>(createCallAiInsightFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CallAiInsightViewPoint The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCallAiInsightViewPoint(callAiInsightViewPoint: Partial<CallAiInsightViewPoint> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "mentionEvents": n => { callAiInsightViewPoint.mentionEvents = n.getCollectionOfObjectValues<MentionEvent>(createMentionEventFromDiscriminatorValue); },
+        "@odata.type": n => { callAiInsightViewPoint.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -1368,6 +1614,47 @@ export function deserializeIntoItemBody(itemBody: Partial<ItemBody> | undefined 
 }
 /**
  * The deserialization information for the current model
+ * @param MeetingNote The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoMeetingNote(meetingNote: Partial<MeetingNote> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "@odata.type": n => { meetingNote.odataType = n.getStringValue(); },
+        "subpoints": n => { meetingNote.subpoints = n.getCollectionOfObjectValues<MeetingNoteSubpoint>(createMeetingNoteSubpointFromDiscriminatorValue); },
+        "text": n => { meetingNote.text = n.getStringValue(); },
+        "title": n => { meetingNote.title = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param MeetingNoteSubpoint The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoMeetingNoteSubpoint(meetingNoteSubpoint: Partial<MeetingNoteSubpoint> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "@odata.type": n => { meetingNoteSubpoint.odataType = n.getStringValue(); },
+        "text": n => { meetingNoteSubpoint.text = n.getStringValue(); },
+        "title": n => { meetingNoteSubpoint.title = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param MentionEvent The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoMentionEvent(mentionEvent: Partial<MentionEvent> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "eventDateTime": n => { mentionEvent.eventDateTime = n.getDateValue(); },
+        "@odata.type": n => { mentionEvent.odataType = n.getStringValue(); },
+        "speaker": n => { mentionEvent.speaker = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
+        "transcriptUtterance": n => { mentionEvent.transcriptUtterance = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param ProvisionedIdentity The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -1673,6 +1960,56 @@ export interface ItemBody extends AdditionalDataHolder, Parsable {
      */
     odataType?: string | null;
 }
+export interface MeetingNote extends AdditionalDataHolder, Parsable {
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The subpoints property
+     */
+    subpoints?: MeetingNoteSubpoint[] | null;
+    /**
+     * The text property
+     */
+    text?: string | null;
+    /**
+     * The title property
+     */
+    title?: string | null;
+}
+export interface MeetingNoteSubpoint extends AdditionalDataHolder, Parsable {
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The text property
+     */
+    text?: string | null;
+    /**
+     * The title property
+     */
+    title?: string | null;
+}
+export interface MentionEvent extends AdditionalDataHolder, Parsable {
+    /**
+     * The eventDateTime property
+     */
+    eventDateTime?: Date | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The speaker property
+     */
+    speaker?: IdentitySet | null;
+    /**
+     * The transcriptUtterance property
+     */
+    transcriptUtterance?: string | null;
+}
 export interface ProvisionedIdentity extends Identity, Parsable {
     /**
      * Details of the identity.
@@ -1770,6 +2107,21 @@ export interface SensitivityLabelInfo extends AdditionalDataHolder, Parsable {
      * The tooltip property
      */
     tooltip?: string | null;
+}
+/**
+ * Serializes information the current object
+ * @param ActionItem The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeActionItem(writer: SerializationWriter, actionItem: Partial<ActionItem> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!actionItem || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", actionItem.odataType);
+    writer.writeStringValue("ownerDisplayName", actionItem.ownerDisplayName);
+    writer.writeStringValue("text", actionItem.text);
+    writer.writeStringValue("title", actionItem.title);
+    writer.writeAdditionalData(actionItem.additionalData);
 }
 /**
  * Serializes information the current object
@@ -1884,6 +2236,30 @@ export function serializeAiInteractionMentionedIdentitySet(writer: Serialization
 }
 /**
  * Serializes information the current object
+ * @param AiOnlineMeeting The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeAiOnlineMeeting(writer: SerializationWriter, aiOnlineMeeting: Partial<AiOnlineMeeting> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!aiOnlineMeeting || isSerializingDerivedType) { return; }
+    serializeEntity(writer, aiOnlineMeeting, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CallAiInsight>("aiInsights", aiOnlineMeeting.aiInsights, serializeCallAiInsight);
+}
+/**
+ * Serializes information the current object
+ * @param AiOnlineMeetingCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeAiOnlineMeetingCollectionResponse(writer: SerializationWriter, aiOnlineMeetingCollectionResponse: Partial<AiOnlineMeetingCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!aiOnlineMeetingCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, aiOnlineMeetingCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<AiOnlineMeeting>("value", aiOnlineMeetingCollectionResponse.value, serializeAiOnlineMeeting);
+}
+/**
+ * Serializes information the current object
  * @param AiUser The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -1893,6 +2269,7 @@ export function serializeAiUser(writer: SerializationWriter, aiUser: Partial<AiU
     if (!aiUser || isSerializingDerivedType) { return; }
     serializeEntity(writer, aiUser, isSerializingDerivedType)
     writer.writeObjectValue<AiInteractionHistory>("interactionHistory", aiUser.interactionHistory, serializeAiInteractionHistory);
+    writer.writeCollectionOfObjectValues<AiOnlineMeeting>("onlineMeetings", aiUser.onlineMeetings, serializeAiOnlineMeeting);
 }
 /**
  * Serializes information the current object
@@ -1930,6 +2307,49 @@ export function serializeBaseCollectionPaginationCountResponse(writer: Serializa
     writer.writeNumberValue("@odata.count", baseCollectionPaginationCountResponse.odataCount);
     writer.writeStringValue("@odata.nextLink", baseCollectionPaginationCountResponse.odataNextLink);
     writer.writeAdditionalData(baseCollectionPaginationCountResponse.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CallAiInsight The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCallAiInsight(writer: SerializationWriter, callAiInsight: Partial<CallAiInsight> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!callAiInsight || isSerializingDerivedType) { return; }
+    serializeEntity(writer, callAiInsight, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ActionItem>("actionItems", callAiInsight.actionItems, serializeActionItem);
+    writer.writeStringValue("callId", callAiInsight.callId);
+    writer.writeStringValue("contentCorrelationId", callAiInsight.contentCorrelationId);
+    writer.writeDateValue("createdDateTime", callAiInsight.createdDateTime);
+    writer.writeDateValue("endDateTime", callAiInsight.endDateTime);
+    writer.writeCollectionOfObjectValues<MeetingNote>("meetingNotes", callAiInsight.meetingNotes, serializeMeetingNote);
+    writer.writeObjectValue<CallAiInsightViewPoint>("viewpoint", callAiInsight.viewpoint, serializeCallAiInsightViewPoint);
+}
+/**
+ * Serializes information the current object
+ * @param CallAiInsightCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCallAiInsightCollectionResponse(writer: SerializationWriter, callAiInsightCollectionResponse: Partial<CallAiInsightCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!callAiInsightCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, callAiInsightCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CallAiInsight>("value", callAiInsightCollectionResponse.value, serializeCallAiInsight);
+}
+/**
+ * Serializes information the current object
+ * @param CallAiInsightViewPoint The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCallAiInsightViewPoint(writer: SerializationWriter, callAiInsightViewPoint: Partial<CallAiInsightViewPoint> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!callAiInsightViewPoint || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<MentionEvent>("mentionEvents", callAiInsightViewPoint.mentionEvents, serializeMentionEvent);
+    writer.writeStringValue("@odata.type", callAiInsightViewPoint.odataType);
+    writer.writeAdditionalData(callAiInsightViewPoint.additionalData);
 }
 /**
  * Serializes information the current object
@@ -2203,8 +2623,14 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.aiInteractionHistory":
             serializeAiInteractionHistory(writer, entity, true);
         break;
+        case "#microsoft.graph.aiOnlineMeeting":
+            serializeAiOnlineMeeting(writer, entity, true);
+        break;
         case "#microsoft.graph.aiUser":
             serializeAiUser(writer, entity, true);
+        break;
+        case "#microsoft.graph.callAiInsight":
+            serializeCallAiInsight(writer, entity, true);
         break;
         case "#microsoft.graph.copilotAdmin":
             serializeCopilotAdmin(writer, entity, true);
@@ -2372,6 +2798,50 @@ export function serializeItemBody(writer: SerializationWriter, itemBody: Partial
     writer.writeEnumValue<BodyType>("contentType", itemBody.contentType);
     writer.writeStringValue("@odata.type", itemBody.odataType);
     writer.writeAdditionalData(itemBody.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MeetingNote The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeMeetingNote(writer: SerializationWriter, meetingNote: Partial<MeetingNote> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!meetingNote || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", meetingNote.odataType);
+    writer.writeCollectionOfObjectValues<MeetingNoteSubpoint>("subpoints", meetingNote.subpoints, serializeMeetingNoteSubpoint);
+    writer.writeStringValue("text", meetingNote.text);
+    writer.writeStringValue("title", meetingNote.title);
+    writer.writeAdditionalData(meetingNote.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MeetingNoteSubpoint The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeMeetingNoteSubpoint(writer: SerializationWriter, meetingNoteSubpoint: Partial<MeetingNoteSubpoint> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!meetingNoteSubpoint || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", meetingNoteSubpoint.odataType);
+    writer.writeStringValue("text", meetingNoteSubpoint.text);
+    writer.writeStringValue("title", meetingNoteSubpoint.title);
+    writer.writeAdditionalData(meetingNoteSubpoint.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MentionEvent The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeMentionEvent(writer: SerializationWriter, mentionEvent: Partial<MentionEvent> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!mentionEvent || isSerializingDerivedType) { return; }
+    writer.writeDateValue("eventDateTime", mentionEvent.eventDateTime);
+    writer.writeStringValue("@odata.type", mentionEvent.odataType);
+    writer.writeObjectValue<IdentitySet>("speaker", mentionEvent.speaker, serializeIdentitySet);
+    writer.writeStringValue("transcriptUtterance", mentionEvent.transcriptUtterance);
+    writer.writeAdditionalData(mentionEvent.additionalData);
 }
 /**
  * Serializes information the current object
