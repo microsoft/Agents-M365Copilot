@@ -474,11 +474,233 @@ export interface CopilotAdminSetting extends Entity, Parsable {
      */
     limitedMode?: CopilotAdminLimitedMode | null;
 }
+/**
+ * Represents copilot response options parameter.
+ */
+export interface CopilotChatResponseOptions extends AdditionalDataHolder, Parsable {
+    /**
+     * Indicates whether adaptive cards are enabled in the response.
+     */
+    isAdaptiveCardEnabled?: boolean | null;
+    /**
+     * Indicates whether annotations are enabled in the response.
+     */
+    isAnnotationsEnabled?: boolean | null;
+    /**
+     * Indicates whether delta streaming is enabled in the response.
+     */
+    isDeltaStreamingEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 export interface CopilotCommunicationsRoot extends Entity, Parsable {
     /**
      * The realtimeActivityFeed property
      */
     realtimeActivityFeed?: RealtimeActivityFeedRoot | null;
+}
+/**
+ * Extra context data for a request supplied in the form of a message.
+ */
+export interface CopilotContextMessage extends AdditionalDataHolder, Parsable {
+    /**
+     * The description of the message.
+     */
+    description?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The text of the message.
+     */
+    text?: string | null;
+}
+/**
+ * Represents copilot contextual resources parameter.
+ */
+export interface CopilotContextualResources extends AdditionalDataHolder, Parsable {
+    /**
+     * The files by URI to be used for the request.
+     */
+    files?: CopilotFile[] | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The web context to be used for the request.
+     */
+    webContext?: CopilotWebContext | null;
+}
+/**
+ * Conversation is a first class object in the system, and consists of persistent metadata plus a stream of messages,typically alternating request/response, implicitly forming a turn.Represents a conversation with Copilot Chat.
+ */
+export interface CopilotConversation extends Entity, Parsable {
+    /**
+     * The date and time when the conversation was created.
+     */
+    createdDateTime?: Date | null;
+    /**
+     * The display name of the conversation.
+     */
+    displayName?: string | null;
+    /**
+     * The ordered list of messages in the conversation.
+     */
+    messages?: CopilotConversationMessage[] | null;
+    /**
+     * The state of a Copilot conversation.
+     */
+    state?: CopilotConversationState | null;
+    /**
+     * The number of turns in the conversation.
+     */
+    turnCount?: number | null;
+}
+export interface CopilotConversationAttribution extends AdditionalDataHolder, Parsable {
+    /**
+     * The source of the attribution.
+     */
+    attributionSource?: CopilotConversationAttributionSource | null;
+    /**
+     * The type of attribution.
+     */
+    attributionType?: CopilotConversationAttributionType | null;
+    /**
+     * The imageFavIcon property
+     */
+    imageFavIcon?: string | null;
+    /**
+     * The imageHeight property
+     */
+    imageHeight?: number | null;
+    /**
+     * The imageWebUrl property
+     */
+    imageWebUrl?: string | null;
+    /**
+     * The imageWidth property
+     */
+    imageWidth?: number | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The providerDisplayName property
+     */
+    providerDisplayName?: string | null;
+    /**
+     * The seeMoreWebUrl property
+     */
+    seeMoreWebUrl?: string | null;
+}
+export type CopilotConversationAttributionSource = (typeof CopilotConversationAttributionSourceObject)[keyof typeof CopilotConversationAttributionSourceObject];
+export type CopilotConversationAttributionType = (typeof CopilotConversationAttributionTypeObject)[keyof typeof CopilotConversationAttributionTypeObject];
+export interface CopilotConversationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: CopilotConversation[] | null;
+}
+/**
+ * Represents a location.
+ */
+export interface CopilotConversationLocation extends AdditionalDataHolder, Parsable {
+    /**
+     * The country or region of the location.
+     */
+    countryOrRegion?: string | null;
+    /**
+     * The confidence level of the country or region.
+     */
+    countryOrRegionConfidence?: number | null;
+    /**
+     * The latitude of the location.
+     */
+    latitude?: number | null;
+    /**
+     * The longitude of the location.
+     */
+    longitude?: number | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The IANA timezone of the location.
+     */
+    timeZone?: string | null;
+}
+/**
+ * Abstract entity representing a chat message in a request or response.
+ */
+export interface CopilotConversationMessage extends Entity, Parsable {
+    /**
+     * The text of the message.
+     */
+    text?: string | null;
+}
+export interface CopilotConversationMessageCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: CopilotConversationMessage[] | null;
+}
+export interface CopilotConversationMessageParameter extends AdditionalDataHolder, Parsable {
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The text property
+     */
+    text?: string | null;
+}
+/**
+ * Entity representing a chat message in a request.
+ */
+export interface CopilotConversationRequestMessage extends CopilotConversationMessage, Parsable {
+}
+export interface CopilotConversationRequestMessageParameter extends CopilotConversationMessageParameter, Parsable {
+}
+/**
+ * Represents a response message in a chat.
+ */
+export interface CopilotConversationResponseMessage extends CopilotConversationMessage, Parsable {
+    /**
+     * The adaptiveCards property
+     */
+    adaptiveCards?: Json[] | null;
+    /**
+     * The attributions property
+     */
+    attributions?: CopilotConversationAttribution[] | null;
+    /**
+     * The createdDateTime property
+     */
+    createdDateTime?: Date | null;
+    /**
+     * The sensitivityLabel property
+     */
+    sensitivityLabel?: SearchSensitivityLabelInfo | null;
+}
+export type CopilotConversationState = (typeof CopilotConversationStateObject)[keyof typeof CopilotConversationStateObject];
+/**
+ * Represents a file with URI.
+ */
+export interface CopilotFile extends AdditionalDataHolder, Parsable {
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The URI of the file.
+     */
+    uri?: string | null;
 }
 export interface CopilotPackage extends Entity, Parsable {
     /**
@@ -570,6 +792,62 @@ export interface CopilotPeopleAdminSetting extends Entity, Parsable {
 }
 export interface CopilotReportRoot extends Entity, Parsable {
 }
+/**
+ * Specifies which data sources to include in the search and optional filters for each.If omitted, the query runs across all supported Microsoft data sources by default.Each data source key can include a filter expression to narrow results and a list of metadata fields to retrieve for that source.
+ */
+export interface CopilotSearchDataSourcesConfiguration extends AdditionalDataHolder, Parsable {
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * Configuration for searching OneDrive for Business content.
+     */
+    oneDrive?: OneDriveDataSourceConfiguration | null;
+}
+export interface CopilotSearchHit extends AdditionalDataHolder, Parsable {
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The preview property
+     */
+    preview?: string | null;
+    /**
+     * The resourceMetadata property
+     */
+    resourceMetadata?: CopilotSearchResourceMetadataDictionary | null;
+    /**
+     * The resourceType property
+     */
+    resourceType?: CopilotSearchResourceType | null;
+    /**
+     * The webUrl property
+     */
+    webUrl?: string | null;
+}
+export interface CopilotSearchResourceMetadataDictionary extends Dictionaries, Parsable {
+}
+export type CopilotSearchResourceType = (typeof CopilotSearchResourceTypeObject)[keyof typeof CopilotSearchResourceTypeObject];
+export interface CopilotSearchResponse extends AdditionalDataHolder, Parsable {
+    /**
+     * The nextLink property
+     */
+    nextLink?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The searchHits property
+     */
+    searchHits?: CopilotSearchHit[] | null;
+    /**
+     * The totalCount property
+     */
+    totalCount?: number | null;
+}
 export interface CopilotSetting extends Entity, Parsable {
     /**
      * The people property
@@ -589,6 +867,19 @@ export interface CopilotTool extends AdditionalDataHolder, Parsable {
      * The url property
      */
     url?: string | null;
+}
+/**
+ * Web context data for a request supplied in the form of resource contexts.
+ */
+export interface CopilotWebContext extends AdditionalDataHolder, Parsable {
+    /**
+     * Indicates whether the web context is enabled.
+     */
+    isWebEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -955,11 +1246,161 @@ export function createCopilotAdminSettingFromDiscriminatorValue(parseNode: Parse
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotChatResponseOptions}
+ */
+// @ts-ignore
+export function createCopilotChatResponseOptionsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotChatResponseOptions;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CopilotCommunicationsRoot}
  */
 // @ts-ignore
 export function createCopilotCommunicationsRootFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCopilotCommunicationsRoot;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotContextMessage}
+ */
+// @ts-ignore
+export function createCopilotContextMessageFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotContextMessage;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotContextualResources}
+ */
+// @ts-ignore
+export function createCopilotContextualResourcesFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotContextualResources;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotConversationAttribution}
+ */
+// @ts-ignore
+export function createCopilotConversationAttributionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotConversationAttribution;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotConversationCollectionResponse}
+ */
+// @ts-ignore
+export function createCopilotConversationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotConversationCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotConversation}
+ */
+// @ts-ignore
+export function createCopilotConversationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotConversation;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotConversationLocation}
+ */
+// @ts-ignore
+export function createCopilotConversationLocationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotConversationLocation;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotConversationMessageCollectionResponse}
+ */
+// @ts-ignore
+export function createCopilotConversationMessageCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotConversationMessageCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotConversationMessage}
+ */
+// @ts-ignore
+export function createCopilotConversationMessageFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
+    if (mappingValueNode) {
+        const mappingValue = mappingValueNode.getStringValue();
+        if (mappingValue) {
+            switch (mappingValue) {
+                case "#microsoft.graph.copilotConversationRequestMessage":
+                    return deserializeIntoCopilotConversationRequestMessage;
+                case "#microsoft.graph.copilotConversationResponseMessage":
+                    return deserializeIntoCopilotConversationResponseMessage;
+            }
+        }
+    }
+    return deserializeIntoCopilotConversationMessage;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotConversationMessageParameter}
+ */
+// @ts-ignore
+export function createCopilotConversationMessageParameterFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
+    if (mappingValueNode) {
+        const mappingValue = mappingValueNode.getStringValue();
+        if (mappingValue) {
+            switch (mappingValue) {
+                case "#microsoft.graph.copilotConversationRequestMessageParameter":
+                    return deserializeIntoCopilotConversationRequestMessageParameter;
+            }
+        }
+    }
+    return deserializeIntoCopilotConversationMessageParameter;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotConversationRequestMessage}
+ */
+// @ts-ignore
+export function createCopilotConversationRequestMessageFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotConversationRequestMessage;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotConversationRequestMessageParameter}
+ */
+// @ts-ignore
+export function createCopilotConversationRequestMessageParameterFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotConversationRequestMessageParameter;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotConversationResponseMessage}
+ */
+// @ts-ignore
+export function createCopilotConversationResponseMessageFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotConversationResponseMessage;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotFile}
+ */
+// @ts-ignore
+export function createCopilotFileFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotFile;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -1020,6 +1461,42 @@ export function createCopilotReportRootFromDiscriminatorValue(parseNode: ParseNo
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotSearchDataSourcesConfiguration}
+ */
+// @ts-ignore
+export function createCopilotSearchDataSourcesConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotSearchDataSourcesConfiguration;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotSearchHit}
+ */
+// @ts-ignore
+export function createCopilotSearchHitFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotSearchHit;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotSearchResourceMetadataDictionary}
+ */
+// @ts-ignore
+export function createCopilotSearchResourceMetadataDictionaryFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotSearchResourceMetadataDictionary;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotSearchResponse}
+ */
+// @ts-ignore
+export function createCopilotSearchResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotSearchResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CopilotSetting}
  */
 // @ts-ignore
@@ -1034,6 +1511,15 @@ export function createCopilotSettingFromDiscriminatorValue(parseNode: ParseNode 
 // @ts-ignore
 export function createCopilotToolFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCopilotTool;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotWebContext}
+ */
+// @ts-ignore
+export function createCopilotWebContextFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotWebContext;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -1066,6 +1552,8 @@ export function createDictionariesFromDiscriminatorValue(parseNode: ParseNode | 
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
+                case "#microsoft.graph.copilotSearchResourceMetadataDictionary":
+                    return deserializeIntoCopilotSearchResourceMetadataDictionary;
                 case "#microsoft.graph.searchResourceMetadataDictionary":
                     return deserializeIntoSearchResourceMetadataDictionary;
             }
@@ -1135,6 +1623,14 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoCopilotAdminSetting;
                 case "#microsoft.graph.copilotCommunicationsRoot":
                     return deserializeIntoCopilotCommunicationsRoot;
+                case "#microsoft.graph.copilotConversation":
+                    return deserializeIntoCopilotConversation;
+                case "#microsoft.graph.copilotConversationMessage":
+                    return deserializeIntoCopilotConversationMessage;
+                case "#microsoft.graph.copilotConversationRequestMessage":
+                    return deserializeIntoCopilotConversationRequestMessage;
+                case "#microsoft.graph.copilotConversationResponseMessage":
+                    return deserializeIntoCopilotConversationResponseMessage;
                 case "#microsoft.graph.copilotPackage":
                     return deserializeIntoCopilotPackage;
                 case "#microsoft.graph.copilotPackageDetail":
@@ -1321,6 +1817,15 @@ export function createJoinMeetingIdMeetingInfoFromDiscriminatorValue(parseNode: 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {Json}
+ */
+// @ts-ignore
+export function createJsonFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoJson;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MeetingInfo}
  */
 // @ts-ignore
@@ -1386,6 +1891,15 @@ export function createMultiActivitySubscriptionCollectionResponseFromDiscriminat
 // @ts-ignore
 export function createMultiActivitySubscriptionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMultiActivitySubscription;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {OneDriveDataSourceConfiguration}
+ */
+// @ts-ignore
+export function createOneDriveDataSourceConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoOneDriveDataSourceConfiguration;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -1548,6 +2062,15 @@ export function createRetrievalResponseFromDiscriminatorValue(parseNode: ParseNo
 // @ts-ignore
 export function createSearchResourceMetadataDictionaryFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSearchResourceMetadataDictionary;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {SearchSensitivityLabelInfo}
+ */
+// @ts-ignore
+export function createSearchSensitivityLabelInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSearchSensitivityLabelInfo;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -2239,6 +2762,20 @@ export function deserializeIntoCopilotAdminSetting(copilotAdminSetting: Partial<
 }
 /**
  * The deserialization information for the current model
+ * @param CopilotChatResponseOptions The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotChatResponseOptions(copilotChatResponseOptions: Partial<CopilotChatResponseOptions> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "isAdaptiveCardEnabled": n => { copilotChatResponseOptions.isAdaptiveCardEnabled = n.getBooleanValue(); },
+        "isAnnotationsEnabled": n => { copilotChatResponseOptions.isAnnotationsEnabled = n.getBooleanValue(); },
+        "isDeltaStreamingEnabled": n => { copilotChatResponseOptions.isDeltaStreamingEnabled = n.getBooleanValue(); },
+        "@odata.type": n => { copilotChatResponseOptions.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param CopilotCommunicationsRoot The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -2247,6 +2784,180 @@ export function deserializeIntoCopilotCommunicationsRoot(copilotCommunicationsRo
     return {
         ...deserializeIntoEntity(copilotCommunicationsRoot),
         "realtimeActivityFeed": n => { copilotCommunicationsRoot.realtimeActivityFeed = n.getObjectValue<RealtimeActivityFeedRoot>(createRealtimeActivityFeedRootFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotContextMessage The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotContextMessage(copilotContextMessage: Partial<CopilotContextMessage> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "description": n => { copilotContextMessage.description = n.getStringValue(); },
+        "@odata.type": n => { copilotContextMessage.odataType = n.getStringValue(); },
+        "text": n => { copilotContextMessage.text = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotContextualResources The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotContextualResources(copilotContextualResources: Partial<CopilotContextualResources> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "files": n => { copilotContextualResources.files = n.getCollectionOfObjectValues<CopilotFile>(createCopilotFileFromDiscriminatorValue); },
+        "@odata.type": n => { copilotContextualResources.odataType = n.getStringValue(); },
+        "webContext": n => { copilotContextualResources.webContext = n.getObjectValue<CopilotWebContext>(createCopilotWebContextFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotConversation The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotConversation(copilotConversation: Partial<CopilotConversation> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(copilotConversation),
+        "createdDateTime": n => { copilotConversation.createdDateTime = n.getDateValue(); },
+        "displayName": n => { copilotConversation.displayName = n.getStringValue(); },
+        "messages": n => { copilotConversation.messages = n.getCollectionOfObjectValues<CopilotConversationMessage>(createCopilotConversationMessageFromDiscriminatorValue); },
+        "state": n => { copilotConversation.state = n.getEnumValue<CopilotConversationState>(CopilotConversationStateObject); },
+        "turnCount": n => { copilotConversation.turnCount = n.getNumberValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotConversationAttribution The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotConversationAttribution(copilotConversationAttribution: Partial<CopilotConversationAttribution> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "attributionSource": n => { copilotConversationAttribution.attributionSource = n.getEnumValue<CopilotConversationAttributionSource>(CopilotConversationAttributionSourceObject); },
+        "attributionType": n => { copilotConversationAttribution.attributionType = n.getEnumValue<CopilotConversationAttributionType>(CopilotConversationAttributionTypeObject); },
+        "imageFavIcon": n => { copilotConversationAttribution.imageFavIcon = n.getStringValue(); },
+        "imageHeight": n => { copilotConversationAttribution.imageHeight = n.getNumberValue(); },
+        "imageWebUrl": n => { copilotConversationAttribution.imageWebUrl = n.getStringValue(); },
+        "imageWidth": n => { copilotConversationAttribution.imageWidth = n.getNumberValue(); },
+        "@odata.type": n => { copilotConversationAttribution.odataType = n.getStringValue(); },
+        "providerDisplayName": n => { copilotConversationAttribution.providerDisplayName = n.getStringValue(); },
+        "seeMoreWebUrl": n => { copilotConversationAttribution.seeMoreWebUrl = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotConversationCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotConversationCollectionResponse(copilotConversationCollectionResponse: Partial<CopilotConversationCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(copilotConversationCollectionResponse),
+        "value": n => { copilotConversationCollectionResponse.value = n.getCollectionOfObjectValues<CopilotConversation>(createCopilotConversationFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotConversationLocation The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotConversationLocation(copilotConversationLocation: Partial<CopilotConversationLocation> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "countryOrRegion": n => { copilotConversationLocation.countryOrRegion = n.getStringValue(); },
+        "countryOrRegionConfidence": n => { copilotConversationLocation.countryOrRegionConfidence = n.getNumberValue(); },
+        "latitude": n => { copilotConversationLocation.latitude = n.getNumberValue(); },
+        "longitude": n => { copilotConversationLocation.longitude = n.getNumberValue(); },
+        "@odata.type": n => { copilotConversationLocation.odataType = n.getStringValue(); },
+        "timeZone": n => { copilotConversationLocation.timeZone = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotConversationMessage The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotConversationMessage(copilotConversationMessage: Partial<CopilotConversationMessage> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(copilotConversationMessage),
+        "text": n => { copilotConversationMessage.text = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotConversationMessageCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotConversationMessageCollectionResponse(copilotConversationMessageCollectionResponse: Partial<CopilotConversationMessageCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(copilotConversationMessageCollectionResponse),
+        "value": n => { copilotConversationMessageCollectionResponse.value = n.getCollectionOfObjectValues<CopilotConversationMessage>(createCopilotConversationMessageFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotConversationMessageParameter The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotConversationMessageParameter(copilotConversationMessageParameter: Partial<CopilotConversationMessageParameter> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "@odata.type": n => { copilotConversationMessageParameter.odataType = n.getStringValue(); },
+        "text": n => { copilotConversationMessageParameter.text = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotConversationRequestMessage The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotConversationRequestMessage(copilotConversationRequestMessage: Partial<CopilotConversationRequestMessage> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoCopilotConversationMessage(copilotConversationRequestMessage),
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotConversationRequestMessageParameter The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotConversationRequestMessageParameter(copilotConversationRequestMessageParameter: Partial<CopilotConversationRequestMessageParameter> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoCopilotConversationMessageParameter(copilotConversationRequestMessageParameter),
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotConversationResponseMessage The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotConversationResponseMessage(copilotConversationResponseMessage: Partial<CopilotConversationResponseMessage> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoCopilotConversationMessage(copilotConversationResponseMessage),
+        "adaptiveCards": n => { copilotConversationResponseMessage.adaptiveCards = n.getCollectionOfObjectValues<Json>(createJsonFromDiscriminatorValue); },
+        "attributions": n => { copilotConversationResponseMessage.attributions = n.getCollectionOfObjectValues<CopilotConversationAttribution>(createCopilotConversationAttributionFromDiscriminatorValue); },
+        "createdDateTime": n => { copilotConversationResponseMessage.createdDateTime = n.getDateValue(); },
+        "sensitivityLabel": n => { copilotConversationResponseMessage.sensitivityLabel = n.getObjectValue<SearchSensitivityLabelInfo>(createSearchSensitivityLabelInfoFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotFile The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotFile(copilotFile: Partial<CopilotFile> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "@odata.type": n => { copilotFile.odataType = n.getStringValue(); },
+        "uri": n => { copilotFile.uri = n.getStringValue(); },
     }
 }
 /**
@@ -2326,6 +3037,58 @@ export function deserializeIntoCopilotReportRoot(copilotReportRoot: Partial<Copi
 }
 /**
  * The deserialization information for the current model
+ * @param CopilotSearchDataSourcesConfiguration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotSearchDataSourcesConfiguration(copilotSearchDataSourcesConfiguration: Partial<CopilotSearchDataSourcesConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "@odata.type": n => { copilotSearchDataSourcesConfiguration.odataType = n.getStringValue(); },
+        "oneDrive": n => { copilotSearchDataSourcesConfiguration.oneDrive = n.getObjectValue<OneDriveDataSourceConfiguration>(createOneDriveDataSourceConfigurationFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotSearchHit The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotSearchHit(copilotSearchHit: Partial<CopilotSearchHit> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "@odata.type": n => { copilotSearchHit.odataType = n.getStringValue(); },
+        "preview": n => { copilotSearchHit.preview = n.getStringValue(); },
+        "resourceMetadata": n => { copilotSearchHit.resourceMetadata = n.getObjectValue<CopilotSearchResourceMetadataDictionary>(createCopilotSearchResourceMetadataDictionaryFromDiscriminatorValue); },
+        "resourceType": n => { copilotSearchHit.resourceType = n.getEnumValue<CopilotSearchResourceType>(CopilotSearchResourceTypeObject); },
+        "webUrl": n => { copilotSearchHit.webUrl = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotSearchResourceMetadataDictionary The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotSearchResourceMetadataDictionary(copilotSearchResourceMetadataDictionary: Partial<CopilotSearchResourceMetadataDictionary> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoDictionaries(copilotSearchResourceMetadataDictionary),
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotSearchResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotSearchResponse(copilotSearchResponse: Partial<CopilotSearchResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "nextLink": n => { copilotSearchResponse.nextLink = n.getStringValue(); },
+        "@odata.type": n => { copilotSearchResponse.odataType = n.getStringValue(); },
+        "searchHits": n => { copilotSearchResponse.searchHits = n.getCollectionOfObjectValues<CopilotSearchHit>(createCopilotSearchHitFromDiscriminatorValue); },
+        "totalCount": n => { copilotSearchResponse.totalCount = n.getNumberValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param CopilotSetting The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -2347,6 +3110,18 @@ export function deserializeIntoCopilotTool(copilotTool: Partial<CopilotTool> | u
         "copilotToolName": n => { copilotTool.copilotToolName = n.getStringValue(); },
         "@odata.type": n => { copilotTool.odataType = n.getStringValue(); },
         "url": n => { copilotTool.url = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotWebContext The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotWebContext(copilotWebContext: Partial<CopilotWebContext> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "isWebEnabled": n => { copilotWebContext.isWebEnabled = n.getBooleanValue(); },
+        "@odata.type": n => { copilotWebContext.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -2537,6 +3312,17 @@ export function deserializeIntoJoinMeetingIdMeetingInfo(joinMeetingIdMeetingInfo
 }
 /**
  * The deserialization information for the current model
+ * @param Json The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoJson(json: Partial<Json> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "@odata.type": n => { json.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param MeetingInfo The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -2614,6 +3400,19 @@ export function deserializeIntoMultiActivitySubscriptionCollectionResponse(multi
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(multiActivitySubscriptionCollectionResponse),
         "value": n => { multiActivitySubscriptionCollectionResponse.value = n.getCollectionOfObjectValues<MultiActivitySubscription>(createMultiActivitySubscriptionFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param OneDriveDataSourceConfiguration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoOneDriveDataSourceConfiguration(oneDriveDataSourceConfiguration: Partial<OneDriveDataSourceConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "filterExpression": n => { oneDriveDataSourceConfiguration.filterExpression = n.getStringValue(); },
+        "@odata.type": n => { oneDriveDataSourceConfiguration.odataType = n.getStringValue(); },
+        "resourceMetadataNames": n => { oneDriveDataSourceConfiguration.resourceMetadataNames = n.getCollectionOfPrimitiveValues<string>(); },
     }
 }
 /**
@@ -2840,6 +3639,22 @@ export function deserializeIntoRetrievalResponse(retrievalResponse: Partial<Retr
 export function deserializeIntoSearchResourceMetadataDictionary(searchResourceMetadataDictionary: Partial<SearchResourceMetadataDictionary> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoDictionaries(searchResourceMetadataDictionary),
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param SearchSensitivityLabelInfo The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoSearchSensitivityLabelInfo(searchSensitivityLabelInfo: Partial<SearchSensitivityLabelInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "color": n => { searchSensitivityLabelInfo.color = n.getStringValue(); },
+        "displayName": n => { searchSensitivityLabelInfo.displayName = n.getStringValue(); },
+        "@odata.type": n => { searchSensitivityLabelInfo.odataType = n.getStringValue(); },
+        "priority": n => { searchSensitivityLabelInfo.priority = n.getNumberValue(); },
+        "sensitivityLabelId": n => { searchSensitivityLabelInfo.sensitivityLabelId = n.getStringValue(); },
+        "tooltip": n => { searchSensitivityLabelInfo.tooltip = n.getStringValue(); },
     }
 }
 /**
@@ -3200,6 +4015,15 @@ export interface JoinMeetingIdMeetingInfo extends MeetingInfo, Parsable {
      */
     passcode?: string | null;
 }
+/**
+ * Standard way to represent a Json blob on Graph.
+ */
+export interface Json extends AdditionalDataHolder, Parsable {
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 export interface MeetingInfo extends AdditionalDataHolder, Parsable {
     /**
      * The allowConversationWithoutHost property
@@ -3287,6 +4111,23 @@ export interface MultiActivitySubscriptionCollectionResponse extends BaseCollect
      * The value property
      */
     value?: MultiActivitySubscription[] | null;
+}
+/**
+ * Configuration for searching OneDrive for Business content.
+ */
+export interface OneDriveDataSourceConfiguration extends AdditionalDataHolder, Parsable {
+    /**
+     * A KQL filter to apply only to OneDrive items. Use this to scope the OneDrive search to specific folders, file types, owners, etc. Supported filter fields include path, author, lastModifiedTime, fileType, title, filename, driveId, etc.
+     */
+    filterExpression?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * List of metadata field names to return for OneDrive results (if available and marked retrievable in the schema). For example, title, author, lastModifiedTime, etc. can be requested to enrich the search hits.
+     */
+    resourceMetadataNames?: string[] | null;
 }
 export interface OrganizerMeetingInfo extends MeetingInfo, Parsable {
     /**
@@ -3467,6 +4308,35 @@ export interface RetrievalResponse extends AdditionalDataHolder, Parsable {
     retrievalHits?: RetrievalHit[] | null;
 }
 export interface SearchResourceMetadataDictionary extends Dictionaries, Parsable {
+}
+/**
+ * Represents a sensitivityLabel.This model is shared with the CCS retrieval API and search where it is already unhidden.
+ */
+export interface SearchSensitivityLabelInfo extends AdditionalDataHolder, Parsable {
+    /**
+     * The color property
+     */
+    color?: string | null;
+    /**
+     * The displayName property
+     */
+    displayName?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The priority property
+     */
+    priority?: number | null;
+    /**
+     * The sensitivityLabelId property
+     */
+    sensitivityLabelId?: string | null;
+    /**
+     * The tooltip property
+     */
+    tooltip?: string | null;
 }
 export interface SensitivityLabelInfo extends AdditionalDataHolder, Parsable {
     /**
@@ -4026,6 +4896,21 @@ export function serializeCopilotAdminSetting(writer: SerializationWriter, copilo
 }
 /**
  * Serializes information the current object
+ * @param CopilotChatResponseOptions The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotChatResponseOptions(writer: SerializationWriter, copilotChatResponseOptions: Partial<CopilotChatResponseOptions> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotChatResponseOptions || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("isAdaptiveCardEnabled", copilotChatResponseOptions.isAdaptiveCardEnabled);
+    writer.writeBooleanValue("isAnnotationsEnabled", copilotChatResponseOptions.isAnnotationsEnabled);
+    writer.writeBooleanValue("isDeltaStreamingEnabled", copilotChatResponseOptions.isDeltaStreamingEnabled);
+    writer.writeStringValue("@odata.type", copilotChatResponseOptions.odataType);
+    writer.writeAdditionalData(copilotChatResponseOptions.additionalData);
+}
+/**
+ * Serializes information the current object
  * @param CopilotCommunicationsRoot The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -4035,6 +4920,186 @@ export function serializeCopilotCommunicationsRoot(writer: SerializationWriter, 
     if (!copilotCommunicationsRoot || isSerializingDerivedType) { return; }
     serializeEntity(writer, copilotCommunicationsRoot, isSerializingDerivedType)
     writer.writeObjectValue<RealtimeActivityFeedRoot>("realtimeActivityFeed", copilotCommunicationsRoot.realtimeActivityFeed, serializeRealtimeActivityFeedRoot);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotContextMessage The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotContextMessage(writer: SerializationWriter, copilotContextMessage: Partial<CopilotContextMessage> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotContextMessage || isSerializingDerivedType) { return; }
+    writer.writeStringValue("description", copilotContextMessage.description);
+    writer.writeStringValue("@odata.type", copilotContextMessage.odataType);
+    writer.writeStringValue("text", copilotContextMessage.text);
+    writer.writeAdditionalData(copilotContextMessage.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotContextualResources The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotContextualResources(writer: SerializationWriter, copilotContextualResources: Partial<CopilotContextualResources> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotContextualResources || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<CopilotFile>("files", copilotContextualResources.files, serializeCopilotFile);
+    writer.writeStringValue("@odata.type", copilotContextualResources.odataType);
+    writer.writeObjectValue<CopilotWebContext>("webContext", copilotContextualResources.webContext, serializeCopilotWebContext);
+    writer.writeAdditionalData(copilotContextualResources.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotConversation The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotConversation(writer: SerializationWriter, copilotConversation: Partial<CopilotConversation> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotConversation || isSerializingDerivedType) { return; }
+    serializeEntity(writer, copilotConversation, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CopilotConversationMessage>("messages", copilotConversation.messages, serializeCopilotConversationMessage);
+    writer.writeEnumValue<CopilotConversationState>("state", copilotConversation.state);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotConversationAttribution The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotConversationAttribution(writer: SerializationWriter, copilotConversationAttribution: Partial<CopilotConversationAttribution> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotConversationAttribution || isSerializingDerivedType) { return; }
+    writer.writeEnumValue<CopilotConversationAttributionSource>("attributionSource", copilotConversationAttribution.attributionSource);
+    writer.writeEnumValue<CopilotConversationAttributionType>("attributionType", copilotConversationAttribution.attributionType);
+    writer.writeStringValue("@odata.type", copilotConversationAttribution.odataType);
+    writer.writeAdditionalData(copilotConversationAttribution.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotConversationCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotConversationCollectionResponse(writer: SerializationWriter, copilotConversationCollectionResponse: Partial<CopilotConversationCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotConversationCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, copilotConversationCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CopilotConversation>("value", copilotConversationCollectionResponse.value, serializeCopilotConversation);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotConversationLocation The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotConversationLocation(writer: SerializationWriter, copilotConversationLocation: Partial<CopilotConversationLocation> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotConversationLocation || isSerializingDerivedType) { return; }
+    writer.writeStringValue("countryOrRegion", copilotConversationLocation.countryOrRegion);
+    writer.writeNumberValue("countryOrRegionConfidence", copilotConversationLocation.countryOrRegionConfidence);
+    writer.writeNumberValue("latitude", copilotConversationLocation.latitude);
+    writer.writeNumberValue("longitude", copilotConversationLocation.longitude);
+    writer.writeStringValue("@odata.type", copilotConversationLocation.odataType);
+    writer.writeStringValue("timeZone", copilotConversationLocation.timeZone);
+    writer.writeAdditionalData(copilotConversationLocation.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotConversationMessage The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotConversationMessage(writer: SerializationWriter, copilotConversationMessage: Partial<CopilotConversationMessage> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotConversationMessage || isSerializingDerivedType) { return; }
+    serializeEntity(writer, copilotConversationMessage, isSerializingDerivedType)
+    writer.writeStringValue("text", copilotConversationMessage.text);
+    switch (copilotConversationMessage.odataType) {
+        case "#microsoft.graph.copilotConversationRequestMessage":
+            serializeCopilotConversationRequestMessage(writer, copilotConversationMessage, true);
+        break;
+        case "#microsoft.graph.copilotConversationResponseMessage":
+            serializeCopilotConversationResponseMessage(writer, copilotConversationMessage, true);
+        break;
+    }
+}
+/**
+ * Serializes information the current object
+ * @param CopilotConversationMessageCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotConversationMessageCollectionResponse(writer: SerializationWriter, copilotConversationMessageCollectionResponse: Partial<CopilotConversationMessageCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotConversationMessageCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, copilotConversationMessageCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CopilotConversationMessage>("value", copilotConversationMessageCollectionResponse.value, serializeCopilotConversationMessage);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotConversationMessageParameter The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotConversationMessageParameter(writer: SerializationWriter, copilotConversationMessageParameter: Partial<CopilotConversationMessageParameter> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotConversationMessageParameter || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", copilotConversationMessageParameter.odataType);
+    writer.writeStringValue("text", copilotConversationMessageParameter.text);
+    writer.writeAdditionalData(copilotConversationMessageParameter.additionalData);
+    switch (copilotConversationMessageParameter.odataType) {
+        case "#microsoft.graph.copilotConversationRequestMessageParameter":
+            serializeCopilotConversationRequestMessageParameter(writer, copilotConversationMessageParameter, true);
+        break;
+    }
+}
+/**
+ * Serializes information the current object
+ * @param CopilotConversationRequestMessage The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotConversationRequestMessage(writer: SerializationWriter, copilotConversationRequestMessage: Partial<CopilotConversationRequestMessage> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotConversationRequestMessage || isSerializingDerivedType) { return; }
+    serializeCopilotConversationMessage(writer, copilotConversationRequestMessage, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
+ * @param CopilotConversationRequestMessageParameter The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotConversationRequestMessageParameter(writer: SerializationWriter, copilotConversationRequestMessageParameter: Partial<CopilotConversationRequestMessageParameter> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotConversationRequestMessageParameter || isSerializingDerivedType) { return; }
+    serializeCopilotConversationMessageParameter(writer, copilotConversationRequestMessageParameter, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
+ * @param CopilotConversationResponseMessage The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotConversationResponseMessage(writer: SerializationWriter, copilotConversationResponseMessage: Partial<CopilotConversationResponseMessage> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotConversationResponseMessage || isSerializingDerivedType) { return; }
+    serializeCopilotConversationMessage(writer, copilotConversationResponseMessage, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
+ * @param CopilotFile The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotFile(writer: SerializationWriter, copilotFile: Partial<CopilotFile> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotFile || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", copilotFile.odataType);
+    writer.writeStringValue("uri", copilotFile.uri);
+    writer.writeAdditionalData(copilotFile.additionalData);
 }
 /**
  * Serializes information the current object
@@ -4118,6 +5183,61 @@ export function serializeCopilotReportRoot(writer: SerializationWriter, copilotR
 }
 /**
  * Serializes information the current object
+ * @param CopilotSearchDataSourcesConfiguration The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotSearchDataSourcesConfiguration(writer: SerializationWriter, copilotSearchDataSourcesConfiguration: Partial<CopilotSearchDataSourcesConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotSearchDataSourcesConfiguration || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", copilotSearchDataSourcesConfiguration.odataType);
+    writer.writeObjectValue<OneDriveDataSourceConfiguration>("oneDrive", copilotSearchDataSourcesConfiguration.oneDrive, serializeOneDriveDataSourceConfiguration);
+    writer.writeAdditionalData(copilotSearchDataSourcesConfiguration.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotSearchHit The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotSearchHit(writer: SerializationWriter, copilotSearchHit: Partial<CopilotSearchHit> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotSearchHit || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", copilotSearchHit.odataType);
+    writer.writeStringValue("preview", copilotSearchHit.preview);
+    writer.writeObjectValue<CopilotSearchResourceMetadataDictionary>("resourceMetadata", copilotSearchHit.resourceMetadata, serializeCopilotSearchResourceMetadataDictionary);
+    writer.writeEnumValue<CopilotSearchResourceType>("resourceType", copilotSearchHit.resourceType);
+    writer.writeStringValue("webUrl", copilotSearchHit.webUrl);
+    writer.writeAdditionalData(copilotSearchHit.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotSearchResourceMetadataDictionary The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotSearchResourceMetadataDictionary(writer: SerializationWriter, copilotSearchResourceMetadataDictionary: Partial<CopilotSearchResourceMetadataDictionary> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotSearchResourceMetadataDictionary || isSerializingDerivedType) { return; }
+    serializeDictionaries(writer, copilotSearchResourceMetadataDictionary, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
+ * @param CopilotSearchResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotSearchResponse(writer: SerializationWriter, copilotSearchResponse: Partial<CopilotSearchResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotSearchResponse || isSerializingDerivedType) { return; }
+    writer.writeStringValue("nextLink", copilotSearchResponse.nextLink);
+    writer.writeStringValue("@odata.type", copilotSearchResponse.odataType);
+    writer.writeCollectionOfObjectValues<CopilotSearchHit>("searchHits", copilotSearchResponse.searchHits, serializeCopilotSearchHit);
+    writer.writeNumberValue("totalCount", copilotSearchResponse.totalCount);
+    writer.writeAdditionalData(copilotSearchResponse.additionalData);
+}
+/**
+ * Serializes information the current object
  * @param CopilotSetting The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -4141,6 +5261,19 @@ export function serializeCopilotTool(writer: SerializationWriter, copilotTool: P
     writer.writeStringValue("@odata.type", copilotTool.odataType);
     writer.writeStringValue("url", copilotTool.url);
     writer.writeAdditionalData(copilotTool.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotWebContext The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotWebContext(writer: SerializationWriter, copilotWebContext: Partial<CopilotWebContext> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotWebContext || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("isWebEnabled", copilotWebContext.isWebEnabled);
+    writer.writeStringValue("@odata.type", copilotWebContext.odataType);
+    writer.writeAdditionalData(copilotWebContext.additionalData);
 }
 /**
  * Serializes information the current object
@@ -4179,6 +5312,9 @@ export function serializeDictionaries(writer: SerializationWriter, dictionaries:
     writer.writeStringValue("@odata.type", dictionaries.odataType);
     writer.writeAdditionalData(dictionaries.additionalData);
     switch (dictionaries.odataType) {
+        case "#microsoft.graph.copilotSearchResourceMetadataDictionary":
+            serializeCopilotSearchResourceMetadataDictionary(writer, dictionaries, true);
+        break;
         case "#microsoft.graph.searchResourceMetadataDictionary":
             serializeSearchResourceMetadataDictionary(writer, dictionaries, true);
         break;
@@ -4267,6 +5403,18 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.copilotCommunicationsRoot":
             serializeCopilotCommunicationsRoot(writer, entity, true);
+        break;
+        case "#microsoft.graph.copilotConversation":
+            serializeCopilotConversation(writer, entity, true);
+        break;
+        case "#microsoft.graph.copilotConversationMessage":
+            serializeCopilotConversationMessage(writer, entity, true);
+        break;
+        case "#microsoft.graph.copilotConversationRequestMessage":
+            serializeCopilotConversationRequestMessage(writer, entity, true);
+        break;
+        case "#microsoft.graph.copilotConversationResponseMessage":
+            serializeCopilotConversationResponseMessage(writer, entity, true);
         break;
         case "#microsoft.graph.copilotPackage":
             serializeCopilotPackage(writer, entity, true);
@@ -4516,6 +5664,18 @@ export function serializeJoinMeetingIdMeetingInfo(writer: SerializationWriter, j
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Json The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeJson(writer: SerializationWriter, json: Partial<Json> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!json || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", json.odataType);
+    writer.writeAdditionalData(json.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param MeetingInfo The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -4608,6 +5768,20 @@ export function serializeMultiActivitySubscriptionCollectionResponse(writer: Ser
     if (!multiActivitySubscriptionCollectionResponse || isSerializingDerivedType) { return; }
     serializeBaseCollectionPaginationCountResponse(writer, multiActivitySubscriptionCollectionResponse, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<MultiActivitySubscription>("value", multiActivitySubscriptionCollectionResponse.value, serializeMultiActivitySubscription);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param OneDriveDataSourceConfiguration The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeOneDriveDataSourceConfiguration(writer: SerializationWriter, oneDriveDataSourceConfiguration: Partial<OneDriveDataSourceConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!oneDriveDataSourceConfiguration || isSerializingDerivedType) { return; }
+    writer.writeStringValue("filterExpression", oneDriveDataSourceConfiguration.filterExpression);
+    writer.writeStringValue("@odata.type", oneDriveDataSourceConfiguration.odataType);
+    writer.writeCollectionOfPrimitiveValues<string>("resourceMetadataNames", oneDriveDataSourceConfiguration.resourceMetadataNames);
+    writer.writeAdditionalData(oneDriveDataSourceConfiguration.additionalData);
 }
 /**
  * Serializes information the current object
@@ -4841,6 +6015,18 @@ export function serializeRetrievalResponse(writer: SerializationWriter, retrieva
 export function serializeSearchResourceMetadataDictionary(writer: SerializationWriter, searchResourceMetadataDictionary: Partial<SearchResourceMetadataDictionary> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!searchResourceMetadataDictionary || isSerializingDerivedType) { return; }
     serializeDictionaries(writer, searchResourceMetadataDictionary, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SearchSensitivityLabelInfo The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeSearchSensitivityLabelInfo(writer: SerializationWriter, searchSensitivityLabelInfo: Partial<SearchSensitivityLabelInfo> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!searchSensitivityLabelInfo || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", searchSensitivityLabelInfo.odataType);
+    writer.writeAdditionalData(searchSensitivityLabelInfo.additionalData);
 }
 /**
  * Serializes information the current object
@@ -5226,6 +6412,45 @@ export const BodyTypeObject = {
 } as const;
 export const ConnectionTypeObject = {
     WebSocket: "webSocket",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+/**
+ * The source of the attribution.
+ */
+export const CopilotConversationAttributionSourceObject = {
+    Grounding: "grounding",
+    Model: "model",
+    /** A marker value for members added after the release of this API. */
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+/**
+ * The type of attribution.
+ */
+export const CopilotConversationAttributionTypeObject = {
+    Citation: "citation",
+    Annotation: "annotation",
+    /** A marker value for members added after the release of this API. */
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+/**
+ * The state of a Copilot conversation.
+ */
+export const CopilotConversationStateObject = {
+    /** The conversation is active and can accept requests to chat. */
+    Active: "active",
+    /** Copilot has disengaged from the conversation due to a RAI issue and will reject further requests to chat. */
+    DisengagedForRai: "disengagedForRai",
+    /** A marker value for members added after the release of this API. */
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const CopilotSearchResourceTypeObject = {
+    Unknown: "unknown",
+    Site: "site",
+    List: "list",
+    ListItem: "listItem",
+    Drive: "drive",
+    DriveItem: "driveItem",
+    /** A marker value for members added after the release of this API. */
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const EndpointTypeObject = {
