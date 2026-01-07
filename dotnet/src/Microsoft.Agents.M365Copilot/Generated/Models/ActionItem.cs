@@ -9,19 +9,11 @@ namespace Microsoft.Agents.M365Copilot.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Entity : IAdditionalDataHolder, IParsable
+    public partial class ActionItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The unique identifier for an entity. Read-only.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Id { get; set; }
-#nullable restore
-#else
-        public string Id { get; set; }
-#endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,35 +22,46 @@ namespace Microsoft.Agents.M365Copilot.Models
 #else
         public string OdataType { get; set; }
 #endif
+        /// <summary>The ownerDisplayName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OwnerDisplayName { get; set; }
+#nullable restore
+#else
+        public string OwnerDisplayName { get; set; }
+#endif
+        /// <summary>The text property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Text { get; set; }
+#nullable restore
+#else
+        public string Text { get; set; }
+#endif
+        /// <summary>The title property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Title { get; set; }
+#nullable restore
+#else
+        public string Title { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Models.Entity"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Models.ActionItem"/> and sets the default values.
         /// </summary>
-        public Entity()
+        public ActionItem()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Models.Entity"/></returns>
+        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Models.ActionItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Microsoft.Agents.M365Copilot.Models.Entity CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Microsoft.Agents.M365Copilot.Models.ActionItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
-            return mappingValue switch
-            {
-                "#microsoft.graph.aiInteraction" => new global::Microsoft.Agents.M365Copilot.Models.AiInteraction(),
-                "#microsoft.graph.aiInteractionHistory" => new global::Microsoft.Agents.M365Copilot.Models.AiInteractionHistory(),
-                "#microsoft.graph.aiOnlineMeeting" => new global::Microsoft.Agents.M365Copilot.Models.AiOnlineMeeting(),
-                "#microsoft.graph.aiUser" => new global::Microsoft.Agents.M365Copilot.Models.AiUser(),
-                "#microsoft.graph.callAiInsight" => new global::Microsoft.Agents.M365Copilot.Models.CallAiInsight(),
-                "#microsoft.graph.copilotAdmin" => new global::Microsoft.Agents.M365Copilot.Models.CopilotAdmin(),
-                "#microsoft.graph.copilotAdminLimitedMode" => new global::Microsoft.Agents.M365Copilot.Models.CopilotAdminLimitedMode(),
-                "#microsoft.graph.copilotAdminSetting" => new global::Microsoft.Agents.M365Copilot.Models.CopilotAdminSetting(),
-                "#microsoft.graph.copilotReportRoot" => new global::Microsoft.Agents.M365Copilot.Models.CopilotReportRoot(),
-                _ => new global::Microsoft.Agents.M365Copilot.Models.Entity(),
-            };
+            return new global::Microsoft.Agents.M365Copilot.Models.ActionItem();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,8 +71,10 @@ namespace Microsoft.Agents.M365Copilot.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "id", n => { Id = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "ownerDisplayName", n => { OwnerDisplayName = n.GetStringValue(); } },
+                { "text", n => { Text = n.GetStringValue(); } },
+                { "title", n => { Title = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -79,8 +84,10 @@ namespace Microsoft.Agents.M365Copilot.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("id", Id);
             writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteStringValue("ownerDisplayName", OwnerDisplayName);
+            writer.WriteStringValue("text", Text);
+            writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
