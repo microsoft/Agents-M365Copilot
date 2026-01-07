@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Microsoft.Agents.M365Copilot.Beta.Models
 {
+    /// <summary>
+    /// Standard way to represent a Json blob on Graph.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class Dictionaries : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class Json : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -23,27 +24,21 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.Dictionaries"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.Json"/> and sets the default values.
         /// </summary>
-        public Dictionaries()
+        public Json()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.Dictionaries"/></returns>
+        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.Json"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Microsoft.Agents.M365Copilot.Beta.Models.Dictionaries CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Microsoft.Agents.M365Copilot.Beta.Models.Json CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
-            return mappingValue switch
-            {
-                "#microsoft.graph.copilotSearchResourceMetadataDictionary" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotSearchResourceMetadataDictionary(),
-                "#microsoft.graph.searchResourceMetadataDictionary" => new global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary(),
-                _ => new global::Microsoft.Agents.M365Copilot.Beta.Models.Dictionaries(),
-            };
+            return new global::Microsoft.Agents.M365Copilot.Beta.Models.Json();
         }
         /// <summary>
         /// The deserialization information for the current model

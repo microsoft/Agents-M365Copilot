@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Microsoft.Agents.M365Copilot.Beta.Models
 {
+    /// <summary>
+    /// Specifies which data sources to include in the search and optional filters for each.If omitted, the query runs across all supported Microsoft data sources by default.Each data source key can include a filter expression to narrow results and a list of metadata fields to retrieve for that source.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class Dictionaries : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class CopilotSearchDataSourcesConfiguration : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -22,28 +23,30 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string OdataType { get; set; }
 #endif
+        /// <summary>Configuration for searching OneDrive for Business content.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.OneDriveDataSourceConfiguration? OneDrive { get; set; }
+#nullable restore
+#else
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.OneDriveDataSourceConfiguration OneDrive { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.Dictionaries"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotSearchDataSourcesConfiguration"/> and sets the default values.
         /// </summary>
-        public Dictionaries()
+        public CopilotSearchDataSourcesConfiguration()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.Dictionaries"/></returns>
+        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotSearchDataSourcesConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Microsoft.Agents.M365Copilot.Beta.Models.Dictionaries CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotSearchDataSourcesConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
-            return mappingValue switch
-            {
-                "#microsoft.graph.copilotSearchResourceMetadataDictionary" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotSearchResourceMetadataDictionary(),
-                "#microsoft.graph.searchResourceMetadataDictionary" => new global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary(),
-                _ => new global::Microsoft.Agents.M365Copilot.Beta.Models.Dictionaries(),
-            };
+            return new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotSearchDataSourcesConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,6 +57,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "oneDrive", n => { OneDrive = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.OneDriveDataSourceConfiguration>(global::Microsoft.Agents.M365Copilot.Beta.Models.OneDriveDataSourceConfiguration.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -64,6 +68,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.OneDriveDataSourceConfiguration>("oneDrive", OneDrive);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

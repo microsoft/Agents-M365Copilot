@@ -7,13 +7,22 @@ using System.IO;
 using System;
 namespace Microsoft.Agents.M365Copilot.Beta.Models
 {
+    /// <summary>
+    /// Configuration for searching OneDrive for Business content.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class Dictionaries : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class OneDriveDataSourceConfiguration : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>A KQL filter to apply only to OneDrive items. Use this to scope the OneDrive search to specific folders, file types, owners, etc. Supported filter fields include path, author, lastModifiedTime, fileType, title, filename, driveId, etc.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FilterExpression { get; set; }
+#nullable restore
+#else
+        public string FilterExpression { get; set; }
+#endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,28 +31,30 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string OdataType { get; set; }
 #endif
+        /// <summary>List of metadata field names to return for OneDrive results (if available and marked retrievable in the schema). For example, title, author, lastModifiedTime, etc. can be requested to enrich the search hits.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? ResourceMetadataNames { get; set; }
+#nullable restore
+#else
+        public List<string> ResourceMetadataNames { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.Dictionaries"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.OneDriveDataSourceConfiguration"/> and sets the default values.
         /// </summary>
-        public Dictionaries()
+        public OneDriveDataSourceConfiguration()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.Dictionaries"/></returns>
+        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.OneDriveDataSourceConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Microsoft.Agents.M365Copilot.Beta.Models.Dictionaries CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Microsoft.Agents.M365Copilot.Beta.Models.OneDriveDataSourceConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
-            return mappingValue switch
-            {
-                "#microsoft.graph.copilotSearchResourceMetadataDictionary" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotSearchResourceMetadataDictionary(),
-                "#microsoft.graph.searchResourceMetadataDictionary" => new global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary(),
-                _ => new global::Microsoft.Agents.M365Copilot.Beta.Models.Dictionaries(),
-            };
+            return new global::Microsoft.Agents.M365Copilot.Beta.Models.OneDriveDataSourceConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,7 +64,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "filterExpression", n => { FilterExpression = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "resourceMetadataNames", n => { ResourceMetadataNames = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -63,7 +76,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("filterExpression", FilterExpression);
             writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteCollectionOfPrimitiveValues<string>("resourceMetadataNames", ResourceMetadataNames);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

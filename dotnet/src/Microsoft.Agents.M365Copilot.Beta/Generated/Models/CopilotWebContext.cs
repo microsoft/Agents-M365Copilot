@@ -7,13 +7,16 @@ using System.IO;
 using System;
 namespace Microsoft.Agents.M365Copilot.Beta.Models
 {
+    /// <summary>
+    /// Web context data for a request supplied in the form of resource contexts.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class Dictionaries : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class CopilotWebContext : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Indicates whether the web context is enabled.</summary>
+        public bool? IsWebEnabled { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -23,27 +26,21 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.Dictionaries"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotWebContext"/> and sets the default values.
         /// </summary>
-        public Dictionaries()
+        public CopilotWebContext()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.Dictionaries"/></returns>
+        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotWebContext"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Microsoft.Agents.M365Copilot.Beta.Models.Dictionaries CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotWebContext CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
-            return mappingValue switch
-            {
-                "#microsoft.graph.copilotSearchResourceMetadataDictionary" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotSearchResourceMetadataDictionary(),
-                "#microsoft.graph.searchResourceMetadataDictionary" => new global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary(),
-                _ => new global::Microsoft.Agents.M365Copilot.Beta.Models.Dictionaries(),
-            };
+            return new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotWebContext();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,6 +50,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "isWebEnabled", n => { IsWebEnabled = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -63,6 +61,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("isWebEnabled", IsWebEnabled);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }
