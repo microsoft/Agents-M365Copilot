@@ -5,6 +5,7 @@ from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, Par
 from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
+    from .copilot_search_resource_metadata_dictionary import CopilotSearchResourceMetadataDictionary
     from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
 
 @dataclass
@@ -29,6 +30,10 @@ class Dictionaries(AdditionalDataHolder, Parsable):
             mapping_value = child_node.get_str_value() if child_node else None
         except AttributeError:
             mapping_value = None
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotSearchResourceMetadataDictionary".casefold():
+            from .copilot_search_resource_metadata_dictionary import CopilotSearchResourceMetadataDictionary
+
+            return CopilotSearchResourceMetadataDictionary()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.searchResourceMetadataDictionary".casefold():
             from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
 
@@ -40,8 +45,10 @@ class Dictionaries(AdditionalDataHolder, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from .copilot_search_resource_metadata_dictionary import CopilotSearchResourceMetadataDictionary
         from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
 
+        from .copilot_search_resource_metadata_dictionary import CopilotSearchResourceMetadataDictionary
         from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
 
         fields: dict[str, Callable[[Any], None]] = {

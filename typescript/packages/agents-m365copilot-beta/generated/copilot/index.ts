@@ -8,11 +8,15 @@ import { AgentsRequestBuilderNavigationMetadata, AgentsRequestBuilderRequestsMet
 // @ts-ignore
 import { CommunicationsRequestBuilderNavigationMetadata, CommunicationsRequestBuilderRequestsMetadata, type CommunicationsRequestBuilder } from './communications/index.js';
 // @ts-ignore
+import { ConversationsRequestBuilderNavigationMetadata, ConversationsRequestBuilderRequestsMetadata, type ConversationsRequestBuilder } from './conversations/index.js';
+// @ts-ignore
 import { InteractionHistoryRequestBuilderNavigationMetadata, InteractionHistoryRequestBuilderRequestsMetadata, type InteractionHistoryRequestBuilder } from './interactionHistory/index.js';
 // @ts-ignore
-import { ReportsRequestBuilderRequestsMetadata, type ReportsRequestBuilder } from './reports/index.js';
+import { ReportsRequestBuilderNavigationMetadata, ReportsRequestBuilderRequestsMetadata, type ReportsRequestBuilder } from './reports/index.js';
 // @ts-ignore
 import { RetrievalRequestBuilderRequestsMetadata, type RetrievalRequestBuilder } from './retrieval/index.js';
+// @ts-ignore
+import { SearchRequestBuilderRequestsMetadata, type SearchRequestBuilder } from './search/index.js';
 // @ts-ignore
 import { SettingsRequestBuilderNavigationMetadata, SettingsRequestBuilderRequestsMetadata, type SettingsRequestBuilder } from './settings/index.js';
 // @ts-ignore
@@ -37,6 +41,10 @@ export interface CopilotRequestBuilder extends BaseRequestBuilder<CopilotRequest
      */
     get communications(): CommunicationsRequestBuilder;
     /**
+     * Provides operations to manage the conversations property of the microsoft.graph.copilotRoot entity.
+     */
+    get conversations(): ConversationsRequestBuilder;
+    /**
      * Provides operations to manage the interactionHistory property of the microsoft.graph.copilotRoot entity.
      */
     get interactionHistory(): InteractionHistoryRequestBuilder;
@@ -48,6 +56,10 @@ export interface CopilotRequestBuilder extends BaseRequestBuilder<CopilotRequest
      * Provides operations to call the retrieval method.
      */
     get retrieval(): RetrievalRequestBuilder;
+    /**
+     * Provides operations to call the search method.
+     */
+    get search(): SearchRequestBuilder;
     /**
      * Provides operations to manage the settings property of the microsoft.graph.copilotRoot entity.
      */
@@ -77,15 +89,23 @@ export const CopilotRequestBuilderNavigationMetadata: Record<Exclude<keyof Copil
         requestsMetadata: CommunicationsRequestBuilderRequestsMetadata,
         navigationMetadata: CommunicationsRequestBuilderNavigationMetadata,
     },
+    conversations: {
+        requestsMetadata: ConversationsRequestBuilderRequestsMetadata,
+        navigationMetadata: ConversationsRequestBuilderNavigationMetadata,
+    },
     interactionHistory: {
         requestsMetadata: InteractionHistoryRequestBuilderRequestsMetadata,
         navigationMetadata: InteractionHistoryRequestBuilderNavigationMetadata,
     },
     reports: {
         requestsMetadata: ReportsRequestBuilderRequestsMetadata,
+        navigationMetadata: ReportsRequestBuilderNavigationMetadata,
     },
     retrieval: {
         requestsMetadata: RetrievalRequestBuilderRequestsMetadata,
+    },
+    search: {
+        requestsMetadata: SearchRequestBuilderRequestsMetadata,
     },
     settings: {
         requestsMetadata: SettingsRequestBuilderRequestsMetadata,
