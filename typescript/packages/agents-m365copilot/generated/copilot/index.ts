@@ -6,7 +6,7 @@ import { AdminRequestBuilderNavigationMetadata, AdminRequestBuilderRequestsMetad
 // @ts-ignore
 import { InteractionHistoryRequestBuilderNavigationMetadata, InteractionHistoryRequestBuilderRequestsMetadata, type InteractionHistoryRequestBuilder } from './interactionHistory/index.js';
 // @ts-ignore
-import { ReportsRequestBuilderRequestsMetadata, type ReportsRequestBuilder } from './reports/index.js';
+import { ReportsRequestBuilderNavigationMetadata, ReportsRequestBuilderRequestsMetadata, type ReportsRequestBuilder } from './reports/index.js';
 // @ts-ignore
 import { RetrievalRequestBuilderRequestsMetadata, type RetrievalRequestBuilder } from './retrieval/index.js';
 // @ts-ignore
@@ -57,6 +57,7 @@ export const CopilotRequestBuilderNavigationMetadata: Record<Exclude<keyof Copil
     },
     reports: {
         requestsMetadata: ReportsRequestBuilderRequestsMetadata,
+        navigationMetadata: ReportsRequestBuilderNavigationMetadata,
     },
     retrieval: {
         requestsMetadata: RetrievalRequestBuilderRequestsMetadata,
