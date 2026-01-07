@@ -4,55 +4,50 @@ from dataclasses import dataclass, field
 from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
 from typing import Any, Optional, TYPE_CHECKING, Union
 
-if TYPE_CHECKING:
-    from .copilot_search_resource_metadata_dictionary import CopilotSearchResourceMetadataDictionary
-    from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
-
 @dataclass
-class Dictionaries(AdditionalDataHolder, Parsable):
+class SearchSensitivityLabelInfo(AdditionalDataHolder, Parsable):
+    """
+    Represents a sensitivityLabel.This model is shared with the CCS retrieval API and search where it is already unhidden.
+    """
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additional_data: dict[str, Any] = field(default_factory=dict)
 
+    # The color property
+    color: Optional[str] = None
+    # The displayName property
+    display_name: Optional[str] = None
     # The OdataType property
     odata_type: Optional[str] = None
+    # The priority property
+    priority: Optional[int] = None
+    # The sensitivityLabelId property
+    sensitivity_label_id: Optional[str] = None
+    # The tooltip property
+    tooltip: Optional[str] = None
     
     @staticmethod
-    def create_from_discriminator_value(parse_node: ParseNode) -> Dictionaries:
+    def create_from_discriminator_value(parse_node: ParseNode) -> SearchSensitivityLabelInfo:
         """
         Creates a new instance of the appropriate class based on discriminator value
         param parse_node: The parse node to use to read the discriminator value and create the object
-        Returns: Dictionaries
+        Returns: SearchSensitivityLabelInfo
         """
         if parse_node is None:
             raise TypeError("parse_node cannot be null.")
-        try:
-            child_node = parse_node.get_child_node("@odata.type")
-            mapping_value = child_node.get_str_value() if child_node else None
-        except AttributeError:
-            mapping_value = None
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotSearchResourceMetadataDictionary".casefold():
-            from .copilot_search_resource_metadata_dictionary import CopilotSearchResourceMetadataDictionary
-
-            return CopilotSearchResourceMetadataDictionary()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.searchResourceMetadataDictionary".casefold():
-            from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
-
-            return SearchResourceMetadataDictionary()
-        return Dictionaries()
+        return SearchSensitivityLabelInfo()
     
     def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
-        from .copilot_search_resource_metadata_dictionary import CopilotSearchResourceMetadataDictionary
-        from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
-
-        from .copilot_search_resource_metadata_dictionary import CopilotSearchResourceMetadataDictionary
-        from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
-
         fields: dict[str, Callable[[Any], None]] = {
+            "color": lambda n : setattr(self, 'color', n.get_str_value()),
+            "displayName": lambda n : setattr(self, 'display_name', n.get_str_value()),
             "@odata.type": lambda n : setattr(self, 'odata_type', n.get_str_value()),
+            "priority": lambda n : setattr(self, 'priority', n.get_int_value()),
+            "sensitivityLabelId": lambda n : setattr(self, 'sensitivity_label_id', n.get_str_value()),
+            "tooltip": lambda n : setattr(self, 'tooltip', n.get_str_value()),
         }
         return fields
     

@@ -14,35 +14,35 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 from warnings import warn
 
 if TYPE_CHECKING:
-    from ...models.copilot_report_root import CopilotReportRoot
-    from ...models.o_data_errors.o_data_error import ODataError
-    from .get_microsoft365_copilot_usage_user_detail_with_period.get_microsoft365_copilot_usage_user_detail_with_period_request_builder import GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder
-    from .get_microsoft365_copilot_user_count_summary_with_period.get_microsoft365_copilot_user_count_summary_with_period_request_builder import GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder
-    from .get_microsoft365_copilot_user_count_trend_with_period.get_microsoft365_copilot_user_count_trend_with_period_request_builder import GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder
+    from ....models.copilot_conversation import CopilotConversation
+    from ....models.o_data_errors.o_data_error import ODataError
+    from .messages.messages_request_builder import MessagesRequestBuilder
+    from .microsoft_graph_copilot_chat.microsoft_graph_copilot_chat_request_builder import MicrosoftGraphCopilotChatRequestBuilder
+    from .microsoft_graph_copilot_chat_over_stream.microsoft_graph_copilot_chat_over_stream_request_builder import MicrosoftGraphCopilotChatOverStreamRequestBuilder
 
-class ReportsRequestBuilder(BaseRequestBuilder):
+class CopilotConversationItemRequestBuilder(BaseRequestBuilder):
     """
-    Provides operations to manage the reports property of the microsoft.graph.copilotRoot entity.
+    Provides operations to manage the conversations property of the microsoft.graph.copilotRoot entity.
     """
     def __init__(self,request_adapter: RequestAdapter, path_parameters: Union[str, dict[str, Any]]) -> None:
         """
-        Instantiates a new ReportsRequestBuilder and sets the default values.
+        Instantiates a new CopilotConversationItemRequestBuilder and sets the default values.
         param path_parameters: The raw url or the url-template parameters for the request.
         param request_adapter: The request adapter to use to execute the requests.
         Returns: None
         """
-        super().__init__(request_adapter, "{+baseurl}/copilot/reports{?%24expand,%24select}", path_parameters)
+        super().__init__(request_adapter, "{+baseurl}/copilot/conversations/{copilotConversation%2Did}{?%24expand,%24select}", path_parameters)
     
     async def delete(self,request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> None:
         """
-        Delete navigation property reports for copilot
+        Delete navigation property conversations for copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: None
         """
         request_info = self.to_delete_request_information(
             request_configuration
         )
-        from ...models.o_data_errors.o_data_error import ODataError
+        from ....models.o_data_errors.o_data_error import ODataError
 
         error_mapping: dict[str, type[ParsableFactory]] = {
             "XXX": ODataError,
@@ -51,88 +51,52 @@ class ReportsRequestBuilder(BaseRequestBuilder):
             raise Exception("Http core is null") 
         return await self.request_adapter.send_no_response_content_async(request_info, error_mapping)
     
-    async def get(self,request_configuration: Optional[RequestConfiguration[ReportsRequestBuilderGetQueryParameters]] = None) -> Optional[CopilotReportRoot]:
+    async def get(self,request_configuration: Optional[RequestConfiguration[CopilotConversationItemRequestBuilderGetQueryParameters]] = None) -> Optional[CopilotConversation]:
         """
-        Get reports from copilot
+        The users conversations with Copilot Chat.
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
-        Returns: Optional[CopilotReportRoot]
+        Returns: Optional[CopilotConversation]
         """
         request_info = self.to_get_request_information(
             request_configuration
         )
-        from ...models.o_data_errors.o_data_error import ODataError
+        from ....models.o_data_errors.o_data_error import ODataError
 
         error_mapping: dict[str, type[ParsableFactory]] = {
             "XXX": ODataError,
         }
         if not self.request_adapter:
             raise Exception("Http core is null") 
-        from ...models.copilot_report_root import CopilotReportRoot
+        from ....models.copilot_conversation import CopilotConversation
 
-        return await self.request_adapter.send_async(request_info, CopilotReportRoot, error_mapping)
+        return await self.request_adapter.send_async(request_info, CopilotConversation, error_mapping)
     
-    def get_microsoft365_copilot_usage_user_detail_with_period(self,period: str) -> GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder:
+    async def patch(self,body: CopilotConversation, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> Optional[CopilotConversation]:
         """
-        Provides operations to call the getMicrosoft365CopilotUsageUserDetail method.
-        param period: Usage: period='{period}'
-        Returns: GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder
-        """
-        if period is None:
-            raise TypeError("period cannot be null.")
-        from .get_microsoft365_copilot_usage_user_detail_with_period.get_microsoft365_copilot_usage_user_detail_with_period_request_builder import GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder
-
-        return GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder(self.request_adapter, self.path_parameters, period)
-    
-    def get_microsoft365_copilot_user_count_summary_with_period(self,period: str) -> GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder:
-        """
-        Provides operations to call the getMicrosoft365CopilotUserCountSummary method.
-        param period: Usage: period='{period}'
-        Returns: GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder
-        """
-        if period is None:
-            raise TypeError("period cannot be null.")
-        from .get_microsoft365_copilot_user_count_summary_with_period.get_microsoft365_copilot_user_count_summary_with_period_request_builder import GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder
-
-        return GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder(self.request_adapter, self.path_parameters, period)
-    
-    def get_microsoft365_copilot_user_count_trend_with_period(self,period: str) -> GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder:
-        """
-        Provides operations to call the getMicrosoft365CopilotUserCountTrend method.
-        param period: Usage: period='{period}'
-        Returns: GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder
-        """
-        if period is None:
-            raise TypeError("period cannot be null.")
-        from .get_microsoft365_copilot_user_count_trend_with_period.get_microsoft365_copilot_user_count_trend_with_period_request_builder import GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder
-
-        return GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder(self.request_adapter, self.path_parameters, period)
-    
-    async def patch(self,body: CopilotReportRoot, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> Optional[CopilotReportRoot]:
-        """
-        Update the navigation property reports in copilot
+        Update the navigation property conversations in copilot
         param body: The request body
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
-        Returns: Optional[CopilotReportRoot]
+        Returns: Optional[CopilotConversation]
         """
         if body is None:
             raise TypeError("body cannot be null.")
         request_info = self.to_patch_request_information(
             body, request_configuration
         )
-        from ...models.o_data_errors.o_data_error import ODataError
+        from ....models.o_data_errors.o_data_error import ODataError
 
         error_mapping: dict[str, type[ParsableFactory]] = {
             "XXX": ODataError,
         }
         if not self.request_adapter:
             raise Exception("Http core is null") 
-        from ...models.copilot_report_root import CopilotReportRoot
+        from ....models.copilot_conversation import CopilotConversation
 
-        return await self.request_adapter.send_async(request_info, CopilotReportRoot, error_mapping)
+        return await self.request_adapter.send_async(request_info, CopilotConversation, error_mapping)
     
     def to_delete_request_information(self,request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> RequestInformation:
         """
-        Delete navigation property reports for copilot
+        Delete navigation property conversations for copilot
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -141,9 +105,9 @@ class ReportsRequestBuilder(BaseRequestBuilder):
         request_info.headers.try_add("Accept", "application/json")
         return request_info
     
-    def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[ReportsRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
+    def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[CopilotConversationItemRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
         """
-        Get reports from copilot
+        The users conversations with Copilot Chat.
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -152,9 +116,9 @@ class ReportsRequestBuilder(BaseRequestBuilder):
         request_info.headers.try_add("Accept", "application/json")
         return request_info
     
-    def to_patch_request_information(self,body: CopilotReportRoot, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> RequestInformation:
+    def to_patch_request_information(self,body: CopilotConversation, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> RequestInformation:
         """
-        Update the navigation property reports in copilot
+        Update the navigation property conversations in copilot
         param body: The request body
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
@@ -167,27 +131,54 @@ class ReportsRequestBuilder(BaseRequestBuilder):
         request_info.set_content_from_parsable(self.request_adapter, "application/json", body)
         return request_info
     
-    def with_url(self,raw_url: str) -> ReportsRequestBuilder:
+    def with_url(self,raw_url: str) -> CopilotConversationItemRequestBuilder:
         """
         Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         param raw_url: The raw URL to use for the request builder.
-        Returns: ReportsRequestBuilder
+        Returns: CopilotConversationItemRequestBuilder
         """
         if raw_url is None:
             raise TypeError("raw_url cannot be null.")
-        return ReportsRequestBuilder(self.request_adapter, raw_url)
+        return CopilotConversationItemRequestBuilder(self.request_adapter, raw_url)
+    
+    @property
+    def messages(self) -> MessagesRequestBuilder:
+        """
+        Provides operations to manage the messages property of the microsoft.graph.copilotConversation entity.
+        """
+        from .messages.messages_request_builder import MessagesRequestBuilder
+
+        return MessagesRequestBuilder(self.request_adapter, self.path_parameters)
+    
+    @property
+    def microsoft_graph_copilot_chat(self) -> MicrosoftGraphCopilotChatRequestBuilder:
+        """
+        Provides operations to call the chat method.
+        """
+        from .microsoft_graph_copilot_chat.microsoft_graph_copilot_chat_request_builder import MicrosoftGraphCopilotChatRequestBuilder
+
+        return MicrosoftGraphCopilotChatRequestBuilder(self.request_adapter, self.path_parameters)
+    
+    @property
+    def microsoft_graph_copilot_chat_over_stream(self) -> MicrosoftGraphCopilotChatOverStreamRequestBuilder:
+        """
+        Provides operations to call the chatOverStream method.
+        """
+        from .microsoft_graph_copilot_chat_over_stream.microsoft_graph_copilot_chat_over_stream_request_builder import MicrosoftGraphCopilotChatOverStreamRequestBuilder
+
+        return MicrosoftGraphCopilotChatOverStreamRequestBuilder(self.request_adapter, self.path_parameters)
     
     @dataclass
-    class ReportsRequestBuilderDeleteRequestConfiguration(RequestConfiguration[QueryParameters]):
+    class CopilotConversationItemRequestBuilderDeleteRequestConfiguration(RequestConfiguration[QueryParameters]):
         """
         Configuration for the request such as headers, query parameters, and middleware options.
         """
         warn("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.", DeprecationWarning)
     
     @dataclass
-    class ReportsRequestBuilderGetQueryParameters():
+    class CopilotConversationItemRequestBuilderGetQueryParameters():
         """
-        Get reports from copilot
+        The users conversations with Copilot Chat.
         """
         def get_query_parameter(self,original_name: str) -> str:
             """
@@ -211,14 +202,14 @@ class ReportsRequestBuilder(BaseRequestBuilder):
 
     
     @dataclass
-    class ReportsRequestBuilderGetRequestConfiguration(RequestConfiguration[ReportsRequestBuilderGetQueryParameters]):
+    class CopilotConversationItemRequestBuilderGetRequestConfiguration(RequestConfiguration[CopilotConversationItemRequestBuilderGetQueryParameters]):
         """
         Configuration for the request such as headers, query parameters, and middleware options.
         """
         warn("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.", DeprecationWarning)
     
     @dataclass
-    class ReportsRequestBuilderPatchRequestConfiguration(RequestConfiguration[QueryParameters]):
+    class CopilotConversationItemRequestBuilderPatchRequestConfiguration(RequestConfiguration[QueryParameters]):
         """
         Configuration for the request such as headers, query parameters, and middleware options.
         """

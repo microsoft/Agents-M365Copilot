@@ -1,0 +1,83 @@
+from __future__ import annotations
+from collections.abc import Callable
+from dataclasses import dataclass, field
+from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, ParseNode, SerializationWriter
+from typing import Any, Optional, TYPE_CHECKING, Union
+
+if TYPE_CHECKING:
+    from .copilot_conversation_attribution_source import CopilotConversationAttributionSource
+    from .copilot_conversation_attribution_type import CopilotConversationAttributionType
+
+@dataclass
+class CopilotConversationAttribution(AdditionalDataHolder, Parsable):
+    # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    additional_data: dict[str, Any] = field(default_factory=dict)
+
+    # The source of the attribution.
+    attribution_source: Optional[CopilotConversationAttributionSource] = None
+    # The type of attribution.
+    attribution_type: Optional[CopilotConversationAttributionType] = None
+    # The imageFavIcon property
+    image_fav_icon: Optional[str] = None
+    # The imageHeight property
+    image_height: Optional[int] = None
+    # The imageWebUrl property
+    image_web_url: Optional[str] = None
+    # The imageWidth property
+    image_width: Optional[int] = None
+    # The OdataType property
+    odata_type: Optional[str] = None
+    # The providerDisplayName property
+    provider_display_name: Optional[str] = None
+    # The seeMoreWebUrl property
+    see_more_web_url: Optional[str] = None
+    
+    @staticmethod
+    def create_from_discriminator_value(parse_node: ParseNode) -> CopilotConversationAttribution:
+        """
+        Creates a new instance of the appropriate class based on discriminator value
+        param parse_node: The parse node to use to read the discriminator value and create the object
+        Returns: CopilotConversationAttribution
+        """
+        if parse_node is None:
+            raise TypeError("parse_node cannot be null.")
+        return CopilotConversationAttribution()
+    
+    def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
+        """
+        The deserialization information for the current model
+        Returns: dict[str, Callable[[ParseNode], None]]
+        """
+        from .copilot_conversation_attribution_source import CopilotConversationAttributionSource
+        from .copilot_conversation_attribution_type import CopilotConversationAttributionType
+
+        from .copilot_conversation_attribution_source import CopilotConversationAttributionSource
+        from .copilot_conversation_attribution_type import CopilotConversationAttributionType
+
+        fields: dict[str, Callable[[Any], None]] = {
+            "attributionSource": lambda n : setattr(self, 'attribution_source', n.get_enum_value(CopilotConversationAttributionSource)),
+            "attributionType": lambda n : setattr(self, 'attribution_type', n.get_enum_value(CopilotConversationAttributionType)),
+            "imageFavIcon": lambda n : setattr(self, 'image_fav_icon', n.get_str_value()),
+            "imageHeight": lambda n : setattr(self, 'image_height', n.get_int_value()),
+            "imageWebUrl": lambda n : setattr(self, 'image_web_url', n.get_str_value()),
+            "imageWidth": lambda n : setattr(self, 'image_width', n.get_int_value()),
+            "@odata.type": lambda n : setattr(self, 'odata_type', n.get_str_value()),
+            "providerDisplayName": lambda n : setattr(self, 'provider_display_name', n.get_str_value()),
+            "seeMoreWebUrl": lambda n : setattr(self, 'see_more_web_url', n.get_str_value()),
+        }
+        return fields
+    
+    def serialize(self,writer: SerializationWriter) -> None:
+        """
+        Serializes information the current object
+        param writer: Serialization writer to use to serialize this model
+        Returns: None
+        """
+        if writer is None:
+            raise TypeError("writer cannot be null.")
+        writer.write_enum_value("attributionSource", self.attribution_source)
+        writer.write_enum_value("attributionType", self.attribution_type)
+        writer.write_str_value("@odata.type", self.odata_type)
+        writer.write_additional_data_value(self.additional_data)
+    
+
