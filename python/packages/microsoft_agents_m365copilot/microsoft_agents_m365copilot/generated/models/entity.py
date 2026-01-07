@@ -7,7 +7,9 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 if TYPE_CHECKING:
     from .ai_interaction import AiInteraction
     from .ai_interaction_history import AiInteractionHistory
+    from .ai_online_meeting import AiOnlineMeeting
     from .ai_user import AiUser
+    from .call_ai_insight import CallAiInsight
     from .copilot_admin import CopilotAdmin
     from .copilot_admin_limited_mode import CopilotAdminLimitedMode
     from .copilot_admin_setting import CopilotAdminSetting
@@ -45,10 +47,18 @@ class Entity(AdditionalDataHolder, Parsable):
             from .ai_interaction_history import AiInteractionHistory
 
             return AiInteractionHistory()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.aiOnlineMeeting".casefold():
+            from .ai_online_meeting import AiOnlineMeeting
+
+            return AiOnlineMeeting()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.aiUser".casefold():
             from .ai_user import AiUser
 
             return AiUser()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.callAiInsight".casefold():
+            from .call_ai_insight import CallAiInsight
+
+            return CallAiInsight()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotAdmin".casefold():
             from .copilot_admin import CopilotAdmin
 
@@ -74,7 +84,9 @@ class Entity(AdditionalDataHolder, Parsable):
         """
         from .ai_interaction import AiInteraction
         from .ai_interaction_history import AiInteractionHistory
+        from .ai_online_meeting import AiOnlineMeeting
         from .ai_user import AiUser
+        from .call_ai_insight import CallAiInsight
         from .copilot_admin import CopilotAdmin
         from .copilot_admin_limited_mode import CopilotAdminLimitedMode
         from .copilot_admin_setting import CopilotAdminSetting
@@ -82,7 +94,9 @@ class Entity(AdditionalDataHolder, Parsable):
 
         from .ai_interaction import AiInteraction
         from .ai_interaction_history import AiInteractionHistory
+        from .ai_online_meeting import AiOnlineMeeting
         from .ai_user import AiUser
+        from .call_ai_insight import CallAiInsight
         from .copilot_admin import CopilotAdmin
         from .copilot_admin_limited_mode import CopilotAdminLimitedMode
         from .copilot_admin_setting import CopilotAdminSetting
