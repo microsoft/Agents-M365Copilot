@@ -95,14 +95,44 @@ Microsoft.Agents.M365Copilot.Copilot.InteractionHistory.interactionHistoryReques
 Microsoft.Agents.M365Copilot.Copilot.InteractionHistory.interactionHistoryRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.InteractionHistory.InteractionHistoryRequestBuilder.InteractionHistoryRequestBuilderGetQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Copilot.InteractionHistory.interactionHistoryRequestBuilder::|public|ToPatchRequestInformation(body:global.Microsoft.Agents.M365Copilot.Models.AiInteractionHistory; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Copilot.InteractionHistory.interactionHistoryRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.InteractionHistory.InteractionHistoryRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriod.getMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriod.getMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder.getMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilderGetRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriod.getMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter; period?:string):void
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriod.getMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriod.getMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):Stream
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriod.getMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriod.getMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriod.GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUserCountSummaryWithPeriod.getMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUserCountSummaryWithPeriod.getMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder.getMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilderGetRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUserCountSummaryWithPeriod.getMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter; period?:string):void
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUserCountSummaryWithPeriod.getMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUserCountSummaryWithPeriod.getMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):Stream
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUserCountSummaryWithPeriod.getMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUserCountSummaryWithPeriod.getMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUserCountSummaryWithPeriod.GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUserCountTrendWithPeriod.getMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUserCountTrendWithPeriod.getMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder.getMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderGetRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUserCountTrendWithPeriod.getMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter; period?:string):void
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUserCountTrendWithPeriod.getMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUserCountTrendWithPeriod.getMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):Stream
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUserCountTrendWithPeriod.getMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUserCountTrendWithPeriod.getMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUserCountTrendWithPeriod.GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder
 Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder.reportsRequestBuilderDeleteRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
 Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder.reportsRequestBuilderGetQueryParameters::|public|Expand:string[]
 Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder.reportsRequestBuilderGetQueryParameters::|public|Select:string[]
 Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder.reportsRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Reports.ReportsRequestBuilder.ReportsRequestBuilderGetQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder.reportsRequestBuilderPatchRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
 Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
 Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder::|public|DeleteAsync(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):void
 Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Reports.ReportsRequestBuilder.ReportsRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Models.CopilotReportRoot
+Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder::|public|getMicrosoft365CopilotUsageUserDetailWithPeriod(period:string):global.Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriod.GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder::|public|getMicrosoft365CopilotUserCountSummaryWithPeriod(period:string):global.Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUserCountSummaryWithPeriod.GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder::|public|getMicrosoft365CopilotUserCountTrendWithPeriod(period:string):global.Microsoft.Agents.M365Copilot.Copilot.Reports.GetMicrosoft365CopilotUserCountTrendWithPeriod.GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder::|public|PatchAsync(body:global.Microsoft.Agents.M365Copilot.Models.CopilotReportRoot; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Models.CopilotReportRoot
+Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder::|public|ToDeleteRequestInformation(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Reports.ReportsRequestBuilder.ReportsRequestBuilderGetQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder::|public|ToPatchRequestInformation(body:global.Microsoft.Agents.M365Copilot.Models.CopilotReportRoot; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Copilot.Reports.reportsRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Reports.ReportsRequestBuilder
 Microsoft.Agents.M365Copilot.Copilot.Retrieval.retrievalPostRequestBody::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Copilot.Retrieval.retrievalPostRequestBody::|public|constructor():void
@@ -143,6 +173,7 @@ Microsoft.Agents.M365Copilot.Copilot.Users.Item.AiUserItemRequestBuilder::|publi
 Microsoft.Agents.M365Copilot.Copilot.Users.Item.AiUserItemRequestBuilder::|public|DeleteAsync(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):void
 Microsoft.Agents.M365Copilot.Copilot.Users.Item.AiUserItemRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.AiUserItemRequestBuilder.AiUserItemRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Models.AiUser
 Microsoft.Agents.M365Copilot.Copilot.Users.Item.AiUserItemRequestBuilder::|public|interactionHistory:global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.InteractionHistory.InteractionHistoryRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.AiUserItemRequestBuilder::|public|onlineMeetings:global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.OnlineMeetingsRequestBuilder
 Microsoft.Agents.M365Copilot.Copilot.Users.Item.AiUserItemRequestBuilder::|public|PatchAsync(body:global.Microsoft.Agents.M365Copilot.Models.AiUser; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Models.AiUser
 Microsoft.Agents.M365Copilot.Copilot.Users.Item.AiUserItemRequestBuilder::|public|ToDeleteRequestInformation(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Copilot.Users.Item.AiUserItemRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.AiUserItemRequestBuilder.AiUserItemRequestBuilderGetQueryParameters>>):RequestInformation
@@ -187,6 +218,95 @@ Microsoft.Agents.M365Copilot.Copilot.Users.Item.InteractionHistory.interactionHi
 Microsoft.Agents.M365Copilot.Copilot.Users.Item.InteractionHistory.interactionHistoryRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.InteractionHistory.InteractionHistoryRequestBuilder.InteractionHistoryRequestBuilderGetQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Copilot.Users.Item.InteractionHistory.interactionHistoryRequestBuilder::|public|ToPatchRequestInformation(body:global.Microsoft.Agents.M365Copilot.Models.AiInteractionHistory; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Copilot.Users.Item.InteractionHistory.interactionHistoryRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.InteractionHistory.InteractionHistoryRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters::|public|Filter:string
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters::|public|Search:string
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder.CountRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):int?
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder.aiInsightsRequestBuilderGetQueryParameters::|public|Count:bool?
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder.aiInsightsRequestBuilderGetQueryParameters::|public|Expand:string[]
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder.aiInsightsRequestBuilderGetQueryParameters::|public|Filter:string
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder.aiInsightsRequestBuilderGetQueryParameters::|public|Orderby:string[]
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder.aiInsightsRequestBuilderGetQueryParameters::|public|Search:string
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder.aiInsightsRequestBuilderGetQueryParameters::|public|Select:string[]
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder.aiInsightsRequestBuilderGetQueryParameters::|public|Skip:int?
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder.aiInsightsRequestBuilderGetQueryParameters::|public|Top:int?
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder.aiInsightsRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.AiInsightsRequestBuilder.AiInsightsRequestBuilderGetQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder.aiInsightsRequestBuilderPostRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder::[CallAiInsightId:string]:global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder::|public|Count:global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.AiInsightsRequestBuilder.AiInsightsRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Models.CallAiInsightCollectionResponse
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder::|public|PostAsync(body:global.Microsoft.Agents.M365Copilot.Models.CallAiInsight; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Models.CallAiInsight
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.AiInsightsRequestBuilder.AiInsightsRequestBuilderGetQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder::|public|ToPostRequestInformation(body:global.Microsoft.Agents.M365Copilot.Models.CallAiInsight; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.aiInsightsRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.AiInsightsRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters::|public|Filter:string
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters::|public|Search:string
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder.CountRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):int?
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Count.CountRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder.CallAiInsightItemRequestBuilderDeleteRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder.CallAiInsightItemRequestBuilderGetQueryParameters::|public|Expand:string[]
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder.CallAiInsightItemRequestBuilderGetQueryParameters::|public|Select:string[]
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder.CallAiInsightItemRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder.CallAiInsightItemRequestBuilderGetQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder.CallAiInsightItemRequestBuilderPatchRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder::|public|DeleteAsync(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):void
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder.CallAiInsightItemRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Models.CallAiInsight
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder::|public|PatchAsync(body:global.Microsoft.Agents.M365Copilot.Models.CallAiInsight; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Models.CallAiInsight
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder::|public|ToDeleteRequestInformation(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder.CallAiInsightItemRequestBuilderGetQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder::|public|ToPatchRequestInformation(body:global.Microsoft.Agents.M365Copilot.Models.CallAiInsight; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.Item.CallAiInsightItemRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder.AiOnlineMeetingItemRequestBuilderDeleteRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder.AiOnlineMeetingItemRequestBuilderGetQueryParameters::|public|Expand:string[]
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder.AiOnlineMeetingItemRequestBuilderGetQueryParameters::|public|Select:string[]
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder.AiOnlineMeetingItemRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder.AiOnlineMeetingItemRequestBuilderGetQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder.AiOnlineMeetingItemRequestBuilderPatchRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder::|public|aiInsights:global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiInsights.AiInsightsRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder::|public|DeleteAsync(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):void
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder.AiOnlineMeetingItemRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Models.AiOnlineMeeting
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder::|public|PatchAsync(body:global.Microsoft.Agents.M365Copilot.Models.AiOnlineMeeting; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Models.AiOnlineMeeting
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder::|public|ToDeleteRequestInformation(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder.AiOnlineMeetingItemRequestBuilderGetQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder::|public|ToPatchRequestInformation(body:global.Microsoft.Agents.M365Copilot.Models.AiOnlineMeeting; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder.onlineMeetingsRequestBuilderGetQueryParameters::|public|Count:bool?
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder.onlineMeetingsRequestBuilderGetQueryParameters::|public|Expand:string[]
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder.onlineMeetingsRequestBuilderGetQueryParameters::|public|Filter:string
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder.onlineMeetingsRequestBuilderGetQueryParameters::|public|Orderby:string[]
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder.onlineMeetingsRequestBuilderGetQueryParameters::|public|Search:string
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder.onlineMeetingsRequestBuilderGetQueryParameters::|public|Select:string[]
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder.onlineMeetingsRequestBuilderGetQueryParameters::|public|Skip:int?
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder.onlineMeetingsRequestBuilderGetQueryParameters::|public|Top:int?
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder.onlineMeetingsRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.OnlineMeetingsRequestBuilder.OnlineMeetingsRequestBuilderGetQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder.onlineMeetingsRequestBuilderPostRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder::[AiOnlineMeetingId:string]:global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Item.AiOnlineMeetingItemRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder::|public|Count:global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.Count.CountRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.OnlineMeetingsRequestBuilder.OnlineMeetingsRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Models.AiOnlineMeetingCollectionResponse
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder::|public|PostAsync(body:global.Microsoft.Agents.M365Copilot.Models.AiOnlineMeeting; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Models.AiOnlineMeeting
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.OnlineMeetingsRequestBuilder.OnlineMeetingsRequestBuilderGetQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder::|public|ToPostRequestInformation(body:global.Microsoft.Agents.M365Copilot.Models.AiOnlineMeeting; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.onlineMeetingsRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Users.Item.OnlineMeetings.OnlineMeetingsRequestBuilder
 Microsoft.Agents.M365Copilot.Copilot.Users.usersRequestBuilder-->BaseRequestBuilder
 Microsoft.Agents.M365Copilot.Copilot.Users.usersRequestBuilder.usersRequestBuilderGetQueryParameters::|public|Count:bool?
 Microsoft.Agents.M365Copilot.Copilot.Users.usersRequestBuilder.usersRequestBuilderGetQueryParameters::|public|Expand:string[]
@@ -207,6 +327,16 @@ Microsoft.Agents.M365Copilot.Copilot.Users.usersRequestBuilder::|public|PostAsyn
 Microsoft.Agents.M365Copilot.Copilot.Users.usersRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.UsersRequestBuilder.UsersRequestBuilderGetQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Copilot.Users.usersRequestBuilder::|public|ToPostRequestInformation(body:global.Microsoft.Agents.M365Copilot.Models.AiUser; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Copilot.Users.usersRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Users.UsersRequestBuilder
+Microsoft.Agents.M365Copilot.Models.actionItem::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Models.actionItem::|public|constructor():void
+Microsoft.Agents.M365Copilot.Models.actionItem::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.actionItem::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.actionItem::|public|OwnerDisplayName:string
+Microsoft.Agents.M365Copilot.Models.actionItem::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.actionItem::|public|Text:string
+Microsoft.Agents.M365Copilot.Models.actionItem::|public|Title:string
+Microsoft.Agents.M365Copilot.Models.actionItem::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.ActionItem
+Microsoft.Agents.M365Copilot.Models.actionItem~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Models.aiInteraction-->global.Microsoft.Agents.M365Copilot.Models.Entity
 Microsoft.Agents.M365Copilot.Models.aiInteraction::|public|AppClass:string
 Microsoft.Agents.M365Copilot.Models.aiInteraction::|public|Attachments:List<global.Microsoft.Agents.M365Copilot.Models.AiInteractionAttachment>
@@ -284,10 +414,22 @@ Microsoft.Agents.M365Copilot.Models.aiInteractionMention~~>IAdditionalDataHolder
 Microsoft.Agents.M365Copilot.Models.aiInteractionType::0000-userPrompt
 Microsoft.Agents.M365Copilot.Models.aiInteractionType::0001-aiResponse
 Microsoft.Agents.M365Copilot.Models.aiInteractionType::0002-unknownFutureValue
+Microsoft.Agents.M365Copilot.Models.aiOnlineMeeting-->global.Microsoft.Agents.M365Copilot.Models.Entity
+Microsoft.Agents.M365Copilot.Models.aiOnlineMeeting::|public|AiInsights:List<global.Microsoft.Agents.M365Copilot.Models.CallAiInsight>
+Microsoft.Agents.M365Copilot.Models.aiOnlineMeeting::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.aiOnlineMeeting::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.aiOnlineMeeting::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.aiOnlineMeeting::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.AiOnlineMeeting
+Microsoft.Agents.M365Copilot.Models.aiOnlineMeetingCollectionResponse-->global.Microsoft.Agents.M365Copilot.Models.BaseCollectionPaginationCountResponse
+Microsoft.Agents.M365Copilot.Models.aiOnlineMeetingCollectionResponse::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.aiOnlineMeetingCollectionResponse::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.aiOnlineMeetingCollectionResponse::|public|Value:List<global.Microsoft.Agents.M365Copilot.Models.AiOnlineMeeting>
+Microsoft.Agents.M365Copilot.Models.aiOnlineMeetingCollectionResponse::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.AiOnlineMeetingCollectionResponse
 Microsoft.Agents.M365Copilot.Models.aiUser-->global.Microsoft.Agents.M365Copilot.Models.Entity
 Microsoft.Agents.M365Copilot.Models.aiUser::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Models.aiUser::|public|InteractionHistory:global.Microsoft.Agents.M365Copilot.Models.AiInteractionHistory
 Microsoft.Agents.M365Copilot.Models.aiUser::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.aiUser::|public|OnlineMeetings:List<global.Microsoft.Agents.M365Copilot.Models.AiOnlineMeeting>
 Microsoft.Agents.M365Copilot.Models.aiUser::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Models.aiUser::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.AiUser
 Microsoft.Agents.M365Copilot.Models.aiUserCollectionResponse-->global.Microsoft.Agents.M365Copilot.Models.BaseCollectionPaginationCountResponse
@@ -312,6 +454,31 @@ Microsoft.Agents.M365Copilot.Models.BaseCollectionPaginationCountResponse::|stat
 Microsoft.Agents.M365Copilot.Models.BaseCollectionPaginationCountResponse~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Models.bodyType::0000-text
 Microsoft.Agents.M365Copilot.Models.bodyType::0001-html
+Microsoft.Agents.M365Copilot.Models.callAiInsight-->global.Microsoft.Agents.M365Copilot.Models.Entity
+Microsoft.Agents.M365Copilot.Models.callAiInsight::|public|ActionItems:List<global.Microsoft.Agents.M365Copilot.Models.ActionItem>
+Microsoft.Agents.M365Copilot.Models.callAiInsight::|public|CallId:string
+Microsoft.Agents.M365Copilot.Models.callAiInsight::|public|ContentCorrelationId:string
+Microsoft.Agents.M365Copilot.Models.callAiInsight::|public|CreatedDateTime:DateTimeOffset?
+Microsoft.Agents.M365Copilot.Models.callAiInsight::|public|EndDateTime:DateTimeOffset?
+Microsoft.Agents.M365Copilot.Models.callAiInsight::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.callAiInsight::|public|MeetingNotes:List<global.Microsoft.Agents.M365Copilot.Models.MeetingNote>
+Microsoft.Agents.M365Copilot.Models.callAiInsight::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.callAiInsight::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.callAiInsight::|public|Viewpoint:global.Microsoft.Agents.M365Copilot.Models.CallAiInsightViewPoint
+Microsoft.Agents.M365Copilot.Models.callAiInsight::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.CallAiInsight
+Microsoft.Agents.M365Copilot.Models.callAiInsightCollectionResponse-->global.Microsoft.Agents.M365Copilot.Models.BaseCollectionPaginationCountResponse
+Microsoft.Agents.M365Copilot.Models.callAiInsightCollectionResponse::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.callAiInsightCollectionResponse::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.callAiInsightCollectionResponse::|public|Value:List<global.Microsoft.Agents.M365Copilot.Models.CallAiInsight>
+Microsoft.Agents.M365Copilot.Models.callAiInsightCollectionResponse::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.CallAiInsightCollectionResponse
+Microsoft.Agents.M365Copilot.Models.callAiInsightViewPoint::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Models.callAiInsightViewPoint::|public|constructor():void
+Microsoft.Agents.M365Copilot.Models.callAiInsightViewPoint::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.callAiInsightViewPoint::|public|MentionEvents:List<global.Microsoft.Agents.M365Copilot.Models.MentionEvent>
+Microsoft.Agents.M365Copilot.Models.callAiInsightViewPoint::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.callAiInsightViewPoint::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.callAiInsightViewPoint::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.CallAiInsightViewPoint
+Microsoft.Agents.M365Copilot.Models.callAiInsightViewPoint~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Models.CallRecords.userIdentity-->global.Microsoft.Agents.M365Copilot.Models.Identity
 Microsoft.Agents.M365Copilot.Models.CallRecords.userIdentity::|public|constructor():void
 Microsoft.Agents.M365Copilot.Models.CallRecords.userIdentity::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -523,6 +690,35 @@ Microsoft.Agents.M365Copilot.Models.itemBody::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Models.itemBody::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Models.itemBody::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.ItemBody
 Microsoft.Agents.M365Copilot.Models.itemBody~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Models.meetingNote::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Models.meetingNote::|public|constructor():void
+Microsoft.Agents.M365Copilot.Models.meetingNote::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.meetingNote::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.meetingNote::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.meetingNote::|public|Subpoints:List<global.Microsoft.Agents.M365Copilot.Models.MeetingNoteSubpoint>
+Microsoft.Agents.M365Copilot.Models.meetingNote::|public|Text:string
+Microsoft.Agents.M365Copilot.Models.meetingNote::|public|Title:string
+Microsoft.Agents.M365Copilot.Models.meetingNote::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.MeetingNote
+Microsoft.Agents.M365Copilot.Models.meetingNoteSubpoint::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Models.meetingNoteSubpoint::|public|constructor():void
+Microsoft.Agents.M365Copilot.Models.meetingNoteSubpoint::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.meetingNoteSubpoint::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.meetingNoteSubpoint::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.meetingNoteSubpoint::|public|Text:string
+Microsoft.Agents.M365Copilot.Models.meetingNoteSubpoint::|public|Title:string
+Microsoft.Agents.M365Copilot.Models.meetingNoteSubpoint::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.MeetingNoteSubpoint
+Microsoft.Agents.M365Copilot.Models.meetingNoteSubpoint~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Models.meetingNote~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Models.mentionEvent::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Models.mentionEvent::|public|constructor():void
+Microsoft.Agents.M365Copilot.Models.mentionEvent::|public|EventDateTime:DateTimeOffset?
+Microsoft.Agents.M365Copilot.Models.mentionEvent::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.mentionEvent::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.mentionEvent::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.mentionEvent::|public|Speaker:global.Microsoft.Agents.M365Copilot.Models.IdentitySet
+Microsoft.Agents.M365Copilot.Models.mentionEvent::|public|TranscriptUtterance:string
+Microsoft.Agents.M365Copilot.Models.mentionEvent::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.MentionEvent
+Microsoft.Agents.M365Copilot.Models.mentionEvent~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Models.ODataErrors.ErrorDetails::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Models.ODataErrors.ErrorDetails::|public|Code:string
 Microsoft.Agents.M365Copilot.Models.ODataErrors.ErrorDetails::|public|constructor():void
