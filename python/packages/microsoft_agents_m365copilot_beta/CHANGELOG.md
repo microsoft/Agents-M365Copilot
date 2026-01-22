@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0-preview.15](https://github.com/microsoft/Agents-M365Copilot/compare/microsoft_agents_m365copilot_beta-v1.0.0-preview.14...microsoft_agents_m365copilot_beta-v1.0.0-preview.15) (2026-01-22)
+
+
+### Features
+
+* **generation:** update request builders and models for python beta ([#273](https://github.com/microsoft/Agents-M365Copilot/issues/273)) ([711de18](https://github.com/microsoft/Agents-M365Copilot/commit/711de18e02811843b324bade5da161d5bf6b2051))
+
 ## [1.0.0-preview.14](https://github.com/microsoft/Agents-M365Copilot/compare/microsoft_agents_m365copilot_beta-v1.0.0-preview.13...microsoft_agents_m365copilot_beta-v1.0.0-preview.14) (2026-01-07)
 
 
