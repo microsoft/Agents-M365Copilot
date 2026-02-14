@@ -58,6 +58,20 @@ Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.CopilotPac
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder.CopilotPackageDetailItemRequestBuilderGetQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder::|public|ToPatchRequestInformation(body:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageDetail; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder::|public|zipFile:global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.ZipFile.ZipFileRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder.zipFileRequestBuilderDeleteRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder.zipFileRequestBuilderGetRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder.zipFileRequestBuilderPutRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder::|public|DeleteAsync(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):Stream
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder::|public|PutAsync(body:Stream; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):Stream
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder::|public|ToDeleteRequestInformation(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder::|public|ToPutRequestInformation(body:Stream; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.Item.ZipFile.ZipFileRequestBuilder
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.packagesRequestBuilder-->BaseRequestBuilder
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.packagesRequestBuilder.packagesRequestBuilderGetQueryParameters::|public|Count:bool?
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.packagesRequestBuilder.packagesRequestBuilderGetQueryParameters::|public|Expand:string[]
@@ -1300,11 +1314,13 @@ Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|Serialize(write
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|ShortDescription:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|SupportedHosts:List<string>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|Type:global.Microsoft.Agents.M365Copilot.Beta.Models.PackageType?
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|ZipFile:byte[]
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackage
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail-->global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackage
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|AcquireUsersAndGroups:List<global.Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|AllowedUsersAndGroups:List<global.Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|Categories:List<string>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|ElementDetails:List<global.Microsoft.Agents.M365Copilot.Beta.Models.PackageElementDetail>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|LongDescription:string
