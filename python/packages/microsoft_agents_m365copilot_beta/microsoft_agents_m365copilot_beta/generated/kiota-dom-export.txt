@@ -73,6 +73,22 @@ microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.
 microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder::|public|to_patch_request_information(body:CopilotPackageDetail; request_configuration?:RequestConfiguration[QueryParameters]):RequestInformation
 microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder::|public|url_template:str
 microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder::|public|with_url(raw_url:str):CopilotPackageDetailItemRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder::|public|zip_file:ZipFileRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.zipFile.ZipFileRequestBuilder-->BaseRequestBuilder
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.zipFile.ZipFileRequestBuilder.ZipFileRequestBuilderDeleteRequestConfiguration-->RequestConfiguration[QueryParameters]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.zipFile.ZipFileRequestBuilder.ZipFileRequestBuilderGetRequestConfiguration-->RequestConfiguration[QueryParameters]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.zipFile.ZipFileRequestBuilder.ZipFileRequestBuilderPutRequestConfiguration-->RequestConfiguration[QueryParameters]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.zipFile.ZipFileRequestBuilder::|public|constructor(path_parameters:Union[str, dict[str, Any]]; request_adapter:RequestAdapter):None
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.zipFile.ZipFileRequestBuilder::|public|delete(request_configuration?:RequestConfiguration[QueryParameters]):None
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.zipFile.ZipFileRequestBuilder::|public|get(request_configuration?:RequestConfiguration[QueryParameters]):bytes
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.zipFile.ZipFileRequestBuilder::|public|path_parameters:Union[str, dict[str, Any]]
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.zipFile.ZipFileRequestBuilder::|public|put(body:bytes; request_configuration?:RequestConfiguration[QueryParameters]):bytes
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.zipFile.ZipFileRequestBuilder::|public|request_adapter:RequestAdapter
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.zipFile.ZipFileRequestBuilder::|public|to_delete_request_information(request_configuration?:RequestConfiguration[QueryParameters]):RequestInformation
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.zipFile.ZipFileRequestBuilder::|public|to_get_request_information(request_configuration?:RequestConfiguration[QueryParameters]):RequestInformation
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.zipFile.ZipFileRequestBuilder::|public|to_put_request_information(body:bytes; request_configuration?:RequestConfiguration[QueryParameters]):RequestInformation
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.zipFile.ZipFileRequestBuilder::|public|url_template:str
+microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.item.zipFile.ZipFileRequestBuilder::|public|with_url(raw_url:str):ZipFileRequestBuilder
 microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder-->BaseRequestBuilder
 microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder.PackagesRequestBuilderGetQueryParameters::|public|count:bool
 microsoft_agents_m365copilot_beta.generated.copilot.admin.catalog.packages.PackagesRequestBuilder.PackagesRequestBuilderGetQueryParameters::|public|expand:list[str]
@@ -1672,6 +1688,8 @@ microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|suppo
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|supported_hosts(value:list[str]):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|type():PackageType
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|type(value:PackageType):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|zip_file():bytes
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|zip_file(value:bytes):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotPackage
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail-->CopilotPackage
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|acquire_users_and_groups():list[PackageAccessEntity]
