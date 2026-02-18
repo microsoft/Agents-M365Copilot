@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '../../.
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
-import { CopilotPackageDetailItemRequestBuilderRequestsMetadata, type CopilotPackageDetailItemRequestBuilder } from './item/index.js';
+import { CopilotPackageDetailItemRequestBuilderNavigationMetadata, CopilotPackageDetailItemRequestBuilderRequestsMetadata, type CopilotPackageDetailItemRequestBuilder } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -115,6 +115,7 @@ const PackagesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
 export const PackagesRequestBuilderNavigationMetadata: Record<Exclude<keyof PackagesRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     byCopilotPackageDetailId: {
         requestsMetadata: CopilotPackageDetailItemRequestBuilderRequestsMetadata,
+        navigationMetadata: CopilotPackageDetailItemRequestBuilderNavigationMetadata,
         pathParametersMappings: ["copilotPackageDetail%2Did"],
     },
     count: {
