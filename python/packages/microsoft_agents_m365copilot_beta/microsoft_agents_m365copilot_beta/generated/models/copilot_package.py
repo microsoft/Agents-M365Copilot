@@ -37,6 +37,8 @@ class CopilotPackage(Entity, Parsable):
     supported_hosts: Optional[list[str]] = None
     # The type property
     type: Optional[PackageType] = None
+    # The zipFile property
+    zip_file: Optional[bytes] = None
     
     @staticmethod
     def create_from_discriminator_value(parse_node: ParseNode) -> CopilotPackage:
@@ -84,6 +86,7 @@ class CopilotPackage(Entity, Parsable):
             "shortDescription": lambda n : setattr(self, 'short_description', n.get_str_value()),
             "supportedHosts": lambda n : setattr(self, 'supported_hosts', n.get_collection_of_primitive_values(str)),
             "type": lambda n : setattr(self, 'type', n.get_enum_value(PackageType)),
+            "zipFile": lambda n : setattr(self, 'zip_file', n.get_bytes_value()),
         }
         super_fields = super().get_field_deserializers()
         fields.update(super_fields)
@@ -108,5 +111,6 @@ class CopilotPackage(Entity, Parsable):
         writer.write_str_value("shortDescription", self.short_description)
         writer.write_collection_of_primitive_values("supportedHosts", self.supported_hosts)
         writer.write_enum_value("type", self.type)
+        writer.write_bytes_value("zipFile", self.zip_file)
     
 
