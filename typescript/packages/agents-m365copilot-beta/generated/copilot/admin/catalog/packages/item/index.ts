@@ -6,12 +6,18 @@ import { createCopilotPackageDetailFromDiscriminatorValue, serializeCopilotPacka
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '../../../../../models/oDataErrors/index.js';
 // @ts-ignore
-import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
+import { type ZipFileRequestBuilder, ZipFileRequestBuilderRequestsMetadata } from './zipFile/index.js';
+// @ts-ignore
+import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the packages property of the microsoft.graph.copilotAdminCatalog entity.
  */
 export interface CopilotPackageDetailItemRequestBuilder extends BaseRequestBuilder<CopilotPackageDetailItemRequestBuilder> {
+    /**
+     * Provides operations to manage the media for the copilotRoot entity.
+     */
+    get zipFile(): ZipFileRequestBuilder;
     /**
      * Delete navigation property packages for copilot
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -76,6 +82,14 @@ export const CopilotPackageDetailItemRequestBuilderUriTemplate = "{+baseurl}/cop
 const CopilotPackageDetailItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "expand": "%24expand",
     "select": "%24select",
+};
+/**
+ * Metadata for all the navigation properties in the request builder.
+ */
+export const CopilotPackageDetailItemRequestBuilderNavigationMetadata: Record<Exclude<keyof CopilotPackageDetailItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    zipFile: {
+        requestsMetadata: ZipFileRequestBuilderRequestsMetadata,
+    },
 };
 /**
  * Metadata for all the requests in the request builder.

@@ -45,12 +45,23 @@ github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packag
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<CopilotPackageDetailItemRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder::|public|toPatchRequestInformation(body:CopilotPackageDetail; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder::|public|zipFile:ZipFileRequestBuilder
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilderGetQueryParameters::|public|expand:string[]
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilderGetQueryParameters::|public|select:string[]
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.copilotPackageDetailItemRequestBuilderGetQueryParametersMapper
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.copilotPackageDetailItemRequestBuilderNavigationMetadata
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.copilotPackageDetailItemRequestBuilderRequestsMetadata
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.copilotPackageDetailItemRequestBuilderUriTemplate
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.CopilotPackageDetailItemRequestBuilder~~>BaseRequestBuilder<CopilotPackageDetailItemRequestBuilder>
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.zipFile.zipFileRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.zipFile.zipFileRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<object>):ArrayBuffer
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.zipFile.zipFileRequestBuilder::|public|put(body:ArrayBuffer; requestConfiguration?:RequestConfiguration<object>):ArrayBuffer
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.zipFile.zipFileRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.zipFile.zipFileRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.zipFile.zipFileRequestBuilder::|public|toPutRequestInformation(body:ArrayBuffer; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.zipFile.zipFileRequestBuilderRequestsMetadata
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.zipFile.zipFileRequestBuilderUriTemplate
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.item.zipFile.zipFileRequestBuilder~~>BaseRequestBuilder<ZipFileRequestBuilder>
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.packagesRequestBuilder::|public|byCopilotPackageDetailId(copilotPackageDetailId:string):CopilotPackageDetailItemRequestBuilder
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.packagesRequestBuilder::|public|Count:CountRequestBuilder
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.packagesRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PackagesRequestBuilderGetQueryParameters>):CopilotPackageDetailCollectionResponse
@@ -1010,6 +1021,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|publ
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|shortDescription:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|supportedHosts:string[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|type:PackageType
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|zipFile:ArrayBuffer
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageDetail::|public|acquireUsersAndGroups:PackageAccessEntity[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageDetail::|public|allowedUsersAndGroups:PackageAccessEntity[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageDetail::|public|categories:string[]

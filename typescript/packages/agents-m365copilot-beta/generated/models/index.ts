@@ -743,6 +743,10 @@ export interface CopilotPackage extends Entity, Parsable {
      * The type property
      */
     type?: PackageType | null;
+    /**
+     * The zipFile property
+     */
+    zipFile?: ArrayBuffer | null;
 }
 export interface CopilotPackageDetail extends CopilotPackage, Parsable {
     /**
@@ -2979,6 +2983,7 @@ export function deserializeIntoCopilotPackage(copilotPackage: Partial<CopilotPac
         "shortDescription": n => { copilotPackage.shortDescription = n.getStringValue(); },
         "supportedHosts": n => { copilotPackage.supportedHosts = n.getCollectionOfPrimitiveValues<string>(); },
         "type": n => { copilotPackage.type = n.getEnumValue<PackageType>(PackageTypeObject); },
+        "zipFile": n => { copilotPackage.zipFile = n.getByteArrayValue(); },
     }
 }
 /**
@@ -5121,6 +5126,7 @@ export function serializeCopilotPackage(writer: SerializationWriter, copilotPack
     writer.writeStringValue("shortDescription", copilotPackage.shortDescription);
     writer.writeCollectionOfPrimitiveValues<string>("supportedHosts", copilotPackage.supportedHosts);
     writer.writeEnumValue<PackageType>("type", copilotPackage.type);
+    writer.writeByteArrayValue("zipFile", copilotPackage.zipFile);
     switch (copilotPackage.odataType) {
         case "#microsoft.graph.copilotPackageDetail":
             serializeCopilotPackageDetail(writer, copilotPackage, true);
