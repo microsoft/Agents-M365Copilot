@@ -1,0 +1,28 @@
+{
+  "name": "copilot-search-api",
+  "version": "1.0.0",
+  "main": "search.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "search": "node search.js"
+  },
+  "keywords": [
+    "microsoft-365",
+    "copilot",
+    "search-api",
+    "graph-api",
+    "onedrive",
+    "semantic-search"
+  ],
+  "author": "",
+  "license": "MIT",
+  "description": "Microsoft 365 Copilot Search API sample for Node.js",
+  "dependencies": {
+    "@azure/identity": "^4.13.0",
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "dotenv": "^17.3.1",
+    "express": "^4.22.1",
+    "isomorphic-fetch": "^3.0.0"
+  }
+}
