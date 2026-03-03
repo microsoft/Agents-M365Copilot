@@ -1,11 +1,12 @@
 {
   "name": "copilot-search-api",
   "version": "1.0.0",
-  "main": "search.js",
+  "description": "Microsoft 365 Copilot Search API sample for Node.js (TypeScript)",
+  "main": "dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "search": "node search.js"
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node src/server.ts"
   },
   "keywords": [
     "microsoft-365",
@@ -17,12 +18,18 @@
   ],
   "author": "",
   "license": "MIT",
-  "description": "Microsoft 365 Copilot Search API sample for Node.js",
   "dependencies": {
     "@azure/identity": "^4.13.0",
     "@microsoft/microsoft-graph-client": "^3.0.7",
     "dotenv": "^17.3.1",
     "express": "^4.22.1",
     "isomorphic-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }
