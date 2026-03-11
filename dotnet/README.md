@@ -12,13 +12,14 @@ The Microsoft 365 Copilot APIs. NET Client Library targets .NetStandard 2.0.
 
 The Microsoft 365 Copilot APIs .NET client libraries are available in the following NuGet packages:
 
+- [Microsoft.Agents.M365Copilot](https://github.com/microsoft/Agents-M365Copilot/tree/main/dotnet/src/Microsoft.Agents.M365Copilot): Contains the models and request builders for accessing the v1.0 endpoint. Microsoft.Agents.M365Copilot has a dependency on Microsoft.Agents.M365Copilot.Core. 
 - [Microsoft.Agents.M365Copilot.Beta](https://github.com/microsoft/Agents-M365Copilot/tree/main/dotnet/src/Microsoft.Agents.M365Copilot.Beta): Contains the models and request builders for accessing the beta endpoint. Microsoft.Agents.M365Copilot.Beta has a dependency on Microsoft.Agents.M365Copilot.Core.
 - [Microsoft.Agents.M365Copilot.Core](https://github.com/microsoft/Agents-M365Copilot/tree/main/dotnet/src/Microsoft.Agents.M365Copilot.Core): The core library for making calls to the Copilot APIs.
 
 To install the client libraries via NuGet:
 
-* Search for `Microsoft.Agents.M365Copilot.Beta` in the NuGet Library, or
-* Type `Install-Package Microsoft.Agents.M365Copilot.Beta` into the Package Manager Console.
+* Search for `Microsoft.Agents.M365Copilot` in the NuGet Library, or
+* Type `Install-Package Microsoft.Agents.M365Copilot` into the Package Manager Console.
 
 ## Create a Copilot APIs client and make an API call
 
