@@ -36,9 +36,9 @@ The client ID is the app registration ID that is generated when you [register yo
 ```csharp
 
 using Azure.Identity;
-using Microsoft.Agents.M365Copilot.Beta;
-using Microsoft.Agents.M365Copilot.Beta.Models;
-using Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval;
+using Microsoft.Agents.M365Copilot;
+using Microsoft.Agents.M365Copilot.Models;
+using Microsoft.Agents.M365Copilot.Copilot.Retrieval;
 
 var scopes = new[] {"Files.Read.All", "Sites.Read.All"}; 
  
@@ -67,9 +67,10 @@ var deviceCodeCredentialOptions = new DeviceCodeCredentialOptions
 // https://learn.microsoft.com/dotnet/api/azure.identity.devicecodecredential 
 var deviceCodeCredential = new DeviceCodeCredential(deviceCodeCredentialOptions); 
 
-//Create the client with explicit base URL 
-var baseURL = “https://graph.microsoft.com/beta”; 
-AgentsM365CopilotBetaServiceClient client = new AgentsM365CopilotBetaServiceClient (deviceCodeCredential, scopes, baseURL); 
+// Creates the client. The v1.0 endpoint is used by default.
+// To target the beta endpoint instead, pass the base URL explicitly:
+// AgentsM365CopilotServiceClient client = new AgentsM365CopilotServiceClient(deviceCodeCredential, scopes, "https://graph.microsoft.com/beta");
+AgentsM365CopilotServiceClient client = new AgentsM365CopilotServiceClient(deviceCodeCredential, scopes);
 
 try
 {

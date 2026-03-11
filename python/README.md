@@ -50,11 +50,11 @@ The client ID is the app registration ID that is generated when you [register yo
     from dotenv import load_dotenv
     from kiota_abstractions.api_error import APIError
 
-    from microsoft_agents_m365copilot_beta import AgentsM365CopilotBetaServiceClient
-    from microsoft_agents_m365copilot_beta.generated.copilot.retrieval.retrieval_post_request_body import (
+    from microsoft_agents_m365copilot import AgentsM365CopilotServiceClient
+    from microsoft_agents_m365copilot.generated.copilot.retrieval.retrieval_post_request_body import (
         RetrievalPostRequestBody,
     )
-    from microsoft_agents_m365copilot_beta.generated.models.retrieval_data_source import RetrievalDataSource
+    from microsoft_agents_m365copilot.generated.models.retrieval_data_source import RetrievalDataSource
 
     load_dotenv()
 
@@ -74,12 +74,11 @@ The client ID is the app registration ID that is generated when you [register yo
         prompt_callback=auth_callback
     )
 
-    # Use the Graph API beta endpoint explicitly
+    # The v1.0 endpoint is used by default.
+    # To target the beta endpoint instead, set the base URL explicitly after creating the client:
+    # client.request_adapter.base_url = "https://graph.microsoft.com/beta"
     scopes = ['https://graph.microsoft.com/.default']
-    client = AgentsM365CopilotBetaServiceClient(credentials=credentials, scopes=scopes)
-
-    # Make sure the base URL is set to beta
-    client.request_adapter.base_url = "https://graph.microsoft.com/beta"
+    client = AgentsM365CopilotServiceClient(credentials=credentials, scopes=scopes)
 
     async def retrieve():
         try:

@@ -34,7 +34,7 @@ The client ID is the app registration ID that is generated when you [register yo
 
 ```TypeScript
 
-import { createBaseAgentsM365CopilotBetaServiceClient, RetrievalDataSourceObject } from '@microsoft/agents-m365copilot-beta';
+import { createBaseAgentsM365CopilotServiceClient, RetrievalDataSourceObject } from '@microsoft/agents-m365copilot';
 import { DeviceCodeCredential } from '@azure/identity';
 import { FetchRequestAdapter } from '@microsoft/kiota-http-fetchlibrary';
 
@@ -54,10 +54,12 @@ async function main() {
     const adapter = new FetchRequestAdapter(credential, {
         scopes: ['https://graph.microsoft.com/.default']
     });
-    adapter.baseUrl = "https://graph.microsoft.com/beta";
+    // The v1.0 endpoint is used by default.
+    // To target the beta endpoint instead, set the base URL explicitly:
+    // adapter.baseUrl = "https://graph.microsoft.com/beta";
 
     // Create client instance
-    const client = createBaseAgentsM365CopilotBetaServiceClient(adapter);
+    const client = createBaseAgentsM365CopilotServiceClient(adapter);
 
     try {
         console.log(`Using API base URL: ${adapter.baseUrl}\n`);
