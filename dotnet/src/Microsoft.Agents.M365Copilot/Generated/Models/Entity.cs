@@ -50,7 +50,9 @@ namespace Microsoft.Agents.M365Copilot.Models
             {
                 "#microsoft.graph.aiInteraction" => new global::Microsoft.Agents.M365Copilot.Models.AiInteraction(),
                 "#microsoft.graph.aiInteractionHistory" => new global::Microsoft.Agents.M365Copilot.Models.AiInteractionHistory(),
+                "#microsoft.graph.aiOnlineMeeting" => new global::Microsoft.Agents.M365Copilot.Models.AiOnlineMeeting(),
                 "#microsoft.graph.aiUser" => new global::Microsoft.Agents.M365Copilot.Models.AiUser(),
+                "#microsoft.graph.callAiInsight" => new global::Microsoft.Agents.M365Copilot.Models.CallAiInsight(),
                 "#microsoft.graph.copilotAdmin" => new global::Microsoft.Agents.M365Copilot.Models.CopilotAdmin(),
                 "#microsoft.graph.copilotAdminLimitedMode" => new global::Microsoft.Agents.M365Copilot.Models.CopilotAdminLimitedMode(),
                 "#microsoft.graph.copilotAdminSetting" => new global::Microsoft.Agents.M365Copilot.Models.CopilotAdminSetting(),

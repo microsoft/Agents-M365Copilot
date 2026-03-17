@@ -9,9 +9,11 @@ if TYPE_CHECKING:
     from .admin.admin_request_builder import AdminRequestBuilder
     from .agents.agents_request_builder import AgentsRequestBuilder
     from .communications.communications_request_builder import CommunicationsRequestBuilder
+    from .conversations.conversations_request_builder import ConversationsRequestBuilder
     from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
     from .reports.reports_request_builder import ReportsRequestBuilder
     from .retrieval.retrieval_request_builder import RetrievalRequestBuilder
+    from .search.search_request_builder import SearchRequestBuilder
     from .settings.settings_request_builder import SettingsRequestBuilder
     from .users.users_request_builder import UsersRequestBuilder
 
@@ -56,6 +58,15 @@ class CopilotRequestBuilder(BaseRequestBuilder):
         return CommunicationsRequestBuilder(self.request_adapter, self.path_parameters)
     
     @property
+    def conversations(self) -> ConversationsRequestBuilder:
+        """
+        Provides operations to manage the conversations property of the microsoft.graph.copilotRoot entity.
+        """
+        from .conversations.conversations_request_builder import ConversationsRequestBuilder
+
+        return ConversationsRequestBuilder(self.request_adapter, self.path_parameters)
+    
+    @property
     def interaction_history(self) -> InteractionHistoryRequestBuilder:
         """
         Provides operations to manage the interactionHistory property of the microsoft.graph.copilotRoot entity.
@@ -81,6 +92,15 @@ class CopilotRequestBuilder(BaseRequestBuilder):
         from .retrieval.retrieval_request_builder import RetrievalRequestBuilder
 
         return RetrievalRequestBuilder(self.request_adapter, self.path_parameters)
+    
+    @property
+    def search(self) -> SearchRequestBuilder:
+        """
+        Provides operations to call the search method.
+        """
+        from .search.search_request_builder import SearchRequestBuilder
+
+        return SearchRequestBuilder(self.request_adapter, self.path_parameters)
     
     @property
     def settings(self) -> SettingsRequestBuilder:

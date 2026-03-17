@@ -62,6 +62,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>The type property</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.PackageType? Type { get; set; }
+        /// <summary>The zipFile property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public byte[]? ZipFile { get; set; }
+#nullable restore
+#else
+        public byte[] ZipFile { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -95,6 +103,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "shortDescription", n => { ShortDescription = n.GetStringValue(); } },
                 { "supportedHosts", n => { SupportedHosts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageType>(); } },
+                { "zipFile", n => { ZipFile = n.GetByteArrayValue(); } },
             };
         }
         /// <summary>
@@ -115,6 +124,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteStringValue("shortDescription", ShortDescription);
             writer.WriteCollectionOfPrimitiveValues<string>("supportedHosts", SupportedHosts);
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageType>("type", Type);
+            writer.WriteByteArrayValue("zipFile", ZipFile);
         }
     }
 }

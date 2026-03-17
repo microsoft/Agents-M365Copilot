@@ -20,6 +20,14 @@ namespace Microsoft.Agents.M365Copilot.Models
 #else
         public global::Microsoft.Agents.M365Copilot.Models.AiInteractionHistory InteractionHistory { get; set; }
 #endif
+        /// <summary>The onlineMeetings property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Microsoft.Agents.M365Copilot.Models.AiOnlineMeeting>? OnlineMeetings { get; set; }
+#nullable restore
+#else
+        public List<global::Microsoft.Agents.M365Copilot.Models.AiOnlineMeeting> OnlineMeetings { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,6 +47,7 @@ namespace Microsoft.Agents.M365Copilot.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "interactionHistory", n => { InteractionHistory = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Models.AiInteractionHistory>(global::Microsoft.Agents.M365Copilot.Models.AiInteractionHistory.CreateFromDiscriminatorValue); } },
+                { "onlineMeetings", n => { OnlineMeetings = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Models.AiOnlineMeeting>(global::Microsoft.Agents.M365Copilot.Models.AiOnlineMeeting.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -50,6 +59,7 @@ namespace Microsoft.Agents.M365Copilot.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Models.AiInteractionHistory>("interactionHistory", InteractionHistory);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Models.AiOnlineMeeting>("onlineMeetings", OnlineMeetings);
         }
     }
 }

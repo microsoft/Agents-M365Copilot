@@ -17,6 +17,7 @@ if TYPE_CHECKING:
     from ....models.ai_user import AiUser
     from ....models.o_data_errors.o_data_error import ODataError
     from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
+    from .online_meetings.online_meetings_request_builder import OnlineMeetingsRequestBuilder
 
 class AiUserItemRequestBuilder(BaseRequestBuilder):
     """
@@ -147,6 +148,15 @@ class AiUserItemRequestBuilder(BaseRequestBuilder):
         from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
 
         return InteractionHistoryRequestBuilder(self.request_adapter, self.path_parameters)
+    
+    @property
+    def online_meetings(self) -> OnlineMeetingsRequestBuilder:
+        """
+        Provides operations to manage the onlineMeetings property of the microsoft.graph.aiUser entity.
+        """
+        from .online_meetings.online_meetings_request_builder import OnlineMeetingsRequestBuilder
+
+        return OnlineMeetingsRequestBuilder(self.request_adapter, self.path_parameters)
     
     @dataclass
     class AiUserItemRequestBuilderDeleteRequestConfiguration(RequestConfiguration[QueryParameters]):

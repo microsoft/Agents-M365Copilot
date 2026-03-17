@@ -40,6 +40,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
+                "#microsoft.graph.copilotSearchResourceMetadataDictionary" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotSearchResourceMetadataDictionary(),
                 "#microsoft.graph.searchResourceMetadataDictionary" => new global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary(),
                 _ => new global::Microsoft.Agents.M365Copilot.Beta.Models.Dictionaries(),
             };

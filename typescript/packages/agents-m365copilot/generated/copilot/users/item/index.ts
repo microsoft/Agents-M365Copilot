@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '../../.
 // @ts-ignore
 import { InteractionHistoryRequestBuilderNavigationMetadata, InteractionHistoryRequestBuilderRequestsMetadata, type InteractionHistoryRequestBuilder } from './interactionHistory/index.js';
 // @ts-ignore
+import { OnlineMeetingsRequestBuilderNavigationMetadata, OnlineMeetingsRequestBuilderRequestsMetadata, type OnlineMeetingsRequestBuilder } from './onlineMeetings/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,6 +20,10 @@ export interface AiUserItemRequestBuilder extends BaseRequestBuilder<AiUserItemR
      * Provides operations to manage the interactionHistory property of the microsoft.graph.aiUser entity.
      */
     get interactionHistory(): InteractionHistoryRequestBuilder;
+    /**
+     * Provides operations to manage the onlineMeetings property of the microsoft.graph.aiUser entity.
+     */
+    get onlineMeetings(): OnlineMeetingsRequestBuilder;
     /**
      * Delete navigation property users for copilot
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -90,6 +96,10 @@ export const AiUserItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Ai
     interactionHistory: {
         requestsMetadata: InteractionHistoryRequestBuilderRequestsMetadata,
         navigationMetadata: InteractionHistoryRequestBuilderNavigationMetadata,
+    },
+    onlineMeetings: {
+        requestsMetadata: OnlineMeetingsRequestBuilderRequestsMetadata,
+        navigationMetadata: OnlineMeetingsRequestBuilderNavigationMetadata,
     },
 };
 /**

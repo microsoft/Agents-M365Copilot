@@ -16,6 +16,10 @@ if TYPE_CHECKING:
     from .copilot_admin_limited_mode import CopilotAdminLimitedMode
     from .copilot_admin_setting import CopilotAdminSetting
     from .copilot_communications_root import CopilotCommunicationsRoot
+    from .copilot_conversation import CopilotConversation
+    from .copilot_conversation_message import CopilotConversationMessage
+    from .copilot_conversation_request_message import CopilotConversationRequestMessage
+    from .copilot_conversation_response_message import CopilotConversationResponseMessage
     from .copilot_package import CopilotPackage
     from .copilot_package_detail import CopilotPackageDetail
     from .copilot_people_admin_setting import CopilotPeopleAdminSetting
@@ -95,6 +99,22 @@ class Entity(AdditionalDataHolder, Parsable):
             from .copilot_communications_root import CopilotCommunicationsRoot
 
             return CopilotCommunicationsRoot()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotConversation".casefold():
+            from .copilot_conversation import CopilotConversation
+
+            return CopilotConversation()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotConversationMessage".casefold():
+            from .copilot_conversation_message import CopilotConversationMessage
+
+            return CopilotConversationMessage()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotConversationRequestMessage".casefold():
+            from .copilot_conversation_request_message import CopilotConversationRequestMessage
+
+            return CopilotConversationRequestMessage()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotConversationResponseMessage".casefold():
+            from .copilot_conversation_response_message import CopilotConversationResponseMessage
+
+            return CopilotConversationResponseMessage()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotPackage".casefold():
             from .copilot_package import CopilotPackage
 
@@ -153,6 +173,10 @@ class Entity(AdditionalDataHolder, Parsable):
         from .copilot_admin_limited_mode import CopilotAdminLimitedMode
         from .copilot_admin_setting import CopilotAdminSetting
         from .copilot_communications_root import CopilotCommunicationsRoot
+        from .copilot_conversation import CopilotConversation
+        from .copilot_conversation_message import CopilotConversationMessage
+        from .copilot_conversation_request_message import CopilotConversationRequestMessage
+        from .copilot_conversation_response_message import CopilotConversationResponseMessage
         from .copilot_package import CopilotPackage
         from .copilot_package_detail import CopilotPackageDetail
         from .copilot_people_admin_setting import CopilotPeopleAdminSetting
@@ -175,6 +199,10 @@ class Entity(AdditionalDataHolder, Parsable):
         from .copilot_admin_limited_mode import CopilotAdminLimitedMode
         from .copilot_admin_setting import CopilotAdminSetting
         from .copilot_communications_root import CopilotCommunicationsRoot
+        from .copilot_conversation import CopilotConversation
+        from .copilot_conversation_message import CopilotConversationMessage
+        from .copilot_conversation_request_message import CopilotConversationRequestMessage
+        from .copilot_conversation_response_message import CopilotConversationResponseMessage
         from .copilot_package import CopilotPackage
         from .copilot_package_detail import CopilotPackageDetail
         from .copilot_people_admin_setting import CopilotPeopleAdminSetting

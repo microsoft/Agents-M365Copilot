@@ -16,6 +16,7 @@ from warnings import warn
 if TYPE_CHECKING:
     from ......models.copilot_package_detail import CopilotPackageDetail
     from ......models.o_data_errors.o_data_error import ODataError
+    from .zip_file.zip_file_request_builder import ZipFileRequestBuilder
 
 class CopilotPackageDetailItemRequestBuilder(BaseRequestBuilder):
     """
@@ -137,6 +138,15 @@ class CopilotPackageDetailItemRequestBuilder(BaseRequestBuilder):
         if raw_url is None:
             raise TypeError("raw_url cannot be null.")
         return CopilotPackageDetailItemRequestBuilder(self.request_adapter, raw_url)
+    
+    @property
+    def zip_file(self) -> ZipFileRequestBuilder:
+        """
+        Provides operations to manage the media for the copilotRoot entity.
+        """
+        from .zip_file.zip_file_request_builder import ZipFileRequestBuilder
+
+        return ZipFileRequestBuilder(self.request_adapter, self.path_parameters)
     
     @dataclass
     class CopilotPackageDetailItemRequestBuilderDeleteRequestConfiguration(RequestConfiguration[QueryParameters]):

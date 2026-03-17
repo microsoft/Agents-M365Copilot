@@ -3,9 +3,11 @@
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Admin;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Agents;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Communications;
+using Microsoft.Agents.M365Copilot.Beta.Copilot.Conversations;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Reports;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval;
+using Microsoft.Agents.M365Copilot.Beta.Copilot.Search;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Settings;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Users;
 using Microsoft.Kiota.Abstractions.Extensions;
@@ -37,6 +39,11 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot
         {
             get => new global::Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.CommunicationsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Provides operations to manage the conversations property of the microsoft.graph.copilotRoot entity.</summary>
+        public global::Microsoft.Agents.M365Copilot.Beta.Copilot.Conversations.ConversationsRequestBuilder Conversations
+        {
+            get => new global::Microsoft.Agents.M365Copilot.Beta.Copilot.Conversations.ConversationsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the interactionHistory property of the microsoft.graph.copilotRoot entity.</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.InteractionHistoryRequestBuilder InteractionHistory
         {
@@ -51,6 +58,11 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot
         public global::Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.RetrievalRequestBuilder Retrieval
         {
             get => new global::Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.RetrievalRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Provides operations to call the search method.</summary>
+        public global::Microsoft.Agents.M365Copilot.Beta.Copilot.Search.SearchRequestBuilder Search
+        {
+            get => new global::Microsoft.Agents.M365Copilot.Beta.Copilot.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the settings property of the microsoft.graph.copilotRoot entity.</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Copilot.Settings.SettingsRequestBuilder Settings
