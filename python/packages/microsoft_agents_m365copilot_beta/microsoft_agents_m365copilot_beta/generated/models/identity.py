@@ -23,6 +23,7 @@ if TYPE_CHECKING:
     from .provisioning_system import ProvisioningSystem
     from .security.submission_user_identity import SubmissionUserIdentity
     from .service_principal_identity import ServicePrincipalIdentity
+    from .share_point_group_identity import SharePointGroupIdentity
     from .share_point_identity import SharePointIdentity
     from .source_provisioned_identity import SourceProvisionedIdentity
     from .target_provisioned_identity import TargetProvisionedIdentity
@@ -131,6 +132,10 @@ class Identity(AdditionalDataHolder, Parsable):
             from .service_principal_identity import ServicePrincipalIdentity
 
             return ServicePrincipalIdentity()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.sharePointGroupIdentity".casefold():
+            from .share_point_group_identity import SharePointGroupIdentity
+
+            return SharePointGroupIdentity()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.sharePointIdentity".casefold():
             from .share_point_identity import SharePointIdentity
 
@@ -189,6 +194,7 @@ class Identity(AdditionalDataHolder, Parsable):
         from .provisioning_system import ProvisioningSystem
         from .security.submission_user_identity import SubmissionUserIdentity
         from .service_principal_identity import ServicePrincipalIdentity
+        from .share_point_group_identity import SharePointGroupIdentity
         from .share_point_identity import SharePointIdentity
         from .source_provisioned_identity import SourceProvisionedIdentity
         from .target_provisioned_identity import TargetProvisionedIdentity
@@ -216,6 +222,7 @@ class Identity(AdditionalDataHolder, Parsable):
         from .provisioning_system import ProvisioningSystem
         from .security.submission_user_identity import SubmissionUserIdentity
         from .service_principal_identity import ServicePrincipalIdentity
+        from .share_point_group_identity import SharePointGroupIdentity
         from .share_point_identity import SharePointIdentity
         from .source_provisioned_identity import SourceProvisionedIdentity
         from .target_provisioned_identity import TargetProvisionedIdentity
