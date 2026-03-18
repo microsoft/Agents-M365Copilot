@@ -593,10 +593,15 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.SensitivityLabelInfo~
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ServicePrincipalIdentity::|public|appId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ServicePrincipalIdentity::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ServicePrincipalIdentity~~>Identity; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointGroupIdentity::|public|OdataType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointGroupIdentity::|public|principalId:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointGroupIdentity::|public|title:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointGroupIdentity~~>Identity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointIdentity::|public|loginName:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointIdentity::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointIdentitySet::|public|group:Identity
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointIdentitySet::|public|OdataType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointIdentitySet::|public|sharePointGroup:SharePointGroupIdentity
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointIdentitySet::|public|siteGroup:SharePointIdentity
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointIdentitySet::|public|siteUser:SharePointIdentity
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointIdentitySet~~>IdentitySet; Parsable
@@ -693,6 +698,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::createRetrievalRespo
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createSearchResourceMetadataDictionaryFromDiscriminatorValue(parseNode:ParseNode):SearchResourceMetadataDictionary
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createSensitivityLabelInfoFromDiscriminatorValue(parseNode:ParseNode):SensitivityLabelInfo
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createServicePrincipalIdentityFromDiscriminatorValue(parseNode:ParseNode):ServicePrincipalIdentity
+github.com/microsoft/Agents-M365Copilot/typescript/.models::createSharePointGroupIdentityFromDiscriminatorValue(parseNode:ParseNode):SharePointGroupIdentity
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createSharePointIdentityFromDiscriminatorValue(parseNode:ParseNode):SharePointIdentity
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createSharePointIdentitySetFromDiscriminatorValue(parseNode:ParseNode):SharePointIdentitySet
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createTeamworkApplicationIdentityFromDiscriminatorValue(parseNode:ParseNode):TeamworkApplicationIdentity
@@ -755,6 +761,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoRetri
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoSearchResourceMetadataDictionary(SearchResourceMetadataDictionary:SearchResourceMetadataDictionary={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoSensitivityLabelInfo(SensitivityLabelInfo:SensitivityLabelInfo={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoServicePrincipalIdentity(ServicePrincipalIdentity:ServicePrincipalIdentity={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoSharePointGroupIdentity(SharePointGroupIdentity:SharePointGroupIdentity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoSharePointIdentity(SharePointIdentity:SharePointIdentity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoSharePointIdentitySet(SharePointIdentitySet:SharePointIdentitySet={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoTeamworkApplicationIdentity(TeamworkApplicationIdentity:TeamworkApplicationIdentity={}):Record<string, (node: ParseNode) => void>
@@ -817,6 +824,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeRetrievalRe
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSearchResourceMetadataDictionary(writer:SerializationWriter; SearchResourceMetadataDictionary:SearchResourceMetadataDictionary={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSensitivityLabelInfo(writer:SerializationWriter; SensitivityLabelInfo:SensitivityLabelInfo={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeServicePrincipalIdentity(writer:SerializationWriter; ServicePrincipalIdentity:ServicePrincipalIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSharePointGroupIdentity(writer:SerializationWriter; SharePointGroupIdentity:SharePointGroupIdentity={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSharePointIdentity(writer:SerializationWriter; SharePointIdentity:SharePointIdentity={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSharePointIdentitySet(writer:SerializationWriter; SharePointIdentitySet:SharePointIdentitySet={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeTeamworkApplicationIdentity(writer:SerializationWriter; TeamworkApplicationIdentity:TeamworkApplicationIdentity={}; isSerializingDerivedType?:boolean=false):void
