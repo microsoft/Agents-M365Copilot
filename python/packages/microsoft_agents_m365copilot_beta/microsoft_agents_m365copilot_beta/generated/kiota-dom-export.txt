@@ -1664,6 +1664,10 @@ microsoft_agents_m365copilot_beta.generated.models.CopilotFile::|public|uri(valu
 microsoft_agents_m365copilot_beta.generated.models.CopilotFile::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotFile
 microsoft_agents_m365copilot_beta.generated.models.CopilotFile~~>AdditionalDataHolder; Parsable
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage-->Entity
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|app_id():str
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|app_id(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|asset_id():str
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|asset_id(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|available_to():PackageStatus
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|available_to(value:PackageStatus):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|constructor():None
@@ -1678,7 +1682,13 @@ microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|is_bl
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|is_blocked(value:bool):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|last_modified_date_time():datetime.datetime
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|last_modified_date_time(value:datetime.datetime):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|manifest_id():str
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|manifest_id(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|manifest_version():str
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|manifest_version(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|odata_type:str
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|platform():str
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|platform(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|publisher():str
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|publisher(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|serialize(writer:SerializationWriter):None
@@ -1688,6 +1698,8 @@ microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|suppo
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|supported_hosts(value:list[str]):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|type():PackageType
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|type(value:PackageType):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|version():str
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|version(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|zip_file():bytes
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|zip_file(value:bytes):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotPackage
@@ -1704,14 +1716,10 @@ microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|long_description():str
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|long_description(value:str):None
-microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|manifest_version():str
-microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|manifest_version(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|odata_type:str
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|sensitivity():str
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|sensitivity(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|serialize(writer:SerializationWriter):None
-microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|version():str
-microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|version(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotPackageDetail
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetailCollectionResponse-->BaseCollectionPaginationCountResponse
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetailCollectionResponse::|public|constructor():None
@@ -2399,6 +2407,16 @@ microsoft_agents_m365copilot_beta.generated.models.ServicePrincipalIdentity::|pu
 microsoft_agents_m365copilot_beta.generated.models.ServicePrincipalIdentity::|public|odata_type:str
 microsoft_agents_m365copilot_beta.generated.models.ServicePrincipalIdentity::|public|serialize(writer:SerializationWriter):None
 microsoft_agents_m365copilot_beta.generated.models.ServicePrincipalIdentity::|static|public|create_from_discriminator_value(parse_node:ParseNode):ServicePrincipalIdentity
+microsoft_agents_m365copilot_beta.generated.models.SharePointGroupIdentity-->Identity
+microsoft_agents_m365copilot_beta.generated.models.SharePointGroupIdentity::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.SharePointGroupIdentity::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.SharePointGroupIdentity::|public|odata_type:str
+microsoft_agents_m365copilot_beta.generated.models.SharePointGroupIdentity::|public|principal_id():str
+microsoft_agents_m365copilot_beta.generated.models.SharePointGroupIdentity::|public|principal_id(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.SharePointGroupIdentity::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.SharePointGroupIdentity::|public|title():str
+microsoft_agents_m365copilot_beta.generated.models.SharePointGroupIdentity::|public|title(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.SharePointGroupIdentity::|static|public|create_from_discriminator_value(parse_node:ParseNode):SharePointGroupIdentity
 microsoft_agents_m365copilot_beta.generated.models.SharePointIdentity-->Identity
 microsoft_agents_m365copilot_beta.generated.models.SharePointIdentity::|public|constructor():None
 microsoft_agents_m365copilot_beta.generated.models.SharePointIdentity::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
@@ -2414,6 +2432,8 @@ microsoft_agents_m365copilot_beta.generated.models.SharePointIdentitySet::|publi
 microsoft_agents_m365copilot_beta.generated.models.SharePointIdentitySet::|public|group(value:Identity):None
 microsoft_agents_m365copilot_beta.generated.models.SharePointIdentitySet::|public|odata_type:str
 microsoft_agents_m365copilot_beta.generated.models.SharePointIdentitySet::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.SharePointIdentitySet::|public|share_point_group():SharePointGroupIdentity
+microsoft_agents_m365copilot_beta.generated.models.SharePointIdentitySet::|public|share_point_group(value:SharePointGroupIdentity):None
 microsoft_agents_m365copilot_beta.generated.models.SharePointIdentitySet::|public|site_group():SharePointIdentity
 microsoft_agents_m365copilot_beta.generated.models.SharePointIdentitySet::|public|site_group(value:SharePointIdentity):None
 microsoft_agents_m365copilot_beta.generated.models.SharePointIdentitySet::|public|site_user():SharePointIdentity
