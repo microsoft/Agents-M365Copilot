@@ -76,6 +76,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 "#microsoft.graph.provisioningSystem" => new global::Microsoft.Agents.M365Copilot.Beta.Models.ProvisioningSystem(),
                 "#microsoft.graph.security.submissionUserIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.Security.SubmissionUserIdentity(),
                 "#microsoft.graph.servicePrincipalIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.ServicePrincipalIdentity(),
+                "#microsoft.graph.sharePointGroupIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointGroupIdentity(),
                 "#microsoft.graph.sharePointIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointIdentity(),
                 "#microsoft.graph.sourceProvisionedIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.SourceProvisionedIdentity(),
                 "#microsoft.graph.targetProvisionedIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.TargetProvisionedIdentity(),
