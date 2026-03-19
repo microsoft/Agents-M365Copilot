@@ -704,6 +704,14 @@ export interface CopilotFile extends AdditionalDataHolder, Parsable {
 }
 export interface CopilotPackage extends Entity, Parsable {
     /**
+     * The appId property
+     */
+    appId?: string | null;
+    /**
+     * The assetId property
+     */
+    assetId?: string | null;
+    /**
      * The availableTo property
      */
     availableTo?: PackageStatus | null;
@@ -728,6 +736,18 @@ export interface CopilotPackage extends Entity, Parsable {
      */
     lastModifiedDateTime?: Date | null;
     /**
+     * The manifestId property
+     */
+    manifestId?: string | null;
+    /**
+     * The manifestVersion property
+     */
+    manifestVersion?: string | null;
+    /**
+     * The platform property
+     */
+    platform?: string | null;
+    /**
      * The publisher property
      */
     publisher?: string | null;
@@ -743,6 +763,10 @@ export interface CopilotPackage extends Entity, Parsable {
      * The type property
      */
     type?: PackageType | null;
+    /**
+     * The version property
+     */
+    version?: string | null;
     /**
      * The zipFile property
      */
@@ -770,17 +794,9 @@ export interface CopilotPackageDetail extends CopilotPackage, Parsable {
      */
     longDescription?: string | null;
     /**
-     * The manifestVersion property
-     */
-    manifestVersion?: string | null;
-    /**
      * The sensitivity property
      */
     sensitivity?: string | null;
-    /**
-     * The version property
-     */
-    version?: string | null;
 }
 export interface CopilotPackageDetailCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
@@ -1736,6 +1752,8 @@ export function createIdentityFromDiscriminatorValue(parseNode: ParseNode | unde
                     return deserializeIntoSubmissionUserIdentity;
                 case "#microsoft.graph.servicePrincipalIdentity":
                     return deserializeIntoServicePrincipalIdentity;
+                case "#microsoft.graph.sharePointGroupIdentity":
+                    return deserializeIntoSharePointGroupIdentity;
                 case "#microsoft.graph.sharePointIdentity":
                     return deserializeIntoSharePointIdentity;
                 case "#microsoft.graph.sourceProvisionedIdentity":
@@ -2093,6 +2111,15 @@ export function createSensitivityLabelInfoFromDiscriminatorValue(parseNode: Pars
 // @ts-ignore
 export function createServicePrincipalIdentityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoServicePrincipalIdentity;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {SharePointGroupIdentity}
+ */
+// @ts-ignore
+export function createSharePointGroupIdentityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSharePointGroupIdentity;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -2973,16 +3000,22 @@ export function deserializeIntoCopilotFile(copilotFile: Partial<CopilotFile> | u
 export function deserializeIntoCopilotPackage(copilotPackage: Partial<CopilotPackage> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(copilotPackage),
+        "appId": n => { copilotPackage.appId = n.getStringValue(); },
+        "assetId": n => { copilotPackage.assetId = n.getStringValue(); },
         "availableTo": n => { copilotPackage.availableTo = n.getEnumValue<PackageStatus>(PackageStatusObject); },
         "deployedTo": n => { copilotPackage.deployedTo = n.getEnumValue<PackageStatus>(PackageStatusObject); },
         "displayName": n => { copilotPackage.displayName = n.getStringValue(); },
         "elementTypes": n => { copilotPackage.elementTypes = n.getCollectionOfPrimitiveValues<string>(); },
         "isBlocked": n => { copilotPackage.isBlocked = n.getBooleanValue(); },
         "lastModifiedDateTime": n => { copilotPackage.lastModifiedDateTime = n.getDateValue(); },
+        "manifestId": n => { copilotPackage.manifestId = n.getStringValue(); },
+        "manifestVersion": n => { copilotPackage.manifestVersion = n.getStringValue(); },
+        "platform": n => { copilotPackage.platform = n.getStringValue(); },
         "publisher": n => { copilotPackage.publisher = n.getStringValue(); },
         "shortDescription": n => { copilotPackage.shortDescription = n.getStringValue(); },
         "supportedHosts": n => { copilotPackage.supportedHosts = n.getCollectionOfPrimitiveValues<string>(); },
         "type": n => { copilotPackage.type = n.getEnumValue<PackageType>(PackageTypeObject); },
+        "version": n => { copilotPackage.version = n.getStringValue(); },
         "zipFile": n => { copilotPackage.zipFile = n.getByteArrayValue(); },
     }
 }
@@ -3000,9 +3033,7 @@ export function deserializeIntoCopilotPackageDetail(copilotPackageDetail: Partia
         "categories": n => { copilotPackageDetail.categories = n.getCollectionOfPrimitiveValues<string>(); },
         "elementDetails": n => { copilotPackageDetail.elementDetails = n.getCollectionOfObjectValues<PackageElementDetail>(createPackageElementDetailFromDiscriminatorValue); },
         "longDescription": n => { copilotPackageDetail.longDescription = n.getStringValue(); },
-        "manifestVersion": n => { copilotPackageDetail.manifestVersion = n.getStringValue(); },
         "sensitivity": n => { copilotPackageDetail.sensitivity = n.getStringValue(); },
-        "version": n => { copilotPackageDetail.version = n.getStringValue(); },
     }
 }
 /**
@@ -3692,6 +3723,19 @@ export function deserializeIntoServicePrincipalIdentity(servicePrincipalIdentity
 }
 /**
  * The deserialization information for the current model
+ * @param SharePointGroupIdentity The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoSharePointGroupIdentity(sharePointGroupIdentity: Partial<SharePointGroupIdentity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoIdentity(sharePointGroupIdentity),
+        "principalId": n => { sharePointGroupIdentity.principalId = n.getStringValue(); },
+        "title": n => { sharePointGroupIdentity.title = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param SharePointIdentity The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -3712,6 +3756,7 @@ export function deserializeIntoSharePointIdentitySet(sharePointIdentitySet: Part
     return {
         ...deserializeIntoIdentitySet(sharePointIdentitySet),
         "group": n => { sharePointIdentitySet.group = n.getObjectValue<Identity>(createIdentityFromDiscriminatorValue); },
+        "sharePointGroup": n => { sharePointIdentitySet.sharePointGroup = n.getObjectValue<SharePointGroupIdentity>(createSharePointGroupIdentityFromDiscriminatorValue); },
         "siteGroup": n => { sharePointIdentitySet.siteGroup = n.getObjectValue<SharePointIdentity>(createSharePointIdentityFromDiscriminatorValue); },
         "siteUser": n => { sharePointIdentitySet.siteUser = n.getObjectValue<SharePointIdentity>(createSharePointIdentityFromDiscriminatorValue); },
     }
@@ -5116,16 +5161,22 @@ export function serializeCopilotFile(writer: SerializationWriter, copilotFile: P
 export function serializeCopilotPackage(writer: SerializationWriter, copilotPackage: Partial<CopilotPackage> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!copilotPackage || isSerializingDerivedType) { return; }
     serializeEntity(writer, copilotPackage, isSerializingDerivedType)
+    writer.writeStringValue("appId", copilotPackage.appId);
+    writer.writeStringValue("assetId", copilotPackage.assetId);
     writer.writeEnumValue<PackageStatus>("availableTo", copilotPackage.availableTo);
     writer.writeEnumValue<PackageStatus>("deployedTo", copilotPackage.deployedTo);
     writer.writeStringValue("displayName", copilotPackage.displayName);
     writer.writeCollectionOfPrimitiveValues<string>("elementTypes", copilotPackage.elementTypes);
     writer.writeBooleanValue("isBlocked", copilotPackage.isBlocked);
     writer.writeDateValue("lastModifiedDateTime", copilotPackage.lastModifiedDateTime);
+    writer.writeStringValue("manifestId", copilotPackage.manifestId);
+    writer.writeStringValue("manifestVersion", copilotPackage.manifestVersion);
+    writer.writeStringValue("platform", copilotPackage.platform);
     writer.writeStringValue("publisher", copilotPackage.publisher);
     writer.writeStringValue("shortDescription", copilotPackage.shortDescription);
     writer.writeCollectionOfPrimitiveValues<string>("supportedHosts", copilotPackage.supportedHosts);
     writer.writeEnumValue<PackageType>("type", copilotPackage.type);
+    writer.writeStringValue("version", copilotPackage.version);
     writer.writeByteArrayValue("zipFile", copilotPackage.zipFile);
     switch (copilotPackage.odataType) {
         case "#microsoft.graph.copilotPackageDetail":
@@ -5148,9 +5199,7 @@ export function serializeCopilotPackageDetail(writer: SerializationWriter, copil
     writer.writeCollectionOfPrimitiveValues<string>("categories", copilotPackageDetail.categories);
     writer.writeCollectionOfObjectValues<PackageElementDetail>("elementDetails", copilotPackageDetail.elementDetails, serializePackageElementDetail);
     writer.writeStringValue("longDescription", copilotPackageDetail.longDescription);
-    writer.writeStringValue("manifestVersion", copilotPackageDetail.manifestVersion);
     writer.writeStringValue("sensitivity", copilotPackageDetail.sensitivity);
-    writer.writeStringValue("version", copilotPackageDetail.version);
 }
 /**
  * Serializes information the current object
@@ -5560,6 +5609,9 @@ export function serializeIdentity(writer: SerializationWriter, identity: Partial
         break;
         case "#microsoft.graph.servicePrincipalIdentity":
             serializeServicePrincipalIdentity(writer, identity, true);
+        break;
+        case "#microsoft.graph.sharePointGroupIdentity":
+            serializeSharePointGroupIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.sharePointIdentity":
             serializeSharePointIdentity(writer, identity, true);
@@ -6066,6 +6118,19 @@ export function serializeServicePrincipalIdentity(writer: SerializationWriter, s
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SharePointGroupIdentity The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeSharePointGroupIdentity(writer: SerializationWriter, sharePointGroupIdentity: Partial<SharePointGroupIdentity> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!sharePointGroupIdentity || isSerializingDerivedType) { return; }
+    serializeIdentity(writer, sharePointGroupIdentity, isSerializingDerivedType)
+    writer.writeStringValue("principalId", sharePointGroupIdentity.principalId);
+    writer.writeStringValue("title", sharePointGroupIdentity.title);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param SharePointIdentity The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -6086,6 +6151,7 @@ export function serializeSharePointIdentitySet(writer: SerializationWriter, shar
     if (!sharePointIdentitySet || isSerializingDerivedType) { return; }
     serializeIdentitySet(writer, sharePointIdentitySet, isSerializingDerivedType)
     writer.writeObjectValue<Identity>("group", sharePointIdentitySet.group, serializeIdentity);
+    writer.writeObjectValue<SharePointGroupIdentity>("sharePointGroup", sharePointIdentitySet.sharePointGroup, serializeSharePointGroupIdentity);
     writer.writeObjectValue<SharePointIdentity>("siteGroup", sharePointIdentitySet.siteGroup, serializeSharePointIdentity);
     writer.writeObjectValue<SharePointIdentity>("siteUser", sharePointIdentitySet.siteUser, serializeSharePointIdentity);
 }
@@ -6263,6 +6329,16 @@ export interface ServicePrincipalIdentity extends Identity, Parsable {
      */
     appId?: string | null;
 }
+export interface SharePointGroupIdentity extends Identity, Parsable {
+    /**
+     * The principalId property
+     */
+    principalId?: string | null;
+    /**
+     * The title property
+     */
+    title?: string | null;
+}
 export interface SharePointIdentity extends Identity, Parsable {
     /**
      * The sign in name of the SharePoint identity.
@@ -6274,6 +6350,10 @@ export interface SharePointIdentitySet extends IdentitySet, Parsable {
      * The group associated with this action. Optional.
      */
     group?: Identity | null;
+    /**
+     * The sharePointGroup property
+     */
+    sharePointGroup?: SharePointGroupIdentity | null;
     /**
      * The SharePoint group associated with this action. Optional.
      */
