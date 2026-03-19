@@ -1301,6 +1301,8 @@ Microsoft.Agents.M365Copilot.Beta.Models.copilotFile::|public|Uri:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotFile::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotFile
 Microsoft.Agents.M365Copilot.Beta.Models.copilotFile~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|AppId:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|AssetId:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|AvailableTo:global.Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus?
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|DeployedTo:global.Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus?
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|DisplayName:string
@@ -1308,12 +1310,16 @@ Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|ElementTypes:Li
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|IsBlocked:bool?
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|LastModifiedDateTime:DateTimeOffset?
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|ManifestId:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|ManifestVersion:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|Platform:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|Publisher:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|ShortDescription:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|SupportedHosts:List<string>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|Type:global.Microsoft.Agents.M365Copilot.Beta.Models.PackageType?
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|Version:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|ZipFile:byte[]
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackage
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail-->global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackage
@@ -1324,11 +1330,9 @@ Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|construct
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|ElementDetails:List<global.Microsoft.Agents.M365Copilot.Beta.Models.PackageElementDetail>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|LongDescription:string
-Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|ManifestVersion:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|Sensitivity:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|Serialize(writer:ISerializationWriter):void
-Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|Version:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageDetail
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetailCollectionResponse-->global.Microsoft.Agents.M365Copilot.Beta.Models.BaseCollectionPaginationCountResponse
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetailCollectionResponse::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -1837,6 +1841,14 @@ Microsoft.Agents.M365Copilot.Beta.Models.servicePrincipalIdentity::|public|GetFi
 Microsoft.Agents.M365Copilot.Beta.Models.servicePrincipalIdentity::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.servicePrincipalIdentity::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.servicePrincipalIdentity::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.ServicePrincipalIdentity
+Microsoft.Agents.M365Copilot.Beta.Models.sharePointGroupIdentity-->global.Microsoft.Agents.M365Copilot.Beta.Models.Identity
+Microsoft.Agents.M365Copilot.Beta.Models.sharePointGroupIdentity::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.sharePointGroupIdentity::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.sharePointGroupIdentity::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.sharePointGroupIdentity::|public|PrincipalId:string
+Microsoft.Agents.M365Copilot.Beta.Models.sharePointGroupIdentity::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.sharePointGroupIdentity::|public|Title:string
+Microsoft.Agents.M365Copilot.Beta.Models.sharePointGroupIdentity::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.SharePointGroupIdentity
 Microsoft.Agents.M365Copilot.Beta.Models.sharePointIdentity-->global.Microsoft.Agents.M365Copilot.Beta.Models.Identity
 Microsoft.Agents.M365Copilot.Beta.Models.sharePointIdentity::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.sharePointIdentity::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -1850,6 +1862,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.sharePointIdentitySet::|public|GetField
 Microsoft.Agents.M365Copilot.Beta.Models.sharePointIdentitySet::|public|Group:global.Microsoft.Agents.M365Copilot.Beta.Models.Identity
 Microsoft.Agents.M365Copilot.Beta.Models.sharePointIdentitySet::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.sharePointIdentitySet::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.sharePointIdentitySet::|public|SharePointGroup:global.Microsoft.Agents.M365Copilot.Beta.Models.SharePointGroupIdentity
 Microsoft.Agents.M365Copilot.Beta.Models.sharePointIdentitySet::|public|SiteGroup:global.Microsoft.Agents.M365Copilot.Beta.Models.SharePointIdentity
 Microsoft.Agents.M365Copilot.Beta.Models.sharePointIdentitySet::|public|SiteUser:global.Microsoft.Agents.M365Copilot.Beta.Models.SharePointIdentity
 Microsoft.Agents.M365Copilot.Beta.Models.sharePointIdentitySet::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.SharePointIdentitySet
