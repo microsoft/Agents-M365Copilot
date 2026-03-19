@@ -71,6 +71,7 @@ namespace Microsoft.Agents.M365Copilot.Models
                 "#microsoft.graph.provisioningServicePrincipal" => new global::Microsoft.Agents.M365Copilot.Models.ProvisioningServicePrincipal(),
                 "#microsoft.graph.provisioningSystem" => new global::Microsoft.Agents.M365Copilot.Models.ProvisioningSystem(),
                 "#microsoft.graph.servicePrincipalIdentity" => new global::Microsoft.Agents.M365Copilot.Models.ServicePrincipalIdentity(),
+                "#microsoft.graph.sharePointGroupIdentity" => new global::Microsoft.Agents.M365Copilot.Models.SharePointGroupIdentity(),
                 "#microsoft.graph.sharePointIdentity" => new global::Microsoft.Agents.M365Copilot.Models.SharePointIdentity(),
                 "#microsoft.graph.teamworkApplicationIdentity" => new global::Microsoft.Agents.M365Copilot.Models.TeamworkApplicationIdentity(),
                 "#microsoft.graph.teamworkConversationIdentity" => new global::Microsoft.Agents.M365Copilot.Models.TeamworkConversationIdentity(),

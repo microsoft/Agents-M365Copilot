@@ -842,6 +842,14 @@ Microsoft.Agents.M365Copilot.Models.servicePrincipalIdentity::|public|GetFieldDe
 Microsoft.Agents.M365Copilot.Models.servicePrincipalIdentity::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Models.servicePrincipalIdentity::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Models.servicePrincipalIdentity::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.ServicePrincipalIdentity
+Microsoft.Agents.M365Copilot.Models.sharePointGroupIdentity-->global.Microsoft.Agents.M365Copilot.Models.Identity
+Microsoft.Agents.M365Copilot.Models.sharePointGroupIdentity::|public|constructor():void
+Microsoft.Agents.M365Copilot.Models.sharePointGroupIdentity::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.sharePointGroupIdentity::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.sharePointGroupIdentity::|public|PrincipalId:string
+Microsoft.Agents.M365Copilot.Models.sharePointGroupIdentity::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.sharePointGroupIdentity::|public|Title:string
+Microsoft.Agents.M365Copilot.Models.sharePointGroupIdentity::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.SharePointGroupIdentity
 Microsoft.Agents.M365Copilot.Models.sharePointIdentity-->global.Microsoft.Agents.M365Copilot.Models.Identity
 Microsoft.Agents.M365Copilot.Models.sharePointIdentity::|public|constructor():void
 Microsoft.Agents.M365Copilot.Models.sharePointIdentity::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -855,6 +863,7 @@ Microsoft.Agents.M365Copilot.Models.sharePointIdentitySet::|public|GetFieldDeser
 Microsoft.Agents.M365Copilot.Models.sharePointIdentitySet::|public|Group:global.Microsoft.Agents.M365Copilot.Models.Identity
 Microsoft.Agents.M365Copilot.Models.sharePointIdentitySet::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Models.sharePointIdentitySet::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.sharePointIdentitySet::|public|SharePointGroup:global.Microsoft.Agents.M365Copilot.Models.SharePointGroupIdentity
 Microsoft.Agents.M365Copilot.Models.sharePointIdentitySet::|public|SiteGroup:global.Microsoft.Agents.M365Copilot.Models.SharePointIdentity
 Microsoft.Agents.M365Copilot.Models.sharePointIdentitySet::|public|SiteUser:global.Microsoft.Agents.M365Copilot.Models.SharePointIdentity
 Microsoft.Agents.M365Copilot.Models.sharePointIdentitySet::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.SharePointIdentitySet
