@@ -52,14 +52,6 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string LongDescription { get; set; }
 #endif
-        /// <summary>The manifestVersion property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ManifestVersion { get; set; }
-#nullable restore
-#else
-        public string ManifestVersion { get; set; }
-#endif
         /// <summary>The sensitivity property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,14 +59,6 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #nullable restore
 #else
         public string Sensitivity { get; set; }
-#endif
-        /// <summary>The version property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Version { get; set; }
-#nullable restore
-#else
-        public string Version { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageDetail"/> and sets the default values.
@@ -106,9 +90,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "categories", n => { Categories = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "elementDetails", n => { ElementDetails = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageElementDetail>(global::Microsoft.Agents.M365Copilot.Beta.Models.PackageElementDetail.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "longDescription", n => { LongDescription = n.GetStringValue(); } },
-                { "manifestVersion", n => { ManifestVersion = n.GetStringValue(); } },
                 { "sensitivity", n => { Sensitivity = n.GetStringValue(); } },
-                { "version", n => { Version = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -124,9 +106,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteCollectionOfPrimitiveValues<string>("categories", Categories);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageElementDetail>("elementDetails", ElementDetails);
             writer.WriteStringValue("longDescription", LongDescription);
-            writer.WriteStringValue("manifestVersion", ManifestVersion);
             writer.WriteStringValue("sensitivity", Sensitivity);
-            writer.WriteStringValue("version", Version);
         }
     }
 }

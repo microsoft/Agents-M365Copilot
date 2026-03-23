@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment variables
+.env
+
+# Certificates (contain private keys — never commit)
+certs/private-key.pem
+certs/certificate.pem
+certs/certificate-base64.txt
+
+# Runtime artifacts
+subscription-info.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/

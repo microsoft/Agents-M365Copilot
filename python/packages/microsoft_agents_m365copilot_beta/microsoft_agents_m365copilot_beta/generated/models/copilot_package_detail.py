@@ -25,12 +25,8 @@ class CopilotPackageDetail(CopilotPackage, Parsable):
     element_details: Optional[list[PackageElementDetail]] = None
     # The longDescription property
     long_description: Optional[str] = None
-    # The manifestVersion property
-    manifest_version: Optional[str] = None
     # The sensitivity property
     sensitivity: Optional[str] = None
-    # The version property
-    version: Optional[str] = None
     
     @staticmethod
     def create_from_discriminator_value(parse_node: ParseNode) -> CopilotPackageDetail:
@@ -62,9 +58,7 @@ class CopilotPackageDetail(CopilotPackage, Parsable):
             "categories": lambda n : setattr(self, 'categories', n.get_collection_of_primitive_values(str)),
             "elementDetails": lambda n : setattr(self, 'element_details', n.get_collection_of_object_values(PackageElementDetail)),
             "longDescription": lambda n : setattr(self, 'long_description', n.get_str_value()),
-            "manifestVersion": lambda n : setattr(self, 'manifest_version', n.get_str_value()),
             "sensitivity": lambda n : setattr(self, 'sensitivity', n.get_str_value()),
-            "version": lambda n : setattr(self, 'version', n.get_str_value()),
         }
         super_fields = super().get_field_deserializers()
         fields.update(super_fields)
@@ -84,8 +78,6 @@ class CopilotPackageDetail(CopilotPackage, Parsable):
         writer.write_collection_of_primitive_values("categories", self.categories)
         writer.write_collection_of_object_values("elementDetails", self.element_details)
         writer.write_str_value("longDescription", self.long_description)
-        writer.write_str_value("manifestVersion", self.manifest_version)
         writer.write_str_value("sensitivity", self.sensitivity)
-        writer.write_str_value("version", self.version)
     
 
