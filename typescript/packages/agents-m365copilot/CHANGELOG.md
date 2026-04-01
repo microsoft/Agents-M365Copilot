@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.0](https://github.com/microsoft/Agents-M365Copilot/compare/@microsoft/agents-m365copilot-v1.4.0...@microsoft/agents-m365copilot-v1.5.0) (2026-04-01)
+
+
+### Features
+
+* **generation:** update request builders and models for typescript v1 ([e9c1976](https://github.com/microsoft/Agents-M365Copilot/commit/e9c1976d18718bc3198ea6b0fdc2bbfde8ab137e))
+* **generation:** update request builders and models for typescript v1 ([#270](https://github.com/microsoft/Agents-M365Copilot/issues/270)) ([6ef0d65](https://github.com/microsoft/Agents-M365Copilot/commit/6ef0d65e0cd69c8881eeda1a3857797faed03c6b))
+
 ## [1.4.0](https://github.com/microsoft/Agents-M365Copilot/compare/@microsoft/agents-m365copilot-v1.3.0...@microsoft/agents-m365copilot-v1.4.0) (2026-01-07)
 
 
