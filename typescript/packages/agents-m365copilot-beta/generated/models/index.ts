@@ -6331,11 +6331,11 @@ export interface ServicePrincipalIdentity extends Identity, Parsable {
 }
 export interface SharePointGroupIdentity extends Identity, Parsable {
     /**
-     * The principalId property
+     * The principal ID of the SharePoint group in the tenant. Read-only.
      */
     principalId?: string | null;
     /**
-     * The title property
+     * The title of the SharePoint group. Read-only.
      */
     title?: string | null;
 }
@@ -6351,7 +6351,7 @@ export interface SharePointIdentitySet extends IdentitySet, Parsable {
      */
     group?: Identity | null;
     /**
-     * The sharePointGroup property
+     * The SharePoint group associated with this action. Optional.
      */
     sharePointGroup?: SharePointGroupIdentity | null;
     /**
