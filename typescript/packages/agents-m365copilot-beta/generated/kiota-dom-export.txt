@@ -6,6 +6,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.adminRequestBu
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.adminRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.adminRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<AdminRequestBuilderGetQueryParameters>):CopilotAdmin
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.adminRequestBuilder::|public|patch(body:CopilotAdmin; requestConfiguration?:RequestConfiguration<object>):CopilotAdmin
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.adminRequestBuilder::|public|policySettings:PolicySettingsRequestBuilder
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.adminRequestBuilder::|public|settings:SettingsRequestBuilder
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.adminRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.adminRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<AdminRequestBuilderGetQueryParameters>):RequestInformation
@@ -81,6 +82,45 @@ github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packag
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.packagesRequestBuilderRequestsMetadata
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.packagesRequestBuilderUriTemplate
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.catalog.packages.packagesRequestBuilder~~>BaseRequestBuilder<PackagesRequestBuilder>
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.count.CountRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<CountRequestBuilderGetQueryParameters>):number
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.count.CountRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<CountRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.count.CountRequestBuilderGetQueryParameters::|public|filter:string
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.count.CountRequestBuilderGetQueryParameters::|public|search:string
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.count.countRequestBuilderGetQueryParametersMapper
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.count.countRequestBuilderRequestsMetadata
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.count.countRequestBuilderUriTemplate
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.count.CountRequestBuilder~~>BaseRequestBuilder<CountRequestBuilder>
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.item.CopilotPolicySettingItemRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.item.CopilotPolicySettingItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<CopilotPolicySettingItemRequestBuilderGetQueryParameters>):CopilotPolicySetting
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.item.CopilotPolicySettingItemRequestBuilder::|public|patch(body:CopilotPolicySetting; requestConfiguration?:RequestConfiguration<object>):CopilotPolicySetting
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.item.CopilotPolicySettingItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.item.CopilotPolicySettingItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<CopilotPolicySettingItemRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.item.CopilotPolicySettingItemRequestBuilder::|public|toPatchRequestInformation(body:CopilotPolicySetting; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.item.CopilotPolicySettingItemRequestBuilderGetQueryParameters::|public|expand:string[]
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.item.CopilotPolicySettingItemRequestBuilderGetQueryParameters::|public|select:string[]
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.item.copilotPolicySettingItemRequestBuilderGetQueryParametersMapper
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.item.copilotPolicySettingItemRequestBuilderRequestsMetadata
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.item.copilotPolicySettingItemRequestBuilderUriTemplate
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.item.CopilotPolicySettingItemRequestBuilder~~>BaseRequestBuilder<CopilotPolicySettingItemRequestBuilder>
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.policySettingsRequestBuilder::|public|byCopilotPolicySettingId(copilotPolicySettingId:string):CopilotPolicySettingItemRequestBuilder
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.policySettingsRequestBuilder::|public|Count:CountRequestBuilder
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.policySettingsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PolicySettingsRequestBuilderGetQueryParameters>):CopilotPolicySettingCollectionResponse
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.policySettingsRequestBuilder::|public|post(body:CopilotPolicySetting; requestConfiguration?:RequestConfiguration<object>):CopilotPolicySetting
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.policySettingsRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<PolicySettingsRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.policySettingsRequestBuilder::|public|toPostRequestInformation(body:CopilotPolicySetting; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.policySettingsRequestBuilderGetQueryParameters::|public|count:boolean
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.policySettingsRequestBuilderGetQueryParameters::|public|expand:string[]
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.policySettingsRequestBuilderGetQueryParameters::|public|filter:string
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.policySettingsRequestBuilderGetQueryParameters::|public|orderby:string[]
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.policySettingsRequestBuilderGetQueryParameters::|public|search:string
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.policySettingsRequestBuilderGetQueryParameters::|public|select:string[]
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.policySettingsRequestBuilderGetQueryParameters::|public|skip:number
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.policySettingsRequestBuilderGetQueryParameters::|public|top:number
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.policySettingsRequestBuilderGetQueryParametersMapper
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.policySettingsRequestBuilderNavigationMetadata
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.policySettingsRequestBuilderRequestsMetadata
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.policySettingsRequestBuilderUriTemplate
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.policySettings.policySettingsRequestBuilder~~>BaseRequestBuilder<PolicySettingsRequestBuilder>
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.settings.limitedMode.limitedModeRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.settings.limitedMode.limitedModeRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<LimitedModeRequestBuilderGetQueryParameters>):CopilotAdminLimitedMode
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.admin.settings.limitedMode.limitedModeRequestBuilder::|public|patch(body:CopilotAdminLimitedMode; requestConfiguration?:RequestConfiguration<object>):CopilotAdminLimitedMode
@@ -916,6 +956,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.connectionType::0001-
 github.com/microsoft/Agents-M365Copilot/typescript/.models.connectionTypeObject
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotAdmin::|public|catalog:CopilotAdminCatalog
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotAdmin::|public|OdataType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotAdmin::|public|policySettings:CopilotPolicySetting[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotAdmin::|public|settings:CopilotAdminSetting
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotAdminCatalog::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotAdminCatalog::|public|packages:CopilotPackageDetail[]
@@ -1042,6 +1083,12 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage~~>Enti
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPeopleAdminSetting::|public|enhancedPersonalization:EnhancedPersonalizationSetting
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPeopleAdminSetting::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPeopleAdminSetting~~>Entity; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPolicySetting::|public|OdataType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPolicySetting::|public|policyId:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPolicySetting::|public|value:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPolicySettingCollectionResponse::|public|value:CopilotPolicySetting[]
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPolicySettingCollectionResponse~~>BaseCollectionPaginationCountResponse; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPolicySetting~~>Entity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotReportRoot::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotReportRoot~~>Entity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotSearchDataSourcesConfiguration::|public|AdditionalData:Record<string, unknown>
@@ -1483,6 +1530,8 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::createCopilotPackage
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createCopilotPackageDetailFromDiscriminatorValue(parseNode:ParseNode):CopilotPackageDetail
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createCopilotPackageFromDiscriminatorValue(parseNode:ParseNode):CopilotPackage
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createCopilotPeopleAdminSettingFromDiscriminatorValue(parseNode:ParseNode):CopilotPeopleAdminSetting
+github.com/microsoft/Agents-M365Copilot/typescript/.models::createCopilotPolicySettingCollectionResponseFromDiscriminatorValue(parseNode:ParseNode):CopilotPolicySettingCollectionResponse
+github.com/microsoft/Agents-M365Copilot/typescript/.models::createCopilotPolicySettingFromDiscriminatorValue(parseNode:ParseNode):CopilotPolicySetting
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createCopilotReportRootFromDiscriminatorValue(parseNode:ParseNode):CopilotReportRoot
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createCopilotSearchDataSourcesConfigurationFromDiscriminatorValue(parseNode:ParseNode):CopilotSearchDataSourcesConfiguration
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createCopilotSearchHitFromDiscriminatorValue(parseNode:ParseNode):CopilotSearchHit
@@ -1609,6 +1658,8 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCopil
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCopilotPackageDetail(CopilotPackageDetail:CopilotPackageDetail={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCopilotPackageDetailCollectionResponse(CopilotPackageDetailCollectionResponse:CopilotPackageDetailCollectionResponse={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCopilotPeopleAdminSetting(CopilotPeopleAdminSetting:CopilotPeopleAdminSetting={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCopilotPolicySetting(CopilotPolicySetting:CopilotPolicySetting={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCopilotPolicySettingCollectionResponse(CopilotPolicySettingCollectionResponse:CopilotPolicySettingCollectionResponse={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCopilotReportRoot(CopilotReportRoot:CopilotReportRoot={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCopilotSearchDataSourcesConfiguration(CopilotSearchDataSourcesConfiguration:CopilotSearchDataSourcesConfiguration={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCopilotSearchHit(CopilotSearchHit:CopilotSearchHit={}):Record<string, (node: ParseNode) => void>
@@ -1735,6 +1786,8 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotPack
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotPackageDetail(writer:SerializationWriter; CopilotPackageDetail:CopilotPackageDetail={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotPackageDetailCollectionResponse(writer:SerializationWriter; CopilotPackageDetailCollectionResponse:CopilotPackageDetailCollectionResponse={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotPeopleAdminSetting(writer:SerializationWriter; CopilotPeopleAdminSetting:CopilotPeopleAdminSetting={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotPolicySetting(writer:SerializationWriter; CopilotPolicySetting:CopilotPolicySetting={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotPolicySettingCollectionResponse(writer:SerializationWriter; CopilotPolicySettingCollectionResponse:CopilotPolicySettingCollectionResponse={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotReportRoot(writer:SerializationWriter; CopilotReportRoot:CopilotReportRoot={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotSearchDataSourcesConfiguration(writer:SerializationWriter; CopilotSearchDataSourcesConfiguration:CopilotSearchDataSourcesConfiguration={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotSearchHit(writer:SerializationWriter; CopilotSearchHit:CopilotSearchHit={}; isSerializingDerivedType?:boolean=false):void
