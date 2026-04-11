@@ -9,41 +9,26 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class SharePointGroupIdentity : global::Microsoft.Agents.M365Copilot.Beta.Models.Identity, IParsable
+    public partial class CopilotPolicySettingCollectionResponse : global::Microsoft.Agents.M365Copilot.Beta.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The principal ID of the SharePoint group in the tenant. Read-only.</summary>
+        /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PrincipalId { get; set; }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting>? Value { get; set; }
 #nullable restore
 #else
-        public string PrincipalId { get; set; }
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting> Value { get; set; }
 #endif
-        /// <summary>The title of the SharePoint group. Read-only.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Title { get; set; }
-#nullable restore
-#else
-        public string Title { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointGroupIdentity"/> and sets the default values.
-        /// </summary>
-        public SharePointGroupIdentity() : base()
-        {
-            OdataType = "#microsoft.graph.sharePointGroupIdentity";
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointGroupIdentity"/></returns>
+        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointGroupIdentity CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointGroupIdentity();
+            return new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,8 +38,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "principalId", n => { PrincipalId = n.GetStringValue(); } },
-                { "title", n => { Title = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting>(global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -65,8 +49,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteStringValue("principalId", PrincipalId);
-            writer.WriteStringValue("title", Title);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting>("value", Value);
         }
     }
 }
