@@ -19,6 +19,7 @@ if TYPE_CHECKING:
     from .provisioning_service_principal import ProvisioningServicePrincipal
     from .provisioning_system import ProvisioningSystem
     from .service_principal_identity import ServicePrincipalIdentity
+    from .share_point_group_identity import SharePointGroupIdentity
     from .share_point_identity import SharePointIdentity
     from .teamwork_application_identity import TeamworkApplicationIdentity
     from .teamwork_conversation_identity import TeamworkConversationIdentity
@@ -109,6 +110,10 @@ class Identity(AdditionalDataHolder, Parsable):
             from .service_principal_identity import ServicePrincipalIdentity
 
             return ServicePrincipalIdentity()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.sharePointGroupIdentity".casefold():
+            from .share_point_group_identity import SharePointGroupIdentity
+
+            return SharePointGroupIdentity()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.sharePointIdentity".casefold():
             from .share_point_identity import SharePointIdentity
 
@@ -155,6 +160,7 @@ class Identity(AdditionalDataHolder, Parsable):
         from .provisioning_service_principal import ProvisioningServicePrincipal
         from .provisioning_system import ProvisioningSystem
         from .service_principal_identity import ServicePrincipalIdentity
+        from .share_point_group_identity import SharePointGroupIdentity
         from .share_point_identity import SharePointIdentity
         from .teamwork_application_identity import TeamworkApplicationIdentity
         from .teamwork_conversation_identity import TeamworkConversationIdentity
@@ -176,6 +182,7 @@ class Identity(AdditionalDataHolder, Parsable):
         from .provisioning_service_principal import ProvisioningServicePrincipal
         from .provisioning_system import ProvisioningSystem
         from .service_principal_identity import ServicePrincipalIdentity
+        from .share_point_group_identity import SharePointGroupIdentity
         from .share_point_identity import SharePointIdentity
         from .teamwork_application_identity import TeamworkApplicationIdentity
         from .teamwork_conversation_identity import TeamworkConversationIdentity

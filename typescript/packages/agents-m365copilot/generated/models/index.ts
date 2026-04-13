@@ -808,6 +808,8 @@ export function createIdentityFromDiscriminatorValue(parseNode: ParseNode | unde
                     return deserializeIntoProvisioningSystem;
                 case "#microsoft.graph.servicePrincipalIdentity":
                     return deserializeIntoServicePrincipalIdentity;
+                case "#microsoft.graph.sharePointGroupIdentity":
+                    return deserializeIntoSharePointGroupIdentity;
                 case "#microsoft.graph.sharePointIdentity":
                     return deserializeIntoSharePointIdentity;
                 case "#microsoft.graph.teamworkApplicationIdentity":
@@ -982,6 +984,15 @@ export function createSensitivityLabelInfoFromDiscriminatorValue(parseNode: Pars
 // @ts-ignore
 export function createServicePrincipalIdentityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoServicePrincipalIdentity;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {SharePointGroupIdentity}
+ */
+// @ts-ignore
+export function createSharePointGroupIdentityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSharePointGroupIdentity;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -1771,6 +1782,19 @@ export function deserializeIntoServicePrincipalIdentity(servicePrincipalIdentity
 }
 /**
  * The deserialization information for the current model
+ * @param SharePointGroupIdentity The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoSharePointGroupIdentity(sharePointGroupIdentity: Partial<SharePointGroupIdentity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoIdentity(sharePointGroupIdentity),
+        "principalId": n => { sharePointGroupIdentity.principalId = n.getStringValue(); },
+        "title": n => { sharePointGroupIdentity.title = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param SharePointIdentity The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -1791,6 +1815,7 @@ export function deserializeIntoSharePointIdentitySet(sharePointIdentitySet: Part
     return {
         ...deserializeIntoIdentitySet(sharePointIdentitySet),
         "group": n => { sharePointIdentitySet.group = n.getObjectValue<Identity>(createIdentityFromDiscriminatorValue); },
+        "sharePointGroup": n => { sharePointIdentitySet.sharePointGroup = n.getObjectValue<SharePointGroupIdentity>(createSharePointGroupIdentityFromDiscriminatorValue); },
         "siteGroup": n => { sharePointIdentitySet.siteGroup = n.getObjectValue<SharePointIdentity>(createSharePointIdentityFromDiscriminatorValue); },
         "siteUser": n => { sharePointIdentitySet.siteUser = n.getObjectValue<SharePointIdentity>(createSharePointIdentityFromDiscriminatorValue); },
     }
@@ -2715,6 +2740,9 @@ export function serializeIdentity(writer: SerializationWriter, identity: Partial
         case "#microsoft.graph.servicePrincipalIdentity":
             serializeServicePrincipalIdentity(writer, identity, true);
         break;
+        case "#microsoft.graph.sharePointGroupIdentity":
+            serializeSharePointGroupIdentity(writer, identity, true);
+        break;
         case "#microsoft.graph.sharePointIdentity":
             serializeSharePointIdentity(writer, identity, true);
         break;
@@ -2966,6 +2994,19 @@ export function serializeServicePrincipalIdentity(writer: SerializationWriter, s
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SharePointGroupIdentity The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeSharePointGroupIdentity(writer: SerializationWriter, sharePointGroupIdentity: Partial<SharePointGroupIdentity> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!sharePointGroupIdentity || isSerializingDerivedType) { return; }
+    serializeIdentity(writer, sharePointGroupIdentity, isSerializingDerivedType)
+    writer.writeStringValue("principalId", sharePointGroupIdentity.principalId);
+    writer.writeStringValue("title", sharePointGroupIdentity.title);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param SharePointIdentity The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -2986,6 +3027,7 @@ export function serializeSharePointIdentitySet(writer: SerializationWriter, shar
     if (!sharePointIdentitySet || isSerializingDerivedType) { return; }
     serializeIdentitySet(writer, sharePointIdentitySet, isSerializingDerivedType)
     writer.writeObjectValue<Identity>("group", sharePointIdentitySet.group, serializeIdentity);
+    writer.writeObjectValue<SharePointGroupIdentity>("sharePointGroup", sharePointIdentitySet.sharePointGroup, serializeSharePointGroupIdentity);
     writer.writeObjectValue<SharePointIdentity>("siteGroup", sharePointIdentitySet.siteGroup, serializeSharePointIdentity);
     writer.writeObjectValue<SharePointIdentity>("siteUser", sharePointIdentitySet.siteUser, serializeSharePointIdentity);
 }
@@ -3055,6 +3097,16 @@ export interface ServicePrincipalIdentity extends Identity, Parsable {
      */
     appId?: string | null;
 }
+export interface SharePointGroupIdentity extends Identity, Parsable {
+    /**
+     * The principalId property
+     */
+    principalId?: string | null;
+    /**
+     * The title property
+     */
+    title?: string | null;
+}
 export interface SharePointIdentity extends Identity, Parsable {
     /**
      * The sign in name of the SharePoint identity.
@@ -3066,6 +3118,10 @@ export interface SharePointIdentitySet extends IdentitySet, Parsable {
      * The group associated with this action. Optional.
      */
     group?: Identity | null;
+    /**
+     * The sharePointGroup property
+     */
+    sharePointGroup?: SharePointGroupIdentity | null;
     /**
      * The SharePoint group associated with this action. Optional.
      */

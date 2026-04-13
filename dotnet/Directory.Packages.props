@@ -1,6 +1,7 @@
 <Project>
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Azure.Identity" Version="1.13.2" />
@@ -9,6 +10,7 @@
     <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
     <PackageVersion Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.6.1" />
     <PackageVersion Include="Microsoft.IdentityModel.Validators" Version="8.6.1" />
+    <PackageVersion Include="Microsoft.Bcl.Memory" Version="9.0.14" />
     <PackageVersion Include="Microsoft.Kiota.Bundle" Version="1.17.4" />
     <PackageVersion Include="Microsoft.Kiota.Authentication.Azure" Version="1.17.4" />
     <PackageVersion Include="Microsoft.Agents.M365Copilot" Version="0.1.0-preview.1" />
