@@ -5,42 +5,42 @@ from kiota_abstractions.serialization import Parsable, ParseNode, SerializationW
 from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
-    from .identity import Identity
+    from .entity import Entity
 
-from .identity import Identity
+from .entity import Entity
 
 @dataclass
-class SharePointGroupIdentity(Identity, Parsable):
+class CopilotPolicySetting(Entity, Parsable):
     # The OdataType property
-    odata_type: Optional[str] = "#microsoft.graph.sharePointGroupIdentity"
-    # The principal ID of the SharePoint group in the tenant. Read-only.
-    principal_id: Optional[str] = None
-    # The title of the SharePoint group. Read-only.
-    title: Optional[str] = None
+    odata_type: Optional[str] = None
+    # The policyId property
+    policy_id: Optional[str] = None
+    # The value property
+    value: Optional[str] = None
     
     @staticmethod
-    def create_from_discriminator_value(parse_node: ParseNode) -> SharePointGroupIdentity:
+    def create_from_discriminator_value(parse_node: ParseNode) -> CopilotPolicySetting:
         """
         Creates a new instance of the appropriate class based on discriminator value
         param parse_node: The parse node to use to read the discriminator value and create the object
-        Returns: SharePointGroupIdentity
+        Returns: CopilotPolicySetting
         """
         if parse_node is None:
             raise TypeError("parse_node cannot be null.")
-        return SharePointGroupIdentity()
+        return CopilotPolicySetting()
     
     def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
-        from .identity import Identity
+        from .entity import Entity
 
-        from .identity import Identity
+        from .entity import Entity
 
         fields: dict[str, Callable[[Any], None]] = {
-            "principalId": lambda n : setattr(self, 'principal_id', n.get_str_value()),
-            "title": lambda n : setattr(self, 'title', n.get_str_value()),
+            "policyId": lambda n : setattr(self, 'policy_id', n.get_str_value()),
+            "value": lambda n : setattr(self, 'value', n.get_str_value()),
         }
         super_fields = super().get_field_deserializers()
         fields.update(super_fields)
@@ -55,7 +55,7 @@ class SharePointGroupIdentity(Identity, Parsable):
         if writer is None:
             raise TypeError("writer cannot be null.")
         super().serialize(writer)
-        writer.write_str_value("principalId", self.principal_id)
-        writer.write_str_value("title", self.title)
+        writer.write_str_value("policyId", self.policy_id)
+        writer.write_str_value("value", self.value)
     
 

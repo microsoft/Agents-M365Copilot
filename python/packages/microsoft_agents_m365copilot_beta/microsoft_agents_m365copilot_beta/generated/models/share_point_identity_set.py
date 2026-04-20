@@ -18,7 +18,7 @@ class SharePointIdentitySet(IdentitySet, Parsable):
     odata_type: Optional[str] = "#microsoft.graph.sharePointIdentitySet"
     # The group associated with this action. Optional.
     group: Optional[Identity] = None
-    # The sharePointGroup property
+    # The SharePoint group associated with this action. Optional.
     share_point_group: Optional[SharePointGroupIdentity] = None
     # The SharePoint group associated with this action. Optional.
     site_group: Optional[SharePointIdentity] = None
