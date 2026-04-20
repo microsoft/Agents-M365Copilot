@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '../../m
 // @ts-ignore
 import { CatalogRequestBuilderNavigationMetadata, CatalogRequestBuilderRequestsMetadata, type CatalogRequestBuilder } from './catalog/index.js';
 // @ts-ignore
+import { PolicySettingsRequestBuilderNavigationMetadata, PolicySettingsRequestBuilderRequestsMetadata, type PolicySettingsRequestBuilder } from './policySettings/index.js';
+// @ts-ignore
 import { SettingsRequestBuilderNavigationMetadata, SettingsRequestBuilderRequestsMetadata, type SettingsRequestBuilder } from './settings/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -20,6 +22,10 @@ export interface AdminRequestBuilder extends BaseRequestBuilder<AdminRequestBuil
      * Provides operations to manage the catalog property of the microsoft.graph.copilotAdmin entity.
      */
     get catalog(): CatalogRequestBuilder;
+    /**
+     * Provides operations to manage the policySettings property of the microsoft.graph.copilotAdmin entity.
+     */
+    get policySettings(): PolicySettingsRequestBuilder;
     /**
      * Provides operations to manage the settings property of the microsoft.graph.copilotAdmin entity.
      */
@@ -96,6 +102,10 @@ export const AdminRequestBuilderNavigationMetadata: Record<Exclude<keyof AdminRe
     catalog: {
         requestsMetadata: CatalogRequestBuilderRequestsMetadata,
         navigationMetadata: CatalogRequestBuilderNavigationMetadata,
+    },
+    policySettings: {
+        requestsMetadata: PolicySettingsRequestBuilderRequestsMetadata,
+        navigationMetadata: PolicySettingsRequestBuilderNavigationMetadata,
     },
     settings: {
         requestsMetadata: SettingsRequestBuilderRequestsMetadata,
