@@ -10,13 +10,14 @@ Integrate the Microsoft 365 Copilot APIs into your TypeScript application!
 
 The Microsoft 365 Copilot APIs client libraries are available in the following packages in Node Package Manager (npm):
 
+- [microsoft/agents-m365copilot](https://github.com/microsoft/Agents-M365Copilot/tree/main/typescript/packages/agents-m365copilot): Contains the models and request builders for accessing the v1.0 endpoint. microsoft/agents-m365copilot has a dependency on microsoft/agents-m365copilot-core.
 - [microsoft/agents-m365copilot-beta](https://github.com/microsoft/Agents-M365Copilot/tree/main/typescript/packages/agents-m365copilot-beta): Contains the models and request builders for accessing the beta endpoint. microsoft/agents-m365copilot-beta has a dependency on microsoft/agents-m365copilot-core.
 - [microsoft/agents-m365copilot-core](https://github.com/microsoft/Agents-M365Copilot/tree/main/typescript/packages/agents-m365copilot-core): The core library for making calls to the Copilot APIs.
 
 To install the client libraries via npm.
 
 ```Shell
-npm install @microsoft/agents-m365copilot-beta –save
+npm install @microsoft/agents-m365copilot –save
 ```
 
 ## Create a Copilot APIs client and make an API call
@@ -33,7 +34,7 @@ The client ID is the app registration ID that is generated when you [register yo
 
 ```TypeScript
 
-import { createBaseAgentsM365CopilotBetaServiceClient, RetrievalDataSourceObject } from '@microsoft/agents-m365copilot-beta';
+import { createBaseAgentsM365CopilotServiceClient, RetrievalDataSourceObject } from '@microsoft/agents-m365copilot';
 import { DeviceCodeCredential } from '@azure/identity';
 import { FetchRequestAdapter } from '@microsoft/kiota-http-fetchlibrary';
 
@@ -53,10 +54,12 @@ async function main() {
     const adapter = new FetchRequestAdapter(credential, {
         scopes: ['https://graph.microsoft.com/.default']
     });
-    adapter.baseUrl = "https://graph.microsoft.com/beta";
+    // The v1.0 endpoint is used by default.
+    // To target the beta endpoint instead, set the base URL explicitly:
+    // adapter.baseUrl = "https://graph.microsoft.com/beta";
 
     // Create client instance
-    const client = createBaseAgentsM365CopilotBetaServiceClient(adapter);
+    const client = createBaseAgentsM365CopilotServiceClient(adapter);
 
     try {
         console.log(`Using API base URL: ${adapter.baseUrl}\n`);

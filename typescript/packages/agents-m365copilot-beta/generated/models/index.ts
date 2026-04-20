@@ -448,6 +448,10 @@ export interface CopilotAdmin extends Entity, Parsable {
      */
     catalog?: CopilotAdminCatalog | null;
     /**
+     * The policySettings property
+     */
+    policySettings?: CopilotPolicySetting[] | null;
+    /**
      * The settings property
      */
     settings?: CopilotAdminSetting | null;
@@ -809,6 +813,22 @@ export interface CopilotPeopleAdminSetting extends Entity, Parsable {
      * The enhancedPersonalization property
      */
     enhancedPersonalization?: EnhancedPersonalizationSetting | null;
+}
+export interface CopilotPolicySetting extends Entity, Parsable {
+    /**
+     * The policyId property
+     */
+    policyId?: string | null;
+    /**
+     * The value property
+     */
+    value?: string | null;
+}
+export interface CopilotPolicySettingCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: CopilotPolicySetting[] | null;
 }
 export interface CopilotReportRoot extends Entity, Parsable {
 }
@@ -1472,6 +1492,24 @@ export function createCopilotPeopleAdminSettingFromDiscriminatorValue(parseNode:
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotPolicySettingCollectionResponse}
+ */
+// @ts-ignore
+export function createCopilotPolicySettingCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotPolicySettingCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotPolicySetting}
+ */
+// @ts-ignore
+export function createCopilotPolicySettingFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotPolicySetting;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CopilotReportRoot}
  */
 // @ts-ignore
@@ -1657,6 +1695,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoCopilotPackageDetail;
                 case "#microsoft.graph.copilotPeopleAdminSetting":
                     return deserializeIntoCopilotPeopleAdminSetting;
+                case "#microsoft.graph.copilotPolicySetting":
+                    return deserializeIntoCopilotPolicySetting;
                 case "#microsoft.graph.copilotReportRoot":
                     return deserializeIntoCopilotReportRoot;
                 case "#microsoft.graph.copilotSetting":
@@ -2751,6 +2791,7 @@ export function deserializeIntoCopilotAdmin(copilotAdmin: Partial<CopilotAdmin> 
     return {
         ...deserializeIntoEntity(copilotAdmin),
         "catalog": n => { copilotAdmin.catalog = n.getObjectValue<CopilotAdminCatalog>(createCopilotAdminCatalogFromDiscriminatorValue); },
+        "policySettings": n => { copilotAdmin.policySettings = n.getCollectionOfObjectValues<CopilotPolicySetting>(createCopilotPolicySettingFromDiscriminatorValue); },
         "settings": n => { copilotAdmin.settings = n.getObjectValue<CopilotAdminSetting>(createCopilotAdminSettingFromDiscriminatorValue); },
     }
 }
@@ -3058,6 +3099,31 @@ export function deserializeIntoCopilotPeopleAdminSetting(copilotPeopleAdminSetti
     return {
         ...deserializeIntoEntity(copilotPeopleAdminSetting),
         "enhancedPersonalization": n => { copilotPeopleAdminSetting.enhancedPersonalization = n.getObjectValue<EnhancedPersonalizationSetting>(createEnhancedPersonalizationSettingFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotPolicySetting The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotPolicySetting(copilotPolicySetting: Partial<CopilotPolicySetting> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(copilotPolicySetting),
+        "policyId": n => { copilotPolicySetting.policyId = n.getStringValue(); },
+        "value": n => { copilotPolicySetting.value = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotPolicySettingCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotPolicySettingCollectionResponse(copilotPolicySettingCollectionResponse: Partial<CopilotPolicySettingCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(copilotPolicySettingCollectionResponse),
+        "value": n => { copilotPolicySettingCollectionResponse.value = n.getCollectionOfObjectValues<CopilotPolicySetting>(createCopilotPolicySettingFromDiscriminatorValue); },
     }
 }
 /**
@@ -4905,6 +4971,7 @@ export function serializeCopilotAdmin(writer: SerializationWriter, copilotAdmin:
     if (!copilotAdmin || isSerializingDerivedType) { return; }
     serializeEntity(writer, copilotAdmin, isSerializingDerivedType)
     writer.writeObjectValue<CopilotAdminCatalog>("catalog", copilotAdmin.catalog, serializeCopilotAdminCatalog);
+    writer.writeCollectionOfObjectValues<CopilotPolicySetting>("policySettings", copilotAdmin.policySettings, serializeCopilotPolicySetting);
     writer.writeObjectValue<CopilotAdminSetting>("settings", copilotAdmin.settings, serializeCopilotAdminSetting);
 }
 /**
@@ -5227,6 +5294,31 @@ export function serializeCopilotPeopleAdminSetting(writer: SerializationWriter, 
 }
 /**
  * Serializes information the current object
+ * @param CopilotPolicySetting The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotPolicySetting(writer: SerializationWriter, copilotPolicySetting: Partial<CopilotPolicySetting> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotPolicySetting || isSerializingDerivedType) { return; }
+    serializeEntity(writer, copilotPolicySetting, isSerializingDerivedType)
+    writer.writeStringValue("policyId", copilotPolicySetting.policyId);
+    writer.writeStringValue("value", copilotPolicySetting.value);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotPolicySettingCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotPolicySettingCollectionResponse(writer: SerializationWriter, copilotPolicySettingCollectionResponse: Partial<CopilotPolicySettingCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotPolicySettingCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, copilotPolicySettingCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CopilotPolicySetting>("value", copilotPolicySettingCollectionResponse.value, serializeCopilotPolicySetting);
+}
+/**
+ * Serializes information the current object
  * @param CopilotReportRoot The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -5479,6 +5571,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.copilotPeopleAdminSetting":
             serializeCopilotPeopleAdminSetting(writer, entity, true);
+        break;
+        case "#microsoft.graph.copilotPolicySetting":
+            serializeCopilotPolicySetting(writer, entity, true);
         break;
         case "#microsoft.graph.copilotReportRoot":
             serializeCopilotReportRoot(writer, entity, true);
@@ -6331,11 +6426,11 @@ export interface ServicePrincipalIdentity extends Identity, Parsable {
 }
 export interface SharePointGroupIdentity extends Identity, Parsable {
     /**
-     * The principalId property
+     * The principal ID of the SharePoint group in the tenant. Read-only.
      */
     principalId?: string | null;
     /**
-     * The title property
+     * The title of the SharePoint group. Read-only.
      */
     title?: string | null;
 }
@@ -6351,7 +6446,7 @@ export interface SharePointIdentitySet extends IdentitySet, Parsable {
      */
     group?: Identity | null;
     /**
-     * The sharePointGroup property
+     * The SharePoint group associated with this action. Optional.
      */
     sharePointGroup?: SharePointGroupIdentity | null;
     /**
