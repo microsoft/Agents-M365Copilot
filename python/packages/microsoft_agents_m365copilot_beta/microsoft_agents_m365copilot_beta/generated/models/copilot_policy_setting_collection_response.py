@@ -5,42 +5,40 @@ from kiota_abstractions.serialization import Parsable, ParseNode, SerializationW
 from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
-    from .identity import Identity
+    from .base_collection_pagination_count_response import BaseCollectionPaginationCountResponse
+    from .copilot_policy_setting import CopilotPolicySetting
 
-from .identity import Identity
+from .base_collection_pagination_count_response import BaseCollectionPaginationCountResponse
 
 @dataclass
-class SharePointGroupIdentity(Identity, Parsable):
-    # The OdataType property
-    odata_type: Optional[str] = "#microsoft.graph.sharePointGroupIdentity"
-    # The principal ID of the SharePoint group in the tenant. Read-only.
-    principal_id: Optional[str] = None
-    # The title of the SharePoint group. Read-only.
-    title: Optional[str] = None
+class CopilotPolicySettingCollectionResponse(BaseCollectionPaginationCountResponse, Parsable):
+    # The value property
+    value: Optional[list[CopilotPolicySetting]] = None
     
     @staticmethod
-    def create_from_discriminator_value(parse_node: ParseNode) -> SharePointGroupIdentity:
+    def create_from_discriminator_value(parse_node: ParseNode) -> CopilotPolicySettingCollectionResponse:
         """
         Creates a new instance of the appropriate class based on discriminator value
         param parse_node: The parse node to use to read the discriminator value and create the object
-        Returns: SharePointGroupIdentity
+        Returns: CopilotPolicySettingCollectionResponse
         """
         if parse_node is None:
             raise TypeError("parse_node cannot be null.")
-        return SharePointGroupIdentity()
+        return CopilotPolicySettingCollectionResponse()
     
     def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
-        from .identity import Identity
+        from .base_collection_pagination_count_response import BaseCollectionPaginationCountResponse
+        from .copilot_policy_setting import CopilotPolicySetting
 
-        from .identity import Identity
+        from .base_collection_pagination_count_response import BaseCollectionPaginationCountResponse
+        from .copilot_policy_setting import CopilotPolicySetting
 
         fields: dict[str, Callable[[Any], None]] = {
-            "principalId": lambda n : setattr(self, 'principal_id', n.get_str_value()),
-            "title": lambda n : setattr(self, 'title', n.get_str_value()),
+            "value": lambda n : setattr(self, 'value', n.get_collection_of_object_values(CopilotPolicySetting)),
         }
         super_fields = super().get_field_deserializers()
         fields.update(super_fields)
@@ -55,7 +53,6 @@ class SharePointGroupIdentity(Identity, Parsable):
         if writer is None:
             raise TypeError("writer cannot be null.")
         super().serialize(writer)
-        writer.write_str_value("principalId", self.principal_id)
-        writer.write_str_value("title", self.title)
+        writer.write_collection_of_object_values("value", self.value)
     
 

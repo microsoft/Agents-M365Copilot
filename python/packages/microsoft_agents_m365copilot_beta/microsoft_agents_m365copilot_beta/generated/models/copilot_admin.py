@@ -7,6 +7,7 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 if TYPE_CHECKING:
     from .copilot_admin_catalog import CopilotAdminCatalog
     from .copilot_admin_setting import CopilotAdminSetting
+    from .copilot_policy_setting import CopilotPolicySetting
     from .entity import Entity
 
 from .entity import Entity
@@ -17,6 +18,8 @@ class CopilotAdmin(Entity, Parsable):
     catalog: Optional[CopilotAdminCatalog] = None
     # The OdataType property
     odata_type: Optional[str] = None
+    # The policySettings property
+    policy_settings: Optional[list[CopilotPolicySetting]] = None
     # The settings property
     settings: Optional[CopilotAdminSetting] = None
     
@@ -38,14 +41,17 @@ class CopilotAdmin(Entity, Parsable):
         """
         from .copilot_admin_catalog import CopilotAdminCatalog
         from .copilot_admin_setting import CopilotAdminSetting
+        from .copilot_policy_setting import CopilotPolicySetting
         from .entity import Entity
 
         from .copilot_admin_catalog import CopilotAdminCatalog
         from .copilot_admin_setting import CopilotAdminSetting
+        from .copilot_policy_setting import CopilotPolicySetting
         from .entity import Entity
 
         fields: dict[str, Callable[[Any], None]] = {
             "catalog": lambda n : setattr(self, 'catalog', n.get_object_value(CopilotAdminCatalog)),
+            "policySettings": lambda n : setattr(self, 'policy_settings', n.get_collection_of_object_values(CopilotPolicySetting)),
             "settings": lambda n : setattr(self, 'settings', n.get_object_value(CopilotAdminSetting)),
         }
         super_fields = super().get_field_deserializers()
@@ -62,6 +68,7 @@ class CopilotAdmin(Entity, Parsable):
             raise TypeError("writer cannot be null.")
         super().serialize(writer)
         writer.write_object_value("catalog", self.catalog)
+        writer.write_collection_of_object_values("policySettings", self.policy_settings)
         writer.write_object_value("settings", self.settings)
     
 

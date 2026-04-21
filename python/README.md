@@ -10,13 +10,14 @@ Integrate the Microsoft 365 Copilot APIs into your Python application!
 
 The Microsoft 365 Copilot APIs client libraries are available in the following packages in the Python Package Index (PyPi):
 
+- [microsoft-agents-m365copilot](https://github.com/microsoft/Agents-M365Copilot/tree/main/python/packages/microsoft_agents_m365copilot): Contains the models and request builders for accessing the v1.0 endpoint. microsoft-agents-m365copilot has a dependency on microsoft-agents-m365copilot-core.
 - [microsoft-agents-m365copilot-beta](https://github.com/microsoft/Agents-M365Copilot/tree/main/python/packages/microsoft_agents_m365copilot_beta): Contains the models and request builders for accessing the beta endpoint. microsoft-agents-m365copilot-beta has a dependency on microsoft-agents-m365copilot-core.
 - [microsoft-agents-m365copilot-core](https://github.com/microsoft/Agents-M365Copilot/tree/main/python/packages/microsoft_agents_m365copilot_core): The core library for making calls to the Copilot APIs.
 
 To install the client libraries via PyPi:
 
 ```py
-pip install microsoft-agents-m365copilot-beta
+pip install microsoft-agents-m365copilot
 ```
 
 ## Create a Copilot APIs client and make an API call
@@ -49,11 +50,11 @@ The client ID is the app registration ID that is generated when you [register yo
     from dotenv import load_dotenv
     from kiota_abstractions.api_error import APIError
 
-    from microsoft_agents_m365copilot_beta import AgentsM365CopilotBetaServiceClient
-    from microsoft_agents_m365copilot_beta.generated.copilot.retrieval.retrieval_post_request_body import (
+    from microsoft_agents_m365copilot import AgentsM365CopilotServiceClient
+    from microsoft_agents_m365copilot.generated.copilot.retrieval.retrieval_post_request_body import (
         RetrievalPostRequestBody,
     )
-    from microsoft_agents_m365copilot_beta.generated.models.retrieval_data_source import RetrievalDataSource
+    from microsoft_agents_m365copilot.generated.models.retrieval_data_source import RetrievalDataSource
 
     load_dotenv()
 
@@ -73,12 +74,11 @@ The client ID is the app registration ID that is generated when you [register yo
         prompt_callback=auth_callback
     )
 
-    # Use the Graph API beta endpoint explicitly
+    # The v1.0 endpoint is used by default.
+    # To target the beta endpoint instead, set the base URL explicitly after creating the client:
+    # client.request_adapter.base_url = "https://graph.microsoft.com/beta"
     scopes = ['https://graph.microsoft.com/.default']
-    client = AgentsM365CopilotBetaServiceClient(credentials=credentials, scopes=scopes)
-
-    # Make sure the base URL is set to beta
-    client.request_adapter.base_url = "https://graph.microsoft.com/beta"
+    client = AgentsM365CopilotServiceClient(credentials=credentials, scopes=scopes)
 
     async def retrieve():
         try:
