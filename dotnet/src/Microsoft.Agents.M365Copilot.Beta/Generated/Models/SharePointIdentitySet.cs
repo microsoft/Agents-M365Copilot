@@ -20,7 +20,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public global::Microsoft.Agents.M365Copilot.Beta.Models.Identity Group { get; set; }
 #endif
-        /// <summary>The sharePointGroup property</summary>
+        /// <summary>The SharePoint group associated with this action. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointGroupIdentity? SharePointGroup { get; set; }
