@@ -49,6 +49,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             return mappingValue switch
             {
                 "#microsoft.graph.agent" => new global::Microsoft.Agents.M365Copilot.Beta.Models.Agent(),
+                "#microsoft.graph.agentRegistration" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AgentRegistration(),
                 "#microsoft.graph.aiInteraction" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteraction(),
                 "#microsoft.graph.aiInteractionHistory" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionHistory(),
                 "#microsoft.graph.aiOnlineMeeting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AiOnlineMeeting(),
