@@ -4,6 +4,8 @@
 // @ts-ignore
 import { AdminRequestBuilderNavigationMetadata, AdminRequestBuilderRequestsMetadata, type AdminRequestBuilder } from './admin/index.js';
 // @ts-ignore
+import { AgentRegistrationsRequestBuilderNavigationMetadata, AgentRegistrationsRequestBuilderRequestsMetadata, type AgentRegistrationsRequestBuilder } from './agentRegistrations/index.js';
+// @ts-ignore
 import { AgentsRequestBuilderNavigationMetadata, AgentsRequestBuilderRequestsMetadata, type AgentsRequestBuilder } from './agents/index.js';
 // @ts-ignore
 import { CommunicationsRequestBuilderNavigationMetadata, CommunicationsRequestBuilderRequestsMetadata, type CommunicationsRequestBuilder } from './communications/index.js';
@@ -32,6 +34,10 @@ export interface CopilotRequestBuilder extends BaseRequestBuilder<CopilotRequest
      * Provides operations to manage the admin property of the microsoft.graph.copilotRoot entity.
      */
     get admin(): AdminRequestBuilder;
+    /**
+     * Provides operations to manage the agentRegistrations property of the microsoft.graph.copilotRoot entity.
+     */
+    get agentRegistrations(): AgentRegistrationsRequestBuilder;
     /**
      * Provides operations to manage the agents property of the microsoft.graph.copilotRoot entity.
      */
@@ -80,6 +86,10 @@ export const CopilotRequestBuilderNavigationMetadata: Record<Exclude<keyof Copil
     admin: {
         requestsMetadata: AdminRequestBuilderRequestsMetadata,
         navigationMetadata: AdminRequestBuilderNavigationMetadata,
+    },
+    agentRegistrations: {
+        requestsMetadata: AgentRegistrationsRequestBuilderRequestsMetadata,
+        navigationMetadata: AgentRegistrationsRequestBuilderNavigationMetadata,
     },
     agents: {
         requestsMetadata: AgentsRequestBuilderRequestsMetadata,

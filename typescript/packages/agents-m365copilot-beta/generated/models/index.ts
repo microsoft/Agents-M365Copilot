@@ -52,6 +52,69 @@ export interface AgentCollectionResponse extends BaseCollectionPaginationCountRe
      */
     value?: Agent[] | null;
 }
+/**
+ * Entity that represents an agent registration containing metadata, endpointconfiguration, tools, and publishing information.This entity provides developers and administrators with all details needed tomanage agent instances including their instructions, owners, publishing status,and associated tools.
+ */
+export interface AgentRegistration extends Entity, Parsable {
+    /**
+     * Flexible Json manifest containing agent card information following public manifestspecifications. Can include displayName, description, iconUrl, version, provider,capabilities, skills, security, and other manifest-defined fields.
+     */
+    agentCard?: UntypedNode | null;
+    /**
+     * Agent identity blueprint identifier.
+     */
+    agentIdentityBlueprintId?: string | null;
+    /**
+     * Entra agent identity identifier.
+     */
+    agentIdentityId?: string | null;
+    /**
+     * The unique identifier of the user or app who created the agent registration.
+     */
+    createdBy?: string | null;
+    /**
+     * The agent description providing an overview of its purpose and capabilities.
+     */
+    description?: string | null;
+    /**
+     * Display name for the agent instance.
+     */
+    displayName?: string | null;
+    /**
+     * The unique identifier of the last person to publish the agent.
+     */
+    lastPublishedBy?: string | null;
+    /**
+     * Application identifier managing this agent.
+     */
+    managedByAppId?: string | null;
+    /**
+     * Name of the store/system where the agent originated.
+     */
+    originatingStore?: string | null;
+    /**
+     * List of owner identifiers  for the agent in case of user registering agent. Either owners or managedby is required
+     */
+    ownerIds?: string[] | null;
+    /**
+     * Original agent identifier from source system.
+     */
+    sourceAgentId?: string | null;
+    /**
+     * The date and time when the agent instance was created from source.
+     */
+    sourceCreatedDateTime?: Date | null;
+    /**
+     * The date and time when the agent instance was last modified from source.
+     */
+    sourceLastModifiedDateTime?: Date | null;
+}
+export interface AgentRegistrationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: AgentRegistration[] | null;
+}
 export interface AiInteraction extends Entity, Parsable {
     /**
      * The appClass property
@@ -960,6 +1023,24 @@ export function createAgentFromDiscriminatorValue(parseNode: ParseNode | undefin
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {AgentRegistrationCollectionResponse}
+ */
+// @ts-ignore
+export function createAgentRegistrationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAgentRegistrationCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {AgentRegistration}
+ */
+// @ts-ignore
+export function createAgentRegistrationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAgentRegistration;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AiInteractionAttachment}
  */
 // @ts-ignore
@@ -1661,6 +1742,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
             switch (mappingValue) {
                 case "#microsoft.graph.agent":
                     return deserializeIntoAgent;
+                case "#microsoft.graph.agentRegistration":
+                    return deserializeIntoAgentRegistration;
                 case "#microsoft.graph.aiInteraction":
                     return deserializeIntoAiInteraction;
                 case "#microsoft.graph.aiInteractionHistory":
@@ -2366,6 +2449,42 @@ export function deserializeIntoAgentCollectionResponse(agentCollectionResponse: 
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(agentCollectionResponse),
         "value": n => { agentCollectionResponse.value = n.getCollectionOfObjectValues<Agent>(createAgentFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param AgentRegistration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoAgentRegistration(agentRegistration: Partial<AgentRegistration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(agentRegistration),
+        "agentCard": n => { agentRegistration.agentCard = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
+        "agentIdentityBlueprintId": n => { agentRegistration.agentIdentityBlueprintId = n.getStringValue(); },
+        "agentIdentityId": n => { agentRegistration.agentIdentityId = n.getStringValue(); },
+        "createdBy": n => { agentRegistration.createdBy = n.getStringValue(); },
+        "description": n => { agentRegistration.description = n.getStringValue(); },
+        "displayName": n => { agentRegistration.displayName = n.getStringValue(); },
+        "lastPublishedBy": n => { agentRegistration.lastPublishedBy = n.getStringValue(); },
+        "managedByAppId": n => { agentRegistration.managedByAppId = n.getStringValue(); },
+        "originatingStore": n => { agentRegistration.originatingStore = n.getStringValue(); },
+        "ownerIds": n => { agentRegistration.ownerIds = n.getCollectionOfPrimitiveValues<string>(); },
+        "sourceAgentId": n => { agentRegistration.sourceAgentId = n.getStringValue(); },
+        "sourceCreatedDateTime": n => { agentRegistration.sourceCreatedDateTime = n.getDateValue(); },
+        "sourceLastModifiedDateTime": n => { agentRegistration.sourceLastModifiedDateTime = n.getDateValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param AgentRegistrationCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoAgentRegistrationCollectionResponse(agentRegistrationCollectionResponse: Partial<AgentRegistrationCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(agentRegistrationCollectionResponse),
+        "value": n => { agentRegistrationCollectionResponse.value = n.getCollectionOfObjectValues<AgentRegistration>(createAgentRegistrationFromDiscriminatorValue); },
     }
 }
 /**
@@ -4535,6 +4654,42 @@ export function serializeAgentCollectionResponse(writer: SerializationWriter, ag
 }
 /**
  * Serializes information the current object
+ * @param AgentRegistration The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeAgentRegistration(writer: SerializationWriter, agentRegistration: Partial<AgentRegistration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!agentRegistration || isSerializingDerivedType) { return; }
+    serializeEntity(writer, agentRegistration, isSerializingDerivedType)
+    writer.writeObjectValue("agentCard", agentRegistration.agentCard);
+    writer.writeStringValue("agentIdentityBlueprintId", agentRegistration.agentIdentityBlueprintId);
+    writer.writeStringValue("agentIdentityId", agentRegistration.agentIdentityId);
+    writer.writeStringValue("createdBy", agentRegistration.createdBy);
+    writer.writeStringValue("description", agentRegistration.description);
+    writer.writeStringValue("displayName", agentRegistration.displayName);
+    writer.writeStringValue("lastPublishedBy", agentRegistration.lastPublishedBy);
+    writer.writeStringValue("managedByAppId", agentRegistration.managedByAppId);
+    writer.writeStringValue("originatingStore", agentRegistration.originatingStore);
+    writer.writeCollectionOfPrimitiveValues<string>("ownerIds", agentRegistration.ownerIds);
+    writer.writeStringValue("sourceAgentId", agentRegistration.sourceAgentId);
+    writer.writeDateValue("sourceCreatedDateTime", agentRegistration.sourceCreatedDateTime);
+    writer.writeDateValue("sourceLastModifiedDateTime", agentRegistration.sourceLastModifiedDateTime);
+}
+/**
+ * Serializes information the current object
+ * @param AgentRegistrationCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeAgentRegistrationCollectionResponse(writer: SerializationWriter, agentRegistrationCollectionResponse: Partial<AgentRegistrationCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!agentRegistrationCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, agentRegistrationCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<AgentRegistration>("value", agentRegistrationCollectionResponse.value, serializeAgentRegistration);
+}
+/**
+ * Serializes information the current object
  * @param AiInteraction The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -5520,6 +5675,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
     switch (entity.odataType) {
         case "#microsoft.graph.agent":
             serializeAgent(writer, entity, true);
+        break;
+        case "#microsoft.graph.agentRegistration":
+            serializeAgentRegistration(writer, entity, true);
         break;
         case "#microsoft.graph.aiInteraction":
             serializeAiInteraction(writer, entity, true);
