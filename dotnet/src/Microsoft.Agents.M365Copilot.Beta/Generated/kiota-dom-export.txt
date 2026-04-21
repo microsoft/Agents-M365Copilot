@@ -13,6 +13,7 @@ Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.adminRequestBuilder::|public|con
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.adminRequestBuilder::|public|DeleteAsync(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):void
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.adminRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.AdminRequestBuilder.AdminRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdmin
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.adminRequestBuilder::|public|PatchAsync(body:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdmin; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdmin
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.adminRequestBuilder::|public|policySettings:global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.PolicySettingsRequestBuilder
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.adminRequestBuilder::|public|settings:global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Settings.SettingsRequestBuilder
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.adminRequestBuilder::|public|ToDeleteRequestInformation(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.adminRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.AdminRequestBuilder.AdminRequestBuilderGetQueryParameters>>):RequestInformation
@@ -92,6 +93,50 @@ Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.packagesRequest
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.packagesRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.PackagesRequestBuilder.PackagesRequestBuilderGetQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.packagesRequestBuilder::|public|ToPostRequestInformation(body:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageDetail; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.packagesRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Catalog.Packages.PackagesRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Count.CountRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters::|public|Filter:string
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters::|public|Search:string
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Count.CountRequestBuilder.CountRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Count.CountRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Count.CountRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Count.CountRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):int?
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Count.CountRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Count.CountRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Count.CountRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder.CopilotPolicySettingItemRequestBuilderDeleteRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder.CopilotPolicySettingItemRequestBuilderGetQueryParameters::|public|Expand:string[]
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder.CopilotPolicySettingItemRequestBuilderGetQueryParameters::|public|Select:string[]
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder.CopilotPolicySettingItemRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder.CopilotPolicySettingItemRequestBuilderGetQueryParameters>
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder.CopilotPolicySettingItemRequestBuilderPatchRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder::|public|DeleteAsync(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder.CopilotPolicySettingItemRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder::|public|PatchAsync(body:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder::|public|ToDeleteRequestInformation(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder.CopilotPolicySettingItemRequestBuilderGetQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder::|public|ToPatchRequestInformation(body:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder.policySettingsRequestBuilderGetQueryParameters::|public|Count:bool?
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder.policySettingsRequestBuilderGetQueryParameters::|public|Expand:string[]
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder.policySettingsRequestBuilderGetQueryParameters::|public|Filter:string
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder.policySettingsRequestBuilderGetQueryParameters::|public|Orderby:string[]
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder.policySettingsRequestBuilderGetQueryParameters::|public|Search:string
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder.policySettingsRequestBuilderGetQueryParameters::|public|Select:string[]
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder.policySettingsRequestBuilderGetQueryParameters::|public|Skip:int?
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder.policySettingsRequestBuilderGetQueryParameters::|public|Top:int?
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder.policySettingsRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.PolicySettingsRequestBuilder.PolicySettingsRequestBuilderGetQueryParameters>
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder.policySettingsRequestBuilderPostRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder::[CopilotPolicySettingId:string]:global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Item.CopilotPolicySettingItemRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder::|public|Count:global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.Count.CountRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.PolicySettingsRequestBuilder.PolicySettingsRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingCollectionResponse
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder::|public|PostAsync(body:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.PolicySettingsRequestBuilder.PolicySettingsRequestBuilderGetQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder::|public|ToPostRequestInformation(body:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.policySettingsRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.PolicySettings.PolicySettingsRequestBuilder
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Settings.LimitedMode.limitedModeRequestBuilder-->BaseRequestBuilder
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Settings.LimitedMode.limitedModeRequestBuilder.limitedModeRequestBuilderDeleteRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
 Microsoft.Agents.M365Copilot.Beta.Copilot.Admin.Settings.LimitedMode.limitedModeRequestBuilder.limitedModeRequestBuilderGetQueryParameters::|public|Expand:string[]
@@ -1145,6 +1190,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.copilotAdmin-->global.Microsoft.Agents.
 Microsoft.Agents.M365Copilot.Beta.Models.copilotAdmin::|public|Catalog:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminCatalog
 Microsoft.Agents.M365Copilot.Beta.Models.copilotAdmin::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotAdmin::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotAdmin::|public|PolicySettings:List<global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotAdmin::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.copilotAdmin::|public|Settings:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting
 Microsoft.Agents.M365Copilot.Beta.Models.copilotAdmin::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdmin
@@ -1345,6 +1391,18 @@ Microsoft.Agents.M365Copilot.Beta.Models.copilotPeopleAdminSetting::|public|GetF
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPeopleAdminSetting::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPeopleAdminSetting::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPeopleAdminSetting::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPeopleAdminSetting
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySetting-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySetting::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySetting::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySetting::|public|PolicyId:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySetting::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySetting::|public|Value:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySetting::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingCollectionResponse-->global.Microsoft.Agents.M365Copilot.Beta.Models.BaseCollectionPaginationCountResponse
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingCollectionResponse::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingCollectionResponse::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingCollectionResponse::|public|Value:List<global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingCollectionResponse::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingCollectionResponse
 Microsoft.Agents.M365Copilot.Beta.Models.copilotReportRoot-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.copilotReportRoot::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotReportRoot::|public|OdataType:string
