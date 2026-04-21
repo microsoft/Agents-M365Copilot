@@ -8,6 +8,7 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 if TYPE_CHECKING:
     from .admin.admin_request_builder import AdminRequestBuilder
     from .agents.agents_request_builder import AgentsRequestBuilder
+    from .agent_registrations.agent_registrations_request_builder import AgentRegistrationsRequestBuilder
     from .communications.communications_request_builder import CommunicationsRequestBuilder
     from .conversations.conversations_request_builder import ConversationsRequestBuilder
     from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
@@ -38,6 +39,15 @@ class CopilotRequestBuilder(BaseRequestBuilder):
         from .admin.admin_request_builder import AdminRequestBuilder
 
         return AdminRequestBuilder(self.request_adapter, self.path_parameters)
+    
+    @property
+    def agent_registrations(self) -> AgentRegistrationsRequestBuilder:
+        """
+        Provides operations to manage the agentRegistrations property of the microsoft.graph.copilotRoot entity.
+        """
+        from .agent_registrations.agent_registrations_request_builder import AgentRegistrationsRequestBuilder
+
+        return AgentRegistrationsRequestBuilder(self.request_adapter, self.path_parameters)
     
     @property
     def agents(self) -> AgentsRequestBuilder:
