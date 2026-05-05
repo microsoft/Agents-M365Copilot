@@ -7,6 +7,7 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 if TYPE_CHECKING:
     from .retrieval_entity_type import RetrievalEntityType
     from .retrieval_extract import RetrievalExtract
+    from .retrieval_thumbnail import RetrievalThumbnail
     from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
     from .sensitivity_label_info import SensitivityLabelInfo
 
@@ -25,6 +26,8 @@ class RetrievalHit(AdditionalDataHolder, Parsable):
     resource_type: Optional[RetrievalEntityType] = None
     # The sensitivityLabel property
     sensitivity_label: Optional[SensitivityLabelInfo] = None
+    # The thumbnails property
+    thumbnails: Optional[list[RetrievalThumbnail]] = None
     # The webUrl property
     web_url: Optional[str] = None
     
@@ -46,11 +49,13 @@ class RetrievalHit(AdditionalDataHolder, Parsable):
         """
         from .retrieval_entity_type import RetrievalEntityType
         from .retrieval_extract import RetrievalExtract
+        from .retrieval_thumbnail import RetrievalThumbnail
         from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
         from .sensitivity_label_info import SensitivityLabelInfo
 
         from .retrieval_entity_type import RetrievalEntityType
         from .retrieval_extract import RetrievalExtract
+        from .retrieval_thumbnail import RetrievalThumbnail
         from .search_resource_metadata_dictionary import SearchResourceMetadataDictionary
         from .sensitivity_label_info import SensitivityLabelInfo
 
@@ -60,6 +65,7 @@ class RetrievalHit(AdditionalDataHolder, Parsable):
             "resourceMetadata": lambda n : setattr(self, 'resource_metadata', n.get_object_value(SearchResourceMetadataDictionary)),
             "resourceType": lambda n : setattr(self, 'resource_type', n.get_enum_value(RetrievalEntityType)),
             "sensitivityLabel": lambda n : setattr(self, 'sensitivity_label', n.get_object_value(SensitivityLabelInfo)),
+            "thumbnails": lambda n : setattr(self, 'thumbnails', n.get_collection_of_object_values(RetrievalThumbnail)),
             "webUrl": lambda n : setattr(self, 'web_url', n.get_str_value()),
         }
         return fields
@@ -77,6 +83,7 @@ class RetrievalHit(AdditionalDataHolder, Parsable):
         writer.write_object_value("resourceMetadata", self.resource_metadata)
         writer.write_enum_value("resourceType", self.resource_type)
         writer.write_object_value("sensitivityLabel", self.sensitivity_label)
+        writer.write_collection_of_object_values("thumbnails", self.thumbnails)
         writer.write_str_value("webUrl", self.web_url)
         writer.write_additional_data_value(self.additional_data)
     

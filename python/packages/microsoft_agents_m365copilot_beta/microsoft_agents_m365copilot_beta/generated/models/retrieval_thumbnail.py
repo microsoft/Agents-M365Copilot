@@ -5,29 +5,29 @@ from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, Par
 from typing import Any, Optional, TYPE_CHECKING, Union
 
 @dataclass
-class RetrievalExtract(AdditionalDataHolder, Parsable):
+class RetrievalThumbnail(AdditionalDataHolder, Parsable):
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additional_data: dict[str, Any] = field(default_factory=dict)
 
+    # The content property
+    content: Optional[str] = None
+    # The mediaType property
+    media_type: Optional[str] = None
     # The OdataType property
     odata_type: Optional[str] = None
-    # The pageNumbers property
-    page_numbers: Optional[list[int]] = None
-    # The relevanceScore property
-    relevance_score: Optional[float] = None
-    # The text property
-    text: Optional[str] = None
+    # The pageNumber property
+    page_number: Optional[int] = None
     
     @staticmethod
-    def create_from_discriminator_value(parse_node: ParseNode) -> RetrievalExtract:
+    def create_from_discriminator_value(parse_node: ParseNode) -> RetrievalThumbnail:
         """
         Creates a new instance of the appropriate class based on discriminator value
         param parse_node: The parse node to use to read the discriminator value and create the object
-        Returns: RetrievalExtract
+        Returns: RetrievalThumbnail
         """
         if parse_node is None:
             raise TypeError("parse_node cannot be null.")
-        return RetrievalExtract()
+        return RetrievalThumbnail()
     
     def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
         """
@@ -35,10 +35,10 @@ class RetrievalExtract(AdditionalDataHolder, Parsable):
         Returns: dict[str, Callable[[ParseNode], None]]
         """
         fields: dict[str, Callable[[Any], None]] = {
+            "content": lambda n : setattr(self, 'content', n.get_str_value()),
+            "mediaType": lambda n : setattr(self, 'media_type', n.get_str_value()),
             "@odata.type": lambda n : setattr(self, 'odata_type', n.get_str_value()),
-            "pageNumbers": lambda n : setattr(self, 'page_numbers', n.get_collection_of_primitive_values(int)),
-            "relevanceScore": lambda n : setattr(self, 'relevance_score', n.get_float_value()),
-            "text": lambda n : setattr(self, 'text', n.get_str_value()),
+            "pageNumber": lambda n : setattr(self, 'page_number', n.get_int_value()),
         }
         return fields
     
@@ -50,10 +50,10 @@ class RetrievalExtract(AdditionalDataHolder, Parsable):
         """
         if writer is None:
             raise TypeError("writer cannot be null.")
+        writer.write_str_value("content", self.content)
+        writer.write_str_value("mediaType", self.media_type)
         writer.write_str_value("@odata.type", self.odata_type)
-        writer.write_collection_of_primitive_values("pageNumbers", self.page_numbers)
-        writer.write_float_value("relevanceScore", self.relevance_score)
-        writer.write_str_value("text", self.text)
+        writer.write_int_value("pageNumber", self.page_number)
         writer.write_additional_data_value(self.additional_data)
     
 

@@ -19,6 +19,8 @@ class RetrievalPostRequestBody(AdditionalDataHolder, Parsable):
     data_source_configuration: Optional[DataSourceConfiguration] = None
     # The filterExpression property
     filter_expression: Optional[str] = None
+    # The includeThumbnails property
+    include_thumbnails: Optional[bool] = None
     # The maximumNumberOfResults property
     maximum_number_of_results: Optional[int] = None
     # The queryString property
@@ -52,6 +54,7 @@ class RetrievalPostRequestBody(AdditionalDataHolder, Parsable):
             "dataSource": lambda n : setattr(self, 'data_source', n.get_enum_value(RetrievalDataSource)),
             "dataSourceConfiguration": lambda n : setattr(self, 'data_source_configuration', n.get_object_value(DataSourceConfiguration)),
             "filterExpression": lambda n : setattr(self, 'filter_expression', n.get_str_value()),
+            "includeThumbnails": lambda n : setattr(self, 'include_thumbnails', n.get_bool_value()),
             "maximumNumberOfResults": lambda n : setattr(self, 'maximum_number_of_results', n.get_int_value()),
             "queryString": lambda n : setattr(self, 'query_string', n.get_str_value()),
             "resourceMetadata": lambda n : setattr(self, 'resource_metadata', n.get_collection_of_primitive_values(str)),
@@ -69,6 +72,7 @@ class RetrievalPostRequestBody(AdditionalDataHolder, Parsable):
         writer.write_enum_value("dataSource", self.data_source)
         writer.write_object_value("dataSourceConfiguration", self.data_source_configuration)
         writer.write_str_value("filterExpression", self.filter_expression)
+        writer.write_bool_value("includeThumbnails", self.include_thumbnails)
         writer.write_int_value("maximumNumberOfResults", self.maximum_number_of_results)
         writer.write_str_value("queryString", self.query_string)
         writer.write_collection_of_primitive_values("resourceMetadata", self.resource_metadata)
