@@ -590,6 +590,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.RetrievalP
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.RetrievalPostRequestBody::|public|dataSource:RetrievalDataSource
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.RetrievalPostRequestBody::|public|dataSourceConfiguration:DataSourceConfiguration
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.RetrievalPostRequestBody::|public|filterExpression:string
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.RetrievalPostRequestBody::|public|includeThumbnails:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.RetrievalPostRequestBody::|public|maximumNumberOfResults:number
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.RetrievalPostRequestBody::|public|queryString:string
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.retrieval.RetrievalPostRequestBody::|public|resourceMetadata:string[]
@@ -1119,6 +1120,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|publ
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|manifestId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|manifestVersion:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|OdataType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|ownerId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|platform:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|publisher:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|shortDescription:string
@@ -1405,6 +1407,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.retrievalEntityType::
 github.com/microsoft/Agents-M365Copilot/typescript/.models.retrievalEntityTypeObject
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalExtract::|public|AdditionalData:Record<string, unknown>
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalExtract::|public|odataType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalExtract::|public|pageNumbers:number[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalExtract::|public|relevanceScore:number
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalExtract::|public|text:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalExtract~~>AdditionalDataHolder; Parsable
@@ -1414,12 +1417,19 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalHit::|public
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalHit::|public|resourceMetadata:SearchResourceMetadataDictionary
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalHit::|public|resourceType:RetrievalEntityType
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalHit::|public|sensitivityLabel:SensitivityLabelInfo
+github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalHit::|public|thumbnails:RetrievalThumbnail[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalHit::|public|webUrl:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalHit~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalResponse::|public|AdditionalData:Record<string, unknown>
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalResponse::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalResponse::|public|retrievalHits:RetrievalHit[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalResponse~~>AdditionalDataHolder; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalThumbnail::|public|AdditionalData:Record<string, unknown>
+github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalThumbnail::|public|content:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalThumbnail::|public|mediaType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalThumbnail::|public|odataType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalThumbnail::|public|pageNumber:number
+github.com/microsoft/Agents-M365Copilot/typescript/.models.RetrievalThumbnail~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SearchResourceMetadataDictionary::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SearchResourceMetadataDictionary~~>Dictionaries; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SearchSensitivityLabelInfo::|public|AdditionalData:Record<string, unknown>
@@ -1639,6 +1649,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::createResultInfoFrom
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createRetrievalExtractFromDiscriminatorValue(parseNode:ParseNode):RetrievalExtract
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createRetrievalHitFromDiscriminatorValue(parseNode:ParseNode):RetrievalHit
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createRetrievalResponseFromDiscriminatorValue(parseNode:ParseNode):RetrievalResponse
+github.com/microsoft/Agents-M365Copilot/typescript/.models::createRetrievalThumbnailFromDiscriminatorValue(parseNode:ParseNode):RetrievalThumbnail
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createSearchResourceMetadataDictionaryFromDiscriminatorValue(parseNode:ParseNode):SearchResourceMetadataDictionary
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createSearchSensitivityLabelInfoFromDiscriminatorValue(parseNode:ParseNode):SearchSensitivityLabelInfo
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createSensitivityLabelInfoFromDiscriminatorValue(parseNode:ParseNode):SensitivityLabelInfo
@@ -1769,6 +1780,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoResul
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoRetrievalExtract(RetrievalExtract:RetrievalExtract={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoRetrievalHit(RetrievalHit:RetrievalHit={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoRetrievalResponse(RetrievalResponse:RetrievalResponse={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoRetrievalThumbnail(RetrievalThumbnail:RetrievalThumbnail={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoSearchResourceMetadataDictionary(SearchResourceMetadataDictionary:SearchResourceMetadataDictionary={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoSearchSensitivityLabelInfo(SearchSensitivityLabelInfo:SearchSensitivityLabelInfo={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoSensitivityLabelInfo(SensitivityLabelInfo:SensitivityLabelInfo={}):Record<string, (node: ParseNode) => void>
@@ -1899,6 +1911,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeResultInfo(
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeRetrievalExtract(writer:SerializationWriter; RetrievalExtract:RetrievalExtract={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeRetrievalHit(writer:SerializationWriter; RetrievalHit:RetrievalHit={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeRetrievalResponse(writer:SerializationWriter; RetrievalResponse:RetrievalResponse={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeRetrievalThumbnail(writer:SerializationWriter; RetrievalThumbnail:RetrievalThumbnail={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSearchResourceMetadataDictionary(writer:SerializationWriter; SearchResourceMetadataDictionary:SearchResourceMetadataDictionary={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSearchSensitivityLabelInfo(writer:SerializationWriter; SearchSensitivityLabelInfo:SearchSensitivityLabelInfo={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSensitivityLabelInfo(writer:SerializationWriter; SensitivityLabelInfo:SensitivityLabelInfo={}; isSerializingDerivedType?:boolean=false):void
