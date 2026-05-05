@@ -33,6 +33,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval
 #else
         public string FilterExpression { get; set; }
 #endif
+        /// <summary>The includeThumbnails property</summary>
+        public bool? IncludeThumbnails { get; set; }
         /// <summary>The maximumNumberOfResults property</summary>
         public int? MaximumNumberOfResults { get; set; }
         /// <summary>The queryString property</summary>
@@ -79,6 +81,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval
                 { "dataSource", n => { DataSource = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalDataSource>(); } },
                 { "dataSourceConfiguration", n => { DataSourceConfiguration = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.DataSourceConfiguration>(global::Microsoft.Agents.M365Copilot.Beta.Models.DataSourceConfiguration.CreateFromDiscriminatorValue); } },
                 { "filterExpression", n => { FilterExpression = n.GetStringValue(); } },
+                { "includeThumbnails", n => { IncludeThumbnails = n.GetBoolValue(); } },
                 { "maximumNumberOfResults", n => { MaximumNumberOfResults = n.GetIntValue(); } },
                 { "queryString", n => { QueryString = n.GetStringValue(); } },
                 { "resourceMetadata", n => { ResourceMetadata = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -94,6 +97,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalDataSource>("dataSource", DataSource);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.DataSourceConfiguration>("dataSourceConfiguration", DataSourceConfiguration);
             writer.WriteStringValue("filterExpression", FilterExpression);
+            writer.WriteBoolValue("includeThumbnails", IncludeThumbnails);
             writer.WriteIntValue("maximumNumberOfResults", MaximumNumberOfResults);
             writer.WriteStringValue("queryString", QueryString);
             writer.WriteCollectionOfPrimitiveValues<string>("resourceMetadata", ResourceMetadata);

@@ -68,6 +68,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string ManifestVersion { get; set; }
 #endif
+        /// <summary>The ownerId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OwnerId { get; set; }
+#nullable restore
+#else
+        public string OwnerId { get; set; }
+#endif
         /// <summary>The platform property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -151,6 +159,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "manifestId", n => { ManifestId = n.GetStringValue(); } },
                 { "manifestVersion", n => { ManifestVersion = n.GetStringValue(); } },
+                { "ownerId", n => { OwnerId = n.GetStringValue(); } },
                 { "platform", n => { Platform = n.GetStringValue(); } },
                 { "publisher", n => { Publisher = n.GetStringValue(); } },
                 { "shortDescription", n => { ShortDescription = n.GetStringValue(); } },
@@ -178,6 +187,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteStringValue("manifestId", ManifestId);
             writer.WriteStringValue("manifestVersion", ManifestVersion);
+            writer.WriteStringValue("ownerId", OwnerId);
             writer.WriteStringValue("platform", Platform);
             writer.WriteStringValue("publisher", Publisher);
             writer.WriteStringValue("shortDescription", ShortDescription);

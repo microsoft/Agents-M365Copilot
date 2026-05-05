@@ -48,6 +48,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public global::Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo SensitivityLabel { get; set; }
 #endif
+        /// <summary>The thumbnails property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalThumbnail>? Thumbnails { get; set; }
+#nullable restore
+#else
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalThumbnail> Thumbnails { get; set; }
+#endif
         /// <summary>The webUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,6 +94,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "resourceMetadata", n => { ResourceMetadata = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary>(global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary.CreateFromDiscriminatorValue); } },
                 { "resourceType", n => { ResourceType = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalEntityType>(); } },
                 { "sensitivityLabel", n => { SensitivityLabel = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo>(global::Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo.CreateFromDiscriminatorValue); } },
+                { "thumbnails", n => { Thumbnails = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalThumbnail>(global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalThumbnail.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
         }
@@ -101,6 +110,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SearchResourceMetadataDictionary>("resourceMetadata", ResourceMetadata);
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalEntityType>("resourceType", ResourceType);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SensitivityLabelInfo>("sensitivityLabel", SensitivityLabel);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.RetrievalThumbnail>("thumbnails", Thumbnails);
             writer.WriteStringValue("webUrl", WebUrl);
             writer.WriteAdditionalData(AdditionalData);
         }
