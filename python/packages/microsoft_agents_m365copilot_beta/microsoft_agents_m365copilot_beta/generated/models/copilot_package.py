@@ -37,6 +37,8 @@ class CopilotPackage(Entity, Parsable):
     manifest_version: Optional[str] = None
     # The OdataType property
     odata_type: Optional[str] = None
+    # The ownerId property
+    owner_id: Optional[str] = None
     # The platform property
     platform: Optional[str] = None
     # The publisher property
@@ -98,6 +100,7 @@ class CopilotPackage(Entity, Parsable):
             "lastModifiedDateTime": lambda n : setattr(self, 'last_modified_date_time', n.get_datetime_value()),
             "manifestId": lambda n : setattr(self, 'manifest_id', n.get_str_value()),
             "manifestVersion": lambda n : setattr(self, 'manifest_version', n.get_str_value()),
+            "ownerId": lambda n : setattr(self, 'owner_id', n.get_str_value()),
             "platform": lambda n : setattr(self, 'platform', n.get_str_value()),
             "publisher": lambda n : setattr(self, 'publisher', n.get_str_value()),
             "shortDescription": lambda n : setattr(self, 'short_description', n.get_str_value()),
@@ -129,6 +132,7 @@ class CopilotPackage(Entity, Parsable):
         writer.write_datetime_value("lastModifiedDateTime", self.last_modified_date_time)
         writer.write_str_value("manifestId", self.manifest_id)
         writer.write_str_value("manifestVersion", self.manifest_version)
+        writer.write_str_value("ownerId", self.owner_id)
         writer.write_str_value("platform", self.platform)
         writer.write_str_value("publisher", self.publisher)
         writer.write_str_value("shortDescription", self.short_description)
