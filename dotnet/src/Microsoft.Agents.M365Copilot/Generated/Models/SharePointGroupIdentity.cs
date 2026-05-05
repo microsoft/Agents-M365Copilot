@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Models
     public partial class SharePointGroupIdentity : global::Microsoft.Agents.M365Copilot.Models.Identity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The principalId property</summary>
+        /// <summary>The principal ID of the SharePoint group in the tenant. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PrincipalId { get; set; }
@@ -20,7 +20,7 @@ namespace Microsoft.Agents.M365Copilot.Models
 #else
         public string PrincipalId { get; set; }
 #endif
-        /// <summary>The title property</summary>
+        /// <summary>The title of the SharePoint group. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Title { get; set; }
