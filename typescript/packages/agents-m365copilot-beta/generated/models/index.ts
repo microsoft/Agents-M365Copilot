@@ -811,6 +811,10 @@ export interface CopilotPackage extends Entity, Parsable {
      */
     manifestVersion?: string | null;
     /**
+     * The ownerId property
+     */
+    ownerId?: string | null;
+    /**
      * The platform property
      */
     platform?: string | null;
@@ -2202,6 +2206,15 @@ export function createRetrievalResponseFromDiscriminatorValue(parseNode: ParseNo
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {RetrievalThumbnail}
+ */
+// @ts-ignore
+export function createRetrievalThumbnailFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRetrievalThumbnail;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SearchResourceMetadataDictionary}
  */
 // @ts-ignore
@@ -3170,6 +3183,7 @@ export function deserializeIntoCopilotPackage(copilotPackage: Partial<CopilotPac
         "lastModifiedDateTime": n => { copilotPackage.lastModifiedDateTime = n.getDateValue(); },
         "manifestId": n => { copilotPackage.manifestId = n.getStringValue(); },
         "manifestVersion": n => { copilotPackage.manifestVersion = n.getStringValue(); },
+        "ownerId": n => { copilotPackage.ownerId = n.getStringValue(); },
         "platform": n => { copilotPackage.platform = n.getStringValue(); },
         "publisher": n => { copilotPackage.publisher = n.getStringValue(); },
         "shortDescription": n => { copilotPackage.shortDescription = n.getStringValue(); },
@@ -3819,6 +3833,7 @@ export function deserializeIntoResultInfo(resultInfo: Partial<ResultInfo> | unde
 export function deserializeIntoRetrievalExtract(retrievalExtract: Partial<RetrievalExtract> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "@odata.type": n => { retrievalExtract.odataType = n.getStringValue(); },
+        "pageNumbers": n => { retrievalExtract.pageNumbers = n.getCollectionOfPrimitiveValues<number>(); },
         "relevanceScore": n => { retrievalExtract.relevanceScore = n.getNumberValue(); },
         "text": n => { retrievalExtract.text = n.getStringValue(); },
     }
@@ -3836,6 +3851,7 @@ export function deserializeIntoRetrievalHit(retrievalHit: Partial<RetrievalHit> 
         "resourceMetadata": n => { retrievalHit.resourceMetadata = n.getObjectValue<SearchResourceMetadataDictionary>(createSearchResourceMetadataDictionaryFromDiscriminatorValue); },
         "resourceType": n => { retrievalHit.resourceType = n.getEnumValue<RetrievalEntityType>(RetrievalEntityTypeObject); },
         "sensitivityLabel": n => { retrievalHit.sensitivityLabel = n.getObjectValue<SensitivityLabelInfo>(createSensitivityLabelInfoFromDiscriminatorValue); },
+        "thumbnails": n => { retrievalHit.thumbnails = n.getCollectionOfObjectValues<RetrievalThumbnail>(createRetrievalThumbnailFromDiscriminatorValue); },
         "webUrl": n => { retrievalHit.webUrl = n.getStringValue(); },
     }
 }
@@ -3849,6 +3865,20 @@ export function deserializeIntoRetrievalResponse(retrievalResponse: Partial<Retr
     return {
         "@odata.type": n => { retrievalResponse.odataType = n.getStringValue(); },
         "retrievalHits": n => { retrievalResponse.retrievalHits = n.getCollectionOfObjectValues<RetrievalHit>(createRetrievalHitFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param RetrievalThumbnail The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoRetrievalThumbnail(retrievalThumbnail: Partial<RetrievalThumbnail> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "content": n => { retrievalThumbnail.content = n.getStringValue(); },
+        "mediaType": n => { retrievalThumbnail.mediaType = n.getStringValue(); },
+        "@odata.type": n => { retrievalThumbnail.odataType = n.getStringValue(); },
+        "pageNumber": n => { retrievalThumbnail.pageNumber = n.getNumberValue(); },
     }
 }
 /**
@@ -4498,6 +4528,10 @@ export interface RetrievalExtract extends AdditionalDataHolder, Parsable {
      */
     odataType?: string | null;
     /**
+     * The pageNumbers property
+     */
+    pageNumbers?: number[] | null;
+    /**
      * The relevanceScore property
      */
     relevanceScore?: number | null;
@@ -4528,6 +4562,10 @@ export interface RetrievalHit extends AdditionalDataHolder, Parsable {
      */
     sensitivityLabel?: SensitivityLabelInfo | null;
     /**
+     * The thumbnails property
+     */
+    thumbnails?: RetrievalThumbnail[] | null;
+    /**
      * The webUrl property
      */
     webUrl?: string | null;
@@ -4541,6 +4579,24 @@ export interface RetrievalResponse extends AdditionalDataHolder, Parsable {
      * The retrievalHits property
      */
     retrievalHits?: RetrievalHit[] | null;
+}
+export interface RetrievalThumbnail extends AdditionalDataHolder, Parsable {
+    /**
+     * The content property
+     */
+    content?: string | null;
+    /**
+     * The mediaType property
+     */
+    mediaType?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The pageNumber property
+     */
+    pageNumber?: number | null;
 }
 export interface SearchResourceMetadataDictionary extends Dictionaries, Parsable {
 }
@@ -5393,6 +5449,7 @@ export function serializeCopilotPackage(writer: SerializationWriter, copilotPack
     writer.writeDateValue("lastModifiedDateTime", copilotPackage.lastModifiedDateTime);
     writer.writeStringValue("manifestId", copilotPackage.manifestId);
     writer.writeStringValue("manifestVersion", copilotPackage.manifestVersion);
+    writer.writeStringValue("ownerId", copilotPackage.ownerId);
     writer.writeStringValue("platform", copilotPackage.platform);
     writer.writeStringValue("publisher", copilotPackage.publisher);
     writer.writeStringValue("shortDescription", copilotPackage.shortDescription);
@@ -6282,6 +6339,7 @@ export function serializeResultInfo(writer: SerializationWriter, resultInfo: Par
 export function serializeRetrievalExtract(writer: SerializationWriter, retrievalExtract: Partial<RetrievalExtract> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!retrievalExtract || isSerializingDerivedType) { return; }
     writer.writeStringValue("@odata.type", retrievalExtract.odataType);
+    writer.writeCollectionOfPrimitiveValues<number>("pageNumbers", retrievalExtract.pageNumbers);
     writer.writeNumberValue("relevanceScore", retrievalExtract.relevanceScore);
     writer.writeStringValue("text", retrievalExtract.text);
     writer.writeAdditionalData(retrievalExtract.additionalData);
@@ -6300,6 +6358,7 @@ export function serializeRetrievalHit(writer: SerializationWriter, retrievalHit:
     writer.writeObjectValue<SearchResourceMetadataDictionary>("resourceMetadata", retrievalHit.resourceMetadata, serializeSearchResourceMetadataDictionary);
     writer.writeEnumValue<RetrievalEntityType>("resourceType", retrievalHit.resourceType);
     writer.writeObjectValue<SensitivityLabelInfo>("sensitivityLabel", retrievalHit.sensitivityLabel, serializeSensitivityLabelInfo);
+    writer.writeCollectionOfObjectValues<RetrievalThumbnail>("thumbnails", retrievalHit.thumbnails, serializeRetrievalThumbnail);
     writer.writeStringValue("webUrl", retrievalHit.webUrl);
     writer.writeAdditionalData(retrievalHit.additionalData);
 }
@@ -6315,6 +6374,21 @@ export function serializeRetrievalResponse(writer: SerializationWriter, retrieva
     writer.writeStringValue("@odata.type", retrievalResponse.odataType);
     writer.writeCollectionOfObjectValues<RetrievalHit>("retrievalHits", retrievalResponse.retrievalHits, serializeRetrievalHit);
     writer.writeAdditionalData(retrievalResponse.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RetrievalThumbnail The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRetrievalThumbnail(writer: SerializationWriter, retrievalThumbnail: Partial<RetrievalThumbnail> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!retrievalThumbnail || isSerializingDerivedType) { return; }
+    writer.writeStringValue("content", retrievalThumbnail.content);
+    writer.writeStringValue("mediaType", retrievalThumbnail.mediaType);
+    writer.writeStringValue("@odata.type", retrievalThumbnail.odataType);
+    writer.writeNumberValue("pageNumber", retrievalThumbnail.pageNumber);
+    writer.writeAdditionalData(retrievalThumbnail.additionalData);
 }
 /**
  * Serializes information the current object
@@ -6604,11 +6678,11 @@ export interface SharePointIdentitySet extends IdentitySet, Parsable {
      */
     group?: Identity | null;
     /**
-     * The SharePoint group associated with this action. Optional.
+     * The SharePoint group associated with this action, identified by a globally unique ID. Use this property instead of siteGroup when available. Optional.
      */
     sharePointGroup?: SharePointGroupIdentity | null;
     /**
-     * The SharePoint group associated with this action. Optional.
+     * The SharePoint group associated with this action, identified by a principal ID that is unique only within the site. Optional.
      */
     siteGroup?: SharePointIdentity | null;
     /**

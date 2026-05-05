@@ -28,6 +28,7 @@ export function deserializeIntoRetrievalPostRequestBody(retrievalPostRequestBody
         "dataSource": n => { retrievalPostRequestBody.dataSource = n.getEnumValue<RetrievalDataSource>(RetrievalDataSourceObject); },
         "dataSourceConfiguration": n => { retrievalPostRequestBody.dataSourceConfiguration = n.getObjectValue<DataSourceConfiguration>(createDataSourceConfigurationFromDiscriminatorValue); },
         "filterExpression": n => { retrievalPostRequestBody.filterExpression = n.getStringValue(); },
+        "includeThumbnails": n => { retrievalPostRequestBody.includeThumbnails = n.getBooleanValue(); },
         "maximumNumberOfResults": n => { retrievalPostRequestBody.maximumNumberOfResults = n.getNumberValue(); },
         "queryString": n => { retrievalPostRequestBody.queryString = n.getStringValue(); },
         "resourceMetadata": n => { retrievalPostRequestBody.resourceMetadata = n.getCollectionOfPrimitiveValues<string>(); },
@@ -46,6 +47,10 @@ export interface RetrievalPostRequestBody extends AdditionalDataHolder, Parsable
      * The filterExpression property
      */
     filterExpression?: string | null;
+    /**
+     * The includeThumbnails property
+     */
+    includeThumbnails?: boolean | null;
     /**
      * The maximumNumberOfResults property
      */
@@ -93,6 +98,7 @@ export function serializeRetrievalPostRequestBody(writer: SerializationWriter, r
     writer.writeEnumValue<RetrievalDataSource>("dataSource", retrievalPostRequestBody.dataSource);
     writer.writeObjectValue<DataSourceConfiguration>("dataSourceConfiguration", retrievalPostRequestBody.dataSourceConfiguration, serializeDataSourceConfiguration);
     writer.writeStringValue("filterExpression", retrievalPostRequestBody.filterExpression);
+    writer.writeBooleanValue("includeThumbnails", retrievalPostRequestBody.includeThumbnails);
     writer.writeNumberValue("maximumNumberOfResults", retrievalPostRequestBody.maximumNumberOfResults);
     writer.writeStringValue("queryString", retrievalPostRequestBody.queryString);
     writer.writeCollectionOfPrimitiveValues<string>("resourceMetadata", retrievalPostRequestBody.resourceMetadata);
