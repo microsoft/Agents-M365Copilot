@@ -20,7 +20,15 @@ namespace Microsoft.Agents.M365Copilot.Models
 #else
         public global::Microsoft.Agents.M365Copilot.Models.Identity Group { get; set; }
 #endif
-        /// <summary>The SharePoint group associated with this action. Optional.</summary>
+        /// <summary>The SharePoint group associated with this action, identified by a globally unique ID. Use this property instead of siteGroup when available. Optional.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Microsoft.Agents.M365Copilot.Models.SharePointGroupIdentity? SharePointGroup { get; set; }
+#nullable restore
+#else
+        public global::Microsoft.Agents.M365Copilot.Models.SharePointGroupIdentity SharePointGroup { get; set; }
+#endif
+        /// <summary>The SharePoint group associated with this action, identified by a principal ID that is unique only within the site. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Models.SharePointIdentity? SiteGroup { get; set; }
@@ -62,6 +70,7 @@ namespace Microsoft.Agents.M365Copilot.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "group", n => { Group = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Models.Identity>(global::Microsoft.Agents.M365Copilot.Models.Identity.CreateFromDiscriminatorValue); } },
+                { "sharePointGroup", n => { SharePointGroup = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Models.SharePointGroupIdentity>(global::Microsoft.Agents.M365Copilot.Models.SharePointGroupIdentity.CreateFromDiscriminatorValue); } },
                 { "siteGroup", n => { SiteGroup = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Models.SharePointIdentity>(global::Microsoft.Agents.M365Copilot.Models.SharePointIdentity.CreateFromDiscriminatorValue); } },
                 { "siteUser", n => { SiteUser = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Models.SharePointIdentity>(global::Microsoft.Agents.M365Copilot.Models.SharePointIdentity.CreateFromDiscriminatorValue); } },
             };
@@ -75,6 +84,7 @@ namespace Microsoft.Agents.M365Copilot.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Models.Identity>("group", Group);
+            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Models.SharePointGroupIdentity>("sharePointGroup", SharePointGroup);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Models.SharePointIdentity>("siteGroup", SiteGroup);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Models.SharePointIdentity>("siteUser", SiteUser);
         }

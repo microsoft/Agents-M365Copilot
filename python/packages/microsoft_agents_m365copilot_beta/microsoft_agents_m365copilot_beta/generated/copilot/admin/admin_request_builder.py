@@ -17,6 +17,7 @@ if TYPE_CHECKING:
     from ...models.copilot_admin import CopilotAdmin
     from ...models.o_data_errors.o_data_error import ODataError
     from .catalog.catalog_request_builder import CatalogRequestBuilder
+    from .policy_settings.policy_settings_request_builder import PolicySettingsRequestBuilder
     from .settings.settings_request_builder import SettingsRequestBuilder
 
 class AdminRequestBuilder(BaseRequestBuilder):
@@ -148,6 +149,15 @@ class AdminRequestBuilder(BaseRequestBuilder):
         from .catalog.catalog_request_builder import CatalogRequestBuilder
 
         return CatalogRequestBuilder(self.request_adapter, self.path_parameters)
+    
+    @property
+    def policy_settings(self) -> PolicySettingsRequestBuilder:
+        """
+        Provides operations to manage the policySettings property of the microsoft.graph.copilotAdmin entity.
+        """
+        from .policy_settings.policy_settings_request_builder import PolicySettingsRequestBuilder
+
+        return PolicySettingsRequestBuilder(self.request_adapter, self.path_parameters)
     
     @property
     def settings(self) -> SettingsRequestBuilder:

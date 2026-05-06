@@ -14,6 +14,7 @@
     "bump-minor-pre-major": true,
     "bump-patch-for-minor-pre-major": true,
     "versioning": "prerelease",
+    "prerelase": true,
     "bootstrap-sha": "b3123fb1d60eb4516b71ecf0370d48cefb891870",
     "packages": {
         "dotnet/src/Microsoft.Agents.M365Copilot": {

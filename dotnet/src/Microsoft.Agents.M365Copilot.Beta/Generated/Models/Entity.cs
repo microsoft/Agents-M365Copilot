@@ -49,6 +49,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             return mappingValue switch
             {
                 "#microsoft.graph.agent" => new global::Microsoft.Agents.M365Copilot.Beta.Models.Agent(),
+                "#microsoft.graph.agentRegistration" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AgentRegistration(),
                 "#microsoft.graph.aiInteraction" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteraction(),
                 "#microsoft.graph.aiInteractionHistory" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionHistory(),
                 "#microsoft.graph.aiOnlineMeeting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AiOnlineMeeting(),
@@ -66,6 +67,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 "#microsoft.graph.copilotPackage" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackage(),
                 "#microsoft.graph.copilotPackageDetail" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageDetail(),
                 "#microsoft.graph.copilotPeopleAdminSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPeopleAdminSetting(),
+                "#microsoft.graph.copilotPolicySetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting(),
                 "#microsoft.graph.copilotReportRoot" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotReportRoot(),
                 "#microsoft.graph.copilotSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotSetting(),
                 "#microsoft.graph.enhancedPersonalizationSetting" => new global::Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting(),

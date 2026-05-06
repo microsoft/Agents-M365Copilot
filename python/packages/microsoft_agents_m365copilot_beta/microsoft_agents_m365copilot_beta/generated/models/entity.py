@@ -6,6 +6,7 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .agent import Agent
+    from .agent_registration import AgentRegistration
     from .ai_interaction import AiInteraction
     from .ai_interaction_history import AiInteractionHistory
     from .ai_online_meeting import AiOnlineMeeting
@@ -23,6 +24,7 @@ if TYPE_CHECKING:
     from .copilot_package import CopilotPackage
     from .copilot_package_detail import CopilotPackageDetail
     from .copilot_people_admin_setting import CopilotPeopleAdminSetting
+    from .copilot_policy_setting import CopilotPolicySetting
     from .copilot_report_root import CopilotReportRoot
     from .copilot_setting import CopilotSetting
     from .enhanced_personalization_setting import EnhancedPersonalizationSetting
@@ -59,6 +61,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .agent import Agent
 
             return Agent()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.agentRegistration".casefold():
+            from .agent_registration import AgentRegistration
+
+            return AgentRegistration()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.aiInteraction".casefold():
             from .ai_interaction import AiInteraction
 
@@ -127,6 +133,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .copilot_people_admin_setting import CopilotPeopleAdminSetting
 
             return CopilotPeopleAdminSetting()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotPolicySetting".casefold():
+            from .copilot_policy_setting import CopilotPolicySetting
+
+            return CopilotPolicySetting()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotReportRoot".casefold():
             from .copilot_report_root import CopilotReportRoot
 
@@ -163,6 +173,7 @@ class Entity(AdditionalDataHolder, Parsable):
         Returns: dict[str, Callable[[ParseNode], None]]
         """
         from .agent import Agent
+        from .agent_registration import AgentRegistration
         from .ai_interaction import AiInteraction
         from .ai_interaction_history import AiInteractionHistory
         from .ai_online_meeting import AiOnlineMeeting
@@ -180,6 +191,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .copilot_package import CopilotPackage
         from .copilot_package_detail import CopilotPackageDetail
         from .copilot_people_admin_setting import CopilotPeopleAdminSetting
+        from .copilot_policy_setting import CopilotPolicySetting
         from .copilot_report_root import CopilotReportRoot
         from .copilot_setting import CopilotSetting
         from .enhanced_personalization_setting import EnhancedPersonalizationSetting
@@ -189,6 +201,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .real_time_transcript import RealTimeTranscript
 
         from .agent import Agent
+        from .agent_registration import AgentRegistration
         from .ai_interaction import AiInteraction
         from .ai_interaction_history import AiInteractionHistory
         from .ai_online_meeting import AiOnlineMeeting
@@ -206,6 +219,7 @@ class Entity(AdditionalDataHolder, Parsable):
         from .copilot_package import CopilotPackage
         from .copilot_package_detail import CopilotPackageDetail
         from .copilot_people_admin_setting import CopilotPeopleAdminSetting
+        from .copilot_policy_setting import CopilotPolicySetting
         from .copilot_report_root import CopilotReportRoot
         from .copilot_setting import CopilotSetting
         from .enhanced_personalization_setting import EnhancedPersonalizationSetting

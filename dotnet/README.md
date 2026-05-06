@@ -12,13 +12,14 @@ The Microsoft 365 Copilot APIs. NET Client Library targets .NetStandard 2.0.
 
 The Microsoft 365 Copilot APIs .NET client libraries are available in the following NuGet packages:
 
+- [Microsoft.Agents.M365Copilot](https://github.com/microsoft/Agents-M365Copilot/tree/main/dotnet/src/Microsoft.Agents.M365Copilot): Contains the models and request builders for accessing the v1.0 endpoint. Microsoft.Agents.M365Copilot has a dependency on Microsoft.Agents.M365Copilot.Core. 
 - [Microsoft.Agents.M365Copilot.Beta](https://github.com/microsoft/Agents-M365Copilot/tree/main/dotnet/src/Microsoft.Agents.M365Copilot.Beta): Contains the models and request builders for accessing the beta endpoint. Microsoft.Agents.M365Copilot.Beta has a dependency on Microsoft.Agents.M365Copilot.Core.
 - [Microsoft.Agents.M365Copilot.Core](https://github.com/microsoft/Agents-M365Copilot/tree/main/dotnet/src/Microsoft.Agents.M365Copilot.Core): The core library for making calls to the Copilot APIs.
 
 To install the client libraries via NuGet:
 
-* Search for `Microsoft.Agents.M365Copilot.Beta` in the NuGet Library, or
-* Type `Install-Package Microsoft.Agents.M365Copilot.Beta` into the Package Manager Console.
+* Search for `Microsoft.Agents.M365Copilot` in the NuGet Library, or
+* Type `Install-Package Microsoft.Agents.M365Copilot` into the Package Manager Console.
 
 ## Create a Copilot APIs client and make an API call
 
@@ -35,9 +36,9 @@ The client ID is the app registration ID that is generated when you [register yo
 ```csharp
 
 using Azure.Identity;
-using Microsoft.Agents.M365Copilot.Beta;
-using Microsoft.Agents.M365Copilot.Beta.Models;
-using Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval;
+using Microsoft.Agents.M365Copilot;
+using Microsoft.Agents.M365Copilot.Models;
+using Microsoft.Agents.M365Copilot.Copilot.Retrieval;
 
 var scopes = new[] {"Files.Read.All", "Sites.Read.All"}; 
  
@@ -66,9 +67,10 @@ var deviceCodeCredentialOptions = new DeviceCodeCredentialOptions
 // https://learn.microsoft.com/dotnet/api/azure.identity.devicecodecredential 
 var deviceCodeCredential = new DeviceCodeCredential(deviceCodeCredentialOptions); 
 
-//Create the client with explicit base URL 
-var baseURL = “https://graph.microsoft.com/beta”; 
-AgentsM365CopilotBetaServiceClient client = new AgentsM365CopilotBetaServiceClient (deviceCodeCredential, scopes, baseURL); 
+// Creates the client. The v1.0 endpoint is used by default.
+// To target the beta endpoint instead, pass the base URL explicitly:
+// AgentsM365CopilotServiceClient client = new AgentsM365CopilotServiceClient(deviceCodeCredential, scopes, "https://graph.microsoft.com/beta");
+AgentsM365CopilotServiceClient client = new AgentsM365CopilotServiceClient(deviceCodeCredential, scopes);
 
 try
 {

@@ -20,6 +20,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminCatalog Catalog { get; set; }
 #endif
+        /// <summary>The policySettings property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting>? PolicySettings { get; set; }
+#nullable restore
+#else
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting> PolicySettings { get; set; }
+#endif
         /// <summary>The settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,6 +55,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "catalog", n => { Catalog = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminCatalog>(global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminCatalog.CreateFromDiscriminatorValue); } },
+                { "policySettings", n => { PolicySettings = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting>(global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "settings", n => { Settings = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting>(global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting.CreateFromDiscriminatorValue); } },
             };
         }
@@ -59,6 +68,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminCatalog>("catalog", Catalog);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting>("policySettings", PolicySettings);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotAdminSetting>("settings", Settings);
         }
     }

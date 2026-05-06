@@ -52,6 +52,69 @@ export interface AgentCollectionResponse extends BaseCollectionPaginationCountRe
      */
     value?: Agent[] | null;
 }
+/**
+ * Entity that represents an agent registration containing metadata, endpointconfiguration, tools, and publishing information.This entity provides developers and administrators with all details needed tomanage agent instances including their instructions, owners, publishing status,and associated tools.
+ */
+export interface AgentRegistration extends Entity, Parsable {
+    /**
+     * Flexible Json manifest containing agent card information following public manifestspecifications. Can include displayName, description, iconUrl, version, provider,capabilities, skills, security, and other manifest-defined fields.
+     */
+    agentCard?: UntypedNode | null;
+    /**
+     * Agent identity blueprint identifier.
+     */
+    agentIdentityBlueprintId?: string | null;
+    /**
+     * Entra agent identity identifier.
+     */
+    agentIdentityId?: string | null;
+    /**
+     * The unique identifier of the user or app who created the agent registration.
+     */
+    createdBy?: string | null;
+    /**
+     * The agent description providing an overview of its purpose and capabilities.
+     */
+    description?: string | null;
+    /**
+     * Display name for the agent instance.
+     */
+    displayName?: string | null;
+    /**
+     * The unique identifier of the last person to publish the agent.
+     */
+    lastPublishedBy?: string | null;
+    /**
+     * Application identifier managing this agent.
+     */
+    managedByAppId?: string | null;
+    /**
+     * Name of the store/system where the agent originated.
+     */
+    originatingStore?: string | null;
+    /**
+     * List of owner identifiers  for the agent in case of user registering agent. Either owners or managedby is required
+     */
+    ownerIds?: string[] | null;
+    /**
+     * Original agent identifier from source system.
+     */
+    sourceAgentId?: string | null;
+    /**
+     * The date and time when the agent instance was created from source.
+     */
+    sourceCreatedDateTime?: Date | null;
+    /**
+     * The date and time when the agent instance was last modified from source.
+     */
+    sourceLastModifiedDateTime?: Date | null;
+}
+export interface AgentRegistrationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: AgentRegistration[] | null;
+}
 export interface AiInteraction extends Entity, Parsable {
     /**
      * The appClass property
@@ -448,6 +511,10 @@ export interface CopilotAdmin extends Entity, Parsable {
      */
     catalog?: CopilotAdminCatalog | null;
     /**
+     * The policySettings property
+     */
+    policySettings?: CopilotPolicySetting[] | null;
+    /**
      * The settings property
      */
     settings?: CopilotAdminSetting | null;
@@ -704,6 +771,14 @@ export interface CopilotFile extends AdditionalDataHolder, Parsable {
 }
 export interface CopilotPackage extends Entity, Parsable {
     /**
+     * The appId property
+     */
+    appId?: string | null;
+    /**
+     * The assetId property
+     */
+    assetId?: string | null;
+    /**
      * The availableTo property
      */
     availableTo?: PackageStatus | null;
@@ -728,6 +803,22 @@ export interface CopilotPackage extends Entity, Parsable {
      */
     lastModifiedDateTime?: Date | null;
     /**
+     * The manifestId property
+     */
+    manifestId?: string | null;
+    /**
+     * The manifestVersion property
+     */
+    manifestVersion?: string | null;
+    /**
+     * The ownerId property
+     */
+    ownerId?: string | null;
+    /**
+     * The platform property
+     */
+    platform?: string | null;
+    /**
      * The publisher property
      */
     publisher?: string | null;
@@ -743,6 +834,10 @@ export interface CopilotPackage extends Entity, Parsable {
      * The type property
      */
     type?: PackageType | null;
+    /**
+     * The version property
+     */
+    version?: string | null;
     /**
      * The zipFile property
      */
@@ -770,17 +865,9 @@ export interface CopilotPackageDetail extends CopilotPackage, Parsable {
      */
     longDescription?: string | null;
     /**
-     * The manifestVersion property
-     */
-    manifestVersion?: string | null;
-    /**
      * The sensitivity property
      */
     sensitivity?: string | null;
-    /**
-     * The version property
-     */
-    version?: string | null;
 }
 export interface CopilotPackageDetailCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
@@ -793,6 +880,22 @@ export interface CopilotPeopleAdminSetting extends Entity, Parsable {
      * The enhancedPersonalization property
      */
     enhancedPersonalization?: EnhancedPersonalizationSetting | null;
+}
+export interface CopilotPolicySetting extends Entity, Parsable {
+    /**
+     * The policyId property
+     */
+    policyId?: string | null;
+    /**
+     * The value property
+     */
+    value?: string | null;
+}
+export interface CopilotPolicySettingCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: CopilotPolicySetting[] | null;
 }
 export interface CopilotReportRoot extends Entity, Parsable {
 }
@@ -920,6 +1023,24 @@ export function createAgentCollectionResponseFromDiscriminatorValue(parseNode: P
 // @ts-ignore
 export function createAgentFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAgent;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {AgentRegistrationCollectionResponse}
+ */
+// @ts-ignore
+export function createAgentRegistrationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAgentRegistrationCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {AgentRegistration}
+ */
+// @ts-ignore
+export function createAgentRegistrationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAgentRegistration;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -1456,6 +1577,24 @@ export function createCopilotPeopleAdminSettingFromDiscriminatorValue(parseNode:
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotPolicySettingCollectionResponse}
+ */
+// @ts-ignore
+export function createCopilotPolicySettingCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotPolicySettingCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotPolicySetting}
+ */
+// @ts-ignore
+export function createCopilotPolicySettingFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotPolicySetting;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CopilotReportRoot}
  */
 // @ts-ignore
@@ -1607,6 +1746,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
             switch (mappingValue) {
                 case "#microsoft.graph.agent":
                     return deserializeIntoAgent;
+                case "#microsoft.graph.agentRegistration":
+                    return deserializeIntoAgentRegistration;
                 case "#microsoft.graph.aiInteraction":
                     return deserializeIntoAiInteraction;
                 case "#microsoft.graph.aiInteractionHistory":
@@ -1641,6 +1782,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoCopilotPackageDetail;
                 case "#microsoft.graph.copilotPeopleAdminSetting":
                     return deserializeIntoCopilotPeopleAdminSetting;
+                case "#microsoft.graph.copilotPolicySetting":
+                    return deserializeIntoCopilotPolicySetting;
                 case "#microsoft.graph.copilotReportRoot":
                     return deserializeIntoCopilotReportRoot;
                 case "#microsoft.graph.copilotSetting":
@@ -1736,6 +1879,8 @@ export function createIdentityFromDiscriminatorValue(parseNode: ParseNode | unde
                     return deserializeIntoSubmissionUserIdentity;
                 case "#microsoft.graph.servicePrincipalIdentity":
                     return deserializeIntoServicePrincipalIdentity;
+                case "#microsoft.graph.sharePointGroupIdentity":
+                    return deserializeIntoSharePointGroupIdentity;
                 case "#microsoft.graph.sharePointIdentity":
                     return deserializeIntoSharePointIdentity;
                 case "#microsoft.graph.sourceProvisionedIdentity":
@@ -2061,6 +2206,15 @@ export function createRetrievalResponseFromDiscriminatorValue(parseNode: ParseNo
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {RetrievalThumbnail}
+ */
+// @ts-ignore
+export function createRetrievalThumbnailFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRetrievalThumbnail;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SearchResourceMetadataDictionary}
  */
 // @ts-ignore
@@ -2093,6 +2247,15 @@ export function createSensitivityLabelInfoFromDiscriminatorValue(parseNode: Pars
 // @ts-ignore
 export function createServicePrincipalIdentityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoServicePrincipalIdentity;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {SharePointGroupIdentity}
+ */
+// @ts-ignore
+export function createSharePointGroupIdentityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSharePointGroupIdentity;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -2299,6 +2462,42 @@ export function deserializeIntoAgentCollectionResponse(agentCollectionResponse: 
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(agentCollectionResponse),
         "value": n => { agentCollectionResponse.value = n.getCollectionOfObjectValues<Agent>(createAgentFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param AgentRegistration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoAgentRegistration(agentRegistration: Partial<AgentRegistration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(agentRegistration),
+        "agentCard": n => { agentRegistration.agentCard = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
+        "agentIdentityBlueprintId": n => { agentRegistration.agentIdentityBlueprintId = n.getStringValue(); },
+        "agentIdentityId": n => { agentRegistration.agentIdentityId = n.getStringValue(); },
+        "createdBy": n => { agentRegistration.createdBy = n.getStringValue(); },
+        "description": n => { agentRegistration.description = n.getStringValue(); },
+        "displayName": n => { agentRegistration.displayName = n.getStringValue(); },
+        "lastPublishedBy": n => { agentRegistration.lastPublishedBy = n.getStringValue(); },
+        "managedByAppId": n => { agentRegistration.managedByAppId = n.getStringValue(); },
+        "originatingStore": n => { agentRegistration.originatingStore = n.getStringValue(); },
+        "ownerIds": n => { agentRegistration.ownerIds = n.getCollectionOfPrimitiveValues<string>(); },
+        "sourceAgentId": n => { agentRegistration.sourceAgentId = n.getStringValue(); },
+        "sourceCreatedDateTime": n => { agentRegistration.sourceCreatedDateTime = n.getDateValue(); },
+        "sourceLastModifiedDateTime": n => { agentRegistration.sourceLastModifiedDateTime = n.getDateValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param AgentRegistrationCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoAgentRegistrationCollectionResponse(agentRegistrationCollectionResponse: Partial<AgentRegistrationCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(agentRegistrationCollectionResponse),
+        "value": n => { agentRegistrationCollectionResponse.value = n.getCollectionOfObjectValues<AgentRegistration>(createAgentRegistrationFromDiscriminatorValue); },
     }
 }
 /**
@@ -2724,6 +2923,7 @@ export function deserializeIntoCopilotAdmin(copilotAdmin: Partial<CopilotAdmin> 
     return {
         ...deserializeIntoEntity(copilotAdmin),
         "catalog": n => { copilotAdmin.catalog = n.getObjectValue<CopilotAdminCatalog>(createCopilotAdminCatalogFromDiscriminatorValue); },
+        "policySettings": n => { copilotAdmin.policySettings = n.getCollectionOfObjectValues<CopilotPolicySetting>(createCopilotPolicySettingFromDiscriminatorValue); },
         "settings": n => { copilotAdmin.settings = n.getObjectValue<CopilotAdminSetting>(createCopilotAdminSettingFromDiscriminatorValue); },
     }
 }
@@ -2973,16 +3173,23 @@ export function deserializeIntoCopilotFile(copilotFile: Partial<CopilotFile> | u
 export function deserializeIntoCopilotPackage(copilotPackage: Partial<CopilotPackage> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(copilotPackage),
+        "appId": n => { copilotPackage.appId = n.getStringValue(); },
+        "assetId": n => { copilotPackage.assetId = n.getStringValue(); },
         "availableTo": n => { copilotPackage.availableTo = n.getEnumValue<PackageStatus>(PackageStatusObject); },
         "deployedTo": n => { copilotPackage.deployedTo = n.getEnumValue<PackageStatus>(PackageStatusObject); },
         "displayName": n => { copilotPackage.displayName = n.getStringValue(); },
         "elementTypes": n => { copilotPackage.elementTypes = n.getCollectionOfPrimitiveValues<string>(); },
         "isBlocked": n => { copilotPackage.isBlocked = n.getBooleanValue(); },
         "lastModifiedDateTime": n => { copilotPackage.lastModifiedDateTime = n.getDateValue(); },
+        "manifestId": n => { copilotPackage.manifestId = n.getStringValue(); },
+        "manifestVersion": n => { copilotPackage.manifestVersion = n.getStringValue(); },
+        "ownerId": n => { copilotPackage.ownerId = n.getStringValue(); },
+        "platform": n => { copilotPackage.platform = n.getStringValue(); },
         "publisher": n => { copilotPackage.publisher = n.getStringValue(); },
         "shortDescription": n => { copilotPackage.shortDescription = n.getStringValue(); },
         "supportedHosts": n => { copilotPackage.supportedHosts = n.getCollectionOfPrimitiveValues<string>(); },
         "type": n => { copilotPackage.type = n.getEnumValue<PackageType>(PackageTypeObject); },
+        "version": n => { copilotPackage.version = n.getStringValue(); },
         "zipFile": n => { copilotPackage.zipFile = n.getByteArrayValue(); },
     }
 }
@@ -3000,9 +3207,7 @@ export function deserializeIntoCopilotPackageDetail(copilotPackageDetail: Partia
         "categories": n => { copilotPackageDetail.categories = n.getCollectionOfPrimitiveValues<string>(); },
         "elementDetails": n => { copilotPackageDetail.elementDetails = n.getCollectionOfObjectValues<PackageElementDetail>(createPackageElementDetailFromDiscriminatorValue); },
         "longDescription": n => { copilotPackageDetail.longDescription = n.getStringValue(); },
-        "manifestVersion": n => { copilotPackageDetail.manifestVersion = n.getStringValue(); },
         "sensitivity": n => { copilotPackageDetail.sensitivity = n.getStringValue(); },
-        "version": n => { copilotPackageDetail.version = n.getStringValue(); },
     }
 }
 /**
@@ -3027,6 +3232,31 @@ export function deserializeIntoCopilotPeopleAdminSetting(copilotPeopleAdminSetti
     return {
         ...deserializeIntoEntity(copilotPeopleAdminSetting),
         "enhancedPersonalization": n => { copilotPeopleAdminSetting.enhancedPersonalization = n.getObjectValue<EnhancedPersonalizationSetting>(createEnhancedPersonalizationSettingFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotPolicySetting The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotPolicySetting(copilotPolicySetting: Partial<CopilotPolicySetting> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(copilotPolicySetting),
+        "policyId": n => { copilotPolicySetting.policyId = n.getStringValue(); },
+        "value": n => { copilotPolicySetting.value = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotPolicySettingCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotPolicySettingCollectionResponse(copilotPolicySettingCollectionResponse: Partial<CopilotPolicySettingCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(copilotPolicySettingCollectionResponse),
+        "value": n => { copilotPolicySettingCollectionResponse.value = n.getCollectionOfObjectValues<CopilotPolicySetting>(createCopilotPolicySettingFromDiscriminatorValue); },
     }
 }
 /**
@@ -3603,6 +3833,7 @@ export function deserializeIntoResultInfo(resultInfo: Partial<ResultInfo> | unde
 export function deserializeIntoRetrievalExtract(retrievalExtract: Partial<RetrievalExtract> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "@odata.type": n => { retrievalExtract.odataType = n.getStringValue(); },
+        "pageNumbers": n => { retrievalExtract.pageNumbers = n.getCollectionOfPrimitiveValues<number>(); },
         "relevanceScore": n => { retrievalExtract.relevanceScore = n.getNumberValue(); },
         "text": n => { retrievalExtract.text = n.getStringValue(); },
     }
@@ -3620,6 +3851,7 @@ export function deserializeIntoRetrievalHit(retrievalHit: Partial<RetrievalHit> 
         "resourceMetadata": n => { retrievalHit.resourceMetadata = n.getObjectValue<SearchResourceMetadataDictionary>(createSearchResourceMetadataDictionaryFromDiscriminatorValue); },
         "resourceType": n => { retrievalHit.resourceType = n.getEnumValue<RetrievalEntityType>(RetrievalEntityTypeObject); },
         "sensitivityLabel": n => { retrievalHit.sensitivityLabel = n.getObjectValue<SensitivityLabelInfo>(createSensitivityLabelInfoFromDiscriminatorValue); },
+        "thumbnails": n => { retrievalHit.thumbnails = n.getCollectionOfObjectValues<RetrievalThumbnail>(createRetrievalThumbnailFromDiscriminatorValue); },
         "webUrl": n => { retrievalHit.webUrl = n.getStringValue(); },
     }
 }
@@ -3633,6 +3865,20 @@ export function deserializeIntoRetrievalResponse(retrievalResponse: Partial<Retr
     return {
         "@odata.type": n => { retrievalResponse.odataType = n.getStringValue(); },
         "retrievalHits": n => { retrievalResponse.retrievalHits = n.getCollectionOfObjectValues<RetrievalHit>(createRetrievalHitFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param RetrievalThumbnail The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoRetrievalThumbnail(retrievalThumbnail: Partial<RetrievalThumbnail> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "content": n => { retrievalThumbnail.content = n.getStringValue(); },
+        "mediaType": n => { retrievalThumbnail.mediaType = n.getStringValue(); },
+        "@odata.type": n => { retrievalThumbnail.odataType = n.getStringValue(); },
+        "pageNumber": n => { retrievalThumbnail.pageNumber = n.getNumberValue(); },
     }
 }
 /**
@@ -3692,6 +3938,19 @@ export function deserializeIntoServicePrincipalIdentity(servicePrincipalIdentity
 }
 /**
  * The deserialization information for the current model
+ * @param SharePointGroupIdentity The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoSharePointGroupIdentity(sharePointGroupIdentity: Partial<SharePointGroupIdentity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoIdentity(sharePointGroupIdentity),
+        "principalId": n => { sharePointGroupIdentity.principalId = n.getStringValue(); },
+        "title": n => { sharePointGroupIdentity.title = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param SharePointIdentity The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -3712,6 +3971,7 @@ export function deserializeIntoSharePointIdentitySet(sharePointIdentitySet: Part
     return {
         ...deserializeIntoIdentitySet(sharePointIdentitySet),
         "group": n => { sharePointIdentitySet.group = n.getObjectValue<Identity>(createIdentityFromDiscriminatorValue); },
+        "sharePointGroup": n => { sharePointIdentitySet.sharePointGroup = n.getObjectValue<SharePointGroupIdentity>(createSharePointGroupIdentityFromDiscriminatorValue); },
         "siteGroup": n => { sharePointIdentitySet.siteGroup = n.getObjectValue<SharePointIdentity>(createSharePointIdentityFromDiscriminatorValue); },
         "siteUser": n => { sharePointIdentitySet.siteUser = n.getObjectValue<SharePointIdentity>(createSharePointIdentityFromDiscriminatorValue); },
     }
@@ -4268,6 +4528,10 @@ export interface RetrievalExtract extends AdditionalDataHolder, Parsable {
      */
     odataType?: string | null;
     /**
+     * The pageNumbers property
+     */
+    pageNumbers?: number[] | null;
+    /**
      * The relevanceScore property
      */
     relevanceScore?: number | null;
@@ -4298,6 +4562,10 @@ export interface RetrievalHit extends AdditionalDataHolder, Parsable {
      */
     sensitivityLabel?: SensitivityLabelInfo | null;
     /**
+     * The thumbnails property
+     */
+    thumbnails?: RetrievalThumbnail[] | null;
+    /**
      * The webUrl property
      */
     webUrl?: string | null;
@@ -4311,6 +4579,24 @@ export interface RetrievalResponse extends AdditionalDataHolder, Parsable {
      * The retrievalHits property
      */
     retrievalHits?: RetrievalHit[] | null;
+}
+export interface RetrievalThumbnail extends AdditionalDataHolder, Parsable {
+    /**
+     * The content property
+     */
+    content?: string | null;
+    /**
+     * The mediaType property
+     */
+    mediaType?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The pageNumber property
+     */
+    pageNumber?: number | null;
 }
 export interface SearchResourceMetadataDictionary extends Dictionaries, Parsable {
 }
@@ -4421,6 +4707,42 @@ export function serializeAgentCollectionResponse(writer: SerializationWriter, ag
     if (!agentCollectionResponse || isSerializingDerivedType) { return; }
     serializeBaseCollectionPaginationCountResponse(writer, agentCollectionResponse, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<Agent>("value", agentCollectionResponse.value, serializeAgent);
+}
+/**
+ * Serializes information the current object
+ * @param AgentRegistration The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeAgentRegistration(writer: SerializationWriter, agentRegistration: Partial<AgentRegistration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!agentRegistration || isSerializingDerivedType) { return; }
+    serializeEntity(writer, agentRegistration, isSerializingDerivedType)
+    writer.writeObjectValue("agentCard", agentRegistration.agentCard);
+    writer.writeStringValue("agentIdentityBlueprintId", agentRegistration.agentIdentityBlueprintId);
+    writer.writeStringValue("agentIdentityId", agentRegistration.agentIdentityId);
+    writer.writeStringValue("createdBy", agentRegistration.createdBy);
+    writer.writeStringValue("description", agentRegistration.description);
+    writer.writeStringValue("displayName", agentRegistration.displayName);
+    writer.writeStringValue("lastPublishedBy", agentRegistration.lastPublishedBy);
+    writer.writeStringValue("managedByAppId", agentRegistration.managedByAppId);
+    writer.writeStringValue("originatingStore", agentRegistration.originatingStore);
+    writer.writeCollectionOfPrimitiveValues<string>("ownerIds", agentRegistration.ownerIds);
+    writer.writeStringValue("sourceAgentId", agentRegistration.sourceAgentId);
+    writer.writeDateValue("sourceCreatedDateTime", agentRegistration.sourceCreatedDateTime);
+    writer.writeDateValue("sourceLastModifiedDateTime", agentRegistration.sourceLastModifiedDateTime);
+}
+/**
+ * Serializes information the current object
+ * @param AgentRegistrationCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeAgentRegistrationCollectionResponse(writer: SerializationWriter, agentRegistrationCollectionResponse: Partial<AgentRegistrationCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!agentRegistrationCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, agentRegistrationCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<AgentRegistration>("value", agentRegistrationCollectionResponse.value, serializeAgentRegistration);
 }
 /**
  * Serializes information the current object
@@ -4860,6 +5182,7 @@ export function serializeCopilotAdmin(writer: SerializationWriter, copilotAdmin:
     if (!copilotAdmin || isSerializingDerivedType) { return; }
     serializeEntity(writer, copilotAdmin, isSerializingDerivedType)
     writer.writeObjectValue<CopilotAdminCatalog>("catalog", copilotAdmin.catalog, serializeCopilotAdminCatalog);
+    writer.writeCollectionOfObjectValues<CopilotPolicySetting>("policySettings", copilotAdmin.policySettings, serializeCopilotPolicySetting);
     writer.writeObjectValue<CopilotAdminSetting>("settings", copilotAdmin.settings, serializeCopilotAdminSetting);
 }
 /**
@@ -5116,16 +5439,23 @@ export function serializeCopilotFile(writer: SerializationWriter, copilotFile: P
 export function serializeCopilotPackage(writer: SerializationWriter, copilotPackage: Partial<CopilotPackage> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!copilotPackage || isSerializingDerivedType) { return; }
     serializeEntity(writer, copilotPackage, isSerializingDerivedType)
+    writer.writeStringValue("appId", copilotPackage.appId);
+    writer.writeStringValue("assetId", copilotPackage.assetId);
     writer.writeEnumValue<PackageStatus>("availableTo", copilotPackage.availableTo);
     writer.writeEnumValue<PackageStatus>("deployedTo", copilotPackage.deployedTo);
     writer.writeStringValue("displayName", copilotPackage.displayName);
     writer.writeCollectionOfPrimitiveValues<string>("elementTypes", copilotPackage.elementTypes);
     writer.writeBooleanValue("isBlocked", copilotPackage.isBlocked);
     writer.writeDateValue("lastModifiedDateTime", copilotPackage.lastModifiedDateTime);
+    writer.writeStringValue("manifestId", copilotPackage.manifestId);
+    writer.writeStringValue("manifestVersion", copilotPackage.manifestVersion);
+    writer.writeStringValue("ownerId", copilotPackage.ownerId);
+    writer.writeStringValue("platform", copilotPackage.platform);
     writer.writeStringValue("publisher", copilotPackage.publisher);
     writer.writeStringValue("shortDescription", copilotPackage.shortDescription);
     writer.writeCollectionOfPrimitiveValues<string>("supportedHosts", copilotPackage.supportedHosts);
     writer.writeEnumValue<PackageType>("type", copilotPackage.type);
+    writer.writeStringValue("version", copilotPackage.version);
     writer.writeByteArrayValue("zipFile", copilotPackage.zipFile);
     switch (copilotPackage.odataType) {
         case "#microsoft.graph.copilotPackageDetail":
@@ -5148,9 +5478,7 @@ export function serializeCopilotPackageDetail(writer: SerializationWriter, copil
     writer.writeCollectionOfPrimitiveValues<string>("categories", copilotPackageDetail.categories);
     writer.writeCollectionOfObjectValues<PackageElementDetail>("elementDetails", copilotPackageDetail.elementDetails, serializePackageElementDetail);
     writer.writeStringValue("longDescription", copilotPackageDetail.longDescription);
-    writer.writeStringValue("manifestVersion", copilotPackageDetail.manifestVersion);
     writer.writeStringValue("sensitivity", copilotPackageDetail.sensitivity);
-    writer.writeStringValue("version", copilotPackageDetail.version);
 }
 /**
  * Serializes information the current object
@@ -5175,6 +5503,31 @@ export function serializeCopilotPeopleAdminSetting(writer: SerializationWriter, 
     if (!copilotPeopleAdminSetting || isSerializingDerivedType) { return; }
     serializeEntity(writer, copilotPeopleAdminSetting, isSerializingDerivedType)
     writer.writeObjectValue<EnhancedPersonalizationSetting>("enhancedPersonalization", copilotPeopleAdminSetting.enhancedPersonalization, serializeEnhancedPersonalizationSetting);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotPolicySetting The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotPolicySetting(writer: SerializationWriter, copilotPolicySetting: Partial<CopilotPolicySetting> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotPolicySetting || isSerializingDerivedType) { return; }
+    serializeEntity(writer, copilotPolicySetting, isSerializingDerivedType)
+    writer.writeStringValue("policyId", copilotPolicySetting.policyId);
+    writer.writeStringValue("value", copilotPolicySetting.value);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotPolicySettingCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotPolicySettingCollectionResponse(writer: SerializationWriter, copilotPolicySettingCollectionResponse: Partial<CopilotPolicySettingCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotPolicySettingCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, copilotPolicySettingCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CopilotPolicySetting>("value", copilotPolicySettingCollectionResponse.value, serializeCopilotPolicySetting);
 }
 /**
  * Serializes information the current object
@@ -5380,6 +5733,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.agent":
             serializeAgent(writer, entity, true);
         break;
+        case "#microsoft.graph.agentRegistration":
+            serializeAgentRegistration(writer, entity, true);
+        break;
         case "#microsoft.graph.aiInteraction":
             serializeAiInteraction(writer, entity, true);
         break;
@@ -5430,6 +5786,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.copilotPeopleAdminSetting":
             serializeCopilotPeopleAdminSetting(writer, entity, true);
+        break;
+        case "#microsoft.graph.copilotPolicySetting":
+            serializeCopilotPolicySetting(writer, entity, true);
         break;
         case "#microsoft.graph.copilotReportRoot":
             serializeCopilotReportRoot(writer, entity, true);
@@ -5560,6 +5919,9 @@ export function serializeIdentity(writer: SerializationWriter, identity: Partial
         break;
         case "#microsoft.graph.servicePrincipalIdentity":
             serializeServicePrincipalIdentity(writer, identity, true);
+        break;
+        case "#microsoft.graph.sharePointGroupIdentity":
+            serializeSharePointGroupIdentity(writer, identity, true);
         break;
         case "#microsoft.graph.sharePointIdentity":
             serializeSharePointIdentity(writer, identity, true);
@@ -5977,6 +6339,7 @@ export function serializeResultInfo(writer: SerializationWriter, resultInfo: Par
 export function serializeRetrievalExtract(writer: SerializationWriter, retrievalExtract: Partial<RetrievalExtract> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!retrievalExtract || isSerializingDerivedType) { return; }
     writer.writeStringValue("@odata.type", retrievalExtract.odataType);
+    writer.writeCollectionOfPrimitiveValues<number>("pageNumbers", retrievalExtract.pageNumbers);
     writer.writeNumberValue("relevanceScore", retrievalExtract.relevanceScore);
     writer.writeStringValue("text", retrievalExtract.text);
     writer.writeAdditionalData(retrievalExtract.additionalData);
@@ -5995,6 +6358,7 @@ export function serializeRetrievalHit(writer: SerializationWriter, retrievalHit:
     writer.writeObjectValue<SearchResourceMetadataDictionary>("resourceMetadata", retrievalHit.resourceMetadata, serializeSearchResourceMetadataDictionary);
     writer.writeEnumValue<RetrievalEntityType>("resourceType", retrievalHit.resourceType);
     writer.writeObjectValue<SensitivityLabelInfo>("sensitivityLabel", retrievalHit.sensitivityLabel, serializeSensitivityLabelInfo);
+    writer.writeCollectionOfObjectValues<RetrievalThumbnail>("thumbnails", retrievalHit.thumbnails, serializeRetrievalThumbnail);
     writer.writeStringValue("webUrl", retrievalHit.webUrl);
     writer.writeAdditionalData(retrievalHit.additionalData);
 }
@@ -6010,6 +6374,21 @@ export function serializeRetrievalResponse(writer: SerializationWriter, retrieva
     writer.writeStringValue("@odata.type", retrievalResponse.odataType);
     writer.writeCollectionOfObjectValues<RetrievalHit>("retrievalHits", retrievalResponse.retrievalHits, serializeRetrievalHit);
     writer.writeAdditionalData(retrievalResponse.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RetrievalThumbnail The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRetrievalThumbnail(writer: SerializationWriter, retrievalThumbnail: Partial<RetrievalThumbnail> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!retrievalThumbnail || isSerializingDerivedType) { return; }
+    writer.writeStringValue("content", retrievalThumbnail.content);
+    writer.writeStringValue("mediaType", retrievalThumbnail.mediaType);
+    writer.writeStringValue("@odata.type", retrievalThumbnail.odataType);
+    writer.writeNumberValue("pageNumber", retrievalThumbnail.pageNumber);
+    writer.writeAdditionalData(retrievalThumbnail.additionalData);
 }
 /**
  * Serializes information the current object
@@ -6066,6 +6445,19 @@ export function serializeServicePrincipalIdentity(writer: SerializationWriter, s
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SharePointGroupIdentity The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeSharePointGroupIdentity(writer: SerializationWriter, sharePointGroupIdentity: Partial<SharePointGroupIdentity> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!sharePointGroupIdentity || isSerializingDerivedType) { return; }
+    serializeIdentity(writer, sharePointGroupIdentity, isSerializingDerivedType)
+    writer.writeStringValue("principalId", sharePointGroupIdentity.principalId);
+    writer.writeStringValue("title", sharePointGroupIdentity.title);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param SharePointIdentity The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -6086,6 +6478,7 @@ export function serializeSharePointIdentitySet(writer: SerializationWriter, shar
     if (!sharePointIdentitySet || isSerializingDerivedType) { return; }
     serializeIdentitySet(writer, sharePointIdentitySet, isSerializingDerivedType)
     writer.writeObjectValue<Identity>("group", sharePointIdentitySet.group, serializeIdentity);
+    writer.writeObjectValue<SharePointGroupIdentity>("sharePointGroup", sharePointIdentitySet.sharePointGroup, serializeSharePointGroupIdentity);
     writer.writeObjectValue<SharePointIdentity>("siteGroup", sharePointIdentitySet.siteGroup, serializeSharePointIdentity);
     writer.writeObjectValue<SharePointIdentity>("siteUser", sharePointIdentitySet.siteUser, serializeSharePointIdentity);
 }
@@ -6263,6 +6656,16 @@ export interface ServicePrincipalIdentity extends Identity, Parsable {
      */
     appId?: string | null;
 }
+export interface SharePointGroupIdentity extends Identity, Parsable {
+    /**
+     * The principal ID of the SharePoint group in the tenant. Read-only.
+     */
+    principalId?: string | null;
+    /**
+     * The title of the SharePoint group. Read-only.
+     */
+    title?: string | null;
+}
 export interface SharePointIdentity extends Identity, Parsable {
     /**
      * The sign in name of the SharePoint identity.
@@ -6275,7 +6678,11 @@ export interface SharePointIdentitySet extends IdentitySet, Parsable {
      */
     group?: Identity | null;
     /**
-     * The SharePoint group associated with this action. Optional.
+     * The SharePoint group associated with this action, identified by a globally unique ID. Use this property instead of siteGroup when available. Optional.
+     */
+    sharePointGroup?: SharePointGroupIdentity | null;
+    /**
+     * The SharePoint group associated with this action, identified by a principal ID that is unique only within the site. Optional.
      */
     siteGroup?: SharePointIdentity | null;
     /**

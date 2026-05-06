@@ -11,6 +11,8 @@ class RetrievalExtract(AdditionalDataHolder, Parsable):
 
     # The OdataType property
     odata_type: Optional[str] = None
+    # The pageNumbers property
+    page_numbers: Optional[list[int]] = None
     # The relevanceScore property
     relevance_score: Optional[float] = None
     # The text property
@@ -34,6 +36,7 @@ class RetrievalExtract(AdditionalDataHolder, Parsable):
         """
         fields: dict[str, Callable[[Any], None]] = {
             "@odata.type": lambda n : setattr(self, 'odata_type', n.get_str_value()),
+            "pageNumbers": lambda n : setattr(self, 'page_numbers', n.get_collection_of_primitive_values(int)),
             "relevanceScore": lambda n : setattr(self, 'relevance_score', n.get_float_value()),
             "text": lambda n : setattr(self, 'text', n.get_str_value()),
         }
@@ -48,6 +51,7 @@ class RetrievalExtract(AdditionalDataHolder, Parsable):
         if writer is None:
             raise TypeError("writer cannot be null.")
         writer.write_str_value("@odata.type", self.odata_type)
+        writer.write_collection_of_primitive_values("pageNumbers", self.page_numbers)
         writer.write_float_value("relevanceScore", self.relevance_score)
         writer.write_str_value("text", self.text)
         writer.write_additional_data_value(self.additional_data)

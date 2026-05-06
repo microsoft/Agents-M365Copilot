@@ -22,6 +22,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string OdataType { get; set; }
 #endif
+        /// <summary>The pageNumbers property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<int?>? PageNumbers { get; set; }
+#nullable restore
+#else
+        public List<int?> PageNumbers { get; set; }
+#endif
         /// <summary>The relevanceScore property</summary>
         public double? RelevanceScore { get; set; }
         /// <summary>The text property</summary>
@@ -58,6 +66,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "pageNumbers", n => { PageNumbers = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "relevanceScore", n => { RelevanceScore = n.GetDoubleValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
             };
@@ -70,6 +79,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteCollectionOfPrimitiveValues<int?>("pageNumbers", PageNumbers);
             writer.WriteDoubleValue("relevanceScore", RelevanceScore);
             writer.WriteStringValue("text", Text);
             writer.WriteAdditionalData(AdditionalData);
