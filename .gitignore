@@ -3,3 +3,4 @@
 appsettings.*.json
 **/appsettings.*.json
 .idea/
+.claude/
