@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0](https://github.com/microsoft/Agents-M365Copilot/compare/Microsoft.Agents.M365Copilot.Core-v1.1.0...Microsoft.Agents.M365Copilot.Core-v1.2.0) (2026-05-13)
+
+
+### Build System
+
+* update version ([#389](https://github.com/microsoft/Agents-M365Copilot/issues/389)) ([1715803](https://github.com/microsoft/Agents-M365Copilot/commit/1715803724cb628fb9243071d12ab36cfb922a7d))
+
 ## [1.1.0](https://github.com/microsoft/Agents-M365Copilot/compare/Microsoft.Agents.M365Copilot.Core-v1.0.0...Microsoft.Agents.M365Copilot.Core-v1.1.0) (2025-12-18)
 
 
