@@ -54,8 +54,6 @@
 
   <!-- Package References are centrally managed in Directory.Packages.props -->
   <ItemGroup>
-    <PackageReference Include="Microsoft.Kiota.Authentication.Azure" />
-    <PackageReference Include="Microsoft.Kiota.Bundle" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" />
   </ItemGroup>
   <ItemGroup>
