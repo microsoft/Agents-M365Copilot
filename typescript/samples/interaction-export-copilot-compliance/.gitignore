@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+*.db
+*.db-*
+*.tsbuildinfo
+client/node_modules/
+client/dist/
