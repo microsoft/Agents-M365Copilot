@@ -18,8 +18,10 @@
     <RepositoryUrl>https://github.com/microsoft/Agents-M365Copilot/dotnet</RepositoryUrl>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <!-- Since deps live in Directory.Packages.props changes won't result in automatic 
+    version updates. Must trigger a new version manually in this case. -->
     <!-- x-release-please-start-version -->
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <!-- x-release-please-end -->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
