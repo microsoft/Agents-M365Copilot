@@ -1,0 +1,58 @@
+version: 2
+updates:
+  # TypeScript/npm dependencies
+  - package-ecosystem: "npm"
+    directory: "/typescript"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 10
+    groups:
+      development-dependencies:
+        dependency-type: "development"
+      production-dependencies:
+        dependency-type: "production"
+    labels:
+      - "dependencies"
+      - "typescript"
+
+  # .NET/NuGet dependencies
+  - package-ecosystem: "nuget"
+    directory: "/dotnet"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 10
+    groups:
+      nuget-dependencies:
+        patterns:
+          - "*"
+    labels:
+      - "dependencies"
+      - "dotnet"
+
+  # Python/pip dependencies
+  - package-ecosystem: "pip"
+    directory: "/python"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 10
+    groups:
+      python-dependencies:
+        patterns:
+          - "*"
+    labels:
+      - "dependencies"
+      - "python"
+
+  # GitHub Actions dependencies
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "github-actions"
