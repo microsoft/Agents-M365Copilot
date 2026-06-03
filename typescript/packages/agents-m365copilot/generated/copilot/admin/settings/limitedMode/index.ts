@@ -69,7 +69,7 @@ export interface LimitedModeRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const LimitedModeRequestBuilderUriTemplate = "{+baseurl}/copilot/admin/settings/limitedMode{?%24expand,%24select}";
+export const LimitedModeRequestBuilderUriTemplate = "{+baseurl}/copilot/admin/settings/limitedMode";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

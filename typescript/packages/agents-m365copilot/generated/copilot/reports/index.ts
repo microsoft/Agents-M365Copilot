@@ -93,7 +93,7 @@ export interface ReportsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ReportsRequestBuilderUriTemplate = "{+baseurl}/copilot/reports{?%24expand,%24select}";
+export const ReportsRequestBuilderUriTemplate = "{+baseurl}/copilot/reports";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
