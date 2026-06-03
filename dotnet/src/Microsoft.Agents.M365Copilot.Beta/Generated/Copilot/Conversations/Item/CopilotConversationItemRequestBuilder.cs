@@ -41,7 +41,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Conversations.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CopilotConversationItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/copilot/conversations/{copilotConversation%2Did}{?%24expand,%24select}", pathParameters)
+        public CopilotConversationItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/copilot/conversations/{copilotConversation%2Did}", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Conversations.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CopilotConversationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/copilot/conversations/{copilotConversation%2Did}{?%24expand,%24select}", rawUrl)
+        public CopilotConversationItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/copilot/conversations/{copilotConversation%2Did}", rawUrl)
         {
         }
         /// <summary>

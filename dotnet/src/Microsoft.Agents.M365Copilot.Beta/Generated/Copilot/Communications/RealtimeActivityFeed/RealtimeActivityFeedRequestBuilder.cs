@@ -35,7 +35,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActiv
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RealtimeActivityFeedRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/copilot/communications/realtimeActivityFeed{?%24expand,%24select}", pathParameters)
+        public RealtimeActivityFeedRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/copilot/communications/realtimeActivityFeed", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Communications.RealtimeActiv
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RealtimeActivityFeedRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/copilot/communications/realtimeActivityFeed{?%24expand,%24select}", rawUrl)
+        public RealtimeActivityFeedRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/copilot/communications/realtimeActivityFeed", rawUrl)
         {
         }
         /// <summary>
