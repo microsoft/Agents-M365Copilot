@@ -69,7 +69,7 @@ export interface EnhancedPersonalizationRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EnhancedPersonalizationRequestBuilderUriTemplate = "{+baseurl}/copilot/settings/people/enhancedPersonalization{?%24expand,%24select}";
+export const EnhancedPersonalizationRequestBuilderUriTemplate = "{+baseurl}/copilot/settings/people/enhancedPersonalization";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

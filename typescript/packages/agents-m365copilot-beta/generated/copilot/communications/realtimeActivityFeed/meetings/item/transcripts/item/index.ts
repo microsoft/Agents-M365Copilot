@@ -69,7 +69,7 @@ export interface RealTimeTranscriptItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RealTimeTranscriptItemRequestBuilderUriTemplate = "{+baseurl}/copilot/communications/realtimeActivityFeed/meetings/{realtimeActivityMeeting%2Did}/transcripts/{realTimeTranscript%2Did}{?%24expand,%24select}";
+export const RealTimeTranscriptItemRequestBuilderUriTemplate = "{+baseurl}/copilot/communications/realtimeActivityFeed/meetings/{realtimeActivityMeeting%2Did}/transcripts/{realTimeTranscript%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

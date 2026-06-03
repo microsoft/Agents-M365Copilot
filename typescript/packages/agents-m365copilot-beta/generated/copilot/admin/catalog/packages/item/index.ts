@@ -75,7 +75,7 @@ export interface CopilotPackageDetailItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CopilotPackageDetailItemRequestBuilderUriTemplate = "{+baseurl}/copilot/admin/catalog/packages/{copilotPackageDetail%2Did}{?%24expand,%24select}";
+export const CopilotPackageDetailItemRequestBuilderUriTemplate = "{+baseurl}/copilot/admin/catalog/packages/{copilotPackageDetail%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

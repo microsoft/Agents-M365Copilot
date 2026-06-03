@@ -75,7 +75,7 @@ export interface SettingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SettingsRequestBuilderUriTemplate = "{+baseurl}/copilot/settings{?%24expand,%24select}";
+export const SettingsRequestBuilderUriTemplate = "{+baseurl}/copilot/settings";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

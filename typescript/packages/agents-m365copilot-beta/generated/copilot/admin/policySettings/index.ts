@@ -95,7 +95,7 @@ export interface PolicySettingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PolicySettingsRequestBuilderUriTemplate = "{+baseurl}/copilot/admin/policySettings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const PolicySettingsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
