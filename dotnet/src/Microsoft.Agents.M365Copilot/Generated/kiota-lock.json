@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "9B6AF7D872886891A61596B4CA08F0F7A482FD4511D4DF6DE8ED13DE9A5FA558EBFC1BBF8288D694EE9287DB3726ACD0C585AF58BB25DC7FB95D3C9E7B78D79D",
+  "descriptionHash": "276443BE4BACB930C2630315EAF23EDD006159E7BC9D9C60A9E9D5100B04ADCED4EACB79F6A83E8B18C2AFAD66442D9383191CDA36108C06ACE441B783CCCBFB",
   "descriptionLocation": "../../msgraph-metadata/clean_v10_openapi/openapi.yaml",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.31.1",
+  "kiotaVersion": "1.32.0",
   "clientClassName": "BaseAgentsM365CopilotServiceClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Microsoft.Agents.M365Copilot",
