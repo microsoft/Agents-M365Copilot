@@ -35,7 +35,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AiUserItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/copilot/users/{aiUser%2Did}{?%24expand,%24select}", pathParameters)
+        public AiUserItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/copilot/users/{aiUser%2Did}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AiUserItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/copilot/users/{aiUser%2Did}{?%24expand,%24select}", rawUrl)
+        public AiUserItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/copilot/users/{aiUser%2Did}", rawUrl)
         {
         }
         /// <summary>
@@ -149,7 +149,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Microsoft.Agents.M365Copilot.Beta.Copilot.Users.Item.AiUserItemRequestBuilder.AiUserItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/copilot/users/{aiUser%2Did}{?%24expand,%24select}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
