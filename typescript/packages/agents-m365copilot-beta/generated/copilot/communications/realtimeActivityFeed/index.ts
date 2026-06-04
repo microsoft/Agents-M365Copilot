@@ -81,7 +81,7 @@ export interface RealtimeActivityFeedRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RealtimeActivityFeedRequestBuilderUriTemplate = "{+baseurl}/copilot/communications/realtimeActivityFeed{?%24expand,%24select}";
+export const RealtimeActivityFeedRequestBuilderUriTemplate = "{+baseurl}/copilot/communications/realtimeActivityFeed";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -115,7 +115,7 @@ export const RealtimeActivityFeedRequestBuilderRequestsMetadata: RequestsMetadat
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: RealtimeActivityFeedRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/communications/realtimeActivityFeed{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -95,7 +95,7 @@ export interface PackagesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PackagesRequestBuilderUriTemplate = "{+baseurl}/copilot/admin/catalog/packages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const PackagesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const PackagesRequestBuilderNavigationMetadata: Record<Exclude<keyof Pack
  */
 export const PackagesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: PackagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/admin/catalog/packages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const PackagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: PackagesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: PackagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/admin/catalog/packages",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

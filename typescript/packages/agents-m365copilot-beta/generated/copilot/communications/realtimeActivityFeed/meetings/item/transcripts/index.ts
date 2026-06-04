@@ -95,7 +95,7 @@ export interface TranscriptsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TranscriptsRequestBuilderUriTemplate = "{+baseurl}/copilot/communications/realtimeActivityFeed/meetings/{realtimeActivityMeeting%2Did}/transcripts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TranscriptsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const TranscriptsRequestBuilderNavigationMetadata: Record<Exclude<keyof T
  */
 export const TranscriptsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: TranscriptsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/communications/realtimeActivityFeed/meetings/{realtimeActivityMeeting%2Did}/transcripts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const TranscriptsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: TranscriptsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: TranscriptsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/communications/realtimeActivityFeed/meetings/{realtimeActivityMeeting%2Did}/transcripts",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

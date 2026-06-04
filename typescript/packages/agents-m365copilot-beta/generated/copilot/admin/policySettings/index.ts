@@ -95,7 +95,7 @@ export interface PolicySettingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PolicySettingsRequestBuilderUriTemplate = "{+baseurl}/copilot/admin/policySettings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const PolicySettingsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const PolicySettingsRequestBuilderNavigationMetadata: Record<Exclude<keyo
  */
 export const PolicySettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: PolicySettingsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/admin/policySettings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const PolicySettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: PolicySettingsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: PolicySettingsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/admin/policySettings",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -69,7 +69,7 @@ export interface LimitedModeRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const LimitedModeRequestBuilderUriTemplate = "{+baseurl}/copilot/admin/settings/limitedMode{?%24expand,%24select}";
+export const LimitedModeRequestBuilderUriTemplate = "{+baseurl}/copilot/admin/settings/limitedMode";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const LimitedModeRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: LimitedModeRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/admin/settings/limitedMode{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

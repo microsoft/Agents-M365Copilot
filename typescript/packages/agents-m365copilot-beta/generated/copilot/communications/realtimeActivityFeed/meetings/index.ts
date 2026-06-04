@@ -95,7 +95,7 @@ export interface MeetingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MeetingsRequestBuilderUriTemplate = "{+baseurl}/copilot/communications/realtimeActivityFeed/meetings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const MeetingsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const MeetingsRequestBuilderNavigationMetadata: Record<Exclude<keyof Meet
  */
 export const MeetingsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: MeetingsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/communications/realtimeActivityFeed/meetings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const MeetingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: MeetingsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: MeetingsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/communications/realtimeActivityFeed/meetings",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

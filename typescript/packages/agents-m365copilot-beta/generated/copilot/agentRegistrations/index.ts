@@ -95,7 +95,7 @@ export interface AgentRegistrationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AgentRegistrationsRequestBuilderUriTemplate = "{+baseurl}/copilot/agentRegistrations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AgentRegistrationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const AgentRegistrationsRequestBuilderNavigationMetadata: Record<Exclude<
  */
 export const AgentRegistrationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AgentRegistrationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/agentRegistrations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const AgentRegistrationsRequestBuilderRequestsMetadata: RequestsMetadata 
         queryParametersMapper: AgentRegistrationsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AgentRegistrationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/agentRegistrations",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

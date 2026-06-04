@@ -69,7 +69,7 @@ export interface CopilotConversationMessageItemRequestBuilderGetQueryParameters 
 /**
  * Uri template for the request builder.
  */
-export const CopilotConversationMessageItemRequestBuilderUriTemplate = "{+baseurl}/copilot/conversations/{copilotConversation%2Did}/messages/{copilotConversationMessage%2Did}{?%24expand,%24select}";
+export const CopilotConversationMessageItemRequestBuilderUriTemplate = "{+baseurl}/copilot/conversations/{copilotConversation%2Did}/messages/{copilotConversationMessage%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const CopilotConversationMessageItemRequestBuilderRequestsMetadata: Reque
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: CopilotConversationMessageItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/conversations/{copilotConversation%2Did}/messages/{copilotConversationMessage%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

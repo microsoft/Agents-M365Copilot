@@ -81,7 +81,7 @@ export interface AiUserItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AiUserItemRequestBuilderUriTemplate = "{+baseurl}/copilot/users/{aiUser%2Did}{?%24expand,%24select}";
+export const AiUserItemRequestBuilderUriTemplate = "{+baseurl}/copilot/users/{aiUser%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -115,7 +115,7 @@ export const AiUserItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AiUserItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/users/{aiUser%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

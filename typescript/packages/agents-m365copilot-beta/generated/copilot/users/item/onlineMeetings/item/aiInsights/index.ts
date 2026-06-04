@@ -95,7 +95,7 @@ export interface AiInsightsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AiInsightsRequestBuilderUriTemplate = "{+baseurl}/copilot/users/{aiUser%2Did}/onlineMeetings/{aiOnlineMeeting%2Did}/aiInsights{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AiInsightsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const AiInsightsRequestBuilderNavigationMetadata: Record<Exclude<keyof Ai
  */
 export const AiInsightsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AiInsightsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/users/{aiUser%2Did}/onlineMeetings/{aiOnlineMeeting%2Did}/aiInsights{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const AiInsightsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: AiInsightsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AiInsightsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/users/{aiUser%2Did}/onlineMeetings/{aiOnlineMeeting%2Did}/aiInsights",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

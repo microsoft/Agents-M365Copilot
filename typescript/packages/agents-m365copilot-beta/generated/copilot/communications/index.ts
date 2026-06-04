@@ -75,7 +75,7 @@ export interface CommunicationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CommunicationsRequestBuilderUriTemplate = "{+baseurl}/copilot/communications{?%24expand,%24select}";
+export const CommunicationsRequestBuilderUriTemplate = "{+baseurl}/copilot/communications";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const CommunicationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: CommunicationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/communications{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

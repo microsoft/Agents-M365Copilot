@@ -75,7 +75,7 @@ export interface InteractionHistoryRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const InteractionHistoryRequestBuilderUriTemplate = "{+baseurl}/copilot/interactionHistory{?%24expand,%24select}";
+export const InteractionHistoryRequestBuilderUriTemplate = "{+baseurl}/copilot/interactionHistory";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -104,7 +104,7 @@ export const InteractionHistoryRequestBuilderRequestsMetadata: RequestsMetadata 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: InteractionHistoryRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/interactionHistory{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

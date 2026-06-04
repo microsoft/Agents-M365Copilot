@@ -75,7 +75,7 @@ export interface CatalogRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CatalogRequestBuilderUriTemplate = "{+baseurl}/copilot/admin/catalog{?%24expand,%24select}";
+export const CatalogRequestBuilderUriTemplate = "{+baseurl}/copilot/admin/catalog";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const CatalogRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: CatalogRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/admin/catalog{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

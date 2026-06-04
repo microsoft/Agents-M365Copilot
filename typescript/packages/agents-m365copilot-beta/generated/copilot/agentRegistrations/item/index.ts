@@ -69,7 +69,7 @@ export interface AgentRegistrationItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AgentRegistrationItemRequestBuilderUriTemplate = "{+baseurl}/copilot/agentRegistrations/{agentRegistration%2Did}{?%24expand,%24select}";
+export const AgentRegistrationItemRequestBuilderUriTemplate = "{+baseurl}/copilot/agentRegistrations/{agentRegistration%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const AgentRegistrationItemRequestBuilderRequestsMetadata: RequestsMetada
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AgentRegistrationItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/agentRegistrations/{agentRegistration%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

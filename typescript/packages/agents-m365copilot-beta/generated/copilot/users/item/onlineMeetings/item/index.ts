@@ -75,7 +75,7 @@ export interface AiOnlineMeetingItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AiOnlineMeetingItemRequestBuilderUriTemplate = "{+baseurl}/copilot/users/{aiUser%2Did}/onlineMeetings/{aiOnlineMeeting%2Did}{?%24expand,%24select}";
+export const AiOnlineMeetingItemRequestBuilderUriTemplate = "{+baseurl}/copilot/users/{aiUser%2Did}/onlineMeetings/{aiOnlineMeeting%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const AiOnlineMeetingItemRequestBuilderRequestsMetadata: RequestsMetadata
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AiOnlineMeetingItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/users/{aiUser%2Did}/onlineMeetings/{aiOnlineMeeting%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

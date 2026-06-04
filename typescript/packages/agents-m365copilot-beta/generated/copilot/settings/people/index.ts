@@ -75,7 +75,7 @@ export interface PeopleRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PeopleRequestBuilderUriTemplate = "{+baseurl}/copilot/settings/people{?%24expand,%24select}";
+export const PeopleRequestBuilderUriTemplate = "{+baseurl}/copilot/settings/people";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -104,7 +104,7 @@ export const PeopleRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: PeopleRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/copilot/settings/people{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
