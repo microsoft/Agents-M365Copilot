@@ -13,14 +13,14 @@ class RetrievalPostRequestBody(AdditionalDataHolder, Parsable):
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additional_data: dict[str, Any] = field(default_factory=dict)
 
+    # The includeThumbnails property
+    include_thumbnails: Optional[bool] = False
     # The dataSource property
     data_source: Optional[RetrievalDataSource] = None
     # The dataSourceConfiguration property
     data_source_configuration: Optional[DataSourceConfiguration] = None
     # The filterExpression property
     filter_expression: Optional[str] = None
-    # The includeThumbnails property
-    include_thumbnails: Optional[bool] = None
     # The maximumNumberOfResults property
     maximum_number_of_results: Optional[int] = None
     # The queryString property
