@@ -77,6 +77,7 @@ export interface InteractionRow {
     id: string;
     session_id: string | null;
     request_id: string | null;
+    target_user_id: string;
     app_class: string;
     interaction_type: string;
     conversation_type: string;
@@ -109,6 +110,7 @@ export interface DashboardStats {
 export interface InteractionListParams {
     page?: number;
     pageSize?: number;
+    targetUserId?: string;
     appClass?: string;
     interactionType?: string;
     search?: string;
@@ -123,6 +125,13 @@ export interface PaginatedResult<T> {
     page: number;
     pageSize: number;
     totalPages: number;
+}
+
+export interface TargetUserSummary {
+    userId: string;
+    displayName: string;
+    interactionCount: number;
+    lastExportAt: string;
 }
 
 export const APP_CLASS_LABELS: Record<string, string> = {

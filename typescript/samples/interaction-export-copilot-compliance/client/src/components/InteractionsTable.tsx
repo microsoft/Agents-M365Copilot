@@ -5,10 +5,11 @@ import type { InteractionRow, PaginatedResult } from '../types';
 import { getAppLabel, APP_CLASS_LABELS } from '../types';
 
 interface InteractionsTableProps {
+    targetUserId?: string;
     onViewSession?: (sessionId: string) => void;
 }
 
-export default function InteractionsTable({ onViewSession }: InteractionsTableProps) {
+export default function InteractionsTable({ targetUserId, onViewSession }: InteractionsTableProps) {
     const [page, setPage] = useState(1);
     const [pageSize] = useState(25);
     const [search, setSearch] = useState('');
@@ -22,6 +23,7 @@ export default function InteractionsTable({ onViewSession }: InteractionsTablePr
         page: String(page),
         pageSize: String(pageSize),
     });
+    if (targetUserId) queryParams.set('targetUserId', targetUserId);
     if (search) queryParams.set('search', search);
     if (appFilter) queryParams.set('appClass', appFilter);
     if (typeFilter) queryParams.set('interactionType', typeFilter);
@@ -147,7 +149,11 @@ export default function InteractionsTable({ onViewSession }: InteractionsTablePr
                                     <td className="px-4 py-3">
                                         {onViewSession && (
                                             <button
-                                                onClick={(e) => { e.stopPropagation(); onViewSession(row.session_id); }}
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    if (!row.session_id) return;
+                                                    onViewSession(row.session_id);
+                                                }}
                                                 className="text-brand-600 hover:text-brand-800 inline-flex items-center gap-1 text-xs"
                                                 title="View session"
                                             >

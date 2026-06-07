@@ -5,24 +5,30 @@ import type { InteractionRow, PaginatedResult, SessionSummary } from '../types';
 import { getAppLabel } from '../types';
 
 interface SessionViewProps {
+    targetUserId?: string;
     focusedSessionId?: string | null;
     onClearFocus?: () => void;
 }
 
-export default function SessionView({ focusedSessionId, onClearFocus }: SessionViewProps) {
+export default function SessionView({ targetUserId, focusedSessionId, onClearFocus }: SessionViewProps) {
     const [page, setPage] = useState(1);
     const [selectedSession, setSelectedSession] = useState<string | null>(focusedSessionId ?? null);
 
+    const sessionsQs = new URLSearchParams({ page: String(page), pageSize: '20' });
+    if (targetUserId) sessionsQs.set('targetUserId', targetUserId);
     const { data: sessionsData, loading: sessionsLoading } = useApi<PaginatedResult<SessionSummary>>(
-        `/sessions?page=${page}&pageSize=20`,
-        [page],
+        `/sessions?${sessionsQs.toString()}`,
+        [page, targetUserId],
     );
 
     const activeSession = focusedSessionId ?? selectedSession;
 
+    const sessionPath = activeSession
+        ? `/sessions/${encodeURIComponent(activeSession)}${targetUserId ? `?targetUserId=${encodeURIComponent(targetUserId)}` : ''}`
+        : '/sessions/__none__';
     const { data: sessionInteractions, loading: sessionLoading } = useApi<InteractionRow[]>(
-        activeSession ? `/sessions/${encodeURIComponent(activeSession)}` : '/sessions/__none__',
-        [activeSession],
+        sessionPath,
+        [activeSession, targetUserId],
     );
 
     if (activeSession && (focusedSessionId || selectedSession)) {
@@ -57,8 +63,8 @@ export default function SessionView({ focusedSessionId, onClearFocus }: SessionV
                                             {/* Timeline dot */}
                                             <div
                                                 className={`relative z-10 flex items-center justify-center w-10 h-10 rounded-full border-2 ${isPrompt
-                                                        ? 'bg-emerald-50 border-emerald-400'
-                                                        : 'bg-purple-50 border-purple-400'
+                                                    ? 'bg-emerald-50 border-emerald-400'
+                                                    : 'bg-purple-50 border-purple-400'
                                                     }`}
                                             >
                                                 <MessageCircle
@@ -73,8 +79,8 @@ export default function SessionView({ focusedSessionId, onClearFocus }: SessionV
                                                     <div className="flex items-center gap-2">
                                                         <span
                                                             className={`text-xs font-semibold px-2 py-0.5 rounded-full ${isPrompt
-                                                                    ? 'bg-emerald-100 text-emerald-700'
-                                                                    : 'bg-purple-100 text-purple-700'
+                                                                ? 'bg-emerald-100 text-emerald-700'
+                                                                : 'bg-purple-100 text-purple-700'
                                                                 }`}
                                                         >
                                                             {isPrompt ? 'User Prompt' : 'AI Response'}

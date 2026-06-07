@@ -3,7 +3,7 @@
 import Database from 'better-sqlite3';
 import path from 'path';
 import { createLogger } from './logger';
-import type { InteractionRow, DashboardStats, InteractionListParams, PaginatedResult } from './types';
+import type { InteractionRow, DashboardStats, InteractionListParams, PaginatedResult, TargetUserSummary } from './types';
 
 const log = createLogger('Database');
 
@@ -20,6 +20,7 @@ export function initDatabase(): void {
       id                TEXT PRIMARY KEY,
       session_id        TEXT,
       request_id        TEXT,
+    target_user_id    TEXT,
       app_class         TEXT NOT NULL,
       interaction_type  TEXT NOT NULL,
       conversation_type TEXT,
@@ -45,6 +46,14 @@ export function initDatabase(): void {
     CREATE INDEX IF NOT EXISTS idx_interactions_created_at ON interactions(created_at);
   `);
 
+    // Backward-compatible migration for databases created before target_user_id existed.
+    const columns = db.prepare('PRAGMA table_info(interactions)').all() as { name: string }[];
+    const hasTargetUserId = columns.some((c) => c.name === 'target_user_id');
+    if (!hasTargetUserId) {
+        db.exec('ALTER TABLE interactions ADD COLUMN target_user_id TEXT');
+    }
+    db.exec('CREATE INDEX IF NOT EXISTS idx_interactions_target_user ON interactions(target_user_id)');
+
     log.info(`Database initialised at ${DB_PATH}`);
 }
 
@@ -52,17 +61,18 @@ export function initDatabase(): void {
 
 const upsertStmt = () => db.prepare(`
   INSERT INTO interactions (
-    id, session_id, request_id, app_class, interaction_type, conversation_type,
+        id, session_id, request_id, target_user_id, app_class, interaction_type, conversation_type,
     created_at, locale, body_content_type, body_content,
     from_user_id, from_user_name, from_app_id, from_app_name,
     contexts_json, attachments_json, links_json, mentions_json, exported_at
   ) VALUES (
-    @id, @session_id, @request_id, @app_class, @interaction_type, @conversation_type,
+    @id, @session_id, @request_id, @target_user_id, @app_class, @interaction_type, @conversation_type,
     @created_at, @locale, @body_content_type, @body_content,
     @from_user_id, @from_user_name, @from_app_id, @from_app_name,
     @contexts_json, @attachments_json, @links_json, @mentions_json, datetime('now')
   ) ON CONFLICT(id) DO UPDATE SET
     body_content      = excluded.body_content,
+        target_user_id    = excluded.target_user_id,
     exported_at       = datetime('now')
 `);
 
@@ -83,13 +93,16 @@ export function upsertInteractions(rows: InteractionRow[]): number {
 
 // ─── Query helpers ───
 
-export function getStats(): DashboardStats {
-    const total = db.prepare('SELECT COUNT(*) as c FROM interactions').get() as { c: number };
-    const prompts = db.prepare("SELECT COUNT(*) as c FROM interactions WHERE interaction_type = 'userPrompt'").get() as { c: number };
-    const responses = db.prepare("SELECT COUNT(*) as c FROM interactions WHERE interaction_type = 'aiResponse'").get() as { c: number };
-    const sessions = db.prepare('SELECT COUNT(DISTINCT session_id) as c FROM interactions').get() as { c: number };
-    const appBreakdown = db.prepare('SELECT app_class as appClass, COUNT(*) as count FROM interactions GROUP BY app_class ORDER BY count DESC').all() as { appClass: string; count: number }[];
-    const recentExport = db.prepare('SELECT MAX(exported_at) as m FROM interactions').get() as { m: string | null };
+export function getStats(targetUserId?: string): DashboardStats {
+    const where = targetUserId ? 'WHERE target_user_id = @targetUserId' : '';
+    const bindings = targetUserId ? { targetUserId } : {};
+
+    const total = db.prepare(`SELECT COUNT(*) as c FROM interactions ${where}`).get(bindings) as { c: number };
+    const prompts = db.prepare(`SELECT COUNT(*) as c FROM interactions ${where ? `${where} AND` : 'WHERE'} interaction_type = 'userPrompt'`).get(bindings) as { c: number };
+    const responses = db.prepare(`SELECT COUNT(*) as c FROM interactions ${where ? `${where} AND` : 'WHERE'} interaction_type = 'aiResponse'`).get(bindings) as { c: number };
+    const sessions = db.prepare(`SELECT COUNT(DISTINCT session_id) as c FROM interactions ${where}`).get(bindings) as { c: number };
+    const appBreakdown = db.prepare(`SELECT app_class as appClass, COUNT(*) as count FROM interactions ${where} GROUP BY app_class ORDER BY count DESC`).all(bindings) as { appClass: string; count: number }[];
+    const recentExport = db.prepare(`SELECT MAX(exported_at) as m FROM interactions ${where}`).get(bindings) as { m: string | null };
 
     return {
         totalInteractions: total.c,
@@ -108,6 +121,11 @@ export function getInteractions(params: InteractionListParams): PaginatedResult<
 
     const conditions: string[] = [];
     const bindings: Record<string, string> = {};
+
+    if (params.targetUserId) {
+        conditions.push('target_user_id = @targetUserId');
+        bindings.targetUserId = params.targetUserId;
+    }
 
     if (params.appClass) {
         conditions.push('app_class = @appClass');
@@ -152,11 +170,16 @@ export function getInteractions(params: InteractionListParams): PaginatedResult<
     };
 }
 
-export function getSessionInteractions(sessionId: string): InteractionRow[] {
-    return db.prepare('SELECT * FROM interactions WHERE session_id = @sessionId ORDER BY created_at ASC').all({ sessionId }) as InteractionRow[];
+export function getSessionInteractions(sessionId: string, targetUserId?: string): InteractionRow[] {
+    const where = targetUserId
+        ? 'WHERE session_id = @sessionId AND target_user_id = @targetUserId'
+        : 'WHERE session_id = @sessionId';
+    return db.prepare(`SELECT * FROM interactions ${where} ORDER BY created_at ASC`).all(
+        targetUserId ? { sessionId, targetUserId } : { sessionId },
+    ) as InteractionRow[];
 }
 
-export function getSessions(params: { page?: number; pageSize?: number; startDate?: string; endDate?: string }): PaginatedResult<{
+export function getSessions(params: { page?: number; pageSize?: number; startDate?: string; endDate?: string; targetUserId?: string }): PaginatedResult<{
     sessionId: string;
     interactionCount: number;
     firstAt: string;
@@ -170,6 +193,10 @@ export function getSessions(params: { page?: number; pageSize?: number; startDat
     const conditions: string[] = [];
     const bindings: Record<string, string> = {};
 
+    if (params.targetUserId) {
+        conditions.push('target_user_id = @targetUserId');
+        bindings.targetUserId = params.targetUserId;
+    }
     if (params.startDate) {
         conditions.push('created_at >= @startDate');
         bindings.startDate = params.startDate;
@@ -211,9 +238,14 @@ export function getSessions(params: { page?: number; pageSize?: number; startDat
     };
 }
 
-export function exportAll(params: { appClass?: string; startDate?: string; endDate?: string }): InteractionRow[] {
+export function exportAll(params: { targetUserId?: string; appClass?: string; startDate?: string; endDate?: string }): InteractionRow[] {
     const conditions: string[] = [];
     const bindings: Record<string, string> = {};
+
+    if (params.targetUserId) {
+        conditions.push('target_user_id = @targetUserId');
+        bindings.targetUserId = params.targetUserId;
+    }
 
     if (params.appClass) {
         conditions.push('app_class = @appClass');
@@ -230,4 +262,67 @@ export function exportAll(params: { appClass?: string; startDate?: string; endDa
 
     const where = conditions.length ? `WHERE ${conditions.join(' AND ')}` : '';
     return db.prepare(`SELECT * FROM interactions ${where} ORDER BY created_at ASC`).all(bindings) as InteractionRow[];
+}
+
+export function listTargetUsers(search?: string): TargetUserSummary[] {
+    const term = (search ?? '').trim();
+    const where = term
+        ? `WHERE target_user_id IS NOT NULL AND (
+                         target_user_id LIKE @like OR
+                         target_user_id IN (
+                             SELECT DISTINCT target_user_id
+                             FROM interactions
+                             WHERE from_user_name LIKE @like
+                         )
+                     )`
+        : 'WHERE target_user_id IS NOT NULL';
+
+    return db.prepare(`
+            SELECT
+                target_user_id as userId,
+                COALESCE(
+                    MAX(CASE WHEN from_user_id = target_user_id THEN from_user_name END),
+                    'Unknown user'
+                ) as displayName,
+                COUNT(*) as interactionCount,
+                MAX(exported_at) as lastExportAt
+            FROM interactions
+            ${where}
+            GROUP BY target_user_id
+            ORDER BY lastExportAt DESC
+            LIMIT 50
+        `).all(term ? { like: `%${term}%` } : {}) as TargetUserSummary[];
+}
+
+/**
+ * Check if a target user's data is fresh enough (exported within the last hour).
+ * Returns { exists, stale, lastExportAt, interactionCount }.
+ */
+export function checkUserFreshness(targetUserId: string): {
+    exists: boolean;
+    stale: boolean;
+    lastExportAt: string | null;
+    interactionCount: number;
+} {
+    const row = db.prepare(`
+        SELECT COUNT(*) as c, MAX(exported_at) as lastExport
+        FROM interactions
+        WHERE target_user_id = @targetUserId
+    `).get({ targetUserId }) as { c: number; lastExport: string | null };
+
+    const exists = row.c > 0;
+    let stale = !exists;
+
+    if (row.lastExport) {
+        const lastMs = new Date(row.lastExport).getTime();
+        const ageMs = Date.now() - lastMs;
+        stale = ageMs > 60 * 60 * 1000; // older than 1 hour
+    }
+
+    return {
+        exists,
+        stale,
+        lastExportAt: row.lastExport,
+        interactionCount: row.c,
+    };
 }

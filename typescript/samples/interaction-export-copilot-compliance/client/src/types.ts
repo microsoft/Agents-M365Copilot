@@ -11,8 +11,9 @@ export interface DashboardStats {
 
 export interface InteractionRow {
     id: string;
-    session_id: string;
-    request_id: string;
+    session_id: string | null;
+    request_id: string | null;
+    target_user_id: string;
     app_class: string;
     interaction_type: string;
     conversation_type: string;
@@ -45,6 +46,13 @@ export interface SessionSummary {
     firstAt: string;
     lastAt: string;
     apps: string;
+}
+
+export interface TargetUserSummary {
+    userId: string;
+    displayName: string;
+    interactionCount: number;
+    lastExportAt: string;
 }
 
 export const APP_CLASS_LABELS: Record<string, string> = {

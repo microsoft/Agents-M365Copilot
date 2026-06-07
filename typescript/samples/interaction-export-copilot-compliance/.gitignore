@@ -4,5 +4,6 @@ dist/
 *.db
 *.db-*
 *.tsbuildinfo
+DemoScript_Voiceover.txt
 client/node_modules/
 client/dist/

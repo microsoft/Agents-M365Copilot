@@ -54,7 +54,7 @@ export async function exportInteractions(opts: ExportOptions): Promise<number> {
         const json = (await res.json()) as GraphPagedResponse<AiInteraction>;
 
         if (json.value.length) {
-            const rows = json.value.map(mapToRow);
+            const rows = json.value.map((interaction) => mapToRow(interaction, userId));
             const count = upsertInteractions(rows);
             totalExported += count;
             log.info(`Page ${pageNum}: stored ${count} interactions`);
@@ -69,13 +69,79 @@ export async function exportInteractions(opts: ExportOptions): Promise<number> {
     return totalExported;
 }
 
+// ─── Live stats from Graph (count-only, no storage) ───
+
+export interface LiveStats {
+    totalInteractions: number;
+    totalUserPrompts: number;
+    totalAiResponses: number;
+    totalSessions: number;
+    appBreakdown: { appClass: string; count: number }[];
+    source: 'graph';
+}
+
+export async function fetchLiveStats(userId: string): Promise<LiveStats> {
+    let url: string = `${GRAPH_BASE}/copilot/users/${encodeURIComponent(userId)}/interactionHistory/getAllEnterpriseInteractions?$top=100`;
+    const token = await getAccessToken();
+
+    let totalInteractions = 0;
+    let totalUserPrompts = 0;
+    let totalAiResponses = 0;
+    const sessionIds = new Set<string>();
+    const appCounts = new Map<string, number>();
+    let pageNum = 0;
+
+    while (url) {
+        pageNum++;
+        log.info(`[LiveStats] Fetching page ${pageNum} …`);
+
+        const res = await fetch(url, {
+            headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+        });
+
+        if (!res.ok) {
+            const body = await res.text();
+            log.error(`[LiveStats] Graph API error ${res.status}: ${body}`);
+            throw new Error(`Graph API returned ${res.status}`);
+        }
+
+        const json = (await res.json()) as GraphPagedResponse<AiInteraction>;
+
+        for (const interaction of json.value) {
+            totalInteractions++;
+            if (interaction.interactionType === 'userPrompt') totalUserPrompts++;
+            if (interaction.interactionType === 'aiResponse') totalAiResponses++;
+            if (interaction.sessionId) sessionIds.add(interaction.sessionId);
+            appCounts.set(interaction.appClass, (appCounts.get(interaction.appClass) ?? 0) + 1);
+        }
+
+        url = json['@odata.nextLink'] ?? '';
+    }
+
+    const appBreakdown = [...appCounts.entries()]
+        .map(([appClass, count]) => ({ appClass, count }))
+        .sort((a, b) => b.count - a.count);
+
+    log.info(`[LiveStats] Done — ${totalInteractions} interactions, ${sessionIds.size} sessions`);
+
+    return {
+        totalInteractions,
+        totalUserPrompts,
+        totalAiResponses,
+        totalSessions: sessionIds.size,
+        appBreakdown,
+        source: 'graph',
+    };
+}
+
 // ─── Map Graph resource to database row ───
 
-function mapToRow(i: AiInteraction): InteractionRow {
+function mapToRow(i: AiInteraction, targetUserId: string): InteractionRow {
     return {
         id: i.id,
         session_id: i.sessionId ?? null,
         request_id: i.requestId ?? null,
+        target_user_id: targetUserId,
         app_class: i.appClass,
         interaction_type: i.interactionType,
         conversation_type: i.conversationType ?? '',
