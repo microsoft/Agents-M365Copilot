@@ -39,7 +39,7 @@ jobs:
       dotnet: ${{ steps.check.outputs.dotnet }}
       typescript: ${{ steps.check.outputs.typescript }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Check changed files
@@ -93,7 +93,7 @@ jobs:
     env:
       solutionName: Microsoft.Agents.M365Copilot.sln
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Setup .NET
         uses: actions/setup-dotnet@v5.2.0
         with:
@@ -130,7 +130,7 @@ jobs:
         # Single version should work for compilation testing
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
