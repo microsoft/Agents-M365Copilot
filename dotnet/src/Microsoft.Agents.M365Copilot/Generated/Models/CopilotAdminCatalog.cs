@@ -9,34 +9,26 @@ namespace Microsoft.Agents.M365Copilot.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class CopilotAdmin : global::Microsoft.Agents.M365Copilot.Models.Entity, IParsable
+    public partial class CopilotAdminCatalog : global::Microsoft.Agents.M365Copilot.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The catalog property</summary>
+        /// <summary>The packages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Microsoft.Agents.M365Copilot.Models.CopilotAdminCatalog? Catalog { get; set; }
+        public List<global::Microsoft.Agents.M365Copilot.Models.CopilotPackageDetail>? Packages { get; set; }
 #nullable restore
 #else
-        public global::Microsoft.Agents.M365Copilot.Models.CopilotAdminCatalog Catalog { get; set; }
-#endif
-        /// <summary>The settings property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Microsoft.Agents.M365Copilot.Models.CopilotAdminSetting? Settings { get; set; }
-#nullable restore
-#else
-        public global::Microsoft.Agents.M365Copilot.Models.CopilotAdminSetting Settings { get; set; }
+        public List<global::Microsoft.Agents.M365Copilot.Models.CopilotPackageDetail> Packages { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Models.CopilotAdmin"/></returns>
+        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Models.CopilotAdminCatalog"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Microsoft.Agents.M365Copilot.Models.CopilotAdmin CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Microsoft.Agents.M365Copilot.Models.CopilotAdminCatalog CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Microsoft.Agents.M365Copilot.Models.CopilotAdmin();
+            return new global::Microsoft.Agents.M365Copilot.Models.CopilotAdminCatalog();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,8 +38,7 @@ namespace Microsoft.Agents.M365Copilot.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "catalog", n => { Catalog = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Models.CopilotAdminCatalog>(global::Microsoft.Agents.M365Copilot.Models.CopilotAdminCatalog.CreateFromDiscriminatorValue); } },
-                { "settings", n => { Settings = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Models.CopilotAdminSetting>(global::Microsoft.Agents.M365Copilot.Models.CopilotAdminSetting.CreateFromDiscriminatorValue); } },
+                { "packages", n => { Packages = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Models.CopilotPackageDetail>(global::Microsoft.Agents.M365Copilot.Models.CopilotPackageDetail.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,8 +49,7 @@ namespace Microsoft.Agents.M365Copilot.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Models.CopilotAdminCatalog>("catalog", Catalog);
-            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Models.CopilotAdminSetting>("settings", Settings);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Models.CopilotPackageDetail>("packages", Packages);
         }
     }
 }
