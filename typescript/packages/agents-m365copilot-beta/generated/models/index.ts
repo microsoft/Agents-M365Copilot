@@ -783,6 +783,10 @@ export interface CopilotPackage extends Entity, Parsable {
      */
     availableTo?: PackageStatus | null;
     /**
+     * The createdDateTime property
+     */
+    createdDateTime?: Date | null;
+    /**
      * The deployedTo property
      */
     deployedTo?: PackageStatus | null;
@@ -868,6 +872,10 @@ export interface CopilotPackageDetail extends CopilotPackage, Parsable {
      * The sensitivity property
      */
     sensitivity?: string | null;
+    /**
+     * The sharedWithUsersAndGroups property
+     */
+    sharedWithUsersAndGroups?: PackageAccessEntity[] | null;
 }
 export interface CopilotPackageDetailCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
@@ -1667,6 +1675,15 @@ export function createCopilotWebContextFromDiscriminatorValue(parseNode: ParseNo
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CustomEmojiFromIdentitySet}
+ */
+// @ts-ignore
+export function createCustomEmojiFromIdentitySetFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCustomEmojiFromIdentitySet;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DataSourceConfiguration}
  */
 // @ts-ignore
@@ -1927,6 +1944,8 @@ export function createIdentitySetFromDiscriminatorValue(parseNode: ParseNode | u
                     return deserializeIntoChatMessageReactionIdentitySet;
                 case "#microsoft.graph.communicationsIdentitySet":
                     return deserializeIntoCommunicationsIdentitySet;
+                case "#microsoft.graph.customEmojiFromIdentitySet":
+                    return deserializeIntoCustomEmojiFromIdentitySet;
                 case "#microsoft.graph.engagementIdentitySet":
                     return deserializeIntoEngagementIdentitySet;
                 case "#microsoft.graph.sharePointIdentitySet":
@@ -2403,6 +2422,8 @@ export function createUserIdentityFromDiscriminatorValue(parseNode: ParseNode | 
     }
     return deserializeIntoUserIdentity;
 }
+export interface CustomEmojiFromIdentitySet extends IdentitySet, Parsable {
+}
 export interface DataSourceConfiguration extends AdditionalDataHolder, Parsable {
     /**
      * The externalItem property
@@ -2482,7 +2503,7 @@ export function deserializeIntoAgentRegistration(agentRegistration: Partial<Agen
         "lastPublishedBy": n => { agentRegistration.lastPublishedBy = n.getStringValue(); },
         "managedByAppId": n => { agentRegistration.managedByAppId = n.getStringValue(); },
         "originatingStore": n => { agentRegistration.originatingStore = n.getStringValue(); },
-        "ownerIds": n => { agentRegistration.ownerIds = n.getCollectionOfPrimitiveValues<string>(); },
+        "ownerIds": n => { agentRegistration.ownerIds = n.getCollectionOfPrimitiveValues<string>("string"); },
         "sourceAgentId": n => { agentRegistration.sourceAgentId = n.getStringValue(); },
         "sourceCreatedDateTime": n => { agentRegistration.sourceCreatedDateTime = n.getDateValue(); },
         "sourceLastModifiedDateTime": n => { agentRegistration.sourceLastModifiedDateTime = n.getDateValue(); },
@@ -3176,9 +3197,10 @@ export function deserializeIntoCopilotPackage(copilotPackage: Partial<CopilotPac
         "appId": n => { copilotPackage.appId = n.getStringValue(); },
         "assetId": n => { copilotPackage.assetId = n.getStringValue(); },
         "availableTo": n => { copilotPackage.availableTo = n.getEnumValue<PackageStatus>(PackageStatusObject); },
+        "createdDateTime": n => { copilotPackage.createdDateTime = n.getDateValue(); },
         "deployedTo": n => { copilotPackage.deployedTo = n.getEnumValue<PackageStatus>(PackageStatusObject); },
         "displayName": n => { copilotPackage.displayName = n.getStringValue(); },
-        "elementTypes": n => { copilotPackage.elementTypes = n.getCollectionOfPrimitiveValues<string>(); },
+        "elementTypes": n => { copilotPackage.elementTypes = n.getCollectionOfPrimitiveValues<string>("string"); },
         "isBlocked": n => { copilotPackage.isBlocked = n.getBooleanValue(); },
         "lastModifiedDateTime": n => { copilotPackage.lastModifiedDateTime = n.getDateValue(); },
         "manifestId": n => { copilotPackage.manifestId = n.getStringValue(); },
@@ -3187,7 +3209,7 @@ export function deserializeIntoCopilotPackage(copilotPackage: Partial<CopilotPac
         "platform": n => { copilotPackage.platform = n.getStringValue(); },
         "publisher": n => { copilotPackage.publisher = n.getStringValue(); },
         "shortDescription": n => { copilotPackage.shortDescription = n.getStringValue(); },
-        "supportedHosts": n => { copilotPackage.supportedHosts = n.getCollectionOfPrimitiveValues<string>(); },
+        "supportedHosts": n => { copilotPackage.supportedHosts = n.getCollectionOfPrimitiveValues<string>("string"); },
         "type": n => { copilotPackage.type = n.getEnumValue<PackageType>(PackageTypeObject); },
         "version": n => { copilotPackage.version = n.getStringValue(); },
         "zipFile": n => { copilotPackage.zipFile = n.getByteArrayValue(); },
@@ -3204,10 +3226,11 @@ export function deserializeIntoCopilotPackageDetail(copilotPackageDetail: Partia
         ...deserializeIntoCopilotPackage(copilotPackageDetail),
         "acquireUsersAndGroups": n => { copilotPackageDetail.acquireUsersAndGroups = n.getCollectionOfObjectValues<PackageAccessEntity>(createPackageAccessEntityFromDiscriminatorValue); },
         "allowedUsersAndGroups": n => { copilotPackageDetail.allowedUsersAndGroups = n.getCollectionOfObjectValues<PackageAccessEntity>(createPackageAccessEntityFromDiscriminatorValue); },
-        "categories": n => { copilotPackageDetail.categories = n.getCollectionOfPrimitiveValues<string>(); },
+        "categories": n => { copilotPackageDetail.categories = n.getCollectionOfPrimitiveValues<string>("string"); },
         "elementDetails": n => { copilotPackageDetail.elementDetails = n.getCollectionOfObjectValues<PackageElementDetail>(createPackageElementDetailFromDiscriminatorValue); },
         "longDescription": n => { copilotPackageDetail.longDescription = n.getStringValue(); },
         "sensitivity": n => { copilotPackageDetail.sensitivity = n.getStringValue(); },
+        "sharedWithUsersAndGroups": n => { copilotPackageDetail.sharedWithUsersAndGroups = n.getCollectionOfObjectValues<PackageAccessEntity>(createPackageAccessEntityFromDiscriminatorValue); },
     }
 }
 /**
@@ -3357,6 +3380,17 @@ export function deserializeIntoCopilotWebContext(copilotWebContext: Partial<Copi
     return {
         "isWebEnabled": n => { copilotWebContext.isWebEnabled = n.getBooleanValue(); },
         "@odata.type": n => { copilotWebContext.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CustomEmojiFromIdentitySet The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCustomEmojiFromIdentitySet(customEmojiFromIdentitySet: Partial<CustomEmojiFromIdentitySet> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoIdentitySet(customEmojiFromIdentitySet),
     }
 }
 /**
@@ -3647,7 +3681,7 @@ export function deserializeIntoOneDriveDataSourceConfiguration(oneDriveDataSourc
     return {
         "filterExpression": n => { oneDriveDataSourceConfiguration.filterExpression = n.getStringValue(); },
         "@odata.type": n => { oneDriveDataSourceConfiguration.odataType = n.getStringValue(); },
-        "resourceMetadataNames": n => { oneDriveDataSourceConfiguration.resourceMetadataNames = n.getCollectionOfPrimitiveValues<string>(); },
+        "resourceMetadataNames": n => { oneDriveDataSourceConfiguration.resourceMetadataNames = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**
@@ -3833,7 +3867,7 @@ export function deserializeIntoResultInfo(resultInfo: Partial<ResultInfo> | unde
 export function deserializeIntoRetrievalExtract(retrievalExtract: Partial<RetrievalExtract> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "@odata.type": n => { retrievalExtract.odataType = n.getStringValue(); },
-        "pageNumbers": n => { retrievalExtract.pageNumbers = n.getCollectionOfPrimitiveValues<number>(); },
+        "pageNumbers": n => { retrievalExtract.pageNumbers = n.getCollectionOfPrimitiveValues<number>("number"); },
         "relevanceScore": n => { retrievalExtract.relevanceScore = n.getNumberValue(); },
         "text": n => { retrievalExtract.text = n.getStringValue(); },
     }
@@ -5442,6 +5476,7 @@ export function serializeCopilotPackage(writer: SerializationWriter, copilotPack
     writer.writeStringValue("appId", copilotPackage.appId);
     writer.writeStringValue("assetId", copilotPackage.assetId);
     writer.writeEnumValue<PackageStatus>("availableTo", copilotPackage.availableTo);
+    writer.writeDateValue("createdDateTime", copilotPackage.createdDateTime);
     writer.writeEnumValue<PackageStatus>("deployedTo", copilotPackage.deployedTo);
     writer.writeStringValue("displayName", copilotPackage.displayName);
     writer.writeCollectionOfPrimitiveValues<string>("elementTypes", copilotPackage.elementTypes);
@@ -5479,6 +5514,7 @@ export function serializeCopilotPackageDetail(writer: SerializationWriter, copil
     writer.writeCollectionOfObjectValues<PackageElementDetail>("elementDetails", copilotPackageDetail.elementDetails, serializePackageElementDetail);
     writer.writeStringValue("longDescription", copilotPackageDetail.longDescription);
     writer.writeStringValue("sensitivity", copilotPackageDetail.sensitivity);
+    writer.writeCollectionOfObjectValues<PackageAccessEntity>("sharedWithUsersAndGroups", copilotPackageDetail.sharedWithUsersAndGroups, serializePackageAccessEntity);
 }
 /**
  * Serializes information the current object
@@ -5633,6 +5669,17 @@ export function serializeCopilotWebContext(writer: SerializationWriter, copilotW
     writer.writeBooleanValue("isWebEnabled", copilotWebContext.isWebEnabled);
     writer.writeStringValue("@odata.type", copilotWebContext.odataType);
     writer.writeAdditionalData(copilotWebContext.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CustomEmojiFromIdentitySet The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCustomEmojiFromIdentitySet(writer: SerializationWriter, customEmojiFromIdentitySet: Partial<CustomEmojiFromIdentitySet> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!customEmojiFromIdentitySet || isSerializingDerivedType) { return; }
+    serializeIdentitySet(writer, customEmojiFromIdentitySet, isSerializingDerivedType)
 }
 /**
  * Serializes information the current object
@@ -5981,6 +6028,9 @@ export function serializeIdentitySet(writer: SerializationWriter, identitySet: P
         break;
         case "#microsoft.graph.communicationsIdentitySet":
             serializeCommunicationsIdentitySet(writer, identitySet, true);
+        break;
+        case "#microsoft.graph.customEmojiFromIdentitySet":
+            serializeCustomEmojiFromIdentitySet(writer, identitySet, true);
         break;
         case "#microsoft.graph.engagementIdentitySet":
             serializeEngagementIdentitySet(writer, identitySet, true);
