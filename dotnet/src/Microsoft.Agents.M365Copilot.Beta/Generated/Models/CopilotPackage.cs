@@ -30,6 +30,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>The availableTo property</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus? AvailableTo { get; set; }
+        /// <summary>The createdDateTime property</summary>
+        public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The deployedTo property</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus? DeployedTo { get; set; }
         /// <summary>The displayName property</summary>
@@ -152,6 +154,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "appId", n => { AppId = n.GetStringValue(); } },
                 { "assetId", n => { AssetId = n.GetStringValue(); } },
                 { "availableTo", n => { AvailableTo = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus>(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "deployedTo", n => { DeployedTo = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus>(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "elementTypes", n => { ElementTypes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -180,6 +183,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteStringValue("appId", AppId);
             writer.WriteStringValue("assetId", AssetId);
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus>("availableTo", AvailableTo);
+            writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus>("deployedTo", DeployedTo);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteCollectionOfPrimitiveValues<string>("elementTypes", ElementTypes);

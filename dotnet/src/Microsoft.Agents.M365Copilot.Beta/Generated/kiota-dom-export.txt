@@ -1419,6 +1419,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage-->global.Microsoft.Agent
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|AppId:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|AssetId:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|AvailableTo:global.Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus?
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|CreatedDateTime:DateTimeOffset?
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|DeployedTo:global.Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus?
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|DisplayName:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|ElementTypes:List<string>
@@ -1449,6 +1450,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|LongDescr
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|Sensitivity:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|SharedWithUsersAndGroups:List<global.Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageDetail
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetailCollectionResponse-->global.Microsoft.Agents.M365Copilot.Beta.Models.BaseCollectionPaginationCountResponse
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetailCollectionResponse::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -1542,6 +1544,12 @@ Microsoft.Agents.M365Copilot.Beta.Models.copilotWebContext::|public|OdataType:st
 Microsoft.Agents.M365Copilot.Beta.Models.copilotWebContext::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.copilotWebContext::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotWebContext
 Microsoft.Agents.M365Copilot.Beta.Models.copilotWebContext~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.customEmojiFromIdentitySet-->global.Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet
+Microsoft.Agents.M365Copilot.Beta.Models.customEmojiFromIdentitySet::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.customEmojiFromIdentitySet::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.customEmojiFromIdentitySet::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.customEmojiFromIdentitySet::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.customEmojiFromIdentitySet::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CustomEmojiFromIdentitySet
 Microsoft.Agents.M365Copilot.Beta.Models.dataSourceConfiguration::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Beta.Models.dataSourceConfiguration::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.dataSourceConfiguration::|public|ExternalItem:global.Microsoft.Agents.M365Copilot.Beta.Models.ExternalItemConfiguration
