@@ -11,8 +11,11 @@ if TYPE_CHECKING:
     from .ai_user import AiUser
     from .call_ai_insight import CallAiInsight
     from .copilot_admin import CopilotAdmin
+    from .copilot_admin_catalog import CopilotAdminCatalog
     from .copilot_admin_limited_mode import CopilotAdminLimitedMode
     from .copilot_admin_setting import CopilotAdminSetting
+    from .copilot_package import CopilotPackage
+    from .copilot_package_detail import CopilotPackageDetail
     from .copilot_report_root import CopilotReportRoot
 
 @dataclass
@@ -63,6 +66,10 @@ class Entity(AdditionalDataHolder, Parsable):
             from .copilot_admin import CopilotAdmin
 
             return CopilotAdmin()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotAdminCatalog".casefold():
+            from .copilot_admin_catalog import CopilotAdminCatalog
+
+            return CopilotAdminCatalog()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotAdminLimitedMode".casefold():
             from .copilot_admin_limited_mode import CopilotAdminLimitedMode
 
@@ -71,6 +78,14 @@ class Entity(AdditionalDataHolder, Parsable):
             from .copilot_admin_setting import CopilotAdminSetting
 
             return CopilotAdminSetting()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotPackage".casefold():
+            from .copilot_package import CopilotPackage
+
+            return CopilotPackage()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotPackageDetail".casefold():
+            from .copilot_package_detail import CopilotPackageDetail
+
+            return CopilotPackageDetail()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotReportRoot".casefold():
             from .copilot_report_root import CopilotReportRoot
 
@@ -88,8 +103,11 @@ class Entity(AdditionalDataHolder, Parsable):
         from .ai_user import AiUser
         from .call_ai_insight import CallAiInsight
         from .copilot_admin import CopilotAdmin
+        from .copilot_admin_catalog import CopilotAdminCatalog
         from .copilot_admin_limited_mode import CopilotAdminLimitedMode
         from .copilot_admin_setting import CopilotAdminSetting
+        from .copilot_package import CopilotPackage
+        from .copilot_package_detail import CopilotPackageDetail
         from .copilot_report_root import CopilotReportRoot
 
         from .ai_interaction import AiInteraction
@@ -98,8 +116,11 @@ class Entity(AdditionalDataHolder, Parsable):
         from .ai_user import AiUser
         from .call_ai_insight import CallAiInsight
         from .copilot_admin import CopilotAdmin
+        from .copilot_admin_catalog import CopilotAdminCatalog
         from .copilot_admin_limited_mode import CopilotAdminLimitedMode
         from .copilot_admin_setting import CopilotAdminSetting
+        from .copilot_package import CopilotPackage
+        from .copilot_package_detail import CopilotPackageDetail
         from .copilot_report_root import CopilotReportRoot
 
         fields: dict[str, Callable[[Any], None]] = {
