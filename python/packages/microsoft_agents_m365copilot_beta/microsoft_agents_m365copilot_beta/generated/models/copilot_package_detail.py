@@ -27,6 +27,8 @@ class CopilotPackageDetail(CopilotPackage, Parsable):
     long_description: Optional[str] = None
     # The sensitivity property
     sensitivity: Optional[str] = None
+    # The sharedWithUsersAndGroups property
+    shared_with_users_and_groups: Optional[list[PackageAccessEntity]] = None
     
     @staticmethod
     def create_from_discriminator_value(parse_node: ParseNode) -> CopilotPackageDetail:
@@ -59,6 +61,7 @@ class CopilotPackageDetail(CopilotPackage, Parsable):
             "elementDetails": lambda n : setattr(self, 'element_details', n.get_collection_of_object_values(PackageElementDetail)),
             "longDescription": lambda n : setattr(self, 'long_description', n.get_str_value()),
             "sensitivity": lambda n : setattr(self, 'sensitivity', n.get_str_value()),
+            "sharedWithUsersAndGroups": lambda n : setattr(self, 'shared_with_users_and_groups', n.get_collection_of_object_values(PackageAccessEntity)),
         }
         super_fields = super().get_field_deserializers()
         fields.update(super_fields)
@@ -79,5 +82,6 @@ class CopilotPackageDetail(CopilotPackage, Parsable):
         writer.write_collection_of_object_values("elementDetails", self.element_details)
         writer.write_str_value("longDescription", self.long_description)
         writer.write_str_value("sensitivity", self.sensitivity)
+        writer.write_collection_of_object_values("sharedWithUsersAndGroups", self.shared_with_users_and_groups)
     
 

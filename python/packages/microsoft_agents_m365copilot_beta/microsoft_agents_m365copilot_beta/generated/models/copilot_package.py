@@ -21,6 +21,8 @@ class CopilotPackage(Entity, Parsable):
     asset_id: Optional[str] = None
     # The availableTo property
     available_to: Optional[PackageStatus] = None
+    # The createdDateTime property
+    created_date_time: Optional[datetime.datetime] = None
     # The deployedTo property
     deployed_to: Optional[PackageStatus] = None
     # The displayName property
@@ -93,6 +95,7 @@ class CopilotPackage(Entity, Parsable):
             "appId": lambda n : setattr(self, 'app_id', n.get_str_value()),
             "assetId": lambda n : setattr(self, 'asset_id', n.get_str_value()),
             "availableTo": lambda n : setattr(self, 'available_to', n.get_enum_value(PackageStatus)),
+            "createdDateTime": lambda n : setattr(self, 'created_date_time', n.get_datetime_value()),
             "deployedTo": lambda n : setattr(self, 'deployed_to', n.get_enum_value(PackageStatus)),
             "displayName": lambda n : setattr(self, 'display_name', n.get_str_value()),
             "elementTypes": lambda n : setattr(self, 'element_types', n.get_collection_of_primitive_values(str)),
@@ -125,6 +128,7 @@ class CopilotPackage(Entity, Parsable):
         writer.write_str_value("appId", self.app_id)
         writer.write_str_value("assetId", self.asset_id)
         writer.write_enum_value("availableTo", self.available_to)
+        writer.write_datetime_value("createdDateTime", self.created_date_time)
         writer.write_enum_value("deployedTo", self.deployed_to)
         writer.write_str_value("displayName", self.display_name)
         writer.write_collection_of_primitive_values("elementTypes", self.element_types)
