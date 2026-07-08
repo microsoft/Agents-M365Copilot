@@ -16,6 +16,7 @@ from warnings import warn
 if TYPE_CHECKING:
     from ...models.copilot_admin import CopilotAdmin
     from ...models.o_data_errors.o_data_error import ODataError
+    from .catalog.catalog_request_builder import CatalogRequestBuilder
     from .settings.settings_request_builder import SettingsRequestBuilder
 
 class AdminRequestBuilder(BaseRequestBuilder):
@@ -138,6 +139,15 @@ class AdminRequestBuilder(BaseRequestBuilder):
         if raw_url is None:
             raise TypeError("raw_url cannot be null.")
         return AdminRequestBuilder(self.request_adapter, raw_url)
+    
+    @property
+    def catalog(self) -> CatalogRequestBuilder:
+        """
+        Provides operations to manage the catalog property of the microsoft.graph.copilotAdmin entity.
+        """
+        from .catalog.catalog_request_builder import CatalogRequestBuilder
+
+        return CatalogRequestBuilder(self.request_adapter, self.path_parameters)
     
     @property
     def settings(self) -> SettingsRequestBuilder:

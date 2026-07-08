@@ -60,6 +60,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string Sensitivity { get; set; }
 #endif
+        /// <summary>The sharedWithUsersAndGroups property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity>? SharedWithUsersAndGroups { get; set; }
+#nullable restore
+#else
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity> SharedWithUsersAndGroups { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageDetail"/> and sets the default values.
         /// </summary>
@@ -91,6 +99,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "elementDetails", n => { ElementDetails = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageElementDetail>(global::Microsoft.Agents.M365Copilot.Beta.Models.PackageElementDetail.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "longDescription", n => { LongDescription = n.GetStringValue(); } },
                 { "sensitivity", n => { Sensitivity = n.GetStringValue(); } },
+                { "sharedWithUsersAndGroups", n => { SharedWithUsersAndGroups = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity>(global::Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -107,6 +116,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageElementDetail>("elementDetails", ElementDetails);
             writer.WriteStringValue("longDescription", LongDescription);
             writer.WriteStringValue("sensitivity", Sensitivity);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity>("sharedWithUsersAndGroups", SharedWithUsersAndGroups);
         }
     }
 }

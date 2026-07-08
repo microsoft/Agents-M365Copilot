@@ -54,8 +54,11 @@ namespace Microsoft.Agents.M365Copilot.Models
                 "#microsoft.graph.aiUser" => new global::Microsoft.Agents.M365Copilot.Models.AiUser(),
                 "#microsoft.graph.callAiInsight" => new global::Microsoft.Agents.M365Copilot.Models.CallAiInsight(),
                 "#microsoft.graph.copilotAdmin" => new global::Microsoft.Agents.M365Copilot.Models.CopilotAdmin(),
+                "#microsoft.graph.copilotAdminCatalog" => new global::Microsoft.Agents.M365Copilot.Models.CopilotAdminCatalog(),
                 "#microsoft.graph.copilotAdminLimitedMode" => new global::Microsoft.Agents.M365Copilot.Models.CopilotAdminLimitedMode(),
                 "#microsoft.graph.copilotAdminSetting" => new global::Microsoft.Agents.M365Copilot.Models.CopilotAdminSetting(),
+                "#microsoft.graph.copilotPackage" => new global::Microsoft.Agents.M365Copilot.Models.CopilotPackage(),
+                "#microsoft.graph.copilotPackageDetail" => new global::Microsoft.Agents.M365Copilot.Models.CopilotPackageDetail(),
                 "#microsoft.graph.copilotReportRoot" => new global::Microsoft.Agents.M365Copilot.Models.CopilotReportRoot(),
                 _ => new global::Microsoft.Agents.M365Copilot.Models.Entity(),
             };

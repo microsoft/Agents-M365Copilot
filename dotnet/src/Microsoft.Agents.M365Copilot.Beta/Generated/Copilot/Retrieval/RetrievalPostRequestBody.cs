@@ -59,6 +59,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval
         public RetrievalPostRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            IncludeThumbnails = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
