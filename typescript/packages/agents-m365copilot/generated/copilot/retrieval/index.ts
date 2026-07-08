@@ -30,7 +30,7 @@ export function deserializeIntoRetrievalPostRequestBody(retrievalPostRequestBody
         "filterExpression": n => { retrievalPostRequestBody.filterExpression = n.getStringValue(); },
         "maximumNumberOfResults": n => { retrievalPostRequestBody.maximumNumberOfResults = n.getNumberValue(); },
         "queryString": n => { retrievalPostRequestBody.queryString = n.getStringValue(); },
-        "resourceMetadata": n => { retrievalPostRequestBody.resourceMetadata = n.getCollectionOfPrimitiveValues<string>(); },
+        "resourceMetadata": n => { retrievalPostRequestBody.resourceMetadata = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 export interface RetrievalPostRequestBody extends AdditionalDataHolder, Parsable {
