@@ -33,10 +33,10 @@
 	],
 	"scripts": {
 		"build": "npm run prettier:check && npm run clean && npm run build:all",
-		"build:all": "lerna run build --scope @microsoft/agents-m365copilot-*",
+		"build:all": "lerna run build --scope @microsoft/agents-m365copilot*",
 		"build:beta": "npm run build --prefix packages/agents-m365copilot-core && npm run build --prefix packages/agents-m365copilot-beta",
-		"clean": "lerna run --parallel --stream --scope @microsoft/agents-m365copilot-* clean",
-		"test": "lerna run --scope @microsoft/agents-m365copilot-* test",
+		"clean": "lerna run --parallel --stream --scope @microsoft/agents-m365copilot* clean",
+		"test": "lerna run --scope @microsoft/agents-m365copilot* test",
 		"test:coverage": "lerna run test:coverage",
 		"tsc:version": "tsc --version",
 		"prettier:base": "prettier --parser typescript",
