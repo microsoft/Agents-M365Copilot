@@ -7,6 +7,7 @@ Microsoft.Agents.M365Copilot.Copilot.Admin.adminRequestBuilder.adminRequestBuild
 Microsoft.Agents.M365Copilot.Copilot.Admin.adminRequestBuilder.adminRequestBuilderGetQueryParameters::|public|Select:string[]
 Microsoft.Agents.M365Copilot.Copilot.Admin.adminRequestBuilder.adminRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Admin.AdminRequestBuilder.AdminRequestBuilderGetQueryParameters>
 Microsoft.Agents.M365Copilot.Copilot.Admin.adminRequestBuilder.adminRequestBuilderPatchRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Admin.adminRequestBuilder::|public|catalog:global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.CatalogRequestBuilder
 Microsoft.Agents.M365Copilot.Copilot.Admin.adminRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
 Microsoft.Agents.M365Copilot.Copilot.Admin.adminRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
 Microsoft.Agents.M365Copilot.Copilot.Admin.adminRequestBuilder::|public|DeleteAsync(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):void
@@ -17,6 +18,71 @@ Microsoft.Agents.M365Copilot.Copilot.Admin.adminRequestBuilder::|public|ToDelete
 Microsoft.Agents.M365Copilot.Copilot.Admin.adminRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Admin.AdminRequestBuilder.AdminRequestBuilderGetQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Copilot.Admin.adminRequestBuilder::|public|ToPatchRequestInformation(body:global.Microsoft.Agents.M365Copilot.Models.CopilotAdmin; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Copilot.Admin.adminRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Admin.AdminRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.catalogRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.catalogRequestBuilder.catalogRequestBuilderDeleteRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.catalogRequestBuilder.catalogRequestBuilderGetQueryParameters::|public|Expand:string[]
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.catalogRequestBuilder.catalogRequestBuilderGetQueryParameters::|public|Select:string[]
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.catalogRequestBuilder.catalogRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.CatalogRequestBuilder.CatalogRequestBuilderGetQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.catalogRequestBuilder.catalogRequestBuilderPatchRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.catalogRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.catalogRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.catalogRequestBuilder::|public|DeleteAsync(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):void
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.catalogRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.CatalogRequestBuilder.CatalogRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Models.CopilotAdminCatalog
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.catalogRequestBuilder::|public|packages:global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.PackagesRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.catalogRequestBuilder::|public|PatchAsync(body:global.Microsoft.Agents.M365Copilot.Models.CopilotAdminCatalog; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Models.CopilotAdminCatalog
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.catalogRequestBuilder::|public|ToDeleteRequestInformation(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.catalogRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.CatalogRequestBuilder.CatalogRequestBuilderGetQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.catalogRequestBuilder::|public|ToPatchRequestInformation(body:global.Microsoft.Agents.M365Copilot.Models.CopilotAdminCatalog; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.catalogRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.CatalogRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Count.CountRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters::|public|Filter:string
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters::|public|Search:string
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Count.CountRequestBuilder.CountRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Count.CountRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Count.CountRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Count.CountRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):int?
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Count.CountRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Count.CountRequestBuilder.CountRequestBuilderGetQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Count.CountRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Count.CountRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder.CopilotPackageDetailItemRequestBuilderGetQueryParameters::|public|Expand:string[]
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder.CopilotPackageDetailItemRequestBuilderGetQueryParameters::|public|Select:string[]
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder.CopilotPackageDetailItemRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder.CopilotPackageDetailItemRequestBuilderGetQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder.CopilotPackageDetailItemRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Models.CopilotPackageDetail
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder.CopilotPackageDetailItemRequestBuilderGetQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder::|public|zipFile:global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.ZipFile.ZipFileRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder.zipFileRequestBuilderDeleteRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder.zipFileRequestBuilderGetRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder.zipFileRequestBuilderPutRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder::|public|DeleteAsync(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):void
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):Stream
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder::|public|PutAsync(body:Stream; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):Stream
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder::|public|ToDeleteRequestInformation(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder::|public|ToPutRequestInformation(body:Stream; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.ZipFile.zipFileRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.ZipFile.ZipFileRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.packagesRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.packagesRequestBuilder.packagesRequestBuilderGetQueryParameters::|public|Count:bool?
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.packagesRequestBuilder.packagesRequestBuilderGetQueryParameters::|public|Expand:string[]
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.packagesRequestBuilder.packagesRequestBuilderGetQueryParameters::|public|Filter:string
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.packagesRequestBuilder.packagesRequestBuilderGetQueryParameters::|public|Orderby:string[]
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.packagesRequestBuilder.packagesRequestBuilderGetQueryParameters::|public|Search:string
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.packagesRequestBuilder.packagesRequestBuilderGetQueryParameters::|public|Select:string[]
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.packagesRequestBuilder.packagesRequestBuilderGetQueryParameters::|public|Skip:int?
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.packagesRequestBuilder.packagesRequestBuilderGetQueryParameters::|public|Top:int?
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.packagesRequestBuilder.packagesRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.PackagesRequestBuilder.PackagesRequestBuilderGetQueryParameters>
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.packagesRequestBuilder::[CopilotPackageDetailId:string]:global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Item.CopilotPackageDetailItemRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.packagesRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.packagesRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.packagesRequestBuilder::|public|Count:global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.Count.CountRequestBuilder
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.packagesRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.PackagesRequestBuilder.PackagesRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Models.CopilotPackageDetailCollectionResponse
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.packagesRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.PackagesRequestBuilder.PackagesRequestBuilderGetQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.packagesRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Admin.Catalog.Packages.PackagesRequestBuilder
 Microsoft.Agents.M365Copilot.Copilot.Admin.Settings.LimitedMode.limitedModeRequestBuilder-->BaseRequestBuilder
 Microsoft.Agents.M365Copilot.Copilot.Admin.Settings.LimitedMode.limitedModeRequestBuilder.limitedModeRequestBuilderDeleteRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
 Microsoft.Agents.M365Copilot.Copilot.Admin.Settings.LimitedMode.limitedModeRequestBuilder.limitedModeRequestBuilderGetQueryParameters::|public|Expand:string[]
@@ -327,6 +393,9 @@ Microsoft.Agents.M365Copilot.Copilot.Users.usersRequestBuilder::|public|PostAsyn
 Microsoft.Agents.M365Copilot.Copilot.Users.usersRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Copilot.Users.UsersRequestBuilder.UsersRequestBuilderGetQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Copilot.Users.usersRequestBuilder::|public|ToPostRequestInformation(body:global.Microsoft.Agents.M365Copilot.Models.AiUser; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Copilot.Users.usersRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Copilot.Users.UsersRequestBuilder
+Microsoft.Agents.M365Copilot.Models.accessEntityType::0000-user
+Microsoft.Agents.M365Copilot.Models.accessEntityType::0001-group
+Microsoft.Agents.M365Copilot.Models.accessEntityType::0002-unknownFutureValue
 Microsoft.Agents.M365Copilot.Models.actionItem::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Models.actionItem::|public|constructor():void
 Microsoft.Agents.M365Copilot.Models.actionItem::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -570,11 +639,18 @@ Microsoft.Agents.M365Copilot.Models.connectionItem::|public|Serialize(writer:ISe
 Microsoft.Agents.M365Copilot.Models.connectionItem::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.ConnectionItem
 Microsoft.Agents.M365Copilot.Models.connectionItem~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Models.copilotAdmin-->global.Microsoft.Agents.M365Copilot.Models.Entity
+Microsoft.Agents.M365Copilot.Models.copilotAdmin::|public|Catalog:global.Microsoft.Agents.M365Copilot.Models.CopilotAdminCatalog
 Microsoft.Agents.M365Copilot.Models.copilotAdmin::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Models.copilotAdmin::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Models.copilotAdmin::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Models.copilotAdmin::|public|Settings:global.Microsoft.Agents.M365Copilot.Models.CopilotAdminSetting
 Microsoft.Agents.M365Copilot.Models.copilotAdmin::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.CopilotAdmin
+Microsoft.Agents.M365Copilot.Models.copilotAdminCatalog-->global.Microsoft.Agents.M365Copilot.Models.Entity
+Microsoft.Agents.M365Copilot.Models.copilotAdminCatalog::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.copilotAdminCatalog::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.copilotAdminCatalog::|public|Packages:List<global.Microsoft.Agents.M365Copilot.Models.CopilotPackageDetail>
+Microsoft.Agents.M365Copilot.Models.copilotAdminCatalog::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.copilotAdminCatalog::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.CopilotAdminCatalog
 Microsoft.Agents.M365Copilot.Models.copilotAdminLimitedMode-->global.Microsoft.Agents.M365Copilot.Models.Entity
 Microsoft.Agents.M365Copilot.Models.copilotAdminLimitedMode::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Models.copilotAdminLimitedMode::|public|GroupId:string
@@ -588,6 +664,47 @@ Microsoft.Agents.M365Copilot.Models.copilotAdminSetting::|public|LimitedMode:glo
 Microsoft.Agents.M365Copilot.Models.copilotAdminSetting::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Models.copilotAdminSetting::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Models.copilotAdminSetting::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.CopilotAdminSetting
+Microsoft.Agents.M365Copilot.Models.copilotPackage-->global.Microsoft.Agents.M365Copilot.Models.Entity
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|AppId:string
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|AssetId:string
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|AvailableTo:global.Microsoft.Agents.M365Copilot.Models.PackageStatus?
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|CreatedDateTime:DateTimeOffset?
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|DeployedTo:global.Microsoft.Agents.M365Copilot.Models.PackageStatus?
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|DisplayName:string
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|ElementTypes:List<string>
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|IsBlocked:bool?
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|LastModifiedDateTime:DateTimeOffset?
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|ManifestId:string
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|ManifestVersion:string
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|OwnerId:string
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|Platform:string
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|Publisher:string
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|ShortDescription:string
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|SupportedHosts:List<string>
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|Type:global.Microsoft.Agents.M365Copilot.Models.PackageType?
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|Version:string
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|ZipFile:byte[]
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.CopilotPackage
+Microsoft.Agents.M365Copilot.Models.copilotPackageDetail-->global.Microsoft.Agents.M365Copilot.Models.CopilotPackage
+Microsoft.Agents.M365Copilot.Models.copilotPackageDetail::|public|AcquireUsersAndGroups:List<global.Microsoft.Agents.M365Copilot.Models.PackageAccessEntity>
+Microsoft.Agents.M365Copilot.Models.copilotPackageDetail::|public|AllowedUsersAndGroups:List<global.Microsoft.Agents.M365Copilot.Models.PackageAccessEntity>
+Microsoft.Agents.M365Copilot.Models.copilotPackageDetail::|public|Categories:List<string>
+Microsoft.Agents.M365Copilot.Models.copilotPackageDetail::|public|ElementDetails:List<global.Microsoft.Agents.M365Copilot.Models.PackageElementDetail>
+Microsoft.Agents.M365Copilot.Models.copilotPackageDetail::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.copilotPackageDetail::|public|LongDescription:string
+Microsoft.Agents.M365Copilot.Models.copilotPackageDetail::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.copilotPackageDetail::|public|Sensitivity:string
+Microsoft.Agents.M365Copilot.Models.copilotPackageDetail::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.copilotPackageDetail::|public|SharedWithUsersAndGroups:List<global.Microsoft.Agents.M365Copilot.Models.PackageAccessEntity>
+Microsoft.Agents.M365Copilot.Models.copilotPackageDetail::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.CopilotPackageDetail
+Microsoft.Agents.M365Copilot.Models.copilotPackageDetailCollectionResponse-->global.Microsoft.Agents.M365Copilot.Models.BaseCollectionPaginationCountResponse
+Microsoft.Agents.M365Copilot.Models.copilotPackageDetailCollectionResponse::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.copilotPackageDetailCollectionResponse::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.copilotPackageDetailCollectionResponse::|public|Value:List<global.Microsoft.Agents.M365Copilot.Models.CopilotPackageDetail>
+Microsoft.Agents.M365Copilot.Models.copilotPackageDetailCollectionResponse::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.CopilotPackageDetailCollectionResponse
 Microsoft.Agents.M365Copilot.Models.copilotReportRoot-->global.Microsoft.Agents.M365Copilot.Models.Entity
 Microsoft.Agents.M365Copilot.Models.copilotReportRoot::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Models.copilotReportRoot::|public|OdataType:string
@@ -757,6 +874,42 @@ Microsoft.Agents.M365Copilot.Models.ODataErrors.ODataError::|public|GetFieldDese
 Microsoft.Agents.M365Copilot.Models.ODataErrors.ODataError::|public|Message:string
 Microsoft.Agents.M365Copilot.Models.ODataErrors.ODataError::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Models.ODataErrors.ODataError::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.ODataErrors.ODataError
+Microsoft.Agents.M365Copilot.Models.packageAccessEntity::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Models.packageAccessEntity::|public|constructor():void
+Microsoft.Agents.M365Copilot.Models.packageAccessEntity::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.packageAccessEntity::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.packageAccessEntity::|public|ResourceId:string
+Microsoft.Agents.M365Copilot.Models.packageAccessEntity::|public|ResourceType:global.Microsoft.Agents.M365Copilot.Models.AccessEntityType?
+Microsoft.Agents.M365Copilot.Models.packageAccessEntity::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.packageAccessEntity::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.PackageAccessEntity
+Microsoft.Agents.M365Copilot.Models.packageAccessEntity~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Models.packageElement::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Models.packageElement::|public|constructor():void
+Microsoft.Agents.M365Copilot.Models.packageElement::|public|Definition:UntypedNode
+Microsoft.Agents.M365Copilot.Models.packageElement::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.packageElement::|public|Id:string
+Microsoft.Agents.M365Copilot.Models.packageElement::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.packageElement::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.packageElement::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.PackageElement
+Microsoft.Agents.M365Copilot.Models.packageElementDetail::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Models.packageElementDetail::|public|constructor():void
+Microsoft.Agents.M365Copilot.Models.packageElementDetail::|public|Elements:List<global.Microsoft.Agents.M365Copilot.Models.PackageElement>
+Microsoft.Agents.M365Copilot.Models.packageElementDetail::|public|ElementType:string
+Microsoft.Agents.M365Copilot.Models.packageElementDetail::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.packageElementDetail::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.packageElementDetail::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.packageElementDetail::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.PackageElementDetail
+Microsoft.Agents.M365Copilot.Models.packageElementDetail~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Models.packageElement~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Models.packageStatus::0000-none
+Microsoft.Agents.M365Copilot.Models.packageStatus::0001-some
+Microsoft.Agents.M365Copilot.Models.packageStatus::0002-all
+Microsoft.Agents.M365Copilot.Models.packageStatus::0003-unknownFutureValue
+Microsoft.Agents.M365Copilot.Models.packageType::0000-microsoft
+Microsoft.Agents.M365Copilot.Models.packageType::0001-external
+Microsoft.Agents.M365Copilot.Models.packageType::0002-shared
+Microsoft.Agents.M365Copilot.Models.packageType::0003-custom
+Microsoft.Agents.M365Copilot.Models.packageType::0004-unknownFutureValue
 Microsoft.Agents.M365Copilot.Models.provisionedIdentity-->global.Microsoft.Agents.M365Copilot.Models.Identity
 Microsoft.Agents.M365Copilot.Models.provisionedIdentity::|public|constructor():void
 Microsoft.Agents.M365Copilot.Models.provisionedIdentity::|public|Details:global.Microsoft.Agents.M365Copilot.Models.DetailsInfo
