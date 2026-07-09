@@ -39,7 +39,7 @@ jobs:
       dotnet: ${{ steps.check.outputs.dotnet }}
       typescript: ${{ steps.check.outputs.typescript }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Check changed files
@@ -93,13 +93,13 @@ jobs:
     env:
       solutionName: Microsoft.Agents.M365Copilot.sln
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Setup .NET
-        uses: actions/setup-dotnet@v5.2.0
+        uses: actions/setup-dotnet@v5.3.0
         with:
           dotnet-version: 10.x
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
+        uses: github/codeql-action/init@v4
         with:
           languages: csharp
       - name: Restore dependencies
@@ -112,7 +112,7 @@ jobs:
         run: dotnet test ${{ env.solutionName }} --no-build --verbosity normal -c Debug /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=opencover
         working-directory: dotnet
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
+        uses: github/codeql-action/analyze@v4
 
   build-and-test-typescript:
     name: typescript
@@ -130,9 +130,9 @@ jobs:
         # Single version should work for compilation testing
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
