@@ -5,11 +5,11 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Microsoft.Agents.M365Copilot.Beta.Models
+namespace Microsoft.Agents.M365Copilot.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class CopilotPackage : global::Microsoft.Agents.M365Copilot.Beta.Models.Entity, IParsable
+    public partial class CopilotPackage : global::Microsoft.Agents.M365Copilot.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The appId property</summary>
@@ -29,11 +29,11 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         public string AssetId { get; set; }
 #endif
         /// <summary>The availableTo property</summary>
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus? AvailableTo { get; set; }
+        public global::Microsoft.Agents.M365Copilot.Models.PackageStatus? AvailableTo { get; set; }
         /// <summary>The createdDateTime property</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The deployedTo property</summary>
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus? DeployedTo { get; set; }
+        public global::Microsoft.Agents.M365Copilot.Models.PackageStatus? DeployedTo { get; set; }
         /// <summary>The displayName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -111,7 +111,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         public List<string> SupportedHosts { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.PackageType? Type { get; set; }
+        public global::Microsoft.Agents.M365Copilot.Models.PackageType? Type { get; set; }
         /// <summary>The version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -131,16 +131,16 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackage"/></returns>
+        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Models.CopilotPackage"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackage CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Microsoft.Agents.M365Copilot.Models.CopilotPackage CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.copilotPackageDetail" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageDetail(),
-                _ => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackage(),
+                "#microsoft.graph.copilotPackageDetail" => new global::Microsoft.Agents.M365Copilot.Models.CopilotPackageDetail(),
+                _ => new global::Microsoft.Agents.M365Copilot.Models.CopilotPackage(),
             };
         }
         /// <summary>
@@ -153,9 +153,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             {
                 { "appId", n => { AppId = n.GetStringValue(); } },
                 { "assetId", n => { AssetId = n.GetStringValue(); } },
-                { "availableTo", n => { AvailableTo = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus>(); } },
+                { "availableTo", n => { AvailableTo = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Models.PackageStatus>(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "deployedTo", n => { DeployedTo = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus>(); } },
+                { "deployedTo", n => { DeployedTo = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Models.PackageStatus>(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "elementTypes", n => { ElementTypes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "isBlocked", n => { IsBlocked = n.GetBoolValue(); } },
@@ -167,7 +167,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "publisher", n => { Publisher = n.GetStringValue(); } },
                 { "shortDescription", n => { ShortDescription = n.GetStringValue(); } },
                 { "supportedHosts", n => { SupportedHosts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Models.PackageType>(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
                 { "zipFile", n => { ZipFile = n.GetByteArrayValue(); } },
             };
@@ -182,9 +182,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             base.Serialize(writer);
             writer.WriteStringValue("appId", AppId);
             writer.WriteStringValue("assetId", AssetId);
-            writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus>("availableTo", AvailableTo);
+            writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Models.PackageStatus>("availableTo", AvailableTo);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus>("deployedTo", DeployedTo);
+            writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Models.PackageStatus>("deployedTo", DeployedTo);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteCollectionOfPrimitiveValues<string>("elementTypes", ElementTypes);
             writer.WriteBoolValue("isBlocked", IsBlocked);
@@ -196,7 +196,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteStringValue("publisher", Publisher);
             writer.WriteStringValue("shortDescription", ShortDescription);
             writer.WriteCollectionOfPrimitiveValues<string>("supportedHosts", SupportedHosts);
-            writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageType>("type", Type);
+            writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Models.PackageType>("type", Type);
             writer.WriteStringValue("version", Version);
             writer.WriteByteArrayValue("zipFile", ZipFile);
         }

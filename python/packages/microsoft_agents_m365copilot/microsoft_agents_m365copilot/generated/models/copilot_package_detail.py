@@ -13,8 +13,6 @@ from .copilot_package import CopilotPackage
 
 @dataclass
 class CopilotPackageDetail(CopilotPackage, Parsable):
-    # The OdataType property
-    odata_type: Optional[str] = "#microsoft.graph.copilotPackageDetail"
     # The acquireUsersAndGroups property
     acquire_users_and_groups: Optional[list[PackageAccessEntity]] = None
     # The allowedUsersAndGroups property
@@ -25,6 +23,8 @@ class CopilotPackageDetail(CopilotPackage, Parsable):
     element_details: Optional[list[PackageElementDetail]] = None
     # The longDescription property
     long_description: Optional[str] = None
+    # The OdataType property
+    odata_type: Optional[str] = None
     # The sensitivity property
     sensitivity: Optional[str] = None
     # The sharedWithUsersAndGroups property

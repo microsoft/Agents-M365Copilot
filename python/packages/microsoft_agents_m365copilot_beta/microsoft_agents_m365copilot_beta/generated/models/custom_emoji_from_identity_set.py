@@ -5,48 +5,36 @@ from kiota_abstractions.serialization import Parsable, ParseNode, SerializationW
 from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
-    from .copilot_admin_catalog import CopilotAdminCatalog
-    from .copilot_admin_setting import CopilotAdminSetting
-    from .entity import Entity
+    from .identity_set import IdentitySet
 
-from .entity import Entity
+from .identity_set import IdentitySet
 
 @dataclass
-class CopilotAdmin(Entity, Parsable):
-    # The catalog property
-    catalog: Optional[CopilotAdminCatalog] = None
+class CustomEmojiFromIdentitySet(IdentitySet, Parsable):
     # The OdataType property
-    odata_type: Optional[str] = None
-    # The settings property
-    settings: Optional[CopilotAdminSetting] = None
+    odata_type: Optional[str] = "#microsoft.graph.customEmojiFromIdentitySet"
     
     @staticmethod
-    def create_from_discriminator_value(parse_node: ParseNode) -> CopilotAdmin:
+    def create_from_discriminator_value(parse_node: ParseNode) -> CustomEmojiFromIdentitySet:
         """
         Creates a new instance of the appropriate class based on discriminator value
         param parse_node: The parse node to use to read the discriminator value and create the object
-        Returns: CopilotAdmin
+        Returns: CustomEmojiFromIdentitySet
         """
         if parse_node is None:
             raise TypeError("parse_node cannot be null.")
-        return CopilotAdmin()
+        return CustomEmojiFromIdentitySet()
     
     def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
         """
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
-        from .copilot_admin_catalog import CopilotAdminCatalog
-        from .copilot_admin_setting import CopilotAdminSetting
-        from .entity import Entity
+        from .identity_set import IdentitySet
 
-        from .copilot_admin_catalog import CopilotAdminCatalog
-        from .copilot_admin_setting import CopilotAdminSetting
-        from .entity import Entity
+        from .identity_set import IdentitySet
 
         fields: dict[str, Callable[[Any], None]] = {
-            "catalog": lambda n : setattr(self, 'catalog', n.get_object_value(CopilotAdminCatalog)),
-            "settings": lambda n : setattr(self, 'settings', n.get_object_value(CopilotAdminSetting)),
         }
         super_fields = super().get_field_deserializers()
         fields.update(super_fields)
@@ -61,7 +49,5 @@ class CopilotAdmin(Entity, Parsable):
         if writer is None:
             raise TypeError("writer cannot be null.")
         super().serialize(writer)
-        writer.write_object_value("catalog", self.catalog)
-        writer.write_object_value("settings", self.settings)
     
 

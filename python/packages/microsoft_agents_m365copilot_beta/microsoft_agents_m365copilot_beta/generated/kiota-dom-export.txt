@@ -1820,6 +1820,8 @@ microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|asset
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|available_to():PackageStatus
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|available_to(value:PackageStatus):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|created_date_time():datetime.datetime
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|created_date_time(value:datetime.datetime):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|deployed_to():PackageStatus
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|deployed_to(value:PackageStatus):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|display_name():str
@@ -1871,6 +1873,8 @@ microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|sensitivity():str
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|sensitivity(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|shared_with_users_and_groups():list[PackageAccessEntity]
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|public|shared_with_users_and_groups(value:list[PackageAccessEntity]):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetail::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotPackageDetail
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetailCollectionResponse-->BaseCollectionPaginationCountResponse
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetailCollectionResponse::|public|constructor():None
@@ -1998,6 +2002,12 @@ microsoft_agents_m365copilot_beta.generated.models.CopilotWebContext::|public|od
 microsoft_agents_m365copilot_beta.generated.models.CopilotWebContext::|public|serialize(writer:SerializationWriter):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotWebContext::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotWebContext
 microsoft_agents_m365copilot_beta.generated.models.CopilotWebContext~~>AdditionalDataHolder; Parsable
+microsoft_agents_m365copilot_beta.generated.models.CustomEmojiFromIdentitySet-->IdentitySet
+microsoft_agents_m365copilot_beta.generated.models.CustomEmojiFromIdentitySet::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.CustomEmojiFromIdentitySet::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.CustomEmojiFromIdentitySet::|public|odata_type:str
+microsoft_agents_m365copilot_beta.generated.models.CustomEmojiFromIdentitySet::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.CustomEmojiFromIdentitySet::|static|public|create_from_discriminator_value(parse_node:ParseNode):CustomEmojiFromIdentitySet
 microsoft_agents_m365copilot_beta.generated.models.DataSourceConfiguration::|public|additional_data():dict[str, Any]
 microsoft_agents_m365copilot_beta.generated.models.DataSourceConfiguration::|public|additional_data(value:dict[str, Any]):None
 microsoft_agents_m365copilot_beta.generated.models.DataSourceConfiguration::|public|constructor():None
