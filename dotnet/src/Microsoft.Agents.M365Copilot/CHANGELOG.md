@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.7.0](https://github.com/microsoft/Agents-M365Copilot/compare/Microsoft.Agents.M365Copilot-v1.6.0...Microsoft.Agents.M365Copilot-v1.7.0) (2026-07-10)
+
+
+### Features
+
+* **generation:** update request builders and models for dotnet v1 ([#394](https://github.com/microsoft/Agents-M365Copilot/issues/394)) ([832a80a](https://github.com/microsoft/Agents-M365Copilot/commit/832a80a1edace75ec31a5650dcd1f19431c0fe6c))
+* **generation:** update request builders and models for dotnet v1 ([#444](https://github.com/microsoft/Agents-M365Copilot/issues/444)) ([5b351f6](https://github.com/microsoft/Agents-M365Copilot/commit/5b351f601e592dac22d06b0fac195e2f11d46c5a))
+* **generation:** update request builders and models for dotnet v1 ([#456](https://github.com/microsoft/Agents-M365Copilot/issues/456)) ([a0c7e74](https://github.com/microsoft/Agents-M365Copilot/commit/a0c7e74b8402db2f95c97d4b48b9772c48ae0874))
+
 ## [1.6.0](https://github.com/microsoft/Agents-M365Copilot/compare/Microsoft.Agents.M365Copilot-v1.5.0...Microsoft.Agents.M365Copilot-v1.6.0) (2026-05-13)
 
 
