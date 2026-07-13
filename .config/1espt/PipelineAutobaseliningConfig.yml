@@ -140,18 +140,18 @@ pipelines:
     retail:
       source:
         eslint:
-          lastModifiedDate: 2025-11-08
+          lastModifiedDate: 2026-07-13
         psscriptanalyzer:
-          lastModifiedDate: 2025-11-08
+          lastModifiedDate: 2026-07-13
         armory:
-          lastModifiedDate: 2025-11-08
+          lastModifiedDate: 2026-07-13
         accessibilityinsights:
           lastModifiedDate: 2025-11-08
       binary:
         binskim:
-          lastModifiedDate: 2025-11-08
+          lastModifiedDate: 2026-07-13
         spotbugs:
-          lastModifiedDate: 2025-11-08
+          lastModifiedDate: 2026-07-13
   654:
     retail:
       source:
