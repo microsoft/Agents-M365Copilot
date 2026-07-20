@@ -47,9 +47,13 @@ extends:
               displayName: 'Install Node.js'
               inputs:
                 version: '22.x'
-            - script: npm ci
+            - task: Npm@1
               displayName: 'Install npm dependencies'
-              workingDirectory: '$(Build.SourcesDirectory)/typescript/'
+              inputs:
+                command: 'ci'
+                workingDir: '$(Build.SourcesDirectory)/typescript'
+                customRegistry: 'useFeed'
+                customFeed: 'Graph Developer Experiences/GraphDeveloperExperiences_Public'
 
             # Build Beta TypeScript package
             - script: npm run build --workspace=$(package_dir_beta)
