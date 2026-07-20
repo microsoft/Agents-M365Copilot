@@ -49,6 +49,12 @@ extends:
                 versionSpec: '3.x'
                 addToPath: true
 
+            - task: PipAuthenticate@1
+              displayName: 'Authenticate pip to Azure Artifacts'
+              inputs:
+                artifactFeeds: '$(System.TeamProject)/GraphDeveloperExperiences_Public'
+                onlyAddExtraIndex: false
+
             - script: python -m pip install --upgrade pip
 
             # Build, test, and package Beta Python library
@@ -57,6 +63,15 @@ extends:
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_beta)'
               # This condition allows the build to run for both tagged beta builds or manual builds.
               condition: or(contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))
+
+            - script: |
+                poetry source add --priority=primary azure-feed "https://microsoftgraph.pkgs.visualstudio.com/0985d294-5762-4bc2-a565-161ef349ca3e/_packaging/GraphDeveloperExperiences_Public/pypi/simple/"
+                poetry config http-basic.azure-feed "azure" "$SYSTEM_ACCESSTOKEN"
+              displayName: 'Configure Poetry to use Azure Artifacts feed'
+              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_beta)'
+              condition: or(contains(variables['Build.SourceBranch'], 'microsoft_agents_m365copilot_beta'), eq(variables['Build.Reason'], 'Manual'))
+              env:
+                SYSTEM_ACCESSTOKEN: $(System.AccessToken)
 
             - script: poetry install
               displayName: 'Install beta dependencies'
