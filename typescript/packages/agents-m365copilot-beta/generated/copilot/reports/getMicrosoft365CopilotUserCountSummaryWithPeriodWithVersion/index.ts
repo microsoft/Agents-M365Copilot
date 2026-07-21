@@ -7,18 +7,18 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '../../.
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
- * Provides operations to call the getMicrosoft365CopilotUserCountTrend method.
+ * Provides operations to call the getMicrosoft365CopilotUserCountSummary method.
  */
-export interface GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder extends BaseRequestBuilder<GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder> {
+export interface GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder extends BaseRequestBuilder<GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder> {
     /**
-     * Invoke function getMicrosoft365CopilotUserCountTrend
+     * Invoke function getMicrosoft365CopilotUserCountSummary
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
-     * Invoke function getMicrosoft365CopilotUserCountTrend
+     * Invoke function getMicrosoft365CopilotUserCountSummary
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -27,13 +27,13 @@ export interface GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder ex
 /**
  * Uri template for the request builder.
  */
-export const GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderUriTemplate = "{+baseurl}/copilot/reports/getMicrosoft365CopilotUserCountTrend(period='{period}')";
+export const GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilderUriTemplate = "{+baseurl}/copilot/reports/getMicrosoft365CopilotUserCountSummary(period='{period}',version='{version}')";
 /**
  * Metadata for all the requests in the request builder.
  */
-export const GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderRequestsMetadata: RequestsMetadata = {
+export const GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderUriTemplate,
+        uriTemplate: GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilderUriTemplate,
         responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

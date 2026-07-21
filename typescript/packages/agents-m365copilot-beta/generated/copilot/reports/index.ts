@@ -6,11 +6,11 @@ import { createCopilotReportRootFromDiscriminatorValue, serializeCopilotReportRo
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '../../models/oDataErrors/index.js';
 // @ts-ignore
-import { GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilderRequestsMetadata, type GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder } from './getMicrosoft365CopilotUsageUserDetailWithPeriod/index.js';
+import { GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilderRequestsMetadata, type GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder } from './getMicrosoft365CopilotUsageUserDetailWithPeriodWithVersion/index.js';
 // @ts-ignore
-import { GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilderRequestsMetadata, type GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder } from './getMicrosoft365CopilotUserCountSummaryWithPeriod/index.js';
+import { GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilderRequestsMetadata, type GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder } from './getMicrosoft365CopilotUserCountSummaryWithPeriodWithVersion/index.js';
 // @ts-ignore
-import { GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderRequestsMetadata, type GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder } from './getMicrosoft365CopilotUserCountTrendWithPeriod/index.js';
+import { GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersionRequestBuilderRequestsMetadata, type GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersionRequestBuilder } from './getMicrosoft365CopilotUserCountTrendWithPeriodWithVersion/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -34,21 +34,24 @@ export interface ReportsRequestBuilder extends BaseRequestBuilder<ReportsRequest
     /**
      * Provides operations to call the getMicrosoft365CopilotUsageUserDetail method.
      * @param period Usage: period='{period}'
-     * @returns {GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder}
+     * @param version Usage: version='{version}'
+     * @returns {GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder}
      */
-     getMicrosoft365CopilotUsageUserDetailWithPeriod(period: string | undefined) : GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder;
+     getMicrosoft365CopilotUsageUserDetailWithPeriodWithVersion(period: string | undefined, version: string | undefined) : GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder;
     /**
      * Provides operations to call the getMicrosoft365CopilotUserCountSummary method.
      * @param period Usage: period='{period}'
-     * @returns {GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder}
+     * @param version Usage: version='{version}'
+     * @returns {GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder}
      */
-     getMicrosoft365CopilotUserCountSummaryWithPeriod(period: string | undefined) : GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder;
+     getMicrosoft365CopilotUserCountSummaryWithPeriodWithVersion(period: string | undefined, version: string | undefined) : GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder;
     /**
      * Provides operations to call the getMicrosoft365CopilotUserCountTrend method.
      * @param period Usage: period='{period}'
-     * @returns {GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder}
+     * @param version Usage: version='{version}'
+     * @returns {GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersionRequestBuilder}
      */
-     getMicrosoft365CopilotUserCountTrendWithPeriod(period: string | undefined) : GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder;
+     getMicrosoft365CopilotUserCountTrendWithPeriodWithVersion(period: string | undefined, version: string | undefined) : GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersionRequestBuilder;
     /**
      * Update the navigation property reports in copilot
      * @param body The request body
@@ -105,17 +108,17 @@ const ReportsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  * Metadata for all the navigation properties in the request builder.
  */
 export const ReportsRequestBuilderNavigationMetadata: Record<Exclude<keyof ReportsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
-    getMicrosoft365CopilotUsageUserDetailWithPeriod: {
-        requestsMetadata: GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilderRequestsMetadata,
-        pathParametersMappings: ["period"],
+    getMicrosoft365CopilotUsageUserDetailWithPeriodWithVersion: {
+        requestsMetadata: GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period", "version"],
     },
-    getMicrosoft365CopilotUserCountSummaryWithPeriod: {
-        requestsMetadata: GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilderRequestsMetadata,
-        pathParametersMappings: ["period"],
+    getMicrosoft365CopilotUserCountSummaryWithPeriodWithVersion: {
+        requestsMetadata: GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period", "version"],
     },
-    getMicrosoft365CopilotUserCountTrendWithPeriod: {
-        requestsMetadata: GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderRequestsMetadata,
-        pathParametersMappings: ["period"],
+    getMicrosoft365CopilotUserCountTrendWithPeriodWithVersion: {
+        requestsMetadata: GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersionRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period", "version"],
     },
 };
 /**
