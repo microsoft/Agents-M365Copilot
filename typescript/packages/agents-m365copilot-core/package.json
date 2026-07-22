@@ -72,7 +72,7 @@
     "vitest": "^3.0.1"
   },
   "dependencies": {
-    "@azure/core-auth": "^1.10.1",
+    "@azure/core-auth": "^1.11.0",
     "@microsoft/kiota-authentication-azure": "^1.0.0-preview.103",
     "@microsoft/kiota-bundle": "^1.0.0-preview.103",
     "tslib": "^2.6.2"
