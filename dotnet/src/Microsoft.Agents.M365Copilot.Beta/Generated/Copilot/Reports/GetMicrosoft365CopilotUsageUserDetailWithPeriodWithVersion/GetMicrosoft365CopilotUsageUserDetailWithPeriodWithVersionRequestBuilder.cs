@@ -9,30 +9,32 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriod
+namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersion
 {
     /// <summary>
     /// Provides operations to call the getMicrosoft365CopilotUsageUserDetail method.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder : BaseRequestBuilder
+    public partial class GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriod.GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersion.GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="period">Usage: period=&apos;{period}&apos;</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, string period = "") : base(requestAdapter, "{+baseurl}/copilot/reports/getMicrosoft365CopilotUsageUserDetail(period='{period}')", pathParameters)
+        /// <param name="version">Usage: version=&apos;{version}&apos;</param>
+        public GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter, string period = "", string version = "") : base(requestAdapter, "{+baseurl}/copilot/reports/getMicrosoft365CopilotUsageUserDetail(period='{period}',version='{version}')", pathParameters)
         {
             if (!string.IsNullOrWhiteSpace(period)) PathParameters.Add("period", period);
+            if (!string.IsNullOrWhiteSpace(version)) PathParameters.Add("version", version);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriod.GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersion.GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/copilot/reports/getMicrosoft365CopilotUsageUserDetail(period='{period}')", rawUrl)
+        public GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/copilot/reports/getMicrosoft365CopilotUsageUserDetail(period='{period}',version='{version}')", rawUrl)
         {
         }
         /// <summary>
@@ -80,18 +82,18 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365Copil
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriod.GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersion.GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriod.GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder WithUrl(string rawUrl)
+        public global::Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersion.GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriod.GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersion.GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        public partial class GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
         {
         }
     }
