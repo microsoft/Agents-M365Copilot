@@ -6,29 +6,32 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .body_type import BodyType
+    from .chat_message_body_content_type import ChatMessageBodyContentType
 
 @dataclass
-class ItemBody(AdditionalDataHolder, Parsable):
+class ChatMessageBody(AdditionalDataHolder, Parsable):
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additional_data: dict[str, Any] = field(default_factory=dict)
 
-    # The content of the item.
+    # The content of the chat message.
     content: Optional[str] = None
-    # The type of the content. Possible values are text and html.
+    # The type of the content. The possible values are: text, html. The contentType property is deprecated. Going forward, use the messageBodyContentType property.
     content_type: Optional[BodyType] = None
+    # The type of the content, including support for additional Teams content types. The possible values are: text, html, markdown, unknownFutureValue.
+    message_body_content_type: Optional[ChatMessageBodyContentType] = None
     # The OdataType property
     odata_type: Optional[str] = None
     
     @staticmethod
-    def create_from_discriminator_value(parse_node: ParseNode) -> ItemBody:
+    def create_from_discriminator_value(parse_node: ParseNode) -> ChatMessageBody:
         """
         Creates a new instance of the appropriate class based on discriminator value
         param parse_node: The parse node to use to read the discriminator value and create the object
-        Returns: ItemBody
+        Returns: ChatMessageBody
         """
         if parse_node is None:
             raise TypeError("parse_node cannot be null.")
-        return ItemBody()
+        return ChatMessageBody()
     
     def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
         """
@@ -36,12 +39,15 @@ class ItemBody(AdditionalDataHolder, Parsable):
         Returns: dict[str, Callable[[ParseNode], None]]
         """
         from .body_type import BodyType
+        from .chat_message_body_content_type import ChatMessageBodyContentType
 
         from .body_type import BodyType
+        from .chat_message_body_content_type import ChatMessageBodyContentType
 
         fields: dict[str, Callable[[Any], None]] = {
             "content": lambda n : setattr(self, 'content', n.get_str_value()),
             "contentType": lambda n : setattr(self, 'content_type', n.get_enum_value(BodyType)),
+            "messageBodyContentType": lambda n : setattr(self, 'message_body_content_type', n.get_enum_value(ChatMessageBodyContentType)),
             "@odata.type": lambda n : setattr(self, 'odata_type', n.get_str_value()),
         }
         return fields
@@ -56,6 +62,7 @@ class ItemBody(AdditionalDataHolder, Parsable):
             raise TypeError("writer cannot be null.")
         writer.write_str_value("content", self.content)
         writer.write_enum_value("contentType", self.content_type)
+        writer.write_enum_value("messageBodyContentType", self.message_body_content_type)
         writer.write_str_value("@odata.type", self.odata_type)
         writer.write_additional_data_value(self.additional_data)
     
