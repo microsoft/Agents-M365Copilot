@@ -9,12 +9,12 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ItemBody : IAdditionalDataHolder, IParsable
+    public partial class ChatMessageBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The content of the item.</summary>
+        /// <summary>The content of the chat message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Content { get; set; }
@@ -22,8 +22,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string Content { get; set; }
 #endif
-        /// <summary>The type of the content. Possible values are text and html.</summary>
+        /// <summary>The type of the content. The possible values are: text, html. The contentType property is deprecated. Going forward, use the messageBodyContentType property.</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.BodyType? ContentType { get; set; }
+        /// <summary>The type of the content, including support for additional Teams content types. The possible values are: text, html, markdown, unknownFutureValue.</summary>
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.ChatMessageBodyContentType? MessageBodyContentType { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,21 +35,21 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.ItemBody"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.ChatMessageBody"/> and sets the default values.
         /// </summary>
-        public ItemBody()
+        public ChatMessageBody()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.ItemBody"/></returns>
+        /// <returns>A <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.ChatMessageBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Microsoft.Agents.M365Copilot.Beta.Models.ItemBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Microsoft.Agents.M365Copilot.Beta.Models.ChatMessageBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Microsoft.Agents.M365Copilot.Beta.Models.ItemBody();
+            return new global::Microsoft.Agents.M365Copilot.Beta.Models.ChatMessageBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,6 +61,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             {
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "contentType", n => { ContentType = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.BodyType>(); } },
+                { "messageBodyContentType", n => { MessageBodyContentType = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.ChatMessageBodyContentType>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -71,6 +74,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("content", Content);
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.BodyType>("contentType", ContentType);
+            writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.ChatMessageBodyContentType>("messageBodyContentType", MessageBodyContentType);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }
