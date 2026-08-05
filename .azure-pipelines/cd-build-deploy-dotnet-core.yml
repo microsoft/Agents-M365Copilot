@@ -104,7 +104,10 @@ extends:
               condition: or(contains(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Core'), eq(variables['Build.Reason'], 'Manual'))
               inputs:
                 projects: '$(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Core/Microsoft.Agents.M365Copilot.Core.csproj'
-                arguments: '--configuration $(buildConfiguration) --no-incremental'
+                # Force the implicit restore to use the CFS central-feed nuget.config (created
+                # above) rather than relying on directory walk-up, which still reached nuget.org
+                # and broke CFSClean network isolation.
+                arguments: '--configuration $(buildConfiguration) --no-incremental -p:RestoreConfigFile="$(Build.SourcesDirectory)/dotnet/nuget.config"'
             - task: DotNetCoreCLI@2
               displayName: 'Test Microsoft.Agents.M365Copilot.Core'
               # This condition allows the build to run for both tag builds and manual builds.
@@ -112,7 +115,7 @@ extends:
               inputs:
                 command: test
                 projects: '$(Build.SourcesDirectory)/dotnet/tests/Microsoft.Agents.M365Copilot.Core.Tests/Microsoft.Agents.M365Copilot.Core.Tests.csproj'
-                arguments: '--configuration $(buildConfiguration)'
+                arguments: '--configuration $(buildConfiguration) -p:RestoreConfigFile="$(Build.SourcesDirectory)/dotnet/nuget.config"'
 
             # Strong name for Core using ESRP
             - template: .azure-pipelines/templates/esrp-strongname.yml@self
