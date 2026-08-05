@@ -16,9 +16,9 @@ from warnings import warn
 if TYPE_CHECKING:
     from ...models.copilot_report_root import CopilotReportRoot
     from ...models.o_data_errors.o_data_error import ODataError
-    from .get_microsoft365_copilot_usage_user_detail_with_period_with_version.get_microsoft365_copilot_usage_user_detail_with_period_with_version_request_builder import GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder
-    from .get_microsoft365_copilot_user_count_summary_with_period_with_version.get_microsoft365_copilot_user_count_summary_with_period_with_version_request_builder import GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder
-    from .get_microsoft365_copilot_user_count_trend_with_period_with_version.get_microsoft365_copilot_user_count_trend_with_period_with_version_request_builder import GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersionRequestBuilder
+    from .get_microsoft365_copilot_usage_user_detail_with_periodversion_version.get_microsoft365_copilot_usage_user_detail_with_periodversion_version_request_builder import GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder
+    from .get_microsoft365_copilot_user_count_summary_with_periodversion_version.get_microsoft365_copilot_user_count_summary_with_periodversion_version_request_builder import GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilder
+    from .get_microsoft365_copilot_user_count_trend_with_periodversion_version.get_microsoft365_copilot_user_count_trend_with_periodversion_version_request_builder import GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder
 
 class ReportsRequestBuilder(BaseRequestBuilder):
     """
@@ -71,50 +71,41 @@ class ReportsRequestBuilder(BaseRequestBuilder):
 
         return await self.request_adapter.send_async(request_info, CopilotReportRoot, error_mapping)
     
-    def get_microsoft365_copilot_usage_user_detail_with_period_with_version(self,period: str, version: str) -> GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder:
+    def get_microsoft365_copilot_usage_user_detail_with_periodversion_version(self,period: str) -> GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder:
         """
         Provides operations to call the getMicrosoft365CopilotUsageUserDetail method.
         param period: Usage: period='{period}'
-        param version: Usage: version='{version}'
-        Returns: GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder
+        Returns: GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder
         """
         if period is None:
             raise TypeError("period cannot be null.")
-        if version is None:
-            raise TypeError("version cannot be null.")
-        from .get_microsoft365_copilot_usage_user_detail_with_period_with_version.get_microsoft365_copilot_usage_user_detail_with_period_with_version_request_builder import GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder
+        from .get_microsoft365_copilot_usage_user_detail_with_periodversion_version.get_microsoft365_copilot_usage_user_detail_with_periodversion_version_request_builder import GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder
 
-        return GetMicrosoft365CopilotUsageUserDetailWithPeriodWithVersionRequestBuilder(self.request_adapter, self.path_parameters, period, version)
+        return GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder(self.request_adapter, self.path_parameters, period)
     
-    def get_microsoft365_copilot_user_count_summary_with_period_with_version(self,period: str, version: str) -> GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder:
+    def get_microsoft365_copilot_user_count_summary_with_periodversion_version(self,period: str) -> GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilder:
         """
         Provides operations to call the getMicrosoft365CopilotUserCountSummary method.
         param period: Usage: period='{period}'
-        param version: Usage: version='{version}'
-        Returns: GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder
+        Returns: GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilder
         """
         if period is None:
             raise TypeError("period cannot be null.")
-        if version is None:
-            raise TypeError("version cannot be null.")
-        from .get_microsoft365_copilot_user_count_summary_with_period_with_version.get_microsoft365_copilot_user_count_summary_with_period_with_version_request_builder import GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder
+        from .get_microsoft365_copilot_user_count_summary_with_periodversion_version.get_microsoft365_copilot_user_count_summary_with_periodversion_version_request_builder import GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilder
 
-        return GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder(self.request_adapter, self.path_parameters, period, version)
+        return GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilder(self.request_adapter, self.path_parameters, period)
     
-    def get_microsoft365_copilot_user_count_trend_with_period_with_version(self,period: str, version: str) -> GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersionRequestBuilder:
+    def get_microsoft365_copilot_user_count_trend_with_periodversion_version(self,period: str) -> GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder:
         """
         Provides operations to call the getMicrosoft365CopilotUserCountTrend method.
         param period: Usage: period='{period}'
-        param version: Usage: version='{version}'
-        Returns: GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersionRequestBuilder
+        Returns: GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder
         """
         if period is None:
             raise TypeError("period cannot be null.")
-        if version is None:
-            raise TypeError("version cannot be null.")
-        from .get_microsoft365_copilot_user_count_trend_with_period_with_version.get_microsoft365_copilot_user_count_trend_with_period_with_version_request_builder import GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersionRequestBuilder
+        from .get_microsoft365_copilot_user_count_trend_with_periodversion_version.get_microsoft365_copilot_user_count_trend_with_periodversion_version_request_builder import GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder
 
-        return GetMicrosoft365CopilotUserCountTrendWithPeriodWithVersionRequestBuilder(self.request_adapter, self.path_parameters, period, version)
+        return GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder(self.request_adapter, self.path_parameters, period)
     
     async def patch(self,body: CopilotReportRoot, request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> Optional[CopilotReportRoot]:
         """

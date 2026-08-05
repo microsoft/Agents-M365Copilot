@@ -16,27 +16,25 @@ from warnings import warn
 if TYPE_CHECKING:
     from ....models.o_data_errors.o_data_error import ODataError
 
-class GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder(BaseRequestBuilder):
+class GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder(BaseRequestBuilder):
     """
-    Provides operations to call the getMicrosoft365CopilotUserCountSummary method.
+    Provides operations to call the getMicrosoft365CopilotUsageUserDetail method.
     """
-    def __init__(self,request_adapter: RequestAdapter, path_parameters: Union[str, dict[str, Any]], period: Optional[str] = None, version: Optional[str] = None) -> None:
+    def __init__(self,request_adapter: RequestAdapter, path_parameters: Union[str, dict[str, Any]], period: Optional[str] = None) -> None:
         """
-        Instantiates a new GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder and sets the default values.
+        Instantiates a new GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder and sets the default values.
         param path_parameters: The raw url or the url-template parameters for the request.
         param period: Usage: period='{period}'
         param request_adapter: The request adapter to use to execute the requests.
-        param version: Usage: version='{version}'
         Returns: None
         """
         if isinstance(path_parameters, dict):
             path_parameters['period'] = period
-            path_parameters['version'] = version
-        super().__init__(request_adapter, "{+baseurl}/copilot/reports/getMicrosoft365CopilotUserCountSummary(period='{period}',version='{version}')", path_parameters)
+        super().__init__(request_adapter, "{+baseurl}/copilot/reports/getMicrosoft365CopilotUsageUserDetail(period='{period}',version='@version'){?version*}", path_parameters)
     
-    async def get(self,request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> Optional[bytes]:
+    async def get(self,request_configuration: Optional[RequestConfiguration[GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderGetQueryParameters]] = None) -> Optional[bytes]:
         """
-        Invoke function getMicrosoft365CopilotUserCountSummary
+        Invoke function getMicrosoft365CopilotUsageUserDetail
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: bytes
         """
@@ -52,9 +50,9 @@ class GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder(
             raise Exception("Http core is null") 
         return await self.request_adapter.send_primitive_async(request_info, "bytes", error_mapping)
     
-    def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[QueryParameters]] = None) -> RequestInformation:
+    def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
         """
-        Invoke function getMicrosoft365CopilotUserCountSummary
+        Invoke function getMicrosoft365CopilotUsageUserDetail
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
@@ -63,18 +61,27 @@ class GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder(
         request_info.headers.try_add("Accept", "application/octet-stream, application/json")
         return request_info
     
-    def with_url(self,raw_url: str) -> GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder:
+    def with_url(self,raw_url: str) -> GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder:
         """
         Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         param raw_url: The raw URL to use for the request builder.
-        Returns: GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder
+        Returns: GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder
         """
         if raw_url is None:
             raise TypeError("raw_url cannot be null.")
-        return GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilder(self.request_adapter, raw_url)
+        return GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder(self.request_adapter, raw_url)
     
     @dataclass
-    class GetMicrosoft365CopilotUserCountSummaryWithPeriodWithVersionRequestBuilderGetRequestConfiguration(RequestConfiguration[QueryParameters]):
+    class GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderGetQueryParameters():
+        """
+        Invoke function getMicrosoft365CopilotUsageUserDetail
+        """
+        # Usage: version='@version'
+        version: Optional[str] = None
+
+    
+    @dataclass
+    class GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderGetRequestConfiguration(RequestConfiguration[GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderGetQueryParameters]):
         """
         Configuration for the request such as headers, query parameters, and middleware options.
         """
