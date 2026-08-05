@@ -127,7 +127,7 @@ export interface AiInteraction extends Entity, Parsable {
     /**
      * The body property
      */
-    body?: ItemBody | null;
+    body?: ChatMessageBody | null;
     /**
      * The contexts property
      */
@@ -410,6 +410,25 @@ export interface ChatInfo extends AdditionalDataHolder, Parsable {
      */
     threadId?: string | null;
 }
+export interface ChatMessageBody extends AdditionalDataHolder, Parsable {
+    /**
+     * The content of the chat message.
+     */
+    content?: string | null;
+    /**
+     * The type of the content. The possible values are: text, html. The contentType property is deprecated. Going forward, use the messageBodyContentType property.
+     */
+    contentType?: BodyType | null;
+    /**
+     * The type of the content, including support for additional Teams content types. The possible values are: text, html, markdown, unknownFutureValue.
+     */
+    messageBodyContentType?: ChatMessageBodyContentType | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
+export type ChatMessageBodyContentType = (typeof ChatMessageBodyContentTypeObject)[keyof typeof ChatMessageBodyContentTypeObject];
 export interface ChatMessageFromIdentitySet extends IdentitySet, Parsable {
 }
 export interface ChatMessageMentionedIdentitySet extends IdentitySet, Parsable {
@@ -1244,6 +1263,15 @@ export function createChatInfoFromDiscriminatorValue(parseNode: ParseNode | unde
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ChatMessageBody}
+ */
+// @ts-ignore
+export function createChatMessageBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoChatMessageBody;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ChatMessageFromIdentitySet}
  */
 // @ts-ignore
@@ -1967,15 +1995,6 @@ export function createInitiatorFromDiscriminatorValue(parseNode: ParseNode | und
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {ItemBody}
- */
-// @ts-ignore
-export function createItemBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoItemBody;
-}
-/**
- * Creates a new instance of the appropriate class based on discriminator value
- * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {JoinMeetingIdMeetingInfo}
  */
 // @ts-ignore
@@ -2270,6 +2289,15 @@ export function createServicePrincipalIdentityFromDiscriminatorValue(parseNode: 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {SharePointEmbeddedConfiguration}
+ */
+// @ts-ignore
+export function createSharePointEmbeddedConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSharePointEmbeddedConfiguration;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SharePointGroupIdentity}
  */
 // @ts-ignore
@@ -2433,6 +2461,10 @@ export interface DataSourceConfiguration extends AdditionalDataHolder, Parsable 
      * The OdataType property
      */
     odataType?: string | null;
+    /**
+     * The sharePointEmbedded property
+     */
+    sharePointEmbedded?: SharePointEmbeddedConfiguration | null;
 }
 /**
  * The deserialization information for the current model
@@ -2532,7 +2564,7 @@ export function deserializeIntoAiInteraction(aiInteraction: Partial<AiInteractio
         ...deserializeIntoEntity(aiInteraction),
         "appClass": n => { aiInteraction.appClass = n.getStringValue(); },
         "attachments": n => { aiInteraction.attachments = n.getCollectionOfObjectValues<AiInteractionAttachment>(createAiInteractionAttachmentFromDiscriminatorValue); },
-        "body": n => { aiInteraction.body = n.getObjectValue<ItemBody>(createItemBodyFromDiscriminatorValue); },
+        "body": n => { aiInteraction.body = n.getObjectValue<ChatMessageBody>(createChatMessageBodyFromDiscriminatorValue); },
         "contexts": n => { aiInteraction.contexts = n.getCollectionOfObjectValues<AiInteractionContext>(createAiInteractionContextFromDiscriminatorValue); },
         "conversationType": n => { aiInteraction.conversationType = n.getStringValue(); },
         "createdDateTime": n => { aiInteraction.createdDateTime = n.getDateValue(); },
@@ -2794,6 +2826,20 @@ export function deserializeIntoChatInfo(chatInfo: Partial<ChatInfo> | undefined 
         "@odata.type": n => { chatInfo.odataType = n.getStringValue(); },
         "replyChainMessageId": n => { chatInfo.replyChainMessageId = n.getStringValue(); },
         "threadId": n => { chatInfo.threadId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ChatMessageBody The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoChatMessageBody(chatMessageBody: Partial<ChatMessageBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "content": n => { chatMessageBody.content = n.getStringValue(); },
+        "contentType": n => { chatMessageBody.contentType = n.getEnumValue<BodyType>(BodyTypeObject); },
+        "messageBodyContentType": n => { chatMessageBody.messageBodyContentType = n.getEnumValue<ChatMessageBodyContentType>(ChatMessageBodyContentTypeObject); },
+        "@odata.type": n => { chatMessageBody.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -3403,6 +3449,7 @@ export function deserializeIntoDataSourceConfiguration(dataSourceConfiguration: 
     return {
         "externalItem": n => { dataSourceConfiguration.externalItem = n.getObjectValue<ExternalItemConfiguration>(createExternalItemConfigurationFromDiscriminatorValue); },
         "@odata.type": n => { dataSourceConfiguration.odataType = n.getStringValue(); },
+        "sharePointEmbedded": n => { dataSourceConfiguration.sharePointEmbedded = n.getObjectValue<SharePointEmbeddedConfiguration>(createSharePointEmbeddedConfigurationFromDiscriminatorValue); },
     }
 }
 /**
@@ -3551,19 +3598,6 @@ export function deserializeIntoInitiator(initiator: Partial<Initiator> | undefin
     return {
         ...deserializeIntoIdentity(initiator),
         "initiatorType": n => { initiator.initiatorType = n.getEnumValue<InitiatorType>(InitiatorTypeObject); },
-    }
-}
-/**
- * The deserialization information for the current model
- * @param ItemBody The instance to deserialize into.
- * @returns {Record<string, (node: ParseNode) => void>}
- */
-// @ts-ignore
-export function deserializeIntoItemBody(itemBody: Partial<ItemBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
-    return {
-        "content": n => { itemBody.content = n.getStringValue(); },
-        "contentType": n => { itemBody.contentType = n.getEnumValue<BodyType>(BodyTypeObject); },
-        "@odata.type": n => { itemBody.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -3972,6 +4006,18 @@ export function deserializeIntoServicePrincipalIdentity(servicePrincipalIdentity
 }
 /**
  * The deserialization information for the current model
+ * @param SharePointEmbeddedConfiguration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoSharePointEmbeddedConfiguration(sharePointEmbeddedConfiguration: Partial<SharePointEmbeddedConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "containerTypeId": n => { sharePointEmbeddedConfiguration.containerTypeId = n.getStringValue(); },
+        "@odata.type": n => { sharePointEmbeddedConfiguration.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param SharePointGroupIdentity The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -4290,20 +4336,6 @@ export interface Initiator extends Identity, Parsable {
     initiatorType?: InitiatorType | null;
 }
 export type InitiatorType = (typeof InitiatorTypeObject)[keyof typeof InitiatorTypeObject];
-export interface ItemBody extends AdditionalDataHolder, Parsable {
-    /**
-     * The content of the item.
-     */
-    content?: string | null;
-    /**
-     * The type of the content. Possible values are text and html.
-     */
-    contentType?: BodyType | null;
-    /**
-     * The OdataType property
-     */
-    odataType?: string | null;
-}
 export interface JoinMeetingIdMeetingInfo extends MeetingInfo, Parsable {
     /**
      * The ID used to join the meeting.
@@ -4790,7 +4822,7 @@ export function serializeAiInteraction(writer: SerializationWriter, aiInteractio
     serializeEntity(writer, aiInteraction, isSerializingDerivedType)
     writer.writeStringValue("appClass", aiInteraction.appClass);
     writer.writeCollectionOfObjectValues<AiInteractionAttachment>("attachments", aiInteraction.attachments, serializeAiInteractionAttachment);
-    writer.writeObjectValue<ItemBody>("body", aiInteraction.body, serializeItemBody);
+    writer.writeObjectValue<ChatMessageBody>("body", aiInteraction.body, serializeChatMessageBody);
     writer.writeCollectionOfObjectValues<AiInteractionContext>("contexts", aiInteraction.contexts, serializeAiInteractionContext);
     writer.writeStringValue("conversationType", aiInteraction.conversationType);
     writer.writeDateValue("createdDateTime", aiInteraction.createdDateTime);
@@ -5065,6 +5097,21 @@ export function serializeChatInfo(writer: SerializationWriter, chatInfo: Partial
     writer.writeStringValue("replyChainMessageId", chatInfo.replyChainMessageId);
     writer.writeStringValue("threadId", chatInfo.threadId);
     writer.writeAdditionalData(chatInfo.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param ChatMessageBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeChatMessageBody(writer: SerializationWriter, chatMessageBody: Partial<ChatMessageBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!chatMessageBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("content", chatMessageBody.content);
+    writer.writeEnumValue<BodyType>("contentType", chatMessageBody.contentType);
+    writer.writeEnumValue<ChatMessageBodyContentType>("messageBodyContentType", chatMessageBody.messageBodyContentType);
+    writer.writeStringValue("@odata.type", chatMessageBody.odataType);
+    writer.writeAdditionalData(chatMessageBody.additionalData);
 }
 /**
  * Serializes information the current object
@@ -5692,6 +5739,7 @@ export function serializeDataSourceConfiguration(writer: SerializationWriter, da
     if (!dataSourceConfiguration || isSerializingDerivedType) { return; }
     writer.writeObjectValue<ExternalItemConfiguration>("externalItem", dataSourceConfiguration.externalItem, serializeExternalItemConfiguration);
     writer.writeStringValue("@odata.type", dataSourceConfiguration.odataType);
+    writer.writeObjectValue<SharePointEmbeddedConfiguration>("sharePointEmbedded", dataSourceConfiguration.sharePointEmbedded, serializeSharePointEmbeddedConfiguration);
     writer.writeAdditionalData(dataSourceConfiguration.additionalData);
 }
 /**
@@ -6051,20 +6099,6 @@ export function serializeInitiator(writer: SerializationWriter, initiator: Parti
     if (!initiator || isSerializingDerivedType) { return; }
     serializeIdentity(writer, initiator, isSerializingDerivedType)
     writer.writeEnumValue<InitiatorType>("initiatorType", initiator.initiatorType);
-}
-/**
- * Serializes information the current object
- * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
- * @param ItemBody The instance to serialize from.
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeItemBody(writer: SerializationWriter, itemBody: Partial<ItemBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
-    if (!itemBody || isSerializingDerivedType) { return; }
-    writer.writeStringValue("content", itemBody.content);
-    writer.writeEnumValue<BodyType>("contentType", itemBody.contentType);
-    writer.writeStringValue("@odata.type", itemBody.odataType);
-    writer.writeAdditionalData(itemBody.additionalData);
 }
 /**
  * Serializes information the current object
@@ -6495,6 +6529,19 @@ export function serializeServicePrincipalIdentity(writer: SerializationWriter, s
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SharePointEmbeddedConfiguration The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeSharePointEmbeddedConfiguration(writer: SerializationWriter, sharePointEmbeddedConfiguration: Partial<SharePointEmbeddedConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!sharePointEmbeddedConfiguration || isSerializingDerivedType) { return; }
+    writer.writeStringValue("containerTypeId", sharePointEmbeddedConfiguration.containerTypeId);
+    writer.writeStringValue("@odata.type", sharePointEmbeddedConfiguration.odataType);
+    writer.writeAdditionalData(sharePointEmbeddedConfiguration.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param SharePointGroupIdentity The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -6706,6 +6753,16 @@ export interface ServicePrincipalIdentity extends Identity, Parsable {
      */
     appId?: string | null;
 }
+export interface SharePointEmbeddedConfiguration extends AdditionalDataHolder, Parsable {
+    /**
+     * The containerTypeId property
+     */
+    containerTypeId?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 export interface SharePointGroupIdentity extends Identity, Parsable {
     /**
      * The principal ID of the SharePoint group in the tenant. Read-only.
@@ -6873,6 +6930,12 @@ export const BodyTypeObject = {
     Text: "text",
     Html: "html",
 } as const;
+export const ChatMessageBodyContentTypeObject = {
+    Text: "text",
+    Html: "html",
+    Markdown: "markdown",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
 export const ConnectionTypeObject = {
     WebSocket: "webSocket",
     UnknownFutureValue: "unknownFutureValue",
@@ -6947,6 +7010,7 @@ export const RetrievalDataSourceObject = {
     OneDriveBusiness: "oneDriveBusiness",
     ExternalItem: "externalItem",
     UnknownFutureValue: "unknownFutureValue",
+    SharePointEmbedded: "sharePointEmbedded",
 } as const;
 export const RetrievalEntityTypeObject = {
     Site: "site",
