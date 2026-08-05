@@ -11,9 +11,9 @@ if TYPE_CHECKING:
     from .ai_interaction_link import AiInteractionLink
     from .ai_interaction_mention import AiInteractionMention
     from .ai_interaction_type import AiInteractionType
+    from .chat_message_body import ChatMessageBody
     from .entity import Entity
     from .identity_set import IdentitySet
-    from .item_body import ItemBody
 
 from .entity import Entity
 
@@ -24,7 +24,7 @@ class AiInteraction(Entity, Parsable):
     # The attachments property
     attachments: Optional[list[AiInteractionAttachment]] = None
     # The body property
-    body: Optional[ItemBody] = None
+    body: Optional[ChatMessageBody] = None
     # The contexts property
     contexts: Optional[list[AiInteractionContext]] = None
     # The conversationType property
@@ -71,23 +71,23 @@ class AiInteraction(Entity, Parsable):
         from .ai_interaction_link import AiInteractionLink
         from .ai_interaction_mention import AiInteractionMention
         from .ai_interaction_type import AiInteractionType
+        from .chat_message_body import ChatMessageBody
         from .entity import Entity
         from .identity_set import IdentitySet
-        from .item_body import ItemBody
 
         from .ai_interaction_attachment import AiInteractionAttachment
         from .ai_interaction_context import AiInteractionContext
         from .ai_interaction_link import AiInteractionLink
         from .ai_interaction_mention import AiInteractionMention
         from .ai_interaction_type import AiInteractionType
+        from .chat_message_body import ChatMessageBody
         from .entity import Entity
         from .identity_set import IdentitySet
-        from .item_body import ItemBody
 
         fields: dict[str, Callable[[Any], None]] = {
             "appClass": lambda n : setattr(self, 'app_class', n.get_str_value()),
             "attachments": lambda n : setattr(self, 'attachments', n.get_collection_of_object_values(AiInteractionAttachment)),
-            "body": lambda n : setattr(self, 'body', n.get_object_value(ItemBody)),
+            "body": lambda n : setattr(self, 'body', n.get_object_value(ChatMessageBody)),
             "contexts": lambda n : setattr(self, 'contexts', n.get_collection_of_object_values(AiInteractionContext)),
             "conversationType": lambda n : setattr(self, 'conversation_type', n.get_str_value()),
             "createdDateTime": lambda n : setattr(self, 'created_date_time', n.get_datetime_value()),

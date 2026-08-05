@@ -9,31 +9,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
 /**
  * Provides operations to call the getMicrosoft365CopilotUsageUserDetail method.
  */
-export interface GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder extends BaseRequestBuilder<GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder> {
+export interface GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder extends BaseRequestBuilder<GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder> {
     /**
      * Invoke function getMicrosoft365CopilotUsageUserDetail
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderGetQueryParameters> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
      * Invoke function getMicrosoft365CopilotUsageUserDetail
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
-     toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
+     toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
+}
+/**
+ * Invoke function getMicrosoft365CopilotUsageUserDetail
+ */
+export interface GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderGetQueryParameters {
+    /**
+     * Usage: version='@version'
+     */
+    version?: string;
 }
 /**
  * Uri template for the request builder.
  */
-export const GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilderUriTemplate = "{+baseurl}/copilot/reports/getMicrosoft365CopilotUsageUserDetail(period='{period}')";
+export const GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderUriTemplate = "{+baseurl}/copilot/reports/getMicrosoft365CopilotUsageUserDetail(period='{period}',version='@version'){?version*}";
 /**
  * Metadata for all the requests in the request builder.
  */
-export const GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilderRequestsMetadata: RequestsMetadata = {
+export const GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilderUriTemplate,
+        uriTemplate: GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderUriTemplate,
         responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
