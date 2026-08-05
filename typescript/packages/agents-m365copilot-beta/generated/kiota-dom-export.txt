@@ -555,26 +555,29 @@ github.com/microsoft/Agents-M365Copilot/typescript/.copilot.interactionHistory.i
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.interactionHistory.interactionHistoryRequestBuilderRequestsMetadata
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.interactionHistory.interactionHistoryRequestBuilderUriTemplate
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.interactionHistory.interactionHistoryRequestBuilder~~>BaseRequestBuilder<InteractionHistoryRequestBuilder>
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUsageUserDetailWithPeriod.getMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<object>):ArrayBuffer
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUsageUserDetailWithPeriod.getMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUsageUserDetailWithPeriod.getMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilderRequestsMetadata
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUsageUserDetailWithPeriod.getMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilderUriTemplate
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUsageUserDetailWithPeriod.getMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder~~>BaseRequestBuilder<GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder>
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountSummaryWithPeriod.getMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<object>):ArrayBuffer
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountSummaryWithPeriod.getMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountSummaryWithPeriod.getMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilderRequestsMetadata
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountSummaryWithPeriod.getMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilderUriTemplate
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountSummaryWithPeriod.getMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder~~>BaseRequestBuilder<GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder>
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountTrendWithPeriod.getMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<object>):ArrayBuffer
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountTrendWithPeriod.getMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountTrendWithPeriod.getMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderRequestsMetadata
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountTrendWithPeriod.getMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderUriTemplate
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountTrendWithPeriod.getMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder~~>BaseRequestBuilder<GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder>
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersion.getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderGetQueryParameters>):ArrayBuffer
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersion.getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersion.getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderGetQueryParameters::|public|version:string
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersion.getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderRequestsMetadata
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersion.getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderUriTemplate
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersion.getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder~~>BaseRequestBuilder<GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder>
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountSummaryWithPeriodversionVersion.getMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilderGetQueryParameters>):ArrayBuffer
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountSummaryWithPeriodversionVersion.getMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountSummaryWithPeriodversionVersion.getMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilderGetQueryParameters::|public|version:string
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountSummaryWithPeriodversionVersion.getMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilderRequestsMetadata
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountSummaryWithPeriodversionVersion.getMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilderUriTemplate
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountSummaryWithPeriodversionVersion.getMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilder~~>BaseRequestBuilder<GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilder>
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountTrendWithPeriodversionVersion.getMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilderGetQueryParameters>):ArrayBuffer
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountTrendWithPeriodversionVersion.getMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountTrendWithPeriodversionVersion.getMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilderGetQueryParameters::|public|version:string
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountTrendWithPeriodversionVersion.getMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilderRequestsMetadata
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountTrendWithPeriodversionVersion.getMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilderUriTemplate
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.getMicrosoft365CopilotUserCountTrendWithPeriodversionVersion.getMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder~~>BaseRequestBuilder<GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder>
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.reportsRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.reportsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<ReportsRequestBuilderGetQueryParameters>):CopilotReportRoot
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.reportsRequestBuilder::|public|getMicrosoft365CopilotUsageUserDetailWithPeriod(period:string):GetMicrosoft365CopilotUsageUserDetailWithPeriodRequestBuilder
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.reportsRequestBuilder::|public|getMicrosoft365CopilotUserCountSummaryWithPeriod(period:string):GetMicrosoft365CopilotUserCountSummaryWithPeriodRequestBuilder
-github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.reportsRequestBuilder::|public|getMicrosoft365CopilotUserCountTrendWithPeriod(period:string):GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.reportsRequestBuilder::|public|getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersion(period:string):GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.reportsRequestBuilder::|public|getMicrosoft365CopilotUserCountSummaryWithPeriodversionVersion(period:string):GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilder
+github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.reportsRequestBuilder::|public|getMicrosoft365CopilotUserCountTrendWithPeriodversionVersion(period:string):GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.reportsRequestBuilder::|public|patch(body:CopilotReportRoot; requestConfiguration?:RequestConfiguration<object>):CopilotReportRoot
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.reportsRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.reports.reportsRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<ReportsRequestBuilderGetQueryParameters>):RequestInformation
@@ -855,7 +858,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.AgentRegistration~~>E
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Agent~~>Entity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteraction::|public|appClass:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteraction::|public|attachments:AiInteractionAttachment[]
-github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteraction::|public|body:ItemBody
+github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteraction::|public|body:ChatMessageBody
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteraction::|public|contexts:AiInteractionContext[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteraction::|public|conversationType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiInteraction::|public|createdDateTime:Date
@@ -969,6 +972,17 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatInfo::|public|oda
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatInfo::|public|replyChainMessageId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatInfo::|public|threadId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatInfo~~>AdditionalDataHolder; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatMessageBody::|public|AdditionalData:Record<string, unknown>
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatMessageBody::|public|content:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatMessageBody::|public|contentType:BodyType
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatMessageBody::|public|messageBodyContentType:ChatMessageBodyContentType
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatMessageBody::|public|odataType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.chatMessageBodyContentType::0000-text
+github.com/microsoft/Agents-M365Copilot/typescript/.models.chatMessageBodyContentType::0001-html
+github.com/microsoft/Agents-M365Copilot/typescript/.models.chatMessageBodyContentType::0002-markdown
+github.com/microsoft/Agents-M365Copilot/typescript/.models.chatMessageBodyContentType::0003-unknownFutureValue
+github.com/microsoft/Agents-M365Copilot/typescript/.models.chatMessageBodyContentTypeObject
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatMessageBody~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatMessageFromIdentitySet::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatMessageFromIdentitySet~~>IdentitySet; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ChatMessageMentionedIdentitySet::|public|conversation:TeamworkConversationIdentity
@@ -1196,6 +1210,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.CustomEmojiFromIdenti
 github.com/microsoft/Agents-M365Copilot/typescript/.models.DataSourceConfiguration::|public|AdditionalData:Record<string, unknown>
 github.com/microsoft/Agents-M365Copilot/typescript/.models.DataSourceConfiguration::|public|externalItem:ExternalItemConfiguration
 github.com/microsoft/Agents-M365Copilot/typescript/.models.DataSourceConfiguration::|public|odataType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.DataSourceConfiguration::|public|sharePointEmbedded:SharePointEmbeddedConfiguration
 github.com/microsoft/Agents-M365Copilot/typescript/.models.DataSourceConfiguration~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.DetailsInfo::|public|AdditionalData:Record<string, unknown>
 github.com/microsoft/Agents-M365Copilot/typescript/.models.DetailsInfo::|public|odataType:string
@@ -1255,11 +1270,6 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.initiatorType::0002-s
 github.com/microsoft/Agents-M365Copilot/typescript/.models.initiatorType::0003-unknownFutureValue
 github.com/microsoft/Agents-M365Copilot/typescript/.models.initiatorTypeObject
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Initiator~~>Identity; Parsable
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ItemBody::|public|AdditionalData:Record<string, unknown>
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ItemBody::|public|content:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ItemBody::|public|contentType:BodyType
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ItemBody::|public|odataType:string
-github.com/microsoft/Agents-M365Copilot/typescript/.models.ItemBody~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.JoinMeetingIdMeetingInfo::|public|joinMeetingId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.JoinMeetingIdMeetingInfo::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.JoinMeetingIdMeetingInfo::|public|passcode:string
@@ -1400,6 +1410,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.retrievalDataSource::
 github.com/microsoft/Agents-M365Copilot/typescript/.models.retrievalDataSource::0001-oneDriveBusiness
 github.com/microsoft/Agents-M365Copilot/typescript/.models.retrievalDataSource::0002-externalItem
 github.com/microsoft/Agents-M365Copilot/typescript/.models.retrievalDataSource::0003-unknownFutureValue
+github.com/microsoft/Agents-M365Copilot/typescript/.models.retrievalDataSource::0004-sharePointEmbedded
 github.com/microsoft/Agents-M365Copilot/typescript/.models.retrievalDataSourceObject
 github.com/microsoft/Agents-M365Copilot/typescript/.models.retrievalEntityType::0000-site
 github.com/microsoft/Agents-M365Copilot/typescript/.models.retrievalEntityType::0001-list
@@ -1461,6 +1472,10 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.SensitivityLabelInfo~
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ServicePrincipalIdentity::|public|appId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ServicePrincipalIdentity::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ServicePrincipalIdentity~~>Identity; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointEmbeddedConfiguration::|public|AdditionalData:Record<string, unknown>
+github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointEmbeddedConfiguration::|public|containerTypeId:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointEmbeddedConfiguration::|public|odataType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointEmbeddedConfiguration~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointGroupIdentity::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointGroupIdentity::|public|principalId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.SharePointGroupIdentity::|public|title:string
@@ -1569,6 +1584,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::createCallAiInsightC
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createCallAiInsightFromDiscriminatorValue(parseNode:ParseNode):CallAiInsight
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createCallAiInsightViewPointFromDiscriminatorValue(parseNode:ParseNode):CallAiInsightViewPoint
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createChatInfoFromDiscriminatorValue(parseNode:ParseNode):ChatInfo
+github.com/microsoft/Agents-M365Copilot/typescript/.models::createChatMessageBodyFromDiscriminatorValue(parseNode:ParseNode):ChatMessageBody
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createChatMessageFromIdentitySetFromDiscriminatorValue(parseNode:ParseNode):ChatMessageFromIdentitySet
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createChatMessageMentionedIdentitySetFromDiscriminatorValue(parseNode:ParseNode):ChatMessageMentionedIdentitySet
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createChatMessageReactionIdentitySetFromDiscriminatorValue(parseNode:ParseNode):ChatMessageReactionIdentitySet
@@ -1627,7 +1643,6 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::createGroupIdentityF
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createIdentityFromDiscriminatorValue(parseNode:ParseNode):Identity
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createIdentitySetFromDiscriminatorValue(parseNode:ParseNode):IdentitySet
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createInitiatorFromDiscriminatorValue(parseNode:ParseNode):Initiator
-github.com/microsoft/Agents-M365Copilot/typescript/.models::createItemBodyFromDiscriminatorValue(parseNode:ParseNode):ItemBody
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createJoinMeetingIdMeetingInfoFromDiscriminatorValue(parseNode:ParseNode):JoinMeetingIdMeetingInfo
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createJsonFromDiscriminatorValue(parseNode:ParseNode):Json
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createMeetingInfoFromDiscriminatorValue(parseNode:ParseNode):MeetingInfo
@@ -1659,6 +1674,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::createSearchResource
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createSearchSensitivityLabelInfoFromDiscriminatorValue(parseNode:ParseNode):SearchSensitivityLabelInfo
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createSensitivityLabelInfoFromDiscriminatorValue(parseNode:ParseNode):SensitivityLabelInfo
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createServicePrincipalIdentityFromDiscriminatorValue(parseNode:ParseNode):ServicePrincipalIdentity
+github.com/microsoft/Agents-M365Copilot/typescript/.models::createSharePointEmbeddedConfigurationFromDiscriminatorValue(parseNode:ParseNode):SharePointEmbeddedConfiguration
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createSharePointGroupIdentityFromDiscriminatorValue(parseNode:ParseNode):SharePointGroupIdentity
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createSharePointIdentityFromDiscriminatorValue(parseNode:ParseNode):SharePointIdentity
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createSharePointIdentitySetFromDiscriminatorValue(parseNode:ParseNode):SharePointIdentitySet
@@ -1701,6 +1717,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCallA
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCallAiInsightCollectionResponse(CallAiInsightCollectionResponse:CallAiInsightCollectionResponse={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCallAiInsightViewPoint(CallAiInsightViewPoint:CallAiInsightViewPoint={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoChatInfo(ChatInfo:ChatInfo={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoChatMessageBody(ChatMessageBody:ChatMessageBody={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoChatMessageFromIdentitySet(ChatMessageFromIdentitySet:ChatMessageFromIdentitySet={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoChatMessageMentionedIdentitySet(ChatMessageMentionedIdentitySet:ChatMessageMentionedIdentitySet={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoChatMessageReactionIdentitySet(ChatMessageReactionIdentitySet:ChatMessageReactionIdentitySet={}):Record<string, (node: ParseNode) => void>
@@ -1759,7 +1776,6 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoGroup
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoIdentity(Identity:Identity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoIdentitySet(IdentitySet:IdentitySet={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoInitiator(Initiator:Initiator={}):Record<string, (node: ParseNode) => void>
-github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoItemBody(ItemBody:ItemBody={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoJoinMeetingIdMeetingInfo(JoinMeetingIdMeetingInfo:JoinMeetingIdMeetingInfo={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoJson(Json:Json={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoMeetingInfo(MeetingInfo:MeetingInfo={}):Record<string, (node: ParseNode) => void>
@@ -1791,6 +1807,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoSearc
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoSearchSensitivityLabelInfo(SearchSensitivityLabelInfo:SearchSensitivityLabelInfo={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoSensitivityLabelInfo(SensitivityLabelInfo:SensitivityLabelInfo={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoServicePrincipalIdentity(ServicePrincipalIdentity:ServicePrincipalIdentity={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoSharePointEmbeddedConfiguration(SharePointEmbeddedConfiguration:SharePointEmbeddedConfiguration={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoSharePointGroupIdentity(SharePointGroupIdentity:SharePointGroupIdentity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoSharePointIdentity(SharePointIdentity:SharePointIdentity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoSharePointIdentitySet(SharePointIdentitySet:SharePointIdentitySet={}):Record<string, (node: ParseNode) => void>
@@ -1833,6 +1850,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCallAiInsig
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCallAiInsightCollectionResponse(writer:SerializationWriter; CallAiInsightCollectionResponse:CallAiInsightCollectionResponse={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCallAiInsightViewPoint(writer:SerializationWriter; CallAiInsightViewPoint:CallAiInsightViewPoint={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeChatInfo(writer:SerializationWriter; ChatInfo:ChatInfo={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeChatMessageBody(writer:SerializationWriter; ChatMessageBody:ChatMessageBody={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeChatMessageFromIdentitySet(writer:SerializationWriter; ChatMessageFromIdentitySet:ChatMessageFromIdentitySet={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeChatMessageMentionedIdentitySet(writer:SerializationWriter; ChatMessageMentionedIdentitySet:ChatMessageMentionedIdentitySet={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeChatMessageReactionIdentitySet(writer:SerializationWriter; ChatMessageReactionIdentitySet:ChatMessageReactionIdentitySet={}; isSerializingDerivedType?:boolean=false):void
@@ -1891,7 +1909,6 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeGroupIdenti
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeIdentity(writer:SerializationWriter; Identity:Identity={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeIdentitySet(writer:SerializationWriter; IdentitySet:IdentitySet={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeInitiator(writer:SerializationWriter; Initiator:Initiator={}; isSerializingDerivedType?:boolean=false):void
-github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeItemBody(writer:SerializationWriter; ItemBody:ItemBody={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeJoinMeetingIdMeetingInfo(writer:SerializationWriter; JoinMeetingIdMeetingInfo:JoinMeetingIdMeetingInfo={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeJson(writer:SerializationWriter; Json:Json={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeMeetingInfo(writer:SerializationWriter; MeetingInfo:MeetingInfo={}; isSerializingDerivedType?:boolean=false):void
@@ -1923,6 +1940,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSearchResou
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSearchSensitivityLabelInfo(writer:SerializationWriter; SearchSensitivityLabelInfo:SearchSensitivityLabelInfo={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSensitivityLabelInfo(writer:SerializationWriter; SensitivityLabelInfo:SensitivityLabelInfo={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeServicePrincipalIdentity(writer:SerializationWriter; ServicePrincipalIdentity:ServicePrincipalIdentity={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSharePointEmbeddedConfiguration(writer:SerializationWriter; SharePointEmbeddedConfiguration:SharePointEmbeddedConfiguration={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSharePointGroupIdentity(writer:SerializationWriter; SharePointGroupIdentity:SharePointGroupIdentity={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSharePointIdentity(writer:SerializationWriter; SharePointIdentity:SharePointIdentity={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeSharePointIdentitySet(writer:SerializationWriter; SharePointIdentitySet:SharePointIdentitySet={}; isSerializingDerivedType?:boolean=false):void

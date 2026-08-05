@@ -65,12 +65,26 @@ extends:
                 versionSpec: '3.x'
                 addToPath: true
 
+            - task: PipAuthenticate@1
+              displayName: 'Authenticate pip to Azure Artifacts'
+              inputs:
+                artifactFeeds: '$(System.TeamProject)/GraphDeveloperExperiences_Public'
+                onlyAddExtraIndex: false
+
             - script: python -m pip install --upgrade pip
 
             # Build, test, and package V1 Python library
             - script: pip install poetry
               displayName: 'Install Poetry'
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_v1)'
+
+            - script: |
+                poetry source add --priority=primary azure-feed "https://microsoftgraph.pkgs.visualstudio.com/0985d294-5762-4bc2-a565-161ef349ca3e/_packaging/GraphDeveloperExperiences_Public/pypi/simple/"
+                poetry config http-basic.azure-feed "azure" "$SYSTEM_ACCESSTOKEN"
+              displayName: 'Configure Poetry to use Azure Artifacts feed'
+              workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_v1)'
+              env:
+                SYSTEM_ACCESSTOKEN: $(System.AccessToken)
 
             - script: poetry install
               displayName: 'Install v1 dependencies'
