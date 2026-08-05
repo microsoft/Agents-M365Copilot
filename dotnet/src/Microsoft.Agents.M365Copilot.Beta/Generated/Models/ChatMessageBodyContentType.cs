@@ -5,28 +5,24 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum RetrievalDataSource
+    public enum ChatMessageBodyContentType
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "sharePoint")]
+        [EnumMember(Value = "text")]
         #pragma warning disable CS1591
-        SharePoint,
+        Text,
         #pragma warning restore CS1591
-        [EnumMember(Value = "oneDriveBusiness")]
+        [EnumMember(Value = "html")]
         #pragma warning disable CS1591
-        OneDriveBusiness,
+        Html,
         #pragma warning restore CS1591
-        [EnumMember(Value = "externalItem")]
+        [EnumMember(Value = "markdown")]
         #pragma warning disable CS1591
-        ExternalItem,
+        Markdown,
         #pragma warning restore CS1591
         [EnumMember(Value = "unknownFutureValue")]
         #pragma warning disable CS1591
         UnknownFutureValue,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "sharePointEmbedded")]
-        #pragma warning disable CS1591
-        SharePointEmbedded,
         #pragma warning restore CS1591
     }
 }
