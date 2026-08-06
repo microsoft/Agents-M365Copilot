@@ -96,14 +96,32 @@ extends:
 
               displayName: 'Set project build properties ready to sign'
 
-            # Build and test Beta
+            # Build and test Beta. Restore is a separate step (CFS central-feed nuget.config) so
+            # build/test run with --no-restore and perform no package resolution of their own,
+            # keeping all NuGet egress on the CFS feed (CFSClean).
+            - task: DotNetCoreCLI@2
+              displayName: 'Restore Microsoft.Agents.M365Copilot.Beta'
+              condition: or(contains(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
+              inputs:
+                command: restore
+                projects: '$(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Beta/Microsoft.Agents.M365Copilot.Beta.csproj'
+                feedsToUse: config
+                nugetConfigPath: '$(Build.SourcesDirectory)/dotnet/nuget.config'
             - task: DotNetCoreCLI@2
               displayName: 'Build Microsoft.Agents.M365Copilot.Beta'
               # This condition allows the build to run for both tag builds and manual builds.
               condition: or(contains(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
               inputs:
                 projects: '$(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot.Beta/Microsoft.Agents.M365Copilot.Beta.csproj'
-                arguments: '--configuration $(buildConfiguration) --no-incremental'
+                arguments: '--configuration $(buildConfiguration) --no-incremental --no-restore'
+            - task: DotNetCoreCLI@2
+              displayName: 'Restore Microsoft.Agents.M365Copilot.Beta.Tests'
+              condition: or(contains(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot.Beta'), eq(variables['Build.Reason'], 'Manual'))
+              inputs:
+                command: restore
+                projects: '$(Build.SourcesDirectory)/dotnet/tests/Microsoft.Agents.M365Copilot.Beta.Tests/Microsoft.Agents.M365Copilot.Beta.Tests.csproj'
+                feedsToUse: config
+                nugetConfigPath: '$(Build.SourcesDirectory)/dotnet/nuget.config'
             - task: DotNetCoreCLI@2
               displayName: 'Test Microsoft.Agents.M365Copilot.Beta'
               # This condition allows the build to run for both tag builds and manual builds.
@@ -111,7 +129,7 @@ extends:
               inputs:
                 command: test
                 projects: '$(Build.SourcesDirectory)/dotnet/tests/Microsoft.Agents.M365Copilot.Beta.Tests/Microsoft.Agents.M365Copilot.Beta.Tests.csproj'
-                arguments: '--configuration $(buildConfiguration)'
+                arguments: '--configuration $(buildConfiguration) --no-restore'
 
             # Strong name for Beta using ESRP
             - template: .azure-pipelines/templates/esrp-strongname.yml@self

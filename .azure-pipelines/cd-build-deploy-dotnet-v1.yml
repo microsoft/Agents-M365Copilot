@@ -99,14 +99,24 @@ extends:
 
               displayName: 'Set project build properties ready to sign'
 
-            # Build v1
+            # Build v1. Restore is a separate step (CFS central-feed nuget.config) so the build
+            # runs with --no-restore and performs no package resolution of its own, keeping all
+            # NuGet egress on the CFS feed (CFSClean).
+            - task: DotNetCoreCLI@2
+              displayName: 'Restore Microsoft.Agents.M365Copilot'
+              condition: or(contains(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot-'), eq(variables['Build.Reason'], 'Manual'))
+              inputs:
+                command: restore
+                projects: '$(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot/Microsoft.Agents.M365Copilot.csproj'
+                feedsToUse: config
+                nugetConfigPath: '$(Build.SourcesDirectory)/dotnet/nuget.config'
             - task: DotNetCoreCLI@2
               displayName: 'Build Microsoft.Agents.M365Copilot'
               # This condition allows the build to run for both tag builds and manual builds.
               condition: or(contains(variables['Build.SourceBranch'], 'Microsoft.Agents.M365Copilot-'), eq(variables['Build.Reason'], 'Manual'))
               inputs:
                 projects: '$(Build.SourcesDirectory)/dotnet/src/Microsoft.Agents.M365Copilot/Microsoft.Agents.M365Copilot.csproj'
-                arguments: '--configuration $(buildConfiguration) --no-incremental'
+                arguments: '--configuration $(buildConfiguration) --no-incremental --no-restore'
 
 
             # Strong name for v1 using ESRP
