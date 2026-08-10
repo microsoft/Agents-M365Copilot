@@ -80,15 +80,19 @@ extends:
 
             - script: |
                 poetry source add --priority=primary azure-feed "https://microsoftgraph.pkgs.visualstudio.com/0985d294-5762-4bc2-a565-161ef349ca3e/_packaging/GraphDeveloperExperiences_Public/pypi/simple/"
-                poetry config http-basic.azure-feed "azure" "$SYSTEM_ACCESSTOKEN"
               displayName: 'Configure Poetry to use Azure Artifacts feed'
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_v1)'
-              env:
-                SYSTEM_ACCESSTOKEN: $(System.AccessToken)
 
             - script: poetry install
               displayName: 'Install v1 dependencies'
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_v1)'
+              # Authenticate poetry to the Azure Artifacts feed via env vars (shell/OS-agnostic).
+              # The previous `poetry config http-basic ... "$SYSTEM_ACCESSTOKEN"` step failed on
+              # Windows/cmd agents because cmd.exe does not expand the bash-style $VAR, so poetry
+              # stored the literal string as the password and every feed request returned 401.
+              env:
+                POETRY_HTTP_BASIC_AZURE_FEED_USERNAME: azure
+                POETRY_HTTP_BASIC_AZURE_FEED_PASSWORD: $(System.AccessToken)
 
             - script: poetry run isort .
               displayName: 'Check import order'
@@ -96,6 +100,11 @@ extends:
 
             - script: poetry build
               displayName: 'Build Python package'
+              # poetry build uses PEP 517 build isolation and resolves the [build-system] requires
+              # (setuptools/wheel/poetry-core) from the feed, so it needs the same feed credentials.
+              env:
+                POETRY_HTTP_BASIC_AZURE_FEED_USERNAME: azure
+                POETRY_HTTP_BASIC_AZURE_FEED_PASSWORD: $(System.AccessToken)
               workingDirectory: '$(Build.SourcesDirectory)/python/$(library_dir_v1)'
               
             - task: CopyFiles@2
