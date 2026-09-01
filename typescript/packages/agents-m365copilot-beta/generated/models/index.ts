@@ -109,12 +109,6 @@ export interface AgentRegistration extends Entity, Parsable {
      */
     sourceLastModifiedDateTime?: Date | null;
 }
-export interface AgentRegistrationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /**
-     * The value property
-     */
-    value?: AgentRegistration[] | null;
-}
 export interface AiInteraction extends Entity, Parsable {
     /**
      * The appClass property
@@ -686,12 +680,6 @@ export interface CopilotConversationAttribution extends AdditionalDataHolder, Pa
 }
 export type CopilotConversationAttributionSource = (typeof CopilotConversationAttributionSourceObject)[keyof typeof CopilotConversationAttributionSourceObject];
 export type CopilotConversationAttributionType = (typeof CopilotConversationAttributionTypeObject)[keyof typeof CopilotConversationAttributionTypeObject];
-export interface CopilotConversationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /**
-     * The value property
-     */
-    value?: CopilotConversation[] | null;
-}
 /**
  * Represents a location.
  */
@@ -729,12 +717,6 @@ export interface CopilotConversationMessage extends Entity, Parsable {
      * The text of the message.
      */
     text?: string | null;
-}
-export interface CopilotConversationMessageCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /**
-     * The value property
-     */
-    value?: CopilotConversationMessage[] | null;
 }
 export interface CopilotConversationMessageParameter extends AdditionalDataHolder, Parsable {
     /**
@@ -789,6 +771,10 @@ export interface CopilotFile extends AdditionalDataHolder, Parsable {
     uri?: string | null;
 }
 export interface CopilotPackage extends Entity, Parsable {
+    /**
+     * The agentIdentityId property
+     */
+    agentIdentityId?: string | null;
     /**
      * The appId property
      */
@@ -872,6 +858,10 @@ export interface CopilotPackageDetail extends CopilotPackage, Parsable {
      */
     acquireUsersAndGroups?: PackageAccessEntity[] | null;
     /**
+     * The number of distinct users who actively used the package during the reporting period.
+     */
+    activeUsers?: number | null;
+    /**
      * The allowedUsersAndGroups property
      */
     allowedUsersAndGroups?: PackageAccessEntity[] | null;
@@ -884,6 +874,14 @@ export interface CopilotPackageDetail extends CopilotPackage, Parsable {
      */
     elementDetails?: PackageElementDetail[] | null;
     /**
+     * The fraction of sessions that resulted in an exception, expressed as a value between 0 and 1.
+     */
+    exceptionRate?: number | null;
+    /**
+     * The date and time when the package was last used, in ISO 8601 format and UTC.
+     */
+    lastUsedDateTime?: Date | null;
+    /**
      * The longDescription property
      */
     longDescription?: string | null;
@@ -895,6 +893,14 @@ export interface CopilotPackageDetail extends CopilotPackage, Parsable {
      * The sharedWithUsersAndGroups property
      */
     sharedWithUsersAndGroups?: PackageAccessEntity[] | null;
+    /**
+     * Total hours worked by the agent.
+     */
+    totalRunTimeInHours?: number | null;
+    /**
+     * The total number of sessions served by the package during the reporting period.
+     */
+    totalSessions?: number | null;
 }
 export interface CopilotPackageDetailCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
@@ -1050,15 +1056,6 @@ export function createAgentCollectionResponseFromDiscriminatorValue(parseNode: P
 // @ts-ignore
 export function createAgentFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAgent;
-}
-/**
- * Creates a new instance of the appropriate class based on discriminator value
- * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {AgentRegistrationCollectionResponse}
- */
-// @ts-ignore
-export function createAgentRegistrationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoAgentRegistrationCollectionResponse;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -1452,15 +1449,6 @@ export function createCopilotConversationAttributionFromDiscriminatorValue(parse
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {CopilotConversationCollectionResponse}
- */
-// @ts-ignore
-export function createCopilotConversationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoCopilotConversationCollectionResponse;
-}
-/**
- * Creates a new instance of the appropriate class based on discriminator value
- * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CopilotConversation}
  */
 // @ts-ignore
@@ -1475,15 +1463,6 @@ export function createCopilotConversationFromDiscriminatorValue(parseNode: Parse
 // @ts-ignore
 export function createCopilotConversationLocationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCopilotConversationLocation;
-}
-/**
- * Creates a new instance of the appropriate class based on discriminator value
- * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {CopilotConversationMessageCollectionResponse}
- */
-// @ts-ignore
-export function createCopilotConversationMessageCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoCopilotConversationMessageCollectionResponse;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -2543,18 +2522,6 @@ export function deserializeIntoAgentRegistration(agentRegistration: Partial<Agen
 }
 /**
  * The deserialization information for the current model
- * @param AgentRegistrationCollectionResponse The instance to deserialize into.
- * @returns {Record<string, (node: ParseNode) => void>}
- */
-// @ts-ignore
-export function deserializeIntoAgentRegistrationCollectionResponse(agentRegistrationCollectionResponse: Partial<AgentRegistrationCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
-    return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(agentRegistrationCollectionResponse),
-        "value": n => { agentRegistrationCollectionResponse.value = n.getCollectionOfObjectValues<AgentRegistration>(createAgentRegistrationFromDiscriminatorValue); },
-    }
-}
-/**
- * The deserialization information for the current model
  * @param AiInteraction The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -3120,18 +3087,6 @@ export function deserializeIntoCopilotConversationAttribution(copilotConversatio
 }
 /**
  * The deserialization information for the current model
- * @param CopilotConversationCollectionResponse The instance to deserialize into.
- * @returns {Record<string, (node: ParseNode) => void>}
- */
-// @ts-ignore
-export function deserializeIntoCopilotConversationCollectionResponse(copilotConversationCollectionResponse: Partial<CopilotConversationCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
-    return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(copilotConversationCollectionResponse),
-        "value": n => { copilotConversationCollectionResponse.value = n.getCollectionOfObjectValues<CopilotConversation>(createCopilotConversationFromDiscriminatorValue); },
-    }
-}
-/**
- * The deserialization information for the current model
  * @param CopilotConversationLocation The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -3156,18 +3111,6 @@ export function deserializeIntoCopilotConversationMessage(copilotConversationMes
     return {
         ...deserializeIntoEntity(copilotConversationMessage),
         "text": n => { copilotConversationMessage.text = n.getStringValue(); },
-    }
-}
-/**
- * The deserialization information for the current model
- * @param CopilotConversationMessageCollectionResponse The instance to deserialize into.
- * @returns {Record<string, (node: ParseNode) => void>}
- */
-// @ts-ignore
-export function deserializeIntoCopilotConversationMessageCollectionResponse(copilotConversationMessageCollectionResponse: Partial<CopilotConversationMessageCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
-    return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(copilotConversationMessageCollectionResponse),
-        "value": n => { copilotConversationMessageCollectionResponse.value = n.getCollectionOfObjectValues<CopilotConversationMessage>(createCopilotConversationMessageFromDiscriminatorValue); },
     }
 }
 /**
@@ -3240,6 +3183,7 @@ export function deserializeIntoCopilotFile(copilotFile: Partial<CopilotFile> | u
 export function deserializeIntoCopilotPackage(copilotPackage: Partial<CopilotPackage> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(copilotPackage),
+        "agentIdentityId": n => { copilotPackage.agentIdentityId = n.getStringValue(); },
         "appId": n => { copilotPackage.appId = n.getStringValue(); },
         "assetId": n => { copilotPackage.assetId = n.getStringValue(); },
         "availableTo": n => { copilotPackage.availableTo = n.getEnumValue<PackageStatus>(PackageStatusObject); },
@@ -3271,12 +3215,17 @@ export function deserializeIntoCopilotPackageDetail(copilotPackageDetail: Partia
     return {
         ...deserializeIntoCopilotPackage(copilotPackageDetail),
         "acquireUsersAndGroups": n => { copilotPackageDetail.acquireUsersAndGroups = n.getCollectionOfObjectValues<PackageAccessEntity>(createPackageAccessEntityFromDiscriminatorValue); },
+        "activeUsers": n => { copilotPackageDetail.activeUsers = n.getNumberValue(); },
         "allowedUsersAndGroups": n => { copilotPackageDetail.allowedUsersAndGroups = n.getCollectionOfObjectValues<PackageAccessEntity>(createPackageAccessEntityFromDiscriminatorValue); },
         "categories": n => { copilotPackageDetail.categories = n.getCollectionOfPrimitiveValues<string>("string"); },
         "elementDetails": n => { copilotPackageDetail.elementDetails = n.getCollectionOfObjectValues<PackageElementDetail>(createPackageElementDetailFromDiscriminatorValue); },
+        "exceptionRate": n => { copilotPackageDetail.exceptionRate = n.getNumberValue(); },
+        "lastUsedDateTime": n => { copilotPackageDetail.lastUsedDateTime = n.getDateValue(); },
         "longDescription": n => { copilotPackageDetail.longDescription = n.getStringValue(); },
         "sensitivity": n => { copilotPackageDetail.sensitivity = n.getStringValue(); },
         "sharedWithUsersAndGroups": n => { copilotPackageDetail.sharedWithUsersAndGroups = n.getCollectionOfObjectValues<PackageAccessEntity>(createPackageAccessEntityFromDiscriminatorValue); },
+        "totalRunTimeInHours": n => { copilotPackageDetail.totalRunTimeInHours = n.getNumberValue(); },
+        "totalSessions": n => { copilotPackageDetail.totalSessions = n.getNumberValue(); },
     }
 }
 /**
@@ -4800,18 +4749,6 @@ export function serializeAgentRegistration(writer: SerializationWriter, agentReg
 }
 /**
  * Serializes information the current object
- * @param AgentRegistrationCollectionResponse The instance to serialize from.
- * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeAgentRegistrationCollectionResponse(writer: SerializationWriter, agentRegistrationCollectionResponse: Partial<AgentRegistrationCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
-    if (!agentRegistrationCollectionResponse || isSerializingDerivedType) { return; }
-    serializeBaseCollectionPaginationCountResponse(writer, agentRegistrationCollectionResponse, isSerializingDerivedType)
-    writer.writeCollectionOfObjectValues<AgentRegistration>("value", agentRegistrationCollectionResponse.value, serializeAgentRegistration);
-}
-/**
- * Serializes information the current object
  * @param AiInteraction The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -5387,18 +5324,6 @@ export function serializeCopilotConversationAttribution(writer: SerializationWri
 }
 /**
  * Serializes information the current object
- * @param CopilotConversationCollectionResponse The instance to serialize from.
- * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeCopilotConversationCollectionResponse(writer: SerializationWriter, copilotConversationCollectionResponse: Partial<CopilotConversationCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
-    if (!copilotConversationCollectionResponse || isSerializingDerivedType) { return; }
-    serializeBaseCollectionPaginationCountResponse(writer, copilotConversationCollectionResponse, isSerializingDerivedType)
-    writer.writeCollectionOfObjectValues<CopilotConversation>("value", copilotConversationCollectionResponse.value, serializeCopilotConversation);
-}
-/**
- * Serializes information the current object
  * @param CopilotConversationLocation The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -5433,18 +5358,6 @@ export function serializeCopilotConversationMessage(writer: SerializationWriter,
             serializeCopilotConversationResponseMessage(writer, copilotConversationMessage, true);
         break;
     }
-}
-/**
- * Serializes information the current object
- * @param CopilotConversationMessageCollectionResponse The instance to serialize from.
- * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeCopilotConversationMessageCollectionResponse(writer: SerializationWriter, copilotConversationMessageCollectionResponse: Partial<CopilotConversationMessageCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
-    if (!copilotConversationMessageCollectionResponse || isSerializingDerivedType) { return; }
-    serializeBaseCollectionPaginationCountResponse(writer, copilotConversationMessageCollectionResponse, isSerializingDerivedType)
-    writer.writeCollectionOfObjectValues<CopilotConversationMessage>("value", copilotConversationMessageCollectionResponse.value, serializeCopilotConversationMessage);
 }
 /**
  * Serializes information the current object
@@ -5520,6 +5433,7 @@ export function serializeCopilotFile(writer: SerializationWriter, copilotFile: P
 export function serializeCopilotPackage(writer: SerializationWriter, copilotPackage: Partial<CopilotPackage> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!copilotPackage || isSerializingDerivedType) { return; }
     serializeEntity(writer, copilotPackage, isSerializingDerivedType)
+    writer.writeStringValue("agentIdentityId", copilotPackage.agentIdentityId);
     writer.writeStringValue("appId", copilotPackage.appId);
     writer.writeStringValue("assetId", copilotPackage.assetId);
     writer.writeEnumValue<PackageStatus>("availableTo", copilotPackage.availableTo);
@@ -5556,12 +5470,17 @@ export function serializeCopilotPackageDetail(writer: SerializationWriter, copil
     if (!copilotPackageDetail || isSerializingDerivedType) { return; }
     serializeCopilotPackage(writer, copilotPackageDetail, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<PackageAccessEntity>("acquireUsersAndGroups", copilotPackageDetail.acquireUsersAndGroups, serializePackageAccessEntity);
+    writer.writeNumberValue("activeUsers", copilotPackageDetail.activeUsers);
     writer.writeCollectionOfObjectValues<PackageAccessEntity>("allowedUsersAndGroups", copilotPackageDetail.allowedUsersAndGroups, serializePackageAccessEntity);
     writer.writeCollectionOfPrimitiveValues<string>("categories", copilotPackageDetail.categories);
     writer.writeCollectionOfObjectValues<PackageElementDetail>("elementDetails", copilotPackageDetail.elementDetails, serializePackageElementDetail);
+    writer.writeNumberValue("exceptionRate", copilotPackageDetail.exceptionRate);
+    writer.writeDateValue("lastUsedDateTime", copilotPackageDetail.lastUsedDateTime);
     writer.writeStringValue("longDescription", copilotPackageDetail.longDescription);
     writer.writeStringValue("sensitivity", copilotPackageDetail.sensitivity);
     writer.writeCollectionOfObjectValues<PackageAccessEntity>("sharedWithUsersAndGroups", copilotPackageDetail.sharedWithUsersAndGroups, serializePackageAccessEntity);
+    writer.writeNumberValue("totalRunTimeInHours", copilotPackageDetail.totalRunTimeInHours);
+    writer.writeNumberValue("totalSessions", copilotPackageDetail.totalSessions);
 }
 /**
  * Serializes information the current object
