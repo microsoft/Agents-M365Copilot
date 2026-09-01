@@ -12,6 +12,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class CopilotPackage : global::Microsoft.Agents.M365Copilot.Beta.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The agentIdentityId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AgentIdentityId { get; set; }
+#nullable restore
+#else
+        public string AgentIdentityId { get; set; }
+#endif
         /// <summary>The appId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -151,6 +159,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                { "agentIdentityId", n => { AgentIdentityId = n.GetStringValue(); } },
                 { "appId", n => { AppId = n.GetStringValue(); } },
                 { "assetId", n => { AssetId = n.GetStringValue(); } },
                 { "availableTo", n => { AvailableTo = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus>(); } },
@@ -180,6 +189,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteStringValue("agentIdentityId", AgentIdentityId);
             writer.WriteStringValue("appId", AppId);
             writer.WriteStringValue("assetId", AssetId);
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus>("availableTo", AvailableTo);
