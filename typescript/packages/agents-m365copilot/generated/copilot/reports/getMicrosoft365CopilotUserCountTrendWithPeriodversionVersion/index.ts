@@ -9,31 +9,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
 /**
  * Provides operations to call the getMicrosoft365CopilotUserCountTrend method.
  */
-export interface GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder extends BaseRequestBuilder<GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilder> {
+export interface GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder extends BaseRequestBuilder<GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder> {
     /**
      * Invoke function getMicrosoft365CopilotUserCountTrend
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilderGetQueryParameters> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
      * Invoke function getMicrosoft365CopilotUserCountTrend
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
-     toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
+     toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
+}
+/**
+ * Invoke function getMicrosoft365CopilotUserCountTrend
+ */
+export interface GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilderGetQueryParameters {
+    /**
+     * Usage: version='@version'
+     */
+    version?: string;
 }
 /**
  * Uri template for the request builder.
  */
-export const GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderUriTemplate = "{+baseurl}/copilot/reports/getMicrosoft365CopilotUserCountTrend(period='{period}')";
+export const GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilderUriTemplate = "{+baseurl}/copilot/reports/getMicrosoft365CopilotUserCountTrend(period='{period}',version='@version'){?version*}";
 /**
  * Metadata for all the requests in the request builder.
  */
-export const GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderRequestsMetadata: RequestsMetadata = {
+export const GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: GetMicrosoft365CopilotUserCountTrendWithPeriodRequestBuilderUriTemplate,
+        uriTemplate: GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilderUriTemplate,
         responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
