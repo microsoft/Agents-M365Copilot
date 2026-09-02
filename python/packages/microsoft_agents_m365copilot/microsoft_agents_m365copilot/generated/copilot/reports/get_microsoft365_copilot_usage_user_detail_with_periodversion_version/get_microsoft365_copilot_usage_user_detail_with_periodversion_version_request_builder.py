@@ -16,24 +16,27 @@ from warnings import warn
 if TYPE_CHECKING:
     from ....models.o_data_errors.o_data_error import ODataError
 
-class CountRequestBuilder(BaseRequestBuilder):
+class GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder(BaseRequestBuilder):
     """
-    Provides operations to count the resources in the collection.
+    Provides operations to call the getMicrosoft365CopilotUsageUserDetail method.
     """
-    def __init__(self,request_adapter: RequestAdapter, path_parameters: Union[str, dict[str, Any]]) -> None:
+    def __init__(self,request_adapter: RequestAdapter, path_parameters: Union[str, dict[str, Any]], period: Optional[str] = None) -> None:
         """
-        Instantiates a new CountRequestBuilder and sets the default values.
+        Instantiates a new GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder and sets the default values.
         param path_parameters: The raw url or the url-template parameters for the request.
+        param period: Usage: period='{period}'
         param request_adapter: The request adapter to use to execute the requests.
         Returns: None
         """
-        super().__init__(request_adapter, "{+baseurl}/copilot/conversations/$count{?%24filter,%24search}", path_parameters)
+        if isinstance(path_parameters, dict):
+            path_parameters['period'] = period
+        super().__init__(request_adapter, "{+baseurl}/copilot/reports/getMicrosoft365CopilotUsageUserDetail(period='{period}',version='@version'){?version*}", path_parameters)
     
-    async def get(self,request_configuration: Optional[RequestConfiguration[CountRequestBuilderGetQueryParameters]] = None) -> Optional[int]:
+    async def get(self,request_configuration: Optional[RequestConfiguration[GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderGetQueryParameters]] = None) -> Optional[bytes]:
         """
-        Get the number of the resource
+        Invoke function getMicrosoft365CopilotUsageUserDetail
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
-        Returns: Optional[int]
+        Returns: bytes
         """
         request_info = self.to_get_request_information(
             request_configuration
@@ -45,57 +48,40 @@ class CountRequestBuilder(BaseRequestBuilder):
         }
         if not self.request_adapter:
             raise Exception("Http core is null") 
-        return await self.request_adapter.send_primitive_async(request_info, "int", error_mapping)
+        return await self.request_adapter.send_primitive_async(request_info, "bytes", error_mapping)
     
-    def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[CountRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
+    def to_get_request_information(self,request_configuration: Optional[RequestConfiguration[GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderGetQueryParameters]] = None) -> RequestInformation:
         """
-        Get the number of the resource
+        Invoke function getMicrosoft365CopilotUsageUserDetail
         param request_configuration: Configuration for the request such as headers, query parameters, and middleware options.
         Returns: RequestInformation
         """
         request_info = RequestInformation(Method.GET, self.url_template, self.path_parameters)
         request_info.configure(request_configuration)
-        request_info.headers.try_add("Accept", "text/plain;q=0.9")
+        request_info.headers.try_add("Accept", "application/octet-stream, application/json")
         return request_info
     
-    def with_url(self,raw_url: str) -> CountRequestBuilder:
+    def with_url(self,raw_url: str) -> GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder:
         """
         Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         param raw_url: The raw URL to use for the request builder.
-        Returns: CountRequestBuilder
+        Returns: GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder
         """
         if raw_url is None:
             raise TypeError("raw_url cannot be null.")
-        return CountRequestBuilder(self.request_adapter, raw_url)
+        return GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder(self.request_adapter, raw_url)
     
     @dataclass
-    class CountRequestBuilderGetQueryParameters():
+    class GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderGetQueryParameters():
         """
-        Get the number of the resource
+        Invoke function getMicrosoft365CopilotUsageUserDetail
         """
-        def get_query_parameter(self,original_name: str) -> str:
-            """
-            Maps the query parameters names to their encoded names for the URI template parsing.
-            param original_name: The original query parameter name in the class.
-            Returns: str
-            """
-            if original_name is None:
-                raise TypeError("original_name cannot be null.")
-            if original_name == "filter":
-                return "%24filter"
-            if original_name == "search":
-                return "%24search"
-            return original_name
-        
-        # Filter items by property values
-        filter: Optional[str] = None
-
-        # Search items by search phrases
-        search: Optional[str] = None
+        # Usage: version='@version'
+        version: Optional[str] = None
 
     
     @dataclass
-    class CountRequestBuilderGetRequestConfiguration(RequestConfiguration[CountRequestBuilderGetQueryParameters]):
+    class GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderGetRequestConfiguration(RequestConfiguration[GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderGetQueryParameters]):
         """
         Configuration for the request such as headers, query parameters, and middleware options.
         """
