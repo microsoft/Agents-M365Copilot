@@ -15,6 +15,8 @@ from .entity import Entity
 
 @dataclass
 class CopilotPackage(Entity, Parsable):
+    # The agentIdentityId property
+    agent_identity_id: Optional[str] = None
     # The appId property
     app_id: Optional[str] = None
     # The assetId property
@@ -92,6 +94,7 @@ class CopilotPackage(Entity, Parsable):
         from .package_type import PackageType
 
         fields: dict[str, Callable[[Any], None]] = {
+            "agentIdentityId": lambda n : setattr(self, 'agent_identity_id', n.get_str_value()),
             "appId": lambda n : setattr(self, 'app_id', n.get_str_value()),
             "assetId": lambda n : setattr(self, 'asset_id', n.get_str_value()),
             "availableTo": lambda n : setattr(self, 'available_to', n.get_enum_value(PackageStatus)),
@@ -125,6 +128,7 @@ class CopilotPackage(Entity, Parsable):
         if writer is None:
             raise TypeError("writer cannot be null.")
         super().serialize(writer)
+        writer.write_str_value("agentIdentityId", self.agent_identity_id)
         writer.write_str_value("appId", self.app_id)
         writer.write_str_value("assetId", self.asset_id)
         writer.write_enum_value("availableTo", self.available_to)
