@@ -1048,6 +1048,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|publ
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|deployedTo:PackageStatus
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|displayName:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|elementTypes:string[]
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|governanceMetadata:UntypedNode
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|isBlocked:boolean
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|lastModifiedDateTime:Date
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|manifestId:string
@@ -1056,6 +1057,8 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|publ
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|ownerId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|platform:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|publisher:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|requestStatus:CopilotPackageRequestStatus
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|requestType:CopilotPackageRequestType
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|shortDescription:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|supportedHosts:string[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage::|public|type:PackageType
@@ -1077,6 +1080,17 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageDetail:
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageDetailCollectionResponse::|public|value:CopilotPackageDetail[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageDetailCollectionResponse~~>BaseCollectionPaginationCountResponse; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageDetail~~>CopilotPackage; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestStatus::0000-pending
+github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestStatus::0001-approved
+github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestStatus::0002-rejected
+github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestStatus::0003-unknownFutureValue
+github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestStatusObject
+github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestType::0000-publish
+github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestType::0001-activate
+github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestType::0002-access
+github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestType::0003-update
+github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestType::0004-unknownFutureValue
+github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestTypeObject
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackage~~>Entity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPeopleAdminSetting::|public|enhancedPersonalization:EnhancedPersonalizationSetting
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPeopleAdminSetting::|public|OdataType:string
