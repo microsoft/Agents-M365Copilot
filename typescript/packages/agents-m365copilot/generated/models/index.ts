@@ -421,6 +421,10 @@ export interface CopilotPackage extends Entity, Parsable {
      */
     elementTypes?: string[] | null;
     /**
+     * The governanceMetadata property
+     */
+    governanceMetadata?: UntypedNode | null;
+    /**
      * The isBlocked property
      */
     isBlocked?: boolean | null;
@@ -448,6 +452,14 @@ export interface CopilotPackage extends Entity, Parsable {
      * The publisher property
      */
     publisher?: string | null;
+    /**
+     * The requestStatus property
+     */
+    requestStatus?: CopilotPackageRequestStatus | null;
+    /**
+     * The requestType property
+     */
+    requestType?: CopilotPackageRequestType | null;
     /**
      * The shortDescription property
      */
@@ -525,6 +537,8 @@ export interface CopilotPackageDetailCollectionResponse extends BaseCollectionPa
      */
     value?: CopilotPackageDetail[] | null;
 }
+export type CopilotPackageRequestStatus = (typeof CopilotPackageRequestStatusObject)[keyof typeof CopilotPackageRequestStatusObject];
+export type CopilotPackageRequestType = (typeof CopilotPackageRequestTypeObject)[keyof typeof CopilotPackageRequestTypeObject];
 export interface CopilotReportRoot extends Entity, Parsable {
 }
 /**
@@ -1749,6 +1763,7 @@ export function deserializeIntoCopilotPackage(copilotPackage: Partial<CopilotPac
         "deployedTo": n => { copilotPackage.deployedTo = n.getEnumValue<PackageStatus>(PackageStatusObject); },
         "displayName": n => { copilotPackage.displayName = n.getStringValue(); },
         "elementTypes": n => { copilotPackage.elementTypes = n.getCollectionOfPrimitiveValues<string>("string"); },
+        "governanceMetadata": n => { copilotPackage.governanceMetadata = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
         "isBlocked": n => { copilotPackage.isBlocked = n.getBooleanValue(); },
         "lastModifiedDateTime": n => { copilotPackage.lastModifiedDateTime = n.getDateValue(); },
         "manifestId": n => { copilotPackage.manifestId = n.getStringValue(); },
@@ -1756,6 +1771,8 @@ export function deserializeIntoCopilotPackage(copilotPackage: Partial<CopilotPac
         "ownerId": n => { copilotPackage.ownerId = n.getStringValue(); },
         "platform": n => { copilotPackage.platform = n.getStringValue(); },
         "publisher": n => { copilotPackage.publisher = n.getStringValue(); },
+        "requestStatus": n => { copilotPackage.requestStatus = n.getEnumValue<CopilotPackageRequestStatus>(CopilotPackageRequestStatusObject); },
+        "requestType": n => { copilotPackage.requestType = n.getEnumValue<CopilotPackageRequestType>(CopilotPackageRequestTypeObject); },
         "shortDescription": n => { copilotPackage.shortDescription = n.getStringValue(); },
         "supportedHosts": n => { copilotPackage.supportedHosts = n.getCollectionOfPrimitiveValues<string>("string"); },
         "type": n => { copilotPackage.type = n.getEnumValue<PackageType>(PackageTypeObject); },
@@ -2999,6 +3016,7 @@ export function serializeCopilotPackage(writer: SerializationWriter, copilotPack
     writer.writeEnumValue<PackageStatus>("deployedTo", copilotPackage.deployedTo);
     writer.writeStringValue("displayName", copilotPackage.displayName);
     writer.writeCollectionOfPrimitiveValues<string>("elementTypes", copilotPackage.elementTypes);
+    writer.writeObjectValue("governanceMetadata", copilotPackage.governanceMetadata);
     writer.writeBooleanValue("isBlocked", copilotPackage.isBlocked);
     writer.writeDateValue("lastModifiedDateTime", copilotPackage.lastModifiedDateTime);
     writer.writeStringValue("manifestId", copilotPackage.manifestId);
@@ -3006,6 +3024,8 @@ export function serializeCopilotPackage(writer: SerializationWriter, copilotPack
     writer.writeStringValue("ownerId", copilotPackage.ownerId);
     writer.writeStringValue("platform", copilotPackage.platform);
     writer.writeStringValue("publisher", copilotPackage.publisher);
+    writer.writeEnumValue<CopilotPackageRequestStatus>("requestStatus", copilotPackage.requestStatus);
+    writer.writeEnumValue<CopilotPackageRequestType>("requestType", copilotPackage.requestType);
     writer.writeStringValue("shortDescription", copilotPackage.shortDescription);
     writer.writeCollectionOfPrimitiveValues<string>("supportedHosts", copilotPackage.supportedHosts);
     writer.writeEnumValue<PackageType>("type", copilotPackage.type);
@@ -3753,6 +3773,34 @@ export const AiInteractionTypeObject = {
 export const BodyTypeObject = {
     Text: "text",
     Html: "html",
+} as const;
+/**
+ * The lifecycle status of a package governance request.
+ */
+export const CopilotPackageRequestStatusObject = {
+    /** The request is awaiting a decision. */
+    Pending: "pending",
+    /** The request was approved. */
+    Approved: "approved",
+    /** The request was rejected. */
+    Rejected: "rejected",
+    /** An evolvable sentinel for future request statuses. */
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+/**
+ * The type of a package governance request.
+ */
+export const CopilotPackageRequestTypeObject = {
+    /** A request to publish a package. */
+    Publish: "publish",
+    /** A request to activate a package. */
+    Activate: "activate",
+    /** A request to grant package access. */
+    Access: "access",
+    /** A request to update a package. */
+    Update: "update",
+    /** An evolvable sentinel for future request types. */
+    UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const EndpointTypeObject = {
     DefaultEscaped: "default",
