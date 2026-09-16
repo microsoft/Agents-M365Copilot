@@ -677,6 +677,7 @@ Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|DeployedTo:global.Mi
 Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|DisplayName:string
 Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|ElementTypes:List<string>
 Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|GovernanceMetadata:UntypedNode
 Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|IsBlocked:bool?
 Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|LastModifiedDateTime:DateTimeOffset?
 Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|ManifestId:string
@@ -685,6 +686,8 @@ Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|OwnerId:string
 Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|Platform:string
 Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|Publisher:string
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|RequestStatus:global.Microsoft.Agents.M365Copilot.Models.CopilotPackageRequestStatus?
+Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|RequestType:global.Microsoft.Agents.M365Copilot.Models.CopilotPackageRequestType?
 Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|ShortDescription:string
 Microsoft.Agents.M365Copilot.Models.copilotPackage::|public|SupportedHosts:List<string>
@@ -714,6 +717,15 @@ Microsoft.Agents.M365Copilot.Models.copilotPackageDetailCollectionResponse::|pub
 Microsoft.Agents.M365Copilot.Models.copilotPackageDetailCollectionResponse::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Models.copilotPackageDetailCollectionResponse::|public|Value:List<global.Microsoft.Agents.M365Copilot.Models.CopilotPackageDetail>
 Microsoft.Agents.M365Copilot.Models.copilotPackageDetailCollectionResponse::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.CopilotPackageDetailCollectionResponse
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestStatus::0000-pending
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestStatus::0001-approved
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestStatus::0002-rejected
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestStatus::0003-unknownFutureValue
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestType::0000-publish
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestType::0001-activate
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestType::0002-access
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestType::0003-update
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestType::0004-unknownFutureValue
 Microsoft.Agents.M365Copilot.Models.copilotReportRoot-->global.Microsoft.Agents.M365Copilot.Models.Entity
 Microsoft.Agents.M365Copilot.Models.copilotReportRoot::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Models.copilotReportRoot::|public|OdataType:string
