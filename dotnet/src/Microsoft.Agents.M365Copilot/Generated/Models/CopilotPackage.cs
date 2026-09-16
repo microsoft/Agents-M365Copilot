@@ -58,6 +58,14 @@ namespace Microsoft.Agents.M365Copilot.Models
 #else
         public List<string> ElementTypes { get; set; }
 #endif
+        /// <summary>The governanceMetadata property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UntypedNode? GovernanceMetadata { get; set; }
+#nullable restore
+#else
+        public UntypedNode GovernanceMetadata { get; set; }
+#endif
         /// <summary>The isBlocked property</summary>
         public bool? IsBlocked { get; set; }
         /// <summary>The lastModifiedDateTime property</summary>
@@ -102,6 +110,10 @@ namespace Microsoft.Agents.M365Copilot.Models
 #else
         public string Publisher { get; set; }
 #endif
+        /// <summary>The requestStatus property</summary>
+        public global::Microsoft.Agents.M365Copilot.Models.CopilotPackageRequestStatus? RequestStatus { get; set; }
+        /// <summary>The requestType property</summary>
+        public global::Microsoft.Agents.M365Copilot.Models.CopilotPackageRequestType? RequestType { get; set; }
         /// <summary>The shortDescription property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -167,6 +179,7 @@ namespace Microsoft.Agents.M365Copilot.Models
                 { "deployedTo", n => { DeployedTo = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Models.PackageStatus>(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "elementTypes", n => { ElementTypes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "governanceMetadata", n => { GovernanceMetadata = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "isBlocked", n => { IsBlocked = n.GetBoolValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "manifestId", n => { ManifestId = n.GetStringValue(); } },
@@ -174,6 +187,8 @@ namespace Microsoft.Agents.M365Copilot.Models
                 { "ownerId", n => { OwnerId = n.GetStringValue(); } },
                 { "platform", n => { Platform = n.GetStringValue(); } },
                 { "publisher", n => { Publisher = n.GetStringValue(); } },
+                { "requestStatus", n => { RequestStatus = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Models.CopilotPackageRequestStatus>(); } },
+                { "requestType", n => { RequestType = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Models.CopilotPackageRequestType>(); } },
                 { "shortDescription", n => { ShortDescription = n.GetStringValue(); } },
                 { "supportedHosts", n => { SupportedHosts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Models.PackageType>(); } },
@@ -197,6 +212,7 @@ namespace Microsoft.Agents.M365Copilot.Models
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Models.PackageStatus>("deployedTo", DeployedTo);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteCollectionOfPrimitiveValues<string>("elementTypes", ElementTypes);
+            writer.WriteObjectValue<UntypedNode>("governanceMetadata", GovernanceMetadata);
             writer.WriteBoolValue("isBlocked", IsBlocked);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteStringValue("manifestId", ManifestId);
@@ -204,6 +220,8 @@ namespace Microsoft.Agents.M365Copilot.Models
             writer.WriteStringValue("ownerId", OwnerId);
             writer.WriteStringValue("platform", Platform);
             writer.WriteStringValue("publisher", Publisher);
+            writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Models.CopilotPackageRequestStatus>("requestStatus", RequestStatus);
+            writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Models.CopilotPackageRequestType>("requestType", RequestType);
             writer.WriteStringValue("shortDescription", ShortDescription);
             writer.WriteCollectionOfPrimitiveValues<string>("supportedHosts", SupportedHosts);
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Models.PackageType>("type", Type);
