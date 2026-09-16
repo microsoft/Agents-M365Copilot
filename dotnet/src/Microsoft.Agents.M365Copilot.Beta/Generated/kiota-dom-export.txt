@@ -1342,6 +1342,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|DeployedTo:glob
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|DisplayName:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|ElementTypes:List<string>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|GovernanceMetadata:UntypedNode
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|IsBlocked:bool?
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|LastModifiedDateTime:DateTimeOffset?
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|ManifestId:string
@@ -1350,6 +1351,8 @@ Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|OdataType:strin
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|OwnerId:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|Platform:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|Publisher:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|RequestStatus:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestStatus?
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|RequestType:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestType?
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|ShortDescription:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackage::|public|SupportedHosts:List<string>
@@ -1380,6 +1383,15 @@ Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetailCollectionResponse:
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetailCollectionResponse::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetailCollectionResponse::|public|Value:List<global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageDetail>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetailCollectionResponse::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageDetailCollectionResponse
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestStatus::0000-pending
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestStatus::0001-approved
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestStatus::0002-rejected
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestStatus::0003-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestType::0000-publish
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestType::0001-activate
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestType::0002-access
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestType::0003-update
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestType::0004-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPeopleAdminSetting-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPeopleAdminSetting::|public|EnhancedPersonalization:global.Microsoft.Agents.M365Copilot.Beta.Models.EnhancedPersonalizationSetting
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPeopleAdminSetting::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
