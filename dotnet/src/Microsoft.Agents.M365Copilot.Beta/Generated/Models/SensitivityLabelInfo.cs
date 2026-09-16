@@ -14,7 +14,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The color property</summary>
+        /// <summary>The color that the UI should display for the label, if configured.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Color { get; set; }
@@ -22,7 +22,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string Color { get; set; }
 #endif
-        /// <summary>The displayName property</summary>
+        /// <summary>The display name of the sensitivity label.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -38,9 +38,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The priority property</summary>
+        /// <summary>The display priority of the sensitivity label.</summary>
         public int? Priority { get; set; }
-        /// <summary>The sensitivityLabelId property</summary>
+        /// <summary>The identifier of the sensitivity label.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SensitivityLabelId { get; set; }
@@ -48,7 +48,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string SensitivityLabelId { get; set; }
 #endif
-        /// <summary>The tooltip property</summary>
+        /// <summary>The tooltip that the UI should display for the sensitivity label.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Tooltip { get; set; }
