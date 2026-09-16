@@ -1749,6 +1749,10 @@ microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|platf
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|platform(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|publisher():str
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|publisher(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|request_status():CopilotPackageRequestStatus
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|request_status(value:CopilotPackageRequestStatus):None
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|request_type():CopilotPackageRequestType
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|request_type(value:CopilotPackageRequestType):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|serialize(writer:SerializationWriter):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|short_description():str
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackage::|public|short_description(value:str):None
@@ -1798,6 +1802,15 @@ microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetailCollectio
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetailCollectionResponse::|public|value():list[CopilotPackageDetail]
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetailCollectionResponse::|public|value(value:list[CopilotPackageDetail]):None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPackageDetailCollectionResponse::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotPackageDetailCollectionResponse
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageRequestStatus::0000-Pending
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageRequestStatus::0001-Approved
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageRequestStatus::0002-Rejected
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageRequestStatus::0003-UnknownFutureValue
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageRequestType::0000-Publish
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageRequestType::0001-Activate
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageRequestType::0002-Access
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageRequestType::0003-Update
+microsoft_agents_m365copilot_beta.generated.models.CopilotPackageRequestType::0004-UnknownFutureValue
 microsoft_agents_m365copilot_beta.generated.models.CopilotPeopleAdminSetting-->Entity
 microsoft_agents_m365copilot_beta.generated.models.CopilotPeopleAdminSetting::|public|constructor():None
 microsoft_agents_m365copilot_beta.generated.models.CopilotPeopleAdminSetting::|public|enhanced_personalization():EnhancedPersonalizationSetting
