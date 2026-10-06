@@ -5,6 +5,7 @@ from kiota_abstractions.serialization import AdditionalDataHolder, Parsable, Par
 from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
+    from .application_identity import ApplicationIdentity
     from .audit_user_identity import AuditUserIdentity
     from .azure_communication_services_user_identity import AzureCommunicationServicesUserIdentity
     from .call_records.user_identity import UserIdentity
@@ -59,6 +60,10 @@ class Identity(AdditionalDataHolder, Parsable):
             mapping_value = child_node.get_str_value() if child_node else None
         except AttributeError:
             mapping_value = None
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.applicationIdentity".casefold():
+            from .application_identity import ApplicationIdentity
+
+            return ApplicationIdentity()
         if mapping_value and mapping_value.casefold() == "#microsoft.graph.auditUserIdentity".casefold():
             from .audit_user_identity import AuditUserIdentity
 
@@ -176,6 +181,7 @@ class Identity(AdditionalDataHolder, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from .application_identity import ApplicationIdentity
         from .audit_user_identity import AuditUserIdentity
         from .azure_communication_services_user_identity import AzureCommunicationServicesUserIdentity
         from .call_records.user_identity import UserIdentity
@@ -204,6 +210,7 @@ class Identity(AdditionalDataHolder, Parsable):
         from .teamwork_user_identity import TeamworkUserIdentity
         from .user_identity import UserIdentity
 
+        from .application_identity import ApplicationIdentity
         from .audit_user_identity import AuditUserIdentity
         from .azure_communication_services_user_identity import AzureCommunicationServicesUserIdentity
         from .call_records.user_identity import UserIdentity
