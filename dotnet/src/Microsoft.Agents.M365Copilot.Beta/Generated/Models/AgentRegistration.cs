@@ -13,6 +13,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentRegistration : global::Microsoft.Agents.M365Copilot.Beta.Models.Entity, IParsable
     {
+        /// <summary>Authentication configuration used to invoke the Agent2Agent server.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.A2aAuthorization? A2aAuthorization { get; set; }
+#nullable restore
+#else
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.A2aAuthorization A2aAuthorization { get; set; }
+#endif
         /// <summary>Flexible Json manifest containing agent card information following public manifestspecifications. Can include displayName, description, iconUrl, version, provider,capabilities, skills, security, and other manifest-defined fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -123,6 +131,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                { "a2aAuthorization", n => { A2aAuthorization = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.A2aAuthorization>(global::Microsoft.Agents.M365Copilot.Beta.Models.A2aAuthorization.CreateFromDiscriminatorValue); } },
                 { "agentCard", n => { AgentCard = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "agentIdentityBlueprintId", n => { AgentIdentityBlueprintId = n.GetStringValue(); } },
                 { "agentIdentityId", n => { AgentIdentityId = n.GetStringValue(); } },
@@ -146,6 +155,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.A2aAuthorization>("a2aAuthorization", A2aAuthorization);
             writer.WriteObjectValue<UntypedNode>("agentCard", AgentCard);
             writer.WriteStringValue("agentIdentityBlueprintId", AgentIdentityBlueprintId);
             writer.WriteStringValue("agentIdentityId", AgentIdentityId);

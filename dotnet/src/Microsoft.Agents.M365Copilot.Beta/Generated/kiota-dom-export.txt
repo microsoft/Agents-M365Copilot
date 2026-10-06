@@ -841,6 +841,21 @@ Microsoft.Agents.M365Copilot.Beta.Copilot.Users.usersRequestBuilder::|public|Pos
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.usersRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.UsersRequestBuilder.UsersRequestBuilderGetQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.usersRequestBuilder::|public|ToPostRequestInformation(body:global.Microsoft.Agents.M365Copilot.Beta.Models.AiUser; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Beta.Copilot.Users.usersRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Beta.Copilot.Users.UsersRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.Models.a2aAuthorization::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.a2aAuthorization::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.a2aAuthorization::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.a2aAuthorization::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.a2aAuthorization::|public|ReferenceId:string
+Microsoft.Agents.M365Copilot.Beta.Models.a2aAuthorization::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.a2aAuthorization::|public|Type:global.Microsoft.Agents.M365Copilot.Beta.Models.A2aAuthorizationType?
+Microsoft.Agents.M365Copilot.Beta.Models.a2aAuthorization::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.A2aAuthorization
+Microsoft.Agents.M365Copilot.Beta.Models.a2aAuthorizationType::0000-none
+Microsoft.Agents.M365Copilot.Beta.Models.a2aAuthorizationType::0001-oAuthPluginVault
+Microsoft.Agents.M365Copilot.Beta.Models.a2aAuthorizationType::0002-apiKeyPluginVault
+Microsoft.Agents.M365Copilot.Beta.Models.a2aAuthorizationType::0003-dynamicClientRegistration
+Microsoft.Agents.M365Copilot.Beta.Models.a2aAuthorizationType::0004-connectionVault
+Microsoft.Agents.M365Copilot.Beta.Models.a2aAuthorizationType::0005-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.a2aAuthorization~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.accessEntityType::0000-user
 Microsoft.Agents.M365Copilot.Beta.Models.accessEntityType::0001-group
 Microsoft.Agents.M365Copilot.Beta.Models.accessEntityType::0002-unknownFutureValue
@@ -879,6 +894,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.agentCollectionResponse::|public|Serial
 Microsoft.Agents.M365Copilot.Beta.Models.agentCollectionResponse::|public|Value:List<global.Microsoft.Agents.M365Copilot.Beta.Models.Agent>
 Microsoft.Agents.M365Copilot.Beta.Models.agentCollectionResponse::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.AgentCollectionResponse
 Microsoft.Agents.M365Copilot.Beta.Models.agentRegistration-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.agentRegistration::|public|A2aAuthorization:global.Microsoft.Agents.M365Copilot.Beta.Models.A2aAuthorization
 Microsoft.Agents.M365Copilot.Beta.Models.agentRegistration::|public|AgentCard:UntypedNode
 Microsoft.Agents.M365Copilot.Beta.Models.agentRegistration::|public|AgentIdentityBlueprintId:string
 Microsoft.Agents.M365Copilot.Beta.Models.agentRegistration::|public|AgentIdentityId:string
@@ -996,6 +1012,12 @@ Microsoft.Agents.M365Copilot.Beta.Models.aiUserCollectionResponse::|public|GetFi
 Microsoft.Agents.M365Copilot.Beta.Models.aiUserCollectionResponse::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.aiUserCollectionResponse::|public|Value:List<global.Microsoft.Agents.M365Copilot.Beta.Models.AiUser>
 Microsoft.Agents.M365Copilot.Beta.Models.aiUserCollectionResponse::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.AiUserCollectionResponse
+Microsoft.Agents.M365Copilot.Beta.Models.applicationIdentity-->global.Microsoft.Agents.M365Copilot.Beta.Models.Identity
+Microsoft.Agents.M365Copilot.Beta.Models.applicationIdentity::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.applicationIdentity::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.applicationIdentity::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.applicationIdentity::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.applicationIdentity::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.ApplicationIdentity
 Microsoft.Agents.M365Copilot.Beta.Models.approvalIdentitySet-->global.Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet
 Microsoft.Agents.M365Copilot.Beta.Models.approvalIdentitySet::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.approvalIdentitySet::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -1049,6 +1071,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.callAiInsight::|public|EndDateTime:Date
 Microsoft.Agents.M365Copilot.Beta.Models.callAiInsight::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.callAiInsight::|public|MeetingNotes:List<global.Microsoft.Agents.M365Copilot.Beta.Models.MeetingNote>
 Microsoft.Agents.M365Copilot.Beta.Models.callAiInsight::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.callAiInsight::|public|RecapUrl:string
 Microsoft.Agents.M365Copilot.Beta.Models.callAiInsight::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.callAiInsight::|public|Viewpoint:global.Microsoft.Agents.M365Copilot.Beta.Models.CallAiInsightViewPoint
 Microsoft.Agents.M365Copilot.Beta.Models.callAiInsight::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CallAiInsight

@@ -58,6 +58,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
+                "#microsoft.graph.applicationIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.ApplicationIdentity(),
                 "#microsoft.graph.auditUserIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AuditUserIdentity(),
                 "#microsoft.graph.azureCommunicationServicesUserIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AzureCommunicationServicesUserIdentity(),
                 "#microsoft.graph.callRecords.userIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CallRecords.UserIdentity(),
