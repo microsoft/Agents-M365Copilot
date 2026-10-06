@@ -1033,6 +1033,25 @@ microsoft_agents_m365copilot_beta.generated.copilot.users.UsersRequestBuilder::|
 microsoft_agents_m365copilot_beta.generated.copilot.users.UsersRequestBuilder::|public|to_post_request_information(body:AiUser; request_configuration?:RequestConfiguration[QueryParameters]):RequestInformation
 microsoft_agents_m365copilot_beta.generated.copilot.users.UsersRequestBuilder::|public|url_template:str
 microsoft_agents_m365copilot_beta.generated.copilot.users.UsersRequestBuilder::|public|with_url(raw_url:str):UsersRequestBuilder
+microsoft_agents_m365copilot_beta.generated.models.A2aAuthorization::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot_beta.generated.models.A2aAuthorization::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot_beta.generated.models.A2aAuthorization::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.A2aAuthorization::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.A2aAuthorization::|public|odata_type():str
+microsoft_agents_m365copilot_beta.generated.models.A2aAuthorization::|public|odata_type(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.A2aAuthorization::|public|reference_id():str
+microsoft_agents_m365copilot_beta.generated.models.A2aAuthorization::|public|reference_id(value:str):None
+microsoft_agents_m365copilot_beta.generated.models.A2aAuthorization::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.A2aAuthorization::|public|type():A2aAuthorizationType
+microsoft_agents_m365copilot_beta.generated.models.A2aAuthorization::|public|type(value:A2aAuthorizationType):None
+microsoft_agents_m365copilot_beta.generated.models.A2aAuthorization::|static|public|create_from_discriminator_value(parse_node:ParseNode):A2aAuthorization
+microsoft_agents_m365copilot_beta.generated.models.A2aAuthorizationType::0000-None_
+microsoft_agents_m365copilot_beta.generated.models.A2aAuthorizationType::0001-OAuthPluginVault
+microsoft_agents_m365copilot_beta.generated.models.A2aAuthorizationType::0002-ApiKeyPluginVault
+microsoft_agents_m365copilot_beta.generated.models.A2aAuthorizationType::0003-DynamicClientRegistration
+microsoft_agents_m365copilot_beta.generated.models.A2aAuthorizationType::0004-ConnectionVault
+microsoft_agents_m365copilot_beta.generated.models.A2aAuthorizationType::0005-UnknownFutureValue
+microsoft_agents_m365copilot_beta.generated.models.A2aAuthorization~~>AdditionalDataHolder; Parsable
 microsoft_agents_m365copilot_beta.generated.models.AccessEntityType::0000-User
 microsoft_agents_m365copilot_beta.generated.models.AccessEntityType::0001-Group
 microsoft_agents_m365copilot_beta.generated.models.AccessEntityType::0002-UnknownFutureValue
@@ -1084,6 +1103,8 @@ microsoft_agents_m365copilot_beta.generated.models.AgentCollectionResponse::|pub
 microsoft_agents_m365copilot_beta.generated.models.AgentCollectionResponse::|public|value(value:list[Agent]):None
 microsoft_agents_m365copilot_beta.generated.models.AgentCollectionResponse::|static|public|create_from_discriminator_value(parse_node:ParseNode):AgentCollectionResponse
 microsoft_agents_m365copilot_beta.generated.models.AgentRegistration-->Entity
+microsoft_agents_m365copilot_beta.generated.models.AgentRegistration::|public|a2a_authorization():A2aAuthorization
+microsoft_agents_m365copilot_beta.generated.models.AgentRegistration::|public|a2a_authorization(value:A2aAuthorization):None
 microsoft_agents_m365copilot_beta.generated.models.AgentRegistration::|public|agent_identity_blueprint_id():str
 microsoft_agents_m365copilot_beta.generated.models.AgentRegistration::|public|agent_identity_blueprint_id(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.AgentRegistration::|public|agent_identity_id():str
@@ -1262,6 +1283,12 @@ microsoft_agents_m365copilot_beta.generated.models.AiUserCollectionResponse::|pu
 microsoft_agents_m365copilot_beta.generated.models.AiUserCollectionResponse::|public|value():list[AiUser]
 microsoft_agents_m365copilot_beta.generated.models.AiUserCollectionResponse::|public|value(value:list[AiUser]):None
 microsoft_agents_m365copilot_beta.generated.models.AiUserCollectionResponse::|static|public|create_from_discriminator_value(parse_node:ParseNode):AiUserCollectionResponse
+microsoft_agents_m365copilot_beta.generated.models.ApplicationIdentity-->Identity
+microsoft_agents_m365copilot_beta.generated.models.ApplicationIdentity::|public|constructor():None
+microsoft_agents_m365copilot_beta.generated.models.ApplicationIdentity::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot_beta.generated.models.ApplicationIdentity::|public|odata_type:str
+microsoft_agents_m365copilot_beta.generated.models.ApplicationIdentity::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot_beta.generated.models.ApplicationIdentity::|static|public|create_from_discriminator_value(parse_node:ParseNode):ApplicationIdentity
 microsoft_agents_m365copilot_beta.generated.models.ApprovalIdentitySet-->IdentitySet
 microsoft_agents_m365copilot_beta.generated.models.ApprovalIdentitySet::|public|constructor():None
 microsoft_agents_m365copilot_beta.generated.models.ApprovalIdentitySet::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
@@ -1334,6 +1361,8 @@ microsoft_agents_m365copilot_beta.generated.models.CallAiInsight::|public|get_fi
 microsoft_agents_m365copilot_beta.generated.models.CallAiInsight::|public|meeting_notes():list[MeetingNote]
 microsoft_agents_m365copilot_beta.generated.models.CallAiInsight::|public|meeting_notes(value:list[MeetingNote]):None
 microsoft_agents_m365copilot_beta.generated.models.CallAiInsight::|public|odata_type:str
+microsoft_agents_m365copilot_beta.generated.models.CallAiInsight::|public|recap_url():str
+microsoft_agents_m365copilot_beta.generated.models.CallAiInsight::|public|recap_url(value:str):None
 microsoft_agents_m365copilot_beta.generated.models.CallAiInsight::|public|serialize(writer:SerializationWriter):None
 microsoft_agents_m365copilot_beta.generated.models.CallAiInsight::|public|viewpoint():CallAiInsightViewPoint
 microsoft_agents_m365copilot_beta.generated.models.CallAiInsight::|public|viewpoint(value:CallAiInsightViewPoint):None
