@@ -737,6 +737,18 @@ github.com/microsoft/Agents-M365Copilot/typescript/.copilot.users.usersRequestBu
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.users.usersRequestBuilderRequestsMetadata
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.users.usersRequestBuilderUriTemplate
 github.com/microsoft/Agents-M365Copilot/typescript/.copilot.users.usersRequestBuilder~~>BaseRequestBuilder<UsersRequestBuilder>
+github.com/microsoft/Agents-M365Copilot/typescript/.models.A2aAuthorization::|public|AdditionalData:Record<string, unknown>
+github.com/microsoft/Agents-M365Copilot/typescript/.models.A2aAuthorization::|public|odataType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.A2aAuthorization::|public|referenceId:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.A2aAuthorization::|public|type:A2aAuthorizationType
+github.com/microsoft/Agents-M365Copilot/typescript/.models.a2aAuthorizationType::0000-none
+github.com/microsoft/Agents-M365Copilot/typescript/.models.a2aAuthorizationType::0001-oAuthPluginVault
+github.com/microsoft/Agents-M365Copilot/typescript/.models.a2aAuthorizationType::0002-apiKeyPluginVault
+github.com/microsoft/Agents-M365Copilot/typescript/.models.a2aAuthorizationType::0003-dynamicClientRegistration
+github.com/microsoft/Agents-M365Copilot/typescript/.models.a2aAuthorizationType::0004-connectionVault
+github.com/microsoft/Agents-M365Copilot/typescript/.models.a2aAuthorizationType::0005-unknownFutureValue
+github.com/microsoft/Agents-M365Copilot/typescript/.models.a2aAuthorizationTypeObject
+github.com/microsoft/Agents-M365Copilot/typescript/.models.A2aAuthorization~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.accessEntityType::0000-user
 github.com/microsoft/Agents-M365Copilot/typescript/.models.accessEntityType::0001-group
 github.com/microsoft/Agents-M365Copilot/typescript/.models.accessEntityType::0002-unknownFutureValue
@@ -761,6 +773,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.Agent::|public|copilo
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Agent::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AgentCollectionResponse::|public|value:Agent[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AgentCollectionResponse~~>BaseCollectionPaginationCountResponse; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.AgentRegistration::|public|a2aAuthorization:A2aAuthorization
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AgentRegistration::|public|agentCard:UntypedNode
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AgentRegistration::|public|agentIdentityBlueprintId:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AgentRegistration::|public|agentIdentityId:string
@@ -840,6 +853,8 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.AiUser::|public|onlin
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiUserCollectionResponse::|public|value:AiUser[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiUserCollectionResponse~~>BaseCollectionPaginationCountResponse; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.AiUser~~>Entity; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ApplicationIdentity::|public|OdataType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.ApplicationIdentity~~>Identity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ApprovalIdentitySet::|public|group:Identity
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ApprovalIdentitySet::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.ApprovalIdentitySet~~>IdentitySet; Parsable
@@ -873,6 +888,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.CallAiInsight::|publi
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CallAiInsight::|public|endDateTime:Date
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CallAiInsight::|public|meetingNotes:MeetingNote[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CallAiInsight::|public|OdataType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CallAiInsight::|public|recapUrl:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CallAiInsight::|public|viewpoint:CallAiInsightViewPoint
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CallAiInsightCollectionResponse::|public|value:CallAiInsight[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CallAiInsightCollectionResponse~~>BaseCollectionPaginationCountResponse; Parsable
@@ -1495,6 +1511,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.UserIdentity::|public
 github.com/microsoft/Agents-M365Copilot/typescript/.models.UserIdentity::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.UserIdentity::|public|userPrincipalName:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.UserIdentity~~>Identity; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models::createA2aAuthorizationFromDiscriminatorValue(parseNode:ParseNode):A2aAuthorization
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createActionItemFromDiscriminatorValue(parseNode:ParseNode):ActionItem
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createActivityTransportFromDiscriminatorValue(parseNode:ParseNode):ActivityTransport
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createAgentCollectionResponseFromDiscriminatorValue(parseNode:ParseNode):AgentCollectionResponse
@@ -1511,6 +1528,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::createAiOnlineMeetin
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createAiOnlineMeetingFromDiscriminatorValue(parseNode:ParseNode):AiOnlineMeeting
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createAiUserCollectionResponseFromDiscriminatorValue(parseNode:ParseNode):AiUserCollectionResponse
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createAiUserFromDiscriminatorValue(parseNode:ParseNode):AiUser
+github.com/microsoft/Agents-M365Copilot/typescript/.models::createApplicationIdentityFromDiscriminatorValue(parseNode:ParseNode):ApplicationIdentity
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createApprovalIdentitySetFromDiscriminatorValue(parseNode:ParseNode):ApprovalIdentitySet
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createAuditUserIdentityFromDiscriminatorValue(parseNode:ParseNode):AuditUserIdentity
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createAzureCommunicationServicesUserIdentityFromDiscriminatorValue(parseNode:ParseNode):AzureCommunicationServicesUserIdentity
@@ -1625,6 +1643,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::createTranscriptActi
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createTranscriptPayloadFromDiscriminatorValue(parseNode:ParseNode):TranscriptPayload
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createTranscriptSpeakerFromDiscriminatorValue(parseNode:ParseNode):TranscriptSpeaker
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createUserIdentityFromDiscriminatorValue(parseNode:ParseNode):UserIdentity
+github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoA2aAuthorization(A2aAuthorization:A2aAuthorization={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoActionItem(ActionItem:ActionItem={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoActivityTransport(ActivityTransport:ActivityTransport={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoAgent(Agent:Agent={}):Record<string, (node: ParseNode) => void>
@@ -1641,6 +1660,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoAiOnl
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoAiOnlineMeetingCollectionResponse(AiOnlineMeetingCollectionResponse:AiOnlineMeetingCollectionResponse={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoAiUser(AiUser:AiUser={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoAiUserCollectionResponse(AiUserCollectionResponse:AiUserCollectionResponse={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoApplicationIdentity(ApplicationIdentity:ApplicationIdentity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoApprovalIdentitySet(ApprovalIdentitySet:ApprovalIdentitySet={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoAuditUserIdentity(AuditUserIdentity:AuditUserIdentity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoAzureCommunicationServicesUserIdentity(AzureCommunicationServicesUserIdentity:AzureCommunicationServicesUserIdentity={}):Record<string, (node: ParseNode) => void>
@@ -1755,6 +1775,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoTrans
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoTranscriptPayload(TranscriptPayload:TranscriptPayload={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoTranscriptSpeaker(TranscriptSpeaker:TranscriptSpeaker={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoUserIdentity(UserIdentity:UserIdentity={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeA2aAuthorization(writer:SerializationWriter; A2aAuthorization:A2aAuthorization={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeActionItem(writer:SerializationWriter; ActionItem:ActionItem={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeActivityTransport(writer:SerializationWriter; ActivityTransport:ActivityTransport={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAgent(writer:SerializationWriter; Agent:Agent={}; isSerializingDerivedType?:boolean=false):void
@@ -1771,6 +1792,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiOnlineMee
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiOnlineMeetingCollectionResponse(writer:SerializationWriter; AiOnlineMeetingCollectionResponse:AiOnlineMeetingCollectionResponse={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiUser(writer:SerializationWriter; AiUser:AiUser={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAiUserCollectionResponse(writer:SerializationWriter; AiUserCollectionResponse:AiUserCollectionResponse={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeApplicationIdentity(writer:SerializationWriter; ApplicationIdentity:ApplicationIdentity={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeApprovalIdentitySet(writer:SerializationWriter; ApprovalIdentitySet:ApprovalIdentitySet={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAuditUserIdentity(writer:SerializationWriter; AuditUserIdentity:AuditUserIdentity={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeAzureCommunicationServicesUserIdentity(writer:SerializationWriter; AzureCommunicationServicesUserIdentity:AzureCommunicationServicesUserIdentity={}; isSerializingDerivedType?:boolean=false):void

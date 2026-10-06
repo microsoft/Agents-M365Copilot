@@ -6,6 +6,24 @@ import { deserializeIntoSubmissionUserIdentity, serializeSubmissionUserIdentity,
 // @ts-ignore
 import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter, type UntypedNode } from '@microsoft/kiota-abstractions';
 
+/**
+ * Authentication configuration used to invoke the Agent2Agent server.
+ */
+export interface A2aAuthorization extends AdditionalDataHolder, Parsable {
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * Reference identifier for the A2A authentication configuration.
+     */
+    referenceId?: string | null;
+    /**
+     * The supported authorization types for invoking the Agent2Agent server.
+     */
+    type?: A2aAuthorizationType | null;
+}
+export type A2aAuthorizationType = (typeof A2aAuthorizationTypeObject)[keyof typeof A2aAuthorizationTypeObject];
 export type AccessEntityType = (typeof AccessEntityTypeObject)[keyof typeof AccessEntityTypeObject];
 export interface ActionItem extends AdditionalDataHolder, Parsable {
     /**
@@ -56,6 +74,10 @@ export interface AgentCollectionResponse extends BaseCollectionPaginationCountRe
  * Entity that represents an agent registration containing metadata, endpointconfiguration, tools, and publishing information.This entity provides developers and administrators with all details needed tomanage agent instances including their instructions, owners, publishing status,and associated tools.
  */
 export interface AgentRegistration extends Entity, Parsable {
+    /**
+     * Authentication configuration used to invoke the Agent2Agent server.
+     */
+    a2aAuthorization?: A2aAuthorization | null;
     /**
      * Flexible Json manifest containing agent card information following public manifestspecifications. Can include displayName, description, iconUrl, version, provider,capabilities, skills, security, and other manifest-defined fields.
      */
@@ -288,6 +310,8 @@ export interface AiUserCollectionResponse extends BaseCollectionPaginationCountR
      */
     value?: AiUser[] | null;
 }
+export interface ApplicationIdentity extends Identity, Parsable {
+}
 export interface ApprovalIdentitySet extends IdentitySet, Parsable {
     /**
      * The Microsoft Entra group associated with the approval item.
@@ -365,6 +389,10 @@ export interface CallAiInsight extends Entity, Parsable {
      * The meetingNotes property
      */
     meetingNotes?: MeetingNote[] | null;
+    /**
+     * The recapUrl property
+     */
+    recapUrl?: string | null;
     /**
      * The viewpoint property
      */
@@ -1038,6 +1066,15 @@ export interface CopilotWebContext extends AdditionalDataHolder, Parsable {
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {A2aAuthorization}
+ */
+// @ts-ignore
+export function createA2aAuthorizationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoA2aAuthorization;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ActionItem}
  */
 // @ts-ignore
@@ -1178,6 +1215,15 @@ export function createAiUserCollectionResponseFromDiscriminatorValue(parseNode: 
 // @ts-ignore
 export function createAiUserFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAiUser;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ApplicationIdentity}
+ */
+// @ts-ignore
+export function createApplicationIdentityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoApplicationIdentity;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -1881,6 +1927,8 @@ export function createIdentityFromDiscriminatorValue(parseNode: ParseNode | unde
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
+                case "#microsoft.graph.applicationIdentity":
+                    return deserializeIntoApplicationIdentity;
                 case "#microsoft.graph.auditUserIdentity":
                     return deserializeIntoAuditUserIdentity;
                 case "#microsoft.graph.azureCommunicationServicesUserIdentity":
@@ -2461,6 +2509,19 @@ export interface DataSourceConfiguration extends AdditionalDataHolder, Parsable 
 }
 /**
  * The deserialization information for the current model
+ * @param A2aAuthorization The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoA2aAuthorization(a2aAuthorization: Partial<A2aAuthorization> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "@odata.type": n => { a2aAuthorization.odataType = n.getStringValue(); },
+        "referenceId": n => { a2aAuthorization.referenceId = n.getStringValue(); },
+        "type": n => { a2aAuthorization.type = n.getEnumValue<A2aAuthorizationType>(A2aAuthorizationTypeObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param ActionItem The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -2519,6 +2580,7 @@ export function deserializeIntoAgentCollectionResponse(agentCollectionResponse: 
 export function deserializeIntoAgentRegistration(agentRegistration: Partial<AgentRegistration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(agentRegistration),
+        "a2aAuthorization": n => { agentRegistration.a2aAuthorization = n.getObjectValue<A2aAuthorization>(createA2aAuthorizationFromDiscriminatorValue); },
         "agentCard": n => { agentRegistration.agentCard = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
         "agentIdentityBlueprintId": n => { agentRegistration.agentIdentityBlueprintId = n.getStringValue(); },
         "agentIdentityId": n => { agentRegistration.agentIdentityId = n.getStringValue(); },
@@ -2692,6 +2754,17 @@ export function deserializeIntoAiUserCollectionResponse(aiUserCollectionResponse
 }
 /**
  * The deserialization information for the current model
+ * @param ApplicationIdentity The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoApplicationIdentity(applicationIdentity: Partial<ApplicationIdentity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoIdentity(applicationIdentity),
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param ApprovalIdentitySet The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -2768,6 +2841,7 @@ export function deserializeIntoCallAiInsight(callAiInsight: Partial<CallAiInsigh
         "createdDateTime": n => { callAiInsight.createdDateTime = n.getDateValue(); },
         "endDateTime": n => { callAiInsight.endDateTime = n.getDateValue(); },
         "meetingNotes": n => { callAiInsight.meetingNotes = n.getCollectionOfObjectValues<MeetingNote>(createMeetingNoteFromDiscriminatorValue); },
+        "recapUrl": n => { callAiInsight.recapUrl = n.getStringValue(); },
         "viewpoint": n => { callAiInsight.viewpoint = n.getObjectValue<CallAiInsightViewPoint>(createCallAiInsightViewPointFromDiscriminatorValue); },
     }
 }
@@ -4689,6 +4763,20 @@ export interface SensitivityLabelInfo extends AdditionalDataHolder, Parsable {
 }
 /**
  * Serializes information the current object
+ * @param A2aAuthorization The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeA2aAuthorization(writer: SerializationWriter, a2aAuthorization: Partial<A2aAuthorization> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!a2aAuthorization || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", a2aAuthorization.odataType);
+    writer.writeStringValue("referenceId", a2aAuthorization.referenceId);
+    writer.writeEnumValue<A2aAuthorizationType>("type", a2aAuthorization.type);
+    writer.writeAdditionalData(a2aAuthorization.additionalData);
+}
+/**
+ * Serializes information the current object
  * @param ActionItem The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -4750,6 +4838,7 @@ export function serializeAgentCollectionResponse(writer: SerializationWriter, ag
 export function serializeAgentRegistration(writer: SerializationWriter, agentRegistration: Partial<AgentRegistration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!agentRegistration || isSerializingDerivedType) { return; }
     serializeEntity(writer, agentRegistration, isSerializingDerivedType)
+    writer.writeObjectValue<A2aAuthorization>("a2aAuthorization", agentRegistration.a2aAuthorization, serializeA2aAuthorization);
     writer.writeObjectValue("agentCard", agentRegistration.agentCard);
     writer.writeStringValue("agentIdentityBlueprintId", agentRegistration.agentIdentityBlueprintId);
     writer.writeStringValue("agentIdentityId", agentRegistration.agentIdentityId);
@@ -4926,6 +5015,17 @@ export function serializeAiUserCollectionResponse(writer: SerializationWriter, a
 }
 /**
  * Serializes information the current object
+ * @param ApplicationIdentity The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeApplicationIdentity(writer: SerializationWriter, applicationIdentity: Partial<ApplicationIdentity> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!applicationIdentity || isSerializingDerivedType) { return; }
+    serializeIdentity(writer, applicationIdentity, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
  * @param ApprovalIdentitySet The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -5010,6 +5110,7 @@ export function serializeCallAiInsight(writer: SerializationWriter, callAiInsigh
     writer.writeDateValue("createdDateTime", callAiInsight.createdDateTime);
     writer.writeDateValue("endDateTime", callAiInsight.endDateTime);
     writer.writeCollectionOfObjectValues<MeetingNote>("meetingNotes", callAiInsight.meetingNotes, serializeMeetingNote);
+    writer.writeStringValue("recapUrl", callAiInsight.recapUrl);
     writer.writeObjectValue<CallAiInsightViewPoint>("viewpoint", callAiInsight.viewpoint, serializeCallAiInsightViewPoint);
 }
 /**
@@ -5900,6 +6001,9 @@ export function serializeIdentity(writer: SerializationWriter, identity: Partial
     writer.writeStringValue("@odata.type", identity.odataType);
     writer.writeAdditionalData(identity.additionalData);
     switch (identity.odataType) {
+        case "#microsoft.graph.applicationIdentity":
+            serializeApplicationIdentity(writer, identity, true);
+        break;
         case "#microsoft.graph.auditUserIdentity":
             serializeAuditUserIdentity(writer, identity, true);
         break;
@@ -6845,6 +6949,18 @@ export interface UserIdentity extends Identity, Parsable {
      */
     userPrincipalName?: string | null;
 }
+/**
+ * The supported authorization types for invoking the Agent2Agent server.
+ */
+export const A2aAuthorizationTypeObject = {
+    None: "none",
+    OAuthPluginVault: "oAuthPluginVault",
+    ApiKeyPluginVault: "apiKeyPluginVault",
+    DynamicClientRegistration: "dynamicClientRegistration",
+    ConnectionVault: "connectionVault",
+    /** A marker value for members added after the release of this API. */
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
 export const AccessEntityTypeObject = {
     User: "user",
     Group: "group",
