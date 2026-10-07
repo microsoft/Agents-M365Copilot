@@ -1,0 +1,40 @@
+{
+    "name": "interaction-export-copilot-compliance",
+    "version": "1.0.0",
+    "description": "Microsoft 365 Copilot Interaction Export API — Compliance Dashboard (TypeScript)",
+    "main": "dist/server.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "node dist/server.js",
+        "dev": "tsx watch src/server.ts",
+        "export": "tsx src/run-export.ts"
+    },
+    "keywords": [
+        "copilot",
+        "microsoft-graph",
+        "compliance",
+        "export-api",
+        "ai-interactions"
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "@azure/msal-node": "^2.16.2",
+        "better-sqlite3": "^11.7.0",
+        "cors": "^2.8.5",
+        "dotenv": "^16.6.1",
+        "express": "^4.21.1",
+        "jsonwebtoken": "^9.0.3",
+        "jwks-rsa": "^3.1.0",
+        "node-cron": "^3.0.3"
+    },
+    "devDependencies": {
+        "@types/better-sqlite3": "^7.6.12",
+        "@types/cors": "^2.8.17",
+        "@types/express": "^5.0.0",
+        "@types/jsonwebtoken": "^9.0.10",
+        "@types/node": "^22.10.0",
+        "@types/node-cron": "^3.0.11",
+        "tsx": "^4.19.2",
+        "typescript": "^5.7.2"
+    }
+}
