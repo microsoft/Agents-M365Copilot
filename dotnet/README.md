@@ -128,6 +128,36 @@ catch (Exception ex)
  
 ```
 
+## NuGet release publishing
+
+The `.azure-pipelines/cd-build-deploy-dotnet-{v1,beta,core}.yml` pipelines build,
+sign, and publish their respective NuGet packages through `EsrpRelease@14`.
+Publishing remains gated by the `agents-m365copilot-prod` environment and the
+existing tag/manual-run conditions.
+
+All three pipelines use `NuGetOrganizationName: Microsoft`, based on the
+NuGet.org Owners lists (verified October 9, 2026), not the GitHub organization:
+
+| Package | NuGet.org owners | ESRP organization |
+| --- | --- | --- |
+| [Microsoft.Agents.M365Copilot](https://www.nuget.org/packages/Microsoft.Agents.M365Copilot) | [Microsoft](https://www.nuget.org/profiles/Microsoft), [nugetbotbuilder](https://www.nuget.org/profiles/nugetbotbuilder) | Microsoft |
+| [Microsoft.Agents.M365Copilot.Beta](https://www.nuget.org/packages/Microsoft.Agents.M365Copilot.Beta) | [Microsoft](https://www.nuget.org/profiles/Microsoft), [nugetbotbuilder](https://www.nuget.org/profiles/nugetbotbuilder) | Microsoft |
+| [Microsoft.Agents.M365Copilot.Core](https://www.nuget.org/packages/Microsoft.Agents.M365Copilot.Core) | [Microsoft](https://www.nuget.org/profiles/Microsoft), [nugetbotbuilder](https://www.nuget.org/profiles/nugetbotbuilder) | Microsoft |
+
+Each deployment downloads the signed `Nugets` artifact to `$(nugetArtifacts)`,
+then stages only its package ID's versioned `.nupkg` and `.snupkg` files in
+`$(Pipeline.Workspace)\nuget-packages\$(NuGetOrganizationName)`. Legacy
+`.symbols.nupkg` files, sibling packages, and unrelated files are excluded.
+The staging directory is cleaned before copying, and ESRP waits for release
+completion.
+
+The release tasks reuse the existing federated DevX ESRP connection, Key Vault
+certificates, client/tenant IDs, and release owners/approvers. Before running a
+release, the pipeline administrators must ensure `EsrpRelease@14` is available
+and the connection is authorized for these pipelines and for NuGet distribution
+under `Microsoft`. Public package ownership does not prove ESRP authorization.
+The previous NuGet API-key connection is no longer used by these pipelines.
+
 ## Issues
 
 To view or log issues, see [issues](https://github.com/microsoft/Agents-M365Copilot/issues).
@@ -153,5 +183,4 @@ trademarks or logos is subject to and must follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
-
 

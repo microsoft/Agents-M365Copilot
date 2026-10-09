@@ -19,6 +19,7 @@ variables:
   buildConfiguration: 'Release'
   buildPlatform: 'Any CPU'
   nugetArtifacts: '$(Build.ArtifactStagingDirectory)/Nugets'
+  NuGetOrganizationName: 'Microsoft'
   # Prevent the .NET SDK from downloading workload advertising manifests from nuget.org at
   # build/restore startup (these projects use no workloads). This egress bypasses the CFS
   # nuget.config and breaks CFSClean network isolation.
@@ -59,12 +60,6 @@ extends:
               inputs:
                 version: 8.x
                 packageType: sdk
-            - task: NuGetToolInstaller@1
-              displayName: 'Install Nuget dependency manager'
-              inputs:
-                versionSpec: '>=6.0.0'
-                checkLatest: true
-            
             - task: NuGetAuthenticate@1
               displayName: 'Authenticate to Azure Artifacts'
 
@@ -177,12 +172,33 @@ extends:
             runOnce:
               deploy:
                 steps:
-                - task: 1ES.PublishNuget@1
-                  displayName: 'Publish v1 NuGet package via NuGet API Key'
+                - task: CopyFiles@2
+                  displayName: 'Stage v1 NuGet packages for ESRP release'
                   inputs:
-                    useDotNetTask: false
-                    packageParentPath: $(nugetArtifacts)
-                    packagesToPush: '!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg;$(nugetArtifacts)/**/*.nupkg'
-                    nuGetFeedType: external  # Change to external for external
-                    publishPackageMetadata: true
-                    publishFeedCredentials: 'M365 Copilot NuGet Connection'
+                    SourceFolder: '$(nugetArtifacts)'
+                    Contents: |
+                      Microsoft.Agents.M365Copilot.[0-9]*.nupkg
+                      Microsoft.Agents.M365Copilot.[0-9]*.snupkg
+                      !Microsoft.Agents.M365Copilot.*.symbols.nupkg
+                    TargetFolder: '$(Pipeline.Workspace)\nuget-packages\$(NuGetOrganizationName)'
+                    CleanTargetFolder: true
+                - task: EsrpRelease@14
+                  displayName: 'Publish v1 NuGet package via ESRP Release'
+                  inputs:
+                    connectedservicename: 'Federated DevX ESRP Managed Identity Connection'
+                    usemanagedidentity: false
+                    keyvaultname: 'akv-prod-eastus'
+                    authcertname: 'ReferenceLibraryPrivateCert'
+                    signcertname: 'ReferencePackagePublisherCertificate'
+                    clientid: '65035b7f-7357-4f29-bf25-c5ee5c3949f8'
+                    intent: 'packagedistribution'
+                    contenttype: 'NuGet'
+                    organizationname: '$(NuGetOrganizationName)'
+                    contentsource: 'Folder'
+                    folderlocation: '$(Pipeline.Workspace)\nuget-packages\$(NuGetOrganizationName)'
+                    waitforreleasecompletion: true
+                    owners: 'christiano@microsoft.com,ramsess@microsoft.com,gavinbarron@microsoft.com,jingjingjia@microsoft.com,peombwa@microsoft.com,treicys@microsoft.com'
+                    approvers: 'christiano@microsoft.com,ramsess@microsoft.com,gavinbarron@microsoft.com,jingjingjia@microsoft.com,peombwa@microsoft.com,treicys@microsoft.com'
+                    serviceendpointurl: 'https://api.esrp.microsoft.com/'
+                    mainpublisher: 'ESRPRELPACMAN'
+                    domaintenantid: 'cdc5aeea-15c5-4db6-b079-fcadd2505dc2'
