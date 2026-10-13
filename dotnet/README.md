@@ -135,14 +135,16 @@ sign, and publish their respective NuGet packages through `EsrpRelease@14`.
 Publishing remains gated by the `agents-m365copilot-prod` environment and the
 existing tag/manual-run conditions.
 
-All three pipelines use `NuGetOrganizationName: Microsoft`, based on the
-NuGet.org Owners lists (verified October 9, 2026), not the GitHub organization:
+All three pipelines use `NuGetOrganizationName: microsoftgraph`, following the
+maintainer-confirmed ownership transfer on October 13, 2026. The NuGet.org
+Owners lists checked that day are recorded below; the Beta and Core pages did
+not yet list `microsoftgraph` at the time of the check.
 
 | Package | NuGet.org owners | ESRP organization |
 | --- | --- | --- |
-| [Microsoft.Agents.M365Copilot](https://www.nuget.org/packages/Microsoft.Agents.M365Copilot) | [Microsoft](https://www.nuget.org/profiles/Microsoft), [nugetbotbuilder](https://www.nuget.org/profiles/nugetbotbuilder) | Microsoft |
-| [Microsoft.Agents.M365Copilot.Beta](https://www.nuget.org/packages/Microsoft.Agents.M365Copilot.Beta) | [Microsoft](https://www.nuget.org/profiles/Microsoft), [nugetbotbuilder](https://www.nuget.org/profiles/nugetbotbuilder) | Microsoft |
-| [Microsoft.Agents.M365Copilot.Core](https://www.nuget.org/packages/Microsoft.Agents.M365Copilot.Core) | [Microsoft](https://www.nuget.org/profiles/Microsoft), [nugetbotbuilder](https://www.nuget.org/profiles/nugetbotbuilder) | Microsoft |
+| [Microsoft.Agents.M365Copilot](https://www.nuget.org/packages/Microsoft.Agents.M365Copilot) | [Microsoft](https://www.nuget.org/profiles/Microsoft), [microsoftgraph](https://www.nuget.org/profiles/microsoftgraph), [nugetbotbuilder](https://www.nuget.org/profiles/nugetbotbuilder) | microsoftgraph |
+| [Microsoft.Agents.M365Copilot.Beta](https://www.nuget.org/packages/Microsoft.Agents.M365Copilot.Beta) | [Microsoft](https://www.nuget.org/profiles/Microsoft), [nugetbotbuilder](https://www.nuget.org/profiles/nugetbotbuilder) | microsoftgraph |
+| [Microsoft.Agents.M365Copilot.Core](https://www.nuget.org/packages/Microsoft.Agents.M365Copilot.Core) | [Microsoft](https://www.nuget.org/profiles/Microsoft), [nugetbotbuilder](https://www.nuget.org/profiles/nugetbotbuilder) | microsoftgraph |
 
 Each deployment downloads the signed `Nugets` artifact to `$(nugetArtifacts)`,
 then stages only its package ID's versioned `.nupkg` and `.snupkg` files in
@@ -155,7 +157,8 @@ The release tasks reuse the existing federated DevX ESRP connection, Key Vault
 certificates, client/tenant IDs, and release owners/approvers. Before running a
 release, the pipeline administrators must ensure `EsrpRelease@14` is available
 and the connection is authorized for these pipelines and for NuGet distribution
-under `Microsoft`. Public package ownership does not prove ESRP authorization.
+under `microsoftgraph`. Confirm that all three packages list this owner before
+publishing. Public package ownership does not prove ESRP authorization.
 The previous NuGet API-key connection is no longer used by these pipelines.
 
 ## Issues
@@ -183,4 +186,3 @@ trademarks or logos is subject to and must follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
-
