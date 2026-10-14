@@ -137,14 +137,14 @@ existing tag/manual-run conditions.
 
 All three pipelines use `NuGetOrganizationName: microsoftgraph`, following the
 maintainer-confirmed ownership transfer on October 13, 2026. The NuGet.org
-Owners lists checked that day are recorded below; the Beta and Core pages did
-not yet list `microsoftgraph` at the time of the check.
+Owners lists below were verified on October 14, 2026; all three packages list
+`microsoftgraph` as an owner.
 
 | Package | NuGet.org owners | ESRP organization |
 | --- | --- | --- |
 | [Microsoft.Agents.M365Copilot](https://www.nuget.org/packages/Microsoft.Agents.M365Copilot) | [Microsoft](https://www.nuget.org/profiles/Microsoft), [microsoftgraph](https://www.nuget.org/profiles/microsoftgraph), [nugetbotbuilder](https://www.nuget.org/profiles/nugetbotbuilder) | microsoftgraph |
-| [Microsoft.Agents.M365Copilot.Beta](https://www.nuget.org/packages/Microsoft.Agents.M365Copilot.Beta) | [Microsoft](https://www.nuget.org/profiles/Microsoft), [nugetbotbuilder](https://www.nuget.org/profiles/nugetbotbuilder) | microsoftgraph |
-| [Microsoft.Agents.M365Copilot.Core](https://www.nuget.org/packages/Microsoft.Agents.M365Copilot.Core) | [Microsoft](https://www.nuget.org/profiles/Microsoft), [nugetbotbuilder](https://www.nuget.org/profiles/nugetbotbuilder) | microsoftgraph |
+| [Microsoft.Agents.M365Copilot.Beta](https://www.nuget.org/packages/Microsoft.Agents.M365Copilot.Beta) | [Microsoft](https://www.nuget.org/profiles/Microsoft), [microsoftgraph](https://www.nuget.org/profiles/microsoftgraph), [nugetbotbuilder](https://www.nuget.org/profiles/nugetbotbuilder) | microsoftgraph |
+| [Microsoft.Agents.M365Copilot.Core](https://www.nuget.org/packages/Microsoft.Agents.M365Copilot.Core) | [Microsoft](https://www.nuget.org/profiles/Microsoft), [microsoftgraph](https://www.nuget.org/profiles/microsoftgraph), [nugetbotbuilder](https://www.nuget.org/profiles/nugetbotbuilder) | microsoftgraph |
 
 Each deployment downloads the signed `Nugets` artifact to `$(nugetArtifacts)`,
 then stages only its package ID's versioned `.nupkg` and `.snupkg` files in
