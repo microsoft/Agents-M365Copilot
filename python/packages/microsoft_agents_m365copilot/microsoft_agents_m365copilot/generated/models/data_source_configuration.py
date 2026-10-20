@@ -6,6 +6,7 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .external_item_configuration import ExternalItemConfiguration
+    from .share_point_embedded_configuration import SharePointEmbeddedConfiguration
 
 @dataclass
 class DataSourceConfiguration(AdditionalDataHolder, Parsable):
@@ -16,6 +17,8 @@ class DataSourceConfiguration(AdditionalDataHolder, Parsable):
     external_item: Optional[ExternalItemConfiguration] = None
     # The OdataType property
     odata_type: Optional[str] = None
+    # The sharePointEmbedded property
+    share_point_embedded: Optional[SharePointEmbeddedConfiguration] = None
     
     @staticmethod
     def create_from_discriminator_value(parse_node: ParseNode) -> DataSourceConfiguration:
@@ -34,12 +37,15 @@ class DataSourceConfiguration(AdditionalDataHolder, Parsable):
         Returns: dict[str, Callable[[ParseNode], None]]
         """
         from .external_item_configuration import ExternalItemConfiguration
+        from .share_point_embedded_configuration import SharePointEmbeddedConfiguration
 
         from .external_item_configuration import ExternalItemConfiguration
+        from .share_point_embedded_configuration import SharePointEmbeddedConfiguration
 
         fields: dict[str, Callable[[Any], None]] = {
             "externalItem": lambda n : setattr(self, 'external_item', n.get_object_value(ExternalItemConfiguration)),
             "@odata.type": lambda n : setattr(self, 'odata_type', n.get_str_value()),
+            "sharePointEmbedded": lambda n : setattr(self, 'share_point_embedded', n.get_object_value(SharePointEmbeddedConfiguration)),
         }
         return fields
     
@@ -53,6 +59,7 @@ class DataSourceConfiguration(AdditionalDataHolder, Parsable):
             raise TypeError("writer cannot be null.")
         writer.write_object_value("externalItem", self.external_item)
         writer.write_str_value("@odata.type", self.odata_type)
+        writer.write_object_value("sharePointEmbedded", self.share_point_embedded)
         writer.write_additional_data_value(self.additional_data)
     
 

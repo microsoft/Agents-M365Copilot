@@ -30,6 +30,14 @@ namespace Microsoft.Agents.M365Copilot.Models
 #else
         public string OdataType { get; set; }
 #endif
+        /// <summary>The sharePointEmbedded property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Microsoft.Agents.M365Copilot.Models.SharePointEmbeddedConfiguration? SharePointEmbedded { get; set; }
+#nullable restore
+#else
+        public global::Microsoft.Agents.M365Copilot.Models.SharePointEmbeddedConfiguration SharePointEmbedded { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Models.DataSourceConfiguration"/> and sets the default values.
         /// </summary>
@@ -57,6 +65,7 @@ namespace Microsoft.Agents.M365Copilot.Models
             {
                 { "externalItem", n => { ExternalItem = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Models.ExternalItemConfiguration>(global::Microsoft.Agents.M365Copilot.Models.ExternalItemConfiguration.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "sharePointEmbedded", n => { SharePointEmbedded = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Models.SharePointEmbeddedConfiguration>(global::Microsoft.Agents.M365Copilot.Models.SharePointEmbeddedConfiguration.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,6 +77,7 @@ namespace Microsoft.Agents.M365Copilot.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Models.ExternalItemConfiguration>("externalItem", ExternalItem);
             writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Models.SharePointEmbeddedConfiguration>("sharePointEmbedded", SharePointEmbedded);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

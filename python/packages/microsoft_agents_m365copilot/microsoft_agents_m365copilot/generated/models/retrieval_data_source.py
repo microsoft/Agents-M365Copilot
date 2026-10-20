@@ -5,4 +5,5 @@ class RetrievalDataSource(str, Enum):
     OneDriveBusiness = "oneDriveBusiness",
     ExternalItem = "externalItem",
     UnknownFutureValue = "unknownFutureValue",
+    SharePointEmbedded = "sharePointEmbedded",
 

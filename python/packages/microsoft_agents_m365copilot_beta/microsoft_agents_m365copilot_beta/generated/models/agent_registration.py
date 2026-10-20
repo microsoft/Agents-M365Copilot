@@ -6,6 +6,7 @@ from kiota_abstractions.serialization import Parsable, ParseNode, SerializationW
 from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
+    from .a2a_authorization import A2aAuthorization
     from .entity import Entity
 
 from .entity import Entity
@@ -15,6 +16,8 @@ class AgentRegistration(Entity, Parsable):
     """
     Entity that represents an agent registration containing metadata, endpointconfiguration, tools, and publishing information.This entity provides developers and administrators with all details needed tomanage agent instances including their instructions, owners, publishing status,and associated tools.
     """
+    # Authentication configuration used to invoke the Agent2Agent server.
+    a2a_authorization: Optional[A2aAuthorization] = None
     # Agent identity blueprint identifier.
     agent_identity_blueprint_id: Optional[str] = None
     # Entra agent identity identifier.
@@ -58,11 +61,14 @@ class AgentRegistration(Entity, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from .a2a_authorization import A2aAuthorization
         from .entity import Entity
 
+        from .a2a_authorization import A2aAuthorization
         from .entity import Entity
 
         fields: dict[str, Callable[[Any], None]] = {
+            "a2aAuthorization": lambda n : setattr(self, 'a2a_authorization', n.get_object_value(A2aAuthorization)),
             "agentIdentityBlueprintId": lambda n : setattr(self, 'agent_identity_blueprint_id', n.get_str_value()),
             "agentIdentityId": lambda n : setattr(self, 'agent_identity_id', n.get_str_value()),
             "createdBy": lambda n : setattr(self, 'created_by', n.get_str_value()),
@@ -89,6 +95,7 @@ class AgentRegistration(Entity, Parsable):
         if writer is None:
             raise TypeError("writer cannot be null.")
         super().serialize(writer)
+        writer.write_object_value("a2aAuthorization", self.a2a_authorization)
         writer.write_str_value("agentIdentityBlueprintId", self.agent_identity_blueprint_id)
         writer.write_str_value("agentIdentityId", self.agent_identity_id)
         writer.write_str_value("createdBy", self.created_by)
