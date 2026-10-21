@@ -1,0 +1,28 @@
+from enum import Enum
+
+class EvaluationErrorType(str, Enum):
+    UnsupportedFile = "unsupportedFile",
+    PasswordProtectedFile = "passwordProtectedFile",
+    FileTooLarge = "fileTooLarge",
+    ArchiveSizeTooLarge = "archiveSizeTooLarge",
+    TextExceedsMceThreshold = "textExceedsMceThreshold",
+    PartiallyScannedArchive = "partiallyScannedArchive",
+    PartialImageExtraction = "partialImageExtraction",
+    ImageOcrPartialResult = "imageOcrPartialResult",
+    OcrProcessingFailure = "ocrProcessingFailure",
+    OcrQuotaExhausted = "ocrQuotaExhausted",
+    ClassificationServiceError = "classificationServiceError",
+    SitExtractionFailure = "sitExtractionFailure",
+    TextExtractionFailure = "textExtractionFailure",
+    ArchiveTextExtractionError = "archiveTextExtractionError",
+    MissingOrInvalidConfiguration = "missingOrInvalidConfiguration",
+    AgentFailure = "agentFailure",
+    EnforcementTimeout = "enforcementTimeout",
+    OsOverride = "osOverride",
+    ProcessNonExistent = "processNonExistent",
+    Other = "other",
+    ServiceTimeout = "serviceTimeout",
+    ServiceError = "serviceError",
+    ServiceUnavailable = "serviceUnavailable",
+    UnknownFutureValue = "unknownFutureValue",
+

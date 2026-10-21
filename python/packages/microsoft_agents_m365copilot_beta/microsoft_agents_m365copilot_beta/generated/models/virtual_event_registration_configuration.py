@@ -1,0 +1,95 @@
+from __future__ import annotations
+from collections.abc import Callable
+from dataclasses import dataclass, field
+from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
+from typing import Any, Optional, TYPE_CHECKING, Union
+
+if TYPE_CHECKING:
+    from .entity import Entity
+    from .virtual_event_registration_question_base import VirtualEventRegistrationQuestionBase
+    from .virtual_event_townhall_registration_configuration import VirtualEventTownhallRegistrationConfiguration
+    from .virtual_event_webinar_registration_configuration import VirtualEventWebinarRegistrationConfiguration
+
+from .entity import Entity
+
+@dataclass
+class VirtualEventRegistrationConfiguration(Entity, Parsable):
+    # Total capacity of the virtual event.
+    capacity: Optional[int] = None
+    # Indicates whether registrations require organizer approval before a participant is confirmed.
+    is_manual_approval_enabled: Optional[bool] = None
+    # Indicates whether more registrants are automatically placed on a waitlist when capacity is reached.
+    is_waitlist_enabled: Optional[bool] = None
+    # The OdataType property
+    odata_type: Optional[str] = None
+    # Registration questions.
+    questions: Optional[list[VirtualEventRegistrationQuestionBase]] = None
+    # Registration URL of the virtual event.
+    registration_web_url: Optional[str] = None
+    
+    @staticmethod
+    def create_from_discriminator_value(parse_node: ParseNode) -> VirtualEventRegistrationConfiguration:
+        """
+        Creates a new instance of the appropriate class based on discriminator value
+        param parse_node: The parse node to use to read the discriminator value and create the object
+        Returns: VirtualEventRegistrationConfiguration
+        """
+        if parse_node is None:
+            raise TypeError("parse_node cannot be null.")
+        try:
+            child_node = parse_node.get_child_node("@odata.type")
+            mapping_value = child_node.get_str_value() if child_node else None
+        except AttributeError:
+            mapping_value = None
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.virtualEventTownhallRegistrationConfiguration".casefold():
+            from .virtual_event_townhall_registration_configuration import VirtualEventTownhallRegistrationConfiguration
+
+            return VirtualEventTownhallRegistrationConfiguration()
+        if mapping_value and mapping_value.casefold() == "#microsoft.graph.virtualEventWebinarRegistrationConfiguration".casefold():
+            from .virtual_event_webinar_registration_configuration import VirtualEventWebinarRegistrationConfiguration
+
+            return VirtualEventWebinarRegistrationConfiguration()
+        return VirtualEventRegistrationConfiguration()
+    
+    def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
+        """
+        The deserialization information for the current model
+        Returns: dict[str, Callable[[ParseNode], None]]
+        """
+        from .entity import Entity
+        from .virtual_event_registration_question_base import VirtualEventRegistrationQuestionBase
+        from .virtual_event_townhall_registration_configuration import VirtualEventTownhallRegistrationConfiguration
+        from .virtual_event_webinar_registration_configuration import VirtualEventWebinarRegistrationConfiguration
+
+        from .entity import Entity
+        from .virtual_event_registration_question_base import VirtualEventRegistrationQuestionBase
+        from .virtual_event_townhall_registration_configuration import VirtualEventTownhallRegistrationConfiguration
+        from .virtual_event_webinar_registration_configuration import VirtualEventWebinarRegistrationConfiguration
+
+        fields: dict[str, Callable[[Any], None]] = {
+            "capacity": lambda n : setattr(self, 'capacity', n.get_int_value()),
+            "isManualApprovalEnabled": lambda n : setattr(self, 'is_manual_approval_enabled', n.get_bool_value()),
+            "isWaitlistEnabled": lambda n : setattr(self, 'is_waitlist_enabled', n.get_bool_value()),
+            "questions": lambda n : setattr(self, 'questions', n.get_collection_of_object_values(VirtualEventRegistrationQuestionBase)),
+            "registrationWebUrl": lambda n : setattr(self, 'registration_web_url', n.get_str_value()),
+        }
+        super_fields = super().get_field_deserializers()
+        fields.update(super_fields)
+        return fields
+    
+    def serialize(self,writer: SerializationWriter) -> None:
+        """
+        Serializes information the current object
+        param writer: Serialization writer to use to serialize this model
+        Returns: None
+        """
+        if writer is None:
+            raise TypeError("writer cannot be null.")
+        super().serialize(writer)
+        writer.write_int_value("capacity", self.capacity)
+        writer.write_bool_value("isManualApprovalEnabled", self.is_manual_approval_enabled)
+        writer.write_bool_value("isWaitlistEnabled", self.is_waitlist_enabled)
+        writer.write_collection_of_object_values("questions", self.questions)
+        writer.write_str_value("registrationWebUrl", self.registration_web_url)
+    
+
