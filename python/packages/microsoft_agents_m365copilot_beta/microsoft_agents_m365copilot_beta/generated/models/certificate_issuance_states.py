@@ -1,0 +1,27 @@
+from enum import Enum
+
+class CertificateIssuanceStates(str, Enum):
+    Unknown = "unknown",
+    ChallengeIssued = "challengeIssued",
+    ChallengeIssueFailed = "challengeIssueFailed",
+    RequestCreationFailed = "requestCreationFailed",
+    RequestSubmitFailed = "requestSubmitFailed",
+    ChallengeValidationSucceeded = "challengeValidationSucceeded",
+    ChallengeValidationFailed = "challengeValidationFailed",
+    IssueFailed = "issueFailed",
+    IssuePending = "issuePending",
+    Issued = "issued",
+    ResponseProcessingFailed = "responseProcessingFailed",
+    ResponsePending = "responsePending",
+    EnrollmentSucceeded = "enrollmentSucceeded",
+    EnrollmentNotNeeded = "enrollmentNotNeeded",
+    Revoked = "revoked",
+    RemovedFromCollection = "removedFromCollection",
+    RenewVerified = "renewVerified",
+    InstallFailed = "installFailed",
+    Installed = "installed",
+    DeleteFailed = "deleteFailed",
+    Deleted = "deleted",
+    RenewalRequested = "renewalRequested",
+    Requested = "requested",
+

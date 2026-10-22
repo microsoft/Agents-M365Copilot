@@ -1,0 +1,68 @@
+from __future__ import annotations
+from collections.abc import Callable
+from dataclasses import dataclass, field
+from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
+from typing import Any, Optional, TYPE_CHECKING, Union
+
+if TYPE_CHECKING:
+    from .authentication_method_configuration import AuthenticationMethodConfiguration
+    from .voice_authentication_method_target import VoiceAuthenticationMethodTarget
+
+from .authentication_method_configuration import AuthenticationMethodConfiguration
+
+@dataclass
+class VoiceAuthenticationMethodConfiguration(AuthenticationMethodConfiguration, Parsable):
+    # The OdataType property
+    odata_type: Optional[str] = "#microsoft.graph.voiceAuthenticationMethodConfiguration"
+    # The phone number used as the caller ID when voice call authentication is initiated.
+    caller_id_number: Optional[str] = None
+    # A collection of groups that are enabled to use the authentication method. Expanded by default.
+    include_targets: Optional[list[VoiceAuthenticationMethodTarget]] = None
+    # true if users can register office phones, otherwise, false.
+    is_office_phone_allowed: Optional[bool] = None
+    
+    @staticmethod
+    def create_from_discriminator_value(parse_node: ParseNode) -> VoiceAuthenticationMethodConfiguration:
+        """
+        Creates a new instance of the appropriate class based on discriminator value
+        param parse_node: The parse node to use to read the discriminator value and create the object
+        Returns: VoiceAuthenticationMethodConfiguration
+        """
+        if parse_node is None:
+            raise TypeError("parse_node cannot be null.")
+        return VoiceAuthenticationMethodConfiguration()
+    
+    def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
+        """
+        The deserialization information for the current model
+        Returns: dict[str, Callable[[ParseNode], None]]
+        """
+        from .authentication_method_configuration import AuthenticationMethodConfiguration
+        from .voice_authentication_method_target import VoiceAuthenticationMethodTarget
+
+        from .authentication_method_configuration import AuthenticationMethodConfiguration
+        from .voice_authentication_method_target import VoiceAuthenticationMethodTarget
+
+        fields: dict[str, Callable[[Any], None]] = {
+            "callerIdNumber": lambda n : setattr(self, 'caller_id_number', n.get_str_value()),
+            "includeTargets": lambda n : setattr(self, 'include_targets', n.get_collection_of_object_values(VoiceAuthenticationMethodTarget)),
+            "isOfficePhoneAllowed": lambda n : setattr(self, 'is_office_phone_allowed', n.get_bool_value()),
+        }
+        super_fields = super().get_field_deserializers()
+        fields.update(super_fields)
+        return fields
+    
+    def serialize(self,writer: SerializationWriter) -> None:
+        """
+        Serializes information the current object
+        param writer: Serialization writer to use to serialize this model
+        Returns: None
+        """
+        if writer is None:
+            raise TypeError("writer cannot be null.")
+        super().serialize(writer)
+        writer.write_str_value("callerIdNumber", self.caller_id_number)
+        writer.write_collection_of_object_values("includeTargets", self.include_targets)
+        writer.write_bool_value("isOfficePhoneAllowed", self.is_office_phone_allowed)
+    
+
