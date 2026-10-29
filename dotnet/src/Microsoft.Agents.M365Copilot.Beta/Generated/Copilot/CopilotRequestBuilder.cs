@@ -5,6 +5,7 @@ using Microsoft.Agents.M365Copilot.Beta.Copilot.AgentRegistrations;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Agents;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Communications;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Conversations;
+using Microsoft.Agents.M365Copilot.Beta.Copilot.CostManagement;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Reports;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval;
@@ -49,6 +50,11 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot
         public global::Microsoft.Agents.M365Copilot.Beta.Copilot.Conversations.ConversationsRequestBuilder Conversations
         {
             get => new global::Microsoft.Agents.M365Copilot.Beta.Copilot.Conversations.ConversationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The costManagement property</summary>
+        public global::Microsoft.Agents.M365Copilot.Beta.Copilot.CostManagement.CostManagementRequestBuilder CostManagement
+        {
+            get => new global::Microsoft.Agents.M365Copilot.Beta.Copilot.CostManagement.CostManagementRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to manage the interactionHistory property of the microsoft.graph.copilotRoot entity.</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.InteractionHistoryRequestBuilder InteractionHistory
