@@ -1,0 +1,61 @@
+from __future__ import annotations
+from collections.abc import Callable
+from dataclasses import dataclass, field
+from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
+from typing import Any, Optional, TYPE_CHECKING, Union
+
+if TYPE_CHECKING:
+    from .entity import Entity
+
+from .entity import Entity
+
+@dataclass
+class ContentSharingSession(Entity, Parsable):
+    # The OdataType property
+    odata_type: Optional[str] = None
+    # The pngOfCurrentSlide property
+    png_of_current_slide: Optional[bytes] = None
+    # The presenterParticipantId property
+    presenter_participant_id: Optional[str] = None
+    
+    @staticmethod
+    def create_from_discriminator_value(parse_node: ParseNode) -> ContentSharingSession:
+        """
+        Creates a new instance of the appropriate class based on discriminator value
+        param parse_node: The parse node to use to read the discriminator value and create the object
+        Returns: ContentSharingSession
+        """
+        if parse_node is None:
+            raise TypeError("parse_node cannot be null.")
+        return ContentSharingSession()
+    
+    def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
+        """
+        The deserialization information for the current model
+        Returns: dict[str, Callable[[ParseNode], None]]
+        """
+        from .entity import Entity
+
+        from .entity import Entity
+
+        fields: dict[str, Callable[[Any], None]] = {
+            "pngOfCurrentSlide": lambda n : setattr(self, 'png_of_current_slide', n.get_bytes_value()),
+            "presenterParticipantId": lambda n : setattr(self, 'presenter_participant_id', n.get_str_value()),
+        }
+        super_fields = super().get_field_deserializers()
+        fields.update(super_fields)
+        return fields
+    
+    def serialize(self,writer: SerializationWriter) -> None:
+        """
+        Serializes information the current object
+        param writer: Serialization writer to use to serialize this model
+        Returns: None
+        """
+        if writer is None:
+            raise TypeError("writer cannot be null.")
+        super().serialize(writer)
+        writer.write_bytes_value("pngOfCurrentSlide", self.png_of_current_slide)
+        writer.write_str_value("presenterParticipantId", self.presenter_participant_id)
+    
+
