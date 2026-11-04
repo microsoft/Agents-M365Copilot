@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class CrossTenantMigrationTask : global::Microsoft.Agents.M365Copilot.Beta.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Most recent status of this migration task</summary>
+        /// <summary>Most recent status of this migration task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.CrossTenantMigrationServiceStatusDetails>? CurrentStatus { get; set; }
@@ -20,9 +20,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.CrossTenantMigrationServiceStatusDetails> CurrentStatus { get; set; }
 #endif
-        /// <summary>Time the task was last updated</summary>
+        /// <summary>Date and time when the task was last updated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.</summary>
         public DateTimeOffset? LastUpdatedDateTime { get; set; }
-        /// <summary>Type of migration task. Only Users are supported at this time.</summary>
+        /// <summary>Type of migration task. Currently, only Users is supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TaskType { get; set; }

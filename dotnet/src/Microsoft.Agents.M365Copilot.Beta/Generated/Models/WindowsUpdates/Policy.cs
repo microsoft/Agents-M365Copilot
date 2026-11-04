@@ -12,7 +12,15 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates
     public partial class Policy : global::Microsoft.Agents.M365Copilot.Beta.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Represents content applicable for offering to the related collection of devices.</summary>
+        /// <summary>The catalog entries that apply to devices targeted by the policy.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApplicableCatalog>? ApplicableCatalogs { get; set; }
+#nullable restore
+#else
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApplicableCatalog> ApplicableCatalogs { get; set; }
+#endif
+        /// <summary>The existing applicable-content collection. For driver and feature update applicability, use applicableCatalogs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApplicableContent>? ApplicableContent { get; set; }
@@ -28,7 +36,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates
 #else
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApprovalRule> ApprovalRules { get; set; }
 #endif
-        /// <summary>Represents a set of quality updates policy approval types.</summary>
+        /// <summary>The update content approvals associated with the policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.PolicyApproval>? Approvals { get; set; }
@@ -56,7 +64,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates
 #endif
         /// <summary>The date and time when the policy was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
-        /// <summary>Represents a set of deployment rings that contains update deployment settings.</summary>
+        /// <summary>The deployment rings that define targeting, deferral, and pause settings for the policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.Ring>? Rings { get; set; }
@@ -75,6 +83,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
+                "#microsoft.graph.windowsUpdates.driverUpdatePolicy" => new global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DriverUpdatePolicy(),
+                "#microsoft.graph.windowsUpdates.featureUpdatePolicy" => new global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.FeatureUpdatePolicy(),
                 "#microsoft.graph.windowsUpdates.qualityUpdatePolicy" => new global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.QualityUpdatePolicy(),
                 _ => new global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.Policy(),
             };
@@ -87,6 +97,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                { "applicableCatalogs", n => { ApplicableCatalogs = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApplicableCatalog>(global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApplicableCatalog.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "applicableContent", n => { ApplicableContent = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApplicableContent>(global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApplicableContent.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "approvalRules", n => { ApprovalRules = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApprovalRule>(global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApprovalRule.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "approvals", n => { Approvals = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.PolicyApproval>(global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.PolicyApproval.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -105,6 +116,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApplicableCatalog>("applicableCatalogs", ApplicableCatalogs);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApplicableContent>("applicableContent", ApplicableContent);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApprovalRule>("approvalRules", ApprovalRules);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.PolicyApproval>("approvals", Approvals);

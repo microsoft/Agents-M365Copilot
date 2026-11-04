@@ -48,6 +48,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>The severity property</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.Severity? Severity { get; set; }
+        /// <summary>The source property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Source { get; set; }
+#nullable restore
+#else
+        public string Source { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.RiskAlert"/> and sets the default values.
         /// </summary>
@@ -78,6 +86,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "providerAlertId", n => { ProviderAlertId = n.GetStringValue(); } },
                 { "severity", n => { Severity = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.Severity>(); } },
+                { "source", n => { Source = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -92,6 +101,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("providerAlertId", ProviderAlertId);
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.Severity>("severity", Severity);
+            writer.WriteStringValue("source", Source);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

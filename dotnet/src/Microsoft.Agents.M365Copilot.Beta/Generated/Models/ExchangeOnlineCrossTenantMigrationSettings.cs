@@ -22,7 +22,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>Name of the Migration Endpoint in the source tenant</summary>
+        /// <summary>Name of the migration endpoint in the source tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SourceEndpoint { get; set; }
@@ -30,7 +30,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string SourceEndpoint { get; set; }
 #endif
-        /// <summary>Delivery domain on the target tenant</summary>
+        /// <summary>Delivery domain on the target tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TargetDeliveryDomain { get; set; }

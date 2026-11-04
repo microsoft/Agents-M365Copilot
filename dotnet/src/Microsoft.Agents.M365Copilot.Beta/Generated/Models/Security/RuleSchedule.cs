@@ -16,6 +16,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.Security
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The recurring time interval at which the rule runs (ISO 8601 duration, for example P1D for daily, PT1H for hourly).</summary>
         public TimeSpan? Frequency { get; set; }
+        /// <summary>The lookback property</summary>
+        public TimeSpan? Lookback { get; set; }
         /// <summary>Timestamp of the custom detection rule&apos;s next scheduled run. Deprecated. This property will be removed from this resource on 2026-10-01.</summary>
         public DateTimeOffset? NextRunDateTime { get; set; }
         /// <summary>The OdataType property</summary>
@@ -60,6 +62,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.Security
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "frequency", n => { Frequency = n.GetTimeSpanValue(); } },
+                { "lookback", n => { Lookback = n.GetTimeSpanValue(); } },
                 { "nextRunDateTime", n => { NextRunDateTime = n.GetDateTimeOffsetValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "period", n => { Period = n.GetStringValue(); } },
@@ -73,6 +76,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.Security
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteTimeSpanValue("frequency", Frequency);
+            writer.WriteTimeSpanValue("lookback", Lookback);
             writer.WriteDateTimeOffsetValue("nextRunDateTime", NextRunDateTime);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("period", Period);

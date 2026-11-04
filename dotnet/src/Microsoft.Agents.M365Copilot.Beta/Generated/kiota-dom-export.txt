@@ -793,6 +793,20 @@ Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.interactionHistoryR
 Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.interactionHistoryRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.InteractionHistoryRequestBuilder.InteractionHistoryRequestBuilderGetQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.interactionHistoryRequestBuilder::|public|ToPatchRequestInformation(body:global.Microsoft.Agents.M365Copilot.Beta.Models.AiInteractionHistory; requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
 Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.interactionHistoryRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.InteractionHistoryRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotEmissions.getMicrosoft365CopilotEmissionsRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotEmissions.getMicrosoft365CopilotEmissionsRequestBuilder.getMicrosoft365CopilotEmissionsRequestBuilderGetRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotEmissions.getMicrosoft365CopilotEmissionsRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotEmissions.getMicrosoft365CopilotEmissionsRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotEmissions.getMicrosoft365CopilotEmissionsRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):Stream
+Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotEmissions.getMicrosoft365CopilotEmissionsRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotEmissions.getMicrosoft365CopilotEmissionsRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotEmissions.GetMicrosoft365CopilotEmissionsRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailByDateWithDate.getMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilder-->BaseRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailByDateWithDate.getMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilder.getMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilderGetRequestConfiguration-->RequestConfiguration<DefaultQueryParameters>
+Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailByDateWithDate.getMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilder::|public|constructor(pathParameters:Dictionary<string, object>; requestAdapter:IRequestAdapter; date?:Date?):void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailByDateWithDate.getMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
+Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailByDateWithDate.getMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):Stream
+Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailByDateWithDate.getMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilder::|public|ToGetRequestInformation(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>):RequestInformation
+Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailByDateWithDate.getMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilder::|public|WithUrl(rawUrl:string):global.Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailByDateWithDate.GetMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilder
 Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersion.getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder-->BaseRequestBuilder
 Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersion.getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder.getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderGetQueryParameters::|public|Version:string
 Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersion.getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder.getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderGetRequestConfiguration-->RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersion.GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder.GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderGetQueryParameters>
@@ -827,6 +841,8 @@ Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.reportsRequestBuilder::|public
 Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.reportsRequestBuilder::|public|constructor(rawUrl:string; requestAdapter:IRequestAdapter):void
 Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.reportsRequestBuilder::|public|DeleteAsync(requestConfiguration?:Action<RequestConfiguration<DefaultQueryParameters>>; cancellationToken?:CancellationToken):void
 Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.reportsRequestBuilder::|public|GetAsync(requestConfiguration?:Action<RequestConfiguration<global.Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.ReportsRequestBuilder.ReportsRequestBuilderGetQueryParameters>>; cancellationToken?:CancellationToken):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotReportRoot
+Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.reportsRequestBuilder::|public|getMicrosoft365CopilotEmissions:global.Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotEmissions.GetMicrosoft365CopilotEmissionsRequestBuilder
+Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.reportsRequestBuilder::|public|getMicrosoft365CopilotUsageUserDetailByDateWithDate(date:Date?):global.Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailByDateWithDate.GetMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilder
 Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.reportsRequestBuilder::|public|getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersion(period:string):global.Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersion.GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder
 Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.reportsRequestBuilder::|public|getMicrosoft365CopilotUserCountSummaryWithPeriodversionVersion(period:string):global.Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersion.GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilder
 Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.reportsRequestBuilder::|public|getMicrosoft365CopilotUserCountTrendWithPeriodversionVersion(period:string):global.Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersion.GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder
@@ -1656,6 +1672,16 @@ Microsoft.Agents.M365Copilot.Beta.Models.accessReviewApplyAction::|public|OdataT
 Microsoft.Agents.M365Copilot.Beta.Models.accessReviewApplyAction::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.accessReviewApplyAction::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.AccessReviewApplyAction
 Microsoft.Agents.M365Copilot.Beta.Models.accessReviewApplyAction~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.accessReviewCatalogResourceType::0000-none
+Microsoft.Agents.M365Copilot.Beta.Models.accessReviewCatalogResourceType::0001-accessPackage
+Microsoft.Agents.M365Copilot.Beta.Models.accessReviewCatalogResourceType::0002-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.accessReviewCatalogScope-->global.Microsoft.Agents.M365Copilot.Beta.Models.AccessReviewResourceScope
+Microsoft.Agents.M365Copilot.Beta.Models.accessReviewCatalogScope::|public|AdditionalCatalogResourceTypes:global.Microsoft.Agents.M365Copilot.Beta.Models.AccessReviewCatalogResourceType?
+Microsoft.Agents.M365Copilot.Beta.Models.accessReviewCatalogScope::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.accessReviewCatalogScope::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.accessReviewCatalogScope::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.accessReviewCatalogScope::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.accessReviewCatalogScope::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.AccessReviewCatalogScope
 Microsoft.Agents.M365Copilot.Beta.Models.accessReviewDecision-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.accessReviewDecision::|public|AccessRecommendation:string
 Microsoft.Agents.M365Copilot.Beta.Models.accessReviewDecision::|public|AccessReviewId:string
@@ -2265,7 +2291,8 @@ Microsoft.Agents.M365Copilot.Beta.Models.activityLogOperationType::0007-protecti
 Microsoft.Agents.M365Copilot.Beta.Models.activityLogOperationType::0008-policyLevelOffboarding
 Microsoft.Agents.M365Copilot.Beta.Models.activityLogOperationType::0009-restoreTaskCreated
 Microsoft.Agents.M365Copilot.Beta.Models.activityLogOperationType::0010-restoreTaskCompleted
-Microsoft.Agents.M365Copilot.Beta.Models.activityLogOperationType::0011-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.activityLogOperationType::0011-backupPolicyDeleted
+Microsoft.Agents.M365Copilot.Beta.Models.activityLogOperationType::0012-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.activityLogResultStatus::0000-succeeded
 Microsoft.Agents.M365Copilot.Beta.Models.activityLogResultStatus::0001-failed
 Microsoft.Agents.M365Copilot.Beta.Models.activityLogResultStatus::0002-partiallySucceeded
@@ -2456,6 +2483,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.adminWindows::|public|Updates:global.Mi
 Microsoft.Agents.M365Copilot.Beta.Models.adminWindows::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.AdminWindows
 Microsoft.Agents.M365Copilot.Beta.Models.adminWindowsUpdates-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.adminWindowsUpdates::|public|Catalog:global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.Catalog
+Microsoft.Agents.M365Copilot.Beta.Models.adminWindowsUpdates::|public|Data:global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.UpdateData
 Microsoft.Agents.M365Copilot.Beta.Models.adminWindowsUpdates::|public|DeploymentAudiences:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DeploymentAudience>
 Microsoft.Agents.M365Copilot.Beta.Models.adminWindowsUpdates::|public|Deployments:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.Deployment>
 Microsoft.Agents.M365Copilot.Beta.Models.adminWindowsUpdates::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -2464,6 +2492,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.adminWindowsUpdates::|public|Policies:L
 Microsoft.Agents.M365Copilot.Beta.Models.adminWindowsUpdates::|public|Products:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.Product>
 Microsoft.Agents.M365Copilot.Beta.Models.adminWindowsUpdates::|public|ResourceConnections:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ResourceConnection>
 Microsoft.Agents.M365Copilot.Beta.Models.adminWindowsUpdates::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.adminWindowsUpdates::|public|TenantSettings:global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.TenantSetting
 Microsoft.Agents.M365Copilot.Beta.Models.adminWindowsUpdates::|public|UpdatableAssets:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.UpdatableAsset>
 Microsoft.Agents.M365Copilot.Beta.Models.adminWindowsUpdates::|public|UpdatePolicies:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.UpdatePolicy>
 Microsoft.Agents.M365Copilot.Beta.Models.adminWindowsUpdates::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.AdminWindowsUpdates
@@ -5672,6 +5701,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.applicationLocation~~>IAdditionalDataHo
 Microsoft.Agents.M365Copilot.Beta.Models.applicationMode::0000-manual
 Microsoft.Agents.M365Copilot.Beta.Models.applicationMode::0001-automatic
 Microsoft.Agents.M365Copilot.Beta.Models.applicationMode::0002-recommended
+Microsoft.Agents.M365Copilot.Beta.Models.applicationMode::0003-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.applicationPermissionsRequired::0000-unknown
 Microsoft.Agents.M365Copilot.Beta.Models.applicationPermissionsRequired::0001-anonymous
 Microsoft.Agents.M365Copilot.Beta.Models.applicationPermissionsRequired::0002-guest
@@ -6049,6 +6079,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.appManagementPolicyActorExemptions~~>IA
 Microsoft.Agents.M365Copilot.Beta.Models.appManagementRestrictionState::0000-enabled
 Microsoft.Agents.M365Copilot.Beta.Models.appManagementRestrictionState::0001-disabled
 Microsoft.Agents.M365Copilot.Beta.Models.appManagementRestrictionState::0002-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.appManagementRestrictionState::0003-audit
 Microsoft.Agents.M365Copilot.Beta.Models.appManagementServicePrincipalConfiguration-->global.Microsoft.Agents.M365Copilot.Beta.Models.AppManagementConfiguration
 Microsoft.Agents.M365Copilot.Beta.Models.appManagementServicePrincipalConfiguration::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.appManagementServicePrincipalConfiguration::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -7080,6 +7111,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.authenticationEventType::0003-attribute
 Microsoft.Agents.M365Copilot.Beta.Models.authenticationEventType::0004-attributeCollectionSubmit
 Microsoft.Agents.M365Copilot.Beta.Models.authenticationEventType::0005-emailOtpSend
 Microsoft.Agents.M365Copilot.Beta.Models.authenticationEventType::0006-passwordSubmit
+Microsoft.Agents.M365Copilot.Beta.Models.authenticationEventType::0007-passwordUpdate
 Microsoft.Agents.M365Copilot.Beta.Models.authenticationFailure-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.authenticationFailure::|public|Count:long?
 Microsoft.Agents.M365Copilot.Beta.Models.authenticationFailure::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -10054,6 +10086,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.changeUefiSettingsPermission::0001-none
 Microsoft.Agents.M365Copilot.Beta.Models.channel-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.channel::|public|AllMembers:List<global.Microsoft.Agents.M365Copilot.Beta.Models.ConversationMember>
 Microsoft.Agents.M365Copilot.Beta.Models.channel::|public|CreatedDateTime:DateTimeOffset?
+Microsoft.Agents.M365Copilot.Beta.Models.channel::|public|DeletedDateTime:DateTimeOffset?
 Microsoft.Agents.M365Copilot.Beta.Models.channel::|public|Description:string
 Microsoft.Agents.M365Copilot.Beta.Models.channel::|public|DisplayName:string
 Microsoft.Agents.M365Copilot.Beta.Models.channel::|public|Email:string
@@ -11362,6 +11395,13 @@ Microsoft.Agents.M365Copilot.Beta.Models.cloudPcBulkReinstallAgent::|public|GetF
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcBulkReinstallAgent::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcBulkReinstallAgent::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcBulkReinstallAgent::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcBulkReinstallAgent
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcBulkRelocate-->global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcBulkAction
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcBulkRelocate::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcBulkRelocate::|public|DomainJoinConfigurations:List<global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcDomainJoinConfiguration>
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcBulkRelocate::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcBulkRelocate::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcBulkRelocate::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcBulkRelocate::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcBulkRelocate
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcBulkReprovision-->global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcBulkAction
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcBulkReprovision::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcBulkReprovision::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -11642,9 +11682,44 @@ Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinConfiguration::|public
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinConfiguration::|public|Type:global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcDomainJoinType?
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinConfiguration::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcDomainJoinConfiguration
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinConfiguration~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinCredential::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinCredential::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinCredential::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinCredential::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinCredential::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinCredential::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcDomainJoinCredential
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinCredential~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinKeyVaultIntentConfiguration::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinKeyVaultIntentConfiguration::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinKeyVaultIntentConfiguration::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinKeyVaultIntentConfiguration::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinKeyVaultIntentConfiguration::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinKeyVaultIntentConfiguration::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcDomainJoinKeyVaultIntentConfiguration
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinKeyVaultIntentConfiguration~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinKeyVaultPasswordConfiguration-->global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcDomainJoinKeyVaultIntentConfiguration
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinKeyVaultPasswordConfiguration::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinKeyVaultPasswordConfiguration::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinKeyVaultPasswordConfiguration::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinKeyVaultPasswordConfiguration::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinKeyVaultPasswordConfiguration::|public|UserIdentity:global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcDomainJoinUserIdentity
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinKeyVaultPasswordConfiguration::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcDomainJoinKeyVaultPasswordConfiguration
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinPlainTextUserIdentity-->global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcDomainJoinUserIdentity
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinPlainTextUserIdentity::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinPlainTextUserIdentity::|public|DomainUserPrincipalName:string
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinPlainTextUserIdentity::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinPlainTextUserIdentity::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinPlainTextUserIdentity::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinPlainTextUserIdentity::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcDomainJoinPlainTextUserIdentity
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinType::0000-azureADJoin
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinType::0001-hybridAzureADJoin
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinType::0002-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinUserIdentity::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinUserIdentity::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinUserIdentity::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinUserIdentity::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinUserIdentity::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinUserIdentity::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcDomainJoinUserIdentity
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcDomainJoinUserIdentity~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcEntraGroupDetail::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcEntraGroupDetail::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcEntraGroupDetail::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -11795,6 +11870,16 @@ Microsoft.Agents.M365Copilot.Beta.Models.cloudPcHealthCheckItem::|public|Result:
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcHealthCheckItem::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcHealthCheckItem::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcHealthCheckItem
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcHealthCheckItem~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcKeyVaultDomainJoinCredential-->global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcDomainJoinCredential
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcKeyVaultDomainJoinCredential::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcKeyVaultDomainJoinCredential::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcKeyVaultDomainJoinCredential::|public|KeyVaultIntentConfiguration:global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcDomainJoinKeyVaultIntentConfiguration
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcKeyVaultDomainJoinCredential::|public|KeyVaultResourceId:string
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcKeyVaultDomainJoinCredential::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcKeyVaultDomainJoinCredential::|public|SecretName:string
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcKeyVaultDomainJoinCredential::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcKeyVaultDomainJoinCredential::|public|ServiceConnectorResourceId:string
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcKeyVaultDomainJoinCredential::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcKeyVaultDomainJoinCredential
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcLoginResult::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcLoginResult::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcLoginResult::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -11882,6 +11967,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnection::|public|Ad
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnection::|public|AlternateResourceUrl:string
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnection::|public|ConnectionType:global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcOnPremisesConnectionType?
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnection::|public|DisplayName:string
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnection::|public|DomainJoinCredential:global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcDomainJoinCredential
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnection::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnection::|public|HealthCheckPaused:bool?
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnection::|public|HealthCheckStatus:global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcOnPremisesConnectionStatus?
@@ -11977,17 +12063,25 @@ Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckE
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0056-permissionCheckNoWindows365NetworkInterfaceContributorRole
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0057-permissionCheckTransientServiceError
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0058-permissionCheckUnknownError
-Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0059-udpConnectivityCheckStunUrlNotAllowListed
-Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0060-udpConnectivityCheckTurnUrlNotAllowListed
-Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0061-udpConnectivityCheckUrlsNotAllowListed
-Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0062-udpConnectivityCheckUnknownError
-Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0063-internalServerErrorDeploymentCanceled
-Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0064-internalServerErrorAllocateResourceFailed
-Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0065-internalServerErrorVMDeploymentTimeout
-Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0066-internalServerErrorUnableToRunDscScript
-Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0067-ssoCheckKerberosConfigurationError
-Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0068-internalServerUnknownError
-Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0069-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0059-keyVaultSecretCheckAccessDenied
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0060-keyVaultSecretCheckVaultNotReachable
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0061-keyVaultSecretCheckNotFound
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0062-keyVaultSecretCheckDisabled
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0063-keyVaultSecretCheckExpired
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0064-keyVaultSecretCheckEmptyValue
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0065-keyVaultSecretCheckTransientServiceError
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0066-keyVaultSecretCheckUnknownError
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0067-udpConnectivityCheckStunUrlNotAllowListed
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0068-udpConnectivityCheckTurnUrlNotAllowListed
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0069-udpConnectivityCheckUrlsNotAllowListed
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0070-udpConnectivityCheckUnknownError
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0071-internalServerErrorDeploymentCanceled
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0072-internalServerErrorAllocateResourceFailed
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0073-internalServerErrorVMDeploymentTimeout
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0074-internalServerErrorUnableToRunDscScript
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0075-ssoCheckKerberosConfigurationError
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0076-internalServerUnknownError
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheckErrorType::0077-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionHealthCheck~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionStatus::0000-pending
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcOnPremisesConnectionStatus::0001-running
@@ -12064,6 +12158,14 @@ Microsoft.Agents.M365Copilot.Beta.Models.cloudPcPartnerAgentName::0000-citrix
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcPartnerAgentName::0001-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcPartnerAgentName::0002-vMware
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcPartnerAgentName::0003-hp
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcPlainTextDomainJoinCredential-->global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcDomainJoinCredential
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcPlainTextDomainJoinCredential::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcPlainTextDomainJoinCredential::|public|DomainPassword:string
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcPlainTextDomainJoinCredential::|public|DomainUserPrincipalName:string
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcPlainTextDomainJoinCredential::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcPlainTextDomainJoinCredential::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcPlainTextDomainJoinCredential::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.cloudPcPlainTextDomainJoinCredential::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcPlainTextDomainJoinCredential
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcPool-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcPool::|public|Assignments:List<global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcPoolAssignment>
 Microsoft.Agents.M365Copilot.Beta.Models.cloudPcPool::|public|CloudPcConfiguration:global.Microsoft.Agents.M365Copilot.Beta.Models.CloudPcConfiguration
@@ -14128,6 +14230,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|GetFieldD
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|LastUsedDateTime:DateTimeOffset?
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|LongDescription:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|RequestMetadata:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestMetadata
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|Sensitivity:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetail::|public|SharedWithUsersAndGroups:List<global.Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity>
@@ -14139,6 +14242,39 @@ Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetailCollectionResponse:
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetailCollectionResponse::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetailCollectionResponse::|public|Value:List<global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageDetail>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageDetailCollectionResponse::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageDetailCollectionResponse
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestInfo::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestInfo::|public|AdditionalMetadata:UntypedNode
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestInfo::|public|Assignees:List<global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestPrincipal>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestInfo::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestInfo::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestInfo::|public|Identifier:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestInfo::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestInfo::|public|RequestedBy:global.Microsoft.Agents.M365Copilot.Beta.Models.EmailAddress
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestInfo::|public|RequestedDateTime:DateTimeOffset?
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestInfo::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestInfo::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestInfo
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestInfo~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestMetadata::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestMetadata::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestMetadata::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestMetadata::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestMetadata::|public|Requests:List<global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestInfo>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestMetadata::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestMetadata::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestMetadata
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestMetadata~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestPrincipal-->global.Microsoft.Agents.M365Copilot.Beta.Models.Identity
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestPrincipal::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestPrincipal::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestPrincipal::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestPrincipal::|public|PrincipalType:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestPrincipalType?
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestPrincipal::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestPrincipal::|public|UserPrincipalName:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestPrincipal::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestPrincipal
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestPrincipalType::0000-user
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestPrincipalType::0001-group
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestPrincipalType::0002-agentApplication
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestPrincipalType::0003-agentUser
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestPrincipalType::0004-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestStatus::0000-pending
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestStatus::0001-approved
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPackageRequestStatus::0002-rejected
@@ -14160,12 +14296,93 @@ Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySetting::|public|OdataType
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySetting::|public|PolicyId:string
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySetting::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySetting::|public|Value:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySetting::|public|ValueObject:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingValueObject
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySetting::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingLimit::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingLimit::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingLimit::|public|Default:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingLimit::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingLimit::|public|MaxValue:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingLimit::|public|MinValue:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingLimit::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingLimit::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingLimit::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingAgentSharingLimit
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingLimit~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingValueObject-->global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingValueObject
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingValueObject::|public|AgentSharingLimit:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingAgentSharingLimit
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingValueObject::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingValueObject::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingValueObject::|public|IsSharingWithGroupsEnabled:bool?
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingValueObject::|public|IsUserSharingLimitEnabled:bool?
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingValueObject::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingValueObject::|public|OrganizationWideSharingAssignment:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingUserAssignment
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingValueObject::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentSharingValueObject::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingAgentSharingValueObject
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentUserAccessValueObject-->global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingValueObject
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentUserAccessValueObject::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentUserAccessValueObject::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentUserAccessValueObject::|public|Members:List<global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingAssignmentMember>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentUserAccessValueObject::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentUserAccessValueObject::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentUserAccessValueObject::|public|UserAssignmentCategory:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingUserAssignmentCategory?
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAgentUserAccessValueObject::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingAgentUserAccessValueObject
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAllowedAgentTypesValueObject-->global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingValueObject
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAllowedAgentTypesValueObject::|public|AreISVAppsAllowed:bool?
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAllowedAgentTypesValueObject::|public|AreMicrosoftAppsAllowed:bool?
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAllowedAgentTypesValueObject::|public|AreMicrosoftCertifiedThirdPartyAppsAllowed:bool?
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAllowedAgentTypesValueObject::|public|AreTenantScopedAppsAllowed:bool?
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAllowedAgentTypesValueObject::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAllowedAgentTypesValueObject::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAllowedAgentTypesValueObject::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAllowedAgentTypesValueObject::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAllowedAgentTypesValueObject::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingAllowedAgentTypesValueObject
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAssignmentMember::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAssignmentMember::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAssignmentMember::|public|DirectoryObjectId:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAssignmentMember::|public|DirectoryObjectType:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingDirectoryObjectType?
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAssignmentMember::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAssignmentMember::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAssignmentMember::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAssignmentMember::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingAssignmentMember
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingAssignmentMember~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingCollectionResponse-->global.Microsoft.Agents.M365Copilot.Beta.Models.BaseCollectionPaginationCountResponse
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingCollectionResponse::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingCollectionResponse::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingCollectionResponse::|public|Value:List<global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySetting>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingCollectionResponse::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingCollectionResponse
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingDirectoryObjectType::0000-user
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingDirectoryObjectType::0001-group
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingDirectoryObjectType::0002-agentAppId
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingDirectoryObjectType::0003-agentUser
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingDirectoryObjectType::0004-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingTeamsMeetingValueObject-->global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingValueObject
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingTeamsMeetingValueObject::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingTeamsMeetingValueObject::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingTeamsMeetingValueObject::|public|IsTranscriptionAllowed:bool?
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingTeamsMeetingValueObject::|public|MeetingCopilotMode:global.Microsoft.Agents.M365Copilot.Beta.Models.MeetingCopilotMode?
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingTeamsMeetingValueObject::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingTeamsMeetingValueObject::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingTeamsMeetingValueObject::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingTeamsMeetingValueObject
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingUserAssignment::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingUserAssignment::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingUserAssignment::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingUserAssignment::|public|Members:List<global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingAssignmentMember>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingUserAssignment::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingUserAssignment::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingUserAssignment::|public|UserAssignmentCategory:global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingUserAssignmentCategory?
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingUserAssignment::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingUserAssignment
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingUserAssignmentCategory::0000-everyone
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingUserAssignmentCategory::0001-noOne
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingUserAssignmentCategory::0002-specificUsers
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingUserAssignmentCategory::0003-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingUserAssignment~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingValueObject::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingValueObject::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingValueObject::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingValueObject::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingValueObject::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingValueObject::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingValueObject
+Microsoft.Agents.M365Copilot.Beta.Models.copilotPolicySettingValueObject~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.copilotReportRoot-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.copilotReportRoot::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.copilotReportRoot::|public|OdataType:string
@@ -14788,6 +15005,15 @@ Microsoft.Agents.M365Copilot.Beta.Models.currencyColumn::|public|OdataType:strin
 Microsoft.Agents.M365Copilot.Beta.Models.currencyColumn::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.currencyColumn::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CurrencyColumn
 Microsoft.Agents.M365Copilot.Beta.Models.currencyColumn~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.currentLabel::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.currentLabel::|public|ApplicationMode:global.Microsoft.Agents.M365Copilot.Beta.Models.ApplicationMode?
+Microsoft.Agents.M365Copilot.Beta.Models.currentLabel::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.currentLabel::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.currentLabel::|public|Id:string
+Microsoft.Agents.M365Copilot.Beta.Models.currentLabel::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.currentLabel::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.currentLabel::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CurrentLabel
+Microsoft.Agents.M365Copilot.Beta.Models.currentLabel~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.customAccessPackageWorkflowExtension-->global.Microsoft.Agents.M365Copilot.Beta.Models.CustomCalloutExtension
 Microsoft.Agents.M365Copilot.Beta.Models.customAccessPackageWorkflowExtension::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.customAccessPackageWorkflowExtension::|public|CreatedDateTime:DateTimeOffset?
@@ -14851,6 +15077,11 @@ Microsoft.Agents.M365Copilot.Beta.Models.customCalloutExtension::|public|GetFiel
 Microsoft.Agents.M365Copilot.Beta.Models.customCalloutExtension::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.customCalloutExtension::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.customCalloutExtension::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CustomCalloutExtension
+Microsoft.Agents.M365Copilot.Beta.Models.customCalloutExtensionType::0000-preApproval
+Microsoft.Agents.M365Copilot.Beta.Models.customCalloutExtensionType::0001-postApproval
+Microsoft.Agents.M365Copilot.Beta.Models.customCalloutExtensionType::0002-grant
+Microsoft.Agents.M365Copilot.Beta.Models.customCalloutExtensionType::0003-revoke
+Microsoft.Agents.M365Copilot.Beta.Models.customCalloutExtensionType::0004-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.customChoiceOption-->global.Microsoft.Agents.M365Copilot.Beta.Models.PlannerDelta
 Microsoft.Agents.M365Copilot.Beta.Models.customChoiceOption::|public|DisplayName:string
 Microsoft.Agents.M365Copilot.Beta.Models.customChoiceOption::|public|Extensions:global.Microsoft.Agents.M365Copilot.Beta.Models.ExtensionFieldCollection
@@ -15108,6 +15339,12 @@ Microsoft.Agents.M365Copilot.Beta.Models.customExtensionOverwriteConfiguration::
 Microsoft.Agents.M365Copilot.Beta.Models.customExtensionOverwriteConfiguration::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.customExtensionOverwriteConfiguration::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.CustomExtensionOverwriteConfiguration
 Microsoft.Agents.M365Copilot.Beta.Models.customExtensionOverwriteConfiguration~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.customExtensionResourceType::0000-entraRoles
+Microsoft.Agents.M365Copilot.Beta.Models.customExtensionResourceType::0001-azureResources
+Microsoft.Agents.M365Copilot.Beta.Models.customExtensionResourceType::0002-entraGroups
+Microsoft.Agents.M365Copilot.Beta.Models.customExtensionResourceType::0003-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.customExtensionResourceType::0004-applicationAuthorization
+Microsoft.Agents.M365Copilot.Beta.Models.customExtensionResourceType::0005-appRoles
 Microsoft.Agents.M365Copilot.Beta.Models.customExtensionStageSetting-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.customExtensionStageSetting::|public|CustomExtension:global.Microsoft.Agents.M365Copilot.Beta.Models.CustomCalloutExtension
 Microsoft.Agents.M365Copilot.Beta.Models.customExtensionStageSetting::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -22433,7 +22670,6 @@ Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorCategory::0004-unknownFu
 Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorDetail::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorDetail::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorDetail::|public|ErrorCategory:global.Microsoft.Agents.M365Copilot.Beta.Models.EvaluationErrorCategory?
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorDetail::|public|ErrorMessage:string
 Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorDetail::|public|ErrorType:global.Microsoft.Agents.M365Copilot.Beta.Models.EvaluationErrorType?
 Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorDetail::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorDetail::|public|OdataType:string
@@ -22442,28 +22678,21 @@ Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorDetail::|static|public|C
 Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorDetail~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0000-unsupportedFile
 Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0001-passwordProtectedFile
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0002-fileTooLarge
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0003-archiveSizeTooLarge
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0004-textExceedsMceThreshold
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0005-partiallyScannedArchive
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0006-partialImageExtraction
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0007-imageOcrPartialResult
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0008-ocrProcessingFailure
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0009-ocrQuotaExhausted
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0010-classificationServiceError
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0011-sitExtractionFailure
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0012-textExtractionFailure
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0013-archiveTextExtractionError
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0014-missingOrInvalidConfiguration
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0015-agentFailure
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0016-enforcementTimeout
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0017-osOverride
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0018-processNonExistent
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0019-other
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0020-serviceTimeout
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0021-serviceError
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0022-serviceUnavailable
-Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0023-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0002-missingOrInvalidConfiguration
+Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0003-agentFailure
+Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0004-enforcementTimeout
+Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0005-osOverride
+Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0006-processNonExistent
+Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0007-other
+Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0008-serviceTimeout
+Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0009-serviceError
+Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0010-serviceUnavailable
+Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0011-contentTooLarge
+Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0012-partiallyScanned
+Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0013-unscannable
+Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0014-billingNotSetup
+Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0015-authenticationOrAuthorizationFailed
+Microsoft.Agents.M365Copilot.Beta.Models.evaluationErrorType::0016-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.evaluationIncompleteActivityMetadata-->global.Microsoft.Agents.M365Copilot.Beta.Models.ProcessContentMetadataBase
 Microsoft.Agents.M365Copilot.Beta.Models.evaluationIncompleteActivityMetadata::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.evaluationIncompleteActivityMetadata::|public|ErrorAction:global.Microsoft.Agents.M365Copilot.Beta.Models.ErrorActions?
@@ -24598,6 +24827,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.group::|public|IsManagementRestricted:b
 Microsoft.Agents.M365Copilot.Beta.Models.group::|public|IsSubscribedByMail:bool?
 Microsoft.Agents.M365Copilot.Beta.Models.group::|public|LicenseProcessingState:global.Microsoft.Agents.M365Copilot.Beta.Models.LicenseProcessingState
 Microsoft.Agents.M365Copilot.Beta.Models.group::|public|Mail:string
+Microsoft.Agents.M365Copilot.Beta.Models.group::|public|MailboxId:string
 Microsoft.Agents.M365Copilot.Beta.Models.group::|public|MailEnabled:bool?
 Microsoft.Agents.M365Copilot.Beta.Models.group::|public|MailNickname:string
 Microsoft.Agents.M365Copilot.Beta.Models.group::|public|MemberOf:List<global.Microsoft.Agents.M365Copilot.Beta.Models.DirectoryObject>
@@ -26084,6 +26314,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.lifecyclePolicyRepor
 Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.lifecyclePolicyReport::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.LifecyclePolicyReport
 Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.lifecyclePolicyRule-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.lifecyclePolicyRule::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.lifecyclePolicyRule::|public|GracePeriodInDays:int?
 Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.lifecyclePolicyRule::|public|IsEnabled:bool?
 Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.lifecyclePolicyRule::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.lifecyclePolicyRule::|public|Serialize(writer:ISerializationWriter):void
@@ -26345,6 +26576,13 @@ Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.run::|public|TotalUs
 Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.run::|public|UserProcessingResults:List<global.Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.UserProcessingResult>
 Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.run::|public|WorkflowExecutionType:global.Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.WorkflowExecutionType?
 Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.run::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.Run
+Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.selectedAgentBuilderPlatformsSubjectSet-->global.Microsoft.Agents.M365Copilot.Beta.Models.SubjectSet
+Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.selectedAgentBuilderPlatformsSubjectSet::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.selectedAgentBuilderPlatformsSubjectSet::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.selectedAgentBuilderPlatformsSubjectSet::|public|IncludedAgentBuilderPlatforms:global.Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.AgentBuilderPlatforms?
+Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.selectedAgentBuilderPlatformsSubjectSet::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.selectedAgentBuilderPlatformsSubjectSet::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.selectedAgentBuilderPlatformsSubjectSet::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.SelectedAgentBuilderPlatformsSubjectSet
 Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.selectedObjectsSubjectSet-->global.Microsoft.Agents.M365Copilot.Beta.Models.SubjectSet
 Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.selectedObjectsSubjectSet::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.selectedObjectsSubjectSet::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -33256,6 +33494,11 @@ Microsoft.Agents.M365Copilot.Beta.Models.meetingChatMode::0000-enabled
 Microsoft.Agents.M365Copilot.Beta.Models.meetingChatMode::0001-disabled
 Microsoft.Agents.M365Copilot.Beta.Models.meetingChatMode::0002-limited
 Microsoft.Agents.M365Copilot.Beta.Models.meetingChatMode::0003-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.meetingCopilotMode::0000-enabled
+Microsoft.Agents.M365Copilot.Beta.Models.meetingCopilotMode::0001-enabledWithTranscript
+Microsoft.Agents.M365Copilot.Beta.Models.meetingCopilotMode::0002-enabledWithTranscriptDefaultOn
+Microsoft.Agents.M365Copilot.Beta.Models.meetingCopilotMode::0003-disabled
+Microsoft.Agents.M365Copilot.Beta.Models.meetingCopilotMode::0004-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.meetingEngagement::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Beta.Models.meetingEngagement::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.meetingEngagement::|public|DateTime:DateTimeOffset?
@@ -36549,6 +36792,18 @@ Microsoft.Agents.M365Copilot.Beta.Models.oAuthConsentAppDetail::|public|OdataTyp
 Microsoft.Agents.M365Copilot.Beta.Models.oAuthConsentAppDetail::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.oAuthConsentAppDetail::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.OAuthConsentAppDetail
 Microsoft.Agents.M365Copilot.Beta.Models.oAuthConsentAppDetail~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.objectConnection::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.objectConnection::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.objectConnection::|public|DisplayName:string
+Microsoft.Agents.M365Copilot.Beta.Models.objectConnection::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.objectConnection::|public|ObjectId:string
+Microsoft.Agents.M365Copilot.Beta.Models.objectConnection::|public|ObjectTypeName:string
+Microsoft.Agents.M365Copilot.Beta.Models.objectConnection::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.objectConnection::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.objectConnection::|public|SourceAnchor:string
+Microsoft.Agents.M365Copilot.Beta.Models.objectConnection::|public|TargetAnchor:string
+Microsoft.Agents.M365Copilot.Beta.Models.objectConnection::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.ObjectConnection
+Microsoft.Agents.M365Copilot.Beta.Models.objectConnection~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.objectDefinition::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Beta.Models.objectDefinition::|public|Attributes:List<global.Microsoft.Agents.M365Copilot.Beta.Models.AttributeDefinition>
 Microsoft.Agents.M365Copilot.Beta.Models.objectDefinition::|public|constructor():void
@@ -37467,6 +37722,35 @@ Microsoft.Agents.M365Copilot.Beta.Models.onPasswordSubmitListener::|public|Handl
 Microsoft.Agents.M365Copilot.Beta.Models.onPasswordSubmitListener::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.onPasswordSubmitListener::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.onPasswordSubmitListener::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.OnPasswordSubmitListener
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateCustomExtension-->global.Microsoft.Agents.M365Copilot.Beta.Models.CustomAuthenticationExtension
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateCustomExtension::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateCustomExtension::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateCustomExtension::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateCustomExtension::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateCustomExtension::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.OnPasswordUpdateCustomExtension
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateCustomExtensionHandler-->global.Microsoft.Agents.M365Copilot.Beta.Models.OnPasswordUpdateHandler
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateCustomExtensionHandler::|public|Configuration:global.Microsoft.Agents.M365Copilot.Beta.Models.CustomExtensionOverwriteConfiguration
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateCustomExtensionHandler::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateCustomExtensionHandler::|public|CustomExtension:global.Microsoft.Agents.M365Copilot.Beta.Models.OnPasswordUpdateCustomExtension
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateCustomExtensionHandler::|public|ExpirationDateTime:DateTimeOffset?
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateCustomExtensionHandler::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateCustomExtensionHandler::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateCustomExtensionHandler::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateCustomExtensionHandler::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.OnPasswordUpdateCustomExtensionHandler
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateHandler::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateHandler::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateHandler::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateHandler::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateHandler::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateHandler::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.OnPasswordUpdateHandler
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateHandler~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateListener-->global.Microsoft.Agents.M365Copilot.Beta.Models.AuthenticationEventListener
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateListener::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateListener::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateListener::|public|Handler:global.Microsoft.Agents.M365Copilot.Beta.Models.OnPasswordUpdateHandler
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateListener::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateListener::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.onPasswordUpdateListener::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.OnPasswordUpdateListener
 Microsoft.Agents.M365Copilot.Beta.Models.onPhoneMethodLoadStartExternalUsersAuthHandler-->global.Microsoft.Agents.M365Copilot.Beta.Models.OnPhoneMethodLoadStartHandler
 Microsoft.Agents.M365Copilot.Beta.Models.onPhoneMethodLoadStartExternalUsersAuthHandler::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.onPhoneMethodLoadStartExternalUsersAuthHandler::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -42626,6 +42910,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.privilegedAccessGroupRelationships::000
 Microsoft.Agents.M365Copilot.Beta.Models.privilegedAccessGroupRelationships::0001-member
 Microsoft.Agents.M365Copilot.Beta.Models.privilegedAccessGroupRelationships::0002-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.privilegedAccessRoot-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.privilegedAccessRoot::|public|CustomExtensions:List<global.Microsoft.Agents.M365Copilot.Beta.Models.RoleManagementCustomCalloutExtension>
 Microsoft.Agents.M365Copilot.Beta.Models.privilegedAccessRoot::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.privilegedAccessRoot::|public|Group:global.Microsoft.Agents.M365Copilot.Beta.Models.PrivilegedAccessGroup
 Microsoft.Agents.M365Copilot.Beta.Models.privilegedAccessRoot::|public|OdataType:string
@@ -42896,6 +43181,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.processContentMetadataBase::|public|Len
 Microsoft.Agents.M365Copilot.Beta.Models.processContentMetadataBase::|public|ModifiedDateTime:DateTimeOffset?
 Microsoft.Agents.M365Copilot.Beta.Models.processContentMetadataBase::|public|Name:string
 Microsoft.Agents.M365Copilot.Beta.Models.processContentMetadataBase::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.processContentMetadataBase::|public|SensitivityLabels:List<global.Microsoft.Agents.M365Copilot.Beta.Models.CurrentLabel>
 Microsoft.Agents.M365Copilot.Beta.Models.processContentMetadataBase::|public|SequenceNumber:long?
 Microsoft.Agents.M365Copilot.Beta.Models.processContentMetadataBase::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.processContentMetadataBase::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.ProcessContentMetadataBase
@@ -45199,10 +45485,10 @@ Microsoft.Agents.M365Copilot.Beta.Models.restoreTaskActivityLog::|public|GetFiel
 Microsoft.Agents.M365Copilot.Beta.Models.restoreTaskActivityLog::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.restoreTaskActivityLog::|public|RestoreArtifactDetails:global.Microsoft.Agents.M365Copilot.Beta.Models.RestoreArtifactDetails
 Microsoft.Agents.M365Copilot.Beta.Models.restoreTaskActivityLog::|public|RestoreCompletionDateTime:DateTimeOffset?
+Microsoft.Agents.M365Copilot.Beta.Models.restoreTaskActivityLog::|public|RestoreJobType:global.Microsoft.Agents.M365Copilot.Beta.Models.RestoreJobType?
 Microsoft.Agents.M365Copilot.Beta.Models.restoreTaskActivityLog::|public|RestoreSessionId:string
 Microsoft.Agents.M365Copilot.Beta.Models.restoreTaskActivityLog::|public|RestoreSessionStatus:global.Microsoft.Agents.M365Copilot.Beta.Models.RestoreSessionStatus?
 Microsoft.Agents.M365Copilot.Beta.Models.restoreTaskActivityLog::|public|Serialize(writer:ISerializationWriter):void
-Microsoft.Agents.M365Copilot.Beta.Models.restoreTaskActivityLog::|public|Tags:global.Microsoft.Agents.M365Copilot.Beta.Models.RestorePointTags?
 Microsoft.Agents.M365Copilot.Beta.Models.restoreTaskActivityLog::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.RestoreTaskActivityLog
 Microsoft.Agents.M365Copilot.Beta.Models.restoreTimeRange::0000-before
 Microsoft.Agents.M365Copilot.Beta.Models.restoreTimeRange::0001-after
@@ -45427,6 +45713,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.riskAlert::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.riskAlert::|public|ProviderAlertId:string
 Microsoft.Agents.M365Copilot.Beta.Models.riskAlert::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.riskAlert::|public|Severity:global.Microsoft.Agents.M365Copilot.Beta.Models.Severity?
+Microsoft.Agents.M365Copilot.Beta.Models.riskAlert::|public|Source:string
 Microsoft.Agents.M365Copilot.Beta.Models.riskAlert::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.RiskAlert
 Microsoft.Agents.M365Copilot.Beta.Models.riskAlert~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.riskDetail::0000-none
@@ -45680,6 +45967,16 @@ Microsoft.Agents.M365Copilot.Beta.Models.roleManagementAlert::|public|OdataType:
 Microsoft.Agents.M365Copilot.Beta.Models.roleManagementAlert::|public|Operations:List<global.Microsoft.Agents.M365Copilot.Beta.Models.LongRunningOperation>
 Microsoft.Agents.M365Copilot.Beta.Models.roleManagementAlert::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.roleManagementAlert::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.RoleManagementAlert
+Microsoft.Agents.M365Copilot.Beta.Models.roleManagementCustomCalloutExtension-->global.Microsoft.Agents.M365Copilot.Beta.Models.CustomCalloutExtension
+Microsoft.Agents.M365Copilot.Beta.Models.roleManagementCustomCalloutExtension::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.roleManagementCustomCalloutExtension::|public|CustomAttributes:List<string>
+Microsoft.Agents.M365Copilot.Beta.Models.roleManagementCustomCalloutExtension::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.roleManagementCustomCalloutExtension::|public|IsEnabled:bool?
+Microsoft.Agents.M365Copilot.Beta.Models.roleManagementCustomCalloutExtension::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.roleManagementCustomCalloutExtension::|public|ResourceType:global.Microsoft.Agents.M365Copilot.Beta.Models.CustomExtensionResourceType?
+Microsoft.Agents.M365Copilot.Beta.Models.roleManagementCustomCalloutExtension::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.roleManagementCustomCalloutExtension::|public|Type:global.Microsoft.Agents.M365Copilot.Beta.Models.CustomCalloutExtensionType?
+Microsoft.Agents.M365Copilot.Beta.Models.roleManagementCustomCalloutExtension::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.RoleManagementCustomCalloutExtension
 Microsoft.Agents.M365Copilot.Beta.Models.roleMembershipGovernanceCriteria-->global.Microsoft.Agents.M365Copilot.Beta.Models.GovernanceCriteria
 Microsoft.Agents.M365Copilot.Beta.Models.roleMembershipGovernanceCriteria::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.roleMembershipGovernanceCriteria::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -46932,6 +47229,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.Security.alertTemplate::|public|constru
 Microsoft.Agents.M365Copilot.Beta.Models.Security.alertTemplate::|public|CustomDetails:global.Microsoft.Agents.M365Copilot.Beta.Models.Security.AlertCustomDetails
 Microsoft.Agents.M365Copilot.Beta.Models.Security.alertTemplate::|public|Description:string
 Microsoft.Agents.M365Copilot.Beta.Models.Security.alertTemplate::|public|EntityMappings:global.Microsoft.Agents.M365Copilot.Beta.Models.Security.EntityMappingConfiguration
+Microsoft.Agents.M365Copilot.Beta.Models.Security.alertTemplate::|public|EventGroupingKind:global.Microsoft.Agents.M365Copilot.Beta.Models.Security.EventGroupingKind?
 Microsoft.Agents.M365Copilot.Beta.Models.Security.alertTemplate::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.Security.alertTemplate::|public|ImpactedAssets:List<global.Microsoft.Agents.M365Copilot.Beta.Models.Security.ImpactedAsset>
 Microsoft.Agents.M365Copilot.Beta.Models.Security.alertTemplate::|public|MitreTechniques:List<string>
@@ -48225,6 +48523,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.caseTypeConfigu
 Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.caseTypeConfiguration::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.caseTypeConfiguration::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.caseTypeConfiguration::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.caseTypeConfiguration::|public|SlaPolicies:List<global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyDefinition>
 Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.caseTypeConfiguration::|public|Statuses:List<global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.StatusDefinition>
 Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.caseTypeConfiguration::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.CaseTypeConfiguration
 Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.comment-->global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.Activity
@@ -48487,6 +48786,84 @@ Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.relation::|publ
 Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.relation::|public|RelatedResourceId:string
 Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.relation::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.relation::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.Relation
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyCondition-->global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyConditionBase
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyCondition::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyCondition::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyCondition::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyCondition::|public|Operator:global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyConditionOperator?
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyCondition::|public|Property:string
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyCondition::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyCondition::|public|Values:List<string>
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyCondition::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyCondition
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionBase::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionBase::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionBase::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionBase::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionBase::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionBase::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyConditionBase
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionBase~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionOperator::0000-equals
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionOperator::0001-notEquals
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionOperator::0002-contains
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionOperator::0003-doesNotContain
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionOperator::0004-isEmpty
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionOperator::0005-isNotEmpty
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionOperator::0006-changed
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionOperator::0007-changedTo
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionOperator::0008-changedFrom
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionOperator::0009-isBefore
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionOperator::0010-isAfter
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionOperator::0011-greaterThan
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionOperator::0012-lessThan
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionOperator::0013-anyOf
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionOperator::0014-noneOf
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyConditionOperator::0015-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyCriteriaBlock-->global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyConditionBase
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyCriteriaBlock::|public|Conditions:List<global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyConditionBase>
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyCriteriaBlock::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyCriteriaBlock::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyCriteriaBlock::|public|LogicalOperator:global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyLogicalOperator?
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyCriteriaBlock::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyCriteriaBlock::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyCriteriaBlock::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyCriteriaBlock
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyDefinition-->global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.CaseManagementEntity
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyDefinition::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyDefinition::|public|Description:string
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyDefinition::|public|DisplayName:string
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyDefinition::|public|ExitCriteria:global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyCriteriaBlock
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyDefinition::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyDefinition::|public|IsActive:bool?
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyDefinition::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyDefinition::|public|PauseCriteria:global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyCriteriaBlock
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyDefinition::|public|RecalculateCondition:global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyRecalculateCondition
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyDefinition::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyDefinition::|public|SetCriteria:global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyCriteriaBlock
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyDefinition::|public|Timers:List<global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyTimer>
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyDefinition::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyDefinition
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyLogicalOperator::0000-and
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyLogicalOperator::0001-or
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyLogicalOperator::0002-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyRecalculateCondition::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyRecalculateCondition::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyRecalculateCondition::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyRecalculateCondition::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyRecalculateCondition::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyRecalculateCondition::|public|ShouldResetTime:bool?
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyRecalculateCondition::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyRecalculateCondition
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyRecalculateCondition~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyTimer::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyTimer::|public|BreachThresholdInMinutes:int?
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyTimer::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyTimer::|public|Filters:global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyCriteriaBlock
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyTimer::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyTimer::|public|IsDefault:bool?
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyTimer::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyTimer::|public|Order:int?
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyTimer::|public|PolicyTimerId:string
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyTimer::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyTimer::|public|WarningThresholdInMinutes:int?
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyTimer::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyTimer
+Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.slaPolicyTimer~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.statusDefinition-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.statusDefinition::|public|CustomStatuses:List<global.Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.CustomStatusDefinition>
 Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.statusDefinition::|public|DisplayName:string
@@ -50433,6 +50810,9 @@ Microsoft.Agents.M365Copilot.Beta.Models.Security.eopSubmissionFeedEntityAuditRe
 Microsoft.Agents.M365Copilot.Beta.Models.Security.eopSubmissionFeedEntityAuditRecord::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.Security.eopSubmissionFeedEntityAuditRecord::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.Security.eopSubmissionFeedEntityAuditRecord::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.Security.EopSubmissionFeedEntityAuditRecord
+Microsoft.Agents.M365Copilot.Beta.Models.Security.eventGroupingKind::0000-alertPerEvent
+Microsoft.Agents.M365Copilot.Beta.Models.Security.eventGroupingKind::0001-singleAlert
+Microsoft.Agents.M365Copilot.Beta.Models.Security.eventGroupingKind::0002-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.Security.eventPropagationResult::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Beta.Models.Security.eventPropagationResult::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.Security.eventPropagationResult::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -53195,6 +53575,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.Security.ruleSchedule::|public|Addition
 Microsoft.Agents.M365Copilot.Beta.Models.Security.ruleSchedule::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.Security.ruleSchedule::|public|Frequency:TimeSpan?
 Microsoft.Agents.M365Copilot.Beta.Models.Security.ruleSchedule::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.Security.ruleSchedule::|public|Lookback:TimeSpan?
 Microsoft.Agents.M365Copilot.Beta.Models.Security.ruleSchedule::|public|NextRunDateTime:DateTimeOffset?
 Microsoft.Agents.M365Copilot.Beta.Models.Security.ruleSchedule::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.Security.ruleSchedule::|public|Period:string
@@ -57296,6 +57677,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.smsAuthenticationMethodConfiguration::|
 Microsoft.Agents.M365Copilot.Beta.Models.smsAuthenticationMethodConfiguration::|public|IncludeTargets:List<global.Microsoft.Agents.M365Copilot.Beta.Models.SmsAuthenticationMethodTarget>
 Microsoft.Agents.M365Copilot.Beta.Models.smsAuthenticationMethodConfiguration::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.smsAuthenticationMethodConfiguration::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.smsAuthenticationMethodConfiguration::|public|TelecomProviderSettings:global.Microsoft.Agents.M365Copilot.Beta.Models.TelecomProviderSettings
 Microsoft.Agents.M365Copilot.Beta.Models.smsAuthenticationMethodConfiguration::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.SmsAuthenticationMethodConfiguration
 Microsoft.Agents.M365Copilot.Beta.Models.smsAuthenticationMethodTarget-->global.Microsoft.Agents.M365Copilot.Beta.Models.AuthenticationMethodTarget
 Microsoft.Agents.M365Copilot.Beta.Models.smsAuthenticationMethodTarget::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -58065,6 +58447,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.synchronizationError~~>IAdditionalDataH
 Microsoft.Agents.M365Copilot.Beta.Models.synchronizationJob-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.synchronizationJob::|public|BulkUpload:global.Microsoft.Agents.M365Copilot.Beta.Models.BulkUpload
 Microsoft.Agents.M365Copilot.Beta.Models.synchronizationJob::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.synchronizationJob::|public|ObjectConnections:List<global.Microsoft.Agents.M365Copilot.Beta.Models.ObjectConnection>
 Microsoft.Agents.M365Copilot.Beta.Models.synchronizationJob::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.synchronizationJob::|public|Schedule:global.Microsoft.Agents.M365Copilot.Beta.Models.SynchronizationSchedule
 Microsoft.Agents.M365Copilot.Beta.Models.synchronizationJob::|public|Schema:global.Microsoft.Agents.M365Copilot.Beta.Models.SynchronizationSchema
@@ -59237,8 +59620,8 @@ Microsoft.Agents.M365Copilot.Beta.Models.teamworkConversationIdentityType::0000-
 Microsoft.Agents.M365Copilot.Beta.Models.teamworkConversationIdentityType::0001-channel
 Microsoft.Agents.M365Copilot.Beta.Models.teamworkConversationIdentityType::0002-chat
 Microsoft.Agents.M365Copilot.Beta.Models.teamworkConversationIdentityType::0003-unknownFutureValue
-Microsoft.Agents.M365Copilot.Beta.Models.teamworkCustomEmoji-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
-Microsoft.Agents.M365Copilot.Beta.Models.teamworkCustomEmoji::|public|ContentBytes:string
+Microsoft.Agents.M365Copilot.Beta.Models.teamworkCustomEmoji-->global.Microsoft.Agents.M365Copilot.Beta.Models.TeamworkHostedContent
+Microsoft.Agents.M365Copilot.Beta.Models.teamworkCustomEmoji::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.teamworkCustomEmoji::|public|CreatedBy:global.Microsoft.Agents.M365Copilot.Beta.Models.CustomEmojiFromIdentitySet
 Microsoft.Agents.M365Copilot.Beta.Models.teamworkCustomEmoji::|public|CreatedDateTime:DateTimeOffset?
 Microsoft.Agents.M365Copilot.Beta.Models.teamworkCustomEmoji::|public|DisplayName:string
@@ -59682,6 +60065,17 @@ Microsoft.Agents.M365Copilot.Beta.Models.teamworkUserIdentityType::0006-phoneUse
 Microsoft.Agents.M365Copilot.Beta.Models.teamworkUserIdentityType::0007-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.teamworkUserIdentityType::0008-emailUser
 Microsoft.Agents.M365Copilot.Beta.Models.teamworkUserIdentityType::0009-azureCommunicationServicesUser
+Microsoft.Agents.M365Copilot.Beta.Models.telecomProviderSettings::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.telecomProviderSettings::|public|AppId:Guid?
+Microsoft.Agents.M365Copilot.Beta.Models.telecomProviderSettings::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.telecomProviderSettings::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.telecomProviderSettings::|public|IsEvaluationModeEnabled:bool?
+Microsoft.Agents.M365Copilot.Beta.Models.telecomProviderSettings::|public|MigrationPercentage:int?
+Microsoft.Agents.M365Copilot.Beta.Models.telecomProviderSettings::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.telecomProviderSettings::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.telecomProviderSettings::|public|Url:string
+Microsoft.Agents.M365Copilot.Beta.Models.telecomProviderSettings::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.TelecomProviderSettings
+Microsoft.Agents.M365Copilot.Beta.Models.telecomProviderSettings~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.template-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.template::|public|DeviceTemplates:List<global.Microsoft.Agents.M365Copilot.Beta.Models.DeviceTemplate>
 Microsoft.Agents.M365Copilot.Beta.Models.template::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -60989,6 +61383,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleAssignmentScheduleRequest::|
 Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleAssignmentScheduleRequest::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.UnifiedRoleAssignmentScheduleRequest
 Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleDefinition-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleDefinition::|public|AllowedPrincipalTypes:global.Microsoft.Agents.M365Copilot.Beta.Models.AllowedRolePrincipalTypes?
+Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleDefinition::|public|DeletedDateTime:DateTimeOffset?
 Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleDefinition::|public|Description:string
 Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleDefinition::|public|DisplayName:string
 Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleDefinition::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -61124,6 +61519,16 @@ Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleManagementPolicyAuthenticati
 Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleManagementPolicyAuthenticationContextRule::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleManagementPolicyAuthenticationContextRule::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleManagementPolicyAuthenticationContextRule::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.UnifiedRoleManagementPolicyAuthenticationContextRule
+Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleManagementPolicyCustomExtensionRule-->global.Microsoft.Agents.M365Copilot.Beta.Models.UnifiedRoleManagementPolicyRule
+Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleManagementPolicyCustomExtensionRule::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleManagementPolicyCustomExtensionRule::|public|CustomAttributes:List<string>
+Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleManagementPolicyCustomExtensionRule::|public|CustomExtensionId:string
+Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleManagementPolicyCustomExtensionRule::|public|DisplayName:string
+Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleManagementPolicyCustomExtensionRule::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleManagementPolicyCustomExtensionRule::|public|IsEnabled:bool?
+Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleManagementPolicyCustomExtensionRule::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleManagementPolicyCustomExtensionRule::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleManagementPolicyCustomExtensionRule::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.UnifiedRoleManagementPolicyCustomExtensionRule
 Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleManagementPolicyEnablementRule-->global.Microsoft.Agents.M365Copilot.Beta.Models.UnifiedRoleManagementPolicyRule
 Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleManagementPolicyEnablementRule::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.unifiedRoleManagementPolicyEnablementRule::|public|EnabledRules:List<string>
@@ -63439,6 +63844,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.voiceAuthenticationMethodConfiguration:
 Microsoft.Agents.M365Copilot.Beta.Models.voiceAuthenticationMethodConfiguration::|public|IsOfficePhoneAllowed:bool?
 Microsoft.Agents.M365Copilot.Beta.Models.voiceAuthenticationMethodConfiguration::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.voiceAuthenticationMethodConfiguration::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.voiceAuthenticationMethodConfiguration::|public|TelecomProviderSettings:global.Microsoft.Agents.M365Copilot.Beta.Models.TelecomProviderSettings
 Microsoft.Agents.M365Copilot.Beta.Models.voiceAuthenticationMethodConfiguration::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.VoiceAuthenticationMethodConfiguration
 Microsoft.Agents.M365Copilot.Beta.Models.voiceAuthenticationMethodTarget-->global.Microsoft.Agents.M365Copilot.Beta.Models.AuthenticationMethodTarget
 Microsoft.Agents.M365Copilot.Beta.Models.voiceAuthenticationMethodTarget::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -67187,6 +67593,25 @@ Microsoft.Agents.M365Copilot.Beta.Models.windowsUpdateRolloutSettings::|public|O
 Microsoft.Agents.M365Copilot.Beta.Models.windowsUpdateRolloutSettings::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.windowsUpdateRolloutSettings::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdateRolloutSettings
 Microsoft.Agents.M365Copilot.Beta.Models.windowsUpdateRolloutSettings~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableCatalog-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableCatalog::|public|CatalogEntry:global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.CatalogEntry
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableCatalog::|public|DeviceCount:int?
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableCatalog::|public|Devices:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApplicableDevice>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableCatalog::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableCatalog::|public|HasRecommendedDevice:bool?
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableCatalog::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableCatalog::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableCatalog::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApplicableCatalog
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableCatalogSummary-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableCatalogSummary::|public|AggregatedDeviceCount:int?
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableCatalogSummary::|public|AggregatedDevices:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApplicableDevice>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableCatalogSummary::|public|CatalogEntry:global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.CatalogEntry
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableCatalogSummary::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableCatalogSummary::|public|HasRecommendedDevice:bool?
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableCatalogSummary::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableCatalogSummary::|public|Policies:List<string>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableCatalogSummary::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableCatalogSummary::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApplicableCatalogSummary
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableContent::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableContent::|public|CatalogEntry:global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.CatalogEntry
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableContent::|public|CatalogEntryId:string
@@ -67206,6 +67631,12 @@ Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableContentDeviceM
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableContentDeviceMatch::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApplicableContentDeviceMatch
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableContentDeviceMatch~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableContent~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableDevice-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableDevice::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableDevice::|public|IsRecommended:bool?
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableDevice::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableDevice::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.applicableDevice::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApplicableDevice
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.approvalRule::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.approvalRule::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.approvalRule::|public|DeferralInDays:int?
@@ -67217,6 +67648,9 @@ Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.approvalRule~~>IAddition
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.approvalStatus::0000-approved
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.approvalStatus::0001-suspended
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.approvalStatus::0002-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.approvedBy::0000-system
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.approvedBy::0001-user
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.approvedBy::0002-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.assignedGroup::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.assignedGroup::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.assignedGroup::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
@@ -67421,6 +67855,70 @@ Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deploymentStateValue::00
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deploymentStateValue::0004-archived
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deploymentStateValue::0005-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deploymentState~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientState::0000-offering
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientState::0001-onHold
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientState::0002-installing
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientState::0003-installed
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientState::0004-cancelled
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientState::0005-uninstalling
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientState::0006-uninstalled
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientState::0007-notOffering
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientState::0008-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0000-deferred
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0001-offerReady
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0002-paused
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0003-offerReceived
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0004-downloadStart
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0005-downloadComplete
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0006-installStart
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0007-installComplete
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0008-restartRequired
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0009-restartInitiated
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0010-restartComplete
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0011-updateInstalled
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0012-rollbackComplete
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0013-userCancelled
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0014-deviceCancelled
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0015-uninstall
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0016-rollback
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0017-updateUninstalled
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0018-notSupported
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0019-previousUpdateInProgress
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceClientSubstate::0020-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceProfile-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceProfile::|public|AzureAdDeviceId:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceProfile::|public|DeviceModel:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceProfile::|public|DeviceName:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceProfile::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceProfile::|public|HotpatchReadiness:global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.HotpatchReadiness?
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceProfile::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceProfile::|public|OsBuild:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceProfile::|public|OsStatus:global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.OsStatus?
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceProfile::|public|OsVersion:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceProfile::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceProfile::|public|SerialNumber:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceProfile::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DeviceProfile
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceServiceState::0000-unknown
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceServiceState::0001-pending
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceServiceState::0002-offering
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceServiceState::0003-onHold
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceServiceState::0004-cancelled
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceServiceState::0005-notOffering
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceServiceState::0006-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceServiceSubstate::0000-unknown
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceServiceSubstate::0001-scheduled
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceServiceSubstate::0002-offerReady
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceServiceSubstate::0003-adminPaused
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceServiceSubstate::0004-adminCancelled
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceServiceSubstate::0005-removedFromDeployment
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceServiceSubstate::0006-notOffering
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.deviceServiceSubstate::0007-unknownFutureValue
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateApprovalRule-->global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApprovalRule
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateApprovalRule::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateApprovalRule::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateApprovalRule::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateApprovalRule::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateApprovalRule::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DriverUpdateApprovalRule
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateCatalogEntry-->global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.SoftwareUpdateCatalogEntry
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateCatalogEntry::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateCatalogEntry::|public|Description:string
@@ -67434,12 +67932,51 @@ Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateCatalogEntry
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateCatalogEntry::|public|Version:string
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateCatalogEntry::|public|VersionDateTime:DateTimeOffset?
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateCatalogEntry::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DriverUpdateCatalogEntry
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateDeviceStatus-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateDeviceStatus::|public|AadDeviceId:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateDeviceStatus::|public|ClientState:global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DeviceClientState?
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateDeviceStatus::|public|ClientSubstate:global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DeviceClientSubstate?
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateDeviceStatus::|public|DeviceName:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateDeviceStatus::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateDeviceStatus::|public|LastEventDateTime:DateTimeOffset?
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateDeviceStatus::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateDeviceStatus::|public|PolicyId:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateDeviceStatus::|public|PolicyName:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateDeviceStatus::|public|RingId:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateDeviceStatus::|public|RingName:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateDeviceStatus::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateDeviceStatus::|public|ServiceState:global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DeviceServiceState?
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateDeviceStatus::|public|ServiceSubstate:global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DeviceServiceSubstate?
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateDeviceStatus::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DriverUpdateDeviceStatus
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateFilter-->global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.WindowsUpdateFilter
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateFilter::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateFilter::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateFilter::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateFilter::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateFilter::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DriverUpdateFilter
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdatePolicy-->global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.Policy
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdatePolicy::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdatePolicy::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdatePolicy::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdatePolicy::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdatePolicy::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DriverUpdatePolicy
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateReport-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateReport::|public|Class:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateReport::|public|DeviceStatuses:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DriverUpdateDeviceStatus>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateReport::|public|DisplayName:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateReport::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateReport::|public|Manufacturer:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateReport::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateReport::|public|ReleaseDateTime:DateTimeOffset?
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateReport::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateReport::|public|Version:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateReport::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DriverUpdateReport
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateRing-->global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.Ring
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateRing::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateRing::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateRing::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateRing::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.driverUpdateRing::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DriverUpdateRing
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.durationDrivenRolloutSettings-->global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.GradualRolloutSettings
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.durationDrivenRolloutSettings::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.durationDrivenRolloutSettings::|public|DurationUntilDeploymentEnd:TimeSpan?
@@ -67489,6 +68026,21 @@ Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.featureUpdateCatalogEntr
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.featureUpdateCatalogEntry::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.featureUpdateCatalogEntry::|public|Version:string
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.featureUpdateCatalogEntry::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.FeatureUpdateCatalogEntry
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.featureUpdatePolicy-->global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.Policy
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.featureUpdatePolicy::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.featureUpdatePolicy::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.featureUpdatePolicy::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.featureUpdatePolicy::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.featureUpdatePolicy::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.FeatureUpdatePolicy
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.featureUpdateRing-->global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.Ring
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.featureUpdateRing::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.featureUpdateRing::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.featureUpdateRing::|public|IsOfferOptional:bool?
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.featureUpdateRing::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.featureUpdateRing::|public|OfferDurationInDays:int?
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.featureUpdateRing::|public|OfferIntervalInDays:int?
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.featureUpdateRing::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.featureUpdateRing::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.FeatureUpdateRing
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.gradualRolloutSettings::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.gradualRolloutSettings::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.gradualRolloutSettings::|public|DurationBetweenOffers:TimeSpan?
@@ -67504,6 +68056,9 @@ Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.groupAssignment::|public
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.groupAssignment::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.groupAssignment::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.GroupAssignment
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.groupAssignment~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.hotpatchReadiness::0000-ready
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.hotpatchReadiness::0001-notReady
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.hotpatchReadiness::0002-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.includedGroupAssignment-->global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.GroupAssignment
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.includedGroupAssignment::|public|Assignments:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.AssignedGroup>
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.includedGroupAssignment::|public|constructor():void
@@ -67551,6 +68106,15 @@ Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.knownIssueHistoryItem::|
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.knownIssueHistoryItem::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.knownIssueHistoryItem::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.KnownIssueHistoryItem
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.knownIssueHistoryItem~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.mdmAppSetting::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.mdmAppSetting::|public|constructor():void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.mdmAppSetting::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.mdmAppSetting::|public|IsHotpatchEnabled:bool?
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.mdmAppSetting::|public|MdmAppId:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.mdmAppSetting::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.mdmAppSetting::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.mdmAppSetting::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.MdmAppSetting
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.mdmAppSetting~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.monitoringAction::0000-alertError
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.monitoringAction::0001-offerFallback
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.monitoringAction::0002-pauseDeployment
@@ -67585,7 +68149,12 @@ Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.operationalInsightsConne
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.operationalInsightsConnection::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.operationalInsightsConnection::|public|WorkspaceName:string
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.operationalInsightsConnection::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.OperationalInsightsConnection
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.osStatus::0000-endOfServicing
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.osStatus::0001-inServicing
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.osStatus::0002-nearEndOfServicing
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.osStatus::0003-unknownFutureValue
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policy-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policy::|public|ApplicableCatalogs:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApplicableCatalog>
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policy::|public|ApplicableContent:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApplicableContent>
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policy::|public|ApprovalRules:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApprovalRule>
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policy::|public|Approvals:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.PolicyApproval>
@@ -67599,6 +68168,7 @@ Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policy::|public|Rings:Li
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policy::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policy::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.Policy
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyApproval-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyApproval::|public|ApprovedBy:global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApprovedBy?
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyApproval::|public|CatalogEntry:global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.CatalogEntry
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyApproval::|public|CatalogEntryId:string
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyApproval::|public|CreatedDateTime:DateTimeOffset?
@@ -67606,8 +68176,18 @@ Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyApproval::|public|
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyApproval::|public|LastModifiedDateTime:DateTimeOffset?
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyApproval::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyApproval::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyApproval::|public|StartDateTime:DateTimeOffset?
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyApproval::|public|Status:global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApprovalStatus?
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyApproval::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.PolicyApproval
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyAssignment-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyAssignment::|public|AzureAdDeviceId:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyAssignment::|public|DeviceProfile:global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DeviceProfile
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyAssignment::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyAssignment::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyAssignment::|public|PolicyId:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyAssignment::|public|PolicyName:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyAssignment::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.policyAssignment::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.PolicyAssignment
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.product-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.product::|public|Editions:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.Edition>
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.product::|public|FriendlyNames:List<string>
@@ -67797,6 +68377,13 @@ Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.softwareUpdateFilter::|p
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.softwareUpdateFilter::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.softwareUpdateFilter::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.softwareUpdateFilter::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.SoftwareUpdateFilter
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.tenantSetting-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.tenantSetting::|public|AreDataProcessorServiceForWindowsFeaturesEnabled:bool?
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.tenantSetting::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.tenantSetting::|public|MdmAppSettings:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.MdmAppSetting>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.tenantSetting::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.tenantSetting::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.tenantSetting::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.TenantSetting
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.updatableAsset-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.updatableAsset::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.updatableAsset::|public|OdataType:string
@@ -67825,6 +68412,15 @@ Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.updateCategoryEnrollment
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.updateCategoryEnrollmentInformation::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.updateCategoryEnrollmentInformation::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.UpdateCategoryEnrollmentInformation
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.updateCategoryEnrollmentInformation~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.updateData-->global.Microsoft.Agents.M365Copilot.Beta.Models.Entity
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.updateData::|public|ApplicableCatalogSummaries:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApplicableCatalogSummary>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.updateData::|public|DeviceProfiles:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DeviceProfile>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.updateData::|public|Drivers:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DriverUpdateReport>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.updateData::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.updateData::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.updateData::|public|PolicyAssignments:List<global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.PolicyAssignment>
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.updateData::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.updateData::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.UpdateData
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.updateManagementEnrollment::|public|AdditionalData:IDictionary<string, object>
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.updateManagementEnrollment::|public|constructor():void
 Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.updateManagementEnrollment::|public|Driver:global.Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.UpdateCategoryEnrollmentInformation
