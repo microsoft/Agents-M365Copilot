@@ -58,6 +58,14 @@ namespace Microsoft.Agents.M365Copilot.Models
 #else
         public string LongDescription { get; set; }
 #endif
+        /// <summary>Request metadata returned by an explicit opt-in package detail read. Null when not loaded.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Microsoft.Agents.M365Copilot.Models.CopilotPackageRequestMetadata? RequestMetadata { get; private set; }
+#nullable restore
+#else
+        public global::Microsoft.Agents.M365Copilot.Models.CopilotPackageRequestMetadata RequestMetadata { get; private set; }
+#endif
         /// <summary>The sensitivity property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -104,6 +112,7 @@ namespace Microsoft.Agents.M365Copilot.Models
                 { "exceptionRate", n => { ExceptionRate = n.GetDoubleValue(); } },
                 { "lastUsedDateTime", n => { LastUsedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "longDescription", n => { LongDescription = n.GetStringValue(); } },
+                { "requestMetadata", n => { RequestMetadata = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Models.CopilotPackageRequestMetadata>(global::Microsoft.Agents.M365Copilot.Models.CopilotPackageRequestMetadata.CreateFromDiscriminatorValue); } },
                 { "sensitivity", n => { Sensitivity = n.GetStringValue(); } },
                 { "sharedWithUsersAndGroups", n => { SharedWithUsersAndGroups = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Models.PackageAccessEntity>(global::Microsoft.Agents.M365Copilot.Models.PackageAccessEntity.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "totalRunTimeInHours", n => { TotalRunTimeInHours = n.GetDoubleValue(); } },
