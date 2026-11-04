@@ -20,6 +20,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public global::Microsoft.Agents.M365Copilot.Beta.Models.BulkUpload BulkUpload { get; set; }
 #endif
+        /// <summary>Connector data store linkage records contained by the job. During public preview, retrieve an individual connection using a known objectId, or delete it to clear its cached linkage. Collection listing isn&apos;t supported and returns 400 Bad Request.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ObjectConnection>? ObjectConnections { get; set; }
+#nullable restore
+#else
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ObjectConnection> ObjectConnections { get; set; }
+#endif
         /// <summary>Schedule used to run the job. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,6 +87,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "bulkUpload", n => { BulkUpload = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.BulkUpload>(global::Microsoft.Agents.M365Copilot.Beta.Models.BulkUpload.CreateFromDiscriminatorValue); } },
+                { "objectConnections", n => { ObjectConnections = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.ObjectConnection>(global::Microsoft.Agents.M365Copilot.Beta.Models.ObjectConnection.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "schedule", n => { Schedule = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SynchronizationSchedule>(global::Microsoft.Agents.M365Copilot.Beta.Models.SynchronizationSchedule.CreateFromDiscriminatorValue); } },
                 { "schema", n => { Schema = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SynchronizationSchema>(global::Microsoft.Agents.M365Copilot.Beta.Models.SynchronizationSchema.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SynchronizationStatus>(global::Microsoft.Agents.M365Copilot.Beta.Models.SynchronizationStatus.CreateFromDiscriminatorValue); } },
@@ -95,6 +104,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.BulkUpload>("bulkUpload", BulkUpload);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.ObjectConnection>("objectConnections", ObjectConnections);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SynchronizationSchedule>("schedule", Schedule);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SynchronizationSchema>("schema", Schema);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.SynchronizationStatus>("status", Status);

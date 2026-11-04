@@ -14,7 +14,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The type of authentication event that triggered the custom authentication extension request. The possible values are: tokenIssuanceStart, pageRenderStart, unknownFutureValue, attributeCollectionStart, attributeCollectionSubmit, emailOtpSend, passwordSubmit. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: attributeCollectionStart, attributeCollectionSubmit, emailOtpSend, passwordSubmit.</summary>
+        /// <summary>The type of authentication event that triggered the custom authentication extension request. The possible values are: tokenIssuanceStart, pageRenderStart, unknownFutureValue, attributeCollectionStart, attributeCollectionSubmit, emailOtpSend, passwordSubmit, passwordUpdate. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: attributeCollectionStart, attributeCollectionSubmit, emailOtpSend, passwordSubmit, passwordUpdate.</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.AuthenticationEventType? EventType { get; set; }
         /// <summary>ID of the authentication event listener that was executed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

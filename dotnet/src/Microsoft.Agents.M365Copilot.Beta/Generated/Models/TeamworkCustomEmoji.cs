@@ -9,17 +9,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class TeamworkCustomEmoji : global::Microsoft.Agents.M365Copilot.Beta.Models.Entity, IParsable
+    public partial class TeamworkCustomEmoji : global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkHostedContent, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The base64-encoded image content of the emoji. Supported formats include PNG and GIF.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ContentBytes { get; set; }
-#nullable restore
-#else
-        public string ContentBytes { get; set; }
-#endif
         /// <summary>The createdBy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,7 +22,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>The date and time when the emoji was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
-        /// <summary>The unique display name of the custom emoji. Key. Must be unique and must not conflict with existing emoji names.</summary>
+        /// <summary>The unique display name of the custom emoji. This property is an alternate key and must not conflict with existing emoji names.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -38,6 +30,13 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string DisplayName { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkCustomEmoji"/> and sets the default values.
+        /// </summary>
+        public TeamworkCustomEmoji() : base()
+        {
+            OdataType = "#microsoft.graph.teamworkCustomEmoji";
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -56,7 +55,6 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "contentBytes", n => { ContentBytes = n.GetStringValue(); } },
                 { "createdBy", n => { CreatedBy = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CustomEmojiFromIdentitySet>(global::Microsoft.Agents.M365Copilot.Beta.Models.CustomEmojiFromIdentitySet.CreateFromDiscriminatorValue); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
@@ -70,7 +68,6 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteStringValue("contentBytes", ContentBytes);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CustomEmojiFromIdentitySet>("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("displayName", DisplayName);

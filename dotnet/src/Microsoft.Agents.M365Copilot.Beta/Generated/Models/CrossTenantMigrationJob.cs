@@ -68,7 +68,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string ResourceType { get; set; }
 #endif
-        /// <summary>ID (GUID) of the tenant that content is migrated from.</summary>
+        /// <summary>ID (GUID) of the source tenant for the content migration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SourceTenantId { get; set; }
@@ -78,7 +78,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>The status property</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.CrossTenantMigrationJobStatus? Status { get; set; }
-        /// <summary>ID of the tenant that content is migrated to. Read-only.</summary>
+        /// <summary>ID of the target tenant for the content migration. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TargetTenantId { get; set; }

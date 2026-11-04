@@ -14,7 +14,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The agentAdministrativeUnitId property</summary>
+        /// <summary>The identifier of the administrative unit associated with the agent. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AgentAdministrativeUnitId { get; set; }
@@ -22,7 +22,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string AgentAdministrativeUnitId { get; set; }
 #endif
-        /// <summary>The agentBlueprintId property</summary>
+        /// <summary>The identifier of the blueprint from which the agent was created. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AgentBlueprintId { get; set; }
@@ -30,7 +30,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string AgentBlueprintId { get; set; }
 #endif
-        /// <summary>The agentCategory property</summary>
+        /// <summary>The category of the agent, for example, Agents.Foundry.MicrosoftAzure, Agents.Copilot.Studio, or Agents.Local. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AgentCategory { get; set; }
@@ -38,7 +38,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string AgentCategory { get; set; }
 #endif
-        /// <summary>The agentOwner property</summary>
+        /// <summary>The owner associated with the agent. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AgentOwner { get; set; }
@@ -46,7 +46,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string AgentOwner { get; set; }
 #endif
-        /// <summary>The agentPublisher property</summary>
+        /// <summary>The publisher associated with the agent. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AgentPublisher { get; set; }
@@ -54,7 +54,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string AgentPublisher { get; set; }
 #endif
-        /// <summary>The altAgentIds property</summary>
+        /// <summary>Alternate identifiers that can identify the agent. Required when agentMetadata is provided. Use an empty collection ([]) when the agent has no alternate identifiers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? AltAgentIds { get; set; }
@@ -62,7 +62,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public List<string> AltAgentIds { get; set; }
 #endif
-        /// <summary>The isEntraAgentId property</summary>
+        /// <summary>Indicates whether the value property of the associated policyLocationAgent is a Microsoft Entra agent ID. Required when agentMetadata is provided.</summary>
         public bool? IsEntraAgentId { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

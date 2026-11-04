@@ -14,7 +14,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The identity that receives the approval delegation. Only singleUser and groupMembers are currently supported.</summary>
+        /// <summary>The user or group that receives the approval delegation. Only the singleUser and groupMembers subtypes are supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.UserSet? Delegate { get; set; }
@@ -30,7 +30,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The schedule for the delegation, including start date and expiration pattern (duration, end date, or no expiration).</summary>
+        /// <summary>The period during which the delegation is in effect, expressed as a start date and an expiration pattern. If you don&apos;t specify a schedule, the delegation starts immediately and doesn&apos;t expire.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.RequestSchedule? Schedule { get; set; }
