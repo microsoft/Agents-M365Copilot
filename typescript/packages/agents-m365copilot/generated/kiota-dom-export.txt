@@ -537,6 +537,7 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageDetail:
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageDetail::|public|lastUsedDateTime:Date
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageDetail::|public|longDescription:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageDetail::|public|OdataType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageDetail::|public|requestMetadata:CopilotPackageRequestMetadata
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageDetail::|public|sensitivity:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageDetail::|public|sharedWithUsersAndGroups:PackageAccessEntity[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageDetail::|public|totalRunTimeInHours:number
@@ -544,6 +545,28 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageDetail:
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageDetailCollectionResponse::|public|value:CopilotPackageDetail[]
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageDetailCollectionResponse~~>BaseCollectionPaginationCountResponse; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageDetail~~>CopilotPackage; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageRequestInfo::|public|AdditionalData:Record<string, unknown>
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageRequestInfo::|public|additionalMetadata:UntypedNode
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageRequestInfo::|public|assignees:CopilotPackageRequestPrincipal[]
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageRequestInfo::|public|identifier:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageRequestInfo::|public|odataType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageRequestInfo::|public|requestedBy:EmailAddress
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageRequestInfo::|public|requestedDateTime:Date
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageRequestInfo~~>AdditionalDataHolder; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageRequestMetadata::|public|AdditionalData:Record<string, unknown>
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageRequestMetadata::|public|odataType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageRequestMetadata::|public|requests:CopilotPackageRequestInfo[]
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageRequestMetadata~~>AdditionalDataHolder; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageRequestPrincipal::|public|OdataType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageRequestPrincipal::|public|principalType:CopilotPackageRequestPrincipalType
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageRequestPrincipal::|public|userPrincipalName:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestPrincipalType::0000-user
+github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestPrincipalType::0001-group
+github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestPrincipalType::0002-agentApplication
+github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestPrincipalType::0003-agentUser
+github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestPrincipalType::0004-unknownFutureValue
+github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestPrincipalTypeObject
+github.com/microsoft/Agents-M365Copilot/typescript/.models.CopilotPackageRequestPrincipal~~>Identity; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestStatus::0000-pending
 github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestStatus::0001-approved
 github.com/microsoft/Agents-M365Copilot/typescript/.models.copilotPackageRequestStatus::0002-rejected
@@ -569,6 +592,11 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models.DetailsInfo~~>Additio
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Dictionaries::|public|AdditionalData:Record<string, unknown>
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Dictionaries::|public|odataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.Dictionaries~~>AdditionalDataHolder; Parsable
+github.com/microsoft/Agents-M365Copilot/typescript/.models.EmailAddress::|public|AdditionalData:Record<string, unknown>
+github.com/microsoft/Agents-M365Copilot/typescript/.models.EmailAddress::|public|address:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.EmailAddress::|public|name:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.EmailAddress::|public|odataType:string
+github.com/microsoft/Agents-M365Copilot/typescript/.models.EmailAddress~~>AdditionalDataHolder; Parsable
 github.com/microsoft/Agents-M365Copilot/typescript/.models.EmailIdentity::|public|email:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.EmailIdentity::|public|OdataType:string
 github.com/microsoft/Agents-M365Copilot/typescript/.models.EmailIdentity~~>Identity; Parsable
@@ -832,10 +860,14 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::createCopilotAdminSe
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createCopilotPackageDetailCollectionResponseFromDiscriminatorValue(parseNode:ParseNode):CopilotPackageDetailCollectionResponse
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createCopilotPackageDetailFromDiscriminatorValue(parseNode:ParseNode):CopilotPackageDetail
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createCopilotPackageFromDiscriminatorValue(parseNode:ParseNode):CopilotPackage
+github.com/microsoft/Agents-M365Copilot/typescript/.models::createCopilotPackageRequestInfoFromDiscriminatorValue(parseNode:ParseNode):CopilotPackageRequestInfo
+github.com/microsoft/Agents-M365Copilot/typescript/.models::createCopilotPackageRequestMetadataFromDiscriminatorValue(parseNode:ParseNode):CopilotPackageRequestMetadata
+github.com/microsoft/Agents-M365Copilot/typescript/.models::createCopilotPackageRequestPrincipalFromDiscriminatorValue(parseNode:ParseNode):CopilotPackageRequestPrincipal
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createCopilotReportRootFromDiscriminatorValue(parseNode:ParseNode):CopilotReportRoot
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createDataSourceConfigurationFromDiscriminatorValue(parseNode:ParseNode):DataSourceConfiguration
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createDetailsInfoFromDiscriminatorValue(parseNode:ParseNode):DetailsInfo
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createDictionariesFromDiscriminatorValue(parseNode:ParseNode):Dictionaries
+github.com/microsoft/Agents-M365Copilot/typescript/.models::createEmailAddressFromDiscriminatorValue(parseNode:ParseNode):EmailAddress
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createEmailIdentityFromDiscriminatorValue(parseNode:ParseNode):EmailIdentity
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createEngagementIdentitySetFromDiscriminatorValue(parseNode:ParseNode):EngagementIdentitySet
 github.com/microsoft/Agents-M365Copilot/typescript/.models::createEntityFromDiscriminatorValue(parseNode:ParseNode):Entity
@@ -903,10 +935,14 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCopil
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCopilotPackage(CopilotPackage:CopilotPackage={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCopilotPackageDetail(CopilotPackageDetail:CopilotPackageDetail={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCopilotPackageDetailCollectionResponse(CopilotPackageDetailCollectionResponse:CopilotPackageDetailCollectionResponse={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCopilotPackageRequestInfo(CopilotPackageRequestInfo:CopilotPackageRequestInfo={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCopilotPackageRequestMetadata(CopilotPackageRequestMetadata:CopilotPackageRequestMetadata={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCopilotPackageRequestPrincipal(CopilotPackageRequestPrincipal:CopilotPackageRequestPrincipal={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoCopilotReportRoot(CopilotReportRoot:CopilotReportRoot={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoDataSourceConfiguration(DataSourceConfiguration:DataSourceConfiguration={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoDetailsInfo(DetailsInfo:DetailsInfo={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoDictionaries(Dictionaries:Dictionaries={}):Record<string, (node: ParseNode) => void>
+github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoEmailAddress(EmailAddress:EmailAddress={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoEmailIdentity(EmailIdentity:EmailIdentity={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoEngagementIdentitySet(EngagementIdentitySet:EngagementIdentitySet={}):Record<string, (node: ParseNode) => void>
 github.com/microsoft/Agents-M365Copilot/typescript/.models::deserializeIntoEntity(Entity:Entity={}):Record<string, (node: ParseNode) => void>
@@ -974,10 +1010,14 @@ github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotAdmi
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotPackage(writer:SerializationWriter; CopilotPackage:CopilotPackage={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotPackageDetail(writer:SerializationWriter; CopilotPackageDetail:CopilotPackageDetail={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotPackageDetailCollectionResponse(writer:SerializationWriter; CopilotPackageDetailCollectionResponse:CopilotPackageDetailCollectionResponse={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotPackageRequestInfo(writer:SerializationWriter; CopilotPackageRequestInfo:CopilotPackageRequestInfo={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotPackageRequestMetadata(writer:SerializationWriter; CopilotPackageRequestMetadata:CopilotPackageRequestMetadata={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotPackageRequestPrincipal(writer:SerializationWriter; CopilotPackageRequestPrincipal:CopilotPackageRequestPrincipal={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeCopilotReportRoot(writer:SerializationWriter; CopilotReportRoot:CopilotReportRoot={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeDataSourceConfiguration(writer:SerializationWriter; DataSourceConfiguration:DataSourceConfiguration={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeDetailsInfo(writer:SerializationWriter; DetailsInfo:DetailsInfo={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeDictionaries(writer:SerializationWriter; Dictionaries:Dictionaries={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeEmailAddress(writer:SerializationWriter; EmailAddress:EmailAddress={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeEmailIdentity(writer:SerializationWriter; EmailIdentity:EmailIdentity={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeEngagementIdentitySet(writer:SerializationWriter; EngagementIdentitySet:EngagementIdentitySet={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoft/Agents-M365Copilot/typescript/.models::serializeEntity(writer:SerializationWriter; Entity:Entity={}; isSerializingDerivedType?:boolean=false):void
