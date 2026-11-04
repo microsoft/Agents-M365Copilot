@@ -1,0 +1,60 @@
+from __future__ import annotations
+from collections.abc import Callable
+from dataclasses import dataclass, field
+from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
+from typing import Any, Optional, TYPE_CHECKING, Union
+
+if TYPE_CHECKING:
+    from .assigned_group import AssignedGroup
+    from .group_assignment import GroupAssignment
+
+from .group_assignment import GroupAssignment
+
+@dataclass
+class ExcludedGroupAssignment(GroupAssignment, Parsable):
+    # The OdataType property
+    odata_type: Optional[str] = "#microsoft.graph.windowsUpdates.excludedGroupAssignment"
+    # A collection of entities that govern the update deployment audience, defined as a Microsoft Entra group.
+    assignments: Optional[list[AssignedGroup]] = None
+    
+    @staticmethod
+    def create_from_discriminator_value(parse_node: ParseNode) -> ExcludedGroupAssignment:
+        """
+        Creates a new instance of the appropriate class based on discriminator value
+        param parse_node: The parse node to use to read the discriminator value and create the object
+        Returns: ExcludedGroupAssignment
+        """
+        if parse_node is None:
+            raise TypeError("parse_node cannot be null.")
+        return ExcludedGroupAssignment()
+    
+    def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
+        """
+        The deserialization information for the current model
+        Returns: dict[str, Callable[[ParseNode], None]]
+        """
+        from .assigned_group import AssignedGroup
+        from .group_assignment import GroupAssignment
+
+        from .assigned_group import AssignedGroup
+        from .group_assignment import GroupAssignment
+
+        fields: dict[str, Callable[[Any], None]] = {
+            "assignments": lambda n : setattr(self, 'assignments', n.get_collection_of_object_values(AssignedGroup)),
+        }
+        super_fields = super().get_field_deserializers()
+        fields.update(super_fields)
+        return fields
+    
+    def serialize(self,writer: SerializationWriter) -> None:
+        """
+        Serializes information the current object
+        param writer: Serialization writer to use to serialize this model
+        Returns: None
+        """
+        if writer is None:
+            raise TypeError("writer cannot be null.")
+        super().serialize(writer)
+        writer.write_collection_of_object_values("assignments", self.assignments)
+    
+

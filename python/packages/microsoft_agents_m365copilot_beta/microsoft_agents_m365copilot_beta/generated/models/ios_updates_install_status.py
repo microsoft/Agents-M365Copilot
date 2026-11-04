@@ -1,0 +1,26 @@
+from enum import Enum
+
+class IosUpdatesInstallStatus(str, Enum):
+    UpdateScanFailed = "updateScanFailed",
+    DeviceOsHigherThanDesiredOsVersion = "deviceOsHigherThanDesiredOsVersion",
+    UpdateError = "updateError",
+    SharedDeviceUserLoggedInError = "sharedDeviceUserLoggedInError",
+    NotSupportedOperation = "notSupportedOperation",
+    InstallFailed = "installFailed",
+    InstallPhoneCallInProgress = "installPhoneCallInProgress",
+    InstallInsufficientPower = "installInsufficientPower",
+    InstallInsufficientSpace = "installInsufficientSpace",
+    Installing = "installing",
+    DownloadInsufficientNetwork = "downloadInsufficientNetwork",
+    DownloadInsufficientPower = "downloadInsufficientPower",
+    DownloadInsufficientSpace = "downloadInsufficientSpace",
+    DownloadRequiresComputer = "downloadRequiresComputer",
+    DownloadFailed = "downloadFailed",
+    Downloading = "downloading",
+    Timeout = "timeout",
+    MdmClientCrashed = "mdmClientCrashed",
+    Success = "success",
+    Available = "available",
+    Idle = "idle",
+    Unknown = "unknown",
+

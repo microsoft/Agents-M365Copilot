@@ -1,0 +1,25 @@
+from enum import Enum
+
+class DeviceClientSubstate(str, Enum):
+    Deferred = "deferred",
+    OfferReady = "offerReady",
+    Paused = "paused",
+    OfferReceived = "offerReceived",
+    DownloadStart = "downloadStart",
+    DownloadComplete = "downloadComplete",
+    InstallStart = "installStart",
+    InstallComplete = "installComplete",
+    RestartRequired = "restartRequired",
+    RestartInitiated = "restartInitiated",
+    RestartComplete = "restartComplete",
+    UpdateInstalled = "updateInstalled",
+    RollbackComplete = "rollbackComplete",
+    UserCancelled = "userCancelled",
+    DeviceCancelled = "deviceCancelled",
+    Uninstall = "uninstall",
+    Rollback = "rollback",
+    UpdateUninstalled = "updateUninstalled",
+    NotSupported = "notSupported",
+    PreviousUpdateInProgress = "previousUpdateInProgress",
+    UnknownFutureValue = "unknownFutureValue",
+
