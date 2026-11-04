@@ -4,6 +4,7 @@ from kiota_abstractions.base_request_builder import BaseRequestBuilder
 from kiota_abstractions.get_path_parameters import get_path_parameters
 from kiota_abstractions.request_adapter import RequestAdapter
 from typing import Any, Optional, TYPE_CHECKING, Union
+from warnings import warn
 
 if TYPE_CHECKING:
     from .admin.admin_request_builder import AdminRequestBuilder
@@ -11,6 +12,7 @@ if TYPE_CHECKING:
     from .agent_registrations.agent_registrations_request_builder import AgentRegistrationsRequestBuilder
     from .communications.communications_request_builder import CommunicationsRequestBuilder
     from .conversations.conversations_request_builder import ConversationsRequestBuilder
+    from .cost_management.cost_management_request_builder import CostManagementRequestBuilder
     from .interaction_history.interaction_history_request_builder import InteractionHistoryRequestBuilder
     from .reports.reports_request_builder import ReportsRequestBuilder
     from .retrieval.retrieval_request_builder import RetrievalRequestBuilder
@@ -75,6 +77,15 @@ class CopilotRequestBuilder(BaseRequestBuilder):
         from .conversations.conversations_request_builder import ConversationsRequestBuilder
 
         return ConversationsRequestBuilder(self.request_adapter, self.path_parameters)
+    
+    @property
+    def cost_management(self) -> CostManagementRequestBuilder:
+        """
+        The costManagement property
+        """
+        from .cost_management.cost_management_request_builder import CostManagementRequestBuilder
+
+        return CostManagementRequestBuilder(self.request_adapter, self.path_parameters)
     
     @property
     def interaction_history(self) -> InteractionHistoryRequestBuilder:
