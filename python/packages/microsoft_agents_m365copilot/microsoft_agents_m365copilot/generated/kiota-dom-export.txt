@@ -920,6 +920,8 @@ microsoft_agents_m365copilot.generated.models.CopilotPackageDetail::|public|last
 microsoft_agents_m365copilot.generated.models.CopilotPackageDetail::|public|long_description():str
 microsoft_agents_m365copilot.generated.models.CopilotPackageDetail::|public|long_description(value:str):None
 microsoft_agents_m365copilot.generated.models.CopilotPackageDetail::|public|odata_type:str
+microsoft_agents_m365copilot.generated.models.CopilotPackageDetail::|public|request_metadata():CopilotPackageRequestMetadata
+microsoft_agents_m365copilot.generated.models.CopilotPackageDetail::|public|request_metadata(value:CopilotPackageRequestMetadata):None
 microsoft_agents_m365copilot.generated.models.CopilotPackageDetail::|public|sensitivity():str
 microsoft_agents_m365copilot.generated.models.CopilotPackageDetail::|public|sensitivity(value:str):None
 microsoft_agents_m365copilot.generated.models.CopilotPackageDetail::|public|serialize(writer:SerializationWriter):None
@@ -937,6 +939,49 @@ microsoft_agents_m365copilot.generated.models.CopilotPackageDetailCollectionResp
 microsoft_agents_m365copilot.generated.models.CopilotPackageDetailCollectionResponse::|public|value():list[CopilotPackageDetail]
 microsoft_agents_m365copilot.generated.models.CopilotPackageDetailCollectionResponse::|public|value(value:list[CopilotPackageDetail]):None
 microsoft_agents_m365copilot.generated.models.CopilotPackageDetailCollectionResponse::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotPackageDetailCollectionResponse
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestInfo::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestInfo::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestInfo::|public|assignees():list[CopilotPackageRequestPrincipal]
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestInfo::|public|assignees(value:list[CopilotPackageRequestPrincipal]):None
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestInfo::|public|constructor():None
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestInfo::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestInfo::|public|identifier():str
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestInfo::|public|identifier(value:str):None
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestInfo::|public|odata_type():str
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestInfo::|public|odata_type(value:str):None
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestInfo::|public|requested_by():EmailAddress
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestInfo::|public|requested_by(value:EmailAddress):None
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestInfo::|public|requested_date_time():datetime.datetime
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestInfo::|public|requested_date_time(value:datetime.datetime):None
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestInfo::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestInfo::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotPackageRequestInfo
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestInfo~~>AdditionalDataHolder; Parsable
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestMetadata::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestMetadata::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestMetadata::|public|constructor():None
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestMetadata::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestMetadata::|public|odata_type():str
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestMetadata::|public|odata_type(value:str):None
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestMetadata::|public|requests():list[CopilotPackageRequestInfo]
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestMetadata::|public|requests(value:list[CopilotPackageRequestInfo]):None
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestMetadata::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestMetadata::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotPackageRequestMetadata
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestMetadata~~>AdditionalDataHolder; Parsable
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestPrincipal-->Identity
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestPrincipal::|public|constructor():None
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestPrincipal::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestPrincipal::|public|odata_type:str
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestPrincipal::|public|principal_type():CopilotPackageRequestPrincipalType
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestPrincipal::|public|principal_type(value:CopilotPackageRequestPrincipalType):None
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestPrincipal::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestPrincipal::|public|user_principal_name():str
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestPrincipal::|public|user_principal_name(value:str):None
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestPrincipal::|static|public|create_from_discriminator_value(parse_node:ParseNode):CopilotPackageRequestPrincipal
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestPrincipalType::0000-User
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestPrincipalType::0001-Group
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestPrincipalType::0002-AgentApplication
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestPrincipalType::0003-AgentUser
+microsoft_agents_m365copilot.generated.models.CopilotPackageRequestPrincipalType::0004-UnknownFutureValue
 microsoft_agents_m365copilot.generated.models.CopilotPackageRequestStatus::0000-Pending
 microsoft_agents_m365copilot.generated.models.CopilotPackageRequestStatus::0001-Approved
 microsoft_agents_m365copilot.generated.models.CopilotPackageRequestStatus::0002-Rejected
@@ -983,6 +1028,19 @@ microsoft_agents_m365copilot.generated.models.Dictionaries::|public|odata_type(v
 microsoft_agents_m365copilot.generated.models.Dictionaries::|public|serialize(writer:SerializationWriter):None
 microsoft_agents_m365copilot.generated.models.Dictionaries::|static|public|create_from_discriminator_value(parse_node:ParseNode):Dictionaries
 microsoft_agents_m365copilot.generated.models.Dictionaries~~>AdditionalDataHolder; Parsable
+microsoft_agents_m365copilot.generated.models.EmailAddress::|public|additional_data():dict[str, Any]
+microsoft_agents_m365copilot.generated.models.EmailAddress::|public|additional_data(value:dict[str, Any]):None
+microsoft_agents_m365copilot.generated.models.EmailAddress::|public|address():str
+microsoft_agents_m365copilot.generated.models.EmailAddress::|public|address(value:str):None
+microsoft_agents_m365copilot.generated.models.EmailAddress::|public|constructor():None
+microsoft_agents_m365copilot.generated.models.EmailAddress::|public|get_field_deserializers():dict[str, Callable[[ParseNode], None]]
+microsoft_agents_m365copilot.generated.models.EmailAddress::|public|name():str
+microsoft_agents_m365copilot.generated.models.EmailAddress::|public|name(value:str):None
+microsoft_agents_m365copilot.generated.models.EmailAddress::|public|odata_type():str
+microsoft_agents_m365copilot.generated.models.EmailAddress::|public|odata_type(value:str):None
+microsoft_agents_m365copilot.generated.models.EmailAddress::|public|serialize(writer:SerializationWriter):None
+microsoft_agents_m365copilot.generated.models.EmailAddress::|static|public|create_from_discriminator_value(parse_node:ParseNode):EmailAddress
+microsoft_agents_m365copilot.generated.models.EmailAddress~~>AdditionalDataHolder; Parsable
 microsoft_agents_m365copilot.generated.models.EmailIdentity-->Identity
 microsoft_agents_m365copilot.generated.models.EmailIdentity::|public|constructor():None
 microsoft_agents_m365copilot.generated.models.EmailIdentity::|public|email():str
