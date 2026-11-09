@@ -46,6 +46,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 "#microsoft.graph.identityGovernance.allExcludingSpecificObjectsSubjectSet" => new global::Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.AllExcludingSpecificObjectsSubjectSet(),
                 "#microsoft.graph.identityGovernance.groupBasedSubjectSet" => new global::Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.GroupBasedSubjectSet(),
                 "#microsoft.graph.identityGovernance.ruleBasedSubjectSet" => new global::Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.RuleBasedSubjectSet(),
+                "#microsoft.graph.identityGovernance.selectedAgentBuilderPlatformsSubjectSet" => new global::Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.SelectedAgentBuilderPlatformsSubjectSet(),
                 "#microsoft.graph.identityGovernance.selectedObjectsSubjectSet" => new global::Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.SelectedObjectsSubjectSet(),
                 _ => new global::Microsoft.Agents.M365Copilot.Beta.Models.SubjectSet(),
             };

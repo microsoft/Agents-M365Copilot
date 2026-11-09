@@ -32,7 +32,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         public bool? IsOwner { get; set; }
         /// <summary>True if the task list is shared with other users</summary>
         public bool? IsShared { get; set; }
-        /// <summary>The collection of single-value extended properties defined for the task list. Read-only. Nullable.</summary>
+        /// <summary>The collection of single-value extended properties defined for the task list. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.SingleValueExtendedProperty>? SingleValueExtendedProperties { get; set; }

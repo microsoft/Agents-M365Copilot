@@ -706,6 +706,7 @@ Microsoft.Agents.M365Copilot.Models.copilotPackageDetail::|public|GetFieldDeseri
 Microsoft.Agents.M365Copilot.Models.copilotPackageDetail::|public|LastUsedDateTime:DateTimeOffset?
 Microsoft.Agents.M365Copilot.Models.copilotPackageDetail::|public|LongDescription:string
 Microsoft.Agents.M365Copilot.Models.copilotPackageDetail::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.copilotPackageDetail::|public|RequestMetadata:global.Microsoft.Agents.M365Copilot.Models.CopilotPackageRequestMetadata
 Microsoft.Agents.M365Copilot.Models.copilotPackageDetail::|public|Sensitivity:string
 Microsoft.Agents.M365Copilot.Models.copilotPackageDetail::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Models.copilotPackageDetail::|public|SharedWithUsersAndGroups:List<global.Microsoft.Agents.M365Copilot.Models.PackageAccessEntity>
@@ -717,6 +718,39 @@ Microsoft.Agents.M365Copilot.Models.copilotPackageDetailCollectionResponse::|pub
 Microsoft.Agents.M365Copilot.Models.copilotPackageDetailCollectionResponse::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Models.copilotPackageDetailCollectionResponse::|public|Value:List<global.Microsoft.Agents.M365Copilot.Models.CopilotPackageDetail>
 Microsoft.Agents.M365Copilot.Models.copilotPackageDetailCollectionResponse::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.CopilotPackageDetailCollectionResponse
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestInfo::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestInfo::|public|AdditionalMetadata:UntypedNode
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestInfo::|public|Assignees:List<global.Microsoft.Agents.M365Copilot.Models.CopilotPackageRequestPrincipal>
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestInfo::|public|constructor():void
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestInfo::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestInfo::|public|Identifier:string
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestInfo::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestInfo::|public|RequestedBy:global.Microsoft.Agents.M365Copilot.Models.EmailAddress
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestInfo::|public|RequestedDateTime:DateTimeOffset?
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestInfo::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestInfo::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.CopilotPackageRequestInfo
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestInfo~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestMetadata::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestMetadata::|public|constructor():void
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestMetadata::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestMetadata::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestMetadata::|public|Requests:List<global.Microsoft.Agents.M365Copilot.Models.CopilotPackageRequestInfo>
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestMetadata::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestMetadata::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.CopilotPackageRequestMetadata
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestMetadata~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestPrincipal-->global.Microsoft.Agents.M365Copilot.Models.Identity
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestPrincipal::|public|constructor():void
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestPrincipal::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestPrincipal::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestPrincipal::|public|PrincipalType:global.Microsoft.Agents.M365Copilot.Models.CopilotPackageRequestPrincipalType?
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestPrincipal::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestPrincipal::|public|UserPrincipalName:string
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestPrincipal::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.CopilotPackageRequestPrincipal
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestPrincipalType::0000-user
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestPrincipalType::0001-group
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestPrincipalType::0002-agentApplication
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestPrincipalType::0003-agentUser
+Microsoft.Agents.M365Copilot.Models.copilotPackageRequestPrincipalType::0004-unknownFutureValue
 Microsoft.Agents.M365Copilot.Models.copilotPackageRequestStatus::0000-pending
 Microsoft.Agents.M365Copilot.Models.copilotPackageRequestStatus::0001-approved
 Microsoft.Agents.M365Copilot.Models.copilotPackageRequestStatus::0002-rejected
@@ -754,6 +788,15 @@ Microsoft.Agents.M365Copilot.Models.dictionaries::|public|OdataType:string
 Microsoft.Agents.M365Copilot.Models.dictionaries::|public|Serialize(writer:ISerializationWriter):void
 Microsoft.Agents.M365Copilot.Models.dictionaries::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.Dictionaries
 Microsoft.Agents.M365Copilot.Models.dictionaries~~>IAdditionalDataHolder; IParsable
+Microsoft.Agents.M365Copilot.Models.emailAddress::|public|AdditionalData:IDictionary<string, object>
+Microsoft.Agents.M365Copilot.Models.emailAddress::|public|Address:string
+Microsoft.Agents.M365Copilot.Models.emailAddress::|public|constructor():void
+Microsoft.Agents.M365Copilot.Models.emailAddress::|public|GetFieldDeserializers():IDictionary<string, Action<IParseNode>>
+Microsoft.Agents.M365Copilot.Models.emailAddress::|public|Name:string
+Microsoft.Agents.M365Copilot.Models.emailAddress::|public|OdataType:string
+Microsoft.Agents.M365Copilot.Models.emailAddress::|public|Serialize(writer:ISerializationWriter):void
+Microsoft.Agents.M365Copilot.Models.emailAddress::|static|public|CreateFromDiscriminatorValue(parseNode:IParseNode):global.Microsoft.Agents.M365Copilot.Models.EmailAddress
+Microsoft.Agents.M365Copilot.Models.emailAddress~~>IAdditionalDataHolder; IParsable
 Microsoft.Agents.M365Copilot.Models.emailIdentity-->global.Microsoft.Agents.M365Copilot.Models.Identity
 Microsoft.Agents.M365Copilot.Models.emailIdentity::|public|constructor():void
 Microsoft.Agents.M365Copilot.Models.emailIdentity::|public|Email:string

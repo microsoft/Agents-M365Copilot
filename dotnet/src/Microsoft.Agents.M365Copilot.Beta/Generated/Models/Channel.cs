@@ -22,6 +22,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>Read-only. Timestamp at which the channel was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
+        /// <summary>The deletedDateTime property</summary>
+        public DateTimeOffset? DeletedDateTime { get; set; }
         /// <summary>Optional textual description for the channel.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -174,6 +176,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             {
                 { "allMembers", n => { AllMembers = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.ConversationMember>(global::Microsoft.Agents.M365Copilot.Beta.Models.ConversationMember.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "deletedDateTime", n => { DeletedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
@@ -207,6 +210,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.ConversationMember>("allMembers", AllMembers);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
+            writer.WriteDateTimeOffsetValue("deletedDateTime", DeletedDateTime);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("email", Email);

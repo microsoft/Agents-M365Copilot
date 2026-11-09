@@ -22,7 +22,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A collection of content entries to be processed. Each entry contains the content itself and its metadata. Use conversation metadata for content like prompts and responses and file metadata for files. For the ContentActivity API only, use content activity metadata for DLP enforcement results or evaluation incomplete activity metadata when policy evaluation couldn&apos;t be completed. The ContentActivity-specific types aren&apos;t supported by the processContent or processContentAsync APIs. Required.</summary>
+        /// <summary>The content entries to process. Use processConversationMetadata for prompts and responses and processFileMetadata for files. For the ContentActivity API only, use contentActivityMetadata for DLP enforcement results or evaluationIncompleteActivityMetadata when policy evaluation couldn&apos;t be completed. The ContentActivity-specific types aren&apos;t supported by the processContent or processContentAsync APIs. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ProcessContentMetadataBase>? ContentEntries { get; set; }
@@ -70,7 +70,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>Metadata about the protected application making the request. Required.</summary>
+        /// <summary>Metadata about the protected application. For an agent request, applicationLocation must be a policyLocationAgent. Required for agent requests; otherwise optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.ProtectedApplicationMetadata? ProtectedAppMetadata { get; set; }
