@@ -24,7 +24,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The participants property</summary>
+        /// <summary>The other parties in an agent interaction. Specify the concrete participant type by using the @odata.type property. Required when evaluationScope.type is agent; otherwise optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.InteractionParticipant>? Participants { get; set; }

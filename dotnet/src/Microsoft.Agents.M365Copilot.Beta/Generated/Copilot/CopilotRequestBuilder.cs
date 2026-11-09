@@ -67,11 +67,13 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot
             get => new global::Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.ReportsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the retrieval method.</summary>
+        [Obsolete(" as of 2024-12/PrivatePreview:retrievalAPI on 2024-02-23 and will be removed 2025-12-31")]
         public global::Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.RetrievalRequestBuilder Retrieval
         {
             get => new global::Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.RetrievalRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the search method.</summary>
+        [Obsolete(" as of 2025-08/PrivatePreview:copilotsearchpreview1 on 2025-07-18 and will be removed 2025-09-15")]
         public global::Microsoft.Agents.M365Copilot.Beta.Copilot.Search.SearchRequestBuilder Search
         {
             get => new global::Microsoft.Agents.M365Copilot.Beta.Copilot.Search.SearchRequestBuilder(PathParameters, RequestAdapter);

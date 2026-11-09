@@ -12,6 +12,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates
     public partial class PolicyApproval : global::Microsoft.Agents.M365Copilot.Beta.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The approvedBy property</summary>
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApprovedBy? ApprovedBy { get; set; }
         /// <summary>The content that you can approve for deployment. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -32,6 +34,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The date and time the policy approval was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
+        /// <summary>The date and time when the approved content can start being offered. If omitted when the approval is created, the service uses the current time.</summary>
+        public DateTimeOffset? StartDateTime { get; set; }
         /// <summary>The status property</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApprovalStatus? Status { get; set; }
         /// <summary>
@@ -52,10 +56,12 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                { "approvedBy", n => { ApprovedBy = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApprovedBy>(); } },
                 { "catalogEntry", n => { CatalogEntry = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.CatalogEntry>(global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.CatalogEntry.CreateFromDiscriminatorValue); } },
                 { "catalogEntryId", n => { CatalogEntryId = n.GetStringValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApprovalStatus>(); } },
             };
         }
@@ -67,10 +73,12 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApprovedBy>("approvedBy", ApprovedBy);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.CatalogEntry>("catalogEntry", CatalogEntry);
             writer.WriteStringValue("catalogEntryId", CatalogEntryId);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
+            writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApprovalStatus>("status", Status);
         }
     }

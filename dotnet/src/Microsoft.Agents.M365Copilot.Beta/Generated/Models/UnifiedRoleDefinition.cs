@@ -14,6 +14,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     {
         /// <summary>Types of principals that can be assigned the role. Read-only. The possible values are: user, servicePrincipal, group, unknownFutureValue. This is a multi-valued enumeration that can contain up to three values as a comma-separated string. For example, user, group. Supports $filter (eq).</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.AllowedRolePrincipalTypes? AllowedPrincipalTypes { get; set; }
+        /// <summary>The date and time when the custom role definition was deleted. The value is null for active and restored role definitions. Read-only.</summary>
+        public DateTimeOffset? DeletedDateTime { get; set; }
         /// <summary>The description for the unifiedRoleDefinition. Read-only when isBuiltIn is true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -95,6 +97,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "allowedPrincipalTypes", n => { AllowedPrincipalTypes = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.AllowedRolePrincipalTypes>(); } },
+                { "deletedDateTime", n => { DeletedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "inheritsPermissionsFrom", n => { InheritsPermissionsFrom = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.UnifiedRoleDefinition>(global::Microsoft.Agents.M365Copilot.Beta.Models.UnifiedRoleDefinition.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -116,6 +119,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.AllowedRolePrincipalTypes>("allowedPrincipalTypes", AllowedPrincipalTypes);
+            writer.WriteDateTimeOffsetValue("deletedDateTime", DeletedDateTime);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.UnifiedRoleDefinition>("inheritsPermissionsFrom", InheritsPermissionsFrom);

@@ -493,7 +493,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ObjectIdentity> Identities { get; set; }
 #endif
-        /// <summary>The identity governance settings for the user, including the approver delegate configuration. Nullable. Returned only on $select. Supports $expand.</summary>
+        /// <summary>The identity governance settings for the user. You can get or update the user&apos;s approver delegate through the approverDelegate property. Nullable. Returned only on $select. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernanceUserSettings? IdentityGovernance { get; set; }
