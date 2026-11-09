@@ -16,14 +16,6 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The errorCategory property</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.EvaluationErrorCategory? ErrorCategory { get; set; }
-        /// <summary>The errorMessage property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ErrorMessage { get; set; }
-#nullable restore
-#else
-        public string ErrorMessage { get; set; }
-#endif
         /// <summary>The errorType property</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.EvaluationErrorType? ErrorType { get; set; }
         /// <summary>The OdataType property</summary>
@@ -60,7 +52,6 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "errorCategory", n => { ErrorCategory = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.EvaluationErrorCategory>(); } },
-                { "errorMessage", n => { ErrorMessage = n.GetStringValue(); } },
                 { "errorType", n => { ErrorType = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.EvaluationErrorType>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
@@ -73,7 +64,6 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.EvaluationErrorCategory>("errorCategory", ErrorCategory);
-            writer.WriteStringValue("errorMessage", ErrorMessage);
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.EvaluationErrorType>("errorType", ErrorType);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);

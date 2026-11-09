@@ -1,0 +1,27 @@
+from enum import Enum
+
+class RequirementProvider(str, Enum):
+    User = "user",
+    Request = "request",
+    ServicePrincipal = "servicePrincipal",
+    V1ConditionalAccess = "v1ConditionalAccess",
+    MultiConditionalAccess = "multiConditionalAccess",
+    TenantSessionRiskPolicy = "tenantSessionRiskPolicy",
+    AccountCompromisePolicies = "accountCompromisePolicies",
+    V1ConditionalAccessDependency = "v1ConditionalAccessDependency",
+    V1ConditionalAccessPolicyIdRequested = "v1ConditionalAccessPolicyIdRequested",
+    MfaRegistrationRequiredByIdentityProtectionPolicy = "mfaRegistrationRequiredByIdentityProtectionPolicy",
+    BaselineProtection = "baselineProtection",
+    MfaRegistrationRequiredByBaselineProtection = "mfaRegistrationRequiredByBaselineProtection",
+    MfaRegistrationRequiredByMultiConditionalAccess = "mfaRegistrationRequiredByMultiConditionalAccess",
+    EnforcedForCspAdmins = "enforcedForCspAdmins",
+    SecurityDefaults = "securityDefaults",
+    MfaRegistrationRequiredBySecurityDefaults = "mfaRegistrationRequiredBySecurityDefaults",
+    ProofUpCodeRequest = "proofUpCodeRequest",
+    CrossTenantOutboundRule = "crossTenantOutboundRule",
+    GpsLocationCondition = "gpsLocationCondition",
+    RiskBasedPolicy = "riskBasedPolicy",
+    UnknownFutureValue = "unknownFutureValue",
+    ScopeBasedAuthRequirementPolicy = "scopeBasedAuthRequirementPolicy",
+    AuthenticationStrengths = "authenticationStrengths",
+

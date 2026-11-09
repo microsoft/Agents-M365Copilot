@@ -73,8 +73,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 "#microsoft.graph.onAttributeCollectionSubmitCustomExtension" => new global::Microsoft.Agents.M365Copilot.Beta.Models.OnAttributeCollectionSubmitCustomExtension(),
                 "#microsoft.graph.onOtpSendCustomExtension" => new global::Microsoft.Agents.M365Copilot.Beta.Models.OnOtpSendCustomExtension(),
                 "#microsoft.graph.onPasswordSubmitCustomExtension" => new global::Microsoft.Agents.M365Copilot.Beta.Models.OnPasswordSubmitCustomExtension(),
+                "#microsoft.graph.onPasswordUpdateCustomExtension" => new global::Microsoft.Agents.M365Copilot.Beta.Models.OnPasswordUpdateCustomExtension(),
                 "#microsoft.graph.onTokenIssuanceStartCustomExtension" => new global::Microsoft.Agents.M365Copilot.Beta.Models.OnTokenIssuanceStartCustomExtension(),
                 "#microsoft.graph.onVerifiedIdClaimValidationCustomExtension" => new global::Microsoft.Agents.M365Copilot.Beta.Models.OnVerifiedIdClaimValidationCustomExtension(),
+                "#microsoft.graph.roleManagementCustomCalloutExtension" => new global::Microsoft.Agents.M365Copilot.Beta.Models.RoleManagementCustomCalloutExtension(),
                 _ => new global::Microsoft.Agents.M365Copilot.Beta.Models.CustomCalloutExtension(),
             };
         }
