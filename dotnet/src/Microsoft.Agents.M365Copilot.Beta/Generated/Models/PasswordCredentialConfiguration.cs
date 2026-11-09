@@ -36,7 +36,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         public DateTimeOffset? RestrictForAppsCreatedAfterDateTime { get; set; }
         /// <summary>A unique identifier key for passwordCredentialConfiguration. This value also represents the type of restriction being applied. The possible values are: passwordAddition, passwordLifetime, symmetricKeyAddition, symmetricKeyLifetime, customPasswordAddition, and unknownFutureValue. Each value of restrictionType can be used only once per policy.</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.AppCredentialRestrictionType? RestrictionType { get; set; }
-        /// <summary>Indicates whether the restriction is evaluated. The possible values are: enabled, disabled, unknownFutureValue. If enabled, the restriction is evaluated. If disabled, the restriction isn&apos;t evaluated or enforced.</summary>
+        /// <summary>Indicates whether the restriction is evaluated. The possible values are: enabled, disabled, audit, unknownFutureValue. If enabled, the restriction is evaluated and enforced. If disabled, the restriction isn&apos;t evaluated or enforced. If audit, the restriction is evaluated but not enforced.</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.AppManagementRestrictionState? State { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.PasswordCredentialConfiguration"/> and sets the default values.

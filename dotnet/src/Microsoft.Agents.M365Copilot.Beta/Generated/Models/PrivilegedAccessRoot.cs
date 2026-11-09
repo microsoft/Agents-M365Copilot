@@ -12,6 +12,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class PrivilegedAccessRoot : global::Microsoft.Agents.M365Copilot.Beta.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The custom extensions configured for PIM role management operations.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.RoleManagementCustomCalloutExtension>? CustomExtensions { get; set; }
+#nullable restore
+#else
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.RoleManagementCustomCalloutExtension> CustomExtensions { get; set; }
+#endif
         /// <summary>A group that&apos;s governed through Privileged Identity Management (PIM).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,6 +46,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                { "customExtensions", n => { CustomExtensions = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.RoleManagementCustomCalloutExtension>(global::Microsoft.Agents.M365Copilot.Beta.Models.RoleManagementCustomCalloutExtension.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "group", n => { Group = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PrivilegedAccessGroup>(global::Microsoft.Agents.M365Copilot.Beta.Models.PrivilegedAccessGroup.CreateFromDiscriminatorValue); } },
             };
         }
@@ -49,6 +58,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.RoleManagementCustomCalloutExtension>("customExtensions", CustomExtensions);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PrivilegedAccessGroup>("group", Group);
         }
     }

@@ -36,6 +36,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement
 #else
         public string DisplayName { get; set; }
 #endif
+        /// <summary>The contained SLA policy definitions configured for this case type. Supports $filter and $orderby on createdBy, createdDateTime, description, displayName, id, isActive, lastModifiedBy, and lastModifiedDateTime on the collection endpoint. For information about supported query parameters, see List slaPolicies. Also supports $count, $select, $skip, and $top on the collection endpoint. Supports $expand=slaPolicies when getting a case type configuration.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyDefinition>? SlaPolicies { get; set; }
+#nullable restore
+#else
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyDefinition> SlaPolicies { get; set; }
+#endif
         /// <summary>The contained top-level statuses that a case of this type can be set to. Read-only. Supports $count, $expand, $filter, $orderby, $select, $skip, and $top.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,6 +73,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement
                 { "customFields", n => { CustomFields = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.CustomFieldDefinition>(global::Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.CustomFieldDefinition.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "defaultStatusId", n => { DefaultStatusId = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "slaPolicies", n => { SlaPolicies = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyDefinition>(global::Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyDefinition.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "statuses", n => { Statuses = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.StatusDefinition>(global::Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.StatusDefinition.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -79,6 +88,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.CustomFieldDefinition>("customFields", CustomFields);
             writer.WriteStringValue("defaultStatusId", DefaultStatusId);
             writer.WriteStringValue("displayName", DisplayName);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.SlaPolicyDefinition>("slaPolicies", SlaPolicies);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.StatusDefinition>("statuses", Statuses);
         }
     }
