@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class PolicyLocationAgent : global::Microsoft.Agents.M365Copilot.Beta.Models.PolicyLocationApplication, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The agentMetadata property</summary>
+        /// <summary>Metadata used for agent policy scoping and evaluation. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.AgentMetadata? AgentMetadata { get; set; }

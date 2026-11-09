@@ -46,6 +46,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.Security
 #else
         public global::Microsoft.Agents.M365Copilot.Beta.Models.Security.EntityMappingConfiguration EntityMappings { get; set; }
 #endif
+        /// <summary>The eventGroupingKind property</summary>
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.Security.EventGroupingKind? EventGroupingKind { get; set; }
         /// <summary>Indicates the impacted assets for the alert triggered by the custom detection rule. Deprecated. Use entityMappings instead. This property will be removed from this resource on 2026-10-01.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -125,6 +127,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.Security
                 { "customDetails", n => { CustomDetails = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.Security.AlertCustomDetails>(global::Microsoft.Agents.M365Copilot.Beta.Models.Security.AlertCustomDetails.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "entityMappings", n => { EntityMappings = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.Security.EntityMappingConfiguration>(global::Microsoft.Agents.M365Copilot.Beta.Models.Security.EntityMappingConfiguration.CreateFromDiscriminatorValue); } },
+                { "eventGroupingKind", n => { EventGroupingKind = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.Security.EventGroupingKind>(); } },
                 { "impactedAssets", n => { ImpactedAssets = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.Security.ImpactedAsset>(global::Microsoft.Agents.M365Copilot.Beta.Models.Security.ImpactedAsset.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "mitreTechniques", n => { MitreTechniques = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
@@ -145,6 +148,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.Security
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.Security.AlertCustomDetails>("customDetails", CustomDetails);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.Security.EntityMappingConfiguration>("entityMappings", EntityMappings);
+            writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.Security.EventGroupingKind>("eventGroupingKind", EventGroupingKind);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.Security.ImpactedAsset>("impactedAssets", ImpactedAssets);
             writer.WriteCollectionOfPrimitiveValues<string>("mitreTechniques", MitreTechniques);
             writer.WriteStringValue("@odata.type", OdataType);

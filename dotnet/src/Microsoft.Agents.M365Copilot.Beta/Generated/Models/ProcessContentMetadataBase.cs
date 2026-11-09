@@ -64,6 +64,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string OdataType { get; set; }
 #endif
+        /// <summary>Caller-supplied sensitivity labels describing the content.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.CurrentLabel>? SensitivityLabels { get; set; }
+#nullable restore
+#else
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.CurrentLabel> SensitivityLabels { get; set; }
+#endif
         /// <summary>A sequence number indicating the order in which content was generated or should be processed, required when correlationId is used.</summary>
         public long? SequenceNumber { get; set; }
         /// <summary>
@@ -109,6 +117,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "modifiedDateTime", n => { ModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "sensitivityLabels", n => { SensitivityLabels = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.CurrentLabel>(global::Microsoft.Agents.M365Copilot.Beta.Models.CurrentLabel.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "sequenceNumber", n => { SequenceNumber = n.GetLongValue(); } },
             };
         }
@@ -129,6 +138,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteDateTimeOffsetValue("modifiedDateTime", ModifiedDateTime);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.CurrentLabel>("sensitivityLabels", SensitivityLabels);
             writer.WriteLongValue("sequenceNumber", SequenceNumber);
             writer.WriteAdditionalData(AdditionalData);
         }

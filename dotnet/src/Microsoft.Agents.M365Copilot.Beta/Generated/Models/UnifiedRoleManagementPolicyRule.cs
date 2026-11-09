@@ -33,6 +33,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             {
                 "#microsoft.graph.unifiedRoleManagementPolicyApprovalRule" => new global::Microsoft.Agents.M365Copilot.Beta.Models.UnifiedRoleManagementPolicyApprovalRule(),
                 "#microsoft.graph.unifiedRoleManagementPolicyAuthenticationContextRule" => new global::Microsoft.Agents.M365Copilot.Beta.Models.UnifiedRoleManagementPolicyAuthenticationContextRule(),
+                "#microsoft.graph.unifiedRoleManagementPolicyCustomExtensionRule" => new global::Microsoft.Agents.M365Copilot.Beta.Models.UnifiedRoleManagementPolicyCustomExtensionRule(),
                 "#microsoft.graph.unifiedRoleManagementPolicyEnablementRule" => new global::Microsoft.Agents.M365Copilot.Beta.Models.UnifiedRoleManagementPolicyEnablementRule(),
                 "#microsoft.graph.unifiedRoleManagementPolicyExpirationRule" => new global::Microsoft.Agents.M365Copilot.Beta.Models.UnifiedRoleManagementPolicyExpirationRule(),
                 "#microsoft.graph.unifiedRoleManagementPolicyNotificationRule" => new global::Microsoft.Agents.M365Copilot.Beta.Models.UnifiedRoleManagementPolicyNotificationRule(),

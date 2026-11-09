@@ -41,6 +41,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             return mappingValue switch
             {
                 "#microsoft.graph.accessReviewAccessPackageAssignmentPolicyScope" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AccessReviewAccessPackageAssignmentPolicyScope(),
+                "#microsoft.graph.accessReviewCatalogScope" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AccessReviewCatalogScope(),
                 "#microsoft.graph.accessReviewInactiveUsersQueryScope" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AccessReviewInactiveUsersQueryScope(),
                 "#microsoft.graph.accessReviewPrincipalScope" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AccessReviewPrincipalScope(),
                 "#microsoft.graph.accessReviewQueryScope" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AccessReviewQueryScope(),

@@ -32,7 +32,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The policyId property</summary>
+        /// <summary>The unique identifier of the policy that contains the restriction.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PolicyId { get; set; }
@@ -54,7 +54,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         public global::Microsoft.Agents.M365Copilot.Beta.Models.AppManagementAuditLogRestrictionResult? RestrictionResult { get; set; }
         /// <summary>The restrictionState property</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.AppManagementAuditLogRestrictionState? RestrictionState { get; set; }
-        /// <summary>The restrictionType property</summary>
+        /// <summary>The type of restriction applied to the activity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RestrictionType { get; set; }

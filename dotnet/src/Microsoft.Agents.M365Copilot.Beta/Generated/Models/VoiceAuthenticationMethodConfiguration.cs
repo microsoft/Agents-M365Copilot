@@ -30,6 +30,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>true if users can register office phones, otherwise, false.</summary>
         public bool? IsOfficePhoneAllowed { get; set; }
+        /// <summary>Settings for routing voice authentication traffic through a telecom provider integration.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.TelecomProviderSettings? TelecomProviderSettings { get; set; }
+#nullable restore
+#else
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.TelecomProviderSettings TelecomProviderSettings { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.VoiceAuthenticationMethodConfiguration"/> and sets the default values.
         /// </summary>
@@ -58,6 +66,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "callerIdNumber", n => { CallerIdNumber = n.GetStringValue(); } },
                 { "includeTargets", n => { IncludeTargets = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.VoiceAuthenticationMethodTarget>(global::Microsoft.Agents.M365Copilot.Beta.Models.VoiceAuthenticationMethodTarget.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "isOfficePhoneAllowed", n => { IsOfficePhoneAllowed = n.GetBoolValue(); } },
+                { "telecomProviderSettings", n => { TelecomProviderSettings = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.TelecomProviderSettings>(global::Microsoft.Agents.M365Copilot.Beta.Models.TelecomProviderSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -71,6 +80,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteStringValue("callerIdNumber", CallerIdNumber);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.VoiceAuthenticationMethodTarget>("includeTargets", IncludeTargets);
             writer.WriteBoolValue("isOfficePhoneAllowed", IsOfficePhoneAllowed);
+            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.TelecomProviderSettings>("telecomProviderSettings", TelecomProviderSettings);
         }
     }
 }

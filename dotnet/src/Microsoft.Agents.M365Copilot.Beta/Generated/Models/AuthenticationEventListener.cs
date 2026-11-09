@@ -57,6 +57,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 "#microsoft.graph.onFraudProtectionLoadStartListener" => new global::Microsoft.Agents.M365Copilot.Beta.Models.OnFraudProtectionLoadStartListener(),
                 "#microsoft.graph.onInteractiveAuthFlowStartListener" => new global::Microsoft.Agents.M365Copilot.Beta.Models.OnInteractiveAuthFlowStartListener(),
                 "#microsoft.graph.onPasswordSubmitListener" => new global::Microsoft.Agents.M365Copilot.Beta.Models.OnPasswordSubmitListener(),
+                "#microsoft.graph.onPasswordUpdateListener" => new global::Microsoft.Agents.M365Copilot.Beta.Models.OnPasswordUpdateListener(),
                 "#microsoft.graph.onPhoneMethodLoadStartListener" => new global::Microsoft.Agents.M365Copilot.Beta.Models.OnPhoneMethodLoadStartListener(),
                 "#microsoft.graph.onTokenIssuanceStartListener" => new global::Microsoft.Agents.M365Copilot.Beta.Models.OnTokenIssuanceStartListener(),
                 "#microsoft.graph.onUserCreateStartListener" => new global::Microsoft.Agents.M365Copilot.Beta.Models.OnUserCreateStartListener(),

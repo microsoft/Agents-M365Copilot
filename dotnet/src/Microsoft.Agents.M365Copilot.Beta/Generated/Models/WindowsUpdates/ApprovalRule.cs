@@ -42,6 +42,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
+                "#microsoft.graph.windowsUpdates.driverUpdateApprovalRule" => new global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DriverUpdateApprovalRule(),
                 "#microsoft.graph.windowsUpdates.qualityUpdateApprovalRule" => new global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.QualityUpdateApprovalRule(),
                 "#microsoft.graph.windowsUpdates.recoveryApprovalRule" => new global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.RecoveryApprovalRule(),
                 _ => new global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.ApprovalRule(),
