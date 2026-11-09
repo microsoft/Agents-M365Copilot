@@ -14,7 +14,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates
     {
         /// <summary>The date and time when the ring is created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
-        /// <summary>The quality update deferral period in days. The value must be between 0 and 30. Optional.</summary>
+        /// <summary>The update deferral period in days. The value must be between 0 and 30. Optional.</summary>
         public int? DeferralInDays { get; set; }
         /// <summary>The ring description. The maximum length is 1,500 characters. Required</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -48,9 +48,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates
 #else
         public global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.IncludedGroupAssignment IncludedGroupAssignment { get; set; }
 #endif
-        /// <summary>The pause action for the quality update ring policy. Required.</summary>
+        /// <summary>The pause action for the update ring. Required.</summary>
         public bool? IsPaused { get; set; }
-        /// <summary>The date and time whenthe ring was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
+        /// <summary>The date and time when the ring was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -63,6 +63,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
+                "#microsoft.graph.windowsUpdates.driverUpdateRing" => new global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.DriverUpdateRing(),
+                "#microsoft.graph.windowsUpdates.featureUpdateRing" => new global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.FeatureUpdateRing(),
                 "#microsoft.graph.windowsUpdates.qualityUpdateRing" => new global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.QualityUpdateRing(),
                 _ => new global::Microsoft.Agents.M365Copilot.Beta.Models.WindowsUpdates.Ring(),
             };

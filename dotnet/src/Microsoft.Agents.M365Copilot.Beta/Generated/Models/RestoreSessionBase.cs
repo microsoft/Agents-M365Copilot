@@ -42,7 +42,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>Timestamp of the last modification of the restore session.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
-        /// <summary>The identifier of the protection policy that scopes the restore session. When supplied during create or update, the service validates that the referenced protection units belong to the specified policy.</summary>
+        /// <summary>The identifier of the protection policy that scopes the restore session. When supplied during creation or update, the service validates that the referenced protection units belong to the specified policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PolicyId { get; set; }

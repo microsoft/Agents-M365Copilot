@@ -14,7 +14,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The isEnabled property</summary>
+        /// <summary>Indicates whether identity verification events and credential provenance information are collected and exposed for Verified ID verification across the tenant. The default value is false when this property is omitted from the configuration object.</summary>
         public bool? IsEnabled { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

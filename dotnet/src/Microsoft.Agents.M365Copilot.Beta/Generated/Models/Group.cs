@@ -225,6 +225,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string Mail { get; set; }
 #endif
+        /// <summary>The identifier of the Exchange mailbox associated with a Microsoft 365 group. Treat this value as an opaque identifier and don&apos;t parse or validate its format. If the group mailbox isn&apos;t provisioned, this property returns 00000000-0000-0000-0000-000000000000. Requires $select to retrieve. Read-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MailboxId { get; set; }
+#nullable restore
+#else
+        public string MailboxId { get; set; }
+#endif
         /// <summary>Specifies whether the group is mail-enabled. Required. Returned by default. Supports $filter (eq, ne, not, and eq on null values).</summary>
         public bool? MailEnabled { get; set; }
         /// <summary>The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] &apos; ; : &lt;&gt; , SPACE. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith).</summary>
@@ -619,6 +627,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "mail", n => { Mail = n.GetStringValue(); } },
                 { "mailEnabled", n => { MailEnabled = n.GetBoolValue(); } },
                 { "mailNickname", n => { MailNickname = n.GetStringValue(); } },
+                { "mailboxId", n => { MailboxId = n.GetStringValue(); } },
                 { "memberOf", n => { MemberOf = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.DirectoryObject>(global::Microsoft.Agents.M365Copilot.Beta.Models.DirectoryObject.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "members", n => { Members = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.DirectoryObject>(global::Microsoft.Agents.M365Copilot.Beta.Models.DirectoryObject.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "membersWithLicenseErrors", n => { MembersWithLicenseErrors = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.DirectoryObject>(global::Microsoft.Agents.M365Copilot.Beta.Models.DirectoryObject.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -712,6 +721,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteBoolValue("isSubscribedByMail", IsSubscribedByMail);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.LicenseProcessingState>("licenseProcessingState", LicenseProcessingState);
             writer.WriteStringValue("mail", Mail);
+            writer.WriteStringValue("mailboxId", MailboxId);
             writer.WriteBoolValue("mailEnabled", MailEnabled);
             writer.WriteStringValue("mailNickname", MailNickname);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.DirectoryObject>("memberOf", MemberOf);

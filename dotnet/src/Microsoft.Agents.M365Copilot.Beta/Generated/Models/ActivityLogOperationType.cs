@@ -52,6 +52,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         #pragma warning disable CS1591
         RestoreTaskCompleted,
         #pragma warning restore CS1591
+        [EnumMember(Value = "backupPolicyDeleted")]
+        #pragma warning disable CS1591
+        BackupPolicyDeleted,
+        #pragma warning restore CS1591
         [EnumMember(Value = "unknownFutureValue")]
         #pragma warning disable CS1591
         UnknownFutureValue,

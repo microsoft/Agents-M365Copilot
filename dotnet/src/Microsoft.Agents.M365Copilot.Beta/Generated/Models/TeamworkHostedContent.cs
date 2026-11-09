@@ -40,6 +40,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             return mappingValue switch
             {
                 "#microsoft.graph.chatMessageHostedContent" => new global::Microsoft.Agents.M365Copilot.Beta.Models.ChatMessageHostedContent(),
+                "#microsoft.graph.teamworkCustomEmoji" => new global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkCustomEmoji(),
                 _ => new global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkHostedContent(),
             };
         }

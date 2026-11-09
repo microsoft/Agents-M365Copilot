@@ -70,6 +70,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 "#microsoft.graph.cloudPcBulkPowerOff" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CloudPcBulkPowerOff(),
                 "#microsoft.graph.cloudPcBulkPowerOn" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CloudPcBulkPowerOn(),
                 "#microsoft.graph.cloudPcBulkReinstallAgent" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CloudPcBulkReinstallAgent(),
+                "#microsoft.graph.cloudPcBulkRelocate" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CloudPcBulkRelocate(),
                 "#microsoft.graph.cloudPcBulkReprovision" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CloudPcBulkReprovision(),
                 "#microsoft.graph.cloudPcBulkResize" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CloudPcBulkResize(),
                 "#microsoft.graph.cloudPcBulkRestart" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CloudPcBulkRestart(),

@@ -24,6 +24,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>The date and time when the restore task was completed.</summary>
         public DateTimeOffset? RestoreCompletionDateTime { get; set; }
+        /// <summary>Indicates whether the restore job is standard, bulk, or granular. The possible values are: standard, bulk, unknownFutureValue, granular. Use the Prefer: include-unknown-enum-members request header to get the following value from this evolvable enum: granular.</summary>
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.RestoreJobType? RestoreJobType { get; set; }
         /// <summary>The unique identifier of the restore session associated with this activity log.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,8 +36,6 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>The restoreSessionStatus property</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.RestoreSessionStatus? RestoreSessionStatus { get; set; }
-        /// <summary>The tags property</summary>
-        public global::Microsoft.Agents.M365Copilot.Beta.Models.RestorePointTags? Tags { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.RestoreTaskActivityLog"/> and sets the default values.
         /// </summary>
@@ -64,9 +64,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "destinationType", n => { DestinationType = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.DestinationType>(); } },
                 { "restoreArtifactDetails", n => { RestoreArtifactDetails = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.RestoreArtifactDetails>(global::Microsoft.Agents.M365Copilot.Beta.Models.RestoreArtifactDetails.CreateFromDiscriminatorValue); } },
                 { "restoreCompletionDateTime", n => { RestoreCompletionDateTime = n.GetDateTimeOffsetValue(); } },
+                { "restoreJobType", n => { RestoreJobType = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.RestoreJobType>(); } },
                 { "restoreSessionId", n => { RestoreSessionId = n.GetStringValue(); } },
                 { "restoreSessionStatus", n => { RestoreSessionStatus = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.RestoreSessionStatus>(); } },
-                { "tags", n => { Tags = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.RestorePointTags>(); } },
             };
         }
         /// <summary>
@@ -80,9 +80,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.DestinationType>("destinationType", DestinationType);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.RestoreArtifactDetails>("restoreArtifactDetails", RestoreArtifactDetails);
             writer.WriteDateTimeOffsetValue("restoreCompletionDateTime", RestoreCompletionDateTime);
+            writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.RestoreJobType>("restoreJobType", RestoreJobType);
             writer.WriteStringValue("restoreSessionId", RestoreSessionId);
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.RestoreSessionStatus>("restoreSessionStatus", RestoreSessionStatus);
-            writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.RestorePointTags>("tags", Tags);
         }
     }
 }
