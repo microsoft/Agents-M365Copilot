@@ -73,8 +73,8 @@
   },
   "dependencies": {
     "@azure/core-auth": "^1.11.0",
-    "@microsoft/kiota-authentication-azure": "^1.0.0-preview.103",
-    "@microsoft/kiota-bundle": "^1.0.0-preview.103",
-    "tslib": "^2.6.2"
+    "@microsoft/kiota-authentication-azure": "^1.0.0-preview.112",
+    "@microsoft/kiota-bundle": "^1.0.0-preview.112",
+    "tslib": "^2.9.1"
   }
 }
