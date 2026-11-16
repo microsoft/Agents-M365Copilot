@@ -1,0 +1,67 @@
+from __future__ import annotations
+from collections.abc import Callable
+from dataclasses import dataclass, field
+from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
+from typing import Any, Optional, TYPE_CHECKING, Union
+
+if TYPE_CHECKING:
+    from .entity import Entity
+    from .privileged_access_group import PrivilegedAccessGroup
+    from .role_management_custom_callout_extension import RoleManagementCustomCalloutExtension
+
+from .entity import Entity
+
+@dataclass
+class PrivilegedAccessRoot(Entity, Parsable):
+    # The custom extensions configured for PIM role management operations.
+    custom_extensions: Optional[list[RoleManagementCustomCalloutExtension]] = None
+    # A group that's governed through Privileged Identity Management (PIM).
+    group: Optional[PrivilegedAccessGroup] = None
+    # The OdataType property
+    odata_type: Optional[str] = None
+    
+    @staticmethod
+    def create_from_discriminator_value(parse_node: ParseNode) -> PrivilegedAccessRoot:
+        """
+        Creates a new instance of the appropriate class based on discriminator value
+        param parse_node: The parse node to use to read the discriminator value and create the object
+        Returns: PrivilegedAccessRoot
+        """
+        if parse_node is None:
+            raise TypeError("parse_node cannot be null.")
+        return PrivilegedAccessRoot()
+    
+    def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
+        """
+        The deserialization information for the current model
+        Returns: dict[str, Callable[[ParseNode], None]]
+        """
+        from .entity import Entity
+        from .privileged_access_group import PrivilegedAccessGroup
+        from .role_management_custom_callout_extension import RoleManagementCustomCalloutExtension
+
+        from .entity import Entity
+        from .privileged_access_group import PrivilegedAccessGroup
+        from .role_management_custom_callout_extension import RoleManagementCustomCalloutExtension
+
+        fields: dict[str, Callable[[Any], None]] = {
+            "customExtensions": lambda n : setattr(self, 'custom_extensions', n.get_collection_of_object_values(RoleManagementCustomCalloutExtension)),
+            "group": lambda n : setattr(self, 'group', n.get_object_value(PrivilegedAccessGroup)),
+        }
+        super_fields = super().get_field_deserializers()
+        fields.update(super_fields)
+        return fields
+    
+    def serialize(self,writer: SerializationWriter) -> None:
+        """
+        Serializes information the current object
+        param writer: Serialization writer to use to serialize this model
+        Returns: None
+        """
+        if writer is None:
+            raise TypeError("writer cannot be null.")
+        super().serialize(writer)
+        writer.write_collection_of_object_values("customExtensions", self.custom_extensions)
+        writer.write_object_value("group", self.group)
+    
+

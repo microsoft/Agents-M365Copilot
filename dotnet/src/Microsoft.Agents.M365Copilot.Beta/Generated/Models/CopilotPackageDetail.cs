@@ -20,6 +20,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity> AcquireUsersAndGroups { get; set; }
 #endif
+        /// <summary>The number of distinct users who actively used the package during the reporting period.</summary>
+        public int? ActiveUsers { get; set; }
         /// <summary>The allowedUsersAndGroups property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -44,6 +46,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageElementDetail> ElementDetails { get; set; }
 #endif
+        /// <summary>The fraction of sessions that resulted in an exception, expressed as a value between 0 and 1.</summary>
+        public double? ExceptionRate { get; set; }
+        /// <summary>The date and time when the package was last used, in ISO 8601 format and UTC.</summary>
+        public DateTimeOffset? LastUsedDateTime { get; set; }
         /// <summary>The longDescription property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,6 +57,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #nullable restore
 #else
         public string LongDescription { get; set; }
+#endif
+        /// <summary>Request metadata returned by an explicit opt-in package detail read. Null when not loaded.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestMetadata? RequestMetadata { get; private set; }
+#nullable restore
+#else
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestMetadata RequestMetadata { get; private set; }
 #endif
         /// <summary>The sensitivity property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,6 +82,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity> SharedWithUsersAndGroups { get; set; }
 #endif
+        /// <summary>Total hours worked by the agent.</summary>
+        public double? TotalRunTimeInHours { get; set; }
+        /// <summary>The total number of sessions served by the package during the reporting period.</summary>
+        public int? TotalSessions { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageDetail"/> and sets the default values.
         /// </summary>
@@ -94,12 +112,18 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "acquireUsersAndGroups", n => { AcquireUsersAndGroups = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity>(global::Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "activeUsers", n => { ActiveUsers = n.GetIntValue(); } },
                 { "allowedUsersAndGroups", n => { AllowedUsersAndGroups = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity>(global::Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "categories", n => { Categories = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "elementDetails", n => { ElementDetails = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageElementDetail>(global::Microsoft.Agents.M365Copilot.Beta.Models.PackageElementDetail.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "exceptionRate", n => { ExceptionRate = n.GetDoubleValue(); } },
+                { "lastUsedDateTime", n => { LastUsedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "longDescription", n => { LongDescription = n.GetStringValue(); } },
+                { "requestMetadata", n => { RequestMetadata = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestMetadata>(global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestMetadata.CreateFromDiscriminatorValue); } },
                 { "sensitivity", n => { Sensitivity = n.GetStringValue(); } },
                 { "sharedWithUsersAndGroups", n => { SharedWithUsersAndGroups = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity>(global::Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "totalRunTimeInHours", n => { TotalRunTimeInHours = n.GetDoubleValue(); } },
+                { "totalSessions", n => { TotalSessions = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -111,12 +135,17 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity>("acquireUsersAndGroups", AcquireUsersAndGroups);
+            writer.WriteIntValue("activeUsers", ActiveUsers);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity>("allowedUsersAndGroups", AllowedUsersAndGroups);
             writer.WriteCollectionOfPrimitiveValues<string>("categories", Categories);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageElementDetail>("elementDetails", ElementDetails);
+            writer.WriteDoubleValue("exceptionRate", ExceptionRate);
+            writer.WriteDateTimeOffsetValue("lastUsedDateTime", LastUsedDateTime);
             writer.WriteStringValue("longDescription", LongDescription);
             writer.WriteStringValue("sensitivity", Sensitivity);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageAccessEntity>("sharedWithUsersAndGroups", SharedWithUsersAndGroups);
+            writer.WriteDoubleValue("totalRunTimeInHours", TotalRunTimeInHours);
+            writer.WriteIntValue("totalSessions", TotalSessions);
         }
     }
 }

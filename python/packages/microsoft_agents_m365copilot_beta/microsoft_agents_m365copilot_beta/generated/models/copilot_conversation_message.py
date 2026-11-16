@@ -35,11 +35,13 @@ class CopilotConversationMessage(Entity, Parsable):
             mapping_value = child_node.get_str_value() if child_node else None
         except AttributeError:
             mapping_value = None
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotConversationRequestMessage".casefold():
+        if not mapping_value:
+            return CopilotConversationMessage()
+        if mapping_value.casefold() == "#microsoft.graph.copilotConversationRequestMessage".casefold():
             from .copilot_conversation_request_message import CopilotConversationRequestMessage
 
             return CopilotConversationRequestMessage()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotConversationResponseMessage".casefold():
+        if mapping_value.casefold() == "#microsoft.graph.copilotConversationResponseMessage".casefold():
             from .copilot_conversation_response_message import CopilotConversationResponseMessage
 
             return CopilotConversationResponseMessage()

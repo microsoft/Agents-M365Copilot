@@ -29,6 +29,8 @@ class CallAiInsight(Entity, Parsable):
     meeting_notes: Optional[list[MeetingNote]] = None
     # The OdataType property
     odata_type: Optional[str] = None
+    # The recapUrl property
+    recap_url: Optional[str] = None
     # The viewpoint property
     viewpoint: Optional[CallAiInsightViewPoint] = None
     
@@ -65,6 +67,7 @@ class CallAiInsight(Entity, Parsable):
             "createdDateTime": lambda n : setattr(self, 'created_date_time', n.get_datetime_value()),
             "endDateTime": lambda n : setattr(self, 'end_date_time', n.get_datetime_value()),
             "meetingNotes": lambda n : setattr(self, 'meeting_notes', n.get_collection_of_object_values(MeetingNote)),
+            "recapUrl": lambda n : setattr(self, 'recap_url', n.get_str_value()),
             "viewpoint": lambda n : setattr(self, 'viewpoint', n.get_object_value(CallAiInsightViewPoint)),
         }
         super_fields = super().get_field_deserializers()
@@ -86,6 +89,7 @@ class CallAiInsight(Entity, Parsable):
         writer.write_datetime_value("createdDateTime", self.created_date_time)
         writer.write_datetime_value("endDateTime", self.end_date_time)
         writer.write_collection_of_object_values("meetingNotes", self.meeting_notes)
+        writer.write_str_value("recapUrl", self.recap_url)
         writer.write_object_value("viewpoint", self.viewpoint)
     
 

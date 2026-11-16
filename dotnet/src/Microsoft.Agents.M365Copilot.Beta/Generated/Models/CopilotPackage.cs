@@ -12,6 +12,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class CopilotPackage : global::Microsoft.Agents.M365Copilot.Beta.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The agentIdentityId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AgentIdentityId { get; set; }
+#nullable restore
+#else
+        public string AgentIdentityId { get; set; }
+#endif
         /// <summary>The appId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,6 +57,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #nullable restore
 #else
         public List<string> ElementTypes { get; set; }
+#endif
+        /// <summary>The governanceMetadata property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UntypedNode? GovernanceMetadata { get; set; }
+#nullable restore
+#else
+        public UntypedNode GovernanceMetadata { get; set; }
 #endif
         /// <summary>The isBlocked property</summary>
         public bool? IsBlocked { get; set; }
@@ -94,6 +110,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string Publisher { get; set; }
 #endif
+        /// <summary>The requestStatus property</summary>
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestStatus? RequestStatus { get; set; }
+        /// <summary>The requestType property</summary>
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestType? RequestType { get; set; }
         /// <summary>The shortDescription property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -151,6 +171,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                { "agentIdentityId", n => { AgentIdentityId = n.GetStringValue(); } },
                 { "appId", n => { AppId = n.GetStringValue(); } },
                 { "assetId", n => { AssetId = n.GetStringValue(); } },
                 { "availableTo", n => { AvailableTo = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus>(); } },
@@ -158,6 +179,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "deployedTo", n => { DeployedTo = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus>(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "elementTypes", n => { ElementTypes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "governanceMetadata", n => { GovernanceMetadata = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "isBlocked", n => { IsBlocked = n.GetBoolValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "manifestId", n => { ManifestId = n.GetStringValue(); } },
@@ -165,6 +187,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "ownerId", n => { OwnerId = n.GetStringValue(); } },
                 { "platform", n => { Platform = n.GetStringValue(); } },
                 { "publisher", n => { Publisher = n.GetStringValue(); } },
+                { "requestStatus", n => { RequestStatus = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestStatus>(); } },
+                { "requestType", n => { RequestType = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestType>(); } },
                 { "shortDescription", n => { ShortDescription = n.GetStringValue(); } },
                 { "supportedHosts", n => { SupportedHosts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageType>(); } },
@@ -180,6 +204,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteStringValue("agentIdentityId", AgentIdentityId);
             writer.WriteStringValue("appId", AppId);
             writer.WriteStringValue("assetId", AssetId);
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus>("availableTo", AvailableTo);
@@ -187,6 +212,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageStatus>("deployedTo", DeployedTo);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteCollectionOfPrimitiveValues<string>("elementTypes", ElementTypes);
+            writer.WriteObjectValue<UntypedNode>("governanceMetadata", GovernanceMetadata);
             writer.WriteBoolValue("isBlocked", IsBlocked);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteStringValue("manifestId", ManifestId);
@@ -194,6 +220,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteStringValue("ownerId", OwnerId);
             writer.WriteStringValue("platform", Platform);
             writer.WriteStringValue("publisher", Publisher);
+            writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestStatus>("requestStatus", RequestStatus);
+            writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestType>("requestType", RequestType);
             writer.WriteStringValue("shortDescription", ShortDescription);
             writer.WriteCollectionOfPrimitiveValues<string>("supportedHosts", SupportedHosts);
             writer.WriteEnumValue<global::Microsoft.Agents.M365Copilot.Beta.Models.PackageType>("type", Type);

@@ -1,4 +1,5 @@
 from __future__ import annotations
+import datetime
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from kiota_abstractions.base_request_builder import BaseRequestBuilder
@@ -16,6 +17,8 @@ from warnings import warn
 if TYPE_CHECKING:
     from ...models.copilot_report_root import CopilotReportRoot
     from ...models.o_data_errors.o_data_error import ODataError
+    from .get_microsoft365_copilot_emissions.get_microsoft365_copilot_emissions_request_builder import GetMicrosoft365CopilotEmissionsRequestBuilder
+    from .get_microsoft365_copilot_usage_user_detail_by_date_with_date.get_microsoft365_copilot_usage_user_detail_by_date_with_date_request_builder import GetMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilder
     from .get_microsoft365_copilot_usage_user_detail_with_periodversion_version.get_microsoft365_copilot_usage_user_detail_with_periodversion_version_request_builder import GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder
     from .get_microsoft365_copilot_user_count_summary_with_periodversion_version.get_microsoft365_copilot_user_count_summary_with_periodversion_version_request_builder import GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilder
     from .get_microsoft365_copilot_user_count_trend_with_periodversion_version.get_microsoft365_copilot_user_count_trend_with_periodversion_version_request_builder import GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder
@@ -70,6 +73,18 @@ class ReportsRequestBuilder(BaseRequestBuilder):
         from ...models.copilot_report_root import CopilotReportRoot
 
         return await self.request_adapter.send_async(request_info, CopilotReportRoot, error_mapping)
+    
+    def get_microsoft365_copilot_usage_user_detail_by_date_with_date(self,date: datetime.date) -> GetMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilder:
+        """
+        Provides operations to call the getMicrosoft365CopilotUsageUserDetailByDate method.
+        param date: Usage: date={date}
+        Returns: GetMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilder
+        """
+        if date is None:
+            raise TypeError("date cannot be null.")
+        from .get_microsoft365_copilot_usage_user_detail_by_date_with_date.get_microsoft365_copilot_usage_user_detail_by_date_with_date_request_builder import GetMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilder
+
+        return GetMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilder(self.request_adapter, self.path_parameters, date)
     
     def get_microsoft365_copilot_usage_user_detail_with_periodversion_version(self,period: str) -> GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder:
         """
@@ -176,6 +191,15 @@ class ReportsRequestBuilder(BaseRequestBuilder):
         if raw_url is None:
             raise TypeError("raw_url cannot be null.")
         return ReportsRequestBuilder(self.request_adapter, raw_url)
+    
+    @property
+    def get_microsoft365_copilot_emissions(self) -> GetMicrosoft365CopilotEmissionsRequestBuilder:
+        """
+        Provides operations to call the getMicrosoft365CopilotEmissions method.
+        """
+        from .get_microsoft365_copilot_emissions.get_microsoft365_copilot_emissions_request_builder import GetMicrosoft365CopilotEmissionsRequestBuilder
+
+        return GetMicrosoft365CopilotEmissionsRequestBuilder(self.request_adapter, self.path_parameters)
     
     @dataclass
     class ReportsRequestBuilderDeleteRequestConfiguration(RequestConfiguration[QueryParameters]):

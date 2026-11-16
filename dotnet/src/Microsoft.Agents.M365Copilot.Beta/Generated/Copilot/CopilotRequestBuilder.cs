@@ -5,6 +5,7 @@ using Microsoft.Agents.M365Copilot.Beta.Copilot.AgentRegistrations;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Agents;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Communications;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Conversations;
+using Microsoft.Agents.M365Copilot.Beta.Copilot.CostManagement;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Reports;
 using Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval;
@@ -50,6 +51,11 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot
         {
             get => new global::Microsoft.Agents.M365Copilot.Beta.Copilot.Conversations.ConversationsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The costManagement property</summary>
+        public global::Microsoft.Agents.M365Copilot.Beta.Copilot.CostManagement.CostManagementRequestBuilder CostManagement
+        {
+            get => new global::Microsoft.Agents.M365Copilot.Beta.Copilot.CostManagement.CostManagementRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Provides operations to manage the interactionHistory property of the microsoft.graph.copilotRoot entity.</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Copilot.InteractionHistory.InteractionHistoryRequestBuilder InteractionHistory
         {
@@ -61,11 +67,13 @@ namespace Microsoft.Agents.M365Copilot.Beta.Copilot
             get => new global::Microsoft.Agents.M365Copilot.Beta.Copilot.Reports.ReportsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the retrieval method.</summary>
+        [Obsolete(" as of 2024-12/PrivatePreview:retrievalAPI on 2024-02-23 and will be removed 2025-12-31")]
         public global::Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.RetrievalRequestBuilder Retrieval
         {
             get => new global::Microsoft.Agents.M365Copilot.Beta.Copilot.Retrieval.RetrievalRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the search method.</summary>
+        [Obsolete(" as of 2025-08/PrivatePreview:copilotsearchpreview1 on 2025-07-18 and will be removed 2025-09-15")]
         public global::Microsoft.Agents.M365Copilot.Beta.Copilot.Search.SearchRequestBuilder Search
         {
             get => new global::Microsoft.Agents.M365Copilot.Beta.Copilot.Search.SearchRequestBuilder(PathParameters, RequestAdapter);

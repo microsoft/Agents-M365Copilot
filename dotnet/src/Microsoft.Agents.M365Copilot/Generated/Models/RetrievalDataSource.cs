@@ -24,5 +24,9 @@ namespace Microsoft.Agents.M365Copilot.Models
         #pragma warning disable CS1591
         UnknownFutureValue,
         #pragma warning restore CS1591
+        [EnumMember(Value = "sharePointEmbedded")]
+        #pragma warning disable CS1591
+        SharePointEmbedded,
+        #pragma warning restore CS1591
     }
 }

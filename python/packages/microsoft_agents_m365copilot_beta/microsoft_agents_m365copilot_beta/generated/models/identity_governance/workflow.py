@@ -1,0 +1,130 @@
+from __future__ import annotations
+import datetime
+from collections.abc import Callable
+from dataclasses import dataclass, field
+from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
+from typing import Any, Optional, TYPE_CHECKING, Union
+
+if TYPE_CHECKING:
+    from ..directory_object import DirectoryObject
+    from .quarantine_details import QuarantineDetails
+    from .run import Run
+    from .subject_processing_result import SubjectProcessingResult
+    from .task_report import TaskReport
+    from .user_processing_result import UserProcessingResult
+    from .workflow_base import WorkflowBase
+    from .workflow_setting import WorkflowSetting
+    from .workflow_version import WorkflowVersion
+
+from .workflow_base import WorkflowBase
+
+@dataclass
+class Workflow(WorkflowBase, Parsable):
+    # The OdataType property
+    odata_type: Optional[str] = "#microsoft.graph.identityGovernance.workflow"
+    # When the workflow was deleted.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
+    deleted_date_time: Optional[datetime.datetime] = None
+    # The list of users that meet the workflowExecutionConditions of a workflow.
+    execution_scope: Optional[list[UserProcessingResult]] = None
+    # Identifier used for individually addressing a specific workflow.Supports $filter(eq, ne) and $orderby.
+    id: Optional[str] = None
+    # The date time when the workflow is expected to run next based on the schedule interval, if there are any users matching the execution conditions. Supports $filter(lt,gt) and $orderby.
+    next_schedule_run_date_time: Optional[datetime.datetime] = None
+    # A read-only collection of directory objects that are currently in-scope for the workflow based on its execution conditions. This property helps preview which users would be affected before running the workflow. Nullable. Read-only. Returned only on $expand. Supports $expand.
+    preview_scope: Optional[list[DirectoryObject]] = None
+    # The quarantineDetails property
+    quarantine_details: Optional[QuarantineDetails] = None
+    # Workflow runs.
+    runs: Optional[list[Run]] = None
+    # The settings property
+    settings: Optional[WorkflowSetting] = None
+    # The subjectProcessingResults property
+    subject_processing_results: Optional[list[SubjectProcessingResult]] = None
+    # Represents the aggregation of task execution data for tasks within a workflow object.
+    task_reports: Optional[list[TaskReport]] = None
+    # Per-user workflow execution results.
+    user_processing_results: Optional[list[UserProcessingResult]] = None
+    # The current version number of the workflow. Value is 1 when the workflow is first created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
+    version: Optional[int] = None
+    # The workflow versions that are available.
+    versions: Optional[list[WorkflowVersion]] = None
+    
+    @staticmethod
+    def create_from_discriminator_value(parse_node: ParseNode) -> Workflow:
+        """
+        Creates a new instance of the appropriate class based on discriminator value
+        param parse_node: The parse node to use to read the discriminator value and create the object
+        Returns: Workflow
+        """
+        if parse_node is None:
+            raise TypeError("parse_node cannot be null.")
+        return Workflow()
+    
+    def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
+        """
+        The deserialization information for the current model
+        Returns: dict[str, Callable[[ParseNode], None]]
+        """
+        from ..directory_object import DirectoryObject
+        from .quarantine_details import QuarantineDetails
+        from .run import Run
+        from .subject_processing_result import SubjectProcessingResult
+        from .task_report import TaskReport
+        from .user_processing_result import UserProcessingResult
+        from .workflow_base import WorkflowBase
+        from .workflow_setting import WorkflowSetting
+        from .workflow_version import WorkflowVersion
+
+        from ..directory_object import DirectoryObject
+        from .quarantine_details import QuarantineDetails
+        from .run import Run
+        from .subject_processing_result import SubjectProcessingResult
+        from .task_report import TaskReport
+        from .user_processing_result import UserProcessingResult
+        from .workflow_base import WorkflowBase
+        from .workflow_setting import WorkflowSetting
+        from .workflow_version import WorkflowVersion
+
+        fields: dict[str, Callable[[Any], None]] = {
+            "deletedDateTime": lambda n : setattr(self, 'deleted_date_time', n.get_datetime_value()),
+            "executionScope": lambda n : setattr(self, 'execution_scope', n.get_collection_of_object_values(UserProcessingResult)),
+            "id": lambda n : setattr(self, 'id', n.get_str_value()),
+            "nextScheduleRunDateTime": lambda n : setattr(self, 'next_schedule_run_date_time', n.get_datetime_value()),
+            "previewScope": lambda n : setattr(self, 'preview_scope', n.get_collection_of_object_values(DirectoryObject)),
+            "quarantineDetails": lambda n : setattr(self, 'quarantine_details', n.get_object_value(QuarantineDetails)),
+            "runs": lambda n : setattr(self, 'runs', n.get_collection_of_object_values(Run)),
+            "settings": lambda n : setattr(self, 'settings', n.get_object_value(WorkflowSetting)),
+            "subjectProcessingResults": lambda n : setattr(self, 'subject_processing_results', n.get_collection_of_object_values(SubjectProcessingResult)),
+            "taskReports": lambda n : setattr(self, 'task_reports', n.get_collection_of_object_values(TaskReport)),
+            "userProcessingResults": lambda n : setattr(self, 'user_processing_results', n.get_collection_of_object_values(UserProcessingResult)),
+            "version": lambda n : setattr(self, 'version', n.get_int_value()),
+            "versions": lambda n : setattr(self, 'versions', n.get_collection_of_object_values(WorkflowVersion)),
+        }
+        super_fields = super().get_field_deserializers()
+        fields.update(super_fields)
+        return fields
+    
+    def serialize(self,writer: SerializationWriter) -> None:
+        """
+        Serializes information the current object
+        param writer: Serialization writer to use to serialize this model
+        Returns: None
+        """
+        if writer is None:
+            raise TypeError("writer cannot be null.")
+        super().serialize(writer)
+        writer.write_datetime_value("deletedDateTime", self.deleted_date_time)
+        writer.write_collection_of_object_values("executionScope", self.execution_scope)
+        writer.write_str_value("id", self.id)
+        writer.write_datetime_value("nextScheduleRunDateTime", self.next_schedule_run_date_time)
+        writer.write_collection_of_object_values("previewScope", self.preview_scope)
+        writer.write_object_value("quarantineDetails", self.quarantine_details)
+        writer.write_collection_of_object_values("runs", self.runs)
+        writer.write_object_value("settings", self.settings)
+        writer.write_collection_of_object_values("subjectProcessingResults", self.subject_processing_results)
+        writer.write_collection_of_object_values("taskReports", self.task_reports)
+        writer.write_collection_of_object_values("userProcessingResults", self.user_processing_results)
+        writer.write_int_value("version", self.version)
+        writer.write_collection_of_object_values("versions", self.versions)
+    
+

@@ -6,18 +6,26 @@ import { createCopilotReportRootFromDiscriminatorValue, serializeCopilotReportRo
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '../../models/oDataErrors/index.js';
 // @ts-ignore
+import { GetMicrosoft365CopilotEmissionsRequestBuilderRequestsMetadata, type GetMicrosoft365CopilotEmissionsRequestBuilder } from './getMicrosoft365CopilotEmissions/index.js';
+// @ts-ignore
+import { GetMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilderRequestsMetadata, type GetMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilder } from './getMicrosoft365CopilotUsageUserDetailByDateWithDate/index.js';
+// @ts-ignore
 import { GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderRequestsMetadata, type GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilder } from './getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersion/index.js';
 // @ts-ignore
 import { GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilderRequestsMetadata, type GetMicrosoft365CopilotUserCountSummaryWithPeriodversionVersionRequestBuilder } from './getMicrosoft365CopilotUserCountSummaryWithPeriodversionVersion/index.js';
 // @ts-ignore
 import { GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilderRequestsMetadata, type GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilder } from './getMicrosoft365CopilotUserCountTrendWithPeriodversionVersion/index.js';
 // @ts-ignore
-import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
+import { type BaseRequestBuilder, type DateOnly, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the reports property of the microsoft.graph.copilotRoot entity.
  */
 export interface ReportsRequestBuilder extends BaseRequestBuilder<ReportsRequestBuilder> {
+    /**
+     * Provides operations to call the getMicrosoft365CopilotEmissions method.
+     */
+    get getMicrosoft365CopilotEmissions(): GetMicrosoft365CopilotEmissionsRequestBuilder;
     /**
      * Delete navigation property reports for copilot
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -31,6 +39,12 @@ export interface ReportsRequestBuilder extends BaseRequestBuilder<ReportsRequest
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<ReportsRequestBuilderGetQueryParameters> | undefined) : Promise<CopilotReportRoot | undefined>;
+    /**
+     * Provides operations to call the getMicrosoft365CopilotUsageUserDetailByDate method.
+     * @param date Usage: date={date}
+     * @returns {GetMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilder}
+     */
+     getMicrosoft365CopilotUsageUserDetailByDateWithDate(date: DateOnly | undefined) : GetMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilder;
     /**
      * Provides operations to call the getMicrosoft365CopilotUsageUserDetail method.
      * @param period Usage: period='{period}'
@@ -105,6 +119,10 @@ const ReportsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  * Metadata for all the navigation properties in the request builder.
  */
 export const ReportsRequestBuilderNavigationMetadata: Record<Exclude<keyof ReportsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    getMicrosoft365CopilotUsageUserDetailByDateWithDate: {
+        requestsMetadata: GetMicrosoft365CopilotUsageUserDetailByDateWithDateRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["date"],
+    },
     getMicrosoft365CopilotUsageUserDetailWithPeriodversionVersion: {
         requestsMetadata: GetMicrosoft365CopilotUsageUserDetailWithPeriodversionVersionRequestBuilderRequestsMetadata,
         pathParametersMappings: ["period"],
@@ -116,6 +134,9 @@ export const ReportsRequestBuilderNavigationMetadata: Record<Exclude<keyof Repor
     getMicrosoft365CopilotUserCountTrendWithPeriodversionVersion: {
         requestsMetadata: GetMicrosoft365CopilotUserCountTrendWithPeriodversionVersionRequestBuilderRequestsMetadata,
         pathParametersMappings: ["period"],
+    },
+    getMicrosoft365CopilotEmissions: {
+        requestsMetadata: GetMicrosoft365CopilotEmissionsRequestBuilderRequestsMetadata,
     },
 };
 /**

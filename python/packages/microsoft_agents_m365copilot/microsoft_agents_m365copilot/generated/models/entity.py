@@ -42,51 +42,53 @@ class Entity(AdditionalDataHolder, Parsable):
             mapping_value = child_node.get_str_value() if child_node else None
         except AttributeError:
             mapping_value = None
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.aiInteraction".casefold():
+        if not mapping_value:
+            return Entity()
+        if mapping_value.casefold() == "#microsoft.graph.aiInteraction".casefold():
             from .ai_interaction import AiInteraction
 
             return AiInteraction()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.aiInteractionHistory".casefold():
+        if mapping_value.casefold() == "#microsoft.graph.aiInteractionHistory".casefold():
             from .ai_interaction_history import AiInteractionHistory
 
             return AiInteractionHistory()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.aiOnlineMeeting".casefold():
+        if mapping_value.casefold() == "#microsoft.graph.aiOnlineMeeting".casefold():
             from .ai_online_meeting import AiOnlineMeeting
 
             return AiOnlineMeeting()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.aiUser".casefold():
+        if mapping_value.casefold() == "#microsoft.graph.aiUser".casefold():
             from .ai_user import AiUser
 
             return AiUser()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.callAiInsight".casefold():
+        if mapping_value.casefold() == "#microsoft.graph.callAiInsight".casefold():
             from .call_ai_insight import CallAiInsight
 
             return CallAiInsight()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotAdmin".casefold():
+        if mapping_value.casefold() == "#microsoft.graph.copilotAdmin".casefold():
             from .copilot_admin import CopilotAdmin
 
             return CopilotAdmin()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotAdminCatalog".casefold():
+        if mapping_value.casefold() == "#microsoft.graph.copilotAdminCatalog".casefold():
             from .copilot_admin_catalog import CopilotAdminCatalog
 
             return CopilotAdminCatalog()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotAdminLimitedMode".casefold():
+        if mapping_value.casefold() == "#microsoft.graph.copilotAdminLimitedMode".casefold():
             from .copilot_admin_limited_mode import CopilotAdminLimitedMode
 
             return CopilotAdminLimitedMode()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotAdminSetting".casefold():
+        if mapping_value.casefold() == "#microsoft.graph.copilotAdminSetting".casefold():
             from .copilot_admin_setting import CopilotAdminSetting
 
             return CopilotAdminSetting()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotPackage".casefold():
+        if mapping_value.casefold() == "#microsoft.graph.copilotPackage".casefold():
             from .copilot_package import CopilotPackage
 
             return CopilotPackage()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotPackageDetail".casefold():
+        if mapping_value.casefold() == "#microsoft.graph.copilotPackageDetail".casefold():
             from .copilot_package_detail import CopilotPackageDetail
 
             return CopilotPackageDetail()
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotReportRoot".casefold():
+        if mapping_value.casefold() == "#microsoft.graph.copilotReportRoot".casefold():
             from .copilot_report_root import CopilotReportRoot
 
             return CopilotReportRoot()

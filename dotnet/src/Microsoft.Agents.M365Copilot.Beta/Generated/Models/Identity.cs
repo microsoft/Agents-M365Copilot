@@ -58,6 +58,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
+                "#microsoft.graph.applicationIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.ApplicationIdentity(),
                 "#microsoft.graph.auditUserIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AuditUserIdentity(),
                 "#microsoft.graph.azureCommunicationServicesUserIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.AzureCommunicationServicesUserIdentity(),
                 "#microsoft.graph.callRecords.userIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CallRecords.UserIdentity(),
@@ -67,6 +68,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 "#microsoft.graph.communicationsGuestIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CommunicationsGuestIdentity(),
                 "#microsoft.graph.communicationsPhoneIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CommunicationsPhoneIdentity(),
                 "#microsoft.graph.communicationsUserIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CommunicationsUserIdentity(),
+                "#microsoft.graph.copilotPackageRequestPrincipal" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestPrincipal(),
                 "#microsoft.graph.emailIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.EmailIdentity(),
                 "#microsoft.graph.groupIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.GroupIdentity(),
                 "#microsoft.graph.initiator" => new global::Microsoft.Agents.M365Copilot.Beta.Models.Initiator(),

@@ -389,6 +389,10 @@ export interface CopilotAdminSetting extends Entity, Parsable {
 }
 export interface CopilotPackage extends Entity, Parsable {
     /**
+     * The agentIdentityId property
+     */
+    agentIdentityId?: string | null;
+    /**
      * The appId property
      */
     appId?: string | null;
@@ -416,6 +420,10 @@ export interface CopilotPackage extends Entity, Parsable {
      * The elementTypes property
      */
     elementTypes?: string[] | null;
+    /**
+     * The governanceMetadata property
+     */
+    governanceMetadata?: UntypedNode | null;
     /**
      * The isBlocked property
      */
@@ -445,6 +453,14 @@ export interface CopilotPackage extends Entity, Parsable {
      */
     publisher?: string | null;
     /**
+     * The requestStatus property
+     */
+    requestStatus?: CopilotPackageRequestStatus | null;
+    /**
+     * The requestType property
+     */
+    requestType?: CopilotPackageRequestType | null;
+    /**
      * The shortDescription property
      */
     shortDescription?: string | null;
@@ -471,6 +487,10 @@ export interface CopilotPackageDetail extends CopilotPackage, Parsable {
      */
     acquireUsersAndGroups?: PackageAccessEntity[] | null;
     /**
+     * The number of distinct users who actively used the package during the reporting period.
+     */
+    activeUsers?: number | null;
+    /**
      * The allowedUsersAndGroups property
      */
     allowedUsersAndGroups?: PackageAccessEntity[] | null;
@@ -483,9 +503,21 @@ export interface CopilotPackageDetail extends CopilotPackage, Parsable {
      */
     elementDetails?: PackageElementDetail[] | null;
     /**
+     * The fraction of sessions that resulted in an exception, expressed as a value between 0 and 1.
+     */
+    exceptionRate?: number | null;
+    /**
+     * The date and time when the package was last used, in ISO 8601 format and UTC.
+     */
+    lastUsedDateTime?: Date | null;
+    /**
      * The longDescription property
      */
     longDescription?: string | null;
+    /**
+     * Request metadata returned by an explicit opt-in package detail read. Null when not loaded.
+     */
+    requestMetadata?: CopilotPackageRequestMetadata | null;
     /**
      * The sensitivity property
      */
@@ -494,6 +526,14 @@ export interface CopilotPackageDetail extends CopilotPackage, Parsable {
      * The sharedWithUsersAndGroups property
      */
     sharedWithUsersAndGroups?: PackageAccessEntity[] | null;
+    /**
+     * Total hours worked by the agent.
+     */
+    totalRunTimeInHours?: number | null;
+    /**
+     * The total number of sessions served by the package during the reporting period.
+     */
+    totalSessions?: number | null;
 }
 export interface CopilotPackageDetailCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
@@ -501,6 +541,64 @@ export interface CopilotPackageDetailCollectionResponse extends BaseCollectionPa
      */
     value?: CopilotPackageDetail[] | null;
 }
+/**
+ * The business identifier, first explicit assignee contact, all explicit assignees, submission date, and additional collected data of one package request.
+ */
+export interface CopilotPackageRequestInfo extends AdditionalDataHolder, Parsable {
+    /**
+     * Additional data collected for this request, represented as a JSON object. Null when no value is available. Read-only.
+     */
+    additionalMetadata?: UntypedNode | null;
+    /**
+     * All explicit assigned recipients returned by Governance, in source order with duplicates preserved. The first member supplies the requestedBy display contact; the collection is not truncated to that member. Empty means no explicit members were returned, not that the request has no audience. Broad or all-users audiences are not expanded or represented by this collection.
+     */
+    assignees?: CopilotPackageRequestPrincipal[] | null;
+    /**
+     * The business request identifier returned by Governance, or null when unavailable. Not a requester identity, title identifier, correlation identifier, or Graph resource key or address. Uniqueness and lifetime stability are not guaranteed. No existing Graph operation in this proposal consumes this value.
+     */
+    identifier?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The display name and contact address of the first explicitly assigned principal. The address may be a mail address or user principal name. Null only when there are no explicit assignees; a present first assignee may have null name and address. The first principal may be a user, group, or agent; requestedBy does not identify the request creator.
+     */
+    requestedBy?: EmailAddress | null;
+    /**
+     * The request submission date and time in ISO 8601 format. Null when unknown; independent of assignee presence and not the package creation or modification time.
+     */
+    requestedDateTime?: Date | null;
+}
+/**
+ * A snapshot of first explicit assignee contacts, request dates, and additional request data for a package.
+ */
+export interface CopilotPackageRequestMetadata extends AdditionalDataHolder, Parsable {
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The request snapshots returned by the service. Empty when metadata was loaded and no requests were found.
+     */
+    requests?: CopilotPackageRequestInfo[] | null;
+}
+/**
+ * A read-only snapshot of one explicit Governance assignee. Inherited id and displayName are the source identifier and resolved name, or null when unavailable. Identifier meaning depends on principalType and does not imply a resolvable directory-object URL. Openness is inherited from identity; the producer returns only the documented fields, never raw owner objects.
+ */
+export interface CopilotPackageRequestPrincipal extends Identity, Parsable {
+    /**
+     * The principalType property
+     */
+    principalType?: CopilotPackageRequestPrincipalType | null;
+    /**
+     * The actual userPrincipalName returned by Governance for user or agentUser principals. Null when unavailable and for other principal kinds. Never inferred from an email address or creator identity.
+     */
+    userPrincipalName?: string | null;
+}
+export type CopilotPackageRequestPrincipalType = (typeof CopilotPackageRequestPrincipalTypeObject)[keyof typeof CopilotPackageRequestPrincipalTypeObject];
+export type CopilotPackageRequestStatus = (typeof CopilotPackageRequestStatusObject)[keyof typeof CopilotPackageRequestStatusObject];
+export type CopilotPackageRequestType = (typeof CopilotPackageRequestTypeObject)[keyof typeof CopilotPackageRequestTypeObject];
 export interface CopilotReportRoot extends Entity, Parsable {
 }
 /**
@@ -832,6 +930,33 @@ export function createCopilotPackageFromDiscriminatorValue(parseNode: ParseNode 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotPackageRequestInfo}
+ */
+// @ts-ignore
+export function createCopilotPackageRequestInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotPackageRequestInfo;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotPackageRequestMetadata}
+ */
+// @ts-ignore
+export function createCopilotPackageRequestMetadataFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotPackageRequestMetadata;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotPackageRequestPrincipal}
+ */
+// @ts-ignore
+export function createCopilotPackageRequestPrincipalFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotPackageRequestPrincipal;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CopilotReportRoot}
  */
 // @ts-ignore
@@ -875,6 +1000,15 @@ export function createDictionariesFromDiscriminatorValue(parseNode: ParseNode | 
         }
     }
     return deserializeIntoDictionaries;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {EmailAddress}
+ */
+// @ts-ignore
+export function createEmailAddressFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoEmailAddress;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -974,6 +1108,8 @@ export function createIdentityFromDiscriminatorValue(parseNode: ParseNode | unde
                     return deserializeIntoCommunicationsPhoneIdentity;
                 case "#microsoft.graph.communicationsUserIdentity":
                     return deserializeIntoCommunicationsUserIdentity;
+                case "#microsoft.graph.copilotPackageRequestPrincipal":
+                    return deserializeIntoCopilotPackageRequestPrincipal;
                 case "#microsoft.graph.emailIdentity":
                     return deserializeIntoEmailIdentity;
                 case "#microsoft.graph.initiator":
@@ -1193,6 +1329,15 @@ export function createServicePrincipalIdentityFromDiscriminatorValue(parseNode: 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {SharePointEmbeddedConfiguration}
+ */
+// @ts-ignore
+export function createSharePointEmbeddedConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSharePointEmbeddedConfiguration;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SharePointGroupIdentity}
  */
 // @ts-ignore
@@ -1271,6 +1416,10 @@ export interface DataSourceConfiguration extends AdditionalDataHolder, Parsable 
      * The OdataType property
      */
     odataType?: string | null;
+    /**
+     * The sharePointEmbedded property
+     */
+    sharePointEmbedded?: SharePointEmbeddedConfiguration | null;
 }
 /**
  * The deserialization information for the current model
@@ -1704,6 +1853,7 @@ export function deserializeIntoCopilotAdminSetting(copilotAdminSetting: Partial<
 export function deserializeIntoCopilotPackage(copilotPackage: Partial<CopilotPackage> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(copilotPackage),
+        "agentIdentityId": n => { copilotPackage.agentIdentityId = n.getStringValue(); },
         "appId": n => { copilotPackage.appId = n.getStringValue(); },
         "assetId": n => { copilotPackage.assetId = n.getStringValue(); },
         "availableTo": n => { copilotPackage.availableTo = n.getEnumValue<PackageStatus>(PackageStatusObject); },
@@ -1711,6 +1861,7 @@ export function deserializeIntoCopilotPackage(copilotPackage: Partial<CopilotPac
         "deployedTo": n => { copilotPackage.deployedTo = n.getEnumValue<PackageStatus>(PackageStatusObject); },
         "displayName": n => { copilotPackage.displayName = n.getStringValue(); },
         "elementTypes": n => { copilotPackage.elementTypes = n.getCollectionOfPrimitiveValues<string>("string"); },
+        "governanceMetadata": n => { copilotPackage.governanceMetadata = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
         "isBlocked": n => { copilotPackage.isBlocked = n.getBooleanValue(); },
         "lastModifiedDateTime": n => { copilotPackage.lastModifiedDateTime = n.getDateValue(); },
         "manifestId": n => { copilotPackage.manifestId = n.getStringValue(); },
@@ -1718,6 +1869,8 @@ export function deserializeIntoCopilotPackage(copilotPackage: Partial<CopilotPac
         "ownerId": n => { copilotPackage.ownerId = n.getStringValue(); },
         "platform": n => { copilotPackage.platform = n.getStringValue(); },
         "publisher": n => { copilotPackage.publisher = n.getStringValue(); },
+        "requestStatus": n => { copilotPackage.requestStatus = n.getEnumValue<CopilotPackageRequestStatus>(CopilotPackageRequestStatusObject); },
+        "requestType": n => { copilotPackage.requestType = n.getEnumValue<CopilotPackageRequestType>(CopilotPackageRequestTypeObject); },
         "shortDescription": n => { copilotPackage.shortDescription = n.getStringValue(); },
         "supportedHosts": n => { copilotPackage.supportedHosts = n.getCollectionOfPrimitiveValues<string>("string"); },
         "type": n => { copilotPackage.type = n.getEnumValue<PackageType>(PackageTypeObject); },
@@ -1735,12 +1888,18 @@ export function deserializeIntoCopilotPackageDetail(copilotPackageDetail: Partia
     return {
         ...deserializeIntoCopilotPackage(copilotPackageDetail),
         "acquireUsersAndGroups": n => { copilotPackageDetail.acquireUsersAndGroups = n.getCollectionOfObjectValues<PackageAccessEntity>(createPackageAccessEntityFromDiscriminatorValue); },
+        "activeUsers": n => { copilotPackageDetail.activeUsers = n.getNumberValue(); },
         "allowedUsersAndGroups": n => { copilotPackageDetail.allowedUsersAndGroups = n.getCollectionOfObjectValues<PackageAccessEntity>(createPackageAccessEntityFromDiscriminatorValue); },
         "categories": n => { copilotPackageDetail.categories = n.getCollectionOfPrimitiveValues<string>("string"); },
         "elementDetails": n => { copilotPackageDetail.elementDetails = n.getCollectionOfObjectValues<PackageElementDetail>(createPackageElementDetailFromDiscriminatorValue); },
+        "exceptionRate": n => { copilotPackageDetail.exceptionRate = n.getNumberValue(); },
+        "lastUsedDateTime": n => { copilotPackageDetail.lastUsedDateTime = n.getDateValue(); },
         "longDescription": n => { copilotPackageDetail.longDescription = n.getStringValue(); },
+        "requestMetadata": n => { copilotPackageDetail.requestMetadata = n.getObjectValue<CopilotPackageRequestMetadata>(createCopilotPackageRequestMetadataFromDiscriminatorValue); },
         "sensitivity": n => { copilotPackageDetail.sensitivity = n.getStringValue(); },
         "sharedWithUsersAndGroups": n => { copilotPackageDetail.sharedWithUsersAndGroups = n.getCollectionOfObjectValues<PackageAccessEntity>(createPackageAccessEntityFromDiscriminatorValue); },
+        "totalRunTimeInHours": n => { copilotPackageDetail.totalRunTimeInHours = n.getNumberValue(); },
+        "totalSessions": n => { copilotPackageDetail.totalSessions = n.getNumberValue(); },
     }
 }
 /**
@@ -1753,6 +1912,47 @@ export function deserializeIntoCopilotPackageDetailCollectionResponse(copilotPac
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(copilotPackageDetailCollectionResponse),
         "value": n => { copilotPackageDetailCollectionResponse.value = n.getCollectionOfObjectValues<CopilotPackageDetail>(createCopilotPackageDetailFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotPackageRequestInfo The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotPackageRequestInfo(copilotPackageRequestInfo: Partial<CopilotPackageRequestInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "additionalMetadata": n => { copilotPackageRequestInfo.additionalMetadata = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
+        "assignees": n => { copilotPackageRequestInfo.assignees = n.getCollectionOfObjectValues<CopilotPackageRequestPrincipal>(createCopilotPackageRequestPrincipalFromDiscriminatorValue); },
+        "identifier": n => { copilotPackageRequestInfo.identifier = n.getStringValue(); },
+        "@odata.type": n => { copilotPackageRequestInfo.odataType = n.getStringValue(); },
+        "requestedBy": n => { copilotPackageRequestInfo.requestedBy = n.getObjectValue<EmailAddress>(createEmailAddressFromDiscriminatorValue); },
+        "requestedDateTime": n => { copilotPackageRequestInfo.requestedDateTime = n.getDateValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotPackageRequestMetadata The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotPackageRequestMetadata(copilotPackageRequestMetadata: Partial<CopilotPackageRequestMetadata> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "@odata.type": n => { copilotPackageRequestMetadata.odataType = n.getStringValue(); },
+        "requests": n => { copilotPackageRequestMetadata.requests = n.getCollectionOfObjectValues<CopilotPackageRequestInfo>(createCopilotPackageRequestInfoFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotPackageRequestPrincipal The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotPackageRequestPrincipal(copilotPackageRequestPrincipal: Partial<CopilotPackageRequestPrincipal> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoIdentity(copilotPackageRequestPrincipal),
+        "principalType": n => { copilotPackageRequestPrincipal.principalType = n.getEnumValue<CopilotPackageRequestPrincipalType>(CopilotPackageRequestPrincipalTypeObject); },
+        "userPrincipalName": n => { copilotPackageRequestPrincipal.userPrincipalName = n.getStringValue(); },
     }
 }
 /**
@@ -1776,6 +1976,7 @@ export function deserializeIntoDataSourceConfiguration(dataSourceConfiguration: 
     return {
         "externalItem": n => { dataSourceConfiguration.externalItem = n.getObjectValue<ExternalItemConfiguration>(createExternalItemConfigurationFromDiscriminatorValue); },
         "@odata.type": n => { dataSourceConfiguration.odataType = n.getStringValue(); },
+        "sharePointEmbedded": n => { dataSourceConfiguration.sharePointEmbedded = n.getObjectValue<SharePointEmbeddedConfiguration>(createSharePointEmbeddedConfigurationFromDiscriminatorValue); },
     }
 }
 /**
@@ -1798,6 +1999,19 @@ export function deserializeIntoDetailsInfo(detailsInfo: Partial<DetailsInfo> | u
 export function deserializeIntoDictionaries(dictionaries: Partial<Dictionaries> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "@odata.type": n => { dictionaries.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param EmailAddress The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoEmailAddress(emailAddress: Partial<EmailAddress> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "address": n => { emailAddress.address = n.getStringValue(); },
+        "name": n => { emailAddress.name = n.getStringValue(); },
+        "@odata.type": n => { emailAddress.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -2099,6 +2313,18 @@ export function deserializeIntoServicePrincipalIdentity(servicePrincipalIdentity
 }
 /**
  * The deserialization information for the current model
+ * @param SharePointEmbeddedConfiguration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoSharePointEmbeddedConfiguration(sharePointEmbeddedConfiguration: Partial<SharePointEmbeddedConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "containerTypeId": n => { sharePointEmbeddedConfiguration.containerTypeId = n.getStringValue(); },
+        "@odata.type": n => { sharePointEmbeddedConfiguration.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param SharePointGroupIdentity The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -2204,6 +2430,20 @@ export interface DetailsInfo extends AdditionalDataHolder, Parsable {
     odataType?: string | null;
 }
 export interface Dictionaries extends AdditionalDataHolder, Parsable {
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
+export interface EmailAddress extends AdditionalDataHolder, Parsable {
+    /**
+     * The email address of the person or entity.
+     */
+    address?: string | null;
+    /**
+     * The display name of the person or entity.
+     */
+    name?: string | null;
     /**
      * The OdataType property
      */
@@ -2935,6 +3175,7 @@ export function serializeCopilotAdminSetting(writer: SerializationWriter, copilo
 export function serializeCopilotPackage(writer: SerializationWriter, copilotPackage: Partial<CopilotPackage> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!copilotPackage || isSerializingDerivedType) { return; }
     serializeEntity(writer, copilotPackage, isSerializingDerivedType)
+    writer.writeStringValue("agentIdentityId", copilotPackage.agentIdentityId);
     writer.writeStringValue("appId", copilotPackage.appId);
     writer.writeStringValue("assetId", copilotPackage.assetId);
     writer.writeEnumValue<PackageStatus>("availableTo", copilotPackage.availableTo);
@@ -2942,6 +3183,7 @@ export function serializeCopilotPackage(writer: SerializationWriter, copilotPack
     writer.writeEnumValue<PackageStatus>("deployedTo", copilotPackage.deployedTo);
     writer.writeStringValue("displayName", copilotPackage.displayName);
     writer.writeCollectionOfPrimitiveValues<string>("elementTypes", copilotPackage.elementTypes);
+    writer.writeObjectValue("governanceMetadata", copilotPackage.governanceMetadata);
     writer.writeBooleanValue("isBlocked", copilotPackage.isBlocked);
     writer.writeDateValue("lastModifiedDateTime", copilotPackage.lastModifiedDateTime);
     writer.writeStringValue("manifestId", copilotPackage.manifestId);
@@ -2949,6 +3191,8 @@ export function serializeCopilotPackage(writer: SerializationWriter, copilotPack
     writer.writeStringValue("ownerId", copilotPackage.ownerId);
     writer.writeStringValue("platform", copilotPackage.platform);
     writer.writeStringValue("publisher", copilotPackage.publisher);
+    writer.writeEnumValue<CopilotPackageRequestStatus>("requestStatus", copilotPackage.requestStatus);
+    writer.writeEnumValue<CopilotPackageRequestType>("requestType", copilotPackage.requestType);
     writer.writeStringValue("shortDescription", copilotPackage.shortDescription);
     writer.writeCollectionOfPrimitiveValues<string>("supportedHosts", copilotPackage.supportedHosts);
     writer.writeEnumValue<PackageType>("type", copilotPackage.type);
@@ -2971,12 +3215,17 @@ export function serializeCopilotPackageDetail(writer: SerializationWriter, copil
     if (!copilotPackageDetail || isSerializingDerivedType) { return; }
     serializeCopilotPackage(writer, copilotPackageDetail, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<PackageAccessEntity>("acquireUsersAndGroups", copilotPackageDetail.acquireUsersAndGroups, serializePackageAccessEntity);
+    writer.writeNumberValue("activeUsers", copilotPackageDetail.activeUsers);
     writer.writeCollectionOfObjectValues<PackageAccessEntity>("allowedUsersAndGroups", copilotPackageDetail.allowedUsersAndGroups, serializePackageAccessEntity);
     writer.writeCollectionOfPrimitiveValues<string>("categories", copilotPackageDetail.categories);
     writer.writeCollectionOfObjectValues<PackageElementDetail>("elementDetails", copilotPackageDetail.elementDetails, serializePackageElementDetail);
+    writer.writeNumberValue("exceptionRate", copilotPackageDetail.exceptionRate);
+    writer.writeDateValue("lastUsedDateTime", copilotPackageDetail.lastUsedDateTime);
     writer.writeStringValue("longDescription", copilotPackageDetail.longDescription);
     writer.writeStringValue("sensitivity", copilotPackageDetail.sensitivity);
     writer.writeCollectionOfObjectValues<PackageAccessEntity>("sharedWithUsersAndGroups", copilotPackageDetail.sharedWithUsersAndGroups, serializePackageAccessEntity);
+    writer.writeNumberValue("totalRunTimeInHours", copilotPackageDetail.totalRunTimeInHours);
+    writer.writeNumberValue("totalSessions", copilotPackageDetail.totalSessions);
 }
 /**
  * Serializes information the current object
@@ -2989,6 +3238,42 @@ export function serializeCopilotPackageDetailCollectionResponse(writer: Serializ
     if (!copilotPackageDetailCollectionResponse || isSerializingDerivedType) { return; }
     serializeBaseCollectionPaginationCountResponse(writer, copilotPackageDetailCollectionResponse, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<CopilotPackageDetail>("value", copilotPackageDetailCollectionResponse.value, serializeCopilotPackageDetail);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotPackageRequestInfo The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotPackageRequestInfo(writer: SerializationWriter, copilotPackageRequestInfo: Partial<CopilotPackageRequestInfo> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotPackageRequestInfo || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", copilotPackageRequestInfo.odataType);
+    writer.writeAdditionalData(copilotPackageRequestInfo.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotPackageRequestMetadata The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotPackageRequestMetadata(writer: SerializationWriter, copilotPackageRequestMetadata: Partial<CopilotPackageRequestMetadata> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotPackageRequestMetadata || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", copilotPackageRequestMetadata.odataType);
+    writer.writeAdditionalData(copilotPackageRequestMetadata.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotPackageRequestPrincipal The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotPackageRequestPrincipal(writer: SerializationWriter, copilotPackageRequestPrincipal: Partial<CopilotPackageRequestPrincipal> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotPackageRequestPrincipal || isSerializingDerivedType) { return; }
+    serializeIdentity(writer, copilotPackageRequestPrincipal, isSerializingDerivedType)
+    writer.writeEnumValue<CopilotPackageRequestPrincipalType>("principalType", copilotPackageRequestPrincipal.principalType);
 }
 /**
  * Serializes information the current object
@@ -3012,6 +3297,7 @@ export function serializeDataSourceConfiguration(writer: SerializationWriter, da
     if (!dataSourceConfiguration || isSerializingDerivedType) { return; }
     writer.writeObjectValue<ExternalItemConfiguration>("externalItem", dataSourceConfiguration.externalItem, serializeExternalItemConfiguration);
     writer.writeStringValue("@odata.type", dataSourceConfiguration.odataType);
+    writer.writeObjectValue<SharePointEmbeddedConfiguration>("sharePointEmbedded", dataSourceConfiguration.sharePointEmbedded, serializeSharePointEmbeddedConfiguration);
     writer.writeAdditionalData(dataSourceConfiguration.additionalData);
 }
 /**
@@ -3042,6 +3328,20 @@ export function serializeDictionaries(writer: SerializationWriter, dictionaries:
             serializeSearchResourceMetadataDictionary(writer, dictionaries, true);
         break;
     }
+}
+/**
+ * Serializes information the current object
+ * @param EmailAddress The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeEmailAddress(writer: SerializationWriter, emailAddress: Partial<EmailAddress> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!emailAddress || isSerializingDerivedType) { return; }
+    writer.writeStringValue("address", emailAddress.address);
+    writer.writeStringValue("name", emailAddress.name);
+    writer.writeStringValue("@odata.type", emailAddress.odataType);
+    writer.writeAdditionalData(emailAddress.additionalData);
 }
 /**
  * Serializes information the current object
@@ -3169,6 +3469,9 @@ export function serializeIdentity(writer: SerializationWriter, identity: Partial
         break;
         case "#microsoft.graph.communicationsUserIdentity":
             serializeCommunicationsUserIdentity(writer, identity, true);
+        break;
+        case "#microsoft.graph.copilotPackageRequestPrincipal":
+            serializeCopilotPackageRequestPrincipal(writer, identity, true);
         break;
         case "#microsoft.graph.emailIdentity":
             serializeEmailIdentity(writer, identity, true);
@@ -3484,6 +3787,19 @@ export function serializeServicePrincipalIdentity(writer: SerializationWriter, s
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SharePointEmbeddedConfiguration The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeSharePointEmbeddedConfiguration(writer: SerializationWriter, sharePointEmbeddedConfiguration: Partial<SharePointEmbeddedConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!sharePointEmbeddedConfiguration || isSerializingDerivedType) { return; }
+    writer.writeStringValue("containerTypeId", sharePointEmbeddedConfiguration.containerTypeId);
+    writer.writeStringValue("@odata.type", sharePointEmbeddedConfiguration.odataType);
+    writer.writeAdditionalData(sharePointEmbeddedConfiguration.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param SharePointGroupIdentity The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -3587,6 +3903,16 @@ export interface ServicePrincipalIdentity extends Identity, Parsable {
      */
     appId?: string | null;
 }
+export interface SharePointEmbeddedConfiguration extends AdditionalDataHolder, Parsable {
+    /**
+     * The containerTypeId property
+     */
+    containerTypeId?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 export interface SharePointGroupIdentity extends Identity, Parsable {
     /**
      * The principal ID of the SharePoint group in the tenant. Read-only.
@@ -3668,6 +3994,46 @@ export const BodyTypeObject = {
     Text: "text",
     Html: "html",
 } as const;
+export const CopilotPackageRequestPrincipalTypeObject = {
+    /** An explicit user principal. */
+    User: "user",
+    /** An explicit group principal; group membership is not expanded. */
+    Group: "group",
+    /** An agent application identifier reported by Governance. Not assumed to be a service principal object identifier. */
+    AgentApplication: "agentApplication",
+    /** An agent user principal. */
+    AgentUser: "agentUser",
+    /** An evolvable value also used when the source principal kind is missing or unrecognized. */
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+/**
+ * The lifecycle status of a package governance request.
+ */
+export const CopilotPackageRequestStatusObject = {
+    /** The request is awaiting a decision. */
+    Pending: "pending",
+    /** The request was approved. */
+    Approved: "approved",
+    /** The request was rejected. */
+    Rejected: "rejected",
+    /** An evolvable sentinel for future request statuses. */
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+/**
+ * The type of a package governance request.
+ */
+export const CopilotPackageRequestTypeObject = {
+    /** A request to publish a package. */
+    Publish: "publish",
+    /** A request to activate a package. */
+    Activate: "activate",
+    /** A request to grant package access. */
+    Access: "access",
+    /** A request to update a package. */
+    Update: "update",
+    /** An evolvable sentinel for future request types. */
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
 export const EndpointTypeObject = {
     DefaultEscaped: "default",
     Voicemail: "voicemail",
@@ -3699,6 +4065,7 @@ export const RetrievalDataSourceObject = {
     OneDriveBusiness: "oneDriveBusiness",
     ExternalItem: "externalItem",
     UnknownFutureValue: "unknownFutureValue",
+    SharePointEmbedded: "sharePointEmbedded",
 } as const;
 export const RetrievalEntityTypeObject = {
     Site: "site",
