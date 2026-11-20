@@ -26,11 +26,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         <PrivateAssets>all</PrivateAssets>
     </PackageVersion>
-    <PackageVersion Include="coverlet.msbuild" Version="10.0.1">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageVersion>
-
     <PackageVersion Include="Microsoft.Kiota.Abstractions" Version="2.0.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.9.0" />    
     <PackageVersion Include="Moq" Version="4.20.72" />
