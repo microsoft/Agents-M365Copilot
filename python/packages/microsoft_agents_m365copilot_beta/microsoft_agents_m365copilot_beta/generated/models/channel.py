@@ -19,6 +19,7 @@ if TYPE_CHECKING:
     from .teams_app import TeamsApp
     from .teams_channel_planner import TeamsChannelPlanner
     from .teams_tab import TeamsTab
+    from .teamwork_channel_tag import TeamworkChannelTag
 
 from .entity import Entity
 
@@ -70,6 +71,8 @@ class Channel(Entity, Parsable):
     summary: Optional[ChannelSummary] = None
     # A collection of all the tabs in the channel.
     tabs: Optional[list[TeamsTab]] = None
+    # The tags owned by the channel.
+    tags: Optional[list[TeamworkChannelTag]] = None
     # The ID of the Microsoft Entra tenant.
     tenant_id: Optional[str] = None
     # A hyperlink to the channel in Microsoft Teams. This URL is supplied when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.
@@ -104,6 +107,7 @@ class Channel(Entity, Parsable):
         from .teams_app import TeamsApp
         from .teams_channel_planner import TeamsChannelPlanner
         from .teams_tab import TeamsTab
+        from .teamwork_channel_tag import TeamworkChannelTag
 
         from .channel_layout_type import ChannelLayoutType
         from .channel_membership_type import ChannelMembershipType
@@ -118,6 +122,7 @@ class Channel(Entity, Parsable):
         from .teams_app import TeamsApp
         from .teams_channel_planner import TeamsChannelPlanner
         from .teams_tab import TeamsTab
+        from .teamwork_channel_tag import TeamworkChannelTag
 
         fields: dict[str, Callable[[Any], None]] = {
             "allMembers": lambda n : setattr(self, 'all_members', n.get_collection_of_object_values(ConversationMember)),
@@ -142,6 +147,7 @@ class Channel(Entity, Parsable):
             "sharedWithTeams": lambda n : setattr(self, 'shared_with_teams', n.get_collection_of_object_values(SharedWithChannelTeamInfo)),
             "summary": lambda n : setattr(self, 'summary', n.get_object_value(ChannelSummary)),
             "tabs": lambda n : setattr(self, 'tabs', n.get_collection_of_object_values(TeamsTab)),
+            "tags": lambda n : setattr(self, 'tags', n.get_collection_of_object_values(TeamworkChannelTag)),
             "tenantId": lambda n : setattr(self, 'tenant_id', n.get_str_value()),
             "webUrl": lambda n : setattr(self, 'web_url', n.get_str_value()),
         }
@@ -180,6 +186,7 @@ class Channel(Entity, Parsable):
         writer.write_collection_of_object_values("sharedWithTeams", self.shared_with_teams)
         writer.write_object_value("summary", self.summary)
         writer.write_collection_of_object_values("tabs", self.tabs)
+        writer.write_collection_of_object_values("tags", self.tags)
         writer.write_str_value("tenantId", self.tenant_id)
         writer.write_str_value("webUrl", self.web_url)
     

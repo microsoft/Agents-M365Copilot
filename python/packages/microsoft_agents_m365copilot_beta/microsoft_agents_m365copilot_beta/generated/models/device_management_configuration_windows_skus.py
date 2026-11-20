@@ -31,4 +31,10 @@ class DeviceManagementConfigurationWindowsSkus(str, Enum):
     WindowsMultiSession = "windowsMultiSession",
     # Indicates the Device Management Configuration Windows SKU is 'surfaceHub' 
     SurfaceHub = "surfaceHub",
+    # Indicates that the setting is applicable to the Windows CPC SKU family. Existing public beta member.
+    WindowsCPC = "windowsCPC",
+    # Evolvable enumeration sentinel value. Do not use.
+    UnknownFutureValue = "unknownFutureValue",
+    # Indicates that the setting is applicable to the Windows Server SKU family. Use the Prefer: include-unknown-enum-members request header to receive this value.
+    WindowsServer = "windowsServer",
 

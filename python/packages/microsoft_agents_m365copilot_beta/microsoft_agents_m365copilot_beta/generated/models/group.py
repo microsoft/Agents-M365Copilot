@@ -107,6 +107,8 @@ class Group(DirectoryObject, Parsable):
     is_assignable_to_role: Optional[bool] = None
     # Indicates whether the user marked the group as favorite.
     is_favorite: Optional[bool] = None
+    # Indicates whether hard deletion protection is enabled for the group. Supported for cloud-only groups. When true, permanent deletion is blocked for seven days after soft deletion. The group can still be soft deleted and restored. Once enabled, protection can't be disabled or set to null. Enable protection on an existing group by using Update group; enabling it during creation isn't supported. Setting this property to true requires the Microsoft Entra Backup Administrator role. Nullable. Requires $select to retrieve. Supports $filter (eq).
+    is_hard_delete_protection_enabled: Optional[bool] = None
     # Indicates whether the group is a member of a restricted management administrative unit. If not set, the default value is null and the default behavior is false. Read-only.  To manage a group member of a restricted management administrative unit, the administrator or calling app must be assigned a Microsoft Entra role at the scope of the restricted management administrative unit.
     is_management_restricted: Optional[bool] = None
     # Indicates whether the signed-in user is subscribed to receive email conversations. The default value is true. Requires $select to retrieve. Supported only on the Get group API (GET /groups/{ID}).
@@ -322,6 +324,7 @@ class Group(DirectoryObject, Parsable):
             "isArchived": lambda n : setattr(self, 'is_archived', n.get_bool_value()),
             "isAssignableToRole": lambda n : setattr(self, 'is_assignable_to_role', n.get_bool_value()),
             "isFavorite": lambda n : setattr(self, 'is_favorite', n.get_bool_value()),
+            "isHardDeleteProtectionEnabled": lambda n : setattr(self, 'is_hard_delete_protection_enabled', n.get_bool_value()),
             "isManagementRestricted": lambda n : setattr(self, 'is_management_restricted', n.get_bool_value()),
             "isSubscribedByMail": lambda n : setattr(self, 'is_subscribed_by_mail', n.get_bool_value()),
             "licenseProcessingState": lambda n : setattr(self, 'license_processing_state', n.get_object_value(LicenseProcessingState)),
@@ -422,6 +425,7 @@ class Group(DirectoryObject, Parsable):
         writer.write_bool_value("isArchived", self.is_archived)
         writer.write_bool_value("isAssignableToRole", self.is_assignable_to_role)
         writer.write_bool_value("isFavorite", self.is_favorite)
+        writer.write_bool_value("isHardDeleteProtectionEnabled", self.is_hard_delete_protection_enabled)
         writer.write_bool_value("isManagementRestricted", self.is_management_restricted)
         writer.write_bool_value("isSubscribedByMail", self.is_subscribed_by_mail)
         writer.write_object_value("licenseProcessingState", self.license_processing_state)

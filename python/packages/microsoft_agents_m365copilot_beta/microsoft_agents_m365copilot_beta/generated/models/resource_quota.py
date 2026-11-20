@@ -12,13 +12,13 @@ class ResourceQuota(AdditionalDataHolder, Parsable):
     # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additional_data: dict[str, Any] = field(default_factory=dict)
 
-    # The maxPercentage property
+    # The maximum percentage of the organization's directorySizeQuota.total that this resource type can consume. The value must be between 0 and 100. A value of 0 blocks creation of new resources of this type. If omitted for supported resource types, the default is 80.
     max_percentage: Optional[int] = None
     # The OdataType property
     odata_type: Optional[str] = None
     # The resourceType property
     resource_type: Optional[ResourceQuotaType] = None
-    # The total property
+    # The effective maximum number of resources allowed, calculated from directorySizeQuota.total and maxPercentage. This value is read-only and changes when the organization's overall quota changes.
     total: Optional[int] = None
     
     @staticmethod

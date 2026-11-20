@@ -11,4 +11,6 @@ class AppliedConditionalAccessPolicyResult(str, Enum):
     ReportOnlyFailure = "reportOnlyFailure",
     ReportOnlyNotApplied = "reportOnlyNotApplied",
     ReportOnlyInterrupted = "reportOnlyInterrupted",
+    NotAppliedAllAppsExclusion = "notAppliedAllAppsExclusion",
+    ReportOnlyNotAppliedAllAppsExclusion = "reportOnlyNotAppliedAllAppsExclusion",
 

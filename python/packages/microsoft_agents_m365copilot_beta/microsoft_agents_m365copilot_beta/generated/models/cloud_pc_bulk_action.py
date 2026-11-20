@@ -22,6 +22,7 @@ if TYPE_CHECKING:
     from .cloud_pc_bulk_resize import CloudPcBulkResize
     from .cloud_pc_bulk_restart import CloudPcBulkRestart
     from .cloud_pc_bulk_restore import CloudPcBulkRestore
+    from .cloud_pc_bulk_set_device_name import CloudPcBulkSetDeviceName
     from .cloud_pc_bulk_set_review_status import CloudPcBulkSetReviewStatus
     from .cloud_pc_bulk_troubleshoot import CloudPcBulkTroubleshoot
     from .entity import Entity
@@ -32,7 +33,7 @@ from .entity import Entity
 class CloudPcBulkAction(Entity, Parsable):
     # Run summary of this bulk action.
     action_summary: Optional[CloudPcBulkActionSummary] = None
-    # The cloudPcIds property
+    # IDs of the Cloud PCs the bulk action applies to. Individual Cloud PC IDs are GUID-formatted strings.
     cloud_pc_ids: Optional[list[str]] = None
     # The date and time when the bulk action was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     created_date_time: Optional[datetime.datetime] = None
@@ -119,6 +120,10 @@ class CloudPcBulkAction(Entity, Parsable):
             from .cloud_pc_bulk_restore import CloudPcBulkRestore
 
             return CloudPcBulkRestore()
+        if mapping_value.casefold() == "#microsoft.graph.cloudPcBulkSetDeviceName".casefold():
+            from .cloud_pc_bulk_set_device_name import CloudPcBulkSetDeviceName
+
+            return CloudPcBulkSetDeviceName()
         if mapping_value.casefold() == "#microsoft.graph.cloudPcBulkSetReviewStatus".casefold():
             from .cloud_pc_bulk_set_review_status import CloudPcBulkSetReviewStatus
 
@@ -150,6 +155,7 @@ class CloudPcBulkAction(Entity, Parsable):
         from .cloud_pc_bulk_resize import CloudPcBulkResize
         from .cloud_pc_bulk_restart import CloudPcBulkRestart
         from .cloud_pc_bulk_restore import CloudPcBulkRestore
+        from .cloud_pc_bulk_set_device_name import CloudPcBulkSetDeviceName
         from .cloud_pc_bulk_set_review_status import CloudPcBulkSetReviewStatus
         from .cloud_pc_bulk_troubleshoot import CloudPcBulkTroubleshoot
         from .entity import Entity
@@ -170,6 +176,7 @@ class CloudPcBulkAction(Entity, Parsable):
         from .cloud_pc_bulk_resize import CloudPcBulkResize
         from .cloud_pc_bulk_restart import CloudPcBulkRestart
         from .cloud_pc_bulk_restore import CloudPcBulkRestore
+        from .cloud_pc_bulk_set_device_name import CloudPcBulkSetDeviceName
         from .cloud_pc_bulk_set_review_status import CloudPcBulkSetReviewStatus
         from .cloud_pc_bulk_troubleshoot import CloudPcBulkTroubleshoot
         from .entity import Entity

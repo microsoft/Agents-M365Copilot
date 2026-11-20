@@ -15,4 +15,7 @@ class ConditionCategory(str, Enum):
     CloudPcUserSettingsPersistenceUsageThreshold = "cloudPcUserSettingsPersistenceUsageThreshold",
     CloudPcDeprovisionedThreshold = "cloudPcDeprovisionedThreshold",
     CloudPcReserveDeprovisionFailedThreshold = "cloudPcReserveDeprovisionFailedThreshold",
+    CloudPcReserveLicensesAvailabilityBelowThreshold = "cloudPcReserveLicensesAvailabilityBelowThreshold",
+    ReserveCloudPcUnlicensedUsersAssignment = "reserveCloudPcUnlicensedUsersAssignment",
+    CloudPcMaxUserStorageUsageThresholdExceeded = "cloudPcMaxUserStorageUsageThresholdExceeded",
 

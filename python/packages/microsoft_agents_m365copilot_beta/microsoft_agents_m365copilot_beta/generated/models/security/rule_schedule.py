@@ -12,7 +12,7 @@ class RuleSchedule(AdditionalDataHolder, Parsable):
 
     # The recurring time interval at which the rule runs (ISO 8601 duration, for example P1D for daily, PT1H for hourly).
     frequency: Optional[datetime.timedelta] = None
-    # The lookback property
+    # The time window evaluated by each scheduled rule run, expressed as an ISO 8601 duration, for example PT4H for four hours. Events match this window based on either event time or ingestion time. The value must be at least frequency. When omitted, the service derives the default lookback from frequency. Not supported for near-real-time rules with a zero frequency.
     lookback: Optional[datetime.timedelta] = None
     # Timestamp of the custom detection rule's next scheduled run. Deprecated. This property will be removed from this resource on 2026-10-01.
     next_run_date_time: Optional[datetime.datetime] = None

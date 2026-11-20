@@ -17,7 +17,7 @@ class TeamsChannelPlanner(Entity, Parsable):
     odata_type: Optional[str] = None
     # A collection of plannerPlan objects owned by the Teams channel. Currently, only shared channels are supported. Read-only. Nullable.
     plans: Optional[list[PlannerPlan]] = None
-    # Read-only. Nullable. The collection of Planner Graph V4 plans owned by the Teams channel. Currently, only shared channels are supported.
+    # Read-only. Nullable. The collection of plans in the Planner Unified plans Graph API owned by the Teams channel. Currently, only shared channels are supported.
     plans_v2: Optional[list[Plan]] = None
     
     @staticmethod

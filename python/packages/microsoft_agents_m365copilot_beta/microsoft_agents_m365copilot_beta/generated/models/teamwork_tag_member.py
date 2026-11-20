@@ -11,11 +11,11 @@ from .entity import Entity
 
 @dataclass
 class TeamworkTagMember(Entity, Parsable):
-    # The member's display name.
+    # The member's display name. For channel-owned tags, the value can be null if the user can't be resolved.
     display_name: Optional[str] = None
     # The OdataType property
     odata_type: Optional[str] = None
-    # The ID of the tenant that the tag member is a part of.
+    # The ID of the tenant that the tag member is a part of. For channel-owned tags, this is the request tenant, not a separately resolved home tenant.
     tenant_id: Optional[str] = None
     # The user ID of the member.
     user_id: Optional[str] = None
