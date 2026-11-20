@@ -42,9 +42,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>Indicates whether the context link is currently active.</summary>
         public bool? IsActive { get; set; }
-        /// <summary>Indicates whether this context link represents the original creation surface for the plan.</summary>
+        /// <summary>Indicates whether this context link represents the original creation surface for the plan. Service-populated. Read-only.</summary>
         public bool? IsCreation { get; set; }
-        /// <summary>Identifier for the context the plan is surfaced in.</summary>
+        /// <summary>Client-specified identifier for the context the plan is surfaced in. Immutable after creation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Key { get; set; }
@@ -52,7 +52,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string Key { get; set; }
 #endif
-        /// <summary>Application ID of the app that owns the surface the plan is linked from.</summary>
+        /// <summary>Application ID of the app that owns the surface the plan is linked from. Service-populated. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OwnerAppId { get; set; }

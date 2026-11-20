@@ -14,7 +14,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The maxPercentage property</summary>
+        /// <summary>The maximum percentage of the organization&apos;s directorySizeQuota.total that this resource type can consume. The value must be between 0 and 100. A value of 0 blocks creation of new resources of this type. If omitted for supported resource types, the default is 80.</summary>
         public int? MaxPercentage { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -26,7 +26,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>The resourceType property</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.ResourceQuotaType? ResourceType { get; set; }
-        /// <summary>The total property</summary>
+        /// <summary>The effective maximum number of resources allowed, calculated from directorySizeQuota.total and maxPercentage. This value is read-only and changes when the organization&apos;s overall quota changes.</summary>
         public int? Total { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.ResourceQuota"/> and sets the default values.

@@ -170,7 +170,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ProvisionedPlan> ProvisionedPlans { get; set; }
 #endif
-        /// <summary>The resourceQuotas property</summary>
+        /// <summary>The quota configurations for resource types in the organization. Each resourceType value must be unique in the collection. The maxPercentage value represents the maximum percentage of directorySizeQuota.total that the resource type can consume, from 0 to 100. A value of 0 blocks creation of new resources of that type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ResourceQuota>? ResourceQuotas { get; set; }

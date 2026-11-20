@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class UserAssignment : global::Microsoft.Agents.M365Copilot.Beta.Models.PlannerDelta, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Identity of the user (or application) that made the assignment.</summary>
+        /// <summary>Identity of the user (or application) that made the assignment. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet? AssignedBy { get; set; }
@@ -20,7 +20,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet AssignedBy { get; set; }
 #endif
-        /// <summary>Date and time the assignment was made.</summary>
+        /// <summary>Date and time the assignment was made. Read-only.</summary>
         public DateTimeOffset? AssignedDateTime { get; set; }
         /// <summary>Server-computed, read-only capability flags indicating which optional features are enabled for the entity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

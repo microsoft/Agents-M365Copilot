@@ -140,6 +140,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.TeamsTab> Tabs { get; set; }
 #endif
+        /// <summary>The tags owned by the channel.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkChannelTag>? Tags { get; set; }
+#nullable restore
+#else
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkChannelTag> Tags { get; set; }
+#endif
         /// <summary>The ID of the Microsoft Entra tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -196,6 +204,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "sharedWithTeams", n => { SharedWithTeams = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.SharedWithChannelTeamInfo>(global::Microsoft.Agents.M365Copilot.Beta.Models.SharedWithChannelTeamInfo.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "summary", n => { Summary = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.ChannelSummary>(global::Microsoft.Agents.M365Copilot.Beta.Models.ChannelSummary.CreateFromDiscriminatorValue); } },
                 { "tabs", n => { Tabs = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.TeamsTab>(global::Microsoft.Agents.M365Copilot.Beta.Models.TeamsTab.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "tags", n => { Tags = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkChannelTag>(global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkChannelTag.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "tenantId", n => { TenantId = n.GetStringValue(); } },
                 { "webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
@@ -230,6 +239,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.SharedWithChannelTeamInfo>("sharedWithTeams", SharedWithTeams);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.ChannelSummary>("summary", Summary);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.TeamsTab>("tabs", Tabs);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkChannelTag>("tags", Tags);
             writer.WriteStringValue("tenantId", TenantId);
             writer.WriteStringValue("webUrl", WebUrl);
         }

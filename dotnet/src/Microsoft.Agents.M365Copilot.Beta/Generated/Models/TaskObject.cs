@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class TaskObject : global::Microsoft.Agents.M365Copilot.Beta.Models.PlannerDelta, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Information about whether the entity is archived, and when it was archived.</summary>
+        /// <summary>Service-populated information about whether the entity is archived, and when it was archived. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.PlannerArchivalInfo? ArchivalInfo { get; set; }
@@ -36,7 +36,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public global::Microsoft.Agents.M365Copilot.Beta.Models.TaskCapability Capabilities { get; private set; }
 #endif
-        /// <summary>The collection of checklist items on the task. Read-only. Nullable.</summary>
+        /// <summary>Checklist items on the task. Can be supplied when creating a task by using a deep insert. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ChecklistItemV4>? Checklist { get; set; }
@@ -44,7 +44,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ChecklistItemV4> Checklist { get; set; }
 #endif
-        /// <summary>Identity of the user who marked the task complete.</summary>
+        /// <summary>Identity of the user who marked the task complete. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet? CompletedBy { get; set; }
@@ -52,7 +52,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet CompletedBy { get; set; }
 #endif
-        /// <summary>Date and time the task was completed.</summary>
+        /// <summary>Date and time the task was completed. Read-only.</summary>
         public DateTimeOffset? CompletedDateTime { get; set; }
         /// <summary>Read-only creation metadata for the entity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -110,11 +110,11 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public List<string> GoalIds { get; set; }
 #endif
-        /// <summary>Indicates whether the task has an associated chat.</summary>
+        /// <summary>Indicates whether the task has an associated chat. Read-only.</summary>
         public bool? HasChat { get; set; }
-        /// <summary>Indicates whether the task has subtasks.</summary>
+        /// <summary>Indicates whether the task has subtasks. Read-only.</summary>
         public bool? HasChildren { get; set; }
-        /// <summary>Indicates whether the task is on the critical path, as computed from its dependencies.</summary>
+        /// <summary>Indicates whether the task is on the critical path, as computed from its dependencies. Read-only.</summary>
         public bool? IsCritical { get; set; }
         /// <summary>Identity of the user (or application) who last modified the entity. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -126,7 +126,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>Date and time the entity was last modified. The value is represented in ISO 8601 format and is always in UTC time. Read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
-        /// <summary>The collection of content links attached to the task. Read-only. Nullable.</summary>
+        /// <summary>Content links attached to the task. Can be supplied when creating a task by using a deep insert. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ContentLink>? Links { get; set; }
@@ -204,7 +204,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>Indicates progress on the task. The possible values are: notStarted, inProgress, completed, blocked, unknownFutureValue.</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.PlannerTaskStatus? Status { get; set; }
-        /// <summary>The collection of user assignments on the task. Read-only. Nullable.</summary>
+        /// <summary>User assignments on the task. Can be supplied when creating a task by using a deep insert. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.UserAssignment>? UserAssignments { get; set; }
