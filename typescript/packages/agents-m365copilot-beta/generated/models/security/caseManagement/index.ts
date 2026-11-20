@@ -208,7 +208,7 @@ export type CaseTaskCategory = (typeof CaseTaskCategoryObject)[keyof typeof Case
 export type CaseTaskPriority = (typeof CaseTaskPriorityObject)[keyof typeof CaseTaskPriorityObject];
 export interface CaseTypeConfiguration extends Entity, Parsable {
     /**
-     * The contained custom-field definitions that make up the blank-form schema for this case type. Read-only. Supports $count, $expand, $filter, $orderby, $select, $skip, and $top.
+     * The contained custom-field definitions that make up the blank-form schema for this case type. Read-only. Supports $count, $expand, $filter, $orderby, $select, and $top.
      */
     customFields?: CustomFieldDefinition[] | null;
     /**
@@ -220,11 +220,11 @@ export interface CaseTypeConfiguration extends Entity, Parsable {
      */
     displayName?: string | null;
     /**
-     * The contained SLA policy definitions configured for this case type. Supports $filter and $orderby on createdBy, createdDateTime, description, displayName, id, isActive, lastModifiedBy, and lastModifiedDateTime on the collection endpoint. For information about supported query parameters, see List slaPolicies. Also supports $count, $select, $skip, and $top on the collection endpoint. Supports $expand=slaPolicies when getting a case type configuration.
+     * The contained SLA policy definitions configured for this case type. Supports $filter and $orderby on createdBy, createdDateTime, description, displayName, id, isActive, lastModifiedBy, and lastModifiedDateTime on the collection endpoint. For information about supported query parameters, see List slaPolicies. Also supports $count, $select, and $top on the collection endpoint. Supports $expand=slaPolicies when getting a case type configuration.
      */
     slaPolicies?: SlaPolicyDefinition[] | null;
     /**
-     * The contained top-level statuses that a case of this type can be set to. Read-only. Supports $count, $expand, $filter, $orderby, $select, $skip, and $top.
+     * The contained top-level statuses that a case of this type can be set to. Read-only. Supports $count, $expand, $filter, $orderby, $select, and $top.
      */
     statuses?: StatusDefinition[] | null;
 }
