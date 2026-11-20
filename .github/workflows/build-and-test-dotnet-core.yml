@@ -51,7 +51,7 @@ jobs:
         working-directory: dotnet
       
       - name: Run Core tests
-        run: dotnet test tests/Microsoft.Agents.M365Copilot.Core.Tests/Microsoft.Agents.M365Copilot.Core.Tests.csproj --no-build --verbosity normal -c Release /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=opencover
+        run: dotnet test tests/Microsoft.Agents.M365Copilot.Core.Tests/Microsoft.Agents.M365Copilot.Core.Tests.csproj --no-build --verbosity normal -c Release --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
         working-directory: dotnet
       
       - name: Upload test results

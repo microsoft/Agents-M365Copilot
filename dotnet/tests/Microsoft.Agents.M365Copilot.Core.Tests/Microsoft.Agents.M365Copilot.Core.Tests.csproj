@@ -22,7 +22,6 @@
   <!-- Package References are centrally managed in Directory.Packages.props -->
   <ItemGroup>
     <PackageReference Include="coverlet.collector" />
-    <PackageReference Include="coverlet.msbuild" />
     <PackageReference Include="Microsoft.Kiota.Abstractions" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />    
     <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" />
