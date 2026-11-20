@@ -109,7 +109,7 @@ jobs:
         run: dotnet build ${{ env.solutionName }} --no-restore -c Debug /p:UseSharedCompilation=false
         working-directory: dotnet
       - name: Test
-        run: dotnet test ${{ env.solutionName }} --no-build --verbosity normal -c Debug /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=opencover
+        run: dotnet test ${{ env.solutionName }} --no-build --verbosity normal -c Debug --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
         working-directory: dotnet
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@5595ccaf912efad79be6eef63a5619ff05969be3 # v4.37.6
