@@ -26,7 +26,7 @@ import { deserializeIntoAdministrativeUnitProvisioningFlow, deserializeIntoApiDa
 // @ts-ignore
 import { deserializeIntoAggregatedPolicyCompliance, deserializeIntoAppPerformance, deserializeIntoCloudPcConnection, deserializeIntoCloudPcDevice, deserializeIntoCloudPcOverview, deserializeIntoConditionalAccessPolicyCoverage, deserializeIntoCredentialUserRegistrationsSummary, deserializeIntoDeviceAppPerformance, deserializeIntoDeviceHealthStatus, deserializeIntoManagedDeviceCompliance, deserializeIntoManagedDeviceComplianceTrend, deserializeIntoManagedTenant, deserializeIntoManagedTenantAlert, deserializeIntoManagedTenantAlertLog, deserializeIntoManagedTenantAlertRule, deserializeIntoManagedTenantAlertRuleDefinition, deserializeIntoManagedTenantApiNotification, deserializeIntoManagedTenantEmailNotification, deserializeIntoManagedTenantTicketingEndpoint, deserializeIntoManagementAction, deserializeIntoManagementActionTenantDeploymentStatus, deserializeIntoManagementIntent, deserializeIntoManagementTemplate, deserializeIntoManagementTemplateCollection, deserializeIntoManagementTemplateCollectionTenantSummary, deserializeIntoManagementTemplateStep, deserializeIntoManagementTemplateStepDeployment, deserializeIntoManagementTemplateStepTenantSummary, deserializeIntoManagementTemplateStepVersion, deserializeIntoTenant, deserializeIntoTenantCustomizedInformation, deserializeIntoTenantDetailedInformation, deserializeIntoTenantGroup, deserializeIntoTenantTag, serializeAggregatedPolicyCompliance, serializeAppPerformance, serializeCloudPcConnection, serializeCloudPcDevice, serializeCloudPcOverview, serializeConditionalAccessPolicyCoverage, serializeCredentialUserRegistrationsSummary, serializeDeviceAppPerformance, serializeDeviceHealthStatus, serializeManagedDeviceCompliance, serializeManagedDeviceComplianceTrend, serializeManagedTenant, serializeManagedTenantAlert, serializeManagedTenantAlertLog, serializeManagedTenantAlertRule, serializeManagedTenantAlertRuleDefinition, serializeManagedTenantApiNotification, serializeManagedTenantEmailNotification, serializeManagedTenantTicketingEndpoint, serializeManagementAction, serializeManagementActionTenantDeploymentStatus, serializeManagementIntent, serializeManagementTemplate, serializeManagementTemplateCollection, serializeManagementTemplateCollectionTenantSummary, serializeManagementTemplateStep, serializeManagementTemplateStepDeployment, serializeManagementTemplateStepTenantSummary, serializeManagementTemplateStepVersion, serializeTenant, serializeTenantCustomizedInformation, serializeTenantDetailedInformation, serializeTenantGroup, serializeTenantTag, type AggregatedPolicyCompliance, type AppPerformance, type CloudPcConnection, type CloudPcDevice, type CloudPcOverview, type ConditionalAccessPolicyCoverage, type CredentialUserRegistrationsSummary, type DeviceAppPerformance, type DeviceHealthStatus, type ManagedDeviceCompliance, type ManagedDeviceComplianceTrend, type ManagedTenant, type ManagedTenantAlert, type ManagedTenantAlertLog, type ManagedTenantAlertRule, type ManagedTenantAlertRuleDefinition, type ManagedTenantApiNotification, type ManagedTenantEmailNotification, type ManagedTenantTicketingEndpoint, type ManagementAction, type ManagementActionTenantDeploymentStatus, type ManagementIntent, type ManagementTemplate, type ManagementTemplateCollection, type ManagementTemplateCollectionTenantSummary, type ManagementTemplateStep, type ManagementTemplateStepDeployment, type ManagementTemplateStepTenantSummary, type ManagementTemplateStepVersion, type Tenant, type TenantCustomizedInformation, type TenantDetailedInformation, type TenantGroup, type TenantTag } from './managedTenants/index.js';
 // @ts-ignore
-import { deserializeIntoBaseEntity, deserializeIntoBranchSite, deserializeIntoCloudFirewallPolicy, deserializeIntoCloudFirewallPolicyLink, deserializeIntoCloudFirewallRule, deserializeIntoConditionalAccessPolicy as I3bdefc4592a3938411c075d73ccbfbf5a9203364504fc516b2e9176522b1706c, deserializeIntoConditionalAccessSettings, deserializeIntoConnection, deserializeIntoConnectivity, deserializeIntoConnectivityConfigurationLink, deserializeIntoCrossTenantAccessSettings, deserializeIntoCustomBlockPage, deserializeIntoDeviceLink, deserializeIntoExtendedProperties, deserializeIntoExternalCertificateAuthorityCertificate, deserializeIntoFilteringPolicy, deserializeIntoFilteringPolicyLink, deserializeIntoFilteringProfile, deserializeIntoFilteringRule, deserializeIntoForwardingOptions, deserializeIntoForwardingPolicy, deserializeIntoForwardingPolicyLink, deserializeIntoForwardingProfile, deserializeIntoForwardingProfileBase, deserializeIntoForwardingRule, deserializeIntoFqdnFilteringRule, deserializeIntoInternetAccessForwardingRule, deserializeIntoLogs, deserializeIntoM365ForwardingRule, deserializeIntoNetworkAccessRoot, deserializeIntoPolicy as I9b92d6dc7e8849c67576cb4ee6af2a34aefa3b1e41012680911e825ac34d7269, deserializeIntoPolicyLink, deserializeIntoPolicyRule, deserializeIntoPrivateAccessForwardingRule, deserializeIntoRemoteNetwork, deserializeIntoRemoteNetworkHealthEvent, deserializeIntoReports, deserializeIntoSettings as Ie0fc20449ca4d7491d5186067f90e7101e163a57b117e034bcaf176f8eba6340, deserializeIntoTenantStatus, deserializeIntoThreatIntelligencePolicy, deserializeIntoThreatIntelligencePolicyLink, deserializeIntoThreatIntelligenceRule, deserializeIntoTlsInspectionPolicy, deserializeIntoTlsInspectionPolicyLink, deserializeIntoTlsInspectionRule, deserializeIntoTlsTermination, deserializeIntoUrlDestinationFilteringRule, deserializeIntoWebCategoryFilteringRule, serializeBaseEntity, serializeBranchSite, serializeCloudFirewallPolicy, serializeCloudFirewallPolicyLink, serializeCloudFirewallRule, serializeConditionalAccessPolicy as I845e03e65fe25be95898e387c0ea3b68606faaea1bd7064aa32e6157592d5d71, serializeConditionalAccessSettings, serializeConnection, serializeConnectivity, serializeConnectivityConfigurationLink, serializeCrossTenantAccessSettings, serializeCustomBlockPage, serializeDeviceLink, serializeExtendedProperties, serializeExternalCertificateAuthorityCertificate, serializeFilteringPolicy, serializeFilteringPolicyLink, serializeFilteringProfile, serializeFilteringRule, serializeForwardingOptions, serializeForwardingPolicy, serializeForwardingPolicyLink, serializeForwardingProfile, serializeForwardingProfileBase, serializeForwardingRule, serializeFqdnFilteringRule, serializeInternetAccessForwardingRule, serializeLogs, serializeM365ForwardingRule, serializeNetworkAccessRoot, serializePolicy as Ie1f0542380df87d5541c29c1ebcbf3e84e5ad94662de34dc18a12f6a4938516a, serializePolicyLink, serializePolicyRule, serializePrivateAccessForwardingRule, serializeRemoteNetwork, serializeRemoteNetworkHealthEvent, serializeReports, serializeSettings as I50205d73eb9dfbc58b40df1da1c2f6d4759b5562d4613937d05f4acb50e0ca7b, serializeTenantStatus, serializeThreatIntelligencePolicy, serializeThreatIntelligencePolicyLink, serializeThreatIntelligenceRule, serializeTlsInspectionPolicy, serializeTlsInspectionPolicyLink, serializeTlsInspectionRule, serializeTlsTermination, serializeUrlDestinationFilteringRule, serializeWebCategoryFilteringRule, type BaseEntity, type BranchSite, type CloudFirewallPolicy, type CloudFirewallPolicyLink, type CloudFirewallRule, type ConditionalAccessPolicy as I73e05c32b1684b2e5fbba143ec75e38033658c844576163b7cb35860e9484aad, type ConditionalAccessSettings, type Connection, type Connectivity, type ConnectivityConfigurationLink, type CrossTenantAccessSettings, type CustomBlockPage, type DeviceLink, type ExtendedProperties, type ExternalCertificateAuthorityCertificate, type FilteringPolicy, type FilteringPolicyLink, type FilteringProfile, type FilteringRule, type ForwardingOptions, type ForwardingPolicy, type ForwardingPolicyLink, type ForwardingProfile, type ForwardingProfileBase, type ForwardingRule, type FqdnFilteringRule, type InternetAccessForwardingRule, type Logs, type M365ForwardingRule, type NetworkAccessRoot, type Policy as Ideae88319bfdd87528aa9ccfe3d23741902c1cf90f2d0adc6ed2b215c347a552, type PolicyLink, type PolicyRule, type PrivateAccessForwardingRule, type RemoteNetwork, type RemoteNetworkHealthEvent, type Reports, type Settings as Ief8f87f708ab92d544e5159e491e11cb09c0943a42805f25de99bd18bfde2714, type TenantStatus, type ThreatIntelligencePolicy, type ThreatIntelligencePolicyLink, type ThreatIntelligenceRule, type TlsInspectionPolicy, type TlsInspectionPolicyLink, type TlsInspectionRule, type TlsTermination, type UrlDestinationFilteringRule, type WebCategoryFilteringRule } from './networkaccess/index.js';
+import { deserializeIntoBaseEntity, deserializeIntoBranchSite, deserializeIntoCloudFirewallPolicy, deserializeIntoCloudFirewallPolicyLink, deserializeIntoCloudFirewallRule, deserializeIntoConditionalAccessPolicy as I3bdefc4592a3938411c075d73ccbfbf5a9203364504fc516b2e9176522b1706c, deserializeIntoConnection, deserializeIntoConnectivity, deserializeIntoConnectivityConfigurationLink, deserializeIntoCrossTenantAccessSettings, deserializeIntoCustomBlockPage, deserializeIntoDeviceLink, deserializeIntoExtendedProperties, deserializeIntoExternalCertificateAuthorityCertificate, deserializeIntoFilteringPolicy, deserializeIntoFilteringPolicyLink, deserializeIntoFilteringProfile, deserializeIntoFilteringRule, deserializeIntoForwardingOptions, deserializeIntoForwardingPolicy, deserializeIntoForwardingPolicyLink, deserializeIntoForwardingProfile, deserializeIntoForwardingProfileBase, deserializeIntoForwardingRule, deserializeIntoFqdnFilteringRule, deserializeIntoInternetAccessForwardingRule, deserializeIntoLogs, deserializeIntoM365ForwardingRule, deserializeIntoNetworkAccessRoot, deserializeIntoPolicy as I9b92d6dc7e8849c67576cb4ee6af2a34aefa3b1e41012680911e825ac34d7269, deserializeIntoPolicyLink, deserializeIntoPolicyRule, deserializeIntoPrivateAccessForwardingRule, deserializeIntoRemoteNetwork, deserializeIntoRemoteNetworkHealthEvent, deserializeIntoReports, deserializeIntoSettings as Ie0fc20449ca4d7491d5186067f90e7101e163a57b117e034bcaf176f8eba6340, deserializeIntoTenantStatus, deserializeIntoThreatIntelligencePolicy, deserializeIntoThreatIntelligencePolicyLink, deserializeIntoThreatIntelligenceRule, deserializeIntoTlsInspectionPolicy, deserializeIntoTlsInspectionPolicyLink, deserializeIntoTlsInspectionRule, deserializeIntoTlsTermination, deserializeIntoUrlDestinationFilteringRule, deserializeIntoWebCategoryFilteringRule, serializeBaseEntity, serializeBranchSite, serializeCloudFirewallPolicy, serializeCloudFirewallPolicyLink, serializeCloudFirewallRule, serializeConditionalAccessPolicy as I845e03e65fe25be95898e387c0ea3b68606faaea1bd7064aa32e6157592d5d71, serializeConnection, serializeConnectivity, serializeConnectivityConfigurationLink, serializeCrossTenantAccessSettings, serializeCustomBlockPage, serializeDeviceLink, serializeExtendedProperties, serializeExternalCertificateAuthorityCertificate, serializeFilteringPolicy, serializeFilteringPolicyLink, serializeFilteringProfile, serializeFilteringRule, serializeForwardingOptions, serializeForwardingPolicy, serializeForwardingPolicyLink, serializeForwardingProfile, serializeForwardingProfileBase, serializeForwardingRule, serializeFqdnFilteringRule, serializeInternetAccessForwardingRule, serializeLogs, serializeM365ForwardingRule, serializeNetworkAccessRoot, serializePolicy as Ie1f0542380df87d5541c29c1ebcbf3e84e5ad94662de34dc18a12f6a4938516a, serializePolicyLink, serializePolicyRule, serializePrivateAccessForwardingRule, serializeRemoteNetwork, serializeRemoteNetworkHealthEvent, serializeReports, serializeSettings as I50205d73eb9dfbc58b40df1da1c2f6d4759b5562d4613937d05f4acb50e0ca7b, serializeTenantStatus, serializeThreatIntelligencePolicy, serializeThreatIntelligencePolicyLink, serializeThreatIntelligenceRule, serializeTlsInspectionPolicy, serializeTlsInspectionPolicyLink, serializeTlsInspectionRule, serializeTlsTermination, serializeUrlDestinationFilteringRule, serializeWebCategoryFilteringRule, type BaseEntity, type BranchSite, type CloudFirewallPolicy, type CloudFirewallPolicyLink, type CloudFirewallRule, type ConditionalAccessPolicy as I73e05c32b1684b2e5fbba143ec75e38033658c844576163b7cb35860e9484aad, type Connection, type Connectivity, type ConnectivityConfigurationLink, type CrossTenantAccessSettings, type CustomBlockPage, type DeviceLink, type ExtendedProperties, type ExternalCertificateAuthorityCertificate, type FilteringPolicy, type FilteringPolicyLink, type FilteringProfile, type FilteringRule, type ForwardingOptions, type ForwardingPolicy, type ForwardingPolicyLink, type ForwardingProfile, type ForwardingProfileBase, type ForwardingRule, type FqdnFilteringRule, type InternetAccessForwardingRule, type Logs, type M365ForwardingRule, type NetworkAccessRoot, type Policy as Ideae88319bfdd87528aa9ccfe3d23741902c1cf90f2d0adc6ed2b215c347a552, type PolicyLink, type PolicyRule, type PrivateAccessForwardingRule, type RemoteNetwork, type RemoteNetworkHealthEvent, type Reports, type Settings as Ief8f87f708ab92d544e5159e491e11cb09c0943a42805f25de99bd18bfde2714, type TenantStatus, type ThreatIntelligencePolicy, type ThreatIntelligencePolicyLink, type ThreatIntelligenceRule, type TlsInspectionPolicy, type TlsInspectionPolicyLink, type TlsInspectionRule, type TlsTermination, type UrlDestinationFilteringRule, type WebCategoryFilteringRule } from './networkaccess/index.js';
 // @ts-ignore
 import { deserializeIntoAdditionalDataDictionary, deserializeIntoAdminsMfaEnforcedSecurityRequirement, deserializeIntoCustomersMfaEnforcedSecurityRequirement, deserializeIntoCustomersSpendingBudgetSecurityRequirement, deserializeIntoPartnerSecurity, deserializeIntoPartnerSecurityAlert, deserializeIntoPartnerSecurityScore, deserializeIntoResponseTimeSecurityRequirement, deserializeIntoSecurityRequirement as I018a3cd489ead2b208436816c605385d796c0cf65acb7e16fde84634761333a3, deserializeIntoSecurityScoreHistory, serializeAdditionalDataDictionary, serializeAdminsMfaEnforcedSecurityRequirement, serializeCustomersMfaEnforcedSecurityRequirement, serializeCustomersSpendingBudgetSecurityRequirement, serializePartnerSecurity, serializePartnerSecurityAlert, serializePartnerSecurityScore, serializeResponseTimeSecurityRequirement, serializeSecurityRequirement as I6055e381f796aafcb4647fa934f22682b3f20ff139a8a609c06629e814859650, serializeSecurityScoreHistory, type AdditionalDataDictionary, type AdminsMfaEnforcedSecurityRequirement, type CustomersMfaEnforcedSecurityRequirement, type CustomersSpendingBudgetSecurityRequirement, type PartnerSecurity, type PartnerSecurityAlert, type PartnerSecurityScore, type ResponseTimeSecurityRequirement, type SecurityRequirement as I006251da950256f82a00bf1b54c593733d282dbf7274b3a68516c97bc1fbf657, type SecurityScoreHistory } from './partner/security/index.js';
 // @ts-ignore
@@ -35,6 +35,8 @@ import { createBillingFromDiscriminatorValue, deserializeIntoAzureAggregatedUsag
 import { createAcronymFromDiscriminatorValue, createBookmarkFromDiscriminatorValue, createQnaFromDiscriminatorValue, deserializeIntoAcronym, deserializeIntoBookmark, deserializeIntoQna, deserializeIntoSearchAnswer, serializeAcronym, serializeBookmark, serializeQna, serializeSearchAnswer, type Acronym, type Bookmark, type Qna, type SearchAnswer } from './search/index.js';
 // @ts-ignore
 import { deserializeIntoActivity, deserializeIntoAuditLog, deserializeIntoCaseEscaped as Ia152e8f19d7ac383e145969501d44fa3f22898f53931640f4a33b3a98584cbaf, deserializeIntoCaseManagementEntity, deserializeIntoCaseTypeConfiguration, deserializeIntoComment, deserializeIntoDateTimeCustomFieldDefinition, deserializeIntoExposureCase, deserializeIntoGenericCase, deserializeIntoIncidentCase, deserializeIntoIncidentRelation, deserializeIntoNumberCustomFieldDefinition, deserializeIntoOptionsCustomFieldDefinition, deserializeIntoRecommendationRelation, deserializeIntoRelation as I78d7c90840e27c5f1f3ea452cea8b3e2cc137925e01f8fedae22eff74c935119, deserializeIntoSlaPolicyDefinition, deserializeIntoStatusDefinition, deserializeIntoStringCustomFieldDefinition, deserializeIntoWorkspaceIndicatorRelation, serializeActivity, serializeAuditLog, serializeCaseEscaped as I1768904fda42423fa3e9366e70dbbddb0d49d48276b45d618346b838036f09c3, serializeCaseManagementEntity, serializeCaseTypeConfiguration, serializeComment, serializeDateTimeCustomFieldDefinition, serializeExposureCase, serializeGenericCase, serializeIncidentCase, serializeIncidentRelation, serializeNumberCustomFieldDefinition, serializeOptionsCustomFieldDefinition, serializeRecommendationRelation, serializeRelation as I2e2bf70f5e4ec63dfb6795492c467d0bce507a60cde6f30c43154df79916fa72, serializeSlaPolicyDefinition, serializeStatusDefinition, serializeStringCustomFieldDefinition, serializeWorkspaceIndicatorRelation, type Activity, type AuditLog, type CaseEscaped as Id33a0aa41f948138003099940f218d2964da375721d4525bd72502b6dba3d71d, type CaseManagementEntity, type CaseTypeConfiguration, type Comment, type DateTimeCustomFieldDefinition, type ExposureCase, type GenericCase, type IncidentCase, type IncidentRelation, type NumberCustomFieldDefinition, type OptionsCustomFieldDefinition, type RecommendationRelation, type Relation as I064a4a5af0d5ae83b3d004f23e7e23c01bc23104fd4a15f50b4f089a5e8d6076, type SlaPolicyDefinition, type StatusDefinition, type StringCustomFieldDefinition, type WorkspaceIndicatorRelation } from './security/caseManagement/index.js';
+// @ts-ignore
+import { createContentManagementRepositoryFromDiscriminatorValue, deserializeIntoContentManagementRepository, serializeContentManagementRepository, type ContentManagementRepository } from './security/contentManagement/index.js';
 // @ts-ignore
 import { deserializeIntoBaseAuditRecord, deserializeIntoComplianceBaseAuditRecord, deserializeIntoComplianceDLPBaseAuditRecord, deserializeIntoComplianceDlpEndpointAuditRecord, deserializeIntoComplianceDlpExchangeAuditRecord, deserializeIntoComplianceDlpSharePointAuditRecord, serializeBaseAuditRecord, serializeComplianceBaseAuditRecord, serializeComplianceDLPBaseAuditRecord, serializeComplianceDlpEndpointAuditRecord, serializeComplianceDlpExchangeAuditRecord, serializeComplianceDlpSharePointAuditRecord, type BaseAuditRecord, type ComplianceBaseAuditRecord, type ComplianceDLPBaseAuditRecord, type ComplianceDlpEndpointAuditRecord, type ComplianceDlpExchangeAuditRecord, type ComplianceDlpSharePointAuditRecord } from './security/dlp/index.js';
 // @ts-ignore
@@ -2967,6 +2969,19 @@ export interface AgentExtensionParams extends AdditionalDataHolder, Parsable {
      */
     odataType?: string | null;
 }
+/**
+ * Container for agentic security playbook definitions and sessions.
+ */
+export interface AgenticSecurityRoot extends Entity, Parsable {
+    /**
+     * The read-only playbook catalog. Supports list and keyed GET with $select. Doesn't support $filter, $orderby, $search, $expand, $count, $top, $skip, or delta tracking.
+     */
+    playbookDefinitions?: PlaybookDefinition[] | null;
+    /**
+     * The agentic sessions visible to the caller. Supports list with $filter on status (eq, or, in), $top, and $select; session creation; and keyed reads. Doesn't support $count, $orderby, $search, $expand, $skip, or delta tracking.
+     */
+    sessions?: InvestigationSession[] | null;
+}
 export interface AgentIdentity extends Parsable, ServicePrincipal {
     /**
      * The appId of the agent identity blueprint that defines the configuration for this agent identity.
@@ -3054,6 +3069,31 @@ export interface AgentIdentityBlueprintPrincipal extends Parsable, ServicePrinci
     sponsors?: DirectoryObject[] | null;
 }
 export type AgentIdentityType = (typeof AgentIdentityTypeObject)[keyof typeof AgentIdentityTypeObject];
+/**
+ * Embedded description of the agent that performed a run, without an independently addressable catalog.
+ */
+export interface AgentInfo extends AdditionalDataHolder, Parsable {
+    /**
+     * The agent's Microsoft Entra application identifier, when available.
+     */
+    applicationId?: string | null;
+    /**
+     * The qualified agent definition name, when available. Not an addressable catalog link.
+     */
+    definitionName?: string | null;
+    /**
+     * The agent's display name, when available.
+     */
+    displayName?: string | null;
+    /**
+     * The opaque identifier of the recorded agent instance. A structural property, not an OData entity key.
+     */
+    key?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 export interface AgentInstance extends Entity, Parsable {
     /**
      * Additional interfaces/transports supported by the agent.
@@ -3335,6 +3375,72 @@ export interface AgentRiskDetection extends Entity, Parsable {
      * The source system that generated the risk detection. Nullable.
      */
     source?: string | null;
+}
+/**
+ * An agent's contribution to a session. Read this resource to observe the agent's processing status.
+ */
+export interface AgentRun extends Entity, Parsable {
+    /**
+     * Embedded description of the agent that performed a run, without an independently addressable catalog.
+     */
+    agent?: AgentInfo | null;
+    /**
+     * The UTC date and time when the run completed successfully, in ISO 8601 format. Absent otherwise. Read-only.
+     */
+    completedDateTime?: Date | null;
+    /**
+     * The UTC date and time when the resource was created, in ISO 8601 format. Read-only.
+     */
+    createdDateTime?: Date | null;
+    /**
+     * The elapsed time from creation to successful completion, in milliseconds. Absent otherwise. Read-only.
+     */
+    durationInMilliseconds?: number | null;
+    /**
+     * The run-level failure details, when available. Read-only.
+     */
+    failureInfo?: AgentRunFailureInfo | null;
+    /**
+     * The initiating principals recorded by the service, when available. Read-only. This property doesn't select an execution identity.
+     */
+    initiatedBy?: InvestigationIdentitySet | null;
+    /**
+     * The UTC date and time when the resource was last updated, in ISO 8601 format. Read-only.
+     */
+    lastModifiedDateTime?: Date | null;
+    /**
+     * Read-only investigation messages contained by this run; id maps backend messageId. Supports collection and keyed reads. Message creation is not supported. Collection overflow requires an @odata.nextLink preserving tenant, caller, parent and query context; this schema requirement does not attest runtime implementation.
+     */
+    messages?: InvestigationMessage[] | null;
+    /**
+     * The UTC start timestamp, in ISO 8601 format. Currently reflects creation time, not a distinct execution-start measurement. Read-only.
+     */
+    startedDateTime?: Date | null;
+    /**
+     * The status property
+     */
+    status?: LongRunningOperationStatus | null;
+    /**
+     * Additional processing detail, including pendingInput or canceled, when the status alone doesn't describe the source lifecycle. Read-only. Doesn't support $filter.
+     */
+    statusDetail?: string | null;
+}
+/**
+ * Failure details available from the run status. Not an operation-status resource or an HTTP error.
+ */
+export interface AgentRunFailureInfo extends AdditionalDataHolder, Parsable {
+    /**
+     * The error classification, when available.
+     */
+    errorType?: string | null;
+    /**
+     * The human-readable failure detail, when available.
+     */
+    message?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
 }
 export interface AgentSkill extends AdditionalDataHolder, Parsable {
     /**
@@ -4157,6 +4263,16 @@ export interface AllPreApprovedPermissionsOnResourceApp extends Parsable, PreApp
      * The appId of the resource application (the API). Required.
      */
     resourceApplicationId?: string | null;
+}
+export interface AllResourcesExclusions extends AdditionalDataHolder, Parsable {
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The user-action exclusions and their states. Supply the complete desired collection when updating it. Not nullable.
+     */
+    userActionExclusions?: UserActionExclusion[] | null;
 }
 export interface AllScopeSensitivityLabels extends Parsable, ScopeSensitivityLabels {
 }
@@ -9351,9 +9467,17 @@ export interface Application extends DirectoryObject, Parsable {
      */
     homeRealmDiscoveryPolicies?: HomeRealmDiscoveryPolicy[] | null;
     /**
+     * The identifierUriConfiguration property
+     */
+    identifierUriConfiguration?: ApplicationIdentifierUriConfiguration | null;
+    /**
      * Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you reference in your API's code, and it must be globally unique across Microsoft Entra ID. For more information on valid identifierUris patterns and best practices, see Microsoft Entra application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).
      */
     identifierUris?: string[] | null;
+    /**
+     * The idJag property
+     */
+    idJag?: IdJagApplicationConfiguration | null;
     /**
      * Basic profile information of the application, such as it's marketing, support, terms of service, and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more information, see How to: Add Terms of service and privacy statement for registered Microsoft Entra apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).
      */
@@ -9370,6 +9494,10 @@ export interface Application extends DirectoryObject, Parsable {
      * Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false, which means the fallback application type is confidential client such as a web app. There are certain scenarios where Microsoft Entra ID can't determine the client application type. For example, the ROPC flow where the application is configured without specifying a redirect URI. In those cases Microsoft Entra ID interprets the application type based on the value of this property.
      */
     isFallbackPublicClient?: boolean | null;
+    /**
+     * Indicates whether hard deletion protection is enabled for the application. When true, permanent deletion is blocked for seven days after soft deletion. The application can still be soft deleted and restored. Once enabled, protection can't be disabled or set to null. Enable protection on an existing application by using Update application; enabling it during creation isn't supported. Setting this property to true requires the Microsoft Entra Backup Administrator role. Nullable. Requires $select to retrieve. Supports $filter (eq).
+     */
+    isHardDeleteProtectionEnabled?: boolean | null;
     /**
      * The collection of key credentials associated with the application. Not nullable. Supports $filter (eq, not, ge, le).
      */
@@ -9495,6 +9623,20 @@ export interface ApplicationEnforcedRestrictionsSessionControl extends Condition
 export type ApplicationGuardBlockClipboardSharingType = (typeof ApplicationGuardBlockClipboardSharingTypeObject)[keyof typeof ApplicationGuardBlockClipboardSharingTypeObject];
 export type ApplicationGuardBlockFileTransferType = (typeof ApplicationGuardBlockFileTransferTypeObject)[keyof typeof ApplicationGuardBlockFileTransferTypeObject];
 export type ApplicationGuardEnabledOptions = (typeof ApplicationGuardEnabledOptionsObject)[keyof typeof ApplicationGuardEnabledOptionsObject];
+export interface ApplicationIdentifierUriConfiguration extends AdditionalDataHolder, Parsable {
+    /**
+     * The idJag property
+     */
+    idJag?: IdJagIdentifierUriConfiguration | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The saml property
+     */
+    saml?: SamlIdentifierUriConfiguration | null;
+}
 export interface ApplicationIdentity extends Identity, Parsable {
 }
 export type ApplicationKeyOrigin = (typeof ApplicationKeyOriginObject)[keyof typeof ApplicationKeyOriginObject];
@@ -10176,7 +10318,7 @@ export interface AppliedConditionalAccessPolicy extends AdditionalDataHolder, Pa
      */
     odataType?: string | null;
     /**
-     * Indicates the result of the CA policy that was triggered. The possible values are: success, failure, notApplied (policy isn't applied because policy conditions weren't met), notEnabled (this is due to the policy in a disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted.
+     * Indicates the result of the CA policy that was triggered. The possible values are: success, failure, notApplied (policy isn't applied because policy conditions weren't met), notEnabled (this is due to the policy in a disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted, notAppliedAllAppsExclusion, reportOnlyNotAppliedAllAppsExclusion. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted, notAppliedAllAppsExclusion, reportOnlyNotAppliedAllAppsExclusion. The notAppliedAllAppsExclusion and reportOnlyNotAppliedAllAppsExclusion values indicate that an enabled all-apps exclusion skipped an enabled policy or a report-only policy, respectively. In these values, reportOnly refers to the policy's mode, not the exclusion's mode. If the exclusion itself is in report-only mode, policy evaluation continues normally and neither exclusion-specific result applies.
      */
     result?: AppliedConditionalAccessPolicyResult | null;
     /**
@@ -10900,6 +11042,12 @@ export interface AssignedPlan extends AdditionalDataHolder, Parsable {
      * A GUID that identifies the service plan. For a complete list of GUIDs and their equivalent friendly service names, see Product names and service plan identifiers for licensing.
      */
     servicePlanId?: Guid | null;
+}
+export interface AssignedPolicyReference extends AdditionalDataHolder, Parsable {
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
 }
 export interface AssignedTrainingInfo extends AdditionalDataHolder, Parsable {
     /**
@@ -12184,6 +12332,10 @@ export interface AuthenticationMethod extends Entity, Parsable {
      * The date and time the authentication method was last used by the user. Read-only. Optional. This optional value is null if the authentication method doesn't populate it. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     lastUsedDateTime?: Date | null;
+    /**
+     * The provenance and trust classification of the authentication method. Supports administrative attestation. Returned for FIDO2 authentication methods; null for method types that don't support provenance.
+     */
+    provenance?: CredentialProvenance | null;
 }
 export interface AuthenticationMethodConfiguration extends Entity, Parsable {
     /**
@@ -16373,6 +16525,9 @@ export interface CertificationControl extends AdditionalDataHolder, Parsable {
      */
     url?: string | null;
 }
+export type ChainBreakReason = (typeof ChainBreakReasonObject)[keyof typeof ChainBreakReasonObject];
+export type ChainBreakSource = (typeof ChainBreakSourceObject)[keyof typeof ChainBreakSourceObject];
+export type ChainState = (typeof ChainStateObject)[keyof typeof ChainStateObject];
 export interface ChallengingWord extends AdditionalDataHolder, Parsable {
     /**
      * Number of times the word was found challenging by the student during the reading session.
@@ -16504,6 +16659,10 @@ export interface Channel extends Entity, Parsable {
      * A collection of all the tabs in the channel.
      */
     tabs?: TeamsTab[] | null;
+    /**
+     * The tags owned by the channel.
+     */
+    tags?: TeamworkChannelTag[] | null;
     /**
      * The ID of the Microsoft Entra tenant.
      */
@@ -18504,7 +18663,7 @@ export interface CloudPcBulkAction extends Entity, Parsable {
      */
     actionSummary?: CloudPcBulkActionSummary | null;
     /**
-     * The cloudPcIds property
+     * IDs of the Cloud PCs the bulk action applies to. Individual Cloud PC IDs are GUID-formatted strings.
      */
     cloudPcIds?: string[] | null;
     /**
@@ -18625,6 +18784,12 @@ export interface CloudPcBulkRestore extends CloudPcBulkAction, Parsable {
      * The timeRange property
      */
     timeRange?: RestoreTimeRange | null;
+}
+export interface CloudPcBulkSetDeviceName extends CloudPcBulkAction, Parsable {
+    /**
+     * The template used to generate a unique device name for each Cloud PC. Required when creating the action. Use an optional prefix followed by one %RAND:x% macro, where x is the number of random alphanumeric characters and is at least 5. The generated name must be 5–15 characters long. The prefix can contain ASCII letters, digits, and hyphens, and must not start with a hyphen. The prefix length plus x must not exceed 15. For example, ACRA-%RAND:5% generates a ten-character name such as ACRA-A1B2C.
+     */
+    deviceNamingTemplate?: string | null;
 }
 export interface CloudPcBulkSetReviewStatus extends CloudPcBulkAction, Parsable {
     /**
@@ -21227,6 +21392,16 @@ export interface ConditionalAccessEnumeratedExternalTenants extends ConditionalA
      */
     members?: string[] | null;
 }
+export interface ConditionalAccessExclusions extends AdditionalDataHolder, Parsable {
+    /**
+     * The exclusions for Conditional Access policies that target all resources.
+     */
+    allResourcesExclusions?: AllResourcesExclusions | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 export interface ConditionalAccessExternalTenants extends AdditionalDataHolder, Parsable {
     /**
      * The membership kind. The possible values are: all, enumerated, unknownFutureValue. The enumerated member references an conditionalAccessEnumeratedExternalTenants object.
@@ -21418,6 +21593,10 @@ export interface ConditionalAccessRoot extends Entity, Parsable {
      */
     policies?: ConditionalAccessPolicy[] | null;
     /**
+     * The tenant-wide Conditional Access settings, including user-action exclusions.
+     */
+    settings?: ConditionalAccessSettings | null;
+    /**
      * Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
      */
     templates?: ConditionalAccessTemplate[] | null;
@@ -21484,6 +21663,16 @@ export interface ConditionalAccessSessionControls extends AdditionalDataHolder, 
      * Session control to enforce signin frequency.
      */
     signInFrequency?: SignInFrequencySessionControl | null;
+}
+export interface ConditionalAccessSettings extends Entity, Parsable {
+    /**
+     * The tenant-wide exclusions configuration.
+     */
+    exclusions?: ConditionalAccessExclusions | null;
+    /**
+     * The date and time the settings were last modified, in ISO 8601 format and UTC. Nullable. Read-only.
+     */
+    modifiedDateTime?: Date | null;
 }
 export type ConditionalAccessStatus = (typeof ConditionalAccessStatusObject)[keyof typeof ConditionalAccessStatusObject];
 export interface ConditionalAccessTemplate extends Entity, Parsable {
@@ -21805,7 +21994,7 @@ export interface ConfigurationMonitor extends Entity, Parsable {
      */
     mode?: MonitorMode | null;
     /**
-     * Frequency at which the monitor runs. The default frequency is six hours. Regardless of when you create or update a monitor, it gets triggered within the next 6 hours. Currently, monitors are picked up at fixed times: 6 AM, 12 PM, 6 PM, and 12 AM (all in GMT). For example, if you create a monitor at 9 AM, it gets triggered around 12 PM. If you update a monitor at 4 PM, it gets triggered around 6 PM.
+     * Frequency at which a monitorOnly monitor runs. The default frequency is six hours. Regardless of when you create or update a monitorOnly monitor, it gets triggered within the next 6 hours. Currently, monitors are picked up at fixed times: 6 AM, 12 PM, 6 PM, and 12 AM (all in GMT). For example, if you create a monitor at 9 AM, it gets triggered around 12 PM. If you update a monitor at 4 PM, it gets triggered around 6 PM. This schedule doesn't apply to applyOnce monitors.
      */
     monitorRunFrequencyInHours?: number | null;
     /**
@@ -22398,7 +22587,7 @@ export interface ContentLink extends Parsable, PlannerDelta {
      */
     displayName?: string | null;
     /**
-     * Custom extension field values set on the entity. Supports $select.
+     * Custom extension field values set at creation. Can't be changed afterward. Supports $select.
      */
     extensions?: ExtensionFieldCollection | null;
     /**
@@ -22410,11 +22599,11 @@ export interface ContentLink extends Parsable, PlannerDelta {
      */
     lastModifiedDateTime?: Date | null;
     /**
-     * Type of content the link points to. The possible values are: documentReference, webReference, unknownFutureValue.
+     * Type of content the link points to. Required at creation and immutable afterward. The possible values are: documentReference, webReference, unknownFutureValue.
      */
     linkType?: ContentLinkType | null;
     /**
-     * URL the link points to.
+     * URL the link points to. Required at creation and immutable afterward.
      */
     webUrl?: string | null;
 }
@@ -22429,6 +22618,15 @@ export interface ContentLinkCapability extends AdditionalDataHolder, Parsable {
     odataType?: string | null;
 }
 export type ContentLinkType = (typeof ContentLinkTypeObject)[keyof typeof ContentLinkTypeObject];
+/**
+ * The contentManagement segment under `/security`. Groups the content-management resources(connected repositories) under a single node.
+ */
+export interface ContentManagementRoot extends Entity, Parsable {
+    /**
+     * Connected source-control repositories that deliver security content as code.
+     */
+    repositories?: ContentManagementRepository[] | null;
+}
 export interface ContentModel extends Entity, Parsable {
     /**
      * Identity of the user, device, or applicationthat created the item. Read-only.
@@ -23639,6 +23837,65 @@ export interface CostManagementDataStatus extends AdditionalDataHolder, Parsable
      */
     odataType?: string | null;
 }
+export type CostManagementFundingClass = (typeof CostManagementFundingClassObject)[keyof typeof CostManagementFundingClassObject];
+/**
+ * One funding class's share of reported consumption for a calendar month.
+ */
+export interface CostManagementFundingUsageRecord extends Entity, Parsable {
+    /**
+     * Consumption attributed to this funding class during the requested month, includingunbilled consumption where applicable. Read-only.
+     */
+    consumedQuantity?: number | null;
+    /**
+     * Freshness of the source data behind a Phase 2 usage report result that can report it.
+     */
+    dataStatus?: CostManagementUsageDataStatus | null;
+    /**
+     * The funding classification of reported consumption, including unbilled consumption.
+     */
+    fundingClass?: CostManagementFundingClass | null;
+    /**
+     * Unit in which consumption quantities are expressed. Values are consumption units, not currency.
+     */
+    unit?: CostManagementUnit | null;
+}
+export interface CostManagementFundingUsageRecordCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: CostManagementFundingUsageRecord[] | null;
+}
+/**
+ * One security group's reported consumption for one completed UTC day.
+ */
+export interface CostManagementGroupUsageRecord extends AdditionalDataHolder, Parsable {
+    /**
+     * Billable consumption attributed to members of this group for the requested completed UTC day. Read-only.
+     */
+    consumedQuantity?: number | null;
+    /**
+     * The identifier of the security group this row reports. Read-only.
+     */
+    groupId?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * Count of distinct non-null session identifiers on billable activity attributed to this groupduring the requested completed UTC day, subject to the source filters and plan processingwatermarks. Excludes non-billable activity. Read-only.
+     */
+    sessionCount?: number | null;
+    /**
+     * Unit in which consumption quantities are expressed. Values are consumption units, not currency.
+     */
+    unit?: CostManagementUnit | null;
+}
+export interface CostManagementGroupUsageRecordCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: CostManagementGroupUsageRecord[] | null;
+}
 /**
  * A unit-bearing quantity that is either limited to a value or unlimited. Every quantity isone of its derived types, identified by @odata.type on create.
  */
@@ -23657,13 +23914,48 @@ export interface CostManagementQuantity extends AdditionalDataHolder, Parsable {
  */
 export interface CostManagementRoot extends Entity, Parsable {
     /**
+     * The collection of credit requests for this tenant. Excludes audit-only requests by default.A list or requested-count dependency failure returns a Graph serviceNotAvailable error.Supports $filter on state and serviceId (eq), $select, $count=true, and $top (default 50, maximum 200).Results are ordered newest-first; $orderby is not supported.Server-driven paging returns an OData nextLink when additional pages are available.
+     */
+    creditRequests?: CreditRequest[] | null;
+    /**
      * The spending policies that govern Copilot Credits consumption.
      */
     spendingPolicies?: SpendingPolicy[] | null;
     /**
+     * Reported consumption of Copilot Credits, split by user, group, service and funding.
+     */
+    usageReports?: CostManagementUsageReportRoot | null;
+    /**
      * Per-user consumption balances, addressed by the user's identifier.
      */
     userBalances?: CostManagementUserBalance[] | null;
+}
+/**
+ * One service's share of reported consumption for one completed UTC day.
+ */
+export interface CostManagementServiceUsageRecord extends AdditionalDataHolder, Parsable {
+    /**
+     * Consumption attributed to this service for the requested completed UTC day. Read-only.
+     */
+    consumedQuantity?: number | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The governed service identifier, such as cowork or workIQ. Discover valid values from theservice catalog using a category identifier, not the catalog entry's own id. Read-only.
+     */
+    serviceId?: string | null;
+    /**
+     * Unit in which consumption quantities are expressed. Values are consumption units, not currency.
+     */
+    unit?: CostManagementUnit | null;
+}
+export interface CostManagementServiceUsageRecordCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: CostManagementServiceUsageRecord[] | null;
 }
 /**
  * A service whose balance could not be evaluated for the user, reported instead of anunreliable costManagementUserServiceBalance row.
@@ -23683,6 +23975,44 @@ export interface CostManagementUnevaluatedService extends AdditionalDataHolder, 
     serviceId?: string | null;
 }
 export type CostManagementUnit = (typeof CostManagementUnitObject)[keyof typeof CostManagementUnitObject];
+/**
+ * Freshness of the source data behind a Phase 2 usage report result that can report it.
+ */
+export interface CostManagementUsageDataStatus extends AdditionalDataHolder, Parsable {
+    /**
+     * Timestamp of the latest source event or snapshot sync run incorporated into this result,where the operation can report one. Meaning is operation-specific - see the property thatreferences this type. Does not indicate the result is complete or that the covered periodhas closed; a later read over the same window may return a later value or additional rows.
+     */
+    latestSourceDateTime?: Date | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
+/**
+ * The Copilot Cost Management usage reporting root.
+ */
+export interface CostManagementUsageReportRoot extends Entity, Parsable {
+    /**
+     * Reported consumption per funding class for a calendar month.
+     */
+    fundingUsageRecords?: CostManagementFundingUsageRecord[] | null;
+    /**
+     * Reported consumption per security group for one completed UTC day.
+     */
+    groupUsageRecords?: CostManagementGroupUsageRecord[] | null;
+    /**
+     * Reported consumption per governed service for one completed UTC day.
+     */
+    serviceUsageRecords?: CostManagementServiceUsageRecord[] | null;
+    /**
+     * Raw per-user usage detail, read one user at a time.
+     */
+    userUsageDetails?: CostManagementUserUsageDetail[] | null;
+    /**
+     * Reported consumption per user for one completed UTC day, ranked by consumption.
+     */
+    userUsageRecords?: CostManagementUserUsageRecord[] | null;
+}
 /**
  * A user's computed per-service consumption balance. Addressed by the user's identifier; onebalance resource exists per user.
  */
@@ -23758,6 +24088,124 @@ export interface CostManagementUserServiceBalanceCollectionResponse extends Base
      * The value property
      */
     value?: CostManagementUserServiceBalance[] | null;
+}
+/**
+ * One user's raw usage detail, distinct from the processed report at userUsageRecords.
+ */
+export interface CostManagementUserUsageDetail extends AdditionalDataHolder, Parsable {
+    /**
+     * Raw, billable-flagged consumption attributed to this user over the requested window, boundedto the latest processed watermark rather than reprocessed. Read-only.
+     */
+    consumedQuantity?: number | null;
+    /**
+     * Freshness of the source activity data this detail was computed from, when the native sourcereports an as-of timestamp for the window. Null rather than fabricated when the source hasnone to report. Read-only.
+     */
+    dataStatus?: CostManagementUsageDataStatus | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * This user's raw consumption, split by governed service. The same native grouped result isalso addressable directly at the services navigation collection.
+     */
+    services?: CostManagementUserUsageServiceDetail[] | null;
+    /**
+     * Count of billable-flagged activity sessions, bounded to the latest processed watermark, thatcontributed to consumedQuantity. Excludes non-billable activity; the timestamp window and rawsource distinguish this count from the processed completed-day report. Read-only.
+     */
+    sessionCount?: number | null;
+    /**
+     * This user's raw usage grouped by session identifiers represented by the native source.Activity without a session identifier may be omitted even when included in the parent total;child quantities need not sum to the parent's consumedQuantity. Also available as a direct collection.
+     */
+    sessions?: CostManagementUserUsageSessionDetail[] | null;
+    /**
+     * Unit in which consumption quantities are expressed. Values are consumption units, not currency.
+     */
+    unit?: CostManagementUnit | null;
+    /**
+     * The identifier of the user this detail covers. Read-only.
+     */
+    userId?: string | null;
+}
+/**
+ * One user's reported consumption for one completed UTC day.
+ */
+export interface CostManagementUserUsageRecord extends AdditionalDataHolder, Parsable {
+    /**
+     * Billable consumption attributed to this user for the requested completed UTC day. Read-only.
+     */
+    consumedQuantity?: number | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * Count of distinct non-null session identifiers on billable activity for this user during therequested completed UTC day, subject to the source filters and plan processing watermarks.Excludes non-billable activity. Read-only.
+     */
+    sessionCount?: number | null;
+    /**
+     * Unit in which consumption quantities are expressed. Values are consumption units, not currency.
+     */
+    unit?: CostManagementUnit | null;
+    /**
+     * The identifier of the user this row reports. Read-only.
+     */
+    userId?: string | null;
+}
+export interface CostManagementUserUsageRecordCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: CostManagementUserUsageRecord[] | null;
+}
+/**
+ * One governed service's share of a user's raw usage detail.
+ */
+export interface CostManagementUserUsageServiceDetail extends Entity, Parsable {
+    /**
+     * Raw, billable-flagged consumption attributed to this service within the containing user'sdetail window. Independently rounded; child rows are not guaranteed to sum exactly to thecontaining detail's consumedQuantity. Read-only.
+     */
+    consumedQuantity?: number | null;
+    /**
+     * Unit in which consumption quantities are expressed. Values are consumption units, not currency.
+     */
+    unit?: CostManagementUnit | null;
+}
+export interface CostManagementUserUsageServiceDetailCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: CostManagementUserUsageServiceDetail[] | null;
+}
+/**
+ * A native-source session grouping within a user's raw usage detail. Activity without a sessionidentifier may be omitted, even when it contributes to the parent total.
+ */
+export interface CostManagementUserUsageSessionDetail extends Entity, Parsable {
+    /**
+     * Raw, billable-flagged consumption attributed to this source-returned session grouping withinthe containing user's detail window. Session rows need not sum to the parent's consumedQuantity.Read-only.
+     */
+    consumedQuantity?: number | null;
+    /**
+     * Time the earliest activity in this session was recorded, or null when the source did notreport one. Read-only.
+     */
+    firstActivityDateTime?: Date | null;
+    /**
+     * Time the latest activity in this session was recorded, or null when the source did notreport one. Read-only.
+     */
+    lastActivityDateTime?: Date | null;
+    /**
+     * The native session identifier on a row returned by the source, preserved verbatim, includingnull if the source returns it. Distinct from this row's opaque id. A nullable value does notguarantee a returned group for activity without a session identifier; such activity may beabsent from the session breakdown while contributing to the parent total. Read-only.
+     */
+    sourceSessionId?: string | null;
+    /**
+     * Unit in which consumption quantities are expressed. Values are consumption units, not currency.
+     */
+    unit?: CostManagementUnit | null;
+}
+export interface CostManagementUserUsageSessionDetailCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: CostManagementUserUsageSessionDetail[] | null;
 }
 export type CountryLookupMethodType = (typeof CountryLookupMethodTypeObject)[keyof typeof CountryLookupMethodTypeObject];
 export interface CountryNamedLocation extends NamedLocation, Parsable {
@@ -25280,6 +25728,15 @@ export function createAgentFromDiscriminatorValue(parseNode: ParseNode | undefin
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {AgenticSecurityRoot}
+ */
+// @ts-ignore
+export function createAgenticSecurityRootFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAgenticSecurityRoot;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AgentIdentityBlueprint}
  */
 // @ts-ignore
@@ -25303,6 +25760,15 @@ export function createAgentIdentityBlueprintPrincipalFromDiscriminatorValue(pars
 // @ts-ignore
 export function createAgentIdentityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAgentIdentity;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {AgentInfo}
+ */
+// @ts-ignore
+export function createAgentInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAgentInfo;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -25366,6 +25832,24 @@ export function createAgentRegistrationFromDiscriminatorValue(parseNode: ParseNo
 // @ts-ignore
 export function createAgentRiskDetectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAgentRiskDetection;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {AgentRunFailureInfo}
+ */
+// @ts-ignore
+export function createAgentRunFailureInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAgentRunFailureInfo;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {AgentRun}
+ */
+// @ts-ignore
+export function createAgentRunFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAgentRun;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -25817,6 +26301,15 @@ export function createAllPreApprovedPermissionsFromDiscriminatorValue(parseNode:
 // @ts-ignore
 export function createAllPreApprovedPermissionsOnResourceAppFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAllPreApprovedPermissionsOnResourceApp;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {AllResourcesExclusions}
+ */
+// @ts-ignore
+export function createAllResourcesExclusionsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAllResourcesExclusions;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -27399,6 +27892,15 @@ export function createApplicationFromDiscriminatorValue(parseNode: ParseNode | u
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ApplicationIdentifierUriConfiguration}
+ */
+// @ts-ignore
+export function createApplicationIdentifierUriConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoApplicationIdentifierUriConfiguration;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ApplicationIdentity}
  */
 // @ts-ignore
@@ -27960,6 +28462,26 @@ export function createAssignedPlaceModeFromDiscriminatorValue(parseNode: ParseNo
 // @ts-ignore
 export function createAssignedPlanFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAssignedPlan;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {AssignedPolicyReference}
+ */
+// @ts-ignore
+export function createAssignedPolicyReferenceFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
+    if (mappingValueNode) {
+        const mappingValue = mappingValueNode.getStringValue();
+        if (mappingValue) {
+            switch (mappingValue) {
+                case "#microsoft.graph.policyDefinitionReference":
+                    return deserializeIntoPolicyDefinitionReference;
+            }
+        }
+    }
+    return deserializeIntoAssignedPolicyReference;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -31973,6 +32495,8 @@ export function createCloudPcBulkActionFromDiscriminatorValue(parseNode: ParseNo
                     return deserializeIntoCloudPcBulkRestart;
                 case "#microsoft.graph.cloudPcBulkRestore":
                     return deserializeIntoCloudPcBulkRestore;
+                case "#microsoft.graph.cloudPcBulkSetDeviceName":
+                    return deserializeIntoCloudPcBulkSetDeviceName;
                 case "#microsoft.graph.cloudPcBulkSetReviewStatus":
                     return deserializeIntoCloudPcBulkSetReviewStatus;
                 case "#microsoft.graph.cloudPcBulkTroubleshoot":
@@ -32116,6 +32640,15 @@ export function createCloudPcBulkRestartFromDiscriminatorValue(parseNode: ParseN
 // @ts-ignore
 export function createCloudPcBulkRestoreFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCloudPcBulkRestore;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CloudPcBulkSetDeviceName}
+ */
+// @ts-ignore
+export function createCloudPcBulkSetDeviceNameFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCloudPcBulkSetDeviceName;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -33314,6 +33847,15 @@ export function createConditionalAccessEnumeratedExternalTenantsFromDiscriminato
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ConditionalAccessExclusions}
+ */
+// @ts-ignore
+export function createConditionalAccessExclusionsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoConditionalAccessExclusions;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ConditionalAccessExternalTenants}
  */
 // @ts-ignore
@@ -33481,6 +34023,15 @@ export function createConditionalAccessSessionControlFromDiscriminatorValue(pars
 // @ts-ignore
 export function createConditionalAccessSessionControlsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoConditionalAccessSessionControls;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ConditionalAccessSettings}
+ */
+// @ts-ignore
+export function createConditionalAccessSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoConditionalAccessSettings;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -33840,6 +34391,15 @@ export function createContentLinkCapabilityFromDiscriminatorValue(parseNode: Par
 // @ts-ignore
 export function createContentLinkFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoContentLink;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ContentManagementRoot}
+ */
+// @ts-ignore
+export function createContentManagementRootFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoContentManagementRoot;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -34532,6 +35092,42 @@ export function createCostManagementDataStatusFromDiscriminatorValue(parseNode: 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CostManagementFundingUsageRecordCollectionResponse}
+ */
+// @ts-ignore
+export function createCostManagementFundingUsageRecordCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCostManagementFundingUsageRecordCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CostManagementFundingUsageRecord}
+ */
+// @ts-ignore
+export function createCostManagementFundingUsageRecordFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCostManagementFundingUsageRecord;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CostManagementGroupUsageRecordCollectionResponse}
+ */
+// @ts-ignore
+export function createCostManagementGroupUsageRecordCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCostManagementGroupUsageRecordCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CostManagementGroupUsageRecord}
+ */
+// @ts-ignore
+export function createCostManagementGroupUsageRecordFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCostManagementGroupUsageRecord;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CostManagementQuantity}
  */
 // @ts-ignore
@@ -34563,11 +35159,47 @@ export function createCostManagementRootFromDiscriminatorValue(parseNode: ParseN
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CostManagementServiceUsageRecordCollectionResponse}
+ */
+// @ts-ignore
+export function createCostManagementServiceUsageRecordCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCostManagementServiceUsageRecordCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CostManagementServiceUsageRecord}
+ */
+// @ts-ignore
+export function createCostManagementServiceUsageRecordFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCostManagementServiceUsageRecord;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CostManagementUnevaluatedService}
  */
 // @ts-ignore
 export function createCostManagementUnevaluatedServiceFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCostManagementUnevaluatedService;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CostManagementUsageDataStatus}
+ */
+// @ts-ignore
+export function createCostManagementUsageDataStatusFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCostManagementUsageDataStatus;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CostManagementUsageReportRoot}
+ */
+// @ts-ignore
+export function createCostManagementUsageReportRootFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCostManagementUsageReportRoot;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -34595,6 +35227,69 @@ export function createCostManagementUserServiceBalanceCollectionResponseFromDisc
 // @ts-ignore
 export function createCostManagementUserServiceBalanceFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCostManagementUserServiceBalance;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CostManagementUserUsageDetail}
+ */
+// @ts-ignore
+export function createCostManagementUserUsageDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCostManagementUserUsageDetail;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CostManagementUserUsageRecordCollectionResponse}
+ */
+// @ts-ignore
+export function createCostManagementUserUsageRecordCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCostManagementUserUsageRecordCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CostManagementUserUsageRecord}
+ */
+// @ts-ignore
+export function createCostManagementUserUsageRecordFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCostManagementUserUsageRecord;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CostManagementUserUsageServiceDetailCollectionResponse}
+ */
+// @ts-ignore
+export function createCostManagementUserUsageServiceDetailCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCostManagementUserUsageServiceDetailCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CostManagementUserUsageServiceDetail}
+ */
+// @ts-ignore
+export function createCostManagementUserUsageServiceDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCostManagementUserUsageServiceDetail;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CostManagementUserUsageSessionDetailCollectionResponse}
+ */
+// @ts-ignore
+export function createCostManagementUserUsageSessionDetailCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCostManagementUserUsageSessionDetailCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CostManagementUserUsageSessionDetail}
+ */
+// @ts-ignore
+export function createCostManagementUserUsageSessionDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCostManagementUserUsageSessionDetail;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -34635,6 +35330,15 @@ export function createCreationTimestampFromDiscriminatorValue(parseNode: ParseNo
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CredentialProvenance}
+ */
+// @ts-ignore
+export function createCredentialProvenanceFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCredentialProvenance;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CredentialSingleSignOnExtension}
  */
 // @ts-ignore
@@ -34667,6 +35371,24 @@ export function createCredentialUserRegistrationCountFromDiscriminatorValue(pars
 // @ts-ignore
 export function createCredentialUserRegistrationDetailsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCredentialUserRegistrationDetails;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CreditRequestCollectionResponse}
+ */
+// @ts-ignore
+export function createCreditRequestCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCreditRequestCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CreditRequest}
+ */
+// @ts-ignore
+export function createCreditRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCreditRequest;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -40163,6 +40885,15 @@ export function createDropInPlaceModeFromDiscriminatorValue(parseNode: ParseNode
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {DynamicPermissionsManagementRoot}
+ */
+// @ts-ignore
+export function createDynamicPermissionsManagementRootFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoDynamicPermissionsManagementRoot;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DynamicRuleActivityLog}
  */
 // @ts-ignore
@@ -41722,6 +42453,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoAgentCollection;
                 case "#microsoft.graph.agentCommunicationConfiguration":
                     return deserializeIntoAgentCommunicationConfiguration;
+                case "#microsoft.graph.agenticSecurityRoot":
+                    return deserializeIntoAgenticSecurityRoot;
                 case "#microsoft.graph.agentIdentity":
                     return deserializeIntoAgentIdentity;
                 case "#microsoft.graph.agentIdentityBlueprint":
@@ -41734,6 +42467,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoAgentRegistration;
                 case "#microsoft.graph.agentRiskDetection":
                     return deserializeIntoAgentRiskDetection;
+                case "#microsoft.graph.agentRun":
+                    return deserializeIntoAgentRun;
                 case "#microsoft.graph.agentUser":
                     return deserializeIntoAgentUser;
                 case "#microsoft.graph.agreement":
@@ -42384,6 +43119,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoCloudPcBulkRestart;
                 case "#microsoft.graph.cloudPcBulkRestore":
                     return deserializeIntoCloudPcBulkRestore;
+                case "#microsoft.graph.cloudPcBulkSetDeviceName":
+                    return deserializeIntoCloudPcBulkSetDeviceName;
                 case "#microsoft.graph.cloudPcBulkSetReviewStatus":
                     return deserializeIntoCloudPcBulkSetReviewStatus;
                 case "#microsoft.graph.cloudPcBulkTroubleshoot":
@@ -42456,6 +43193,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoComplianceManagementPartner;
                 case "#microsoft.graph.conditionalAccessRoot":
                     return deserializeIntoConditionalAccessRoot;
+                case "#microsoft.graph.conditionalAccessSettings":
+                    return deserializeIntoConditionalAccessSettings;
                 case "#microsoft.graph.conditionalAccessTemplate":
                     return deserializeIntoConditionalAccessTemplate;
                 case "#microsoft.graph.configManagerCollection":
@@ -42490,6 +43229,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoContentActivity;
                 case "#microsoft.graph.contentLink":
                     return deserializeIntoContentLink;
+                case "#microsoft.graph.contentManagementRoot":
+                    return deserializeIntoContentManagementRoot;
                 case "#microsoft.graph.contentModel":
                     return deserializeIntoContentModel;
                 case "#microsoft.graph.contentSharingSession":
@@ -42544,16 +43285,26 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoCorsConfiguration_v2;
                 case "#microsoft.graph.costManagementAlertSetting":
                     return deserializeIntoCostManagementAlertSetting;
+                case "#microsoft.graph.costManagementFundingUsageRecord":
+                    return deserializeIntoCostManagementFundingUsageRecord;
                 case "#microsoft.graph.costManagementRoot":
                     return deserializeIntoCostManagementRoot;
+                case "#microsoft.graph.costManagementUsageReportRoot":
+                    return deserializeIntoCostManagementUsageReportRoot;
                 case "#microsoft.graph.costManagementUserBalance":
                     return deserializeIntoCostManagementUserBalance;
+                case "#microsoft.graph.costManagementUserUsageServiceDetail":
+                    return deserializeIntoCostManagementUserUsageServiceDetail;
+                case "#microsoft.graph.costManagementUserUsageSessionDetail":
+                    return deserializeIntoCostManagementUserUsageSessionDetail;
                 case "#microsoft.graph.credentialUsageSummary":
                     return deserializeIntoCredentialUsageSummary;
                 case "#microsoft.graph.credentialUserRegistrationCount":
                     return deserializeIntoCredentialUserRegistrationCount;
                 case "#microsoft.graph.credentialUserRegistrationDetails":
                     return deserializeIntoCredentialUserRegistrationDetails;
+                case "#microsoft.graph.creditRequest":
+                    return deserializeIntoCreditRequest;
                 case "#microsoft.graph.crossTenantAccessPolicy":
                     return deserializeIntoCrossTenantAccessPolicy;
                 case "#microsoft.graph.crossTenantAccessPolicyConfigurationDefault":
@@ -43000,6 +43751,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoDriveRestoreArtifact;
                 case "#microsoft.graph.driveRestoreArtifactsBulkAdditionRequest":
                     return deserializeIntoDriveRestoreArtifactsBulkAdditionRequest;
+                case "#microsoft.graph.dynamicPermissionsManagementRoot":
+                    return deserializeIntoDynamicPermissionsManagementRoot;
                 case "#microsoft.graph.dynamicRuleActivityLog":
                     return deserializeIntoDynamicRuleActivityLog;
                 case "#microsoft.graph.easEmailProfileConfigurationBase":
@@ -43572,6 +44325,10 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoIdentityUserFlowAttribute;
                 case "#microsoft.graph.identityUserFlowAttributeAssignment":
                     return deserializeIntoIdentityUserFlowAttributeAssignment;
+                case "#microsoft.graph.identityVerificationEvent":
+                    return deserializeIntoIdentityVerificationEvent;
+                case "#microsoft.graph.identityVerificationStatus":
+                    return deserializeIntoIdentityVerificationStatus;
                 case "#microsoft.graph.identityVerifiedIdRoot":
                     return deserializeIntoIdentityVerifiedIdRoot;
                 case "#microsoft.graph.impactedResource":
@@ -43686,6 +44443,14 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoInvalidLicenseAlertConfiguration;
                 case "#microsoft.graph.invalidLicenseAlertIncident":
                     return deserializeIntoInvalidLicenseAlertIncident;
+                case "#microsoft.graph.investigationInput":
+                    return deserializeIntoInvestigationInput;
+                case "#microsoft.graph.investigationMessage":
+                    return deserializeIntoInvestigationMessage;
+                case "#microsoft.graph.investigationOutput":
+                    return deserializeIntoInvestigationOutput;
+                case "#microsoft.graph.investigationSession":
+                    return deserializeIntoInvestigationSession;
                 case "#microsoft.graph.invitation":
                     return deserializeIntoInvitation;
                 case "#microsoft.graph.inviteParticipantsOperation":
@@ -44686,6 +45451,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoPlannerUser;
                 case "#microsoft.graph.platformCredentialAuthenticationMethod":
                     return deserializeIntoPlatformCredentialAuthenticationMethod;
+                case "#microsoft.graph.playbookDefinition":
+                    return deserializeIntoPlaybookDefinition;
                 case "#microsoft.graph.playPromptOperation":
                     return deserializeIntoPlayPromptOperation;
                 case "#microsoft.graph.policyBase":
@@ -44912,6 +45679,14 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoResourceAccountKeyAuthenticationMethod;
                 case "#microsoft.graph.resourceOperation":
                     return deserializeIntoResourceOperation;
+                case "#microsoft.graph.resourcePolicyConfiguration":
+                    return deserializeIntoResourcePolicyConfiguration;
+                case "#microsoft.graph.resourcePolicyDeletableRoot":
+                    return deserializeIntoResourcePolicyDeletableRoot;
+                case "#microsoft.graph.resourcePolicyEvaluationEvent":
+                    return deserializeIntoResourcePolicyEvaluationEvent;
+                case "#microsoft.graph.resourcePolicyRoot":
+                    return deserializeIntoResourcePolicyRoot;
                 case "#microsoft.graph.resourceSpecificPermissionGrant":
                     return deserializeIntoResourceSpecificPermissionGrant;
                 case "#microsoft.graph.restoreArtifactBase":
@@ -45102,6 +45877,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoCloudAppDiscoveryReport;
                 case "#microsoft.graph.security.collaborationRoot":
                     return deserializeIntoCollaborationRoot;
+                case "#microsoft.graph.security.contentManagement.contentManagementRepository":
+                    return deserializeIntoContentManagementRepository;
                 case "#microsoft.graph.security.dataDiscoveryReport":
                     return deserializeIntoDataDiscoveryReport;
                 case "#microsoft.graph.security.dataDiscoveryRoot":
@@ -45660,6 +46437,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoTeamwork;
                 case "#microsoft.graph.teamworkBot":
                     return deserializeIntoTeamworkBot;
+                case "#microsoft.graph.teamworkChannelTag":
+                    return deserializeIntoTeamworkChannelTag;
                 case "#microsoft.graph.teamworkCustomEmoji":
                     return deserializeIntoTeamworkCustomEmoji;
                 case "#microsoft.graph.teamworkDevice":
@@ -47511,6 +48290,15 @@ export function createFederatedIdentityExpressionFromDiscriminatorValue(parseNod
 // @ts-ignore
 export function createFederatedTokenValidationPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFederatedTokenValidationPolicy;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {FetchDetail}
+ */
+// @ts-ignore
+export function createFetchDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoFetchDetail;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -49524,6 +50312,8 @@ export function createIdentitySetFromDiscriminatorValue(parseNode: ParseNode | u
                     return deserializeIntoCustomEmojiFromIdentitySet;
                 case "#microsoft.graph.engagementIdentitySet":
                     return deserializeIntoEngagementIdentitySet;
+                case "#microsoft.graph.investigationIdentitySet":
+                    return deserializeIntoInvestigationIdentitySet;
                 case "#microsoft.graph.sharePointIdentitySet":
                     return deserializeIntoSharePointIdentitySet;
             }
@@ -49615,6 +50405,15 @@ export function createIdentityUserFlowFromDiscriminatorValue(parseNode: ParseNod
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {IdentityVerificationEvent}
+ */
+// @ts-ignore
+export function createIdentityVerificationEventFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoIdentityVerificationEvent;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {IdentityVerificationEventsConfiguration}
  */
 // @ts-ignore
@@ -49624,11 +50423,92 @@ export function createIdentityVerificationEventsConfigurationFromDiscriminatorVa
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {IdentityVerificationStatus}
+ */
+// @ts-ignore
+export function createIdentityVerificationStatusFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoIdentityVerificationStatus;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {IdentityVerifiedIdRoot}
  */
 // @ts-ignore
 export function createIdentityVerifiedIdRootFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIdentityVerifiedIdRoot;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {IdJagApplicationConfiguration}
+ */
+// @ts-ignore
+export function createIdJagApplicationConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoIdJagApplicationConfiguration;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {IdJagClientConfiguration}
+ */
+// @ts-ignore
+export function createIdJagClientConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoIdJagClientConfiguration;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {IdJagEnabledClient}
+ */
+// @ts-ignore
+export function createIdJagEnabledClientFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoIdJagEnabledClient;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {IdJagIdentifierUriConfiguration}
+ */
+// @ts-ignore
+export function createIdJagIdentifierUriConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoIdJagIdentifierUriConfiguration;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {IdJagResourceAuthorizationServerConfiguration}
+ */
+// @ts-ignore
+export function createIdJagResourceAuthorizationServerConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoIdJagResourceAuthorizationServerConfiguration;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {IdJagResourceServer}
+ */
+// @ts-ignore
+export function createIdJagResourceServerFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoIdJagResourceServer;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {IdJagScopeMapping}
+ */
+// @ts-ignore
+export function createIdJagScopeMappingFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoIdJagScopeMapping;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {IdJagServicePrincipalConfiguration}
+ */
+// @ts-ignore
+export function createIdJagServicePrincipalConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoIdJagServicePrincipalConfiguration;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -50320,11 +51200,65 @@ export function createInvestigationActionUrlFromDiscriminatorValue(parseNode: Pa
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {InvestigationIdentitySet}
+ */
+// @ts-ignore
+export function createInvestigationIdentitySetFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoInvestigationIdentitySet;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {InvestigationInput}
+ */
+// @ts-ignore
+export function createInvestigationInputFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoInvestigationInput;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {InvestigationMessageAuthor}
+ */
+// @ts-ignore
+export function createInvestigationMessageAuthorFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoInvestigationMessageAuthor;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {InvestigationMessage}
+ */
+// @ts-ignore
+export function createInvestigationMessageFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoInvestigationMessage;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {InvestigationOutput}
+ */
+// @ts-ignore
+export function createInvestigationOutputFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoInvestigationOutput;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {InvestigationSecurityState}
  */
 // @ts-ignore
 export function createInvestigationSecurityStateFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoInvestigationSecurityState;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {InvestigationSession}
+ */
+// @ts-ignore
+export function createInvestigationSessionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoInvestigationSession;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -59035,11 +59969,29 @@ export function createPlatformCredentialAuthenticationMethodFromDiscriminatorVal
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {PlaybookDefinition}
+ */
+// @ts-ignore
+export function createPlaybookDefinitionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoPlaybookDefinition;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PlayPromptOperation}
  */
 // @ts-ignore
 export function createPlayPromptOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPlayPromptOperation;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {PolicyAppliesTo}
+ */
+// @ts-ignore
+export function createPolicyAppliesToFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoPolicyAppliesTo;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -59096,6 +60048,15 @@ export function createPolicyBaseFromDiscriminatorValue(parseNode: ParseNode | un
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {PolicyDefinitionReference}
+ */
+// @ts-ignore
+export function createPolicyDefinitionReferenceFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoPolicyDefinitionReference;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PolicyDeletableItem}
  */
 // @ts-ignore
@@ -59147,6 +60108,15 @@ export function createPolicyDeletableItemFromDiscriminatorValue(parseNode: Parse
 // @ts-ignore
 export function createPolicyDeletableRootFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPolicyDeletableRoot;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {PolicyEvaluationDetail}
+ */
+// @ts-ignore
+export function createPolicyEvaluationDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoPolicyEvaluationDetail;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -59928,6 +60898,15 @@ export function createPrivilegedOperationEventFromDiscriminatorValue(parseNode: 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {PrivilegedReadSetting}
+ */
+// @ts-ignore
+export function createPrivilegedReadSettingFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoPrivilegedReadSetting;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PrivilegedRoleAssignment}
  */
 // @ts-ignore
@@ -60434,6 +61413,33 @@ export function createProtectOnlineMeetingActionFromDiscriminatorValue(parseNode
 // @ts-ignore
 export function createProtectSiteFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoProtectSite;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ProvenanceAssertedBy}
+ */
+// @ts-ignore
+export function createProvenanceAssertedByFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoProvenanceAssertedBy;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ProvenanceAssertion}
+ */
+// @ts-ignore
+export function createProvenanceAssertionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoProvenanceAssertion;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ProvenanceChainStatus}
+ */
+// @ts-ignore
+export function createProvenanceChainStatusFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoProvenanceChainStatus;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -61466,6 +62472,78 @@ export function createResourceOperationFromDiscriminatorValue(parseNode: ParseNo
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ResourcePolicyAssignment}
+ */
+// @ts-ignore
+export function createResourcePolicyAssignmentFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoResourcePolicyAssignment;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ResourcePolicyConfiguration}
+ */
+// @ts-ignore
+export function createResourcePolicyConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoResourcePolicyConfiguration;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ResourcePolicyDefinition}
+ */
+// @ts-ignore
+export function createResourcePolicyDefinitionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoResourcePolicyDefinition;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ResourcePolicyDefinitionVersion}
+ */
+// @ts-ignore
+export function createResourcePolicyDefinitionVersionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoResourcePolicyDefinitionVersion;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ResourcePolicyDeletableRoot}
+ */
+// @ts-ignore
+export function createResourcePolicyDeletableRootFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoResourcePolicyDeletableRoot;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ResourcePolicyEvaluationEvent}
+ */
+// @ts-ignore
+export function createResourcePolicyEvaluationEventFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoResourcePolicyEvaluationEvent;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ResourcePolicyRoot}
+ */
+// @ts-ignore
+export function createResourcePolicyRootFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoResourcePolicyRoot;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ResourcePolicyRule}
+ */
+// @ts-ignore
+export function createResourcePolicyRuleFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoResourcePolicyRule;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ResourceQuota}
  */
 // @ts-ignore
@@ -62220,6 +63298,15 @@ export function createSalesOrderLineFromDiscriminatorValue(parseNode: ParseNode 
 // @ts-ignore
 export function createSalesQuoteLineFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSalesQuoteLine;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {SamlIdentifierUriConfiguration}
+ */
+// @ts-ignore
+export function createSamlIdentifierUriConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSamlIdentifierUriConfiguration;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -65963,6 +67050,15 @@ export function createTeamworkCameraConfigurationFromDiscriminatorValue(parseNod
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {TeamworkChannelTag}
+ */
+// @ts-ignore
+export function createTeamworkChannelTagFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoTeamworkChannelTag;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TeamworkConfiguredPeripheral}
  */
 // @ts-ignore
@@ -66295,6 +67391,17 @@ export function createTeamworkSystemConfigurationFromDiscriminatorValue(parseNod
  */
 // @ts-ignore
 export function createTeamworkTagFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
+    if (mappingValueNode) {
+        const mappingValue = mappingValueNode.getStringValue();
+        if (mappingValue) {
+            switch (mappingValue) {
+                case "#microsoft.graph.teamworkChannelTag":
+                    return deserializeIntoTeamworkChannelTag;
+            }
+        }
+    }
     return deserializeIntoTeamworkTag;
 }
 /**
@@ -67843,6 +68950,15 @@ export function createUserAccountInformationFromDiscriminatorValue(parseNode: Pa
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {UserActionExclusion}
+ */
+// @ts-ignore
+export function createUserActionExclusionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoUserActionExclusion;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UserActivity}
  */
 // @ts-ignore
@@ -68877,6 +69993,33 @@ export function createVerifiableCredentialSettingsFromDiscriminatorValue(parseNo
 // @ts-ignore
 export function createVerifiableCredentialTypeFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoVerifiableCredentialType;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {VerificationEventDetail}
+ */
+// @ts-ignore
+export function createVerificationEventDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoVerificationEventDetail;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {VerificationEventLifecycle}
+ */
+// @ts-ignore
+export function createVerificationEventLifecycleFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoVerificationEventLifecycle;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {VerificationEventOverride}
+ */
+// @ts-ignore
+export function createVerificationEventOverrideFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoVerificationEventOverride;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -72625,6 +73768,28 @@ export interface CreationTimestamp extends AdditionalDataHolder, Parsable {
      */
     odataType?: string | null;
 }
+export interface CredentialProvenance extends AdditionalDataHolder, Parsable {
+    /**
+     * Identifies the actor that established the provenance. This property is computed by the service.
+     */
+    assertedBy?: ProvenanceAssertedBy | null;
+    /**
+     * The assertions that support the credential's provenance classification.
+     */
+    assertions?: ProvenanceAssertion[] | null;
+    /**
+     * The current integrity status of the credential's chain of trust.
+     */
+    chainStatus?: ProvenanceChainStatus | null;
+    /**
+     * The classification property
+     */
+    classification?: ProvenanceClassification | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 /**
  * Represents a Credential-type Single Sign-On extension profile.
  */
@@ -72708,6 +73873,51 @@ export interface CredentialUserRegistrationDetails extends Entity, Parsable {
      */
     userPrincipalName?: string | null;
 }
+/**
+ * A credit request submitted by a user and acted on by an administrator.Derives from entity; the client-visible identifier is id.ETag-based optimistic concurrency is enforced via the standard OData ETag mechanism.Individual PATCH uses If-Match; the bulk action uses each item's etag field.
+ */
+export interface CreditRequest extends Entity, Parsable {
+    /**
+     * The date and time the request was created.
+     */
+    createdDateTime?: Date | null;
+    /**
+     * The identity of the administrator who approved or rejected the request.Only the user facet is populated. Null until the request is decided.
+     */
+    decisionBy?: IdentitySet | null;
+    /**
+     * The date and time the request expires. The backing service sets this to 90 days aftercreation and resets it to 90 days after a state-changing update.
+     */
+    expirationDateTime?: Date | null;
+    /**
+     * The date and time the request was last modified.
+     */
+    lastModifiedDateTime?: Date | null;
+    /**
+     * The requestedBy property
+     */
+    requestedBy?: IdentitySet | null;
+    /**
+     * The reason or trigger that caused a credit request to be created.
+     */
+    requestType?: CreditRequestType | null;
+    /**
+     * The open, extensible service identifier associated with this credit request,using the same values as other Copilot Cost Management APIs, such as cowork and workIQ.
+     */
+    serviceId?: string | null;
+    /**
+     * The state of a credit request in the approval workflow.
+     */
+    state?: CreditRequestState | null;
+}
+export interface CreditRequestCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: CreditRequest[] | null;
+}
+export type CreditRequestState = (typeof CreditRequestStateObject)[keyof typeof CreditRequestStateObject];
+export type CreditRequestType = (typeof CreditRequestTypeObject)[keyof typeof CreditRequestTypeObject];
 export interface CrossCloudAzureActiveDirectoryTenant extends IdentitySource, Parsable {
     /**
      * The ID of the cloud where the tenant is located, one of microsoftonline.com, microsoftonline.us or partner.microsoftonline.cn. Read-only.
@@ -73643,11 +74853,11 @@ export interface CustomFieldDefinition extends Parsable, PlannerDelta {
      */
     createdDateTime?: Date | null;
     /**
-     * Identity of the user who deleted the custom field definition, if it was deleted.
+     * Identity of the user who deleted the custom field definition, if it was deleted. Read-only.
      */
     deletedBy?: IdentitySet | null;
     /**
-     * Date and time the custom field definition was deleted, if applicable.
+     * Date and time the custom field definition was deleted, if applicable. Read-only.
      */
     deletedDateTime?: Date | null;
     /**
@@ -73671,7 +74881,7 @@ export interface CustomFieldDefinition extends Parsable, PlannerDelta {
      */
     rollupType?: CustomFieldRollupType | null;
     /**
-     * Data type of the custom field's values.. The possible values are: text, date, utcDateTime, number, decimal, flag, singleChoiceText, multipleChoiceText, unknownFutureValue.
+     * Data type of the custom field's values. Immutable after creation. The possible values are: text, date, utcDateTime, number, decimal, flag, singleChoiceText, multipleChoiceText, unknownFutureValue. The values utcDateTime, decimal, and multipleChoiceText can occur on existing fields; they aren't supported types for new field definitions.
      */
     valueType?: CustomFieldValueType | null;
 }
@@ -74141,7 +75351,7 @@ export interface DateWithOptionalTime extends AdditionalDataHolder, Parsable {
      */
     date?: DateOnly | null;
     /**
-     * Indicates whether a specific time (not just a date) was provided.
+     * Indicates whether a specific time (not just a date) was provided. Read-only.
      */
     isTimeSpecified?: boolean | null;
     /**
@@ -74149,11 +75359,11 @@ export interface DateWithOptionalTime extends AdditionalDataHolder, Parsable {
      */
     odataType?: string | null;
     /**
-     * The optional time-of-day component of the value.
+     * The optional time-of-day component of the value. Read-only.
      */
     time?: TimeOnly | null;
     /**
-     * Time zone the time value is expressed in, if time is set.
+     * Time zone the time value is expressed in, if time is set. Read-only.
      */
     timeZone?: string | null;
 }
@@ -75050,11 +76260,11 @@ export interface Dependency extends Parsable, PlannerDelta {
      */
     lastModifiedDateTime?: Date | null;
     /**
-     * ID of the source item in the dependency.
+     * ID of the source item in the dependency. Immutable after creation.
      */
     sourceItemId?: string | null;
     /**
-     * ID of the target item in the dependency.
+     * ID of the target item in the dependency. Immutable after creation.
      */
     targetItemId?: string | null;
 }
@@ -77692,6 +78902,19 @@ export function deserializeIntoAgentExtensionParams(agentExtensionParams: Partia
 }
 /**
  * The deserialization information for the current model
+ * @param AgenticSecurityRoot The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoAgenticSecurityRoot(agenticSecurityRoot: Partial<AgenticSecurityRoot> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(agenticSecurityRoot),
+        "playbookDefinitions": n => { agenticSecurityRoot.playbookDefinitions = n.getCollectionOfObjectValues<PlaybookDefinition>(createPlaybookDefinitionFromDiscriminatorValue); },
+        "sessions": n => { agenticSecurityRoot.sessions = n.getCollectionOfObjectValues<InvestigationSession>(createInvestigationSessionFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param AgentIdentity The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -77741,6 +78964,21 @@ export function deserializeIntoAgentIdentityBlueprintPrincipal(agentIdentityBlue
         "lifecyclePolicyNonComplianceDisablementDateTime": n => { agentIdentityBlueprintPrincipal.lifecyclePolicyNonComplianceDisablementDateTime = n.getDateValue(); },
         "managerApplications": n => { agentIdentityBlueprintPrincipal.managerApplications = n.getCollectionOfPrimitiveValues<Guid>("string"); },
         "sponsors": n => { agentIdentityBlueprintPrincipal.sponsors = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param AgentInfo The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoAgentInfo(agentInfo: Partial<AgentInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "applicationId": n => { agentInfo.applicationId = n.getStringValue(); },
+        "definitionName": n => { agentInfo.definitionName = n.getStringValue(); },
+        "displayName": n => { agentInfo.displayName = n.getStringValue(); },
+        "key": n => { agentInfo.key = n.getStringValue(); },
+        "@odata.type": n => { agentInfo.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -77881,6 +79119,41 @@ export function deserializeIntoAgentRiskDetection(agentRiskDetection: Partial<Ag
         "signInCorrelationId": n => { agentRiskDetection.signInCorrelationId = n.getStringValue(); },
         "signInRequestId": n => { agentRiskDetection.signInRequestId = n.getStringValue(); },
         "source": n => { agentRiskDetection.source = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param AgentRun The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoAgentRun(agentRun: Partial<AgentRun> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(agentRun),
+        "agent": n => { agentRun.agent = n.getObjectValue<AgentInfo>(createAgentInfoFromDiscriminatorValue); },
+        "completedDateTime": n => { agentRun.completedDateTime = n.getDateValue(); },
+        "createdDateTime": n => { agentRun.createdDateTime = n.getDateValue(); },
+        "durationInMilliseconds": n => { agentRun.durationInMilliseconds = n.getNumberValue(); },
+        "failureInfo": n => { agentRun.failureInfo = n.getObjectValue<AgentRunFailureInfo>(createAgentRunFailureInfoFromDiscriminatorValue); },
+        "initiatedBy": n => { agentRun.initiatedBy = n.getObjectValue<InvestigationIdentitySet>(createInvestigationIdentitySetFromDiscriminatorValue); },
+        "lastModifiedDateTime": n => { agentRun.lastModifiedDateTime = n.getDateValue(); },
+        "messages": n => { agentRun.messages = n.getCollectionOfObjectValues<InvestigationMessage>(createInvestigationMessageFromDiscriminatorValue); },
+        "startedDateTime": n => { agentRun.startedDateTime = n.getDateValue(); },
+        "status": n => { agentRun.status = n.getEnumValue<LongRunningOperationStatus>(LongRunningOperationStatusObject); },
+        "statusDetail": n => { agentRun.statusDetail = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param AgentRunFailureInfo The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoAgentRunFailureInfo(agentRunFailureInfo: Partial<AgentRunFailureInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "errorType": n => { agentRunFailureInfo.errorType = n.getStringValue(); },
+        "message": n => { agentRunFailureInfo.message = n.getStringValue(); },
+        "@odata.type": n => { agentRunFailureInfo.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -78559,6 +79832,18 @@ export function deserializeIntoAllPreApprovedPermissionsOnResourceApp(allPreAppr
     return {
         ...deserializeIntoPreApprovedPermissions(allPreApprovedPermissionsOnResourceApp),
         "resourceApplicationId": n => { allPreApprovedPermissionsOnResourceApp.resourceApplicationId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param AllResourcesExclusions The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoAllResourcesExclusions(allResourcesExclusions: Partial<AllResourcesExclusions> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "@odata.type": n => { allResourcesExclusions.odataType = n.getStringValue(); },
+        "userActionExclusions": n => { allResourcesExclusions.userActionExclusions = n.getCollectionOfObjectValues<UserActionExclusion>(createUserActionExclusionFromDiscriminatorValue); },
     }
 }
 /**
@@ -81185,11 +82470,14 @@ export function deserializeIntoApplication(application: Partial<Application> | u
         "federatedIdentityCredentials": n => { application.federatedIdentityCredentials = n.getCollectionOfObjectValues<FederatedIdentityCredential>(createFederatedIdentityCredentialFromDiscriminatorValue); },
         "groupMembershipClaims": n => { application.groupMembershipClaims = n.getStringValue(); },
         "homeRealmDiscoveryPolicies": n => { application.homeRealmDiscoveryPolicies = n.getCollectionOfObjectValues<HomeRealmDiscoveryPolicy>(createHomeRealmDiscoveryPolicyFromDiscriminatorValue); },
+        "identifierUriConfiguration": n => { application.identifierUriConfiguration = n.getObjectValue<ApplicationIdentifierUriConfiguration>(createApplicationIdentifierUriConfigurationFromDiscriminatorValue); },
         "identifierUris": n => { application.identifierUris = n.getCollectionOfPrimitiveValues<string>("string"); },
+        "idJag": n => { application.idJag = n.getObjectValue<IdJagApplicationConfiguration>(createIdJagApplicationConfigurationFromDiscriminatorValue); },
         "info": n => { application.info = n.getObjectValue<InformationalUrl>(createInformationalUrlFromDiscriminatorValue); },
         "isDeviceOnlyAuthSupported": n => { application.isDeviceOnlyAuthSupported = n.getBooleanValue(); },
         "isDisabled": n => { application.isDisabled = n.getBooleanValue(); },
         "isFallbackPublicClient": n => { application.isFallbackPublicClient = n.getBooleanValue(); },
+        "isHardDeleteProtectionEnabled": n => { application.isHardDeleteProtectionEnabled = n.getBooleanValue(); },
         "keyCredentials": n => { application.keyCredentials = n.getCollectionOfObjectValues<KeyCredential>(createKeyCredentialFromDiscriminatorValue); },
         "logo": n => { application.logo = n.getByteArrayValue(); },
         "managerApplications": n => { application.managerApplications = n.getCollectionOfPrimitiveValues<Guid>("string"); },
@@ -81241,6 +82529,19 @@ export function deserializeIntoApplicationDriftResourceInfo(applicationDriftReso
 export function deserializeIntoApplicationEnforcedRestrictionsSessionControl(applicationEnforcedRestrictionsSessionControl: Partial<ApplicationEnforcedRestrictionsSessionControl> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoConditionalAccessSessionControl(applicationEnforcedRestrictionsSessionControl),
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ApplicationIdentifierUriConfiguration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoApplicationIdentifierUriConfiguration(applicationIdentifierUriConfiguration: Partial<ApplicationIdentifierUriConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "idJag": n => { applicationIdentifierUriConfiguration.idJag = n.getObjectValue<IdJagIdentifierUriConfiguration>(createIdJagIdentifierUriConfigurationFromDiscriminatorValue); },
+        "@odata.type": n => { applicationIdentifierUriConfiguration.odataType = n.getStringValue(); },
+        "saml": n => { applicationIdentifierUriConfiguration.saml = n.getObjectValue<SamlIdentifierUriConfiguration>(createSamlIdentifierUriConfigurationFromDiscriminatorValue); },
     }
 }
 /**
@@ -82142,6 +83443,17 @@ export function deserializeIntoAssignedPlan(assignedPlan: Partial<AssignedPlan> 
         "@odata.type": n => { assignedPlan.odataType = n.getStringValue(); },
         "service": n => { assignedPlan.service = n.getStringValue(); },
         "servicePlanId": n => { assignedPlan.servicePlanId = n.getGuidValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param AssignedPolicyReference The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoAssignedPolicyReference(assignedPolicyReference: Partial<AssignedPolicyReference> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "@odata.type": n => { assignedPolicyReference.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -83050,6 +84362,7 @@ export function deserializeIntoAuthenticationMethod(authenticationMethod: Partia
         ...deserializeIntoEntity(authenticationMethod),
         "createdDateTime": n => { authenticationMethod.createdDateTime = n.getDateValue(); },
         "lastUsedDateTime": n => { authenticationMethod.lastUsedDateTime = n.getDateValue(); },
+        "provenance": n => { authenticationMethod.provenance = n.getObjectValue<CredentialProvenance>(createCredentialProvenanceFromDiscriminatorValue); },
     }
 }
 /**
@@ -86285,6 +87598,7 @@ export function deserializeIntoChannel(channel: Partial<Channel> | undefined = {
         "sharedWithTeams": n => { channel.sharedWithTeams = n.getCollectionOfObjectValues<SharedWithChannelTeamInfo>(createSharedWithChannelTeamInfoFromDiscriminatorValue); },
         "summary": n => { channel.summary = n.getObjectValue<ChannelSummary>(createChannelSummaryFromDiscriminatorValue); },
         "tabs": n => { channel.tabs = n.getCollectionOfObjectValues<TeamsTab>(createTeamsTabFromDiscriminatorValue); },
+        "tags": n => { channel.tags = n.getCollectionOfObjectValues<TeamworkChannelTag>(createTeamworkChannelTagFromDiscriminatorValue); },
         "tenantId": n => { channel.tenantId = n.getStringValue(); },
         "webUrl": n => { channel.webUrl = n.getStringValue(); },
     }
@@ -87777,6 +89091,18 @@ export function deserializeIntoCloudPcBulkRestore(cloudPcBulkRestore: Partial<Cl
         "ignoreUnhealthySnapshots": n => { cloudPcBulkRestore.ignoreUnhealthySnapshots = n.getBooleanValue(); },
         "restorePointDateTime": n => { cloudPcBulkRestore.restorePointDateTime = n.getDateValue(); },
         "timeRange": n => { cloudPcBulkRestore.timeRange = n.getEnumValue<RestoreTimeRange>(RestoreTimeRangeObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CloudPcBulkSetDeviceName The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCloudPcBulkSetDeviceName(cloudPcBulkSetDeviceName: Partial<CloudPcBulkSetDeviceName> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoCloudPcBulkAction(cloudPcBulkSetDeviceName),
+        "deviceNamingTemplate": n => { cloudPcBulkSetDeviceName.deviceNamingTemplate = n.getStringValue(); },
     }
 }
 /**
@@ -89548,6 +90874,18 @@ export function deserializeIntoConditionalAccessEnumeratedExternalTenants(condit
 }
 /**
  * The deserialization information for the current model
+ * @param ConditionalAccessExclusions The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoConditionalAccessExclusions(conditionalAccessExclusions: Partial<ConditionalAccessExclusions> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "allResourcesExclusions": n => { conditionalAccessExclusions.allResourcesExclusions = n.getObjectValue<AllResourcesExclusions>(createAllResourcesExclusionsFromDiscriminatorValue); },
+        "@odata.type": n => { conditionalAccessExclusions.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param ConditionalAccessExternalTenants The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -89697,6 +91035,7 @@ export function deserializeIntoConditionalAccessRoot(conditionalAccessRoot: Part
         "deletedItems": n => { conditionalAccessRoot.deletedItems = n.getObjectValue<CaPoliciesDeletableRoot>(createCaPoliciesDeletableRootFromDiscriminatorValue); },
         "namedLocations": n => { conditionalAccessRoot.namedLocations = n.getCollectionOfObjectValues<NamedLocation>(createNamedLocationFromDiscriminatorValue); },
         "policies": n => { conditionalAccessRoot.policies = n.getCollectionOfObjectValues<ConditionalAccessPolicy>(createConditionalAccessPolicyFromDiscriminatorValue); },
+        "settings": n => { conditionalAccessRoot.settings = n.getObjectValue<ConditionalAccessSettings>(createConditionalAccessSettingsFromDiscriminatorValue); },
         "templates": n => { conditionalAccessRoot.templates = n.getCollectionOfObjectValues<ConditionalAccessTemplate>(createConditionalAccessTemplateFromDiscriminatorValue); },
     }
 }
@@ -89742,6 +91081,19 @@ export function deserializeIntoConditionalAccessSessionControls(conditionalAcces
         "persistentBrowser": n => { conditionalAccessSessionControls.persistentBrowser = n.getObjectValue<PersistentBrowserSessionControl>(createPersistentBrowserSessionControlFromDiscriminatorValue); },
         "secureSignInSession": n => { conditionalAccessSessionControls.secureSignInSession = n.getObjectValue<SecureSignInSessionControl>(createSecureSignInSessionControlFromDiscriminatorValue); },
         "signInFrequency": n => { conditionalAccessSessionControls.signInFrequency = n.getObjectValue<SignInFrequencySessionControl>(createSignInFrequencySessionControlFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ConditionalAccessSettings The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoConditionalAccessSettings(conditionalAccessSettings: Partial<ConditionalAccessSettings> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(conditionalAccessSettings),
+        "exclusions": n => { conditionalAccessSettings.exclusions = n.getObjectValue<ConditionalAccessExclusions>(createConditionalAccessExclusionsFromDiscriminatorValue); },
+        "modifiedDateTime": n => { conditionalAccessSettings.modifiedDateTime = n.getDateValue(); },
     }
 }
 /**
@@ -90340,6 +91692,18 @@ export function deserializeIntoContentLinkCapability(contentLinkCapability: Part
     return {
         "extensions": n => { contentLinkCapability.extensions = n.getBooleanValue(); },
         "@odata.type": n => { contentLinkCapability.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ContentManagementRoot The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoContentManagementRoot(contentManagementRoot: Partial<ContentManagementRoot> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(contentManagementRoot),
+        "repositories": n => { contentManagementRoot.repositories = n.getCollectionOfObjectValues<ContentManagementRepository>(createContentManagementRepositoryFromDiscriminatorValue); },
     }
 }
 /**
@@ -91279,6 +92643,60 @@ export function deserializeIntoCostManagementDataStatus(costManagementDataStatus
 }
 /**
  * The deserialization information for the current model
+ * @param CostManagementFundingUsageRecord The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCostManagementFundingUsageRecord(costManagementFundingUsageRecord: Partial<CostManagementFundingUsageRecord> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(costManagementFundingUsageRecord),
+        "consumedQuantity": n => { costManagementFundingUsageRecord.consumedQuantity = n.getNumberValue(); },
+        "dataStatus": n => { costManagementFundingUsageRecord.dataStatus = n.getObjectValue<CostManagementUsageDataStatus>(createCostManagementUsageDataStatusFromDiscriminatorValue); },
+        "fundingClass": n => { costManagementFundingUsageRecord.fundingClass = n.getEnumValue<CostManagementFundingClass>(CostManagementFundingClassObject); },
+        "unit": n => { costManagementFundingUsageRecord.unit = n.getEnumValue<CostManagementUnit>(CostManagementUnitObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CostManagementFundingUsageRecordCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCostManagementFundingUsageRecordCollectionResponse(costManagementFundingUsageRecordCollectionResponse: Partial<CostManagementFundingUsageRecordCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(costManagementFundingUsageRecordCollectionResponse),
+        "value": n => { costManagementFundingUsageRecordCollectionResponse.value = n.getCollectionOfObjectValues<CostManagementFundingUsageRecord>(createCostManagementFundingUsageRecordFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CostManagementGroupUsageRecord The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCostManagementGroupUsageRecord(costManagementGroupUsageRecord: Partial<CostManagementGroupUsageRecord> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "consumedQuantity": n => { costManagementGroupUsageRecord.consumedQuantity = n.getNumberValue(); },
+        "groupId": n => { costManagementGroupUsageRecord.groupId = n.getStringValue(); },
+        "@odata.type": n => { costManagementGroupUsageRecord.odataType = n.getStringValue(); },
+        "sessionCount": n => { costManagementGroupUsageRecord.sessionCount = n.getNumberValue(); },
+        "unit": n => { costManagementGroupUsageRecord.unit = n.getEnumValue<CostManagementUnit>(CostManagementUnitObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CostManagementGroupUsageRecordCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCostManagementGroupUsageRecordCollectionResponse(costManagementGroupUsageRecordCollectionResponse: Partial<CostManagementGroupUsageRecordCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(costManagementGroupUsageRecordCollectionResponse),
+        "value": n => { costManagementGroupUsageRecordCollectionResponse.value = n.getCollectionOfObjectValues<CostManagementGroupUsageRecord>(createCostManagementGroupUsageRecordFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param CostManagementQuantity The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -91298,8 +92716,36 @@ export function deserializeIntoCostManagementQuantity(costManagementQuantity: Pa
 export function deserializeIntoCostManagementRoot(costManagementRoot: Partial<CostManagementRoot> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(costManagementRoot),
+        "creditRequests": n => { costManagementRoot.creditRequests = n.getCollectionOfObjectValues<CreditRequest>(createCreditRequestFromDiscriminatorValue); },
         "spendingPolicies": n => { costManagementRoot.spendingPolicies = n.getCollectionOfObjectValues<SpendingPolicy>(createSpendingPolicyFromDiscriminatorValue); },
+        "usageReports": n => { costManagementRoot.usageReports = n.getObjectValue<CostManagementUsageReportRoot>(createCostManagementUsageReportRootFromDiscriminatorValue); },
         "userBalances": n => { costManagementRoot.userBalances = n.getCollectionOfObjectValues<CostManagementUserBalance>(createCostManagementUserBalanceFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CostManagementServiceUsageRecord The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCostManagementServiceUsageRecord(costManagementServiceUsageRecord: Partial<CostManagementServiceUsageRecord> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "consumedQuantity": n => { costManagementServiceUsageRecord.consumedQuantity = n.getNumberValue(); },
+        "@odata.type": n => { costManagementServiceUsageRecord.odataType = n.getStringValue(); },
+        "serviceId": n => { costManagementServiceUsageRecord.serviceId = n.getStringValue(); },
+        "unit": n => { costManagementServiceUsageRecord.unit = n.getEnumValue<CostManagementUnit>(CostManagementUnitObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CostManagementServiceUsageRecordCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCostManagementServiceUsageRecordCollectionResponse(costManagementServiceUsageRecordCollectionResponse: Partial<CostManagementServiceUsageRecordCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(costManagementServiceUsageRecordCollectionResponse),
+        "value": n => { costManagementServiceUsageRecordCollectionResponse.value = n.getCollectionOfObjectValues<CostManagementServiceUsageRecord>(createCostManagementServiceUsageRecordFromDiscriminatorValue); },
     }
 }
 /**
@@ -91313,6 +92759,34 @@ export function deserializeIntoCostManagementUnevaluatedService(costManagementUn
         "@odata.type": n => { costManagementUnevaluatedService.odataType = n.getStringValue(); },
         "reason": n => { costManagementUnevaluatedService.reason = n.getEnumValue<BalanceEvaluationFailureReason>(BalanceEvaluationFailureReasonObject); },
         "serviceId": n => { costManagementUnevaluatedService.serviceId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CostManagementUsageDataStatus The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCostManagementUsageDataStatus(costManagementUsageDataStatus: Partial<CostManagementUsageDataStatus> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "latestSourceDateTime": n => { costManagementUsageDataStatus.latestSourceDateTime = n.getDateValue(); },
+        "@odata.type": n => { costManagementUsageDataStatus.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CostManagementUsageReportRoot The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCostManagementUsageReportRoot(costManagementUsageReportRoot: Partial<CostManagementUsageReportRoot> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(costManagementUsageReportRoot),
+        "fundingUsageRecords": n => { costManagementUsageReportRoot.fundingUsageRecords = n.getCollectionOfObjectValues<CostManagementFundingUsageRecord>(createCostManagementFundingUsageRecordFromDiscriminatorValue); },
+        "groupUsageRecords": n => { costManagementUsageReportRoot.groupUsageRecords = n.getCollectionOfObjectValues<CostManagementGroupUsageRecord>(createCostManagementGroupUsageRecordFromDiscriminatorValue); },
+        "serviceUsageRecords": n => { costManagementUsageReportRoot.serviceUsageRecords = n.getCollectionOfObjectValues<CostManagementServiceUsageRecord>(createCostManagementServiceUsageRecordFromDiscriminatorValue); },
+        "userUsageDetails": n => { costManagementUsageReportRoot.userUsageDetails = n.getCollectionOfObjectValues<CostManagementUserUsageDetail>(createCostManagementUserUsageDetailFromDiscriminatorValue); },
+        "userUsageRecords": n => { costManagementUsageReportRoot.userUsageRecords = n.getCollectionOfObjectValues<CostManagementUserUsageRecord>(createCostManagementUserUsageRecordFromDiscriminatorValue); },
     }
 }
 /**
@@ -91361,6 +92835,104 @@ export function deserializeIntoCostManagementUserServiceBalanceCollectionRespons
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(costManagementUserServiceBalanceCollectionResponse),
         "value": n => { costManagementUserServiceBalanceCollectionResponse.value = n.getCollectionOfObjectValues<CostManagementUserServiceBalance>(createCostManagementUserServiceBalanceFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CostManagementUserUsageDetail The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCostManagementUserUsageDetail(costManagementUserUsageDetail: Partial<CostManagementUserUsageDetail> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "consumedQuantity": n => { costManagementUserUsageDetail.consumedQuantity = n.getNumberValue(); },
+        "dataStatus": n => { costManagementUserUsageDetail.dataStatus = n.getObjectValue<CostManagementUsageDataStatus>(createCostManagementUsageDataStatusFromDiscriminatorValue); },
+        "@odata.type": n => { costManagementUserUsageDetail.odataType = n.getStringValue(); },
+        "services": n => { costManagementUserUsageDetail.services = n.getCollectionOfObjectValues<CostManagementUserUsageServiceDetail>(createCostManagementUserUsageServiceDetailFromDiscriminatorValue); },
+        "sessionCount": n => { costManagementUserUsageDetail.sessionCount = n.getNumberValue(); },
+        "sessions": n => { costManagementUserUsageDetail.sessions = n.getCollectionOfObjectValues<CostManagementUserUsageSessionDetail>(createCostManagementUserUsageSessionDetailFromDiscriminatorValue); },
+        "unit": n => { costManagementUserUsageDetail.unit = n.getEnumValue<CostManagementUnit>(CostManagementUnitObject); },
+        "userId": n => { costManagementUserUsageDetail.userId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CostManagementUserUsageRecord The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCostManagementUserUsageRecord(costManagementUserUsageRecord: Partial<CostManagementUserUsageRecord> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "consumedQuantity": n => { costManagementUserUsageRecord.consumedQuantity = n.getNumberValue(); },
+        "@odata.type": n => { costManagementUserUsageRecord.odataType = n.getStringValue(); },
+        "sessionCount": n => { costManagementUserUsageRecord.sessionCount = n.getNumberValue(); },
+        "unit": n => { costManagementUserUsageRecord.unit = n.getEnumValue<CostManagementUnit>(CostManagementUnitObject); },
+        "userId": n => { costManagementUserUsageRecord.userId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CostManagementUserUsageRecordCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCostManagementUserUsageRecordCollectionResponse(costManagementUserUsageRecordCollectionResponse: Partial<CostManagementUserUsageRecordCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(costManagementUserUsageRecordCollectionResponse),
+        "value": n => { costManagementUserUsageRecordCollectionResponse.value = n.getCollectionOfObjectValues<CostManagementUserUsageRecord>(createCostManagementUserUsageRecordFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CostManagementUserUsageServiceDetail The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCostManagementUserUsageServiceDetail(costManagementUserUsageServiceDetail: Partial<CostManagementUserUsageServiceDetail> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(costManagementUserUsageServiceDetail),
+        "consumedQuantity": n => { costManagementUserUsageServiceDetail.consumedQuantity = n.getNumberValue(); },
+        "unit": n => { costManagementUserUsageServiceDetail.unit = n.getEnumValue<CostManagementUnit>(CostManagementUnitObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CostManagementUserUsageServiceDetailCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCostManagementUserUsageServiceDetailCollectionResponse(costManagementUserUsageServiceDetailCollectionResponse: Partial<CostManagementUserUsageServiceDetailCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(costManagementUserUsageServiceDetailCollectionResponse),
+        "value": n => { costManagementUserUsageServiceDetailCollectionResponse.value = n.getCollectionOfObjectValues<CostManagementUserUsageServiceDetail>(createCostManagementUserUsageServiceDetailFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CostManagementUserUsageSessionDetail The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCostManagementUserUsageSessionDetail(costManagementUserUsageSessionDetail: Partial<CostManagementUserUsageSessionDetail> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(costManagementUserUsageSessionDetail),
+        "consumedQuantity": n => { costManagementUserUsageSessionDetail.consumedQuantity = n.getNumberValue(); },
+        "firstActivityDateTime": n => { costManagementUserUsageSessionDetail.firstActivityDateTime = n.getDateValue(); },
+        "lastActivityDateTime": n => { costManagementUserUsageSessionDetail.lastActivityDateTime = n.getDateValue(); },
+        "sourceSessionId": n => { costManagementUserUsageSessionDetail.sourceSessionId = n.getStringValue(); },
+        "unit": n => { costManagementUserUsageSessionDetail.unit = n.getEnumValue<CostManagementUnit>(CostManagementUnitObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CostManagementUserUsageSessionDetailCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCostManagementUserUsageSessionDetailCollectionResponse(costManagementUserUsageSessionDetailCollectionResponse: Partial<CostManagementUserUsageSessionDetailCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(costManagementUserUsageSessionDetailCollectionResponse),
+        "value": n => { costManagementUserUsageSessionDetailCollectionResponse.value = n.getCollectionOfObjectValues<CostManagementUserUsageSessionDetail>(createCostManagementUserUsageSessionDetailFromDiscriminatorValue); },
     }
 }
 /**
@@ -91417,6 +92989,21 @@ export function deserializeIntoCreationTimestamp(creationTimestamp: Partial<Crea
         "createdBy": n => { creationTimestamp.createdBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
         "createdDateTime": n => { creationTimestamp.createdDateTime = n.getDateValue(); },
         "@odata.type": n => { creationTimestamp.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CredentialProvenance The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCredentialProvenance(credentialProvenance: Partial<CredentialProvenance> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "assertedBy": n => { credentialProvenance.assertedBy = n.getObjectValue<ProvenanceAssertedBy>(createProvenanceAssertedByFromDiscriminatorValue); },
+        "assertions": n => { credentialProvenance.assertions = n.getCollectionOfObjectValues<ProvenanceAssertion>(createProvenanceAssertionFromDiscriminatorValue); },
+        "chainStatus": n => { credentialProvenance.chainStatus = n.getObjectValue<ProvenanceChainStatus>(createProvenanceChainStatusFromDiscriminatorValue); },
+        "classification": n => { credentialProvenance.classification = n.getEnumValue<ProvenanceClassification>(ProvenanceClassificationObject); },
+        "@odata.type": n => { credentialProvenance.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -91479,6 +93066,37 @@ export function deserializeIntoCredentialUserRegistrationDetails(credentialUserR
         "isRegistered": n => { credentialUserRegistrationDetails.isRegistered = n.getBooleanValue(); },
         "userDisplayName": n => { credentialUserRegistrationDetails.userDisplayName = n.getStringValue(); },
         "userPrincipalName": n => { credentialUserRegistrationDetails.userPrincipalName = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CreditRequest The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCreditRequest(creditRequest: Partial<CreditRequest> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(creditRequest),
+        "createdDateTime": n => { creditRequest.createdDateTime = n.getDateValue(); },
+        "decisionBy": n => { creditRequest.decisionBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
+        "expirationDateTime": n => { creditRequest.expirationDateTime = n.getDateValue(); },
+        "lastModifiedDateTime": n => { creditRequest.lastModifiedDateTime = n.getDateValue(); },
+        "requestedBy": n => { creditRequest.requestedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
+        "requestType": n => { creditRequest.requestType = n.getEnumValue<CreditRequestType>(CreditRequestTypeObject); },
+        "serviceId": n => { creditRequest.serviceId = n.getStringValue(); },
+        "state": n => { creditRequest.state = n.getEnumValue<CreditRequestState>(CreditRequestStateObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CreditRequestCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCreditRequestCollectionResponse(creditRequestCollectionResponse: Partial<CreditRequestCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(creditRequestCollectionResponse),
+        "value": n => { creditRequestCollectionResponse.value = n.getCollectionOfObjectValues<CreditRequest>(createCreditRequestFromDiscriminatorValue); },
     }
 }
 /**
@@ -98619,6 +100237,17 @@ export function deserializeIntoDropInPlaceMode(dropInPlaceMode: Partial<DropInPl
 }
 /**
  * The deserialization information for the current model
+ * @param DynamicPermissionsManagementRoot The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoDynamicPermissionsManagementRoot(dynamicPermissionsManagementRoot: Partial<DynamicPermissionsManagementRoot> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(dynamicPermissionsManagementRoot),
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param DynamicRuleActivityLog The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -101885,6 +103514,19 @@ export function deserializeIntoFederatedTokenValidationPolicy(federatedTokenVali
 }
 /**
  * The deserialization information for the current model
+ * @param FetchDetail The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoFetchDetail(fetchDetail: Partial<FetchDetail> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "durationMs": n => { fetchDetail.durationMs = n.getNumberValue(); },
+        "@odata.type": n => { fetchDetail.odataType = n.getStringValue(); },
+        "path": n => { fetchDetail.path = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param Fido2AuthenticationMethod The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -103202,6 +104844,7 @@ export function deserializeIntoGroup(group: Partial<Group> | undefined = {}) : R
         "isArchived": n => { group.isArchived = n.getBooleanValue(); },
         "isAssignableToRole": n => { group.isAssignableToRole = n.getBooleanValue(); },
         "isFavorite": n => { group.isFavorite = n.getBooleanValue(); },
+        "isHardDeleteProtectionEnabled": n => { group.isHardDeleteProtectionEnabled = n.getBooleanValue(); },
         "isManagementRestricted": n => { group.isManagementRestricted = n.getBooleanValue(); },
         "isSubscribedByMail": n => { group.isSubscribedByMail = n.getBooleanValue(); },
         "licenseProcessingState": n => { group.licenseProcessingState = n.getObjectValue<LicenseProcessingState>(createLicenseProcessingStateFromDiscriminatorValue); },
@@ -104623,6 +106266,20 @@ export function deserializeIntoIdentityUserFlowAttributeAssignment(identityUserF
 }
 /**
  * The deserialization information for the current model
+ * @param IdentityVerificationEvent The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoIdentityVerificationEvent(identityVerificationEvent: Partial<IdentityVerificationEvent> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(identityVerificationEvent),
+        "lifecycle": n => { identityVerificationEvent.lifecycle = n.getObjectValue<VerificationEventLifecycle>(createVerificationEventLifecycleFromDiscriminatorValue); },
+        "overrideDetails": n => { identityVerificationEvent.overrideDetails = n.getObjectValue<VerificationEventOverride>(createVerificationEventOverrideFromDiscriminatorValue); },
+        "verification": n => { identityVerificationEvent.verification = n.getObjectValue<VerificationEventDetail>(createVerificationEventDetailFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param IdentityVerificationEventsConfiguration The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -104635,6 +106292,21 @@ export function deserializeIntoIdentityVerificationEventsConfiguration(identityV
 }
 /**
  * The deserialization information for the current model
+ * @param IdentityVerificationStatus The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoIdentityVerificationStatus(identityVerificationStatus: Partial<IdentityVerificationStatus> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(identityVerificationStatus),
+        "expiryDateTime": n => { identityVerificationStatus.expiryDateTime = n.getDateValue(); },
+        "lastVerifiedDateTime": n => { identityVerificationStatus.lastVerifiedDateTime = n.getDateValue(); },
+        "state": n => { identityVerificationStatus.state = n.getEnumValue<VerificationState>(VerificationStateObject); },
+        "verificationEvents": n => { identityVerificationStatus.verificationEvents = n.getCollectionOfObjectValues<IdentityVerificationEvent>(createIdentityVerificationEventFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param IdentityVerifiedIdRoot The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -104643,6 +106315,109 @@ export function deserializeIntoIdentityVerifiedIdRoot(identityVerifiedIdRoot: Pa
     return {
         ...deserializeIntoEntity(identityVerifiedIdRoot),
         "profiles": n => { identityVerifiedIdRoot.profiles = n.getCollectionOfObjectValues<VerifiedIdProfile>(createVerifiedIdProfileFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param IdJagApplicationConfiguration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoIdJagApplicationConfiguration(idJagApplicationConfiguration: Partial<IdJagApplicationConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "client": n => { idJagApplicationConfiguration.client = n.getObjectValue<IdJagClientConfiguration>(createIdJagClientConfigurationFromDiscriminatorValue); },
+        "@odata.type": n => { idJagApplicationConfiguration.odataType = n.getStringValue(); },
+        "resourceAuthorizationServer": n => { idJagApplicationConfiguration.resourceAuthorizationServer = n.getObjectValue<IdJagResourceAuthorizationServerConfiguration>(createIdJagResourceAuthorizationServerConfigurationFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param IdJagClientConfiguration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoIdJagClientConfiguration(idJagClientConfiguration: Partial<IdJagClientConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "isEnabled": n => { idJagClientConfiguration.isEnabled = n.getBooleanValue(); },
+        "@odata.type": n => { idJagClientConfiguration.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param IdJagEnabledClient The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoIdJagEnabledClient(idJagEnabledClient: Partial<IdJagEnabledClient> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "clientId": n => { idJagEnabledClient.clientId = n.getGuidValue(); },
+        "@odata.type": n => { idJagEnabledClient.odataType = n.getStringValue(); },
+        "resourceAuthorizationServerClientId": n => { idJagEnabledClient.resourceAuthorizationServerClientId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param IdJagIdentifierUriConfiguration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoIdJagIdentifierUriConfiguration(idJagIdentifierUriConfiguration: Partial<IdJagIdentifierUriConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "@odata.type": n => { idJagIdentifierUriConfiguration.odataType = n.getStringValue(); },
+        "uris": n => { idJagIdentifierUriConfiguration.uris = n.getCollectionOfPrimitiveValues<string>("string"); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param IdJagResourceAuthorizationServerConfiguration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoIdJagResourceAuthorizationServerConfiguration(idJagResourceAuthorizationServerConfiguration: Partial<IdJagResourceAuthorizationServerConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "@odata.type": n => { idJagResourceAuthorizationServerConfiguration.odataType = n.getStringValue(); },
+        "resourceServers": n => { idJagResourceAuthorizationServerConfiguration.resourceServers = n.getCollectionOfObjectValues<IdJagResourceServer>(createIdJagResourceServerFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param IdJagResourceServer The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoIdJagResourceServer(idJagResourceServer: Partial<IdJagResourceServer> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "@odata.type": n => { idJagResourceServer.odataType = n.getStringValue(); },
+        "resourceServerUriMatchType": n => { idJagResourceServer.resourceServerUriMatchType = n.getEnumValue<IdJagResourceServerUriMatchType>(IdJagResourceServerUriMatchTypeObject); },
+        "resourceServerUris": n => { idJagResourceServer.resourceServerUris = n.getCollectionOfPrimitiveValues<string>("string"); },
+        "scopeMappings": n => { idJagResourceServer.scopeMappings = n.getCollectionOfObjectValues<IdJagScopeMapping>(createIdJagScopeMappingFromDiscriminatorValue); },
+        "scopeMappingType": n => { idJagResourceServer.scopeMappingType = n.getEnumValue<IdJagScopeMappingType>(IdJagScopeMappingTypeObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param IdJagScopeMapping The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoIdJagScopeMapping(idJagScopeMapping: Partial<IdJagScopeMapping> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "oauth2Permission": n => { idJagScopeMapping.oauth2Permission = n.getStringValue(); },
+        "@odata.type": n => { idJagScopeMapping.odataType = n.getStringValue(); },
+        "validResourceAuthorizationServerScopes": n => { idJagScopeMapping.validResourceAuthorizationServerScopes = n.getCollectionOfPrimitiveValues<string>("string"); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param IdJagServicePrincipalConfiguration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoIdJagServicePrincipalConfiguration(idJagServicePrincipalConfiguration: Partial<IdJagServicePrincipalConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "enabledClients": n => { idJagServicePrincipalConfiguration.enabledClients = n.getCollectionOfObjectValues<IdJagEnabledClient>(createIdJagEnabledClientFromDiscriminatorValue); },
+        "isEnabled": n => { idJagServicePrincipalConfiguration.isEnabled = n.getBooleanValue(); },
+        "@odata.type": n => { idJagServicePrincipalConfiguration.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -105598,6 +107373,76 @@ export function deserializeIntoInvestigationActionUrl(investigationActionUrl: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param InvestigationIdentitySet The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoInvestigationIdentitySet(investigationIdentitySet: Partial<InvestigationIdentitySet> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoIdentitySet(investigationIdentitySet),
+        "agent": n => { investigationIdentitySet.agent = n.getObjectValue<Identity>(createIdentityFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param InvestigationInput The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoInvestigationInput(investigationInput: Partial<InvestigationInput> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(investigationInput),
+        "displayName": n => { investigationInput.displayName = n.getStringValue(); },
+        "kind": n => { investigationInput.kind = n.getEnumValue<InvestigationInputType>(InvestigationInputTypeObject); },
+        "value": n => { investigationInput.value = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param InvestigationMessage The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoInvestigationMessage(investigationMessage: Partial<InvestigationMessage> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(investigationMessage),
+        "agentTurnId": n => { investigationMessage.agentTurnId = n.getStringValue(); },
+        "author": n => { investigationMessage.author = n.getObjectValue<InvestigationMessageAuthor>(createInvestigationMessageAuthorFromDiscriminatorValue); },
+        "content": n => { investigationMessage.content = n.getStringValue(); },
+        "createdDateTime": n => { investigationMessage.createdDateTime = n.getDateValue(); },
+        "kind": n => { investigationMessage.kind = n.getEnumValue<InvestigationMessageType>(InvestigationMessageTypeObject); },
+        "role": n => { investigationMessage.role = n.getEnumValue<InvestigationMessageRole>(InvestigationMessageRoleObject); },
+        "sequenceId": n => { investigationMessage.sequenceId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param InvestigationMessageAuthor The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoInvestigationMessageAuthor(investigationMessageAuthor: Partial<InvestigationMessageAuthor> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "key": n => { investigationMessageAuthor.key = n.getStringValue(); },
+        "@odata.type": n => { investigationMessageAuthor.odataType = n.getStringValue(); },
+        "role": n => { investigationMessageAuthor.role = n.getEnumValue<InvestigationMessageRole>(InvestigationMessageRoleObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param InvestigationOutput The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoInvestigationOutput(investigationOutput: Partial<InvestigationOutput> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(investigationOutput),
+        "content": n => { investigationOutput.content = n.getByteArrayValue(); },
+        "kind": n => { investigationOutput.kind = n.getEnumValue<InvestigationOutputType>(InvestigationOutputTypeObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param InvestigationSecurityState The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -105607,6 +107452,29 @@ export function deserializeIntoInvestigationSecurityState(investigationSecurityS
         "name": n => { investigationSecurityState.name = n.getStringValue(); },
         "@odata.type": n => { investigationSecurityState.odataType = n.getStringValue(); },
         "status": n => { investigationSecurityState.status = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param InvestigationSession The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoInvestigationSession(investigationSession: Partial<InvestigationSession> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(investigationSession),
+        "agentRuns": n => { investigationSession.agentRuns = n.getCollectionOfObjectValues<AgentRun>(createAgentRunFromDiscriminatorValue); },
+        "createdDateTime": n => { investigationSession.createdDateTime = n.getDateValue(); },
+        "displayName": n => { investigationSession.displayName = n.getStringValue(); },
+        "initiatedBy": n => { investigationSession.initiatedBy = n.getObjectValue<InvestigationIdentitySet>(createInvestigationIdentitySetFromDiscriminatorValue); },
+        "inputs": n => { investigationSession.inputs = n.getCollectionOfObjectValues<InvestigationInput>(createInvestigationInputFromDiscriminatorValue); },
+        "lastModifiedDateTime": n => { investigationSession.lastModifiedDateTime = n.getDateValue(); },
+        "messages": n => { investigationSession.messages = n.getCollectionOfObjectValues<InvestigationMessage>(createInvestigationMessageFromDiscriminatorValue); },
+        "outputs": n => { investigationSession.outputs = n.getCollectionOfObjectValues<InvestigationOutput>(createInvestigationOutputFromDiscriminatorValue); },
+        "playbookDefinition": n => { investigationSession.playbookDefinition = n.getObjectValue<PlaybookDefinition>(createPlaybookDefinitionFromDiscriminatorValue); },
+        "status": n => { investigationSession.status = n.getEnumValue<LongRunningOperationStatus>(LongRunningOperationStatusObject); },
+        "statusDetail": n => { investigationSession.statusDetail = n.getStringValue(); },
+        "tags": n => { investigationSession.tags = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**
@@ -118401,6 +120269,21 @@ export function deserializeIntoPlatformCredentialAuthenticationMethod(platformCr
 }
 /**
  * The deserialization information for the current model
+ * @param PlaybookDefinition The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoPlaybookDefinition(playbookDefinition: Partial<PlaybookDefinition> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(playbookDefinition),
+        "acceptedInputTypes": n => { playbookDefinition.acceptedInputTypes = n.getCollectionOfEnumValues<InvestigationInputType>(InvestigationInputTypeObject); },
+        "description": n => { playbookDefinition.description = n.getStringValue(); },
+        "displayName": n => { playbookDefinition.displayName = n.getStringValue(); },
+        "uniqueName": n => { playbookDefinition.uniqueName = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param PlayPromptOperation The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -118409,6 +120292,20 @@ export function deserializeIntoPlayPromptOperation(playPromptOperation: Partial<
     return {
         ...deserializeIntoCommsOperation(playPromptOperation),
         "completionReason": n => { playPromptOperation.completionReason = n.getEnumValue<PlayPromptCompletionReason>(PlayPromptCompletionReasonObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param PolicyAppliesTo The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoPolicyAppliesTo(policyAppliesTo: Partial<PolicyAppliesTo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "includeDerivedTypes": n => { policyAppliesTo.includeDerivedTypes = n.getBooleanValue(); },
+        "@odata.type": n => { policyAppliesTo.odataType = n.getStringValue(); },
+        "operations": n => { policyAppliesTo.operations = n.getCollectionOfEnumValues<PolicyApplicableOperations>(PolicyApplicableOperationsObject); },
+        "resourceName": n => { policyAppliesTo.resourceName = n.getStringValue(); },
     }
 }
 /**
@@ -118422,6 +120319,20 @@ export function deserializeIntoPolicyBase(policyBase: Partial<PolicyBase> | unde
         ...deserializeIntoDirectoryObject(policyBase),
         "description": n => { policyBase.description = n.getStringValue(); },
         "displayName": n => { policyBase.displayName = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param PolicyDefinitionReference The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoPolicyDefinitionReference(policyDefinitionReference: Partial<PolicyDefinitionReference> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoAssignedPolicyReference(policyDefinitionReference),
+        "policyDefinition": n => { policyDefinitionReference.policyDefinition = n.getObjectValue<ResourcePolicyDefinition>(createResourcePolicyDefinitionFromDiscriminatorValue); },
+        "policyUniqueName": n => { policyDefinitionReference.policyUniqueName = n.getStringValue(); },
+        "version": n => { policyDefinitionReference.version = n.getStringValue(); },
     }
 }
 /**
@@ -118447,6 +120358,29 @@ export function deserializeIntoPolicyDeletableRoot(policyDeletableRoot: Partial<
         ...deserializeIntoEntity(policyDeletableRoot),
         "crossTenantPartners": n => { policyDeletableRoot.crossTenantPartners = n.getCollectionOfObjectValues<CrossTenantAccessPolicyConfigurationPartner>(createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue); },
         "crossTenantSyncPolicyPartners": n => { policyDeletableRoot.crossTenantSyncPolicyPartners = n.getCollectionOfObjectValues<CrossTenantIdentitySyncPolicyPartner>(createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param PolicyEvaluationDetail The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoPolicyEvaluationDetail(policyEvaluationDetail: Partial<PolicyEvaluationDetail> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "applicabilityEvaluationError": n => { policyEvaluationDetail.applicabilityEvaluationError = n.getStringValue(); },
+        "appliedPolicyEffects": n => { policyEvaluationDetail.appliedPolicyEffects = n.getEnumValue<PolicyEffect>(PolicyEffectObject); },
+        "assignedPolicyDisplayName": n => { policyEvaluationDetail.assignedPolicyDisplayName = n.getStringValue(); },
+        "assignmentUniqueName": n => { policyEvaluationDetail.assignmentUniqueName = n.getStringValue(); },
+        "evaluationError": n => { policyEvaluationDetail.evaluationError = n.getStringValue(); },
+        "fetchDetails": n => { policyEvaluationDetail.fetchDetails = n.getCollectionOfObjectValues<FetchDetail>(createFetchDetailFromDiscriminatorValue); },
+        "isApplicable": n => { policyEvaluationDetail.isApplicable = n.getBooleanValue(); },
+        "isCompliant": n => { policyEvaluationDetail.isCompliant = n.getBooleanValue(); },
+        "isEnforced": n => { policyEvaluationDetail.isEnforced = n.getBooleanValue(); },
+        "@odata.type": n => { policyEvaluationDetail.odataType = n.getStringValue(); },
+        "policyLoadingError": n => { policyEvaluationDetail.policyLoadingError = n.getStringValue(); },
+        "policyMessage": n => { policyEvaluationDetail.policyMessage = n.getStringValue(); },
+        "policyVersion": n => { policyEvaluationDetail.policyVersion = n.getStringValue(); },
     }
 }
 /**
@@ -119649,6 +121583,18 @@ export function deserializeIntoPrivilegedOperationEvent(privilegedOperationEvent
 }
 /**
  * The deserialization information for the current model
+ * @param PrivilegedReadSetting The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoPrivilegedReadSetting(privilegedReadSetting: Partial<PrivilegedReadSetting> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "appId": n => { privilegedReadSetting.appId = n.getStringValue(); },
+        "@odata.type": n => { privilegedReadSetting.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param PrivilegedRole The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -120403,6 +122349,51 @@ export function deserializeIntoProtectSite(protectSite: Partial<ProtectSite> | u
         ...deserializeIntoLabelActionBase(protectSite),
         "accessType": n => { protectSite.accessType = n.getEnumValue<SiteAccessType>(SiteAccessTypeObject); },
         "conditionalAccessProtectionLevelId": n => { protectSite.conditionalAccessProtectionLevelId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ProvenanceAssertedBy The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoProvenanceAssertedBy(provenanceAssertedBy: Partial<ProvenanceAssertedBy> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "actorId": n => { provenanceAssertedBy.actorId = n.getStringValue(); },
+        "actorType": n => { provenanceAssertedBy.actorType = n.getEnumValue<ProvenanceActorType>(ProvenanceActorTypeObject); },
+        "@odata.type": n => { provenanceAssertedBy.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ProvenanceAssertion The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoProvenanceAssertion(provenanceAssertion: Partial<ProvenanceAssertion> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "attestationReason": n => { provenanceAssertion.attestationReason = n.getStringValue(); },
+        "eventDateTime": n => { provenanceAssertion.eventDateTime = n.getDateValue(); },
+        "@odata.type": n => { provenanceAssertion.odataType = n.getStringValue(); },
+        "provenanceType": n => { provenanceAssertion.provenanceType = n.getEnumValue<ProvenanceAssertionType>(ProvenanceAssertionTypeObject); },
+        "sourceCredentialId": n => { provenanceAssertion.sourceCredentialId = n.getStringValue(); },
+        "sourceCredentialType": n => { provenanceAssertion.sourceCredentialType = n.getStringValue(); },
+        "verificationEventId": n => { provenanceAssertion.verificationEventId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ProvenanceChainStatus The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoProvenanceChainStatus(provenanceChainStatus: Partial<ProvenanceChainStatus> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "breakDetectedAtDateTime": n => { provenanceChainStatus.breakDetectedAtDateTime = n.getDateValue(); },
+        "breakReason": n => { provenanceChainStatus.breakReason = n.getEnumValue<ChainBreakReason>(ChainBreakReasonObject); },
+        "breakSource": n => { provenanceChainStatus.breakSource = n.getEnumValue<ChainBreakSource>(ChainBreakSourceObject); },
+        "@odata.type": n => { provenanceChainStatus.odataType = n.getStringValue(); },
+        "state": n => { provenanceChainStatus.state = n.getEnumValue<ChainState>(ChainStateObject); },
     }
 }
 /**
@@ -122106,6 +124097,155 @@ export function deserializeIntoResourceOperation(resourceOperation: Partial<Reso
 }
 /**
  * The deserialization information for the current model
+ * @param ResourcePolicyAssignment The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoResourcePolicyAssignment(resourcePolicyAssignment: Partial<ResourcePolicyAssignment> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "assignedPolicy": n => { resourcePolicyAssignment.assignedPolicy = n.getObjectValue<AssignedPolicyReference>(createAssignedPolicyReferenceFromDiscriminatorValue); },
+        "createdDateTime": n => { resourcePolicyAssignment.createdDateTime = n.getDateValue(); },
+        "deletedDateTime": n => { resourcePolicyAssignment.deletedDateTime = n.getDateValue(); },
+        "enforcementMode": n => { resourcePolicyAssignment.enforcementMode = n.getEnumValue<EnforcementMode>(EnforcementModeObject); },
+        "isEnabled": n => { resourcePolicyAssignment.isEnabled = n.getBooleanValue(); },
+        "lastModifiedDateTime": n => { resourcePolicyAssignment.lastModifiedDateTime = n.getDateValue(); },
+        "@odata.type": n => { resourcePolicyAssignment.odataType = n.getStringValue(); },
+        "params": n => { resourcePolicyAssignment.params = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
+        "scope": n => { resourcePolicyAssignment.scope = n.getStringValue(); },
+        "uniqueName": n => { resourcePolicyAssignment.uniqueName = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ResourcePolicyConfiguration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoResourcePolicyConfiguration(resourcePolicyConfiguration: Partial<ResourcePolicyConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(resourcePolicyConfiguration),
+        "lastModifiedDateTime": n => { resourcePolicyConfiguration.lastModifiedDateTime = n.getDateValue(); },
+        "privilegedReadSetting": n => { resourcePolicyConfiguration.privilegedReadSetting = n.getObjectValue<PrivilegedReadSetting>(createPrivilegedReadSettingFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ResourcePolicyDefinition The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoResourcePolicyDefinition(resourcePolicyDefinition: Partial<ResourcePolicyDefinition> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "assignments": n => { resourcePolicyDefinition.assignments = n.getCollectionOfObjectValues<ResourcePolicyAssignment>(createResourcePolicyAssignmentFromDiscriminatorValue); },
+        "category": n => { resourcePolicyDefinition.category = n.getEnumValue<PolicyCategory>(PolicyCategoryObject); },
+        "createdDateTime": n => { resourcePolicyDefinition.createdDateTime = n.getDateValue(); },
+        "deletedDateTime": n => { resourcePolicyDefinition.deletedDateTime = n.getDateValue(); },
+        "description": n => { resourcePolicyDefinition.description = n.getStringValue(); },
+        "displayName": n => { resourcePolicyDefinition.displayName = n.getStringValue(); },
+        "lastModifiedDateTime": n => { resourcePolicyDefinition.lastModifiedDateTime = n.getDateValue(); },
+        "@odata.type": n => { resourcePolicyDefinition.odataType = n.getStringValue(); },
+        "paramsSchema": n => { resourcePolicyDefinition.paramsSchema = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
+        "previousVersions": n => { resourcePolicyDefinition.previousVersions = n.getCollectionOfObjectValues<ResourcePolicyDefinitionVersion>(createResourcePolicyDefinitionVersionFromDiscriminatorValue); },
+        "rule": n => { resourcePolicyDefinition.rule = n.getObjectValue<ResourcePolicyRule>(createResourcePolicyRuleFromDiscriminatorValue); },
+        "uniqueName": n => { resourcePolicyDefinition.uniqueName = n.getStringValue(); },
+        "version": n => { resourcePolicyDefinition.version = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ResourcePolicyDefinitionVersion The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoResourcePolicyDefinitionVersion(resourcePolicyDefinitionVersion: Partial<ResourcePolicyDefinitionVersion> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "lastModifiedDateTime": n => { resourcePolicyDefinitionVersion.lastModifiedDateTime = n.getDateValue(); },
+        "@odata.type": n => { resourcePolicyDefinitionVersion.odataType = n.getStringValue(); },
+        "paramsSchema": n => { resourcePolicyDefinitionVersion.paramsSchema = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
+        "policy": n => { resourcePolicyDefinitionVersion.policy = n.getStringValue(); },
+        "version": n => { resourcePolicyDefinitionVersion.version = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ResourcePolicyDeletableRoot The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoResourcePolicyDeletableRoot(resourcePolicyDeletableRoot: Partial<ResourcePolicyDeletableRoot> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(resourcePolicyDeletableRoot),
+        "assignments": n => { resourcePolicyDeletableRoot.assignments = n.getCollectionOfObjectValues<ResourcePolicyAssignment>(createResourcePolicyAssignmentFromDiscriminatorValue); },
+        "definitions": n => { resourcePolicyDeletableRoot.definitions = n.getCollectionOfObjectValues<ResourcePolicyDefinition>(createResourcePolicyDefinitionFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ResourcePolicyEvaluationEvent The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoResourcePolicyEvaluationEvent(resourcePolicyEvaluationEvent: Partial<ResourcePolicyEvaluationEvent> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(resourcePolicyEvaluationEvent),
+        "apiVersion": n => { resourcePolicyEvaluationEvent.apiVersion = n.getStringValue(); },
+        "appDisplayName": n => { resourcePolicyEvaluationEvent.appDisplayName = n.getStringValue(); },
+        "appId": n => { resourcePolicyEvaluationEvent.appId = n.getStringValue(); },
+        "applicablePoliciesCount": n => { resourcePolicyEvaluationEvent.applicablePoliciesCount = n.getNumberValue(); },
+        "auditPoliciesCount": n => { resourcePolicyEvaluationEvent.auditPoliciesCount = n.getNumberValue(); },
+        "clientRequestId": n => { resourcePolicyEvaluationEvent.clientRequestId = n.getStringValue(); },
+        "denyPoliciesCount": n => { resourcePolicyEvaluationEvent.denyPoliciesCount = n.getNumberValue(); },
+        "durationMs": n => { resourcePolicyEvaluationEvent.durationMs = n.getNumberValue(); },
+        "errorPoliciesCount": n => { resourcePolicyEvaluationEvent.errorPoliciesCount = n.getNumberValue(); },
+        "evaluatedDateTime": n => { resourcePolicyEvaluationEvent.evaluatedDateTime = n.getDateValue(); },
+        "evaluatedPoliciesCount": n => { resourcePolicyEvaluationEvent.evaluatedPoliciesCount = n.getNumberValue(); },
+        "location": n => { resourcePolicyEvaluationEvent.location = n.getStringValue(); },
+        "operationId": n => { resourcePolicyEvaluationEvent.operationId = n.getStringValue(); },
+        "policyDecision": n => { resourcePolicyEvaluationEvent.policyDecision = n.getEnumValue<ResourcePolicyDecision>(ResourcePolicyDecisionObject); },
+        "policyDetails": n => { resourcePolicyEvaluationEvent.policyDetails = n.getCollectionOfObjectValues<PolicyEvaluationDetail>(createPolicyEvaluationDetailFromDiscriminatorValue); },
+        "requestId": n => { resourcePolicyEvaluationEvent.requestId = n.getStringValue(); },
+        "requestMethod": n => { resourcePolicyEvaluationEvent.requestMethod = n.getStringValue(); },
+        "requestUri": n => { resourcePolicyEvaluationEvent.requestUri = n.getStringValue(); },
+        "servicePrincipalId": n => { resourcePolicyEvaluationEvent.servicePrincipalId = n.getStringValue(); },
+        "targetResourceId": n => { resourcePolicyEvaluationEvent.targetResourceId = n.getStringValue(); },
+        "targetResourceName": n => { resourcePolicyEvaluationEvent.targetResourceName = n.getStringValue(); },
+        "tenantId": n => { resourcePolicyEvaluationEvent.tenantId = n.getStringValue(); },
+        "totalFetchDurationMs": n => { resourcePolicyEvaluationEvent.totalFetchDurationMs = n.getNumberValue(); },
+        "totalPolicyEvaluationDurationMs": n => { resourcePolicyEvaluationEvent.totalPolicyEvaluationDurationMs = n.getNumberValue(); },
+        "userId": n => { resourcePolicyEvaluationEvent.userId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ResourcePolicyRoot The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoResourcePolicyRoot(resourcePolicyRoot: Partial<ResourcePolicyRoot> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(resourcePolicyRoot),
+        "assignments": n => { resourcePolicyRoot.assignments = n.getCollectionOfObjectValues<ResourcePolicyAssignment>(createResourcePolicyAssignmentFromDiscriminatorValue); },
+        "builtInDefinitions": n => { resourcePolicyRoot.builtInDefinitions = n.getCollectionOfObjectValues<ResourcePolicyDefinition>(createResourcePolicyDefinitionFromDiscriminatorValue); },
+        "configuration": n => { resourcePolicyRoot.configuration = n.getObjectValue<ResourcePolicyConfiguration>(createResourcePolicyConfigurationFromDiscriminatorValue); },
+        "definitions": n => { resourcePolicyRoot.definitions = n.getCollectionOfObjectValues<ResourcePolicyDefinition>(createResourcePolicyDefinitionFromDiscriminatorValue); },
+        "deletedItems": n => { resourcePolicyRoot.deletedItems = n.getObjectValue<ResourcePolicyDeletableRoot>(createResourcePolicyDeletableRootFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ResourcePolicyRule The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoResourcePolicyRule(resourcePolicyRule: Partial<ResourcePolicyRule> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "appliesTo": n => { resourcePolicyRule.appliesTo = n.getObjectValue<PolicyAppliesTo>(createPolicyAppliesToFromDiscriminatorValue); },
+        "@odata.type": n => { resourcePolicyRule.odataType = n.getStringValue(); },
+        "policy": n => { resourcePolicyRule.policy = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param ResourceQuota The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -123259,6 +125399,18 @@ export function deserializeIntoSalesQuoteLine(salesQuoteLine: Partial<SalesQuote
         "totalTaxAmount": n => { salesQuoteLine.totalTaxAmount = n.getNumberValue(); },
         "unitOfMeasureId": n => { salesQuoteLine.unitOfMeasureId = n.getGuidValue(); },
         "unitPrice": n => { salesQuoteLine.unitPrice = n.getNumberValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param SamlIdentifierUriConfiguration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoSamlIdentifierUriConfiguration(samlIdentifierUriConfiguration: Partial<SamlIdentifierUriConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "@odata.type": n => { samlIdentifierUriConfiguration.odataType = n.getStringValue(); },
+        "uris": n => { samlIdentifierUriConfiguration.uris = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**
@@ -124573,8 +126725,10 @@ export function deserializeIntoServicePrincipal(servicePrincipal: Partial<Servic
         "federatedIdentityCredentials": n => { servicePrincipal.federatedIdentityCredentials = n.getCollectionOfObjectValues<FederatedIdentityCredential>(createFederatedIdentityCredentialFromDiscriminatorValue); },
         "homepage": n => { servicePrincipal.homepage = n.getStringValue(); },
         "homeRealmDiscoveryPolicies": n => { servicePrincipal.homeRealmDiscoveryPolicies = n.getCollectionOfObjectValues<HomeRealmDiscoveryPolicy>(createHomeRealmDiscoveryPolicyFromDiscriminatorValue); },
+        "idJag": n => { servicePrincipal.idJag = n.getObjectValue<IdJagServicePrincipalConfiguration>(createIdJagServicePrincipalConfigurationFromDiscriminatorValue); },
         "info": n => { servicePrincipal.info = n.getObjectValue<InformationalUrl>(createInformationalUrlFromDiscriminatorValue); },
         "isDisabled": n => { servicePrincipal.isDisabled = n.getBooleanValue(); },
+        "isHardDeleteProtectionEnabled": n => { servicePrincipal.isHardDeleteProtectionEnabled = n.getBooleanValue(); },
         "keyCredentials": n => { servicePrincipal.keyCredentials = n.getCollectionOfObjectValues<KeyCredential>(createKeyCredentialFromDiscriminatorValue); },
         "licenseDetails": n => { servicePrincipal.licenseDetails = n.getCollectionOfObjectValues<LicenseDetails>(createLicenseDetailsFromDiscriminatorValue); },
         "lifecycle": n => { servicePrincipal.lifecycle = n.getObjectValue<IdentityLifecycle>(createIdentityLifecycleFromDiscriminatorValue); },
@@ -128875,6 +131029,18 @@ export function deserializeIntoTeamworkCameraConfiguration(teamworkCameraConfigu
 }
 /**
  * The deserialization information for the current model
+ * @param TeamworkChannelTag The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoTeamworkChannelTag(teamworkChannelTag: Partial<TeamworkChannelTag> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoTeamworkTag(teamworkChannelTag),
+        "channelId": n => { teamworkChannelTag.channelId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param TeamworkConfiguredPeripheral The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -131779,6 +133945,7 @@ export function deserializeIntoUser(user: Partial<User> | undefined = {}) : Reco
         "identities": n => { user.identities = n.getCollectionOfObjectValues<ObjectIdentity>(createObjectIdentityFromDiscriminatorValue); },
         "identityGovernance": n => { user.identityGovernance = n.getObjectValue<IdentityGovernanceUserSettings>(createIdentityGovernanceUserSettingsFromDiscriminatorValue); },
         "identityParentId": n => { user.identityParentId = n.getStringValue(); },
+        "identityVerificationStatus": n => { user.identityVerificationStatus = n.getObjectValue<IdentityVerificationStatus>(createIdentityVerificationStatusFromDiscriminatorValue); },
         "imAddresses": n => { user.imAddresses = n.getCollectionOfPrimitiveValues<string>("string"); },
         "inferenceClassification": n => { user.inferenceClassification = n.getObjectValue<InferenceClassification>(createInferenceClassificationFromDiscriminatorValue); },
         "infoCatalogs": n => { user.infoCatalogs = n.getCollectionOfPrimitiveValues<string>("string"); },
@@ -131786,6 +133953,7 @@ export function deserializeIntoUser(user: Partial<User> | undefined = {}) : Reco
         "insights": n => { user.insights = n.getObjectValue<ItemInsights>(createItemInsightsFromDiscriminatorValue); },
         "interests": n => { user.interests = n.getCollectionOfPrimitiveValues<string>("string"); },
         "invitedBy": n => { user.invitedBy = n.getObjectValue<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
+        "isHardDeleteProtectionEnabled": n => { user.isHardDeleteProtectionEnabled = n.getBooleanValue(); },
         "isLicenseReconciliationNeeded": n => { user.isLicenseReconciliationNeeded = n.getBooleanValue(); },
         "isManagementRestricted": n => { user.isManagementRestricted = n.getBooleanValue(); },
         "isResourceAccount": n => { user.isResourceAccount = n.getBooleanValue(); },
@@ -131913,6 +134081,19 @@ export function deserializeIntoUserAccountInformation(userAccountInformation: Pa
         "preferredLanguageTag": n => { userAccountInformation.preferredLanguageTag = n.getObjectValue<LocaleInfo>(createLocaleInfoFromDiscriminatorValue); },
         "userPersona": n => { userAccountInformation.userPersona = n.getEnumValue<UserPersona>(UserPersonaObject); },
         "userPrincipalName": n => { userAccountInformation.userPrincipalName = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param UserActionExclusion The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoUserActionExclusion(userActionExclusion: Partial<UserActionExclusion> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "@odata.type": n => { userActionExclusion.odataType = n.getStringValue(); },
+        "state": n => { userActionExclusion.state = n.getEnumValue<ConditionalAccessPolicyState>(ConditionalAccessPolicyStateObject); },
+        "userAction": n => { userActionExclusion.userAction = n.getStringValue(); },
     }
 }
 /**
@@ -133694,6 +135875,53 @@ export function deserializeIntoVerifiableCredentialType(verifiableCredentialType
         "credentialType": n => { verifiableCredentialType.credentialType = n.getStringValue(); },
         "issuers": n => { verifiableCredentialType.issuers = n.getCollectionOfPrimitiveValues<string>("string"); },
         "@odata.type": n => { verifiableCredentialType.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param VerificationEventDetail The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoVerificationEventDetail(verificationEventDetail: Partial<VerificationEventDetail> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "expiresDateTime": n => { verificationEventDetail.expiresDateTime = n.getDateValue(); },
+        "externalCredentialId": n => { verificationEventDetail.externalCredentialId = n.getStringValue(); },
+        "issuedDateTime": n => { verificationEventDetail.issuedDateTime = n.getDateValue(); },
+        "@odata.type": n => { verificationEventDetail.odataType = n.getStringValue(); },
+        "source": n => { verificationEventDetail.source = n.getStringValue(); },
+        "state": n => { verificationEventDetail.state = n.getEnumValue<VerificationState>(VerificationStateObject); },
+        "verifiedDateTime": n => { verificationEventDetail.verifiedDateTime = n.getDateValue(); },
+        "verifiedIdProfileId": n => { verificationEventDetail.verifiedIdProfileId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param VerificationEventLifecycle The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoVerificationEventLifecycle(verificationEventLifecycle: Partial<VerificationEventLifecycle> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "invalidatedDateTime": n => { verificationEventLifecycle.invalidatedDateTime = n.getDateValue(); },
+        "@odata.type": n => { verificationEventLifecycle.odataType = n.getStringValue(); },
+        "source": n => { verificationEventLifecycle.source = n.getEnumValue<VerificationLifecycleSource>(VerificationLifecycleSourceObject); },
+        "state": n => { verificationEventLifecycle.state = n.getEnumValue<VerificationEventLifecycleState>(VerificationEventLifecycleStateObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param VerificationEventOverride The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoVerificationEventOverride(verificationEventOverride: Partial<VerificationEventOverride> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "actorId": n => { verificationEventOverride.actorId = n.getStringValue(); },
+        "actorType": n => { verificationEventOverride.actorType = n.getEnumValue<VerificationActorType>(VerificationActorTypeObject); },
+        "@odata.type": n => { verificationEventOverride.odataType = n.getStringValue(); },
+        "overriddenDateTime": n => { verificationEventOverride.overriddenDateTime = n.getDateValue(); },
+        "reason": n => { verificationEventOverride.reason = n.getStringValue(); },
     }
 }
 /**
@@ -148058,6 +150286,8 @@ export interface DriveSettings extends AdditionalDataHolder, Parsable {
 }
 export interface DropInPlaceMode extends Parsable, PlaceMode {
 }
+export interface DynamicPermissionsManagementRoot extends Entity, Parsable {
+}
 export interface DynamicRuleActivityLog extends ActivityLogBase, Parsable {
     /**
      * The unique identifier of the protection policy associated with the activity log.
@@ -150187,6 +152417,7 @@ export interface EnforceAppPIN extends AdditionalDataHolder, Parsable {
      */
     odataType?: string | null;
 }
+export type EnforcementMode = (typeof EnforcementModeObject)[keyof typeof EnforcementModeObject];
 export type EnforcementResultStatus = (typeof EnforcementResultStatusObject)[keyof typeof EnforcementResultStatusObject];
 /**
  * Represents the status of a Viva Engage async operation that is an operation that transcends thelifetime of a single API request. These operations are long-running or too expensive to completewithin the time frame of their original request.
@@ -152189,6 +154420,20 @@ export interface FederatedTokenValidationPolicy extends DirectoryObject, Parsabl
     validatingDomains?: ValidatingDomains | null;
 }
 export type FedRampLevel = (typeof FedRampLevelObject)[keyof typeof FedRampLevelObject];
+export interface FetchDetail extends AdditionalDataHolder, Parsable {
+    /**
+     * The durationMs property
+     */
+    durationMs?: number | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The path property
+     */
+    path?: string | null;
+}
 export interface Fido2AuthenticationMethod extends AuthenticationMethod, Parsable {
     /**
      * Authenticator Attestation GUID, an identifier that indicates the type (such as make and model) of the authenticator.
@@ -153247,7 +155492,7 @@ export interface Goal extends Parsable, PlannerDelta {
      */
     notes?: ItemBody | null;
     /**
-     * ID of the plan that contains the goal. Required, and immutable after creation.
+     * ID of the plan that contains the goal. Immutable after creation.
      */
     planId?: string | null;
     /**
@@ -153981,6 +156226,10 @@ export interface Group extends DirectoryObject, Parsable {
      * Indicates whether the user marked the group as favorite.
      */
     isFavorite?: boolean | null;
+    /**
+     * Indicates whether hard deletion protection is enabled for the group. Supported for cloud-only groups. When true, permanent deletion is blocked for seven days after soft deletion. The group can still be soft deleted and restored. Once enabled, protection can't be disabled or set to null. Enable protection on an existing group by using Update group; enabling it during creation isn't supported. Setting this property to true requires the Microsoft Entra Backup Administrator role. Nullable. Requires $select to retrieve. Supports $filter (eq).
+     */
+    isHardDeleteProtectionEnabled?: boolean | null;
     /**
      * Indicates whether the group is a member of a restricted management administrative unit. If not set, the default value is null and the default behavior is false. Read-only.  To manage a group member of a restricted management administrative unit, the administrator or calling app must be assigned a Microsoft Entra role at the scope of the restricted management administrative unit.
      */
@@ -156210,6 +158459,23 @@ export interface IdentityUserFlowAttributeAssignment extends Entity, Parsable {
 export type IdentityUserFlowAttributeDataType = (typeof IdentityUserFlowAttributeDataTypeObject)[keyof typeof IdentityUserFlowAttributeDataTypeObject];
 export type IdentityUserFlowAttributeInputType = (typeof IdentityUserFlowAttributeInputTypeObject)[keyof typeof IdentityUserFlowAttributeInputTypeObject];
 export type IdentityUserFlowAttributeType = (typeof IdentityUserFlowAttributeTypeObject)[keyof typeof IdentityUserFlowAttributeTypeObject];
+/**
+ * A single identity verification event with its verification, lifecycle, and optional override details.
+ */
+export interface IdentityVerificationEvent extends Entity, Parsable {
+    /**
+     * The source and current lifecycle state of the event.
+     */
+    lifecycle?: VerificationEventLifecycle | null;
+    /**
+     * The administrative or programmatic override applied to the event. null when no override was applied.
+     */
+    overrideDetails?: VerificationEventOverride | null;
+    /**
+     * The verification state, provider, credential identifiers, and timestamps.
+     */
+    verification?: VerificationEventDetail | null;
+}
 export interface IdentityVerificationEventsConfiguration extends AdditionalDataHolder, Parsable {
     /**
      * Indicates whether identity verification events and credential provenance information are collected and exposed for Verified ID verification across the tenant. The default value is false when this property is omitted from the configuration object.
@@ -156220,11 +158486,160 @@ export interface IdentityVerificationEventsConfiguration extends AdditionalDataH
      */
     odataType?: string | null;
 }
+/**
+ * Per-user singleton tracking identity verification state and bounded event history.
+ */
+export interface IdentityVerificationStatus extends Entity, Parsable {
+    /**
+     * The effective expiry of the user's overall verified state, computed as the latest expiresDateTime across active verification events. null when no active event has an expiry. Read-only.
+     */
+    expiryDateTime?: Date | null;
+    /**
+     * The date and time of the most recent successful identity verification. null when state is unverified. Read-only.
+     */
+    lastVerifiedDateTime?: Date | null;
+    /**
+     * The state property
+     */
+    state?: VerificationState | null;
+    /**
+     * The user's recent verification events, automatically included when the status is retrieved. Contains up to 10 events, ordered by recency. Older events are removed when the limit is reached.
+     */
+    verificationEvents?: IdentityVerificationEvent[] | null;
+}
 export interface IdentityVerifiedIdRoot extends Entity, Parsable {
     /**
      * Profile containing properties about a Verified ID provider and purpose
      */
     profiles?: VerifiedIdProfile[] | null;
+}
+export interface IdJagApplicationConfiguration extends AdditionalDataHolder, Parsable {
+    /**
+     * The client property
+     */
+    client?: IdJagClientConfiguration | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The resourceAuthorizationServer property
+     */
+    resourceAuthorizationServer?: IdJagResourceAuthorizationServerConfiguration | null;
+}
+/**
+ * Calling-client opt-in configuration for ID-JAG. The application must be confidential-client-capable.
+ */
+export interface IdJagClientConfiguration extends AdditionalDataHolder, Parsable {
+    /**
+     * Required and non-null when client configuration is supplied. Indicates whether the application is enabled to request ID-JAG issuance. true conflicts with a non-null idJag.resourceAuthorizationServer child.
+     */
+    isEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
+/**
+ * Maps an enabled Entra client application to its identifier at the Resource Authorization Server.
+ */
+export interface IdJagEnabledClient extends AdditionalDataHolder, Parsable {
+    /**
+     * Required and non-null in each enabled-client entry. The appId of the client application in Microsoft Entra.
+     */
+    clientId?: Guid | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * Required and non-null in each enabled-client entry. The client identifier registered for this client at the Resource Authorization Server.
+     */
+    resourceAuthorizationServerClientId?: string | null;
+}
+/**
+ * Identifier URIs classified for the ID-JAG protocol. Each value must also exist exactly in the application's top-level identifierUris. Clearing this classification doesn't remove top-level identifierUris; complete deletion requires removing the URI from identifierUris and every referencing protocol classification in the same Application PATCH. Must use HTTPS; api://, wildcards, query strings, fragments, and explicit ports 80 or 443 are not supported. Other explicit ports remain significant. Values are compared using Unicode code-point equality without URI normalization.
+ */
+export interface IdJagIdentifierUriConfiguration extends AdditionalDataHolder, Parsable {
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * Required and non-null when ID-JAG identifier URI configuration is supplied. Application identifier URIs opted into outbound ID-JAG. Must exactly match values in top-level identifierUris in the prospective final state. Explicit ports 80 and 443 are rejected; other ports remain significant. An empty collection normalizes the parent to null without changing top-level identifierUris.
+     */
+    uris?: string[] | null;
+}
+/**
+ * ID-JAG Resource Authorization Server configuration for an application. A non-null resourceAuthorizationServer child counts as resource configuration even when resourceServers is empty. Requires signInAudience AzureADMyOrg.
+ */
+export interface IdJagResourceAuthorizationServerConfiguration extends AdditionalDataHolder, Parsable {
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * Required and non-null when resource configuration is supplied. Resource server URI and scope mappings.
+     */
+    resourceServers?: IdJagResourceServer[] | null;
+}
+/**
+ * Configures resource URI matching and Resource Authorization Server scope mapping for one ID-JAG resource server. Across entries, overlapping normalized resource domains are allowed only when every common accepted external scope resolves to the same Entra OAuth2 permission.
+ */
+export interface IdJagResourceServer extends AdditionalDataHolder, Parsable {
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * Required and non-null in each resource server entry. Matching precedence is exact, longest pathPrefix, then anyURI; absent applies only when no resource is supplied. Overlap is rejected when a common accepted external scope resolves to a different Entra OAuth2 permission across entries.
+     */
+    resourceServerUriMatchType?: IdJagResourceServerUriMatchType | null;
+    /**
+     * Required and non-null in each resource server entry. Non-empty for exact and pathPrefix; empty for absent and anyURI.
+     */
+    resourceServerUris?: string[] | null;
+    /**
+     * Required and non-null in each resource server entry. Empty for direct, non-empty for mapped, and exactly one entry with an empty validResourceAuthorizationServerScopes collection for passthrough.
+     */
+    scopeMappings?: IdJagScopeMapping[] | null;
+    /**
+     * Required and non-null in each resource server entry. Specifies direct, mapped, or passthrough scope behavior used to detect contradictory scope-to-permission outcomes across overlapping resource domains.
+     */
+    scopeMappingType?: IdJagScopeMappingType | null;
+}
+export type IdJagResourceServerUriMatchType = (typeof IdJagResourceServerUriMatchTypeObject)[keyof typeof IdJagResourceServerUriMatchTypeObject];
+/**
+ * Maps Resource Authorization Server scopes to an Entra OAuth2 permission.
+ */
+export interface IdJagScopeMapping extends AdditionalDataHolder, Parsable {
+    /**
+     * Required and non-null in each scope mapping. An enabled delegated permission exposed by the resource application for ID-JAG use.
+     */
+    oauth2Permission?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * Required and non-null in each scope mapping. One or two equivalent, case-sensitive Resource Authorization Server scopes for mapped behavior; empty for the single passthrough mapping.
+     */
+    validResourceAuthorizationServerScopes?: string[] | null;
+}
+export type IdJagScopeMappingType = (typeof IdJagScopeMappingTypeObject)[keyof typeof IdJagScopeMappingTypeObject];
+export interface IdJagServicePrincipalConfiguration extends AdditionalDataHolder, Parsable {
+    /**
+     * Required and non-null when ServicePrincipal ID-JAG configuration is supplied. Maps enabled Entra clients to their Resource Authorization Server client identifiers. This is the only supported ID-JAG child on agentIdentityBlueprintPrincipal and agentIdentity.
+     */
+    enabledClients?: IdJagEnabledClient[] | null;
+    /**
+     * Required and non-null when ID-JAG configuration is supplied on a base ServicePrincipal. Indicates whether ID-JAG issuance is enabled for this tenant-local resource. Not supported on agentIdentityBlueprintPrincipal or agentIdentity; returned as null and rejected on write.
+     */
+    isEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
 }
 export interface IdleSessionSignOut extends AdditionalDataHolder, Parsable {
     /**
@@ -157457,6 +159872,99 @@ export interface InvestigationActionUrl extends AdditionalDataHolder, Parsable {
      */
     url?: string | null;
 }
+/**
+ * Open investigation provenance extending shared user, application, and device identities with the recorded agent principal. This computed parent provenance grants no execution credentials or cross-tenant authorization.
+ */
+export interface InvestigationIdentitySet extends IdentitySet, Parsable {
+    /**
+     * The initiating agent principal, when recorded by the service.
+     */
+    agent?: Identity | null;
+}
+/**
+ * An addressable reference to an external resource or keyword, contained only by an investigation session and shared as session context across its agent runs. It does not identify the exact input consumed by an individual run. The referenced resource remains external. Inherited id is server-owned, stable and unique within the containing session. New input ids are persisted GUIDs. Historical immutable input records retain deterministic parent-and-slot GUIDs without rewriting stored business identifiers.
+ */
+export interface InvestigationInput extends Entity, Parsable {
+    /**
+     * The display name populated by the service when available. Read-only.
+     */
+    displayName?: string | null;
+    /**
+     * Kind of external resource identifier or keyword supplied to a playbook.
+     */
+    kind?: InvestigationInputType | null;
+    /**
+     * The type-specific resource identifier or keyword text. Required when creating a session and immutable afterward.
+     */
+    value?: string | null;
+}
+export type InvestigationInputType = (typeof InvestigationInputTypeObject)[keyof typeof InvestigationInputTypeObject];
+/**
+ * Addressable transcript entity owned only by an agent run and referenced by the session aggregate. The key explicitly maps Graph id to backend messageId without shadowing an inherited property; ids are unique across the containing session.
+ */
+export interface InvestigationMessage extends Entity, Parsable {
+    /**
+     * Opaque identifier of the agent-processing turn associated with this message, when available. Does not identify the overall session or run.
+     */
+    agentTurnId?: string | null;
+    /**
+     * Embedded message-author role and identifier, not an independently addressable resource.
+     */
+    author?: InvestigationMessageAuthor | null;
+    /**
+     * Optional in historical transcript reads when the source omits content.
+     */
+    content?: string | null;
+    /**
+     * UTC persistence timestamp. Backend wire name: timestamp.
+     */
+    createdDateTime?: Date | null;
+    /**
+     * Read-only message categories from the existing transcript contract.
+     */
+    kind?: InvestigationMessageType | null;
+    /**
+     * Transcript message role or recorded author kind. These are independent fields; a tool or system message can have an agent author.
+     */
+    role?: InvestigationMessageRole | null;
+    /**
+     * Opaque chronological sequence identifier, when available. Does not advertise Graph delta or a message-item key.
+     */
+    sequenceId?: string | null;
+}
+/**
+ * Embedded message-author role and identifier, not an independently addressable resource.
+ */
+export interface InvestigationMessageAuthor extends AdditionalDataHolder, Parsable {
+    /**
+     * Recorded author identifier. For a user it identifies a Microsoft Entra user; for an agent it identifies a service catalog/runtime agent, not an Entra directory object. Maps to backend id; a structural value, not an OData entity key. The source can return an empty value when no author id is recorded.
+     */
+    key?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * Transcript message role or recorded author kind. These are independent fields; a tool or system message can have an agent author.
+     */
+    role?: InvestigationMessageRole | null;
+}
+export type InvestigationMessageRole = (typeof InvestigationMessageRoleObject)[keyof typeof InvestigationMessageRoleObject];
+export type InvestigationMessageType = (typeof InvestigationMessageTypeObject)[keyof typeof InvestigationMessageTypeObject];
+/**
+ * A read-only stored-file output owned and contained by an investigation session. Inherited id is the existing stable opaque stored-file identifier, unique within its session. Metadata and content reads enforce the same parent-session authorization.
+ */
+export interface InvestigationOutput extends Entity, Parsable {
+    /**
+     * The output bytes, retrieved through /security/agenticSecurity/sessions/{session-id}/outputs/{output-id}/content. The stream isn't inline in the metadata response. Read-only.
+     */
+    content?: ArrayBuffer | null;
+    /**
+     * Output category: summary text or an artifact, both retrieved through the authenticated content stream.
+     */
+    kind?: InvestigationOutputType | null;
+}
+export type InvestigationOutputType = (typeof InvestigationOutputTypeObject)[keyof typeof InvestigationOutputTypeObject];
 export interface InvestigationSecurityState extends AdditionalDataHolder, Parsable {
     /**
      * The name property
@@ -157470,6 +159978,59 @@ export interface InvestigationSecurityState extends AdditionalDataHolder, Parsab
      * The status property
      */
     status?: string | null;
+}
+/**
+ * One playbook execution against typed external inputs. Server-owned status records processing; this resource is the polling target.
+ */
+export interface InvestigationSession extends Entity, Parsable {
+    /**
+     * The read-only agent runs owned by this session. Supports list and keyed GET with $select and server-driven paging.
+     */
+    agentRuns?: AgentRun[] | null;
+    /**
+     * The UTC date and time when the resource was created, in ISO 8601 format. Read-only.
+     */
+    createdDateTime?: Date | null;
+    /**
+     * The session name generated by the service. Read-only.
+     */
+    displayName?: string | null;
+    /**
+     * The initiating principals recorded by the service, when available. Read-only. This property doesn't select an execution identity.
+     */
+    initiatedBy?: InvestigationIdentitySet | null;
+    /**
+     * The input references contained by the session. Required inline array on session creation; it can be empty if the playbook permits it. Each new input accepts only kind and value. After creation, supports only list and keyed GET with $select and server-driven paging.
+     */
+    inputs?: InvestigationInput[] | null;
+    /**
+     * The UTC date and time when the resource was last updated, in ISO 8601 format. Read-only.
+     */
+    lastModifiedDateTime?: Date | null;
+    /**
+     * Read-only aggregate references to the same investigation messages contained by this session's agent runs. id maps backend messageId and is unique across the session; the canonical identity belongs to the owning run. The provider preserves owning-run authorization, list/keyed GET with $select and server-driven paging. No direct or deep insert; this schema requirement does not attest runtime implementation.
+     */
+    messages?: InvestigationMessage[] | null;
+    /**
+     * The read-only stored-file outputs owned by this session. Supports list and keyed GET with $select, server-driven paging, and authenticated content downloads.
+     */
+    outputs?: InvestigationOutput[] | null;
+    /**
+     * The playbookDefinition property
+     */
+    playbookDefinition?: PlaybookDefinition | null;
+    /**
+     * The status property
+     */
+    status?: LongRunningOperationStatus | null;
+    /**
+     * Additional processing detail, including waitingForInput or stopped, when the status alone doesn't describe the source lifecycle. Read-only. Doesn't support $filter. For the session lifecycle combinations, see Get agentic session.
+     */
+    statusDetail?: string | null;
+    /**
+     * The service-generated tags for the session. Read-only. Can't be supplied when creating a session.
+     */
+    tags?: string[] | null;
 }
 export interface Invitation extends Entity, Parsable {
     /**
@@ -173340,7 +175901,7 @@ export interface Organization extends DirectoryObject, Parsable {
      */
     provisionedPlans?: ProvisionedPlan[] | null;
     /**
-     * The resourceQuotas property
+     * The quota configurations for resource types in the organization. Each resourceType value must be unique in the collection. The maxPercentage value represents the maximum percentage of directorySizeQuota.total that the resource type can consume, from 0 to 100. A value of 0 blocks creation of new resources of that type.
      */
     resourceQuotas?: ResourceQuota[] | null;
     /**
@@ -175893,7 +178454,7 @@ export interface PlaceServicePlanInfo extends AdditionalDataHolder, Parsable {
 }
 export interface Plan extends Parsable, PlannerDelta {
     /**
-     * Information about whether the entity is archived, and when it was archived.
+     * Service-populated information about whether the entity is archived, and when it was archived. Read-only.
      */
     archivalInfo?: PlannerArchivalInfo | null;
     /**
@@ -175917,7 +178478,7 @@ export interface Plan extends Parsable, PlannerDelta {
      */
     contentSensitivityLabelAssignment?: ContentSensitivityLabelAssignment | null;
     /**
-     * The collection of context links describing where the plan is surfaced. Read-only. Nullable.
+     * Context links describing where the plan is surfaced. Can be supplied when creating a plan by using a deep insert. Nullable.
      */
     contexts?: PlanContextLink[] | null;
     /**
@@ -175937,7 +178498,7 @@ export interface Plan extends Parsable, PlannerDelta {
      */
     displayName?: string | null;
     /**
-     * Duration of the plan, in days.
+     * Computed duration of the plan, in seconds. Read-only.
      */
     duration?: number | null;
     /**
@@ -175949,7 +178510,7 @@ export interface Plan extends Parsable, PlannerDelta {
      */
     goals?: Goal[] | null;
     /**
-     * Indicates whether the plan has an associated chat.
+     * Indicates whether the plan has an associated chat. Read-only.
      */
     hasChat?: boolean | null;
     /**
@@ -175965,7 +178526,7 @@ export interface Plan extends Parsable, PlannerDelta {
      */
     lastModifiedDateTime?: Date | null;
     /**
-     * The collection of content links attached to the plan. Read-only. Nullable.
+     * Content links attached to the plan. Can be supplied when creating a plan by using a deep insert. Nullable.
      */
     links?: ContentLink[] | null;
     /**
@@ -176061,15 +178622,15 @@ export interface PlanContextLink extends Parsable, PlannerDelta {
      */
     isActive?: boolean | null;
     /**
-     * Indicates whether this context link represents the original creation surface for the plan.
+     * Indicates whether this context link represents the original creation surface for the plan. Service-populated. Read-only.
      */
     isCreation?: boolean | null;
     /**
-     * Identifier for the context the plan is surfaced in.
+     * Client-specified identifier for the context the plan is surfaced in. Immutable after creation.
      */
     key?: string | null;
     /**
-     * Application ID of the app that owns the surface the plan is linked from.
+     * Application ID of the app that owns the surface the plan is linked from. Service-populated. Read-only.
      */
     ownerAppId?: string | null;
     /**
@@ -176091,7 +178652,7 @@ export interface Planner extends Entity, Parsable {
      */
     plans?: PlannerPlan[] | null;
     /**
-     * Read-only. Nullable. The collection of Planner Graph V4 plans.
+     * Read-only. Nullable. The collection of plans in the Planner Unified plans Graph API.
      */
     plansV2?: Plan[] | null;
     /**
@@ -176103,7 +178664,7 @@ export interface Planner extends Entity, Parsable {
      */
     tasks?: PlannerTask[] | null;
     /**
-     * Read-only. Nullable. The collection of Planner Graph V4 tasks.
+     * Read-only. Nullable. The collection of tasks in the Planner Unified plans Graph API.
      */
     tasksV2?: Task[] | null;
 }
@@ -176544,7 +179105,7 @@ export interface PlannerGroup extends Entity, Parsable {
      */
     plans?: PlannerPlan[] | null;
     /**
-     * Read-only. Nullable. The collection of Planner Graph V4 plans owned by the group.
+     * Read-only. Nullable. The collection of plans in the Planner Unified plans Graph API owned by the group.
      */
     plansV2?: Plan[] | null;
 }
@@ -177516,7 +180077,7 @@ export interface PlannerUser extends Parsable, PlannerDelta {
      */
     plans?: PlannerPlan[] | null;
     /**
-     * Read-only. Nullable. The collection of Planner Graph V4 plans associated with the user.
+     * Read-only. Nullable. The collection of plans in the Planner Unified plans Graph API associated with the user.
      */
     plansV2?: Plan[] | null;
     /**
@@ -177536,7 +180097,7 @@ export interface PlannerUser extends Parsable, PlannerDelta {
      */
     tasks?: PlannerTask[] | null;
     /**
-     * Read-only. Nullable. The collection of Planner Graph V4 tasks assigned to the user.
+     * Read-only. Nullable. The collection of tasks in the Planner Unified plans Graph API assigned to the user.
      */
     tasksV2?: Task[] | null;
 }
@@ -177576,12 +180137,52 @@ export interface PlatformCredentialAuthenticationMethod extends AuthenticationMe
      */
     platform?: AuthenticationMethodPlatform | null;
 }
+/**
+ * A predefined playbook available to the caller. id is a service-generated, persisted GUID string; uniqueName preserves its backend catalog name. Sessions reference this first-class catalog entity through playbookDefinition@odata.bind.
+ */
+export interface PlaybookDefinition extends Entity, Parsable {
+    /**
+     * The input kinds accepted by this playbook. The possible values are: defenderIncidentId, defenderAlertId, defenderThreatIntelligenceId, azureSubscriptionId, azureIdentityId, keyword, unknownFutureValue. unknownFutureValue isn't a valid value when creating a session. Read-only.
+     */
+    acceptedInputTypes?: InvestigationInputType[] | null;
+    /**
+     * The description of the work performed by the playbook. Read-only.
+     */
+    description?: string | null;
+    /**
+     * The human-readable name of the playbook. Read-only.
+     */
+    displayName?: string | null;
+    /**
+     * The immutable, unique catalog name, such as investigate-incident. Distinct from id. Alternate-key addressing isn't supported. Read-only.
+     */
+    uniqueName?: string | null;
+}
 export type PlayPromptCompletionReason = (typeof PlayPromptCompletionReasonObject)[keyof typeof PlayPromptCompletionReasonObject];
 export interface PlayPromptOperation extends CommsOperation, Parsable {
     /**
      * The possible values are: unknown, completedSuccessfully, mediaOperationCanceled.
      */
     completionReason?: PlayPromptCompletionReason | null;
+}
+export type PolicyApplicableOperations = (typeof PolicyApplicableOperationsObject)[keyof typeof PolicyApplicableOperationsObject];
+export interface PolicyAppliesTo extends AdditionalDataHolder, Parsable {
+    /**
+     * The includeDerivedTypes property
+     */
+    includeDerivedTypes?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The operations property
+     */
+    operations?: PolicyApplicableOperations[] | null;
+    /**
+     * The resourceName property
+     */
+    resourceName?: string | null;
 }
 export interface PolicyBase extends DirectoryObject, Parsable {
     /**
@@ -177592,6 +180193,21 @@ export interface PolicyBase extends DirectoryObject, Parsable {
      * Display name for this policy. Required.
      */
     displayName?: string | null;
+}
+export type PolicyCategory = (typeof PolicyCategoryObject)[keyof typeof PolicyCategoryObject];
+export interface PolicyDefinitionReference extends AssignedPolicyReference, Parsable {
+    /**
+     * The policyDefinition property
+     */
+    policyDefinition?: ResourcePolicyDefinition | null;
+    /**
+     * The policyUniqueName property
+     */
+    policyUniqueName?: string | null;
+    /**
+     * The version property
+     */
+    version?: string | null;
 }
 export interface PolicyDeletableItem extends AdditionalDataHolder, Parsable {
     /**
@@ -177612,6 +180228,61 @@ export interface PolicyDeletableRoot extends Entity, Parsable {
      * Defines the cross-tenant policy for synchronization of users from a partner tenant. Use this user synchronization policy to streamline collaboration between users in a multi-tenant organization by automating the creation, update, and deletion of users from one tenant to another.
      */
     crossTenantSyncPolicyPartners?: CrossTenantIdentitySyncPolicyPartner[] | null;
+}
+export type PolicyEffect = (typeof PolicyEffectObject)[keyof typeof PolicyEffectObject];
+export interface PolicyEvaluationDetail extends AdditionalDataHolder, Parsable {
+    /**
+     * The applicabilityEvaluationError property
+     */
+    applicabilityEvaluationError?: string | null;
+    /**
+     * The appliedPolicyEffects property
+     */
+    appliedPolicyEffects?: PolicyEffect | null;
+    /**
+     * The assignedPolicyDisplayName property
+     */
+    assignedPolicyDisplayName?: string | null;
+    /**
+     * The assignmentUniqueName property
+     */
+    assignmentUniqueName?: string | null;
+    /**
+     * The evaluationError property
+     */
+    evaluationError?: string | null;
+    /**
+     * The fetchDetails property
+     */
+    fetchDetails?: FetchDetail[] | null;
+    /**
+     * The isApplicable property
+     */
+    isApplicable?: boolean | null;
+    /**
+     * The isCompliant property
+     */
+    isCompliant?: boolean | null;
+    /**
+     * The isEnforced property
+     */
+    isEnforced?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The policyLoadingError property
+     */
+    policyLoadingError?: string | null;
+    /**
+     * The policyMessage property
+     */
+    policyMessage?: string | null;
+    /**
+     * The policyVersion property
+     */
+    policyVersion?: string | null;
 }
 export interface PolicyFile extends Entity, Parsable {
     /**
@@ -179673,6 +182344,16 @@ export interface PrivilegedOperationEvent extends Entity, Parsable {
      */
     userName?: string | null;
 }
+export interface PrivilegedReadSetting extends AdditionalDataHolder, Parsable {
+    /**
+     * The appId property
+     */
+    appId?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 export interface PrivilegedRole extends Entity, Parsable {
     /**
      * The assignments property
@@ -180832,6 +183513,75 @@ export interface ProtectSite extends LabelActionBase, Parsable {
     conditionalAccessProtectionLevelId?: string | null;
 }
 export type ProtocolType = (typeof ProtocolTypeObject)[keyof typeof ProtocolTypeObject];
+export type ProvenanceActorType = (typeof ProvenanceActorTypeObject)[keyof typeof ProvenanceActorTypeObject];
+export interface ProvenanceAssertedBy extends AdditionalDataHolder, Parsable {
+    /**
+     * The identifier of the actor that established the provenance.
+     */
+    actorId?: string | null;
+    /**
+     * The actorType property
+     */
+    actorType?: ProvenanceActorType | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
+export interface ProvenanceAssertion extends AdditionalDataHolder, Parsable {
+    /**
+     * The reason supplied for a manual attestation.
+     */
+    attestationReason?: string | null;
+    /**
+     * The date and time of the provenance event represented by this assertion.
+     */
+    eventDateTime?: Date | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The provenanceType property
+     */
+    provenanceType?: ProvenanceAssertionType | null;
+    /**
+     * The identifier of the credential from which this credential was derived.
+     */
+    sourceCredentialId?: string | null;
+    /**
+     * The type of credential from which this credential was derived.
+     */
+    sourceCredentialType?: string | null;
+    /**
+     * The identifier of the identityVerificationEvent that supports this assertion.
+     */
+    verificationEventId?: string | null;
+}
+export type ProvenanceAssertionType = (typeof ProvenanceAssertionTypeObject)[keyof typeof ProvenanceAssertionTypeObject];
+export interface ProvenanceChainStatus extends AdditionalDataHolder, Parsable {
+    /**
+     * The date and time when the service detected that the chain of trust was broken.
+     */
+    breakDetectedAtDateTime?: Date | null;
+    /**
+     * The breakReason property
+     */
+    breakReason?: ChainBreakReason | null;
+    /**
+     * The breakSource property
+     */
+    breakSource?: ChainBreakSource | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The state property
+     */
+    state?: ChainState | null;
+}
+export type ProvenanceClassification = (typeof ProvenanceClassificationObject)[keyof typeof ProvenanceClassificationObject];
 export interface ProviderTenantSetting extends Entity, Parsable {
     /**
      * The azureTenantId property
@@ -183394,9 +186144,286 @@ export interface ResourceOperation extends Entity, Parsable {
      */
     resourceName?: string | null;
 }
+export interface ResourcePolicyAssignment extends AdditionalDataHolder, Parsable {
+    /**
+     * The assignedPolicy property
+     */
+    assignedPolicy?: AssignedPolicyReference | null;
+    /**
+     * The createdDateTime property
+     */
+    createdDateTime?: Date | null;
+    /**
+     * The deletedDateTime property
+     */
+    deletedDateTime?: Date | null;
+    /**
+     * The enforcementMode property
+     */
+    enforcementMode?: EnforcementMode | null;
+    /**
+     * The isEnabled property
+     */
+    isEnabled?: boolean | null;
+    /**
+     * The lastModifiedDateTime property
+     */
+    lastModifiedDateTime?: Date | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The params property
+     */
+    params?: UntypedNode | null;
+    /**
+     * The scope property
+     */
+    scope?: string | null;
+    /**
+     * The uniqueName property
+     */
+    uniqueName?: string | null;
+}
+export interface ResourcePolicyConfiguration extends Entity, Parsable {
+    /**
+     * The lastModifiedDateTime property
+     */
+    lastModifiedDateTime?: Date | null;
+    /**
+     * The privilegedReadSetting property
+     */
+    privilegedReadSetting?: PrivilegedReadSetting | null;
+}
+export type ResourcePolicyDecision = (typeof ResourcePolicyDecisionObject)[keyof typeof ResourcePolicyDecisionObject];
+export interface ResourcePolicyDefinition extends AdditionalDataHolder, Parsable {
+    /**
+     * The assignments property
+     */
+    assignments?: ResourcePolicyAssignment[] | null;
+    /**
+     * The category property
+     */
+    category?: PolicyCategory | null;
+    /**
+     * The createdDateTime property
+     */
+    createdDateTime?: Date | null;
+    /**
+     * The deletedDateTime property
+     */
+    deletedDateTime?: Date | null;
+    /**
+     * The description property
+     */
+    description?: string | null;
+    /**
+     * The displayName property
+     */
+    displayName?: string | null;
+    /**
+     * The lastModifiedDateTime property
+     */
+    lastModifiedDateTime?: Date | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The paramsSchema property
+     */
+    paramsSchema?: UntypedNode | null;
+    /**
+     * The previousVersions property
+     */
+    previousVersions?: ResourcePolicyDefinitionVersion[] | null;
+    /**
+     * The rule property
+     */
+    rule?: ResourcePolicyRule | null;
+    /**
+     * The uniqueName property
+     */
+    uniqueName?: string | null;
+    /**
+     * The version property
+     */
+    version?: string | null;
+}
+export interface ResourcePolicyDefinitionVersion extends AdditionalDataHolder, Parsable {
+    /**
+     * The lastModifiedDateTime property
+     */
+    lastModifiedDateTime?: Date | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The paramsSchema property
+     */
+    paramsSchema?: UntypedNode | null;
+    /**
+     * The policy property
+     */
+    policy?: string | null;
+    /**
+     * The version property
+     */
+    version?: string | null;
+}
+export interface ResourcePolicyDeletableRoot extends Entity, Parsable {
+    /**
+     * The assignments property
+     */
+    assignments?: ResourcePolicyAssignment[] | null;
+    /**
+     * The definitions property
+     */
+    definitions?: ResourcePolicyDefinition[] | null;
+}
+export interface ResourcePolicyEvaluationEvent extends Entity, Parsable {
+    /**
+     * The apiVersion property
+     */
+    apiVersion?: string | null;
+    /**
+     * The appDisplayName property
+     */
+    appDisplayName?: string | null;
+    /**
+     * The appId property
+     */
+    appId?: string | null;
+    /**
+     * The applicablePoliciesCount property
+     */
+    applicablePoliciesCount?: number | null;
+    /**
+     * The auditPoliciesCount property
+     */
+    auditPoliciesCount?: number | null;
+    /**
+     * The clientRequestId property
+     */
+    clientRequestId?: string | null;
+    /**
+     * The denyPoliciesCount property
+     */
+    denyPoliciesCount?: number | null;
+    /**
+     * The durationMs property
+     */
+    durationMs?: number | null;
+    /**
+     * The errorPoliciesCount property
+     */
+    errorPoliciesCount?: number | null;
+    /**
+     * The evaluatedDateTime property
+     */
+    evaluatedDateTime?: Date | null;
+    /**
+     * The evaluatedPoliciesCount property
+     */
+    evaluatedPoliciesCount?: number | null;
+    /**
+     * The location property
+     */
+    location?: string | null;
+    /**
+     * The operationId property
+     */
+    operationId?: string | null;
+    /**
+     * The policyDecision property
+     */
+    policyDecision?: ResourcePolicyDecision | null;
+    /**
+     * The policyDetails property
+     */
+    policyDetails?: PolicyEvaluationDetail[] | null;
+    /**
+     * The requestId property
+     */
+    requestId?: string | null;
+    /**
+     * The requestMethod property
+     */
+    requestMethod?: string | null;
+    /**
+     * The requestUri property
+     */
+    requestUri?: string | null;
+    /**
+     * The servicePrincipalId property
+     */
+    servicePrincipalId?: string | null;
+    /**
+     * The targetResourceId property
+     */
+    targetResourceId?: string | null;
+    /**
+     * The targetResourceName property
+     */
+    targetResourceName?: string | null;
+    /**
+     * The tenantId property
+     */
+    tenantId?: string | null;
+    /**
+     * The totalFetchDurationMs property
+     */
+    totalFetchDurationMs?: number | null;
+    /**
+     * The totalPolicyEvaluationDurationMs property
+     */
+    totalPolicyEvaluationDurationMs?: number | null;
+    /**
+     * The userId property
+     */
+    userId?: string | null;
+}
+export interface ResourcePolicyRoot extends Entity, Parsable {
+    /**
+     * The assignments property
+     */
+    assignments?: ResourcePolicyAssignment[] | null;
+    /**
+     * The builtInDefinitions property
+     */
+    builtInDefinitions?: ResourcePolicyDefinition[] | null;
+    /**
+     * The configuration property
+     */
+    configuration?: ResourcePolicyConfiguration | null;
+    /**
+     * The definitions property
+     */
+    definitions?: ResourcePolicyDefinition[] | null;
+    /**
+     * The deletedItems property
+     */
+    deletedItems?: ResourcePolicyDeletableRoot | null;
+}
+export interface ResourcePolicyRule extends AdditionalDataHolder, Parsable {
+    /**
+     * The appliesTo property
+     */
+    appliesTo?: PolicyAppliesTo | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The policy property
+     */
+    policy?: string | null;
+}
 export interface ResourceQuota extends AdditionalDataHolder, Parsable {
     /**
-     * The maxPercentage property
+     * The maximum percentage of the organization's directorySizeQuota.total that this resource type can consume. The value must be between 0 and 100. A value of 0 blocks creation of new resources of this type. If omitted for supported resource types, the default is 80.
      */
     maxPercentage?: number | null;
     /**
@@ -183408,7 +186435,7 @@ export interface ResourceQuota extends AdditionalDataHolder, Parsable {
      */
     resourceType?: ResourceQuotaType | null;
     /**
-     * The total property
+     * The effective maximum number of resources allowed, calculated from directorySizeQuota.total and maxPercentage. This value is read-only and changes when the organization's overall quota changes.
      */
     total?: number | null;
 }
@@ -183892,7 +186919,7 @@ export interface RetentionPeriodChange extends AdditionalDataHolder, Parsable {
 export type RetentionPeriodChangeStatus = (typeof RetentionPeriodChangeStatusObject)[keyof typeof RetentionPeriodChangeStatusObject];
 export interface RetentionSetting extends AdditionalDataHolder, Parsable {
     /**
-     * The frequency of the backup.
+     * The backup frequency, expressed as an ISO 8601 repeating interval. The service defines the backup intervals: R/PT10M for 10-minute copies and R/P1W for weekly copies. Use R/P1W when specifying the policy retention period in a create or update request.
      */
     interval?: string | null;
     /**
@@ -183900,7 +186927,7 @@ export interface RetentionSetting extends AdditionalDataHolder, Parsable {
      */
     odataType?: string | null;
     /**
-     * The period of time to retain the protected data for a single Microsoft 365 service. The possible values are: P90D, P180D, P365D, P730D, P1095D, P1460D, P1825D, P2190D, P2555D, P2920D, P3285D, and P3650D. Other values aren't supported.
+     * The period of time to retain the protected data for a single Microsoft 365 service, expressed as an ISO 8601 duration. The supported policy retention periods in create and update requests are: P90D, P180D, P365D, P730D, P1095D, P1460D, P1825D, P2190D, P2555D, P2920D, P3285D, and P3650D. Other policy retention periods aren't supported.
      */
     period?: Duration | null;
 }
@@ -185241,6 +188268,19 @@ export interface SalesQuoteLine extends Entity, Parsable {
     unitPrice?: number | null;
 }
 export type SamlAttributeNameFormat = (typeof SamlAttributeNameFormatObject)[keyof typeof SamlAttributeNameFormatObject];
+/**
+ * Identifier URIs classified for the SAML protocol. Each value must also exist in the application's top-level identifierUris. Clearing this classification doesn't remove top-level identifierUris; complete deletion requires removing the URI from identifierUris and every referencing protocol classification in the same Application PATCH. No extra SAML-specific format rules beyond existing identifierUris validation.
+ */
+export interface SamlIdentifierUriConfiguration extends AdditionalDataHolder, Parsable {
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * Required and non-null when SAML identifier URI configuration is supplied. Application identifier URIs classified for SAML. Must be a subset of top-level identifierUris in the prospective final state. An empty collection normalizes the parent to null without changing top-level identifierUris.
+     */
+    uris?: string[] | null;
+}
 export interface SamlIdentitySource extends Parsable, PermissionsDefinitionIdentitySource {
 }
 export interface SamlNameIdClaim extends CustomClaimBase, Parsable {
@@ -186385,11 +189425,11 @@ export interface SendDtmfTonesOperation extends CommsOperation, Parsable {
 }
 export interface SensitiveContentEvidence extends AdditionalDataHolder, Parsable {
     /**
-     * The length property
+     * The length of the evidence text.
      */
     length?: number | null;
     /**
-     * The match property
+     * The matched evidence text.
      */
     match?: string | null;
     /**
@@ -186397,7 +189437,7 @@ export interface SensitiveContentEvidence extends AdditionalDataHolder, Parsable
      */
     odataType?: string | null;
     /**
-     * The offset property
+     * The start position of the evidence text.
      */
     offset?: number | null;
 }
@@ -188979,6 +192019,19 @@ export function serializeAgentExtensionParams(writer: SerializationWriter, agent
 }
 /**
  * Serializes information the current object
+ * @param AgenticSecurityRoot The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeAgenticSecurityRoot(writer: SerializationWriter, agenticSecurityRoot: Partial<AgenticSecurityRoot> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!agenticSecurityRoot || isSerializingDerivedType) { return; }
+    serializeEntity(writer, agenticSecurityRoot, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<PlaybookDefinition>("playbookDefinitions", agenticSecurityRoot.playbookDefinitions, serializePlaybookDefinition);
+    writer.writeCollectionOfObjectValues<InvestigationSession>("sessions", agenticSecurityRoot.sessions, serializeInvestigationSession);
+}
+/**
+ * Serializes information the current object
  * @param AgentIdentity The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -189027,6 +192080,18 @@ export function serializeAgentIdentityBlueprintPrincipal(writer: SerializationWr
     writer.writeStringValue("lifecyclePolicyComplianceStateReason", agentIdentityBlueprintPrincipal.lifecyclePolicyComplianceStateReason);
     writer.writeDateValue("lifecyclePolicyNonComplianceDisablementDateTime", agentIdentityBlueprintPrincipal.lifecyclePolicyNonComplianceDisablementDateTime);
     writer.writeCollectionOfObjectValues<DirectoryObject>("sponsors", agentIdentityBlueprintPrincipal.sponsors, serializeDirectoryObject);
+}
+/**
+ * Serializes information the current object
+ * @param AgentInfo The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeAgentInfo(writer: SerializationWriter, agentInfo: Partial<AgentInfo> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!agentInfo || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", agentInfo.odataType);
+    writer.writeAdditionalData(agentInfo.additionalData);
 }
 /**
  * Serializes information the current object
@@ -189170,6 +192235,32 @@ export function serializeAgentRiskDetection(writer: SerializationWriter, agentRi
     writer.writeStringValue("signInCorrelationId", agentRiskDetection.signInCorrelationId);
     writer.writeStringValue("signInRequestId", agentRiskDetection.signInRequestId);
     writer.writeStringValue("source", agentRiskDetection.source);
+}
+/**
+ * Serializes information the current object
+ * @param AgentRun The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeAgentRun(writer: SerializationWriter, agentRun: Partial<AgentRun> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!agentRun || isSerializingDerivedType) { return; }
+    serializeEntity(writer, agentRun, isSerializingDerivedType)
+    writer.writeObjectValue<AgentInfo>("agent", agentRun.agent, serializeAgentInfo);
+    writer.writeCollectionOfObjectValues<InvestigationMessage>("messages", agentRun.messages, serializeInvestigationMessage);
+    writer.writeEnumValue<LongRunningOperationStatus>("status", agentRun.status);
+}
+/**
+ * Serializes information the current object
+ * @param AgentRunFailureInfo The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeAgentRunFailureInfo(writer: SerializationWriter, agentRunFailureInfo: Partial<AgentRunFailureInfo> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!agentRunFailureInfo || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", agentRunFailureInfo.odataType);
+    writer.writeAdditionalData(agentRunFailureInfo.additionalData);
 }
 /**
  * Serializes information the current object
@@ -189883,6 +192974,19 @@ export function serializeAllPreApprovedPermissionsOnResourceApp(writer: Serializ
     if (!allPreApprovedPermissionsOnResourceApp || isSerializingDerivedType) { return; }
     serializePreApprovedPermissions(writer, allPreApprovedPermissionsOnResourceApp, isSerializingDerivedType)
     writer.writeStringValue("resourceApplicationId", allPreApprovedPermissionsOnResourceApp.resourceApplicationId);
+}
+/**
+ * Serializes information the current object
+ * @param AllResourcesExclusions The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeAllResourcesExclusions(writer: SerializationWriter, allResourcesExclusions: Partial<AllResourcesExclusions> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!allResourcesExclusions || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", allResourcesExclusions.odataType);
+    writer.writeCollectionOfObjectValues<UserActionExclusion>("userActionExclusions", allResourcesExclusions.userActionExclusions, serializeUserActionExclusion);
+    writer.writeAdditionalData(allResourcesExclusions.additionalData);
 }
 /**
  * Serializes information the current object
@@ -192715,11 +195819,14 @@ export function serializeApplication(writer: SerializationWriter, application: P
     writer.writeCollectionOfObjectValues<FederatedIdentityCredential>("federatedIdentityCredentials", application.federatedIdentityCredentials, serializeFederatedIdentityCredential);
     writer.writeStringValue("groupMembershipClaims", application.groupMembershipClaims);
     writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", application.homeRealmDiscoveryPolicies, serializeHomeRealmDiscoveryPolicy);
+    writer.writeObjectValue<ApplicationIdentifierUriConfiguration>("identifierUriConfiguration", application.identifierUriConfiguration, serializeApplicationIdentifierUriConfiguration);
     writer.writeCollectionOfPrimitiveValues<string>("identifierUris", application.identifierUris);
+    writer.writeObjectValue<IdJagApplicationConfiguration>("idJag", application.idJag, serializeIdJagApplicationConfiguration);
     writer.writeObjectValue<InformationalUrl>("info", application.info, serializeInformationalUrl);
     writer.writeBooleanValue("isDeviceOnlyAuthSupported", application.isDeviceOnlyAuthSupported);
     writer.writeBooleanValue("isDisabled", application.isDisabled);
     writer.writeBooleanValue("isFallbackPublicClient", application.isFallbackPublicClient);
+    writer.writeBooleanValue("isHardDeleteProtectionEnabled", application.isHardDeleteProtectionEnabled);
     writer.writeCollectionOfObjectValues<KeyCredential>("keyCredentials", application.keyCredentials, serializeKeyCredential);
     writer.writeByteArrayValue("logo", application.logo);
     writer.writeCollectionOfPrimitiveValues<Guid>("managerApplications", application.managerApplications);
@@ -192776,6 +195883,20 @@ export function serializeApplicationDriftResourceInfo(writer: SerializationWrite
 export function serializeApplicationEnforcedRestrictionsSessionControl(writer: SerializationWriter, applicationEnforcedRestrictionsSessionControl: Partial<ApplicationEnforcedRestrictionsSessionControl> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!applicationEnforcedRestrictionsSessionControl || isSerializingDerivedType) { return; }
     serializeConditionalAccessSessionControl(writer, applicationEnforcedRestrictionsSessionControl, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
+ * @param ApplicationIdentifierUriConfiguration The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeApplicationIdentifierUriConfiguration(writer: SerializationWriter, applicationIdentifierUriConfiguration: Partial<ApplicationIdentifierUriConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!applicationIdentifierUriConfiguration || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<IdJagIdentifierUriConfiguration>("idJag", applicationIdentifierUriConfiguration.idJag, serializeIdJagIdentifierUriConfiguration);
+    writer.writeStringValue("@odata.type", applicationIdentifierUriConfiguration.odataType);
+    writer.writeObjectValue<SamlIdentifierUriConfiguration>("saml", applicationIdentifierUriConfiguration.saml, serializeSamlIdentifierUriConfiguration);
+    writer.writeAdditionalData(applicationIdentifierUriConfiguration.additionalData);
 }
 /**
  * Serializes information the current object
@@ -193727,6 +196848,23 @@ export function serializeAssignedPlan(writer: SerializationWriter, assignedPlan:
     writer.writeStringValue("service", assignedPlan.service);
     writer.writeGuidValue("servicePlanId", assignedPlan.servicePlanId);
     writer.writeAdditionalData(assignedPlan.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param AssignedPolicyReference The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeAssignedPolicyReference(writer: SerializationWriter, assignedPolicyReference: Partial<AssignedPolicyReference> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!assignedPolicyReference || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", assignedPolicyReference.odataType);
+    writer.writeAdditionalData(assignedPolicyReference.additionalData);
+    switch (assignedPolicyReference.odataType) {
+        case "#microsoft.graph.policyDefinitionReference":
+            serializePolicyDefinitionReference(writer, assignedPolicyReference, true);
+        break;
+    }
 }
 /**
  * Serializes information the current object
@@ -194763,6 +197901,7 @@ export function serializeAuthenticationMethod(writer: SerializationWriter, authe
     serializeEntity(writer, authenticationMethod, isSerializingDerivedType)
     writer.writeDateValue("createdDateTime", authenticationMethod.createdDateTime);
     writer.writeDateValue("lastUsedDateTime", authenticationMethod.lastUsedDateTime);
+    writer.writeObjectValue<CredentialProvenance>("provenance", authenticationMethod.provenance, serializeCredentialProvenance);
     switch (authenticationMethod.odataType) {
         case "#microsoft.graph.emailAuthenticationMethod":
             serializeEmailAuthenticationMethod(writer, authenticationMethod, true);
@@ -198580,6 +201719,7 @@ export function serializeChannel(writer: SerializationWriter, channel: Partial<C
     writer.writeCollectionOfObjectValues<SharedWithChannelTeamInfo>("sharedWithTeams", channel.sharedWithTeams, serializeSharedWithChannelTeamInfo);
     writer.writeObjectValue<ChannelSummary>("summary", channel.summary, serializeChannelSummary);
     writer.writeCollectionOfObjectValues<TeamsTab>("tabs", channel.tabs, serializeTeamsTab);
+    writer.writeCollectionOfObjectValues<TeamworkChannelTag>("tags", channel.tags, serializeTeamworkChannelTag);
     writer.writeStringValue("tenantId", channel.tenantId);
     writer.writeStringValue("webUrl", channel.webUrl);
 }
@@ -199993,6 +203133,9 @@ export function serializeCloudPcBulkAction(writer: SerializationWriter, cloudPcB
         case "#microsoft.graph.cloudPcBulkRestore":
             serializeCloudPcBulkRestore(writer, cloudPcBulkAction, true);
         break;
+        case "#microsoft.graph.cloudPcBulkSetDeviceName":
+            serializeCloudPcBulkSetDeviceName(writer, cloudPcBulkAction, true);
+        break;
         case "#microsoft.graph.cloudPcBulkSetReviewStatus":
             serializeCloudPcBulkSetReviewStatus(writer, cloudPcBulkAction, true);
         break;
@@ -200181,6 +203324,18 @@ export function serializeCloudPcBulkRestore(writer: SerializationWriter, cloudPc
     writer.writeBooleanValue("ignoreUnhealthySnapshots", cloudPcBulkRestore.ignoreUnhealthySnapshots);
     writer.writeDateValue("restorePointDateTime", cloudPcBulkRestore.restorePointDateTime);
     writer.writeEnumValue<RestoreTimeRange>("timeRange", cloudPcBulkRestore.timeRange);
+}
+/**
+ * Serializes information the current object
+ * @param CloudPcBulkSetDeviceName The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCloudPcBulkSetDeviceName(writer: SerializationWriter, cloudPcBulkSetDeviceName: Partial<CloudPcBulkSetDeviceName> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!cloudPcBulkSetDeviceName || isSerializingDerivedType) { return; }
+    serializeCloudPcBulkAction(writer, cloudPcBulkSetDeviceName, isSerializingDerivedType)
+    writer.writeStringValue("deviceNamingTemplate", cloudPcBulkSetDeviceName.deviceNamingTemplate);
 }
 /**
  * Serializes information the current object
@@ -202127,6 +205282,19 @@ export function serializeConditionalAccessEnumeratedExternalTenants(writer: Seri
 }
 /**
  * Serializes information the current object
+ * @param ConditionalAccessExclusions The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeConditionalAccessExclusions(writer: SerializationWriter, conditionalAccessExclusions: Partial<ConditionalAccessExclusions> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!conditionalAccessExclusions || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<AllResourcesExclusions>("allResourcesExclusions", conditionalAccessExclusions.allResourcesExclusions, serializeAllResourcesExclusions);
+    writer.writeStringValue("@odata.type", conditionalAccessExclusions.odataType);
+    writer.writeAdditionalData(conditionalAccessExclusions.additionalData);
+}
+/**
+ * Serializes information the current object
  * @param ConditionalAccessExternalTenants The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -202302,6 +205470,7 @@ export function serializeConditionalAccessRoot(writer: SerializationWriter, cond
     writer.writeObjectValue<CaPoliciesDeletableRoot>("deletedItems", conditionalAccessRoot.deletedItems, serializeCaPoliciesDeletableRoot);
     writer.writeCollectionOfObjectValues<NamedLocation>("namedLocations", conditionalAccessRoot.namedLocations, serializeNamedLocation);
     writer.writeCollectionOfObjectValues<ConditionalAccessPolicy>("policies", conditionalAccessRoot.policies, serializeConditionalAccessPolicy);
+    writer.writeObjectValue<ConditionalAccessSettings>("settings", conditionalAccessRoot.settings, serializeConditionalAccessSettings);
     writer.writeCollectionOfObjectValues<ConditionalAccessTemplate>("templates", conditionalAccessRoot.templates, serializeConditionalAccessTemplate);
 }
 /**
@@ -202370,6 +205539,19 @@ export function serializeConditionalAccessSessionControls(writer: SerializationW
     writer.writeObjectValue<SecureSignInSessionControl>("secureSignInSession", conditionalAccessSessionControls.secureSignInSession, serializeSecureSignInSessionControl);
     writer.writeObjectValue<SignInFrequencySessionControl>("signInFrequency", conditionalAccessSessionControls.signInFrequency, serializeSignInFrequencySessionControl);
     writer.writeAdditionalData(conditionalAccessSessionControls.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param ConditionalAccessSettings The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeConditionalAccessSettings(writer: SerializationWriter, conditionalAccessSettings: Partial<ConditionalAccessSettings> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!conditionalAccessSettings || isSerializingDerivedType) { return; }
+    serializeEntity(writer, conditionalAccessSettings, isSerializingDerivedType)
+    writer.writeObjectValue<ConditionalAccessExclusions>("exclusions", conditionalAccessSettings.exclusions, serializeConditionalAccessExclusions);
+    writer.writeDateValue("modifiedDateTime", conditionalAccessSettings.modifiedDateTime);
 }
 /**
  * Serializes information the current object
@@ -202975,6 +206157,18 @@ export function serializeContentLinkCapability(writer: SerializationWriter, cont
     writer.writeBooleanValue("extensions", contentLinkCapability.extensions);
     writer.writeStringValue("@odata.type", contentLinkCapability.odataType);
     writer.writeAdditionalData(contentLinkCapability.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param ContentManagementRoot The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeContentManagementRoot(writer: SerializationWriter, contentManagementRoot: Partial<ContentManagementRoot> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!contentManagementRoot || isSerializingDerivedType) { return; }
+    serializeEntity(writer, contentManagementRoot, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ContentManagementRepository>("repositories", contentManagementRoot.repositories, serializeContentManagementRepository);
 }
 /**
  * Serializes information the current object
@@ -203994,6 +207188,57 @@ export function serializeCostManagementDataStatus(writer: SerializationWriter, c
 }
 /**
  * Serializes information the current object
+ * @param CostManagementFundingUsageRecord The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCostManagementFundingUsageRecord(writer: SerializationWriter, costManagementFundingUsageRecord: Partial<CostManagementFundingUsageRecord> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!costManagementFundingUsageRecord || isSerializingDerivedType) { return; }
+    serializeEntity(writer, costManagementFundingUsageRecord, isSerializingDerivedType)
+    writer.writeObjectValue<CostManagementUsageDataStatus>("dataStatus", costManagementFundingUsageRecord.dataStatus, serializeCostManagementUsageDataStatus);
+    writer.writeEnumValue<CostManagementFundingClass>("fundingClass", costManagementFundingUsageRecord.fundingClass);
+    writer.writeEnumValue<CostManagementUnit>("unit", costManagementFundingUsageRecord.unit);
+}
+/**
+ * Serializes information the current object
+ * @param CostManagementFundingUsageRecordCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCostManagementFundingUsageRecordCollectionResponse(writer: SerializationWriter, costManagementFundingUsageRecordCollectionResponse: Partial<CostManagementFundingUsageRecordCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!costManagementFundingUsageRecordCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, costManagementFundingUsageRecordCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CostManagementFundingUsageRecord>("value", costManagementFundingUsageRecordCollectionResponse.value, serializeCostManagementFundingUsageRecord);
+}
+/**
+ * Serializes information the current object
+ * @param CostManagementGroupUsageRecord The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCostManagementGroupUsageRecord(writer: SerializationWriter, costManagementGroupUsageRecord: Partial<CostManagementGroupUsageRecord> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!costManagementGroupUsageRecord || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", costManagementGroupUsageRecord.odataType);
+    writer.writeEnumValue<CostManagementUnit>("unit", costManagementGroupUsageRecord.unit);
+    writer.writeAdditionalData(costManagementGroupUsageRecord.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CostManagementGroupUsageRecordCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCostManagementGroupUsageRecordCollectionResponse(writer: SerializationWriter, costManagementGroupUsageRecordCollectionResponse: Partial<CostManagementGroupUsageRecordCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!costManagementGroupUsageRecordCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, costManagementGroupUsageRecordCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CostManagementGroupUsageRecord>("value", costManagementGroupUsageRecordCollectionResponse.value, serializeCostManagementGroupUsageRecord);
+}
+/**
+ * Serializes information the current object
  * @param CostManagementQuantity The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -204023,8 +207268,35 @@ export function serializeCostManagementQuantity(writer: SerializationWriter, cos
 export function serializeCostManagementRoot(writer: SerializationWriter, costManagementRoot: Partial<CostManagementRoot> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!costManagementRoot || isSerializingDerivedType) { return; }
     serializeEntity(writer, costManagementRoot, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CreditRequest>("creditRequests", costManagementRoot.creditRequests, serializeCreditRequest);
     writer.writeCollectionOfObjectValues<SpendingPolicy>("spendingPolicies", costManagementRoot.spendingPolicies, serializeSpendingPolicy);
+    writer.writeObjectValue<CostManagementUsageReportRoot>("usageReports", costManagementRoot.usageReports, serializeCostManagementUsageReportRoot);
     writer.writeCollectionOfObjectValues<CostManagementUserBalance>("userBalances", costManagementRoot.userBalances, serializeCostManagementUserBalance);
+}
+/**
+ * Serializes information the current object
+ * @param CostManagementServiceUsageRecord The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCostManagementServiceUsageRecord(writer: SerializationWriter, costManagementServiceUsageRecord: Partial<CostManagementServiceUsageRecord> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!costManagementServiceUsageRecord || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", costManagementServiceUsageRecord.odataType);
+    writer.writeEnumValue<CostManagementUnit>("unit", costManagementServiceUsageRecord.unit);
+    writer.writeAdditionalData(costManagementServiceUsageRecord.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CostManagementServiceUsageRecordCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCostManagementServiceUsageRecordCollectionResponse(writer: SerializationWriter, costManagementServiceUsageRecordCollectionResponse: Partial<CostManagementServiceUsageRecordCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!costManagementServiceUsageRecordCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, costManagementServiceUsageRecordCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CostManagementServiceUsageRecord>("value", costManagementServiceUsageRecordCollectionResponse.value, serializeCostManagementServiceUsageRecord);
 }
 /**
  * Serializes information the current object
@@ -204039,6 +207311,35 @@ export function serializeCostManagementUnevaluatedService(writer: SerializationW
     writer.writeEnumValue<BalanceEvaluationFailureReason>("reason", costManagementUnevaluatedService.reason);
     writer.writeStringValue("serviceId", costManagementUnevaluatedService.serviceId);
     writer.writeAdditionalData(costManagementUnevaluatedService.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CostManagementUsageDataStatus The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCostManagementUsageDataStatus(writer: SerializationWriter, costManagementUsageDataStatus: Partial<CostManagementUsageDataStatus> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!costManagementUsageDataStatus || isSerializingDerivedType) { return; }
+    writer.writeDateValue("latestSourceDateTime", costManagementUsageDataStatus.latestSourceDateTime);
+    writer.writeStringValue("@odata.type", costManagementUsageDataStatus.odataType);
+    writer.writeAdditionalData(costManagementUsageDataStatus.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CostManagementUsageReportRoot The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCostManagementUsageReportRoot(writer: SerializationWriter, costManagementUsageReportRoot: Partial<CostManagementUsageReportRoot> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!costManagementUsageReportRoot || isSerializingDerivedType) { return; }
+    serializeEntity(writer, costManagementUsageReportRoot, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CostManagementFundingUsageRecord>("fundingUsageRecords", costManagementUsageReportRoot.fundingUsageRecords, serializeCostManagementFundingUsageRecord);
+    writer.writeCollectionOfObjectValues<CostManagementGroupUsageRecord>("groupUsageRecords", costManagementUsageReportRoot.groupUsageRecords, serializeCostManagementGroupUsageRecord);
+    writer.writeCollectionOfObjectValues<CostManagementServiceUsageRecord>("serviceUsageRecords", costManagementUsageReportRoot.serviceUsageRecords, serializeCostManagementServiceUsageRecord);
+    writer.writeCollectionOfObjectValues<CostManagementUserUsageDetail>("userUsageDetails", costManagementUsageReportRoot.userUsageDetails, serializeCostManagementUserUsageDetail);
+    writer.writeCollectionOfObjectValues<CostManagementUserUsageRecord>("userUsageRecords", costManagementUsageReportRoot.userUsageRecords, serializeCostManagementUserUsageRecord);
 }
 /**
  * Serializes information the current object
@@ -204085,6 +207386,94 @@ export function serializeCostManagementUserServiceBalanceCollectionResponse(writ
     if (!costManagementUserServiceBalanceCollectionResponse || isSerializingDerivedType) { return; }
     serializeBaseCollectionPaginationCountResponse(writer, costManagementUserServiceBalanceCollectionResponse, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<CostManagementUserServiceBalance>("value", costManagementUserServiceBalanceCollectionResponse.value, serializeCostManagementUserServiceBalance);
+}
+/**
+ * Serializes information the current object
+ * @param CostManagementUserUsageDetail The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCostManagementUserUsageDetail(writer: SerializationWriter, costManagementUserUsageDetail: Partial<CostManagementUserUsageDetail> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!costManagementUserUsageDetail || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", costManagementUserUsageDetail.odataType);
+    writer.writeCollectionOfObjectValues<CostManagementUserUsageServiceDetail>("services", costManagementUserUsageDetail.services, serializeCostManagementUserUsageServiceDetail);
+    writer.writeCollectionOfObjectValues<CostManagementUserUsageSessionDetail>("sessions", costManagementUserUsageDetail.sessions, serializeCostManagementUserUsageSessionDetail);
+    writer.writeEnumValue<CostManagementUnit>("unit", costManagementUserUsageDetail.unit);
+    writer.writeAdditionalData(costManagementUserUsageDetail.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CostManagementUserUsageRecord The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCostManagementUserUsageRecord(writer: SerializationWriter, costManagementUserUsageRecord: Partial<CostManagementUserUsageRecord> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!costManagementUserUsageRecord || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", costManagementUserUsageRecord.odataType);
+    writer.writeEnumValue<CostManagementUnit>("unit", costManagementUserUsageRecord.unit);
+    writer.writeAdditionalData(costManagementUserUsageRecord.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CostManagementUserUsageRecordCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCostManagementUserUsageRecordCollectionResponse(writer: SerializationWriter, costManagementUserUsageRecordCollectionResponse: Partial<CostManagementUserUsageRecordCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!costManagementUserUsageRecordCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, costManagementUserUsageRecordCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CostManagementUserUsageRecord>("value", costManagementUserUsageRecordCollectionResponse.value, serializeCostManagementUserUsageRecord);
+}
+/**
+ * Serializes information the current object
+ * @param CostManagementUserUsageServiceDetail The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCostManagementUserUsageServiceDetail(writer: SerializationWriter, costManagementUserUsageServiceDetail: Partial<CostManagementUserUsageServiceDetail> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!costManagementUserUsageServiceDetail || isSerializingDerivedType) { return; }
+    serializeEntity(writer, costManagementUserUsageServiceDetail, isSerializingDerivedType)
+    writer.writeEnumValue<CostManagementUnit>("unit", costManagementUserUsageServiceDetail.unit);
+}
+/**
+ * Serializes information the current object
+ * @param CostManagementUserUsageServiceDetailCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCostManagementUserUsageServiceDetailCollectionResponse(writer: SerializationWriter, costManagementUserUsageServiceDetailCollectionResponse: Partial<CostManagementUserUsageServiceDetailCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!costManagementUserUsageServiceDetailCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, costManagementUserUsageServiceDetailCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CostManagementUserUsageServiceDetail>("value", costManagementUserUsageServiceDetailCollectionResponse.value, serializeCostManagementUserUsageServiceDetail);
+}
+/**
+ * Serializes information the current object
+ * @param CostManagementUserUsageSessionDetail The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCostManagementUserUsageSessionDetail(writer: SerializationWriter, costManagementUserUsageSessionDetail: Partial<CostManagementUserUsageSessionDetail> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!costManagementUserUsageSessionDetail || isSerializingDerivedType) { return; }
+    serializeEntity(writer, costManagementUserUsageSessionDetail, isSerializingDerivedType)
+    writer.writeEnumValue<CostManagementUnit>("unit", costManagementUserUsageSessionDetail.unit);
+}
+/**
+ * Serializes information the current object
+ * @param CostManagementUserUsageSessionDetailCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCostManagementUserUsageSessionDetailCollectionResponse(writer: SerializationWriter, costManagementUserUsageSessionDetailCollectionResponse: Partial<CostManagementUserUsageSessionDetailCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!costManagementUserUsageSessionDetailCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, costManagementUserUsageSessionDetailCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CostManagementUserUsageSessionDetail>("value", costManagementUserUsageSessionDetailCollectionResponse.value, serializeCostManagementUserUsageSessionDetail);
 }
 /**
  * Serializes information the current object
@@ -204144,6 +207533,21 @@ export function serializeCreationTimestamp(writer: SerializationWriter, creation
     writer.writeDateValue("createdDateTime", creationTimestamp.createdDateTime);
     writer.writeStringValue("@odata.type", creationTimestamp.odataType);
     writer.writeAdditionalData(creationTimestamp.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CredentialProvenance The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCredentialProvenance(writer: SerializationWriter, credentialProvenance: Partial<CredentialProvenance> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!credentialProvenance || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<ProvenanceAssertion>("assertions", credentialProvenance.assertions, serializeProvenanceAssertion);
+    writer.writeObjectValue<ProvenanceChainStatus>("chainStatus", credentialProvenance.chainStatus, serializeProvenanceChainStatus);
+    writer.writeEnumValue<ProvenanceClassification>("classification", credentialProvenance.classification);
+    writer.writeStringValue("@odata.type", credentialProvenance.odataType);
+    writer.writeAdditionalData(credentialProvenance.additionalData);
 }
 /**
  * Serializes information the current object
@@ -204207,6 +207611,32 @@ export function serializeCredentialUserRegistrationDetails(writer: Serialization
     writer.writeBooleanValue("isRegistered", credentialUserRegistrationDetails.isRegistered);
     writer.writeStringValue("userDisplayName", credentialUserRegistrationDetails.userDisplayName);
     writer.writeStringValue("userPrincipalName", credentialUserRegistrationDetails.userPrincipalName);
+}
+/**
+ * Serializes information the current object
+ * @param CreditRequest The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCreditRequest(writer: SerializationWriter, creditRequest: Partial<CreditRequest> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!creditRequest || isSerializingDerivedType) { return; }
+    serializeEntity(writer, creditRequest, isSerializingDerivedType)
+    writer.writeObjectValue<IdentitySet>("requestedBy", creditRequest.requestedBy, serializeIdentitySet);
+    writer.writeEnumValue<CreditRequestType>("requestType", creditRequest.requestType);
+    writer.writeEnumValue<CreditRequestState>("state", creditRequest.state);
+}
+/**
+ * Serializes information the current object
+ * @param CreditRequestCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCreditRequestCollectionResponse(writer: SerializationWriter, creditRequestCollectionResponse: Partial<CreditRequestCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!creditRequestCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, creditRequestCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CreditRequest>("value", creditRequestCollectionResponse.value, serializeCreditRequest);
 }
 /**
  * Serializes information the current object
@@ -212841,6 +216271,17 @@ export function serializeDropInPlaceMode(writer: SerializationWriter, dropInPlac
 }
 /**
  * Serializes information the current object
+ * @param DynamicPermissionsManagementRoot The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeDynamicPermissionsManagementRoot(writer: SerializationWriter, dynamicPermissionsManagementRoot: Partial<DynamicPermissionsManagementRoot> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!dynamicPermissionsManagementRoot || isSerializingDerivedType) { return; }
+    serializeEntity(writer, dynamicPermissionsManagementRoot, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
  * @param DynamicRuleActivityLog The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -215139,6 +218580,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.agentCommunicationConfiguration":
             serializeAgentCommunicationConfiguration(writer, entity, true);
         break;
+        case "#microsoft.graph.agenticSecurityRoot":
+            serializeAgenticSecurityRoot(writer, entity, true);
+        break;
         case "#microsoft.graph.agentIdentity":
             serializeAgentIdentity(writer, entity, true);
         break;
@@ -215156,6 +218600,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.agentRiskDetection":
             serializeAgentRiskDetection(writer, entity, true);
+        break;
+        case "#microsoft.graph.agentRun":
+            serializeAgentRun(writer, entity, true);
         break;
         case "#microsoft.graph.agentUser":
             serializeAgentUser(writer, entity, true);
@@ -216132,6 +219579,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.cloudPcBulkRestore":
             serializeCloudPcBulkRestore(writer, entity, true);
         break;
+        case "#microsoft.graph.cloudPcBulkSetDeviceName":
+            serializeCloudPcBulkSetDeviceName(writer, entity, true);
+        break;
         case "#microsoft.graph.cloudPcBulkSetReviewStatus":
             serializeCloudPcBulkSetReviewStatus(writer, entity, true);
         break;
@@ -216240,6 +219690,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.conditionalAccessRoot":
             serializeConditionalAccessRoot(writer, entity, true);
         break;
+        case "#microsoft.graph.conditionalAccessSettings":
+            serializeConditionalAccessSettings(writer, entity, true);
+        break;
         case "#microsoft.graph.conditionalAccessTemplate":
             serializeConditionalAccessTemplate(writer, entity, true);
         break;
@@ -216290,6 +219743,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.contentLink":
             serializeContentLink(writer, entity, true);
+        break;
+        case "#microsoft.graph.contentManagementRoot":
+            serializeContentManagementRoot(writer, entity, true);
         break;
         case "#microsoft.graph.contentModel":
             serializeContentModel(writer, entity, true);
@@ -216372,11 +219828,23 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.costManagementAlertSetting":
             serializeCostManagementAlertSetting(writer, entity, true);
         break;
+        case "#microsoft.graph.costManagementFundingUsageRecord":
+            serializeCostManagementFundingUsageRecord(writer, entity, true);
+        break;
         case "#microsoft.graph.costManagementRoot":
             serializeCostManagementRoot(writer, entity, true);
         break;
+        case "#microsoft.graph.costManagementUsageReportRoot":
+            serializeCostManagementUsageReportRoot(writer, entity, true);
+        break;
         case "#microsoft.graph.costManagementUserBalance":
             serializeCostManagementUserBalance(writer, entity, true);
+        break;
+        case "#microsoft.graph.costManagementUserUsageServiceDetail":
+            serializeCostManagementUserUsageServiceDetail(writer, entity, true);
+        break;
+        case "#microsoft.graph.costManagementUserUsageSessionDetail":
+            serializeCostManagementUserUsageSessionDetail(writer, entity, true);
         break;
         case "#microsoft.graph.credentialUsageSummary":
             serializeCredentialUsageSummary(writer, entity, true);
@@ -216386,6 +219854,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.credentialUserRegistrationDetails":
             serializeCredentialUserRegistrationDetails(writer, entity, true);
+        break;
+        case "#microsoft.graph.creditRequest":
+            serializeCreditRequest(writer, entity, true);
         break;
         case "#microsoft.graph.crossTenantAccessPolicy":
             serializeCrossTenantAccessPolicy(writer, entity, true);
@@ -217055,6 +220526,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.driveRestoreArtifactsBulkAdditionRequest":
             serializeDriveRestoreArtifactsBulkAdditionRequest(writer, entity, true);
+        break;
+        case "#microsoft.graph.dynamicPermissionsManagementRoot":
+            serializeDynamicPermissionsManagementRoot(writer, entity, true);
         break;
         case "#microsoft.graph.dynamicRuleActivityLog":
             serializeDynamicRuleActivityLog(writer, entity, true);
@@ -217914,6 +221388,12 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.identityUserFlowAttributeAssignment":
             serializeIdentityUserFlowAttributeAssignment(writer, entity, true);
         break;
+        case "#microsoft.graph.identityVerificationEvent":
+            serializeIdentityVerificationEvent(writer, entity, true);
+        break;
+        case "#microsoft.graph.identityVerificationStatus":
+            serializeIdentityVerificationStatus(writer, entity, true);
+        break;
         case "#microsoft.graph.identityVerifiedIdRoot":
             serializeIdentityVerifiedIdRoot(writer, entity, true);
         break;
@@ -218084,6 +221564,18 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.invalidLicenseAlertIncident":
             serializeInvalidLicenseAlertIncident(writer, entity, true);
+        break;
+        case "#microsoft.graph.investigationInput":
+            serializeInvestigationInput(writer, entity, true);
+        break;
+        case "#microsoft.graph.investigationMessage":
+            serializeInvestigationMessage(writer, entity, true);
+        break;
+        case "#microsoft.graph.investigationOutput":
+            serializeInvestigationOutput(writer, entity, true);
+        break;
+        case "#microsoft.graph.investigationSession":
+            serializeInvestigationSession(writer, entity, true);
         break;
         case "#microsoft.graph.invitation":
             serializeInvitation(writer, entity, true);
@@ -219585,6 +223077,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.platformCredentialAuthenticationMethod":
             serializePlatformCredentialAuthenticationMethod(writer, entity, true);
         break;
+        case "#microsoft.graph.playbookDefinition":
+            serializePlaybookDefinition(writer, entity, true);
+        break;
         case "#microsoft.graph.playPromptOperation":
             serializePlayPromptOperation(writer, entity, true);
         break;
@@ -219924,6 +223419,18 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.resourceOperation":
             serializeResourceOperation(writer, entity, true);
         break;
+        case "#microsoft.graph.resourcePolicyConfiguration":
+            serializeResourcePolicyConfiguration(writer, entity, true);
+        break;
+        case "#microsoft.graph.resourcePolicyDeletableRoot":
+            serializeResourcePolicyDeletableRoot(writer, entity, true);
+        break;
+        case "#microsoft.graph.resourcePolicyEvaluationEvent":
+            serializeResourcePolicyEvaluationEvent(writer, entity, true);
+        break;
+        case "#microsoft.graph.resourcePolicyRoot":
+            serializeResourcePolicyRoot(writer, entity, true);
+        break;
         case "#microsoft.graph.resourceSpecificPermissionGrant":
             serializeResourceSpecificPermissionGrant(writer, entity, true);
         break;
@@ -220208,6 +223715,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.security.collaborationRoot":
             serializeCollaborationRoot(writer, entity, true);
+        break;
+        case "#microsoft.graph.security.contentManagement.contentManagementRepository":
+            serializeContentManagementRepository(writer, entity, true);
         break;
         case "#microsoft.graph.security.dataDiscoveryReport":
             serializeDataDiscoveryReport(writer, entity, true);
@@ -221045,6 +224555,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.teamworkBot":
             serializeTeamworkBot(writer, entity, true);
+        break;
+        case "#microsoft.graph.teamworkChannelTag":
+            serializeTeamworkChannelTag(writer, entity, true);
         break;
         case "#microsoft.graph.teamworkCustomEmoji":
             serializeTeamworkCustomEmoji(writer, entity, true);
@@ -223826,6 +227339,20 @@ export function serializeFederatedTokenValidationPolicy(writer: SerializationWri
 }
 /**
  * Serializes information the current object
+ * @param FetchDetail The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeFetchDetail(writer: SerializationWriter, fetchDetail: Partial<FetchDetail> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!fetchDetail || isSerializingDerivedType) { return; }
+    writer.writeNumberValue("durationMs", fetchDetail.durationMs);
+    writer.writeStringValue("@odata.type", fetchDetail.odataType);
+    writer.writeStringValue("path", fetchDetail.path);
+    writer.writeAdditionalData(fetchDetail.additionalData);
+}
+/**
+ * Serializes information the current object
  * @param Fido2AuthenticationMethod The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -225394,6 +228921,7 @@ export function serializeGroup(writer: SerializationWriter, group: Partial<Group
     writer.writeBooleanValue("isArchived", group.isArchived);
     writer.writeBooleanValue("isAssignableToRole", group.isAssignableToRole);
     writer.writeBooleanValue("isFavorite", group.isFavorite);
+    writer.writeBooleanValue("isHardDeleteProtectionEnabled", group.isHardDeleteProtectionEnabled);
     writer.writeBooleanValue("isManagementRestricted", group.isManagementRestricted);
     writer.writeBooleanValue("isSubscribedByMail", group.isSubscribedByMail);
     writer.writeObjectValue<LicenseProcessingState>("licenseProcessingState", group.licenseProcessingState, serializeLicenseProcessingState);
@@ -227058,6 +230586,9 @@ export function serializeIdentitySet(writer: SerializationWriter, identitySet: P
         case "#microsoft.graph.engagementIdentitySet":
             serializeEngagementIdentitySet(writer, identitySet, true);
         break;
+        case "#microsoft.graph.investigationIdentitySet":
+            serializeInvestigationIdentitySet(writer, identitySet, true);
+        break;
         case "#microsoft.graph.sharePointIdentitySet":
             serializeSharePointIdentitySet(writer, identitySet, true);
         break;
@@ -227155,6 +230686,20 @@ export function serializeIdentityUserFlowAttributeAssignment(writer: Serializati
 }
 /**
  * Serializes information the current object
+ * @param IdentityVerificationEvent The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeIdentityVerificationEvent(writer: SerializationWriter, identityVerificationEvent: Partial<IdentityVerificationEvent> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!identityVerificationEvent || isSerializingDerivedType) { return; }
+    serializeEntity(writer, identityVerificationEvent, isSerializingDerivedType)
+    writer.writeObjectValue<VerificationEventLifecycle>("lifecycle", identityVerificationEvent.lifecycle, serializeVerificationEventLifecycle);
+    writer.writeObjectValue<VerificationEventOverride>("overrideDetails", identityVerificationEvent.overrideDetails, serializeVerificationEventOverride);
+    writer.writeObjectValue<VerificationEventDetail>("verification", identityVerificationEvent.verification, serializeVerificationEventDetail);
+}
+/**
+ * Serializes information the current object
  * @param IdentityVerificationEventsConfiguration The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -227168,6 +230713,19 @@ export function serializeIdentityVerificationEventsConfiguration(writer: Seriali
 }
 /**
  * Serializes information the current object
+ * @param IdentityVerificationStatus The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeIdentityVerificationStatus(writer: SerializationWriter, identityVerificationStatus: Partial<IdentityVerificationStatus> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!identityVerificationStatus || isSerializingDerivedType) { return; }
+    serializeEntity(writer, identityVerificationStatus, isSerializingDerivedType)
+    writer.writeEnumValue<VerificationState>("state", identityVerificationStatus.state);
+    writer.writeCollectionOfObjectValues<IdentityVerificationEvent>("verificationEvents", identityVerificationStatus.verificationEvents, serializeIdentityVerificationEvent);
+}
+/**
+ * Serializes information the current object
  * @param IdentityVerifiedIdRoot The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -227177,6 +230735,117 @@ export function serializeIdentityVerifiedIdRoot(writer: SerializationWriter, ide
     if (!identityVerifiedIdRoot || isSerializingDerivedType) { return; }
     serializeEntity(writer, identityVerifiedIdRoot, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<VerifiedIdProfile>("profiles", identityVerifiedIdRoot.profiles, serializeVerifiedIdProfile);
+}
+/**
+ * Serializes information the current object
+ * @param IdJagApplicationConfiguration The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeIdJagApplicationConfiguration(writer: SerializationWriter, idJagApplicationConfiguration: Partial<IdJagApplicationConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!idJagApplicationConfiguration || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<IdJagClientConfiguration>("client", idJagApplicationConfiguration.client, serializeIdJagClientConfiguration);
+    writer.writeStringValue("@odata.type", idJagApplicationConfiguration.odataType);
+    writer.writeObjectValue<IdJagResourceAuthorizationServerConfiguration>("resourceAuthorizationServer", idJagApplicationConfiguration.resourceAuthorizationServer, serializeIdJagResourceAuthorizationServerConfiguration);
+    writer.writeAdditionalData(idJagApplicationConfiguration.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param IdJagClientConfiguration The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeIdJagClientConfiguration(writer: SerializationWriter, idJagClientConfiguration: Partial<IdJagClientConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!idJagClientConfiguration || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("isEnabled", idJagClientConfiguration.isEnabled);
+    writer.writeStringValue("@odata.type", idJagClientConfiguration.odataType);
+    writer.writeAdditionalData(idJagClientConfiguration.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param IdJagEnabledClient The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeIdJagEnabledClient(writer: SerializationWriter, idJagEnabledClient: Partial<IdJagEnabledClient> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!idJagEnabledClient || isSerializingDerivedType) { return; }
+    writer.writeGuidValue("clientId", idJagEnabledClient.clientId);
+    writer.writeStringValue("@odata.type", idJagEnabledClient.odataType);
+    writer.writeStringValue("resourceAuthorizationServerClientId", idJagEnabledClient.resourceAuthorizationServerClientId);
+    writer.writeAdditionalData(idJagEnabledClient.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param IdJagIdentifierUriConfiguration The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeIdJagIdentifierUriConfiguration(writer: SerializationWriter, idJagIdentifierUriConfiguration: Partial<IdJagIdentifierUriConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!idJagIdentifierUriConfiguration || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", idJagIdentifierUriConfiguration.odataType);
+    writer.writeCollectionOfPrimitiveValues<string>("uris", idJagIdentifierUriConfiguration.uris);
+    writer.writeAdditionalData(idJagIdentifierUriConfiguration.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param IdJagResourceAuthorizationServerConfiguration The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeIdJagResourceAuthorizationServerConfiguration(writer: SerializationWriter, idJagResourceAuthorizationServerConfiguration: Partial<IdJagResourceAuthorizationServerConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!idJagResourceAuthorizationServerConfiguration || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", idJagResourceAuthorizationServerConfiguration.odataType);
+    writer.writeCollectionOfObjectValues<IdJagResourceServer>("resourceServers", idJagResourceAuthorizationServerConfiguration.resourceServers, serializeIdJagResourceServer);
+    writer.writeAdditionalData(idJagResourceAuthorizationServerConfiguration.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param IdJagResourceServer The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeIdJagResourceServer(writer: SerializationWriter, idJagResourceServer: Partial<IdJagResourceServer> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!idJagResourceServer || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", idJagResourceServer.odataType);
+    writer.writeEnumValue<IdJagResourceServerUriMatchType>("resourceServerUriMatchType", idJagResourceServer.resourceServerUriMatchType);
+    writer.writeCollectionOfPrimitiveValues<string>("resourceServerUris", idJagResourceServer.resourceServerUris);
+    writer.writeCollectionOfObjectValues<IdJagScopeMapping>("scopeMappings", idJagResourceServer.scopeMappings, serializeIdJagScopeMapping);
+    writer.writeEnumValue<IdJagScopeMappingType>("scopeMappingType", idJagResourceServer.scopeMappingType);
+    writer.writeAdditionalData(idJagResourceServer.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param IdJagScopeMapping The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeIdJagScopeMapping(writer: SerializationWriter, idJagScopeMapping: Partial<IdJagScopeMapping> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!idJagScopeMapping || isSerializingDerivedType) { return; }
+    writer.writeStringValue("oauth2Permission", idJagScopeMapping.oauth2Permission);
+    writer.writeStringValue("@odata.type", idJagScopeMapping.odataType);
+    writer.writeCollectionOfPrimitiveValues<string>("validResourceAuthorizationServerScopes", idJagScopeMapping.validResourceAuthorizationServerScopes);
+    writer.writeAdditionalData(idJagScopeMapping.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param IdJagServicePrincipalConfiguration The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeIdJagServicePrincipalConfiguration(writer: SerializationWriter, idJagServicePrincipalConfiguration: Partial<IdJagServicePrincipalConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!idJagServicePrincipalConfiguration || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<IdJagEnabledClient>("enabledClients", idJagServicePrincipalConfiguration.enabledClients, serializeIdJagEnabledClient);
+    writer.writeBooleanValue("isEnabled", idJagServicePrincipalConfiguration.isEnabled);
+    writer.writeStringValue("@odata.type", idJagServicePrincipalConfiguration.odataType);
+    writer.writeAdditionalData(idJagServicePrincipalConfiguration.additionalData);
 }
 /**
  * Serializes information the current object
@@ -228219,6 +231888,70 @@ export function serializeInvestigationActionUrl(writer: SerializationWriter, inv
 }
 /**
  * Serializes information the current object
+ * @param InvestigationIdentitySet The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeInvestigationIdentitySet(writer: SerializationWriter, investigationIdentitySet: Partial<InvestigationIdentitySet> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!investigationIdentitySet || isSerializingDerivedType) { return; }
+    serializeIdentitySet(writer, investigationIdentitySet, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
+ * @param InvestigationInput The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeInvestigationInput(writer: SerializationWriter, investigationInput: Partial<InvestigationInput> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!investigationInput || isSerializingDerivedType) { return; }
+    serializeEntity(writer, investigationInput, isSerializingDerivedType)
+    writer.writeEnumValue<InvestigationInputType>("kind", investigationInput.kind);
+    writer.writeStringValue("value", investigationInput.value);
+}
+/**
+ * Serializes information the current object
+ * @param InvestigationMessage The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeInvestigationMessage(writer: SerializationWriter, investigationMessage: Partial<InvestigationMessage> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!investigationMessage || isSerializingDerivedType) { return; }
+    serializeEntity(writer, investigationMessage, isSerializingDerivedType)
+    writer.writeObjectValue<InvestigationMessageAuthor>("author", investigationMessage.author, serializeInvestigationMessageAuthor);
+    writer.writeStringValue("content", investigationMessage.content);
+    writer.writeEnumValue<InvestigationMessageType>("kind", investigationMessage.kind);
+    writer.writeEnumValue<InvestigationMessageRole>("role", investigationMessage.role);
+}
+/**
+ * Serializes information the current object
+ * @param InvestigationMessageAuthor The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeInvestigationMessageAuthor(writer: SerializationWriter, investigationMessageAuthor: Partial<InvestigationMessageAuthor> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!investigationMessageAuthor || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", investigationMessageAuthor.odataType);
+    writer.writeEnumValue<InvestigationMessageRole>("role", investigationMessageAuthor.role);
+    writer.writeAdditionalData(investigationMessageAuthor.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param InvestigationOutput The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeInvestigationOutput(writer: SerializationWriter, investigationOutput: Partial<InvestigationOutput> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!investigationOutput || isSerializingDerivedType) { return; }
+    serializeEntity(writer, investigationOutput, isSerializingDerivedType)
+    writer.writeEnumValue<InvestigationOutputType>("kind", investigationOutput.kind);
+}
+/**
+ * Serializes information the current object
  * @param InvestigationSecurityState The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -228230,6 +231963,23 @@ export function serializeInvestigationSecurityState(writer: SerializationWriter,
     writer.writeStringValue("@odata.type", investigationSecurityState.odataType);
     writer.writeStringValue("status", investigationSecurityState.status);
     writer.writeAdditionalData(investigationSecurityState.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param InvestigationSession The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeInvestigationSession(writer: SerializationWriter, investigationSession: Partial<InvestigationSession> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!investigationSession || isSerializingDerivedType) { return; }
+    serializeEntity(writer, investigationSession, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<AgentRun>("agentRuns", investigationSession.agentRuns, serializeAgentRun);
+    writer.writeCollectionOfObjectValues<InvestigationInput>("inputs", investigationSession.inputs, serializeInvestigationInput);
+    writer.writeCollectionOfObjectValues<InvestigationMessage>("messages", investigationSession.messages, serializeInvestigationMessage);
+    writer.writeCollectionOfObjectValues<InvestigationOutput>("outputs", investigationSession.outputs, serializeInvestigationOutput);
+    writer.writeObjectValue<PlaybookDefinition>("playbookDefinition", investigationSession.playbookDefinition, serializePlaybookDefinition);
+    writer.writeEnumValue<LongRunningOperationStatus>("status", investigationSession.status);
 }
 /**
  * Serializes information the current object
@@ -242474,6 +246224,18 @@ export function serializePlatformCredentialAuthenticationMethod(writer: Serializ
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param PlaybookDefinition The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializePlaybookDefinition(writer: SerializationWriter, playbookDefinition: Partial<PlaybookDefinition> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!playbookDefinition || isSerializingDerivedType) { return; }
+    serializeEntity(writer, playbookDefinition, isSerializingDerivedType)
+    writer.writeStringValue("uniqueName", playbookDefinition.uniqueName);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param PlayPromptOperation The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -242482,6 +246244,21 @@ export function serializePlayPromptOperation(writer: SerializationWriter, playPr
     if (!playPromptOperation || isSerializingDerivedType) { return; }
     serializeCommsOperation(writer, playPromptOperation, isSerializingDerivedType)
     writer.writeEnumValue<PlayPromptCompletionReason>("completionReason", playPromptOperation.completionReason);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param PolicyAppliesTo The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializePolicyAppliesTo(writer: SerializationWriter, policyAppliesTo: Partial<PolicyAppliesTo> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!policyAppliesTo || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("includeDerivedTypes", policyAppliesTo.includeDerivedTypes);
+    writer.writeStringValue("@odata.type", policyAppliesTo.odataType);
+    writer.writeEnumValue<PolicyApplicableOperations[]>("operations", policyAppliesTo.operations);
+    writer.writeStringValue("resourceName", policyAppliesTo.resourceName);
+    writer.writeAdditionalData(policyAppliesTo.additionalData);
 }
 /**
  * Serializes information the current object
@@ -242552,6 +246329,20 @@ export function serializePolicyBase(writer: SerializationWriter, policyBase: Par
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param PolicyDefinitionReference The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializePolicyDefinitionReference(writer: SerializationWriter, policyDefinitionReference: Partial<PolicyDefinitionReference> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!policyDefinitionReference || isSerializingDerivedType) { return; }
+    serializeAssignedPolicyReference(writer, policyDefinitionReference, isSerializingDerivedType)
+    writer.writeObjectValue<ResourcePolicyDefinition>("policyDefinition", policyDefinitionReference.policyDefinition, serializeResourcePolicyDefinition);
+    writer.writeStringValue("policyUniqueName", policyDefinitionReference.policyUniqueName);
+    writer.writeStringValue("version", policyDefinitionReference.version);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param PolicyDeletableItem The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -242618,6 +246409,30 @@ export function serializePolicyDeletableRoot(writer: SerializationWriter, policy
     serializeEntity(writer, policyDeletableRoot, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<CrossTenantAccessPolicyConfigurationPartner>("crossTenantPartners", policyDeletableRoot.crossTenantPartners, serializeCrossTenantAccessPolicyConfigurationPartner);
     writer.writeCollectionOfObjectValues<CrossTenantIdentitySyncPolicyPartner>("crossTenantSyncPolicyPartners", policyDeletableRoot.crossTenantSyncPolicyPartners, serializeCrossTenantIdentitySyncPolicyPartner);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param PolicyEvaluationDetail The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializePolicyEvaluationDetail(writer: SerializationWriter, policyEvaluationDetail: Partial<PolicyEvaluationDetail> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!policyEvaluationDetail || isSerializingDerivedType) { return; }
+    writer.writeStringValue("applicabilityEvaluationError", policyEvaluationDetail.applicabilityEvaluationError);
+    writer.writeEnumValue<PolicyEffect>("appliedPolicyEffects", policyEvaluationDetail.appliedPolicyEffects);
+    writer.writeStringValue("assignedPolicyDisplayName", policyEvaluationDetail.assignedPolicyDisplayName);
+    writer.writeStringValue("assignmentUniqueName", policyEvaluationDetail.assignmentUniqueName);
+    writer.writeStringValue("evaluationError", policyEvaluationDetail.evaluationError);
+    writer.writeCollectionOfObjectValues<FetchDetail>("fetchDetails", policyEvaluationDetail.fetchDetails, serializeFetchDetail);
+    writer.writeBooleanValue("isApplicable", policyEvaluationDetail.isApplicable);
+    writer.writeBooleanValue("isCompliant", policyEvaluationDetail.isCompliant);
+    writer.writeBooleanValue("isEnforced", policyEvaluationDetail.isEnforced);
+    writer.writeStringValue("@odata.type", policyEvaluationDetail.odataType);
+    writer.writeStringValue("policyLoadingError", policyEvaluationDetail.policyLoadingError);
+    writer.writeStringValue("policyMessage", policyEvaluationDetail.policyMessage);
+    writer.writeStringValue("policyVersion", policyEvaluationDetail.policyVersion);
+    writer.writeAdditionalData(policyEvaluationDetail.additionalData);
 }
 /**
  * Serializes information the current object
@@ -243982,6 +247797,19 @@ export function serializePrivilegedOperationEvent(writer: SerializationWriter, p
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param PrivilegedReadSetting The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializePrivilegedReadSetting(writer: SerializationWriter, privilegedReadSetting: Partial<PrivilegedReadSetting> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!privilegedReadSetting || isSerializingDerivedType) { return; }
+    writer.writeStringValue("appId", privilegedReadSetting.appId);
+    writer.writeStringValue("@odata.type", privilegedReadSetting.odataType);
+    writer.writeAdditionalData(privilegedReadSetting.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param PrivilegedRole The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -244821,6 +248649,54 @@ export function serializeProtectSite(writer: SerializationWriter, protectSite: P
     serializeLabelActionBase(writer, protectSite, isSerializingDerivedType)
     writer.writeEnumValue<SiteAccessType>("accessType", protectSite.accessType);
     writer.writeStringValue("conditionalAccessProtectionLevelId", protectSite.conditionalAccessProtectionLevelId);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ProvenanceAssertedBy The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeProvenanceAssertedBy(writer: SerializationWriter, provenanceAssertedBy: Partial<ProvenanceAssertedBy> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!provenanceAssertedBy || isSerializingDerivedType) { return; }
+    writer.writeStringValue("actorId", provenanceAssertedBy.actorId);
+    writer.writeEnumValue<ProvenanceActorType>("actorType", provenanceAssertedBy.actorType);
+    writer.writeStringValue("@odata.type", provenanceAssertedBy.odataType);
+    writer.writeAdditionalData(provenanceAssertedBy.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ProvenanceAssertion The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeProvenanceAssertion(writer: SerializationWriter, provenanceAssertion: Partial<ProvenanceAssertion> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!provenanceAssertion || isSerializingDerivedType) { return; }
+    writer.writeStringValue("attestationReason", provenanceAssertion.attestationReason);
+    writer.writeDateValue("eventDateTime", provenanceAssertion.eventDateTime);
+    writer.writeStringValue("@odata.type", provenanceAssertion.odataType);
+    writer.writeEnumValue<ProvenanceAssertionType>("provenanceType", provenanceAssertion.provenanceType);
+    writer.writeStringValue("sourceCredentialId", provenanceAssertion.sourceCredentialId);
+    writer.writeStringValue("sourceCredentialType", provenanceAssertion.sourceCredentialType);
+    writer.writeStringValue("verificationEventId", provenanceAssertion.verificationEventId);
+    writer.writeAdditionalData(provenanceAssertion.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ProvenanceChainStatus The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeProvenanceChainStatus(writer: SerializationWriter, provenanceChainStatus: Partial<ProvenanceChainStatus> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!provenanceChainStatus || isSerializingDerivedType) { return; }
+    writer.writeDateValue("breakDetectedAtDateTime", provenanceChainStatus.breakDetectedAtDateTime);
+    writer.writeEnumValue<ChainBreakReason>("breakReason", provenanceChainStatus.breakReason);
+    writer.writeEnumValue<ChainBreakSource>("breakSource", provenanceChainStatus.breakSource);
+    writer.writeStringValue("@odata.type", provenanceChainStatus.odataType);
+    writer.writeEnumValue<ChainState>("state", provenanceChainStatus.state);
+    writer.writeAdditionalData(provenanceChainStatus.additionalData);
 }
 /**
  * Serializes information the current object
@@ -246608,6 +250484,143 @@ export function serializeResourceOperation(writer: SerializationWriter, resource
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ResourcePolicyAssignment The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeResourcePolicyAssignment(writer: SerializationWriter, resourcePolicyAssignment: Partial<ResourcePolicyAssignment> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!resourcePolicyAssignment || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<AssignedPolicyReference>("assignedPolicy", resourcePolicyAssignment.assignedPolicy, serializeAssignedPolicyReference);
+    writer.writeEnumValue<EnforcementMode>("enforcementMode", resourcePolicyAssignment.enforcementMode);
+    writer.writeBooleanValue("isEnabled", resourcePolicyAssignment.isEnabled);
+    writer.writeStringValue("@odata.type", resourcePolicyAssignment.odataType);
+    writer.writeObjectValue("params", resourcePolicyAssignment.params);
+    writer.writeStringValue("scope", resourcePolicyAssignment.scope);
+    writer.writeStringValue("uniqueName", resourcePolicyAssignment.uniqueName);
+    writer.writeAdditionalData(resourcePolicyAssignment.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ResourcePolicyConfiguration The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeResourcePolicyConfiguration(writer: SerializationWriter, resourcePolicyConfiguration: Partial<ResourcePolicyConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!resourcePolicyConfiguration || isSerializingDerivedType) { return; }
+    serializeEntity(writer, resourcePolicyConfiguration, isSerializingDerivedType)
+    writer.writeObjectValue<PrivilegedReadSetting>("privilegedReadSetting", resourcePolicyConfiguration.privilegedReadSetting, serializePrivilegedReadSetting);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ResourcePolicyDefinition The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeResourcePolicyDefinition(writer: SerializationWriter, resourcePolicyDefinition: Partial<ResourcePolicyDefinition> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!resourcePolicyDefinition || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<ResourcePolicyAssignment>("assignments", resourcePolicyDefinition.assignments, serializeResourcePolicyAssignment);
+    writer.writeEnumValue<PolicyCategory>("category", resourcePolicyDefinition.category);
+    writer.writeStringValue("@odata.type", resourcePolicyDefinition.odataType);
+    writer.writeCollectionOfObjectValues<ResourcePolicyDefinitionVersion>("previousVersions", resourcePolicyDefinition.previousVersions, serializeResourcePolicyDefinitionVersion);
+    writer.writeObjectValue<ResourcePolicyRule>("rule", resourcePolicyDefinition.rule, serializeResourcePolicyRule);
+    writer.writeStringValue("uniqueName", resourcePolicyDefinition.uniqueName);
+    writer.writeAdditionalData(resourcePolicyDefinition.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ResourcePolicyDefinitionVersion The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeResourcePolicyDefinitionVersion(writer: SerializationWriter, resourcePolicyDefinitionVersion: Partial<ResourcePolicyDefinitionVersion> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!resourcePolicyDefinitionVersion || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", resourcePolicyDefinitionVersion.odataType);
+    writer.writeAdditionalData(resourcePolicyDefinitionVersion.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ResourcePolicyDeletableRoot The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeResourcePolicyDeletableRoot(writer: SerializationWriter, resourcePolicyDeletableRoot: Partial<ResourcePolicyDeletableRoot> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!resourcePolicyDeletableRoot || isSerializingDerivedType) { return; }
+    serializeEntity(writer, resourcePolicyDeletableRoot, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ResourcePolicyAssignment>("assignments", resourcePolicyDeletableRoot.assignments, serializeResourcePolicyAssignment);
+    writer.writeCollectionOfObjectValues<ResourcePolicyDefinition>("definitions", resourcePolicyDeletableRoot.definitions, serializeResourcePolicyDefinition);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ResourcePolicyEvaluationEvent The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeResourcePolicyEvaluationEvent(writer: SerializationWriter, resourcePolicyEvaluationEvent: Partial<ResourcePolicyEvaluationEvent> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!resourcePolicyEvaluationEvent || isSerializingDerivedType) { return; }
+    serializeEntity(writer, resourcePolicyEvaluationEvent, isSerializingDerivedType)
+    writer.writeStringValue("apiVersion", resourcePolicyEvaluationEvent.apiVersion);
+    writer.writeStringValue("appDisplayName", resourcePolicyEvaluationEvent.appDisplayName);
+    writer.writeStringValue("appId", resourcePolicyEvaluationEvent.appId);
+    writer.writeNumberValue("applicablePoliciesCount", resourcePolicyEvaluationEvent.applicablePoliciesCount);
+    writer.writeNumberValue("auditPoliciesCount", resourcePolicyEvaluationEvent.auditPoliciesCount);
+    writer.writeStringValue("clientRequestId", resourcePolicyEvaluationEvent.clientRequestId);
+    writer.writeNumberValue("denyPoliciesCount", resourcePolicyEvaluationEvent.denyPoliciesCount);
+    writer.writeNumberValue("durationMs", resourcePolicyEvaluationEvent.durationMs);
+    writer.writeNumberValue("errorPoliciesCount", resourcePolicyEvaluationEvent.errorPoliciesCount);
+    writer.writeDateValue("evaluatedDateTime", resourcePolicyEvaluationEvent.evaluatedDateTime);
+    writer.writeNumberValue("evaluatedPoliciesCount", resourcePolicyEvaluationEvent.evaluatedPoliciesCount);
+    writer.writeStringValue("location", resourcePolicyEvaluationEvent.location);
+    writer.writeStringValue("operationId", resourcePolicyEvaluationEvent.operationId);
+    writer.writeEnumValue<ResourcePolicyDecision>("policyDecision", resourcePolicyEvaluationEvent.policyDecision);
+    writer.writeCollectionOfObjectValues<PolicyEvaluationDetail>("policyDetails", resourcePolicyEvaluationEvent.policyDetails, serializePolicyEvaluationDetail);
+    writer.writeStringValue("requestId", resourcePolicyEvaluationEvent.requestId);
+    writer.writeStringValue("requestMethod", resourcePolicyEvaluationEvent.requestMethod);
+    writer.writeStringValue("requestUri", resourcePolicyEvaluationEvent.requestUri);
+    writer.writeStringValue("servicePrincipalId", resourcePolicyEvaluationEvent.servicePrincipalId);
+    writer.writeStringValue("targetResourceId", resourcePolicyEvaluationEvent.targetResourceId);
+    writer.writeStringValue("targetResourceName", resourcePolicyEvaluationEvent.targetResourceName);
+    writer.writeStringValue("tenantId", resourcePolicyEvaluationEvent.tenantId);
+    writer.writeNumberValue("totalFetchDurationMs", resourcePolicyEvaluationEvent.totalFetchDurationMs);
+    writer.writeNumberValue("totalPolicyEvaluationDurationMs", resourcePolicyEvaluationEvent.totalPolicyEvaluationDurationMs);
+    writer.writeStringValue("userId", resourcePolicyEvaluationEvent.userId);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ResourcePolicyRoot The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeResourcePolicyRoot(writer: SerializationWriter, resourcePolicyRoot: Partial<ResourcePolicyRoot> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!resourcePolicyRoot || isSerializingDerivedType) { return; }
+    serializeEntity(writer, resourcePolicyRoot, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ResourcePolicyAssignment>("assignments", resourcePolicyRoot.assignments, serializeResourcePolicyAssignment);
+    writer.writeCollectionOfObjectValues<ResourcePolicyDefinition>("builtInDefinitions", resourcePolicyRoot.builtInDefinitions, serializeResourcePolicyDefinition);
+    writer.writeObjectValue<ResourcePolicyConfiguration>("configuration", resourcePolicyRoot.configuration, serializeResourcePolicyConfiguration);
+    writer.writeCollectionOfObjectValues<ResourcePolicyDefinition>("definitions", resourcePolicyRoot.definitions, serializeResourcePolicyDefinition);
+    writer.writeObjectValue<ResourcePolicyDeletableRoot>("deletedItems", resourcePolicyRoot.deletedItems, serializeResourcePolicyDeletableRoot);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ResourcePolicyRule The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeResourcePolicyRule(writer: SerializationWriter, resourcePolicyRule: Partial<ResourcePolicyRule> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!resourcePolicyRule || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", resourcePolicyRule.odataType);
+    writer.writeStringValue("policy", resourcePolicyRule.policy);
+    writer.writeAdditionalData(resourcePolicyRule.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param ResourceQuota The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -247869,6 +251882,19 @@ export function serializeSalesQuoteLine(writer: SerializationWriter, salesQuoteL
     writer.writeNumberValue("totalTaxAmount", salesQuoteLine.totalTaxAmount);
     writer.writeGuidValue("unitOfMeasureId", salesQuoteLine.unitOfMeasureId);
     writer.writeNumberValue("unitPrice", salesQuoteLine.unitPrice);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SamlIdentifierUriConfiguration The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeSamlIdentifierUriConfiguration(writer: SerializationWriter, samlIdentifierUriConfiguration: Partial<SamlIdentifierUriConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!samlIdentifierUriConfiguration || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", samlIdentifierUriConfiguration.odataType);
+    writer.writeCollectionOfPrimitiveValues<string>("uris", samlIdentifierUriConfiguration.uris);
+    writer.writeAdditionalData(samlIdentifierUriConfiguration.additionalData);
 }
 /**
  * Serializes information the current object
@@ -249267,8 +253293,10 @@ export function serializeServicePrincipal(writer: SerializationWriter, servicePr
     writer.writeCollectionOfObjectValues<FederatedIdentityCredential>("federatedIdentityCredentials", servicePrincipal.federatedIdentityCredentials, serializeFederatedIdentityCredential);
     writer.writeStringValue("homepage", servicePrincipal.homepage);
     writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", servicePrincipal.homeRealmDiscoveryPolicies, serializeHomeRealmDiscoveryPolicy);
+    writer.writeObjectValue<IdJagServicePrincipalConfiguration>("idJag", servicePrincipal.idJag, serializeIdJagServicePrincipalConfiguration);
     writer.writeObjectValue<InformationalUrl>("info", servicePrincipal.info, serializeInformationalUrl);
     writer.writeBooleanValue("isDisabled", servicePrincipal.isDisabled);
+    writer.writeBooleanValue("isHardDeleteProtectionEnabled", servicePrincipal.isHardDeleteProtectionEnabled);
     writer.writeCollectionOfObjectValues<KeyCredential>("keyCredentials", servicePrincipal.keyCredentials, serializeKeyCredential);
     writer.writeCollectionOfObjectValues<LicenseDetails>("licenseDetails", servicePrincipal.licenseDetails, serializeLicenseDetails);
     writer.writeObjectValue<IdentityLifecycle>("lifecycle", servicePrincipal.lifecycle, serializeIdentityLifecycle);
@@ -253901,6 +257929,18 @@ export function serializeTeamworkCameraConfiguration(writer: SerializationWriter
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TeamworkChannelTag The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTeamworkChannelTag(writer: SerializationWriter, teamworkChannelTag: Partial<TeamworkChannelTag> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!teamworkChannelTag || isSerializingDerivedType) { return; }
+    serializeTeamworkTag(writer, teamworkChannelTag, isSerializingDerivedType)
+    writer.writeStringValue("channelId", teamworkChannelTag.channelId);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param TeamworkConfiguredPeripheral The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -254488,6 +258528,11 @@ export function serializeTeamworkTag(writer: SerializationWriter, teamworkTag: P
     writer.writeCollectionOfObjectValues<TeamworkTagMember>("members", teamworkTag.members, serializeTeamworkTagMember);
     writer.writeEnumValue<TeamworkTagType>("tagType", teamworkTag.tagType);
     writer.writeStringValue("teamId", teamworkTag.teamId);
+    switch (teamworkTag.odataType) {
+        case "#microsoft.graph.teamworkChannelTag":
+            serializeTeamworkChannelTag(writer, teamworkTag, true);
+        break;
+    }
 }
 /**
  * Serializes information the current object
@@ -257011,6 +261056,7 @@ export function serializeUser(writer: SerializationWriter, user: Partial<User> |
     writer.writeCollectionOfObjectValues<ObjectIdentity>("identities", user.identities, serializeObjectIdentity);
     writer.writeObjectValue<IdentityGovernanceUserSettings>("identityGovernance", user.identityGovernance, serializeIdentityGovernanceUserSettings);
     writer.writeStringValue("identityParentId", user.identityParentId);
+    writer.writeObjectValue<IdentityVerificationStatus>("identityVerificationStatus", user.identityVerificationStatus, serializeIdentityVerificationStatus);
     writer.writeCollectionOfPrimitiveValues<string>("imAddresses", user.imAddresses);
     writer.writeObjectValue<InferenceClassification>("inferenceClassification", user.inferenceClassification, serializeInferenceClassification);
     writer.writeCollectionOfPrimitiveValues<string>("infoCatalogs", user.infoCatalogs);
@@ -257018,6 +261064,7 @@ export function serializeUser(writer: SerializationWriter, user: Partial<User> |
     writer.writeObjectValue<ItemInsights>("insights", user.insights, serializeItemInsights);
     writer.writeCollectionOfPrimitiveValues<string>("interests", user.interests);
     writer.writeObjectValue<DirectoryObject>("invitedBy", user.invitedBy, serializeDirectoryObject);
+    writer.writeBooleanValue("isHardDeleteProtectionEnabled", user.isHardDeleteProtectionEnabled);
     writer.writeBooleanValue("isLicenseReconciliationNeeded", user.isLicenseReconciliationNeeded);
     writer.writeBooleanValue("isManagementRestricted", user.isManagementRestricted);
     writer.writeBooleanValue("isResourceAccount", user.isResourceAccount);
@@ -257151,6 +261198,20 @@ export function serializeUserAccountInformation(writer: SerializationWriter, use
     writer.writeObjectValue<LocaleInfo>("preferredLanguageTag", userAccountInformation.preferredLanguageTag, serializeLocaleInfo);
     writer.writeEnumValue<UserPersona>("userPersona", userAccountInformation.userPersona);
     writer.writeStringValue("userPrincipalName", userAccountInformation.userPrincipalName);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param UserActionExclusion The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeUserActionExclusion(writer: SerializationWriter, userActionExclusion: Partial<UserActionExclusion> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!userActionExclusion || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", userActionExclusion.odataType);
+    writer.writeEnumValue<ConditionalAccessPolicyState>("state", userActionExclusion.state);
+    writer.writeStringValue("userAction", userActionExclusion.userAction);
+    writer.writeAdditionalData(userActionExclusion.additionalData);
 }
 /**
  * Serializes information the current object
@@ -259003,6 +263064,53 @@ export function serializeVerifiableCredentialType(writer: SerializationWriter, v
     writer.writeCollectionOfPrimitiveValues<string>("issuers", verifiableCredentialType.issuers);
     writer.writeStringValue("@odata.type", verifiableCredentialType.odataType);
     writer.writeAdditionalData(verifiableCredentialType.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param VerificationEventDetail The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeVerificationEventDetail(writer: SerializationWriter, verificationEventDetail: Partial<VerificationEventDetail> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!verificationEventDetail || isSerializingDerivedType) { return; }
+    writer.writeDateValue("expiresDateTime", verificationEventDetail.expiresDateTime);
+    writer.writeStringValue("externalCredentialId", verificationEventDetail.externalCredentialId);
+    writer.writeDateValue("issuedDateTime", verificationEventDetail.issuedDateTime);
+    writer.writeStringValue("@odata.type", verificationEventDetail.odataType);
+    writer.writeStringValue("source", verificationEventDetail.source);
+    writer.writeEnumValue<VerificationState>("state", verificationEventDetail.state);
+    writer.writeDateValue("verifiedDateTime", verificationEventDetail.verifiedDateTime);
+    writer.writeStringValue("verifiedIdProfileId", verificationEventDetail.verifiedIdProfileId);
+    writer.writeAdditionalData(verificationEventDetail.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param VerificationEventLifecycle The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeVerificationEventLifecycle(writer: SerializationWriter, verificationEventLifecycle: Partial<VerificationEventLifecycle> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!verificationEventLifecycle || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", verificationEventLifecycle.odataType);
+    writer.writeEnumValue<VerificationLifecycleSource>("source", verificationEventLifecycle.source);
+    writer.writeEnumValue<VerificationEventLifecycleState>("state", verificationEventLifecycle.state);
+    writer.writeAdditionalData(verificationEventLifecycle.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param VerificationEventOverride The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeVerificationEventOverride(writer: SerializationWriter, verificationEventOverride: Partial<VerificationEventOverride> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!verificationEventOverride || isSerializingDerivedType) { return; }
+    writer.writeEnumValue<VerificationActorType>("actorType", verificationEventOverride.actorType);
+    writer.writeStringValue("@odata.type", verificationEventOverride.odataType);
+    writer.writeStringValue("reason", verificationEventOverride.reason);
+    writer.writeAdditionalData(verificationEventOverride.additionalData);
 }
 /**
  * Serializes information the current object
@@ -266206,6 +270314,10 @@ export interface ServicePrincipal extends DirectoryObject, Parsable {
      */
     homeRealmDiscoveryPolicies?: HomeRealmDiscoveryPolicy[] | null;
     /**
+     * The idJag property
+     */
+    idJag?: IdJagServicePrincipalConfiguration | null;
+    /**
      * Basic profile information of the acquired application such as app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Microsoft Entra apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).
      */
     info?: InformationalUrl | null;
@@ -266213,6 +270325,10 @@ export interface ServicePrincipal extends DirectoryObject, Parsable {
      * Specifies whether the service principal of the app in a tenant or across tenants for multi-tenant apps can obtain new access tokens or access protected resources. When set to true, existing tokens remain valid until they expire based on their configured lifetimes, and the app stays visible in the Enterprise apps list but users cannot sign in.true if the application is deactivated (disabled); otherwise false.
      */
     isDisabled?: boolean | null;
+    /**
+     * Indicates whether hard deletion protection is enabled for the service principal. When true, permanent deletion is blocked for seven days after soft deletion. The service principal can still be soft deleted and restored. Once enabled, protection can't be disabled or set to null. Enable protection on an existing service principal by using Update servicePrincipal; enabling it during creation isn't supported. Setting this property to true requires the Microsoft Entra Backup Administrator role. Nullable. Requires $select to retrieve. Supports $filter (eq).
+     */
+    isHardDeleteProtectionEnabled?: boolean | null;
     /**
      * The collection of key credentials associated with the service principal. Not nullable. Supports $filter (eq, not, ge, le).
      */
@@ -266511,11 +270627,11 @@ export interface ServicePrincipalSignInActivity extends Entity, Parsable {
      */
     appId?: string | null;
     /**
-     * The sign-in activity of the application in a app-only authentication flow (app-to-app tokens) where the application acts like a client.
+     * The sign-in activity reported as app-only authentication where the application acts as a client. Subject to the preview classification limitation described above.
      */
     applicationAuthenticationClientSignInActivity?: SignInActivity | null;
     /**
-     * The sign-in activity of the application in a app-only authentication flow (app-to-app tokens) where the application acts like a resource.
+     * The sign-in activity reported as app-only authentication where the application acts as a resource. Subject to the preview classification limitation described above.
      */
     applicationAuthenticationResourceSignInActivity?: SignInActivity | null;
     /**
@@ -270996,7 +275112,7 @@ export interface TargetUserSponsors extends Parsable, UserSet {
 }
 export interface Task extends Parsable, PlannerDelta {
     /**
-     * Information about whether the entity is archived, and when it was archived.
+     * Service-populated information about whether the entity is archived, and when it was archived. Read-only.
      */
     archivalInfo?: PlannerArchivalInfo | null;
     /**
@@ -271008,15 +275124,15 @@ export interface Task extends Parsable, PlannerDelta {
      */
     capabilities?: TaskCapability | null;
     /**
-     * The collection of checklist items on the task. Read-only. Nullable.
+     * Checklist items on the task. Can be supplied when creating a task by using a deep insert. Nullable.
      */
     checklist?: ChecklistItemV4[] | null;
     /**
-     * Identity of the user who marked the task complete.
+     * Identity of the user who marked the task complete. Read-only.
      */
     completedBy?: IdentitySet | null;
     /**
-     * Date and time the task was completed.
+     * Date and time the task was completed. Read-only.
      */
     completedDateTime?: Date | null;
     /**
@@ -271048,15 +275164,15 @@ export interface Task extends Parsable, PlannerDelta {
      */
     goalIds?: string[] | null;
     /**
-     * Indicates whether the task has an associated chat.
+     * Indicates whether the task has an associated chat. Read-only.
      */
     hasChat?: boolean | null;
     /**
-     * Indicates whether the task has subtasks.
+     * Indicates whether the task has subtasks. Read-only.
      */
     hasChildren?: boolean | null;
     /**
-     * Indicates whether the task is on the critical path, as computed from its dependencies.
+     * Indicates whether the task is on the critical path, as computed from its dependencies. Read-only.
      */
     isCritical?: boolean | null;
     /**
@@ -271068,7 +275184,7 @@ export interface Task extends Parsable, PlannerDelta {
      */
     lastModifiedDateTime?: Date | null;
     /**
-     * The collection of content links attached to the task. Read-only. Nullable.
+     * Content links attached to the task. Can be supplied when creating a task by using a deep insert. Nullable.
      */
     links?: ContentLink[] | null;
     /**
@@ -271116,7 +275232,7 @@ export interface Task extends Parsable, PlannerDelta {
      */
     status?: PlannerTaskStatus | null;
     /**
-     * The collection of user assignments on the task. Read-only. Nullable.
+     * User assignments on the task. Can be supplied when creating a task by using a deep insert. Nullable.
      */
     userAssignments?: UserAssignment[] | null;
 }
@@ -271847,7 +275963,7 @@ export interface TeamsChannelPlanner extends Entity, Parsable {
      */
     plans?: PlannerPlan[] | null;
     /**
-     * Read-only. Nullable. The collection of Planner Graph V4 plans owned by the Teams channel. Currently, only shared channels are supported.
+     * Read-only. Nullable. The collection of plans in the Planner Unified plans Graph API owned by the Teams channel. Currently, only shared channels are supported.
      */
     plansV2?: Plan[] | null;
 }
@@ -272103,6 +276219,12 @@ export interface TeamworkCameraConfiguration extends AdditionalDataHolder, Parsa
      * The OdataType property
      */
     odataType?: string | null;
+}
+export interface TeamworkChannelTag extends Parsable, TeamworkTag {
+    /**
+     * The identifier of the channel that owns the tag. Read-only.
+     */
+    channelId?: string | null;
 }
 export interface TeamworkConfiguredPeripheral extends AdditionalDataHolder, Parsable {
     /**
@@ -272966,7 +277088,7 @@ export interface TeamworkTag extends Entity, Parsable {
      */
     members?: TeamworkTagMember[] | null;
     /**
-     * The type of tag. Default is standard.
+     * The type of tag. The possible values are: standard, unknownFutureValue. The default value is standard.
      */
     tagType?: TeamworkTagType | null;
     /**
@@ -272978,11 +277100,11 @@ export interface TeamworkTagIdentity extends Identity, Parsable {
 }
 export interface TeamworkTagMember extends Entity, Parsable {
     /**
-     * The member's display name.
+     * The member's display name. For channel-owned tags, the value can be null if the user can't be resolved.
      */
     displayName?: string | null;
     /**
-     * The ID of the tenant that the tag member is a part of.
+     * The ID of the tenant that the tag member is a part of. For channel-owned tags, this is the request tenant, not a separately resolved home tenant.
      */
     tenantId?: string | null;
     /**
@@ -276301,13 +280423,17 @@ export interface User extends DirectoryObject, Parsable {
      */
     identities?: ObjectIdentity[] | null;
     /**
-     * The identity governance settings for the user. You can get or update the user's approver delegate through the approverDelegate property. Nullable. Returned only on $select. Supports $expand.
+     * The identity governance settings for the user, including the approver delegate configuration. You can get or update the user's approver delegate through the approverDelegate property. Nullable. Returned only on $select. Supports $expand.
      */
     identityGovernance?: IdentityGovernanceUserSettings | null;
     /**
      * The object ID of the parent identity for agent users. Always null for regular user accounts. For agentUser resources, this property references the object ID of the associated agent identity.
      */
     identityParentId?: string | null;
+    /**
+     * The user's overall identity verification state and recent verification events. Retrieve through the get identity verification status operation.
+     */
+    identityVerificationStatus?: IdentityVerificationStatus | null;
     /**
      * The instant message voice-over IP (VOIP) session initiation protocol (SIP) addresses for the user. Read-only. Supports $filter (eq, not, ge, le, startsWith).
      */
@@ -276336,6 +280462,10 @@ export interface User extends DirectoryObject, Parsable {
      * The user or service principal that invited the user.
      */
     invitedBy?: DirectoryObject | null;
+    /**
+     * Indicates whether hard deletion protection is enabled for the user (excluding on-premises synchronized users). When true, permanent deletion is blocked for seven days after soft deletion. The user can still be soft deleted and restored. Once enabled, protection can't be disabled or set to null. Enable protection on an existing user by using Update user; enabling it during creation isn't supported. Setting this property to true requires the Microsoft Entra Backup Administrator role. Nullable. Requires $select to retrieve. Supports $filter (eq).
+     */
+    isHardDeleteProtectionEnabled?: boolean | null;
     /**
      * Indicates whether the user is pending an exchange mailbox license assignment.  Read-only.  Supports $filter (eq where true only).
      */
@@ -276766,6 +280896,20 @@ export interface UserAccountInformation extends ItemFacet, Parsable {
     userPrincipalName?: string | null;
 }
 export type UserAccountSecurityType = (typeof UserAccountSecurityTypeObject)[keyof typeof UserAccountSecurityTypeObject];
+export interface UserActionExclusion extends AdditionalDataHolder, Parsable {
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The state property
+     */
+    state?: ConditionalAccessPolicyState | null;
+    /**
+     * The user action identifier, for example, accountrecovery.
+     */
+    userAction?: string | null;
+}
 export interface UserActivity extends Entity, Parsable {
     /**
      * Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists.
@@ -276870,11 +281014,11 @@ export interface UserAppInstallStatus extends Entity, Parsable {
 }
 export interface UserAssignment extends Parsable, PlannerDelta {
     /**
-     * Identity of the user (or application) that made the assignment.
+     * Identity of the user (or application) that made the assignment. Read-only.
      */
     assignedBy?: IdentitySet | null;
     /**
-     * Date and time the assignment was made.
+     * Date and time the assignment was made. Read-only.
      */
     assignedDateTime?: Date | null;
     /**
@@ -279706,6 +283850,93 @@ export interface VerifiableCredentialType extends AdditionalDataHolder, Parsable
      */
     odataType?: string | null;
 }
+export type VerificationActorType = (typeof VerificationActorTypeObject)[keyof typeof VerificationActorTypeObject];
+/**
+ * Verification details for an identity verification event, including the provider and temporal metadata.
+ */
+export interface VerificationEventDetail extends AdditionalDataHolder, Parsable {
+    /**
+     * The date and time when this verification expires, in ISO 8601 format. Must be after verifiedDateTime. Compare this value with the current time to determine expiry. Immutable.
+     */
+    expiresDateTime?: Date | null;
+    /**
+     * The unique credential reference in URN format, such as urn:pic:73b78a00-5b9e-4f8c-85dd-b60a08dc1123. Used for deduplication so repeated presentation of the same credential produces one event. Maximum 256 characters. Immutable.
+     */
+    externalCredentialId?: string | null;
+    /**
+     * The date and time when the provider issued the underlying credential, in ISO 8601 format. Must not be in the future. Distinct from verifiedDateTime. Immutable.
+     */
+    issuedDateTime?: Date | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The verification provider or attestation authority, such as Contoso Identity Services. May be null when state is issued. Maximum 200 characters. Immutable.
+     */
+    source?: string | null;
+    /**
+     * The state property
+     */
+    state?: VerificationState | null;
+    /**
+     * The date and time when identity verification was performed, in ISO 8601 format. Must not be in the future. May be null when state is issued. Immutable.
+     */
+    verifiedDateTime?: Date | null;
+    /**
+     * The identifier of the verified identity profile in the provider's system, in UUID format. Immutable.
+     */
+    verifiedIdProfileId?: string | null;
+}
+/**
+ * Lifecycle tracking for a verification event, indicating who triggered it and its current state.
+ */
+export interface VerificationEventLifecycle extends AdditionalDataHolder, Parsable {
+    /**
+     * The service-populated timestamp for an event in the invalidated lifecycle state. Otherwise, null. Read-only.
+     */
+    invalidatedDateTime?: Date | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The source property
+     */
+    source?: VerificationLifecycleSource | null;
+    /**
+     * The state property
+     */
+    state?: VerificationEventLifecycleState | null;
+}
+export type VerificationEventLifecycleState = (typeof VerificationEventLifecycleStateObject)[keyof typeof VerificationEventLifecycleStateObject];
+/**
+ * Details of an administrative or programmatic override applied to a verification event.
+ */
+export interface VerificationEventOverride extends AdditionalDataHolder, Parsable {
+    /**
+     * The object ID of the actor who applied the override. Set by the service from the caller's identity. Read-only.
+     */
+    actorId?: string | null;
+    /**
+     * The actorType property
+     */
+    actorType?: VerificationActorType | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The date and time when the override was applied. Set by the service. Read-only.
+     */
+    overriddenDateTime?: Date | null;
+    /**
+     * The explanation for the override, such as In-person identity proofing confirmed by help desk. Maximum 500 characters.
+     */
+    reason?: string | null;
+}
+export type VerificationLifecycleSource = (typeof VerificationLifecycleSourceObject)[keyof typeof VerificationLifecycleSourceObject];
+export type VerificationState = (typeof VerificationStateObject)[keyof typeof VerificationStateObject];
 export interface VerifiedCredentialClaims extends AdditionalDataHolder, Parsable {
     /**
      * The OdataType property
@@ -292681,6 +296912,8 @@ export const AppliedConditionalAccessPolicyResultObject = {
     ReportOnlyFailure: "reportOnlyFailure",
     ReportOnlyNotApplied: "reportOnlyNotApplied",
     ReportOnlyInterrupted: "reportOnlyInterrupted",
+    NotAppliedAllAppsExclusion: "notAppliedAllAppsExclusion",
+    ReportOnlyNotAppliedAllAppsExclusion: "reportOnlyNotAppliedAllAppsExclusion",
 } as const;
 /**
  * Possible values of the compliance app list.
@@ -293753,6 +297986,24 @@ export const CertificateValidityPeriodScaleObject = {
     /** Years. */
     Years: "years",
 } as const;
+export const ChainBreakReasonObject = {
+    None: "none",
+    IdvRevoked: "idvRevoked",
+    SourceCredentialRevoked: "sourceCredentialRevoked",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const ChainBreakSourceObject = {
+    None: "none",
+    IdentityProtection: "identityProtection",
+    AdminAction: "adminAction",
+    System: "system",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const ChainStateObject = {
+    Intact: "intact",
+    Broken: "broken",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
 /**
  * Defines the permission level granted to users to enable them change Uefi settings
  */
@@ -293772,6 +298023,7 @@ export const ChannelMembershipTypeObject = {
     Private: "private",
     UnknownFutureValue: "unknownFutureValue",
     Shared: "shared",
+    UnTyped: "unTyped",
 } as const;
 /**
  * Chassis type.
@@ -295118,6 +299370,21 @@ export const CostManagementBillingMethodsObject = {
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 /**
+ * The funding classification of reported consumption, including unbilled consumption.
+ */
+export const CostManagementFundingClassObject = {
+    /** Drawn from a prepaid Copilot Credits pool. */
+    Prepaid: "prepaid",
+    /** Billed on demand, with no prepaid pool. */
+    PayAsYouGo: "payAsYouGo",
+    /** Consumed above the purchased pool. Unbilled, not an invoiced excess charge. */
+    Overage: "overage",
+    /** Consumed but not billed. */
+    NonBillable: "nonBillable",
+    /** A marker value for members added after the release of this API. */
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+/**
  * Unit in which consumption quantities are expressed. Values are consumption units, not currency.
  */
 export const CostManagementUnitObject = {
@@ -295135,6 +299402,34 @@ export const CourseStatusObject = {
     NotStarted: "notStarted",
     InProgress: "inProgress",
     Completed: "completed",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+/**
+ * The state of a credit request in the approval workflow.
+ */
+export const CreditRequestStateObject = {
+    /** The request is awaiting an administrator decision. */
+    Pending: "pending",
+    /** The request has been approved by an administrator. */
+    Approved: "approved",
+    /** The request has been rejected by an administrator. */
+    Rejected: "rejected",
+    /** The request was cancelled by the system or the requester. Read-only historical state. */
+    Cancelled: "cancelled",
+    /** A marker value for members added after the release of this API. */
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+/**
+ * The reason or trigger that caused a credit request to be created.
+ */
+export const CreditRequestTypeObject = {
+    /** The request type is not known. */
+    Unknown: "unknown",
+    /** The requester has no credits and is requesting their first allocation. */
+    FirstTimeAccess: "firstTimeAccess",
+    /** The requester has already used credits and needs more because they have run out or are about to. */
+    AdditionalCredits: "additionalCredits",
+    /** A marker value for members added after the release of this API. */
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const CrossTenantAccessPolicyTargetConfigurationAccessTypeObject = {
@@ -296433,6 +300728,12 @@ export const DeviceManagementConfigurationWindowsSkusObject = {
     WindowsMultiSession: "windowsMultiSession",
     /** Indicates the Device Management Configuration Windows SKU is 'surfaceHub'  */
     SurfaceHub: "surfaceHub",
+    /** Indicates that the setting is applicable to the Windows CPC SKU family. Existing public beta member. */
+    WindowsCPC: "windowsCPC",
+    /** Evolvable enumeration sentinel value. Do not use. */
+    UnknownFutureValue: "unknownFutureValue",
+    /** Indicates that the setting is applicable to the Windows Server SKU family. Use the Prefer: include-unknown-enum-members request header to receive this value. */
+    WindowsServer: "windowsServer",
 } as const;
 /**
  * Supported values for the derived credential issuer.
@@ -297599,6 +301900,11 @@ export const EndUserNotificationTypeObject = {
     TrainingReminder: "trainingReminder",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
+export const EnforcementModeObject = {
+    DoNotEnforce: "doNotEnforce",
+    Enforce: "enforce",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
 export const EnforcementResultStatusObject = {
     Success: "success",
     MissingOrInvalidConfiguration: "missingOrInvalidConfiguration",
@@ -298450,6 +302756,25 @@ export const IdentityUserFlowAttributeTypeObject = {
     Required: "required",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
+/**
+ * Specifies how an ID-JAG resource server matches a supplied resource URI.
+ */
+export const IdJagResourceServerUriMatchTypeObject = {
+    Absent: "absent",
+    Exact: "exact",
+    PathPrefix: "pathPrefix",
+    AnyURI: "anyURI",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+/**
+ * Specifies how Resource Authorization Server scopes resolve to an Entra OAuth2 permission.
+ */
+export const IdJagScopeMappingTypeObject = {
+    Direct: "direct",
+    Mapped: "mapped",
+    Passthrough: "passthrough",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
 export const ImageTaggingChoiceObject = {
     Disabled: "disabled",
     Basic: "basic",
@@ -298612,6 +302937,48 @@ export const InternetSiteSecurityLevelObject = {
     MediumHigh: "mediumHigh",
     /** High. */
     High: "high",
+} as const;
+/**
+ * Kind of external resource identifier or keyword supplied to a playbook.
+ */
+export const InvestigationInputTypeObject = {
+    DefenderIncidentId: "defenderIncidentId",
+    DefenderAlertId: "defenderAlertId",
+    DefenderThreatIntelligenceId: "defenderThreatIntelligenceId",
+    AzureSubscriptionId: "azureSubscriptionId",
+    AzureIdentityId: "azureIdentityId",
+    Keyword: "keyword",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+/**
+ * Transcript message role or recorded author kind. These are independent fields; a tool or system message can have an agent author.
+ */
+export const InvestigationMessageRoleObject = {
+    User: "user",
+    Agent: "agent",
+    System: "system",
+    Tool: "tool",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+/**
+ * Read-only message categories from the existing transcript contract.
+ */
+export const InvestigationMessageTypeObject = {
+    UserMessage: "userMessage",
+    AgentMessage: "agentMessage",
+    ToolRequest: "toolRequest",
+    ToolOutput: "toolOutput",
+    PermissionRequest: "permissionRequest",
+    PermissionResponse: "permissionResponse",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+/**
+ * Output category: summary text or an artifact, both retrieved through the authenticated content stream.
+ */
+export const InvestigationOutputTypeObject = {
+    Summary: "summary",
+    Artifact: "artifact",
+    UnknownFutureValue: "unknownFutureValue",
 } as const;
 /**
  * App source options for iOS kiosk mode.
@@ -301193,6 +305560,28 @@ export const PlayPromptCompletionReasonObject = {
     MediaOperationCanceled: "mediaOperationCanceled",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
+export const PolicyApplicableOperationsObject = {
+    Create: "create",
+    UpdateOrUpsert: "updateOrUpsert",
+    Delete: "delete",
+    InvokeAction: "invokeAction",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const PolicyCategoryObject = {
+    NotSpecified: "notSpecified",
+    WorkloadIdentity: "workloadIdentity",
+    IdentityAndTenant: "identityAndTenant",
+    PrivilegedAccess: "privilegedAccess",
+    ZeroTrust: "zeroTrust",
+    AgenticIdentity: "agenticIdentity",
+    NetworkAccess: "networkAccess",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const PolicyEffectObject = {
+    Compliant: "compliant",
+    Deny: "deny",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
 export const PolicyFileStatusObject = {
     Modified: "modified",
     NotModified: "notModified",
@@ -302539,6 +306928,24 @@ export const ProtocolTypeObject = {
     OfficeS2S: "officeS2S",
     WsTrust: "wsTrust",
 } as const;
+export const ProvenanceActorTypeObject = {
+    System: "system",
+    User: "user",
+    Application: "application",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const ProvenanceAssertionTypeObject = {
+    IdentityVerification: "identityVerification",
+    DerivedFromCredential: "derivedFromCredential",
+    ManualAttestation: "manualAttestation",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const ProvenanceClassificationObject = {
+    HighAssurance: "highAssurance",
+    MediumAssurance: "mediumAssurance",
+    LowAssurance: "lowAssurance",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
 export const ProvisioningActionObject = {
     Other: "other",
     Create: "create",
@@ -303371,6 +307778,12 @@ export const ResourceAccessTypeObject = {
 } as const;
 export const ResourceLinkTypeObject = {
     Url: "url",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const ResourcePolicyDecisionObject = {
+    Deny: "deny",
+    None: "none",
+    Compliant: "compliant",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const ResourceQuotaTypeObject = {
@@ -305515,6 +309928,35 @@ export const UserSignInRecommendationScopeObject = {
 export const UserTypeObject = {
     Member: "member",
     Guest: "guest",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const VerificationActorTypeObject = {
+    User: "user",
+    Application: "application",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const VerificationEventLifecycleStateObject = {
+    Active: "active",
+    Revoked: "revoked",
+    Suspended: "suspended",
+    Invalidated: "invalidated",
+    Issued: "issued",
+    Blocked: "blocked",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const VerificationLifecycleSourceObject = {
+    Entra: "entra",
+    AdminOverride: "adminOverride",
+    ApiOverride: "apiOverride",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const VerificationStateObject = {
+    Unverified: "unverified",
+    Verified: "verified",
+    Revoked: "revoked",
+    Suspended: "suspended",
+    Issued: "issued",
+    Blocked: "blocked",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const VerifiedIdMethodTypeObject = {

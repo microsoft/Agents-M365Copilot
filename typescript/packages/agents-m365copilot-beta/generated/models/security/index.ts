@@ -1477,7 +1477,7 @@ export interface CaseEscaped extends Entity, Parsable {
 }
 export interface CaseManagementRoot extends Entity, Parsable {
     /**
-     * The collection of security cases managed through the case management entry point. Supports $filter, $orderby, $select, $top, and $skip.
+     * The collection of security cases managed through the case management entry point. Supports $filter, $orderby, $select, and $top.
      */
     cases?: Id33a0aa41f948138003099940f218d2964da375721d4525bd72502b6dba3d71d[] | null;
     /**
@@ -25033,7 +25033,7 @@ export interface RuleSchedule extends AdditionalDataHolder, Parsable {
      */
     frequency?: Duration | null;
     /**
-     * The lookback property
+     * The time window evaluated by each scheduled rule run, expressed as an ISO 8601 duration, for example PT4H for four hours. Events match this window based on either event time or ingestion time. The value must be at least frequency. When omitted, the service derives the default lookback from frequency. Not supported for near-real-time rules with a zero frequency.
      */
     lookback?: Duration | null;
     /**
