@@ -1,0 +1,151 @@
+from __future__ import annotations
+from collections.abc import Callable
+from dataclasses import dataclass, field
+from kiota_abstractions.serialization import Parsable, ParseNode, SerializationWriter
+from typing import Any, Optional, TYPE_CHECKING, Union
+
+if TYPE_CHECKING:
+    from .cross_tenant_access_policy_app_service_connect_setting import CrossTenantAccessPolicyAppServiceConnectSetting
+    from .cross_tenant_access_policy_b2_b_setting import CrossTenantAccessPolicyB2BSetting
+    from .cross_tenant_access_policy_inbound_trust import CrossTenantAccessPolicyInboundTrust
+    from .cross_tenant_access_policy_m365_collaboration_inbound_setting import CrossTenantAccessPolicyM365CollaborationInboundSetting
+    from .cross_tenant_access_policy_m365_collaboration_outbound_setting import CrossTenantAccessPolicyM365CollaborationOutboundSetting
+    from .cross_tenant_access_policy_tenant_restrictions import CrossTenantAccessPolicyTenantRestrictions
+    from .cross_tenant_identity_sync_policy_partner import CrossTenantIdentitySyncPolicyPartner
+    from .inbound_outbound_policy_configuration import InboundOutboundPolicyConfiguration
+    from .m365_capability_base import M365CapabilityBase
+    from .policy_deletable_item import PolicyDeletableItem
+    from .service_provider_constraints import ServiceProviderConstraints
+
+from .policy_deletable_item import PolicyDeletableItem
+
+@dataclass
+class CrossTenantAccessPolicyConfigurationPartner(PolicyDeletableItem, Parsable):
+    # The OdataType property
+    odata_type: Optional[str] = "#microsoft.graph.crossTenantAccessPolicyConfigurationPartner"
+    # Defines your partner-specific configuration for inbound app service connect settings that control which applications can connect across tenant boundaries with the partner organization.
+    app_service_connect_inbound: Optional[CrossTenantAccessPolicyAppServiceConnectSetting] = None
+    # Determines the partner-specific configuration for automatic user consent settings. Unless configured, the inboundAllowed and outboundAllowed properties are null and inherit from the default settings, which is always false.
+    automatic_user_consent_settings: Optional[InboundOutboundPolicyConfiguration] = None
+    # Defines your partner-specific configuration for users from other organizations accessing your resources via Microsoft Entra B2B collaboration.
+    b2b_collaboration_inbound: Optional[CrossTenantAccessPolicyB2BSetting] = None
+    # Defines your partner-specific configuration for users in your organization going outbound to access resources in another organization via Microsoft Entra B2B collaboration.
+    b2b_collaboration_outbound: Optional[CrossTenantAccessPolicyB2BSetting] = None
+    # Defines your partner-specific configuration for users from other organizations accessing your resources via Azure B2B direct connect.
+    b2b_direct_connect_inbound: Optional[CrossTenantAccessPolicyB2BSetting] = None
+    # Defines your partner-specific configuration for users in your organization going outbound to access resources in another organization via Microsoft Entra B2B direct connect.
+    b2b_direct_connect_outbound: Optional[CrossTenantAccessPolicyB2BSetting] = None
+    # Specifies whether users can use granular delegated admin privileges (GDAP) to sign-in and access resources in other organizations. Default value is false.
+    block_service_provider_outbound_access: Optional[bool] = None
+    # Defines the cross-tenant policy for the synchronization of users from a partner tenant. Use this user synchronization policy to streamline collaboration between users in a multitenant organization by automating the creation, update, and deletion of users from one tenant to another.
+    identity_synchronization: Optional[CrossTenantIdentitySyncPolicyPartner] = None
+    # Determines the partner-specific configuration for trusting other Conditional Access claims from external Microsoft Entra organizations.
+    inbound_trust: Optional[CrossTenantAccessPolicyInboundTrust] = None
+    # Identifies whether a tenant is a member of a multitenant organization.
+    is_in_multi_tenant_organization: Optional[bool] = None
+    # Identifies whether the partner-specific configuration is a Cloud Service Provider for your organization.
+    is_service_provider: Optional[bool] = None
+    # Defines the partner-specific Microsoft 365 cross-tenant capabilities for inbound access from the partner organization.
+    m365_capabilities: Optional[list[M365CapabilityBase]] = None
+    # Defines your partner-specific configuration for inbound Microsoft 365 collaboration settings that determine which users from the partner organization can collaborate with your organization using Microsoft 365 apps.
+    m365_collaboration_inbound: Optional[CrossTenantAccessPolicyM365CollaborationInboundSetting] = None
+    # Defines your partner-specific configuration for outbound Microsoft 365 collaboration settings that determine which users in your organization can collaborate with the partner organization using Microsoft 365 apps.
+    m365_collaboration_outbound: Optional[CrossTenantAccessPolicyM365CollaborationOutboundSetting] = None
+    # The serviceProviderConstraints property
+    service_provider_constraints: Optional[ServiceProviderConstraints] = None
+    # The tenant identifier for the partner Microsoft Entra organization. Read-only. Key.
+    tenant_id: Optional[str] = None
+    # Defines the partner-specific tenant restrictions configuration for users in your organization who access a partner organization using partner supplied identities on your network or devices.
+    tenant_restrictions: Optional[CrossTenantAccessPolicyTenantRestrictions] = None
+    
+    @staticmethod
+    def create_from_discriminator_value(parse_node: ParseNode) -> CrossTenantAccessPolicyConfigurationPartner:
+        """
+        Creates a new instance of the appropriate class based on discriminator value
+        param parse_node: The parse node to use to read the discriminator value and create the object
+        Returns: CrossTenantAccessPolicyConfigurationPartner
+        """
+        if parse_node is None:
+            raise TypeError("parse_node cannot be null.")
+        return CrossTenantAccessPolicyConfigurationPartner()
+    
+    def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
+        """
+        The deserialization information for the current model
+        Returns: dict[str, Callable[[ParseNode], None]]
+        """
+        from .cross_tenant_access_policy_app_service_connect_setting import CrossTenantAccessPolicyAppServiceConnectSetting
+        from .cross_tenant_access_policy_b2_b_setting import CrossTenantAccessPolicyB2BSetting
+        from .cross_tenant_access_policy_inbound_trust import CrossTenantAccessPolicyInboundTrust
+        from .cross_tenant_access_policy_m365_collaboration_inbound_setting import CrossTenantAccessPolicyM365CollaborationInboundSetting
+        from .cross_tenant_access_policy_m365_collaboration_outbound_setting import CrossTenantAccessPolicyM365CollaborationOutboundSetting
+        from .cross_tenant_access_policy_tenant_restrictions import CrossTenantAccessPolicyTenantRestrictions
+        from .cross_tenant_identity_sync_policy_partner import CrossTenantIdentitySyncPolicyPartner
+        from .inbound_outbound_policy_configuration import InboundOutboundPolicyConfiguration
+        from .m365_capability_base import M365CapabilityBase
+        from .policy_deletable_item import PolicyDeletableItem
+        from .service_provider_constraints import ServiceProviderConstraints
+
+        from .cross_tenant_access_policy_app_service_connect_setting import CrossTenantAccessPolicyAppServiceConnectSetting
+        from .cross_tenant_access_policy_b2_b_setting import CrossTenantAccessPolicyB2BSetting
+        from .cross_tenant_access_policy_inbound_trust import CrossTenantAccessPolicyInboundTrust
+        from .cross_tenant_access_policy_m365_collaboration_inbound_setting import CrossTenantAccessPolicyM365CollaborationInboundSetting
+        from .cross_tenant_access_policy_m365_collaboration_outbound_setting import CrossTenantAccessPolicyM365CollaborationOutboundSetting
+        from .cross_tenant_access_policy_tenant_restrictions import CrossTenantAccessPolicyTenantRestrictions
+        from .cross_tenant_identity_sync_policy_partner import CrossTenantIdentitySyncPolicyPartner
+        from .inbound_outbound_policy_configuration import InboundOutboundPolicyConfiguration
+        from .m365_capability_base import M365CapabilityBase
+        from .policy_deletable_item import PolicyDeletableItem
+        from .service_provider_constraints import ServiceProviderConstraints
+
+        fields: dict[str, Callable[[Any], None]] = {
+            "appServiceConnectInbound": lambda n : setattr(self, 'app_service_connect_inbound', n.get_object_value(CrossTenantAccessPolicyAppServiceConnectSetting)),
+            "automaticUserConsentSettings": lambda n : setattr(self, 'automatic_user_consent_settings', n.get_object_value(InboundOutboundPolicyConfiguration)),
+            "b2bCollaborationInbound": lambda n : setattr(self, 'b2b_collaboration_inbound', n.get_object_value(CrossTenantAccessPolicyB2BSetting)),
+            "b2bCollaborationOutbound": lambda n : setattr(self, 'b2b_collaboration_outbound', n.get_object_value(CrossTenantAccessPolicyB2BSetting)),
+            "b2bDirectConnectInbound": lambda n : setattr(self, 'b2b_direct_connect_inbound', n.get_object_value(CrossTenantAccessPolicyB2BSetting)),
+            "b2bDirectConnectOutbound": lambda n : setattr(self, 'b2b_direct_connect_outbound', n.get_object_value(CrossTenantAccessPolicyB2BSetting)),
+            "blockServiceProviderOutboundAccess": lambda n : setattr(self, 'block_service_provider_outbound_access', n.get_bool_value()),
+            "identitySynchronization": lambda n : setattr(self, 'identity_synchronization', n.get_object_value(CrossTenantIdentitySyncPolicyPartner)),
+            "inboundTrust": lambda n : setattr(self, 'inbound_trust', n.get_object_value(CrossTenantAccessPolicyInboundTrust)),
+            "isInMultiTenantOrganization": lambda n : setattr(self, 'is_in_multi_tenant_organization', n.get_bool_value()),
+            "isServiceProvider": lambda n : setattr(self, 'is_service_provider', n.get_bool_value()),
+            "m365Capabilities": lambda n : setattr(self, 'm365_capabilities', n.get_collection_of_object_values(M365CapabilityBase)),
+            "m365CollaborationInbound": lambda n : setattr(self, 'm365_collaboration_inbound', n.get_object_value(CrossTenantAccessPolicyM365CollaborationInboundSetting)),
+            "m365CollaborationOutbound": lambda n : setattr(self, 'm365_collaboration_outbound', n.get_object_value(CrossTenantAccessPolicyM365CollaborationOutboundSetting)),
+            "serviceProviderConstraints": lambda n : setattr(self, 'service_provider_constraints', n.get_object_value(ServiceProviderConstraints)),
+            "tenantId": lambda n : setattr(self, 'tenant_id', n.get_str_value()),
+            "tenantRestrictions": lambda n : setattr(self, 'tenant_restrictions', n.get_object_value(CrossTenantAccessPolicyTenantRestrictions)),
+        }
+        super_fields = super().get_field_deserializers()
+        fields.update(super_fields)
+        return fields
+    
+    def serialize(self,writer: SerializationWriter) -> None:
+        """
+        Serializes information the current object
+        param writer: Serialization writer to use to serialize this model
+        Returns: None
+        """
+        if writer is None:
+            raise TypeError("writer cannot be null.")
+        super().serialize(writer)
+        writer.write_object_value("appServiceConnectInbound", self.app_service_connect_inbound)
+        writer.write_object_value("automaticUserConsentSettings", self.automatic_user_consent_settings)
+        writer.write_object_value("b2bCollaborationInbound", self.b2b_collaboration_inbound)
+        writer.write_object_value("b2bCollaborationOutbound", self.b2b_collaboration_outbound)
+        writer.write_object_value("b2bDirectConnectInbound", self.b2b_direct_connect_inbound)
+        writer.write_object_value("b2bDirectConnectOutbound", self.b2b_direct_connect_outbound)
+        writer.write_bool_value("blockServiceProviderOutboundAccess", self.block_service_provider_outbound_access)
+        writer.write_object_value("identitySynchronization", self.identity_synchronization)
+        writer.write_object_value("inboundTrust", self.inbound_trust)
+        writer.write_bool_value("isInMultiTenantOrganization", self.is_in_multi_tenant_organization)
+        writer.write_bool_value("isServiceProvider", self.is_service_provider)
+        writer.write_collection_of_object_values("m365Capabilities", self.m365_capabilities)
+        writer.write_object_value("m365CollaborationInbound", self.m365_collaboration_inbound)
+        writer.write_object_value("m365CollaborationOutbound", self.m365_collaboration_outbound)
+        writer.write_object_value("serviceProviderConstraints", self.service_provider_constraints)
+        writer.write_str_value("tenantId", self.tenant_id)
+        writer.write_object_value("tenantRestrictions", self.tenant_restrictions)
+    
+

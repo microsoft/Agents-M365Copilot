@@ -32,6 +32,7 @@ export interface CopilotRequestBuilder extends BaseRequestBuilder<CopilotRequest
     get reports(): ReportsRequestBuilder;
     /**
      * Provides operations to call the retrieval method.
+     * @deprecated  as of 2024-12/PrivatePreview:retrievalAPI on 2024-02-23 and will be removed 2025-12-31
      */
     get retrieval(): RetrievalRequestBuilder;
     /**

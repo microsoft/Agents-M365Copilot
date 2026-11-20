@@ -12,6 +12,8 @@ import { CommunicationsRequestBuilderNavigationMetadata, CommunicationsRequestBu
 // @ts-ignore
 import { ConversationsRequestBuilderNavigationMetadata, ConversationsRequestBuilderRequestsMetadata, type ConversationsRequestBuilder } from './conversations/index.js';
 // @ts-ignore
+import { CostManagementRequestBuilderNavigationMetadata, type CostManagementRequestBuilder } from './costManagement/index.js';
+// @ts-ignore
 import { InteractionHistoryRequestBuilderNavigationMetadata, InteractionHistoryRequestBuilderRequestsMetadata, type InteractionHistoryRequestBuilder } from './interactionHistory/index.js';
 // @ts-ignore
 import { ReportsRequestBuilderNavigationMetadata, ReportsRequestBuilderRequestsMetadata, type ReportsRequestBuilder } from './reports/index.js';
@@ -51,6 +53,10 @@ export interface CopilotRequestBuilder extends BaseRequestBuilder<CopilotRequest
      */
     get conversations(): ConversationsRequestBuilder;
     /**
+     * The costManagement property
+     */
+    get costManagement(): CostManagementRequestBuilder;
+    /**
      * Provides operations to manage the interactionHistory property of the microsoft.graph.copilotRoot entity.
      */
     get interactionHistory(): InteractionHistoryRequestBuilder;
@@ -60,10 +66,12 @@ export interface CopilotRequestBuilder extends BaseRequestBuilder<CopilotRequest
     get reports(): ReportsRequestBuilder;
     /**
      * Provides operations to call the retrieval method.
+     * @deprecated  as of 2024-12/PrivatePreview:retrievalAPI on 2024-02-23 and will be removed 2025-12-31
      */
     get retrieval(): RetrievalRequestBuilder;
     /**
      * Provides operations to call the search method.
+     * @deprecated  as of 2025-08/PrivatePreview:copilotsearchpreview1 on 2025-07-18 and will be removed 2025-09-15
      */
     get search(): SearchRequestBuilder;
     /**
@@ -102,6 +110,9 @@ export const CopilotRequestBuilderNavigationMetadata: Record<Exclude<keyof Copil
     conversations: {
         requestsMetadata: ConversationsRequestBuilderRequestsMetadata,
         navigationMetadata: ConversationsRequestBuilderNavigationMetadata,
+    },
+    costManagement: {
+        navigationMetadata: CostManagementRequestBuilderNavigationMetadata,
     },
     interactionHistory: {
         requestsMetadata: InteractionHistoryRequestBuilderRequestsMetadata,

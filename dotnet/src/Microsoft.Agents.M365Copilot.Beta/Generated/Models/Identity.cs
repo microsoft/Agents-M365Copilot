@@ -68,6 +68,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 "#microsoft.graph.communicationsGuestIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CommunicationsGuestIdentity(),
                 "#microsoft.graph.communicationsPhoneIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CommunicationsPhoneIdentity(),
                 "#microsoft.graph.communicationsUserIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CommunicationsUserIdentity(),
+                "#microsoft.graph.copilotPackageRequestPrincipal" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPackageRequestPrincipal(),
                 "#microsoft.graph.emailIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.EmailIdentity(),
                 "#microsoft.graph.groupIdentity" => new global::Microsoft.Agents.M365Copilot.Beta.Models.GroupIdentity(),
                 "#microsoft.graph.initiator" => new global::Microsoft.Agents.M365Copilot.Beta.Models.Initiator(),

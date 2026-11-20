@@ -28,6 +28,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string Value { get; set; }
 #endif
+        /// <summary>The native JSON representation of a complex setting, or null for scalar settings.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingValueObject? ValueObject { get; set; }
+#nullable restore
+#else
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingValueObject ValueObject { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -48,6 +56,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             {
                 { "policyId", n => { PolicyId = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
+                { "valueObject", n => { ValueObject = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingValueObject>(global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingValueObject.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -60,6 +69,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             base.Serialize(writer);
             writer.WriteStringValue("policyId", PolicyId);
             writer.WriteStringValue("value", Value);
+            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CopilotPolicySettingValueObject>("valueObject", ValueObject);
         }
     }
 }

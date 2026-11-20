@@ -31,7 +31,9 @@ class CopilotConversationMessageParameter(AdditionalDataHolder, Parsable):
             mapping_value = child_node.get_str_value() if child_node else None
         except AttributeError:
             mapping_value = None
-        if mapping_value and mapping_value.casefold() == "#microsoft.graph.copilotConversationRequestMessageParameter".casefold():
+        if not mapping_value:
+            return CopilotConversationMessageParameter()
+        if mapping_value.casefold() == "#microsoft.graph.copilotConversationRequestMessageParameter".casefold():
             from .copilot_conversation_request_message_parameter import CopilotConversationRequestMessageParameter
 
             return CopilotConversationRequestMessageParameter()

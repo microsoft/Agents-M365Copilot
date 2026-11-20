@@ -5,6 +5,7 @@ from kiota_abstractions.serialization import Parsable, ParseNode, SerializationW
 from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
+    from .copilot_policy_setting_value_object import CopilotPolicySettingValueObject
     from .entity import Entity
 
 from .entity import Entity
@@ -17,6 +18,8 @@ class CopilotPolicySetting(Entity, Parsable):
     policy_id: Optional[str] = None
     # The value property
     value: Optional[str] = None
+    # The native JSON representation of a complex setting, or null for scalar settings.
+    value_object: Optional[CopilotPolicySettingValueObject] = None
     
     @staticmethod
     def create_from_discriminator_value(parse_node: ParseNode) -> CopilotPolicySetting:
@@ -34,13 +37,16 @@ class CopilotPolicySetting(Entity, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from .copilot_policy_setting_value_object import CopilotPolicySettingValueObject
         from .entity import Entity
 
+        from .copilot_policy_setting_value_object import CopilotPolicySettingValueObject
         from .entity import Entity
 
         fields: dict[str, Callable[[Any], None]] = {
             "policyId": lambda n : setattr(self, 'policy_id', n.get_str_value()),
             "value": lambda n : setattr(self, 'value', n.get_str_value()),
+            "valueObject": lambda n : setattr(self, 'value_object', n.get_object_value(CopilotPolicySettingValueObject)),
         }
         super_fields = super().get_field_deserializers()
         fields.update(super_fields)
@@ -57,5 +63,6 @@ class CopilotPolicySetting(Entity, Parsable):
         super().serialize(writer)
         writer.write_str_value("policyId", self.policy_id)
         writer.write_str_value("value", self.value)
+        writer.write_object_value("valueObject", self.value_object)
     
 

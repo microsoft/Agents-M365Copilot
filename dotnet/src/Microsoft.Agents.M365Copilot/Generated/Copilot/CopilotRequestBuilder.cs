@@ -35,6 +35,7 @@ namespace Microsoft.Agents.M365Copilot.Copilot
             get => new global::Microsoft.Agents.M365Copilot.Copilot.Reports.ReportsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Provides operations to call the retrieval method.</summary>
+        [Obsolete(" as of 2024-12/PrivatePreview:retrievalAPI on 2024-02-23 and will be removed 2025-12-31")]
         public global::Microsoft.Agents.M365Copilot.Copilot.Retrieval.RetrievalRequestBuilder Retrieval
         {
             get => new global::Microsoft.Agents.M365Copilot.Copilot.Retrieval.RetrievalRequestBuilder(PathParameters, RequestAdapter);
