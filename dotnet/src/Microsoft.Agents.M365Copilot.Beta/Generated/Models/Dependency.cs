@@ -48,7 +48,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>Date and time the entity was last modified. The value is represented in ISO 8601 format and is always in UTC time. Read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
-        /// <summary>ID of the source item in the dependency.</summary>
+        /// <summary>ID of the source item in the dependency. Immutable after creation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SourceItemId { get; set; }
@@ -56,7 +56,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string SourceItemId { get; set; }
 #endif
-        /// <summary>ID of the target item in the dependency.</summary>
+        /// <summary>ID of the target item in the dependency. Immutable after creation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TargetItemId { get; set; }

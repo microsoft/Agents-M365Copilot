@@ -493,7 +493,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ObjectIdentity> Identities { get; set; }
 #endif
-        /// <summary>The identity governance settings for the user. You can get or update the user&apos;s approver delegate through the approverDelegate property. Nullable. Returned only on $select. Supports $expand.</summary>
+        /// <summary>The identity governance settings for the user, including the approver delegate configuration. You can get or update the user&apos;s approver delegate through the approverDelegate property. Nullable. Returned only on $select. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernanceUserSettings? IdentityGovernance { get; set; }
@@ -508,6 +508,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #nullable restore
 #else
         public string IdentityParentId { get; set; }
+#endif
+        /// <summary>The user&apos;s overall identity verification state and recent verification events. Retrieve through the get identity verification status operation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.IdentityVerificationStatus? IdentityVerificationStatus { get; set; }
+#nullable restore
+#else
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.IdentityVerificationStatus IdentityVerificationStatus { get; set; }
 #endif
         /// <summary>The instant message voice-over IP (VOIP) session initiation protocol (SIP) addresses for the user. Read-only. Supports $filter (eq, not, ge, le, startsWith).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -565,6 +573,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public global::Microsoft.Agents.M365Copilot.Beta.Models.DirectoryObject InvitedBy { get; set; }
 #endif
+        /// <summary>Indicates whether hard deletion protection is enabled for the user (excluding on-premises synchronized users). When true, permanent deletion is blocked for seven days after soft deletion. The user can still be soft deleted and restored. Once enabled, protection can&apos;t be disabled or set to null. Enable protection on an existing user by using Update user; enabling it during creation isn&apos;t supported. Setting this property to true requires the Microsoft Entra Backup Administrator role. Nullable. Requires $select to retrieve. Supports $filter (eq).</summary>
+        public bool? IsHardDeleteProtectionEnabled { get; set; }
         /// <summary>Indicates whether the user is pending an exchange mailbox license assignment.  Read-only.  Supports $filter (eq where true only).</summary>
         public bool? IsLicenseReconciliationNeeded { get; set; }
         /// <summary>true if the user is a member of a restricted management administrative unit. If not set, the default value is null and the default behavior is false. Read-only.  To manage a user who is a member of a restricted management administrative unit, the administrator or calling app must be assigned a Microsoft Entra role at the scope of the restricted management administrative unit.</summary>
@@ -1352,6 +1362,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "identities", n => { Identities = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.ObjectIdentity>(global::Microsoft.Agents.M365Copilot.Beta.Models.ObjectIdentity.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "identityGovernance", n => { IdentityGovernance = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernanceUserSettings>(global::Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernanceUserSettings.CreateFromDiscriminatorValue); } },
                 { "identityParentId", n => { IdentityParentId = n.GetStringValue(); } },
+                { "identityVerificationStatus", n => { IdentityVerificationStatus = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.IdentityVerificationStatus>(global::Microsoft.Agents.M365Copilot.Beta.Models.IdentityVerificationStatus.CreateFromDiscriminatorValue); } },
                 { "imAddresses", n => { ImAddresses = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "inferenceClassification", n => { InferenceClassification = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.InferenceClassification>(global::Microsoft.Agents.M365Copilot.Beta.Models.InferenceClassification.CreateFromDiscriminatorValue); } },
                 { "infoCatalogs", n => { InfoCatalogs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -1359,6 +1370,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "insights", n => { Insights = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.ItemInsights>(global::Microsoft.Agents.M365Copilot.Beta.Models.ItemInsights.CreateFromDiscriminatorValue); } },
                 { "interests", n => { Interests = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "invitedBy", n => { InvitedBy = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.DirectoryObject>(global::Microsoft.Agents.M365Copilot.Beta.Models.DirectoryObject.CreateFromDiscriminatorValue); } },
+                { "isHardDeleteProtectionEnabled", n => { IsHardDeleteProtectionEnabled = n.GetBoolValue(); } },
                 { "isLicenseReconciliationNeeded", n => { IsLicenseReconciliationNeeded = n.GetBoolValue(); } },
                 { "isManagementRestricted", n => { IsManagementRestricted = n.GetBoolValue(); } },
                 { "isResourceAccount", n => { IsResourceAccount = n.GetBoolValue(); } },
@@ -1529,6 +1541,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.ObjectIdentity>("identities", Identities);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernanceUserSettings>("identityGovernance", IdentityGovernance);
             writer.WriteStringValue("identityParentId", IdentityParentId);
+            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.IdentityVerificationStatus>("identityVerificationStatus", IdentityVerificationStatus);
             writer.WriteCollectionOfPrimitiveValues<string>("imAddresses", ImAddresses);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.InferenceClassification>("inferenceClassification", InferenceClassification);
             writer.WriteCollectionOfPrimitiveValues<string>("infoCatalogs", InfoCatalogs);
@@ -1536,6 +1549,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.ItemInsights>("insights", Insights);
             writer.WriteCollectionOfPrimitiveValues<string>("interests", Interests);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.DirectoryObject>("invitedBy", InvitedBy);
+            writer.WriteBoolValue("isHardDeleteProtectionEnabled", IsHardDeleteProtectionEnabled);
             writer.WriteBoolValue("isLicenseReconciliationNeeded", IsLicenseReconciliationNeeded);
             writer.WriteBoolValue("isManagementRestricted", IsManagementRestricted);
             writer.WriteBoolValue("isResourceAccount", IsResourceAccount);

@@ -17,7 +17,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The date component of the value.</summary>
         public Date? Date { get; set; }
-        /// <summary>Indicates whether a specific time (not just a date) was provided.</summary>
+        /// <summary>Indicates whether a specific time (not just a date) was provided. Read-only.</summary>
         public bool? IsTimeSpecified { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -27,9 +27,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The optional time-of-day component of the value.</summary>
+        /// <summary>The optional time-of-day component of the value. Read-only.</summary>
         public Time? Time { get; set; }
-        /// <summary>Time zone the time value is expressed in, if time is set.</summary>
+        /// <summary>Time zone the time value is expressed in, if time is set. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TimeZone { get; set; }

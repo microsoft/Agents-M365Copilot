@@ -38,7 +38,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkTagMember> Members { get; set; }
 #endif
-        /// <summary>The type of tag. Default is standard.</summary>
+        /// <summary>The type of tag. The possible values are: standard, unknownFutureValue. The default value is standard.</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkTagType? TagType { get; set; }
         /// <summary>ID of the team in which the tag is defined.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +56,12 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         public static new global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkTag CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkTag();
+            var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
+            return mappingValue switch
+            {
+                "#microsoft.graph.teamworkChannelTag" => new global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkChannelTag(),
+                _ => new global::Microsoft.Agents.M365Copilot.Beta.Models.TeamworkTag(),
+            };
         }
         /// <summary>
         /// The deserialization information for the current model

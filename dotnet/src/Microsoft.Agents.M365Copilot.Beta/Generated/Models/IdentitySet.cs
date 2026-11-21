@@ -72,6 +72,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 "#microsoft.graph.communicationsIdentitySet" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CommunicationsIdentitySet(),
                 "#microsoft.graph.customEmojiFromIdentitySet" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CustomEmojiFromIdentitySet(),
                 "#microsoft.graph.engagementIdentitySet" => new global::Microsoft.Agents.M365Copilot.Beta.Models.EngagementIdentitySet(),
+                "#microsoft.graph.investigationIdentitySet" => new global::Microsoft.Agents.M365Copilot.Beta.Models.InvestigationIdentitySet(),
                 "#microsoft.graph.sharePointIdentitySet" => new global::Microsoft.Agents.M365Copilot.Beta.Models.SharePointIdentitySet(),
                 _ => new global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet(),
             };

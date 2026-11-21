@@ -150,6 +150,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.HomeRealmDiscoveryPolicy> HomeRealmDiscoveryPolicies { get; set; }
 #endif
+        /// <summary>The identifierUriConfiguration property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.ApplicationIdentifierUriConfiguration? IdentifierUriConfiguration { get; set; }
+#nullable restore
+#else
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.ApplicationIdentifierUriConfiguration IdentifierUriConfiguration { get; set; }
+#endif
         /// <summary>Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you reference in your API&apos;s code, and it must be globally unique across Microsoft Entra ID. For more information on valid identifierUris patterns and best practices, see Microsoft Entra application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -157,6 +165,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #nullable restore
 #else
         public List<string> IdentifierUris { get; set; }
+#endif
+        /// <summary>The idJag property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.IdJagApplicationConfiguration? IdJag { get; set; }
+#nullable restore
+#else
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.IdJagApplicationConfiguration IdJag { get; set; }
 #endif
         /// <summary>Basic profile information of the application, such as it&apos;s marketing, support, terms of service, and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more information, see How to: Add Terms of service and privacy statement for registered Microsoft Entra apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -172,6 +188,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         public bool? IsDisabled { get; set; }
         /// <summary>Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false, which means the fallback application type is confidential client such as a web app. There are certain scenarios where Microsoft Entra ID can&apos;t determine the client application type. For example, the ROPC flow where the application is configured without specifying a redirect URI. In those cases Microsoft Entra ID interprets the application type based on the value of this property.</summary>
         public bool? IsFallbackPublicClient { get; set; }
+        /// <summary>Indicates whether hard deletion protection is enabled for the application. When true, permanent deletion is blocked for seven days after soft deletion. The application can still be soft deleted and restored. Once enabled, protection can&apos;t be disabled or set to null. Enable protection on an existing application by using Update application; enabling it during creation isn&apos;t supported. Setting this property to true requires the Microsoft Entra Backup Administrator role. Nullable. Requires $select to retrieve. Supports $filter (eq).</summary>
+        public bool? IsHardDeleteProtectionEnabled { get; set; }
         /// <summary>The collection of key credentials associated with the application. Not nullable. Supports $filter (eq, not, ge, le).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -440,11 +458,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "federatedIdentityCredentials", n => { FederatedIdentityCredentials = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.FederatedIdentityCredential>(global::Microsoft.Agents.M365Copilot.Beta.Models.FederatedIdentityCredential.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "groupMembershipClaims", n => { GroupMembershipClaims = n.GetStringValue(); } },
                 { "homeRealmDiscoveryPolicies", n => { HomeRealmDiscoveryPolicies = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.HomeRealmDiscoveryPolicy>(global::Microsoft.Agents.M365Copilot.Beta.Models.HomeRealmDiscoveryPolicy.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "idJag", n => { IdJag = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.IdJagApplicationConfiguration>(global::Microsoft.Agents.M365Copilot.Beta.Models.IdJagApplicationConfiguration.CreateFromDiscriminatorValue); } },
+                { "identifierUriConfiguration", n => { IdentifierUriConfiguration = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.ApplicationIdentifierUriConfiguration>(global::Microsoft.Agents.M365Copilot.Beta.Models.ApplicationIdentifierUriConfiguration.CreateFromDiscriminatorValue); } },
                 { "identifierUris", n => { IdentifierUris = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "info", n => { Info = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.InformationalUrl>(global::Microsoft.Agents.M365Copilot.Beta.Models.InformationalUrl.CreateFromDiscriminatorValue); } },
                 { "isDeviceOnlyAuthSupported", n => { IsDeviceOnlyAuthSupported = n.GetBoolValue(); } },
                 { "isDisabled", n => { IsDisabled = n.GetBoolValue(); } },
                 { "isFallbackPublicClient", n => { IsFallbackPublicClient = n.GetBoolValue(); } },
+                { "isHardDeleteProtectionEnabled", n => { IsHardDeleteProtectionEnabled = n.GetBoolValue(); } },
                 { "keyCredentials", n => { KeyCredentials = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.KeyCredential>(global::Microsoft.Agents.M365Copilot.Beta.Models.KeyCredential.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "logo", n => { Logo = n.GetByteArrayValue(); } },
                 { "managerApplications", n => { ManagerApplications = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
@@ -502,11 +523,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.FederatedIdentityCredential>("federatedIdentityCredentials", FederatedIdentityCredentials);
             writer.WriteStringValue("groupMembershipClaims", GroupMembershipClaims);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", HomeRealmDiscoveryPolicies);
+            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.ApplicationIdentifierUriConfiguration>("identifierUriConfiguration", IdentifierUriConfiguration);
             writer.WriteCollectionOfPrimitiveValues<string>("identifierUris", IdentifierUris);
+            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.IdJagApplicationConfiguration>("idJag", IdJag);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.InformationalUrl>("info", Info);
             writer.WriteBoolValue("isDeviceOnlyAuthSupported", IsDeviceOnlyAuthSupported);
             writer.WriteBoolValue("isDisabled", IsDisabled);
             writer.WriteBoolValue("isFallbackPublicClient", IsFallbackPublicClient);
+            writer.WriteBoolValue("isHardDeleteProtectionEnabled", IsHardDeleteProtectionEnabled);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.KeyCredential>("keyCredentials", KeyCredentials);
             writer.WriteByteArrayValue("logo", Logo);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("managerApplications", ManagerApplications);

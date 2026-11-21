@@ -20,7 +20,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public global::Microsoft.Agents.M365Copilot.Beta.Models.CloudPcBulkActionSummary ActionSummary { get; set; }
 #endif
-        /// <summary>The cloudPcIds property</summary>
+        /// <summary>IDs of the Cloud PCs the bulk action applies to. Individual Cloud PC IDs are GUID-formatted strings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? CloudPcIds { get; set; }
@@ -75,6 +75,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 "#microsoft.graph.cloudPcBulkResize" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CloudPcBulkResize(),
                 "#microsoft.graph.cloudPcBulkRestart" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CloudPcBulkRestart(),
                 "#microsoft.graph.cloudPcBulkRestore" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CloudPcBulkRestore(),
+                "#microsoft.graph.cloudPcBulkSetDeviceName" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CloudPcBulkSetDeviceName(),
                 "#microsoft.graph.cloudPcBulkSetReviewStatus" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CloudPcBulkSetReviewStatus(),
                 "#microsoft.graph.cloudPcBulkTroubleshoot" => new global::Microsoft.Agents.M365Copilot.Beta.Models.CloudPcBulkTroubleshoot(),
                 _ => new global::Microsoft.Agents.M365Copilot.Beta.Models.CloudPcBulkAction(),
