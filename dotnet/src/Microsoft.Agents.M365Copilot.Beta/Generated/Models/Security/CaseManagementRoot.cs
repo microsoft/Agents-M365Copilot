@@ -13,7 +13,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.Security
     public partial class CaseManagementRoot : global::Microsoft.Agents.M365Copilot.Beta.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The collection of security cases managed through the case management entry point. Supports $filter, $orderby, $select, $top, and $skip.</summary>
+        /// <summary>The collection of security cases managed through the case management entry point. Supports $filter, $orderby, $select, and $top.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.Security.CaseManagement.Case>? Cases { get; set; }

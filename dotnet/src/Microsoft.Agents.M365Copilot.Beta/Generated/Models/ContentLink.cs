@@ -36,7 +36,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>Custom extension field values set on the entity. Supports $select.</summary>
+        /// <summary>Custom extension field values set at creation. Can&apos;t be changed afterward. Supports $select.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.ExtensionFieldCollection? Extensions { get; set; }
@@ -54,9 +54,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>Date and time the entity was last modified. The value is represented in ISO 8601 format and is always in UTC time. Read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
-        /// <summary>Type of content the link points to. The possible values are: documentReference, webReference, unknownFutureValue.</summary>
+        /// <summary>Type of content the link points to. Required at creation and immutable afterward. The possible values are: documentReference, webReference, unknownFutureValue.</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.ContentLinkType? LinkType { get; set; }
-        /// <summary>URL the link points to.</summary>
+        /// <summary>URL the link points to. Required at creation and immutable afterward.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WebUrl { get; set; }

@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class Plan : global::Microsoft.Agents.M365Copilot.Beta.Models.PlannerDelta, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Information about whether the entity is archived, and when it was archived.</summary>
+        /// <summary>Service-populated information about whether the entity is archived, and when it was archived. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.PlannerArchivalInfo? ArchivalInfo { get; set; }
@@ -60,7 +60,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public global::Microsoft.Agents.M365Copilot.Beta.Models.ContentSensitivityLabelAssignment ContentSensitivityLabelAssignment { get; set; }
 #endif
-        /// <summary>The collection of context links describing where the plan is surfaced. Read-only. Nullable.</summary>
+        /// <summary>Context links describing where the plan is surfaced. Can be supplied when creating a plan by using a deep insert. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.PlanContextLink>? Contexts { get; set; }
@@ -100,7 +100,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>Duration of the plan, in days.</summary>
+        /// <summary>Computed duration of the plan, in seconds. Read-only.</summary>
         public int? Duration { get; set; }
         /// <summary>Custom extension field values set on the entity. Supports $select.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -118,7 +118,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.Goal> Goals { get; set; }
 #endif
-        /// <summary>Indicates whether the plan has an associated chat.</summary>
+        /// <summary>Indicates whether the plan has an associated chat. Read-only.</summary>
         public bool? HasChat { get; set; }
         /// <summary>The collection of history (audit) items for the plan. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -138,7 +138,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>Date and time the entity was last modified. The value is represented in ISO 8601 format and is always in UTC time. Read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
-        /// <summary>The collection of content links attached to the plan. Read-only. Nullable.</summary>
+        /// <summary>Content links attached to the plan. Can be supplied when creating a plan by using a deep insert. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ContentLink>? Links { get; set; }

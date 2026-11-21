@@ -12,7 +12,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     public partial class TeamworkTagMember : global::Microsoft.Agents.M365Copilot.Beta.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The member&apos;s display name.</summary>
+        /// <summary>The member&apos;s display name. For channel-owned tags, the value can be null if the user can&apos;t be resolved.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }
@@ -20,7 +20,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string DisplayName { get; set; }
 #endif
-        /// <summary>The ID of the tenant that the tag member is a part of.</summary>
+        /// <summary>The ID of the tenant that the tag member is a part of. For channel-owned tags, this is the request tenant, not a separately resolved home tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TenantId { get; set; }

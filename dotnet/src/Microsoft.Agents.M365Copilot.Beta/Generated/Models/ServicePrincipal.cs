@@ -211,6 +211,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.HomeRealmDiscoveryPolicy> HomeRealmDiscoveryPolicies { get; set; }
 #endif
+        /// <summary>The idJag property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.IdJagServicePrincipalConfiguration? IdJag { get; set; }
+#nullable restore
+#else
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.IdJagServicePrincipalConfiguration IdJag { get; set; }
+#endif
         /// <summary>Basic profile information of the acquired application such as app&apos;s marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Microsoft Entra apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -221,6 +229,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>Specifies whether the service principal of the app in a tenant or across tenants for multi-tenant apps can obtain new access tokens or access protected resources. When set to true, existing tokens remain valid until they expire based on their configured lifetimes, and the app stays visible in the Enterprise apps list but users cannot sign in.true if the application is deactivated (disabled); otherwise false.</summary>
         public bool? IsDisabled { get; set; }
+        /// <summary>Indicates whether hard deletion protection is enabled for the service principal. When true, permanent deletion is blocked for seven days after soft deletion. The service principal can still be soft deleted and restored. Once enabled, protection can&apos;t be disabled or set to null. Enable protection on an existing service principal by using Update servicePrincipal; enabling it during creation isn&apos;t supported. Setting this property to true requires the Microsoft Entra Backup Administrator role. Nullable. Requires $select to retrieve. Supports $filter (eq).</summary>
+        public bool? IsHardDeleteProtectionEnabled { get; set; }
         /// <summary>The collection of key credentials associated with the service principal. Not nullable. Supports $filter (eq, not, ge, le).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -531,8 +541,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "federatedIdentityCredentials", n => { FederatedIdentityCredentials = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.FederatedIdentityCredential>(global::Microsoft.Agents.M365Copilot.Beta.Models.FederatedIdentityCredential.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "homeRealmDiscoveryPolicies", n => { HomeRealmDiscoveryPolicies = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.HomeRealmDiscoveryPolicy>(global::Microsoft.Agents.M365Copilot.Beta.Models.HomeRealmDiscoveryPolicy.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "homepage", n => { Homepage = n.GetStringValue(); } },
+                { "idJag", n => { IdJag = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.IdJagServicePrincipalConfiguration>(global::Microsoft.Agents.M365Copilot.Beta.Models.IdJagServicePrincipalConfiguration.CreateFromDiscriminatorValue); } },
                 { "info", n => { Info = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.InformationalUrl>(global::Microsoft.Agents.M365Copilot.Beta.Models.InformationalUrl.CreateFromDiscriminatorValue); } },
                 { "isDisabled", n => { IsDisabled = n.GetBoolValue(); } },
+                { "isHardDeleteProtectionEnabled", n => { IsHardDeleteProtectionEnabled = n.GetBoolValue(); } },
                 { "keyCredentials", n => { KeyCredentials = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.KeyCredential>(global::Microsoft.Agents.M365Copilot.Beta.Models.KeyCredential.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "licenseDetails", n => { LicenseDetails = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.LicenseDetails>(global::Microsoft.Agents.M365Copilot.Beta.Models.LicenseDetails.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "lifecycle", n => { Lifecycle = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.IdentityLifecycle>(global::Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.IdentityLifecycle.CreateFromDiscriminatorValue); } },
@@ -603,8 +615,10 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.FederatedIdentityCredential>("federatedIdentityCredentials", FederatedIdentityCredentials);
             writer.WriteStringValue("homepage", Homepage);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", HomeRealmDiscoveryPolicies);
+            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.IdJagServicePrincipalConfiguration>("idJag", IdJag);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.InformationalUrl>("info", Info);
             writer.WriteBoolValue("isDisabled", IsDisabled);
+            writer.WriteBoolValue("isHardDeleteProtectionEnabled", IsHardDeleteProtectionEnabled);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.KeyCredential>("keyCredentials", KeyCredentials);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.LicenseDetails>("licenseDetails", LicenseDetails);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.IdentityGovernance.IdentityLifecycle>("lifecycle", Lifecycle);

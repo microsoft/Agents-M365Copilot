@@ -60,6 +60,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.ConditionalAccessPolicy> Policies { get; set; }
 #endif
+        /// <summary>The tenant-wide Conditional Access settings, including user-action exclusions.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.ConditionalAccessSettings? Settings { get; set; }
+#nullable restore
+#else
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.ConditionalAccessSettings Settings { get; set; }
+#endif
         /// <summary>Read-only. Nullable. Returns a collection of the specified Conditional Access templates.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -92,6 +100,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "deletedItems", n => { DeletedItems = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CaPoliciesDeletableRoot>(global::Microsoft.Agents.M365Copilot.Beta.Models.CaPoliciesDeletableRoot.CreateFromDiscriminatorValue); } },
                 { "namedLocations", n => { NamedLocations = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.NamedLocation>(global::Microsoft.Agents.M365Copilot.Beta.Models.NamedLocation.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "policies", n => { Policies = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.ConditionalAccessPolicy>(global::Microsoft.Agents.M365Copilot.Beta.Models.ConditionalAccessPolicy.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "settings", n => { Settings = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.ConditionalAccessSettings>(global::Microsoft.Agents.M365Copilot.Beta.Models.ConditionalAccessSettings.CreateFromDiscriminatorValue); } },
                 { "templates", n => { Templates = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.ConditionalAccessTemplate>(global::Microsoft.Agents.M365Copilot.Beta.Models.ConditionalAccessTemplate.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -109,6 +118,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CaPoliciesDeletableRoot>("deletedItems", DeletedItems);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.NamedLocation>("namedLocations", NamedLocations);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.ConditionalAccessPolicy>("policies", Policies);
+            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.ConditionalAccessSettings>("settings", Settings);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.ConditionalAccessTemplate>("templates", Templates);
         }
     }

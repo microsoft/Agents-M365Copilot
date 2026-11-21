@@ -14,7 +14,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The frequency of the backup.</summary>
+        /// <summary>The backup frequency, expressed as an ISO 8601 repeating interval. The service defines the backup intervals: R/PT10M for 10-minute copies and R/P1W for weekly copies. Use R/P1W when specifying the policy retention period in a create or update request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Interval { get; set; }
@@ -30,7 +30,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The period of time to retain the protected data for a single Microsoft 365 service. The possible values are: P90D, P180D, P365D, P730D, P1095D, P1460D, P1825D, P2190D, P2555D, P2920D, P3285D, and P3650D. Other values aren&apos;t supported.</summary>
+        /// <summary>The period of time to retain the protected data for a single Microsoft 365 service, expressed as an ISO 8601 duration. The supported policy retention periods in create and update requests are: P90D, P180D, P365D, P730D, P1095D, P1460D, P1825D, P2190D, P2555D, P2920D, P3285D, and P3650D. Other policy retention periods aren&apos;t supported.</summary>
         public TimeSpan? Period { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.RetentionSetting"/> and sets the default values.

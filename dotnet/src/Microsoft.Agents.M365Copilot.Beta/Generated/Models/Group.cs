@@ -205,6 +205,8 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         public bool? IsAssignableToRole { get; set; }
         /// <summary>Indicates whether the user marked the group as favorite.</summary>
         public bool? IsFavorite { get; set; }
+        /// <summary>Indicates whether hard deletion protection is enabled for the group. Supported for cloud-only groups. When true, permanent deletion is blocked for seven days after soft deletion. The group can still be soft deleted and restored. Once enabled, protection can&apos;t be disabled or set to null. Enable protection on an existing group by using Update group; enabling it during creation isn&apos;t supported. Setting this property to true requires the Microsoft Entra Backup Administrator role. Nullable. Requires $select to retrieve. Supports $filter (eq).</summary>
+        public bool? IsHardDeleteProtectionEnabled { get; set; }
         /// <summary>Indicates whether the group is a member of a restricted management administrative unit. If not set, the default value is null and the default behavior is false. Read-only.  To manage a group member of a restricted management administrative unit, the administrator or calling app must be assigned a Microsoft Entra role at the scope of the restricted management administrative unit.</summary>
         public bool? IsManagementRestricted { get; set; }
         /// <summary>Indicates whether the signed-in user is subscribed to receive email conversations. The default value is true. Requires $select to retrieve. Supported only on the Get group API (GET /groups/{ID}).</summary>
@@ -621,6 +623,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
                 { "isArchived", n => { IsArchived = n.GetBoolValue(); } },
                 { "isAssignableToRole", n => { IsAssignableToRole = n.GetBoolValue(); } },
                 { "isFavorite", n => { IsFavorite = n.GetBoolValue(); } },
+                { "isHardDeleteProtectionEnabled", n => { IsHardDeleteProtectionEnabled = n.GetBoolValue(); } },
                 { "isManagementRestricted", n => { IsManagementRestricted = n.GetBoolValue(); } },
                 { "isSubscribedByMail", n => { IsSubscribedByMail = n.GetBoolValue(); } },
                 { "licenseProcessingState", n => { LicenseProcessingState = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.LicenseProcessingState>(global::Microsoft.Agents.M365Copilot.Beta.Models.LicenseProcessingState.CreateFromDiscriminatorValue); } },
@@ -717,6 +720,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             writer.WriteBoolValue("isArchived", IsArchived);
             writer.WriteBoolValue("isAssignableToRole", IsAssignableToRole);
             writer.WriteBoolValue("isFavorite", IsFavorite);
+            writer.WriteBoolValue("isHardDeleteProtectionEnabled", IsHardDeleteProtectionEnabled);
             writer.WriteBoolValue("isManagementRestricted", IsManagementRestricted);
             writer.WriteBoolValue("isSubscribedByMail", IsSubscribedByMail);
             writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.LicenseProcessingState>("licenseProcessingState", LicenseProcessingState);
