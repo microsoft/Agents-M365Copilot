@@ -14,9 +14,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The length property</summary>
+        /// <summary>The length of the evidence text.</summary>
         public int? Length { get; set; }
-        /// <summary>The match property</summary>
+        /// <summary>The matched evidence text.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Match { get; set; }
@@ -32,7 +32,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The offset property</summary>
+        /// <summary>The start position of the evidence text.</summary>
         public int? Offset { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Microsoft.Agents.M365Copilot.Beta.Models.SensitiveContentEvidence"/> and sets the default values.

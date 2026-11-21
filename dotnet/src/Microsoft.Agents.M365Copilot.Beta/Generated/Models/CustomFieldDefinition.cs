@@ -38,7 +38,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>Date and time the entity was created. The value is represented in ISO 8601 format and is always in UTC time. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; private set; }
-        /// <summary>Identity of the user who deleted the custom field definition, if it was deleted.</summary>
+        /// <summary>Identity of the user who deleted the custom field definition, if it was deleted. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet? DeletedBy { get; private set; }
@@ -46,7 +46,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public global::Microsoft.Agents.M365Copilot.Beta.Models.IdentitySet DeletedBy { get; private set; }
 #endif
-        /// <summary>Date and time the custom field definition was deleted, if applicable.</summary>
+        /// <summary>Date and time the custom field definition was deleted, if applicable. Read-only.</summary>
         public DateTimeOffset? DeletedDateTime { get; private set; }
         /// <summary>Name of the custom field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -76,7 +76,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #endif
         /// <summary>How values of this custom field are rolled up across tasks. The possible values are: noRollup, max, min, sum, average, unknownFutureValue.</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.CustomFieldRollupType? RollupType { get; set; }
-        /// <summary>Data type of the custom field&apos;s values.. The possible values are: text, date, utcDateTime, number, decimal, flag, singleChoiceText, multipleChoiceText, unknownFutureValue.</summary>
+        /// <summary>Data type of the custom field&apos;s values. Immutable after creation. The possible values are: text, date, utcDateTime, number, decimal, flag, singleChoiceText, multipleChoiceText, unknownFutureValue. The values utcDateTime, decimal, and multipleChoiceText can occur on existing fields; they aren&apos;t supported types for new field definitions.</summary>
         public global::Microsoft.Agents.M365Copilot.Beta.Models.CustomFieldValueType? ValueType { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

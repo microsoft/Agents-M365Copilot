@@ -13,6 +13,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CostManagementRoot : global::Microsoft.Agents.M365Copilot.Beta.Models.Entity, IParsable
     {
+        /// <summary>The collection of credit requests for this tenant. Excludes audit-only requests by default.A list or requested-count dependency failure returns a Graph serviceNotAvailable error.Supports $filter on state and serviceId (eq), $select, $count=true, and $top (default 50, maximum 200).Results are ordered newest-first; $orderby is not supported.Server-driven paging returns an OData nextLink when additional pages are available.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.CreditRequest>? CreditRequests { get; set; }
+#nullable restore
+#else
+        public List<global::Microsoft.Agents.M365Copilot.Beta.Models.CreditRequest> CreditRequests { get; set; }
+#endif
         /// <summary>The spending policies that govern Copilot Credits consumption.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -20,6 +28,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #nullable restore
 #else
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.SpendingPolicy> SpendingPolicies { get; set; }
+#endif
+        /// <summary>Reported consumption of Copilot Credits, split by user, group, service and funding.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.CostManagementUsageReportRoot? UsageReports { get; set; }
+#nullable restore
+#else
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.CostManagementUsageReportRoot UsageReports { get; set; }
 #endif
         /// <summary>Per-user consumption balances, addressed by the user&apos;s identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,7 +63,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                { "creditRequests", n => { CreditRequests = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.CreditRequest>(global::Microsoft.Agents.M365Copilot.Beta.Models.CreditRequest.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "spendingPolicies", n => { SpendingPolicies = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.SpendingPolicy>(global::Microsoft.Agents.M365Copilot.Beta.Models.SpendingPolicy.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "usageReports", n => { UsageReports = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CostManagementUsageReportRoot>(global::Microsoft.Agents.M365Copilot.Beta.Models.CostManagementUsageReportRoot.CreateFromDiscriminatorValue); } },
                 { "userBalances", n => { UserBalances = n.GetCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.CostManagementUserBalance>(global::Microsoft.Agents.M365Copilot.Beta.Models.CostManagementUserBalance.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -59,7 +77,9 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.CreditRequest>("creditRequests", CreditRequests);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.SpendingPolicy>("spendingPolicies", SpendingPolicies);
+            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CostManagementUsageReportRoot>("usageReports", UsageReports);
             writer.WriteCollectionOfObjectValues<global::Microsoft.Agents.M365Copilot.Beta.Models.CostManagementUserBalance>("userBalances", UserBalances);
         }
     }

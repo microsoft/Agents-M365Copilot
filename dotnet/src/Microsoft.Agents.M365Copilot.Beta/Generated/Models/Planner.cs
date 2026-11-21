@@ -36,7 +36,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.PlannerPlan> Plans { get; set; }
 #endif
-        /// <summary>Read-only. Nullable. The collection of Planner Graph V4 plans.</summary>
+        /// <summary>Read-only. Nullable. The collection of plans in the Planner Unified plans Graph API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.Plan>? PlansV2 { get; set; }
@@ -60,7 +60,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
 #else
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.PlannerTask> Tasks { get; set; }
 #endif
-        /// <summary>Read-only. Nullable. The collection of Planner Graph V4 tasks.</summary>
+        /// <summary>Read-only. Nullable. The collection of tasks in the Planner Unified plans Graph API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Microsoft.Agents.M365Copilot.Beta.Models.TaskObject>? TasksV2 { get; set; }

@@ -16,7 +16,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models.Security
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The recurring time interval at which the rule runs (ISO 8601 duration, for example P1D for daily, PT1H for hourly).</summary>
         public TimeSpan? Frequency { get; set; }
-        /// <summary>The lookback property</summary>
+        /// <summary>The time window evaluated by each scheduled rule run, expressed as an ISO 8601 duration, for example PT4H for four hours. Events match this window based on either event time or ingestion time. The value must be at least frequency. When omitted, the service derives the default lookback from frequency. Not supported for near-real-time rules with a zero frequency.</summary>
         public TimeSpan? Lookback { get; set; }
         /// <summary>Timestamp of the custom detection rule&apos;s next scheduled run. Deprecated. This property will be removed from this resource on 2026-10-01.</summary>
         public DateTimeOffset? NextRunDateTime { get; set; }

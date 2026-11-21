@@ -16,6 +16,14 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The date and time the authentication method was last used by the user. Read-only. Optional. This optional value is null if the authentication method doesn&apos;t populate it. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? LastUsedDateTime { get; set; }
+        /// <summary>The provenance and trust classification of the authentication method. Supports administrative attestation. Returned for FIDO2 authentication methods; null for method types that don&apos;t support provenance.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.CredentialProvenance? Provenance { get; set; }
+#nullable restore
+#else
+        public global::Microsoft.Agents.M365Copilot.Beta.Models.CredentialProvenance Provenance { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -54,6 +62,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             {
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastUsedDateTime", n => { LastUsedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "provenance", n => { Provenance = n.GetObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CredentialProvenance>(global::Microsoft.Agents.M365Copilot.Beta.Models.CredentialProvenance.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,6 +75,7 @@ namespace Microsoft.Agents.M365Copilot.Beta.Models
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteDateTimeOffsetValue("lastUsedDateTime", LastUsedDateTime);
+            writer.WriteObjectValue<global::Microsoft.Agents.M365Copilot.Beta.Models.CredentialProvenance>("provenance", Provenance);
         }
     }
 }
