@@ -42,6 +42,7 @@ if TYPE_CHECKING:
     from .group import Group
     from .identity_governance.user_identity_lifecycle import UserIdentityLifecycle
     from .identity_governance_user_settings import IdentityGovernanceUserSettings
+    from .identity_verification_status import IdentityVerificationStatus
     from .inference_classification import InferenceClassification
     from .information_protection import InformationProtection
     from .item_insights import ItemInsights
@@ -229,10 +230,12 @@ class User(DirectoryObject, Parsable):
     hire_date: Optional[datetime.datetime] = None
     # Represents the identities that can be used to sign in to this user account. An identity can be provided by Microsoft (also known as a local account), by organizations, or by social identity providers such as Facebook, Google, and Microsoft and tied to a user account. It may contain multiple items with the same signInType value.  Supports $filter (eq) with limitations.
     identities: Optional[list[ObjectIdentity]] = None
-    # The identity governance settings for the user. You can get or update the user's approver delegate through the approverDelegate property. Nullable. Returned only on $select. Supports $expand.
+    # The identity governance settings for the user, including the approver delegate configuration. You can get or update the user's approver delegate through the approverDelegate property. Nullable. Returned only on $select. Supports $expand.
     identity_governance: Optional[IdentityGovernanceUserSettings] = None
     # The object ID of the parent identity for agent users. Always null for regular user accounts. For agentUser resources, this property references the object ID of the associated agent identity.
     identity_parent_id: Optional[str] = None
+    # The user's overall identity verification state and recent verification events. Retrieve through the get identity verification status operation.
+    identity_verification_status: Optional[IdentityVerificationStatus] = None
     # The instant message voice-over IP (VOIP) session initiation protocol (SIP) addresses for the user. Read-only. Supports $filter (eq, not, ge, le, startsWith).
     im_addresses: Optional[list[str]] = None
     # Relevance classification of the user's messages based on explicit designations that override inferred relevance or importance.
@@ -247,6 +250,8 @@ class User(DirectoryObject, Parsable):
     interests: Optional[list[str]] = None
     # The user or service principal that invited the user.
     invited_by: Optional[DirectoryObject] = None
+    # Indicates whether hard deletion protection is enabled for the user (excluding on-premises synchronized users). When true, permanent deletion is blocked for seven days after soft deletion. The user can still be soft deleted and restored. Once enabled, protection can't be disabled or set to null. Enable protection on an existing user by using Update user; enabling it during creation isn't supported. Setting this property to true requires the Microsoft Entra Backup Administrator role. Nullable. Requires $select to retrieve. Supports $filter (eq).
+    is_hard_delete_protection_enabled: Optional[bool] = None
     # Indicates whether the user is pending an exchange mailbox license assignment.  Read-only.  Supports $filter (eq where true only).
     is_license_reconciliation_needed: Optional[bool] = None
     # true if the user is a member of a restricted management administrative unit. If not set, the default value is null and the default behavior is false. Read-only.  To manage a user who is a member of a restricted management administrative unit, the administrator or calling app must be assigned a Microsoft Entra role at the scope of the restricted management administrative unit.
@@ -497,6 +502,7 @@ class User(DirectoryObject, Parsable):
         from .group import Group
         from .identity_governance.user_identity_lifecycle import UserIdentityLifecycle
         from .identity_governance_user_settings import IdentityGovernanceUserSettings
+        from .identity_verification_status import IdentityVerificationStatus
         from .inference_classification import InferenceClassification
         from .information_protection import InformationProtection
         from .item_insights import ItemInsights
@@ -584,6 +590,7 @@ class User(DirectoryObject, Parsable):
         from .group import Group
         from .identity_governance.user_identity_lifecycle import UserIdentityLifecycle
         from .identity_governance_user_settings import IdentityGovernanceUserSettings
+        from .identity_verification_status import IdentityVerificationStatus
         from .inference_classification import InferenceClassification
         from .information_protection import InformationProtection
         from .item_insights import ItemInsights
@@ -703,6 +710,7 @@ class User(DirectoryObject, Parsable):
             "identities": lambda n : setattr(self, 'identities', n.get_collection_of_object_values(ObjectIdentity)),
             "identityGovernance": lambda n : setattr(self, 'identity_governance', n.get_object_value(IdentityGovernanceUserSettings)),
             "identityParentId": lambda n : setattr(self, 'identity_parent_id', n.get_str_value()),
+            "identityVerificationStatus": lambda n : setattr(self, 'identity_verification_status', n.get_object_value(IdentityVerificationStatus)),
             "imAddresses": lambda n : setattr(self, 'im_addresses', n.get_collection_of_primitive_values(str)),
             "inferenceClassification": lambda n : setattr(self, 'inference_classification', n.get_object_value(InferenceClassification)),
             "infoCatalogs": lambda n : setattr(self, 'info_catalogs', n.get_collection_of_primitive_values(str)),
@@ -710,6 +718,7 @@ class User(DirectoryObject, Parsable):
             "insights": lambda n : setattr(self, 'insights', n.get_object_value(ItemInsights)),
             "interests": lambda n : setattr(self, 'interests', n.get_collection_of_primitive_values(str)),
             "invitedBy": lambda n : setattr(self, 'invited_by', n.get_object_value(DirectoryObject)),
+            "isHardDeleteProtectionEnabled": lambda n : setattr(self, 'is_hard_delete_protection_enabled', n.get_bool_value()),
             "isLicenseReconciliationNeeded": lambda n : setattr(self, 'is_license_reconciliation_needed', n.get_bool_value()),
             "isManagementRestricted": lambda n : setattr(self, 'is_management_restricted', n.get_bool_value()),
             "isResourceAccount": lambda n : setattr(self, 'is_resource_account', n.get_bool_value()),
@@ -884,6 +893,7 @@ class User(DirectoryObject, Parsable):
         writer.write_collection_of_object_values("identities", self.identities)
         writer.write_object_value("identityGovernance", self.identity_governance)
         writer.write_str_value("identityParentId", self.identity_parent_id)
+        writer.write_object_value("identityVerificationStatus", self.identity_verification_status)
         writer.write_collection_of_primitive_values("imAddresses", self.im_addresses)
         writer.write_object_value("inferenceClassification", self.inference_classification)
         writer.write_collection_of_primitive_values("infoCatalogs", self.info_catalogs)
@@ -891,6 +901,7 @@ class User(DirectoryObject, Parsable):
         writer.write_object_value("insights", self.insights)
         writer.write_collection_of_primitive_values("interests", self.interests)
         writer.write_object_value("invitedBy", self.invited_by)
+        writer.write_bool_value("isHardDeleteProtectionEnabled", self.is_hard_delete_protection_enabled)
         writer.write_bool_value("isLicenseReconciliationNeeded", self.is_license_reconciliation_needed)
         writer.write_bool_value("isManagementRestricted", self.is_management_restricted)
         writer.write_bool_value("isResourceAccount", self.is_resource_account)

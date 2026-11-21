@@ -25,13 +25,13 @@ class PlanContextLink(PlannerDelta, Parsable):
     display_name_segments: Optional[list[str]] = None
     # Indicates whether the context link is currently active.
     is_active: Optional[bool] = None
-    # Indicates whether this context link represents the original creation surface for the plan.
+    # Indicates whether this context link represents the original creation surface for the plan. Service-populated. Read-only.
     is_creation: Optional[bool] = None
-    # Identifier for the context the plan is surfaced in.
+    # Client-specified identifier for the context the plan is surfaced in. Immutable after creation.
     key: Optional[str] = None
     # The OdataType property
     odata_type: Optional[str] = None
-    # Application ID of the app that owns the surface the plan is linked from.
+    # Application ID of the app that owns the surface the plan is linked from. Service-populated. Read-only.
     owner_app_id: Optional[str] = None
     # URL of the surface where the plan is displayed.
     web_url: Optional[str] = None

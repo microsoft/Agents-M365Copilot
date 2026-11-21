@@ -25,9 +25,9 @@ class CustomFieldDefinition(PlannerDelta, Parsable):
     created_by: Optional[IdentitySet] = None
     # Date and time the entity was created. The value is represented in ISO 8601 format and is always in UTC time. Read-only.
     created_date_time: Optional[datetime.datetime] = None
-    # Identity of the user who deleted the custom field definition, if it was deleted.
+    # Identity of the user who deleted the custom field definition, if it was deleted. Read-only.
     deleted_by: Optional[IdentitySet] = None
-    # Date and time the custom field definition was deleted, if applicable.
+    # Date and time the custom field definition was deleted, if applicable. Read-only.
     deleted_date_time: Optional[datetime.datetime] = None
     # Name of the custom field.
     display_name: Optional[str] = None
@@ -41,7 +41,7 @@ class CustomFieldDefinition(PlannerDelta, Parsable):
     plan_id: Optional[str] = None
     # How values of this custom field are rolled up across tasks. The possible values are: noRollup, max, min, sum, average, unknownFutureValue.
     rollup_type: Optional[CustomFieldRollupType] = None
-    # Data type of the custom field's values.. The possible values are: text, date, utcDateTime, number, decimal, flag, singleChoiceText, multipleChoiceText, unknownFutureValue.
+    # Data type of the custom field's values. Immutable after creation. The possible values are: text, date, utcDateTime, number, decimal, flag, singleChoiceText, multipleChoiceText, unknownFutureValue. The values utcDateTime, decimal, and multipleChoiceText can occur on existing fields; they aren't supported types for new field definitions.
     value_type: Optional[CustomFieldValueType] = None
     
     @staticmethod

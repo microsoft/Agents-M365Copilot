@@ -22,17 +22,17 @@ class ContentLink(PlannerDelta, Parsable):
     created_by: Optional[IdentitySet] = None
     # Display label for the link.
     display_name: Optional[str] = None
-    # Custom extension field values set on the entity. Supports $select.
+    # Custom extension field values set at creation. Can't be changed afterward. Supports $select.
     extensions: Optional[ExtensionFieldCollection] = None
     # Identity of the user (or application) who last modified the entity. Read-only.
     last_modified_by: Optional[IdentitySet] = None
     # Date and time the entity was last modified. The value is represented in ISO 8601 format and is always in UTC time. Read-only.
     last_modified_date_time: Optional[datetime.datetime] = None
-    # Type of content the link points to. The possible values are: documentReference, webReference, unknownFutureValue.
+    # Type of content the link points to. Required at creation and immutable afterward. The possible values are: documentReference, webReference, unknownFutureValue.
     link_type: Optional[ContentLinkType] = None
     # The OdataType property
     odata_type: Optional[str] = None
-    # URL the link points to.
+    # URL the link points to. Required at creation and immutable afterward.
     web_url: Optional[str] = None
     
     @staticmethod

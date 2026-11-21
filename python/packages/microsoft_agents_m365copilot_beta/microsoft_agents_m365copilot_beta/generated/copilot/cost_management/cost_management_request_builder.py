@@ -6,7 +6,9 @@ from kiota_abstractions.request_adapter import RequestAdapter
 from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
+    from .credit_requests.credit_requests_request_builder import CreditRequestsRequestBuilder
     from .spending_policies.spending_policies_request_builder import SpendingPoliciesRequestBuilder
+    from .usage_reports.usage_reports_request_builder import UsageReportsRequestBuilder
     from .user_balances.user_balances_request_builder import UserBalancesRequestBuilder
 
 class CostManagementRequestBuilder(BaseRequestBuilder):
@@ -23,6 +25,15 @@ class CostManagementRequestBuilder(BaseRequestBuilder):
         super().__init__(request_adapter, "{+baseurl}/copilot/costManagement", path_parameters)
     
     @property
+    def credit_requests(self) -> CreditRequestsRequestBuilder:
+        """
+        Provides operations to manage the creditRequests property of the microsoft.graph.costManagementRoot entity.
+        """
+        from .credit_requests.credit_requests_request_builder import CreditRequestsRequestBuilder
+
+        return CreditRequestsRequestBuilder(self.request_adapter, self.path_parameters)
+    
+    @property
     def spending_policies(self) -> SpendingPoliciesRequestBuilder:
         """
         Provides operations to manage the spendingPolicies property of the microsoft.graph.costManagementRoot entity.
@@ -30,6 +41,15 @@ class CostManagementRequestBuilder(BaseRequestBuilder):
         from .spending_policies.spending_policies_request_builder import SpendingPoliciesRequestBuilder
 
         return SpendingPoliciesRequestBuilder(self.request_adapter, self.path_parameters)
+    
+    @property
+    def usage_reports(self) -> UsageReportsRequestBuilder:
+        """
+        The usageReports property
+        """
+        from .usage_reports.usage_reports_request_builder import UsageReportsRequestBuilder
+
+        return UsageReportsRequestBuilder(self.request_adapter, self.path_parameters)
     
     @property
     def user_balances(self) -> UserBalancesRequestBuilder:

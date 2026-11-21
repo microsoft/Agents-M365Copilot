@@ -5,4 +5,5 @@ class ChannelMembershipType(str, Enum):
     Private = "private",
     UnknownFutureValue = "unknownFutureValue",
     Shared = "shared",
+    UnTyped = "unTyped",
 
