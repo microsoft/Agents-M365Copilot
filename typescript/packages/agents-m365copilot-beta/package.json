@@ -1,6 +1,6 @@
 {
 	"name": "@microsoft/agents-m365copilot-beta",
-	"version": "1.0.0-preview.22",
+	"version": "1.0.0-preview.23",
 	"description": "Microsoft Copilot client library",
 	"keywords": [
 		"microsoft",
