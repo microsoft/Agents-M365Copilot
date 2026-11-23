@@ -6,6 +6,7 @@ from kiota_abstractions.serialization import Parsable, ParseNode, SerializationW
 from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
+    from .credential_provenance import CredentialProvenance
     from .email_authentication_method import EmailAuthenticationMethod
     from .entity import Entity
     from .external_authentication_method import ExternalAuthenticationMethod
@@ -32,6 +33,8 @@ class AuthenticationMethod(Entity, Parsable):
     last_used_date_time: Optional[datetime.datetime] = None
     # The OdataType property
     odata_type: Optional[str] = None
+    # The provenance and trust classification of the authentication method. Supports administrative attestation. Returned for FIDO2 authentication methods; null for method types that don't support provenance.
+    provenance: Optional[CredentialProvenance] = None
     
     @staticmethod
     def create_from_discriminator_value(parse_node: ParseNode) -> AuthenticationMethod:
@@ -112,6 +115,7 @@ class AuthenticationMethod(Entity, Parsable):
         The deserialization information for the current model
         Returns: dict[str, Callable[[ParseNode], None]]
         """
+        from .credential_provenance import CredentialProvenance
         from .email_authentication_method import EmailAuthenticationMethod
         from .entity import Entity
         from .external_authentication_method import ExternalAuthenticationMethod
@@ -128,6 +132,7 @@ class AuthenticationMethod(Entity, Parsable):
         from .temporary_access_pass_authentication_method import TemporaryAccessPassAuthenticationMethod
         from .windows_hello_for_business_authentication_method import WindowsHelloForBusinessAuthenticationMethod
 
+        from .credential_provenance import CredentialProvenance
         from .email_authentication_method import EmailAuthenticationMethod
         from .entity import Entity
         from .external_authentication_method import ExternalAuthenticationMethod
@@ -147,6 +152,7 @@ class AuthenticationMethod(Entity, Parsable):
         fields: dict[str, Callable[[Any], None]] = {
             "createdDateTime": lambda n : setattr(self, 'created_date_time', n.get_datetime_value()),
             "lastUsedDateTime": lambda n : setattr(self, 'last_used_date_time', n.get_datetime_value()),
+            "provenance": lambda n : setattr(self, 'provenance', n.get_object_value(CredentialProvenance)),
         }
         super_fields = super().get_field_deserializers()
         fields.update(super_fields)
@@ -163,5 +169,6 @@ class AuthenticationMethod(Entity, Parsable):
         super().serialize(writer)
         writer.write_datetime_value("createdDateTime", self.created_date_time)
         writer.write_datetime_value("lastUsedDateTime", self.last_used_date_time)
+        writer.write_object_value("provenance", self.provenance)
     
 

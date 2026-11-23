@@ -26,13 +26,13 @@ class Planner(Entity, Parsable):
     odata_type: Optional[str] = None
     # Read-only. Nullable. Returns a collection of the specified plans
     plans: Optional[list[PlannerPlan]] = None
-    # Read-only. Nullable. The collection of Planner Graph V4 plans.
+    # Read-only. Nullable. The collection of plans in the Planner Unified plans Graph API.
     plans_v2: Optional[list[Plan]] = None
     # Read-only. Nullable. Returns a collection of the specified rosters
     rosters: Optional[list[PlannerRoster]] = None
     # Read-only. Nullable. Returns a collection of the specified tasks
     tasks: Optional[list[PlannerTask]] = None
-    # Read-only. Nullable. The collection of Planner Graph V4 tasks.
+    # Read-only. Nullable. The collection of tasks in the Planner Unified plans Graph API.
     tasks_v2: Optional[list[Task]] = None
     
     @staticmethod

@@ -9,6 +9,7 @@ if TYPE_CHECKING:
     from .authentication_strength_root import AuthenticationStrengthRoot
     from .ca_policies_deletable_root import CaPoliciesDeletableRoot
     from .conditional_access_policy import ConditionalAccessPolicy
+    from .conditional_access_settings import ConditionalAccessSettings
     from .conditional_access_template import ConditionalAccessTemplate
     from .entity import Entity
     from .named_location import NamedLocation
@@ -31,6 +32,8 @@ class ConditionalAccessRoot(Entity, Parsable):
     odata_type: Optional[str] = None
     # Read-only. Nullable. Returns a collection of the specified Conditional Access policies.
     policies: Optional[list[ConditionalAccessPolicy]] = None
+    # The tenant-wide Conditional Access settings, including user-action exclusions.
+    settings: Optional[ConditionalAccessSettings] = None
     # Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
     templates: Optional[list[ConditionalAccessTemplate]] = None
     
@@ -54,6 +57,7 @@ class ConditionalAccessRoot(Entity, Parsable):
         from .authentication_strength_root import AuthenticationStrengthRoot
         from .ca_policies_deletable_root import CaPoliciesDeletableRoot
         from .conditional_access_policy import ConditionalAccessPolicy
+        from .conditional_access_settings import ConditionalAccessSettings
         from .conditional_access_template import ConditionalAccessTemplate
         from .entity import Entity
         from .named_location import NamedLocation
@@ -62,6 +66,7 @@ class ConditionalAccessRoot(Entity, Parsable):
         from .authentication_strength_root import AuthenticationStrengthRoot
         from .ca_policies_deletable_root import CaPoliciesDeletableRoot
         from .conditional_access_policy import ConditionalAccessPolicy
+        from .conditional_access_settings import ConditionalAccessSettings
         from .conditional_access_template import ConditionalAccessTemplate
         from .entity import Entity
         from .named_location import NamedLocation
@@ -73,6 +78,7 @@ class ConditionalAccessRoot(Entity, Parsable):
             "deletedItems": lambda n : setattr(self, 'deleted_items', n.get_object_value(CaPoliciesDeletableRoot)),
             "namedLocations": lambda n : setattr(self, 'named_locations', n.get_collection_of_object_values(NamedLocation)),
             "policies": lambda n : setattr(self, 'policies', n.get_collection_of_object_values(ConditionalAccessPolicy)),
+            "settings": lambda n : setattr(self, 'settings', n.get_object_value(ConditionalAccessSettings)),
             "templates": lambda n : setattr(self, 'templates', n.get_collection_of_object_values(ConditionalAccessTemplate)),
         }
         super_fields = super().get_field_deserializers()
@@ -94,6 +100,7 @@ class ConditionalAccessRoot(Entity, Parsable):
         writer.write_object_value("deletedItems", self.deleted_items)
         writer.write_collection_of_object_values("namedLocations", self.named_locations)
         writer.write_collection_of_object_values("policies", self.policies)
+        writer.write_object_value("settings", self.settings)
         writer.write_collection_of_object_values("templates", self.templates)
     
 

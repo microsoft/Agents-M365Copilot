@@ -12,13 +12,13 @@ class DateWithOptionalTime(AdditionalDataHolder, Parsable):
 
     # The date component of the value.
     date: Optional[datetime.date] = None
-    # Indicates whether a specific time (not just a date) was provided.
+    # Indicates whether a specific time (not just a date) was provided. Read-only.
     is_time_specified: Optional[bool] = None
     # The OdataType property
     odata_type: Optional[str] = None
-    # The optional time-of-day component of the value.
+    # The optional time-of-day component of the value. Read-only.
     time: Optional[datetime.time] = None
-    # Time zone the time value is expressed in, if time is set.
+    # Time zone the time value is expressed in, if time is set. Read-only.
     time_zone: Optional[str] = None
     
     @staticmethod

@@ -28,17 +28,17 @@ from .planner_delta import PlannerDelta
 
 @dataclass
 class Task(PlannerDelta, Parsable):
-    # Information about whether the entity is archived, and when it was archived.
+    # Service-populated information about whether the entity is archived, and when it was archived. Read-only.
     archival_info: Optional[PlannerArchivalInfo] = None
     # ID of the bucket that the task belongs to.
     bucket_id: Optional[str] = None
     # Server-computed, read-only capability flags indicating which optional features are enabled for the entity.
     capabilities: Optional[TaskCapability] = None
-    # The collection of checklist items on the task. Read-only. Nullable.
+    # Checklist items on the task. Can be supplied when creating a task by using a deep insert. Nullable.
     checklist: Optional[list[ChecklistItemV4]] = None
-    # Identity of the user who marked the task complete.
+    # Identity of the user who marked the task complete. Read-only.
     completed_by: Optional[IdentitySet] = None
-    # Date and time the task was completed.
+    # Date and time the task was completed. Read-only.
     completed_date_time: Optional[datetime.datetime] = None
     # Read-only creation metadata for the entity.
     creation_info: Optional[CreationInfo] = None
@@ -54,17 +54,17 @@ class Task(PlannerDelta, Parsable):
     finish_date_time: Optional[DateWithOptionalTime] = None
     # IDs of the goals that the task is associated with.
     goal_ids: Optional[list[str]] = None
-    # Indicates whether the task has an associated chat.
+    # Indicates whether the task has an associated chat. Read-only.
     has_chat: Optional[bool] = None
-    # Indicates whether the task has subtasks.
+    # Indicates whether the task has subtasks. Read-only.
     has_children: Optional[bool] = None
-    # Indicates whether the task is on the critical path, as computed from its dependencies.
+    # Indicates whether the task is on the critical path, as computed from its dependencies. Read-only.
     is_critical: Optional[bool] = None
     # Identity of the user (or application) who last modified the entity. Read-only.
     last_modified_by: Optional[IdentitySet] = None
     # Date and time the entity was last modified. The value is represented in ISO 8601 format and is always in UTC time. Read-only.
     last_modified_date_time: Optional[datetime.datetime] = None
-    # The collection of content links attached to the task. Read-only. Nullable.
+    # Content links attached to the task. Can be supplied when creating a task by using a deep insert. Nullable.
     links: Optional[list[ContentLink]] = None
     # The collection of chat messages associated with the task. Read-only. Nullable.
     messages: Optional[list[PlannerChatMessage]] = None
@@ -90,7 +90,7 @@ class Task(PlannerDelta, Parsable):
     start_date_time: Optional[DateWithOptionalTime] = None
     # Indicates progress on the task. The possible values are: notStarted, inProgress, completed, blocked, unknownFutureValue.
     status: Optional[PlannerTaskStatus] = None
-    # The collection of user assignments on the task. Read-only. Nullable.
+    # User assignments on the task. Can be supplied when creating a task by using a deep insert. Nullable.
     user_assignments: Optional[list[UserAssignment]] = None
     
     @staticmethod

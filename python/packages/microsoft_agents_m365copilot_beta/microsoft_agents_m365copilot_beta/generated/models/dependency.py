@@ -31,9 +31,9 @@ class Dependency(PlannerDelta, Parsable):
     last_modified_date_time: Optional[datetime.datetime] = None
     # The OdataType property
     odata_type: Optional[str] = None
-    # ID of the source item in the dependency.
+    # ID of the source item in the dependency. Immutable after creation.
     source_item_id: Optional[str] = None
-    # ID of the target item in the dependency.
+    # ID of the target item in the dependency. Immutable after creation.
     target_item_id: Optional[str] = None
     
     @staticmethod

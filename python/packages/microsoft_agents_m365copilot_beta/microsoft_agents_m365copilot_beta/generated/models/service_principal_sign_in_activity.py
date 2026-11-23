@@ -14,9 +14,9 @@ from .entity import Entity
 class ServicePrincipalSignInActivity(Entity, Parsable):
     # The globally unique appId (also called client ID on the Microsoft Entra admin center) of the credentialed resource application.
     app_id: Optional[str] = None
-    # The sign-in activity of the application in a app-only authentication flow (app-to-app tokens) where the application acts like a client.
+    # The sign-in activity reported as app-only authentication where the application acts as a client. Subject to the preview classification limitation described above.
     application_authentication_client_sign_in_activity: Optional[SignInActivity] = None
-    # The sign-in activity of the application in a app-only authentication flow (app-to-app tokens) where the application acts like a resource.
+    # The sign-in activity reported as app-only authentication where the application acts as a resource. Subject to the preview classification limitation described above.
     application_authentication_resource_sign_in_activity: Optional[SignInActivity] = None
     # The sign-in activity of the application in a delegated flow (user sign-in) where the application acts like a client.
     delegated_client_sign_in_activity: Optional[SignInActivity] = None

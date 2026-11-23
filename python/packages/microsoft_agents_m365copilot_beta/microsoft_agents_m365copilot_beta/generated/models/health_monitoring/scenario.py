@@ -8,4 +8,5 @@ class Scenario(str, Enum):
     ConditionalAccess = "conditionalAccess",
     Saml = "saml",
     Gsa = "gsa",
+    AgentId = "agentId",
 

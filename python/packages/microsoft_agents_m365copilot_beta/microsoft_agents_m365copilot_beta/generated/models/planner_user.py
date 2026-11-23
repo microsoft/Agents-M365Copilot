@@ -29,7 +29,7 @@ class PlannerUser(PlannerDelta, Parsable):
     odata_type: Optional[str] = None
     # The plans property
     plans: Optional[list[PlannerPlan]] = None
-    # Read-only. Nullable. The collection of Planner Graph V4 plans associated with the user.
+    # Read-only. Nullable. The collection of plans in the Planner Unified plans Graph API associated with the user.
     plans_v2: Optional[list[Plan]] = None
     # A collection that contains references to the plans that the user recently viewed in apps that support recent plans.
     recent_plan_references: Optional[PlannerRecentPlanReferenceCollection] = None
@@ -39,7 +39,7 @@ class PlannerUser(PlannerDelta, Parsable):
     roster_plans: Optional[list[PlannerPlan]] = None
     # Read-only. Nullable. Returns the plannerTasks assigned to the user.
     tasks: Optional[list[PlannerTask]] = None
-    # Read-only. Nullable. The collection of Planner Graph V4 tasks assigned to the user.
+    # Read-only. Nullable. The collection of tasks in the Planner Unified plans Graph API assigned to the user.
     tasks_v2: Optional[list[Task]] = None
     
     @staticmethod

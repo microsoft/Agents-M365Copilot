@@ -6,6 +6,7 @@ from typing import Any, Optional, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from .entity import Entity
+    from .teamwork_channel_tag import TeamworkChannelTag
     from .teamwork_tag_member import TeamworkTagMember
     from .teamwork_tag_type import TeamworkTagType
 
@@ -23,7 +24,7 @@ class TeamworkTag(Entity, Parsable):
     members: Optional[list[TeamworkTagMember]] = None
     # The OdataType property
     odata_type: Optional[str] = None
-    # The type of tag. Default is standard.
+    # The type of tag. The possible values are: standard, unknownFutureValue. The default value is standard.
     tag_type: Optional[TeamworkTagType] = None
     # ID of the team in which the tag is defined.
     team_id: Optional[str] = None
@@ -37,6 +38,17 @@ class TeamworkTag(Entity, Parsable):
         """
         if parse_node is None:
             raise TypeError("parse_node cannot be null.")
+        try:
+            child_node = parse_node.get_child_node("@odata.type")
+            mapping_value = child_node.get_str_value() if child_node else None
+        except AttributeError:
+            mapping_value = None
+        if not mapping_value:
+            return TeamworkTag()
+        if mapping_value.casefold() == "#microsoft.graph.teamworkChannelTag".casefold():
+            from .teamwork_channel_tag import TeamworkChannelTag
+
+            return TeamworkChannelTag()
         return TeamworkTag()
     
     def get_field_deserializers(self,) -> dict[str, Callable[[ParseNode], None]]:
@@ -45,10 +57,12 @@ class TeamworkTag(Entity, Parsable):
         Returns: dict[str, Callable[[ParseNode], None]]
         """
         from .entity import Entity
+        from .teamwork_channel_tag import TeamworkChannelTag
         from .teamwork_tag_member import TeamworkTagMember
         from .teamwork_tag_type import TeamworkTagType
 
         from .entity import Entity
+        from .teamwork_channel_tag import TeamworkChannelTag
         from .teamwork_tag_member import TeamworkTagMember
         from .teamwork_tag_type import TeamworkTagType
 

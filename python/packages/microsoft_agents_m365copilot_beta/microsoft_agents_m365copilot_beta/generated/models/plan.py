@@ -30,7 +30,7 @@ from .planner_delta import PlannerDelta
 
 @dataclass
 class Plan(PlannerDelta, Parsable):
-    # Information about whether the entity is archived, and when it was archived.
+    # Service-populated information about whether the entity is archived, and when it was archived. Read-only.
     archival_info: Optional[PlannerArchivalInfo] = None
     # The collection of buckets in the plan. Read-only. Nullable.
     buckets: Optional[list[Bucket]] = None
@@ -42,7 +42,7 @@ class Plan(PlannerDelta, Parsable):
     container: Optional[PlanContainer] = None
     # The sensitivity label assigned to content associated with the plan.
     content_sensitivity_label_assignment: Optional[ContentSensitivityLabelAssignment] = None
-    # The collection of context links describing where the plan is surfaced. Read-only. Nullable.
+    # Context links describing where the plan is surfaced. Can be supplied when creating a plan by using a deep insert. Nullable.
     contexts: Optional[list[PlanContextLink]] = None
     # Read-only creation metadata for the entity.
     creation_info: Optional[CreationInfo] = None
@@ -52,13 +52,13 @@ class Plan(PlannerDelta, Parsable):
     dependencies: Optional[list[Dependency]] = None
     # Title of the plan.
     display_name: Optional[str] = None
-    # Duration of the plan, in days.
+    # Computed duration of the plan, in seconds. Read-only.
     duration: Optional[int] = None
     # Custom extension field values set on the entity. Supports $select.
     extensions: Optional[ExtensionFieldCollection] = None
     # The collection of goals in the plan. Read-only. Nullable.
     goals: Optional[list[Goal]] = None
-    # Indicates whether the plan has an associated chat.
+    # Indicates whether the plan has an associated chat. Read-only.
     has_chat: Optional[bool] = None
     # The collection of history (audit) items for the plan. Read-only. Nullable.
     history_items: Optional[list[HistoryItem]] = None
@@ -66,7 +66,7 @@ class Plan(PlannerDelta, Parsable):
     last_modified_by: Optional[IdentitySet] = None
     # Date and time the entity was last modified. The value is represented in ISO 8601 format and is always in UTC time. Read-only.
     last_modified_date_time: Optional[datetime.datetime] = None
-    # The collection of content links attached to the plan. Read-only. Nullable.
+    # Content links attached to the plan. Can be supplied when creating a plan by using a deep insert. Nullable.
     links: Optional[list[ContentLink]] = None
     # The OdataType property
     odata_type: Optional[str] = None

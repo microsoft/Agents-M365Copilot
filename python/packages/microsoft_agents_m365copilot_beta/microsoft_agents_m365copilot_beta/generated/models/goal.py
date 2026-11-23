@@ -41,7 +41,7 @@ class Goal(PlannerDelta, Parsable):
     notes: Optional[ItemBody] = None
     # The OdataType property
     odata_type: Optional[str] = None
-    # ID of the plan that contains the goal. Required, and immutable after creation.
+    # ID of the plan that contains the goal. Immutable after creation.
     plan_id: Optional[str] = None
     # Priority of the goal.
     priority: Optional[int] = None

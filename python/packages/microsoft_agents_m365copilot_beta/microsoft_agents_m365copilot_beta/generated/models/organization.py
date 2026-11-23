@@ -78,7 +78,7 @@ class Organization(DirectoryObject, Parsable):
     privacy_profile: Optional[PrivacyProfile] = None
     # Not nullable.
     provisioned_plans: Optional[list[ProvisionedPlan]] = None
-    # The resourceQuotas property
+    # The quota configurations for resource types in the organization. Each resourceType value must be unique in the collection. The maxPercentage value represents the maximum percentage of directorySizeQuota.total that the resource type can consume, from 0 to 100. A value of 0 blocks creation of new resources of that type.
     resource_quotas: Optional[list[ResourceQuota]] = None
     # Not nullable.
     security_compliance_notification_mails: Optional[list[str]] = None
