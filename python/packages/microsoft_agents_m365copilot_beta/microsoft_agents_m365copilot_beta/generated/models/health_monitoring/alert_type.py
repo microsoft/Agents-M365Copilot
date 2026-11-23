@@ -12,4 +12,6 @@ class AlertType(str, Enum):
     PrivateAppBlockedByConnector = "privateAppBlockedByConnector",
     RemoteNetworkTunnelConnectivity = "remoteNetworkTunnelConnectivity",
     RemoteNetworkBgpConnectivity = "remoteNetworkBgpConnectivity",
+    AgentIdAutonomousSignInFailure = "agentIdAutonomousSignInFailure",
+    AgentIdInteractiveSignInFailure = "agentIdInteractiveSignInFailure",
 

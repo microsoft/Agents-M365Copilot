@@ -17,7 +17,7 @@ class PlannerGroup(Entity, Parsable):
     odata_type: Optional[str] = None
     # Read-only. Nullable. Returns the plannerPlans owned by the group.
     plans: Optional[list[PlannerPlan]] = None
-    # Read-only. Nullable. The collection of Planner Graph V4 plans owned by the group.
+    # Read-only. Nullable. The collection of plans in the Planner Unified plans Graph API owned by the group.
     plans_v2: Optional[list[Plan]] = None
     
     @staticmethod

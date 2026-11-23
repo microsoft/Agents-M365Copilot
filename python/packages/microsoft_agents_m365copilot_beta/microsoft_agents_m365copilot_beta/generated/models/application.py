@@ -9,6 +9,7 @@ from uuid import UUID
 if TYPE_CHECKING:
     from .agent_identity_blueprint import AgentIdentityBlueprint
     from .api_application import ApiApplication
+    from .application_identifier_uri_configuration import ApplicationIdentifierUriConfiguration
     from .app_management_policy import AppManagementPolicy
     from .app_role import AppRole
     from .authentication_behaviors import AuthenticationBehaviors
@@ -18,6 +19,7 @@ if TYPE_CHECKING:
     from .extension_property import ExtensionProperty
     from .federated_identity_credential import FederatedIdentityCredential
     from .home_realm_discovery_policy import HomeRealmDiscoveryPolicy
+    from .id_jag_application_configuration import IdJagApplicationConfiguration
     from .informational_url import InformationalUrl
     from .key_credential import KeyCredential
     from .native_authentication_apis_enabled import NativeAuthenticationApisEnabled
@@ -80,6 +82,10 @@ class Application(DirectoryObject, Parsable):
     group_membership_claims: Optional[str] = None
     # The homeRealmDiscoveryPolicies property
     home_realm_discovery_policies: Optional[list[HomeRealmDiscoveryPolicy]] = None
+    # The idJag property
+    id_jag: Optional[IdJagApplicationConfiguration] = None
+    # The identifierUriConfiguration property
+    identifier_uri_configuration: Optional[ApplicationIdentifierUriConfiguration] = None
     # Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you reference in your API's code, and it must be globally unique across Microsoft Entra ID. For more information on valid identifierUris patterns and best practices, see Microsoft Entra application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).
     identifier_uris: Optional[list[str]] = None
     # Basic profile information of the application, such as it's marketing, support, terms of service, and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more information, see How to: Add Terms of service and privacy statement for registered Microsoft Entra apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).
@@ -90,6 +96,8 @@ class Application(DirectoryObject, Parsable):
     is_disabled: Optional[bool] = None
     # Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false, which means the fallback application type is confidential client such as a web app. There are certain scenarios where Microsoft Entra ID can't determine the client application type. For example, the ROPC flow where the application is configured without specifying a redirect URI. In those cases Microsoft Entra ID interprets the application type based on the value of this property.
     is_fallback_public_client: Optional[bool] = None
+    # Indicates whether hard deletion protection is enabled for the application. When true, permanent deletion is blocked for seven days after soft deletion. The application can still be soft deleted and restored. Once enabled, protection can't be disabled or set to null. Enable protection on an existing application by using Update application; enabling it during creation isn't supported. Setting this property to true requires the Microsoft Entra Backup Administrator role. Nullable. Requires $select to retrieve. Supports $filter (eq).
+    is_hard_delete_protection_enabled: Optional[bool] = None
     # The collection of key credentials associated with the application. Not nullable. Supports $filter (eq, not, ge, le).
     key_credentials: Optional[list[KeyCredential]] = None
     # The main logo for the application. Not nullable.
@@ -178,6 +186,7 @@ class Application(DirectoryObject, Parsable):
         """
         from .agent_identity_blueprint import AgentIdentityBlueprint
         from .api_application import ApiApplication
+        from .application_identifier_uri_configuration import ApplicationIdentifierUriConfiguration
         from .app_management_policy import AppManagementPolicy
         from .app_role import AppRole
         from .authentication_behaviors import AuthenticationBehaviors
@@ -187,6 +196,7 @@ class Application(DirectoryObject, Parsable):
         from .extension_property import ExtensionProperty
         from .federated_identity_credential import FederatedIdentityCredential
         from .home_realm_discovery_policy import HomeRealmDiscoveryPolicy
+        from .id_jag_application_configuration import IdJagApplicationConfiguration
         from .informational_url import InformationalUrl
         from .key_credential import KeyCredential
         from .native_authentication_apis_enabled import NativeAuthenticationApisEnabled
@@ -209,6 +219,7 @@ class Application(DirectoryObject, Parsable):
 
         from .agent_identity_blueprint import AgentIdentityBlueprint
         from .api_application import ApiApplication
+        from .application_identifier_uri_configuration import ApplicationIdentifierUriConfiguration
         from .app_management_policy import AppManagementPolicy
         from .app_role import AppRole
         from .authentication_behaviors import AuthenticationBehaviors
@@ -218,6 +229,7 @@ class Application(DirectoryObject, Parsable):
         from .extension_property import ExtensionProperty
         from .federated_identity_credential import FederatedIdentityCredential
         from .home_realm_discovery_policy import HomeRealmDiscoveryPolicy
+        from .id_jag_application_configuration import IdJagApplicationConfiguration
         from .informational_url import InformationalUrl
         from .key_credential import KeyCredential
         from .native_authentication_apis_enabled import NativeAuthenticationApisEnabled
@@ -257,11 +269,14 @@ class Application(DirectoryObject, Parsable):
             "federatedIdentityCredentials": lambda n : setattr(self, 'federated_identity_credentials', n.get_collection_of_object_values(FederatedIdentityCredential)),
             "groupMembershipClaims": lambda n : setattr(self, 'group_membership_claims', n.get_str_value()),
             "homeRealmDiscoveryPolicies": lambda n : setattr(self, 'home_realm_discovery_policies', n.get_collection_of_object_values(HomeRealmDiscoveryPolicy)),
+            "idJag": lambda n : setattr(self, 'id_jag', n.get_object_value(IdJagApplicationConfiguration)),
+            "identifierUriConfiguration": lambda n : setattr(self, 'identifier_uri_configuration', n.get_object_value(ApplicationIdentifierUriConfiguration)),
             "identifierUris": lambda n : setattr(self, 'identifier_uris', n.get_collection_of_primitive_values(str)),
             "info": lambda n : setattr(self, 'info', n.get_object_value(InformationalUrl)),
             "isDeviceOnlyAuthSupported": lambda n : setattr(self, 'is_device_only_auth_supported', n.get_bool_value()),
             "isDisabled": lambda n : setattr(self, 'is_disabled', n.get_bool_value()),
             "isFallbackPublicClient": lambda n : setattr(self, 'is_fallback_public_client', n.get_bool_value()),
+            "isHardDeleteProtectionEnabled": lambda n : setattr(self, 'is_hard_delete_protection_enabled', n.get_bool_value()),
             "keyCredentials": lambda n : setattr(self, 'key_credentials', n.get_collection_of_object_values(KeyCredential)),
             "logo": lambda n : setattr(self, 'logo', n.get_bytes_value()),
             "managerApplications": lambda n : setattr(self, 'manager_applications', n.get_collection_of_primitive_values(UUID)),
@@ -323,11 +338,14 @@ class Application(DirectoryObject, Parsable):
         writer.write_collection_of_object_values("federatedIdentityCredentials", self.federated_identity_credentials)
         writer.write_str_value("groupMembershipClaims", self.group_membership_claims)
         writer.write_collection_of_object_values("homeRealmDiscoveryPolicies", self.home_realm_discovery_policies)
+        writer.write_object_value("idJag", self.id_jag)
+        writer.write_object_value("identifierUriConfiguration", self.identifier_uri_configuration)
         writer.write_collection_of_primitive_values("identifierUris", self.identifier_uris)
         writer.write_object_value("info", self.info)
         writer.write_bool_value("isDeviceOnlyAuthSupported", self.is_device_only_auth_supported)
         writer.write_bool_value("isDisabled", self.is_disabled)
         writer.write_bool_value("isFallbackPublicClient", self.is_fallback_public_client)
+        writer.write_bool_value("isHardDeleteProtectionEnabled", self.is_hard_delete_protection_enabled)
         writer.write_collection_of_object_values("keyCredentials", self.key_credentials)
         writer.write_bytes_value("logo", self.logo)
         writer.write_collection_of_primitive_values("managerApplications", self.manager_applications)

@@ -14,7 +14,7 @@ from ...entity import Entity
 
 @dataclass
 class CaseTypeConfiguration(Entity, Parsable):
-    # The contained custom-field definitions that make up the blank-form schema for this case type. Read-only. Supports $count, $expand, $filter, $orderby, $select, $skip, and $top.
+    # The contained custom-field definitions that make up the blank-form schema for this case type. Read-only. Supports $count, $expand, $filter, $orderby, $select, and $top.
     custom_fields: Optional[list[CustomFieldDefinition]] = None
     # The id of the top-level status that a new case of this type starts in.
     default_status_id: Optional[str] = None
@@ -22,9 +22,9 @@ class CaseTypeConfiguration(Entity, Parsable):
     display_name: Optional[str] = None
     # The OdataType property
     odata_type: Optional[str] = None
-    # The contained SLA policy definitions configured for this case type. Supports $filter and $orderby on createdBy, createdDateTime, description, displayName, id, isActive, lastModifiedBy, and lastModifiedDateTime on the collection endpoint. For information about supported query parameters, see List slaPolicies. Also supports $count, $select, $skip, and $top on the collection endpoint. Supports $expand=slaPolicies when getting a case type configuration.
+    # The contained SLA policy definitions configured for this case type. Supports $filter and $orderby on createdBy, createdDateTime, description, displayName, id, isActive, lastModifiedBy, and lastModifiedDateTime on the collection endpoint. For information about supported query parameters, see List slaPolicies. Also supports $count, $select, and $top on the collection endpoint. Supports $expand=slaPolicies when getting a case type configuration.
     sla_policies: Optional[list[SlaPolicyDefinition]] = None
-    # The contained top-level statuses that a case of this type can be set to. Read-only. Supports $count, $expand, $filter, $orderby, $select, $skip, and $top.
+    # The contained top-level statuses that a case of this type can be set to. Read-only. Supports $count, $expand, $filter, $orderby, $select, and $top.
     statuses: Optional[list[StatusDefinition]] = None
     
     @staticmethod

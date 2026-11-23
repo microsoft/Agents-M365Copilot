@@ -15,7 +15,7 @@ from ..entity import Entity
 class CaseManagementRoot(Entity, Parsable):
     # The collection of case type configurations that define the statuses and custom fields available for each case type. Read-only. Supports $select, $count, and $expand of the statuses and customFields relationships.
     case_type_configurations: Optional[list[CaseTypeConfiguration]] = None
-    # The collection of security cases managed through the case management entry point. Supports $filter, $orderby, $select, $top, and $skip.
+    # The collection of security cases managed through the case management entry point. Supports $filter, $orderby, $select, and $top.
     cases: Optional[list[Case]] = None
     # The OdataType property
     odata_type: Optional[str] = None

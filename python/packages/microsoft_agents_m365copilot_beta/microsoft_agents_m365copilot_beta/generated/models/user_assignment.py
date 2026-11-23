@@ -15,9 +15,9 @@ from .planner_delta import PlannerDelta
 
 @dataclass
 class UserAssignment(PlannerDelta, Parsable):
-    # Identity of the user (or application) that made the assignment.
+    # Identity of the user (or application) that made the assignment. Read-only.
     assigned_by: Optional[IdentitySet] = None
-    # Date and time the assignment was made.
+    # Date and time the assignment was made. Read-only.
     assigned_date_time: Optional[datetime.datetime] = None
     # Server-computed, read-only capability flags indicating which optional features are enabled for the entity.
     capabilities: Optional[UserAssignmentCapability] = None
