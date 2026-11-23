@@ -203,11 +203,26 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
             }
         }
 
-        [Fact]
-        public async Task SendRequest_RedirectAsync()
+        [Theory]
+        [InlineData(HttpStatusCode.MovedPermanently, "POST", "GET")]
+        [InlineData(HttpStatusCode.MovedPermanently, "GET", "GET")]
+        [InlineData(HttpStatusCode.MovedPermanently, "HEAD", "HEAD")]
+        [InlineData(HttpStatusCode.Found, "POST", "GET")]
+        [InlineData(HttpStatusCode.Found, "GET", "GET")]
+        [InlineData(HttpStatusCode.Found, "HEAD", "HEAD")]
+        [InlineData(HttpStatusCode.SeeOther, "POST", "GET")]
+        [InlineData(HttpStatusCode.SeeOther, "GET", "GET")]
+        [InlineData(HttpStatusCode.SeeOther, "HEAD", "HEAD")]
+        [InlineData(HttpStatusCode.TemporaryRedirect, "POST", "POST")]
+        [InlineData(HttpStatusCode.TemporaryRedirect, "GET", "GET")]
+        [InlineData(HttpStatusCode.TemporaryRedirect, "HEAD", "HEAD")]
+        [InlineData(HttpStatusCode.PermanentRedirect, "POST", "POST")]
+        [InlineData(HttpStatusCode.PermanentRedirect, "GET", "GET")]
+        [InlineData(HttpStatusCode.PermanentRedirect, "HEAD", "HEAD")]
+        public async Task SendRequest_RedirectAsync(HttpStatusCode statusCode, string originalMethod, string finalMethod)
         {
-            var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, "http://example.org/foo");
-            var redirectResponse = new HttpResponseMessage(HttpStatusCode.MovedPermanently);
+            var httpRequestMessage = new HttpRequestMessage(new HttpMethod(originalMethod), "http://example.org/foo");
+            var redirectResponse = new HttpResponseMessage(statusCode);
 
             redirectResponse.Headers.Location = new Uri("http://example.org/bar");
             var oKResponse = new HttpResponseMessage(HttpStatusCode.OK);
@@ -217,7 +232,7 @@ namespace Microsoft.Agents.M365Copilot.Core.Tests.Requests
             {
                 var response = await client.SendAsync(httpRequestMessage, new CancellationToken());
                 Assert.Equal(response, oKResponse);
-                Assert.Equal(response.RequestMessage.Method, httpRequestMessage.Method);
+                Assert.Equal(new HttpMethod(finalMethod), response.RequestMessage.Method);
                 Assert.NotSame(response.RequestMessage, httpRequestMessage);
             }
 
